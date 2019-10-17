@@ -1,0 +1,36 @@
+//Last Updated:
+
+//If Q171 = YES; then hide Q181.
+ifQ(171)
+.answered(1)
+.disappear(Q(181))
+
+//If Q1061 = YES; hide Q1071.
+ifQ(1061)
+.answered(1)
+.disappear(Q(1071))
+
+//If Q1061 = NO; hide everything below Q1071.
+ifQ(1061)
+.answered(2)
+.disappear(QOrder(1925, 7725))
+
+//If Q951 = NO; then show Q961.
+ifQ(951)
+.answered(2)
+.appear(Q(961))
+
+//If Q981 = NO; then show Q1001.
+ifQ(981)
+.answered(2)
+.appear(Q(1001))
+
+//If Q971 = Option 2; then show Q1011.
+ifQ(971)
+.answered(2)
+.appear(Q(1011))
+
+//If Q1011 = Option 3; then show Q1021.
+ifQ(1011)
+.answered(3)
+.appear(Q(1021))
