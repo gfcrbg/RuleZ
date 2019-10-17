@@ -1,0 +1,12 @@
+// Last Updated:
+
+
+// If QID 672 is not answered anything, then hide the scorecard.
+ifQ(672)
+.notAnswered()
+.disappear(Q(851),	Q(672),	Q(1411),	Q(1481),	Q(1011),	Q(1021),	Q(1031),	Q(1061),	Q(1071),	Q(1081),	Q(1101),	Q(1111),	Q(1131),	Q(1151),	Q(1161),	Q(1171),	Q(1181),	Q(1191),	Q(1201),	Q(1221),	Q(1231),	Q(1291),	Q(1501),	Q(1301),	Q(1311),	Q(1491),	Q(901),	Q(911),	Q(921),	Q(311),	Q(971),	Q(321),	Q(331),	Q(341),	Q(351),	Q(361),	Q(371),	Q(381),	Q(391),	Q(401),	Q(411),	Q(421),	Q(431),	Q(441),	Q(451));
+
+// If QID 1231 is answered Option [2 or 3], then appear QID 1561.
+ifQ(1231)
+.answered(2,3)
+.appear(Q(1561));
