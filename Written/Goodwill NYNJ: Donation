@@ -1,0 +1,6 @@
+//Last Updated: 
+
+//If QID 781 is answered Option 1, then set value to Options [1 ,2 3, 4, 5, 6, 7] to QID 781. 
+ifQ(781)
+.answered(1)
+.setValue(Q(781),1,2,3,4,5,6,7)
