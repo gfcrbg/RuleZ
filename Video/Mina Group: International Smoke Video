@@ -1,0 +1,66 @@
+// Last Updated:
+
+
+
+
+//***************************
+// HOST - Begin
+//***************************
+
+// If QID 1751 is answered Option 1, then appear QIDs [1761, 1771, 1781].
+ifQ(1751)
+.answered(1)
+.appear(Q(1761), Q(1771), Q(1781))
+
+//***************************
+// HOST - End
+//***************************
+
+
+
+
+//***************************
+// SERVER - Begin
+//***************************
+
+
+// If QID 1011 is answered Option 2, then disappear QIDs [1691, 1701, 1021, 1031].
+ifQ(1011)
+.answered(2)
+.disappear(Q(1691), Q(1701), Q(1021), Q(1031))
+
+// If QIDs [1891, 1901] answered anything, then trigger math operation: QID 1901 - QID 1891 = QID 1911.
+ifQ(1891)
+.answered()
+.andQ(1901)
+.answered()
+.sub(Q(1901), Q(1891))
+.store(Q(1911))
+
+// If QIDs [1691, 1701] answered anything, then trigger math operation: QID 1701 - QID 1691 = QID 1021.
+ifQ(1691)
+.answered()
+.andQ(1701)
+.answered()
+.sub(Q(1701), Q(1691))
+.store(Q(1021))
+
+// If QIDs [1701, 1721] answered anything, then trigger math operation: QID 1721 - QID 1701 = QID 1031.
+ifQ(1701)
+.answered()
+.andQ(1721)
+.answered()
+.sub(Q(1721), Q(1701))
+.store(Q(1031))
+
+// If QIDs [1711, 1721] answered anything, then trigger math operation: QID 1721 - QID 1711 = QID 251.
+ifQ(1711)
+.answered()
+.andQ(1721)
+.answered()
+.sub(Q(1721), Q(1711))
+.store(Q(251))
+
+//***************************
+// SERVER - End
+//***************************
