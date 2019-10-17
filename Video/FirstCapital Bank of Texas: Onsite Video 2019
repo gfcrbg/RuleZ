@@ -1,0 +1,35 @@
+//Last Updated: 7/30/2019
+
+
+
+
+//*************************************
+//  I. PERSONAL BANKER INTERACTION - Begin
+//*************************************
+
+// If QID 761 is answered anything, then trigger math operation: QID 721 - QID 761 = QID 91.
+ifQ(761)
+.answered()
+.sub(Q(721), Q(761))
+.store(Q(91))
+
+//*************************************
+//  I. PERSONAL BANKER INTERACTION - End
+//*************************************
+
+
+
+
+//*******************************
+//  II. TELLER INTERACTION - Begin
+//*******************************
+
+// If QID 741 is answered anything, then trigger math operation: QID 751 - QID 741 = QID 461.
+ifQ(741)
+.answered()
+.sub(Q(751), Q(741))
+.store(Q(461))
+
+//*******************************
+//  II. TELLER INTERACTION - End
+//*******************************
