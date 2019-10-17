@@ -1,0 +1,19 @@
+// Last Updated:
+
+// Time Calculation
+// This pair of functions evaluates if Time Shopped is within set // parameters, 8am to 8pm in this case.  
+// SASSIE calculates time as seconds from midnight.
+// There are 3600 seconds in an hour.
+// 8am = 28800 seconds, 8pm=72000 seconds
+
+// Before 8am
+ifQ(11)
+.answered()
+.lessThan(28800)
+.setError("This time is outside of general operating hours of 8am to 8pm");
+
+// After 8pm
+ifQ(11)
+.answered()
+.greaterThan(72000)
+.setError("This time is outside of general operating hours of 8am to 8pm");
