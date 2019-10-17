@@ -1,0 +1,11 @@
+ifQ(1251)
+.answered()
+.andQ(1201)
+.answered()
+.divide( Q(1201), Q(1251) )
+.store( Q(1231) );         
+
+ifQ(1231)
+.answered()
+.multiply( Q(1231), 100)
+.store( Q(1211));
