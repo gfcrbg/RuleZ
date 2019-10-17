@@ -1,0 +1,107 @@
+// Last Updated:
+
+
+// If QIDs [1931, 1941] answered anything, then trigger math operation: QID 1941 - QID 1931 = QID 131.
+ifQ(1931)
+.answered()
+.andQ(1941)
+.answered()
+.sub(Q(1941) , Q(1931))
+.store(Q(131))
+
+// If QID 131 is > 0 and <= 30, then set value to Option 1 to QID 1711.
+ifQ(131)
+.greaterThan(0)
+.andifQ(131)
+.lessThanOrEqual(30)
+.setValue( Q(1711),1)
+
+// If QID 131 is > 30, then set value to Option 2 to QID 1711.
+ifQ(131)
+.greaterThan(30)
+.setValue( Q(1711),2)
+
+// If QIDs [1941, 1951] answered anything, then trigger math operation: QID 1951 - QID 1941 = QID 221.
+ifQ(1941)
+.answered()
+.andQ(1951)
+.answered()
+.sub(Q(1951) , Q(1941))
+.store(Q(221))
+
+// If QID 211 is > 0 and <= 3600, then set value to Option 1 to QID 201.
+ifQ(211)
+.greaterThan(0)
+.andifQ(211)
+.lessThanOrEqual(3600)
+.setValue( Q(201),1)
+
+// If QID 1211 is >= 3600 and <= 3600, then set value to Option 2 to QID 201.
+ifQ(1211)
+.greaterThanOrEqual(3600)
+.andifQ(211)
+.lessThanOrEqual(3600)
+.setValue( Q(201),2)
+
+// If QID 1961 is > 0 and <= 371, then set value to Option 2 to QID 381.
+ifQ(1961)
+.greaterThan(0)
+.andifQ(1961)
+.lessThanOrEqual(Q(371))
+.setValue( Q(381),2)
+
+// If QID 1961 is > 0 and > 371, then set value to Option 1 to QID 381.
+ifQ(1961)
+.greaterThan(0)
+.andifQ(1961)
+.greaterThan(Q(371))
+.setValue( Q(381),1)
+
+// If QIDs [101, 371] answered anything, then trigger math operation: QID 371 - QID 101 = QID 1721.
+ifQ(101)
+.answered()
+.andQ(371)
+.answered()
+.sub(Q(371) , Q(101))
+.store(Q(1721))
+
+// If QIDs [2031, 1971] answered anything, then trigger math operation: QID 1971 - QID 2031 = QID 501.
+ifQ(2031)
+.answered()
+.andQ(1971)
+.answered()
+.sub(Q(1971) , Q(2031))
+.store(Q(501))
+
+// If QIDs [2011, 1981] answered anything, then trigger math operation: QID 1981 - QID 2011 = QID 1161.
+ifQ(2011)
+.answered()
+.andQ(1981)
+.answered()
+.sub(Q(1981) , Q(2011))
+.store(Q(1161))
+
+// If QIDs [2021, 2001] answered anything, then trigger math operation: QID 2001 - QID 2021 = QID 1211.
+ifQ(2021)
+.answered()
+.andQ(2001)
+.answered()
+.sub(Q(2001) , Q(2021))
+.store(Q(1211))
+
+// If QID 1211 is > 0 and <= 600, then set value to Option 2 to QID 1681.
+ifQ(1211)
+.greaterThan(0)
+.andifQ(1211)
+.lessThanOrEqual(600)
+.setValue(Q(1681),2)
+
+// If QID 1211 is > 601, then set value to Option 1 to QID 1681.
+ifQ(1211)
+.greaterThan(601)
+.setValue( Q(1681),1)
+
+// If QID 1921 is answered Option 2, then disappear QIDs: [21, 31, 41, 51, 81, 61, 71].
+ifQ(1921)
+.answered(2)
+.disappear(Q(21),Q(31),Q(41),Q(51),Q(81),Q(61),Q(71));
