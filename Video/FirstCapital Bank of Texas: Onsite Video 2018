@@ -1,0 +1,17 @@
+// Last Updated:
+
+// Calcs how long the shopper took to speak to a teller.
+ifQ(761)
+.answered()
+.andQ(771)
+.answered()
+.sub(Q(771), Q(761))
+.store(Q(91))
+
+// Calcs how long the shopper took to speak to a personal banker.
+ifQ(781)
+.answered()
+.andQ(791)
+.answered()
+.sub(Q(791), Q(781))
+.store(Q(361))
