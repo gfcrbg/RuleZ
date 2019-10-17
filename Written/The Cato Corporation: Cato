@@ -1,0 +1,8 @@
+// Last Update:
+
+// If QID 301 is answered Options [1, 2, or 3] and Option 4, then trigger error string.
+ifQ(301)
+.answered(1, 2, 3)
+.andQ(301)
+.answered(4)
+.setError("'*None of the above' cannot be checked with any other options, please check your answer.")
