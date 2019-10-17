@@ -1,0 +1,107 @@
+//Last Updated:
+
+// If QID 381 is answered Option 1, then appear QID 1411.
+ifQ(381)
+.answered(1)
+.appear(Q(1411))
+
+// If QID 541 is answered Option 1, then set value to Option 1 to QID 1681.
+ifQ(541)
+.answered(1)
+.setValue( Q(1681), 1);
+
+// If QID 541 is answered Option 2, then set value to Option 0 to QID 1681.
+ifQ(541)
+.answered(2)
+.setValue( Q(1681), 0);
+
+// If QID 551 is answered Option 1, then set value to Option 1 to QID 1691.
+ifQ(551)
+.answered(1)
+.setValue( Q(1691), 1);
+
+// If QID 551 is answered Option 2, then set value to Option 0 to QID 1691.
+ifQ(551)
+.answered(2)
+.setValue( Q(1691), 0);
+
+// If QID 561 is answered Option 1, then set value to Option 1 to QID 1701.
+ifQ(561)
+.answered(1)
+.setValue( Q(1701), 1);
+
+// If QID 561 is answered Option 2, then set value to Option 0 to QID 1701.
+ifQ(561)
+.answered(2)
+.setValue( Q(1701), 0);
+
+// If QID 571 is answered Option 1, then set value to Option 1 to QID 1711.
+ifQ(571)
+.answered(1)
+.setValue( Q(1711), 1);
+
+// If QID 571 is answered Option 2, then set value to Option 0 to QID 1711.
+ifQ(571)
+.answered(2)
+.setValue( Q(1711), 0);
+
+// If QID 891 is answered Option 1, then set value to Option 1 to QID 1721.
+ifQ(891)
+.answered(1)
+.setValue( Q(1721), 1);
+
+// If QID 891 is answered Option 2, then set value to Option 0 to QID 1721.
+ifQ(891)
+.answered(2)
+.setValue( Q(1721), 0);
+
+// If QID 581 is answered Option 1, then set value to Option 1 to QID 1731.
+ifQ(581)
+.answered(1)
+.setValue( Q(1731), 1);
+
+// If QID 581 is answered Option 2, then set value to Option 0 to QID 1731.
+ifQ(581)
+.answered(2)
+.setValue( Q(1731), 0);
+
+// If QID 591 is answered Option 1, then set value to Option 1 to QID 1661.
+ifQ(591)
+.answered(1)
+.setValue( Q(1661), 1);
+
+// If QID 591 is answered Option 2, then set value to Option 0 to QID 1661.
+ifQ(591)
+.answered(2)
+.setValue( Q(1661), 0);
+
+
+// If QIDs: [541, 551, 561, 571, 891, 581, or 591] is answered anything, then trigger math operation: [+] QIDs: [1681, 1691, 1701, 1711, 1721, 1731, 1661] = QID 1671.
+ifQ(541)
+.answered()
+.orQ(551)
+.answered()
+.orQ(561)
+.answered()
+.orQ(571)
+.answered()
+.orQ(891)
+.answered()
+.orQ(581)
+.answered()
+.orQ(591)
+.answered()
+
+
+.sum( Q(1681), Q(1691), Q(1701), Q(1711), Q(1721), Q(1731), Q(1661) )// add these responses
+.store( Q(1671) );// and write them here
+
+// If QID 1671 is >= 3, then set value to Option 1 to QID 981.
+ifQ(1671)
+.greaterThanOrEqual( 3 )
+.setValue( Q(981), 1)
+
+// If QID 1671 is < 3, then set value to Option 0 to QID 981.
+ifQ(1671)
+.lessThan( 3 )
+.setValue( Q(981), 0)
