@@ -1,0 +1,31 @@
+ifQ(51)
+.answered()
+.andQ(41)
+.answered()
+.sub(Q(51) , Q(41))
+.store(Q(1741))
+
+ifQ(1831)
+.answered()
+.andQ(1821)
+.answered()
+.sub(Q(1831) , Q(1821))
+.store(Q(1841))
+
+ifQ(1851)
+.answered()
+.andQ(1831)
+.answered()
+.sub(Q(1851) , Q(1831))
+.store(Q(121))
+
+ifQ(2091)
+.answered()
+.andQ(1831)
+.answered()
+.sub(Q(2091) , Q(1831))
+.store(Q(1871))
+
+ifQ(672)
+.notAnswered()
+.disappear (Q(1841),	Q(121),	Q(691),	Q(1011),	Q(1761),	Q(971),	Q(901),	Q(881),	Q(1721),	Q(911),	Q(171),	Q(201),	Q(951),	Q(201));
