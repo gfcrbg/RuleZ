@@ -1,0 +1,6 @@
+//Last Updated:
+
+//If QID 2491 is answered Option 2 or 3, then disappear QIDs: [2321, 1071, 1791].
+ifQ(2491)
+.answered(2,3)
+.disappear(Q(2321), Q(1071), Q(1791))
