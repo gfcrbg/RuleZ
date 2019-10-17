@@ -1,0 +1,48 @@
+// Last Updated: 
+
+// If QID 2221 is answered Option 1, then appear QIDs: [621, 661, 691, 701, 711, 1261, 801, 811, 831].
+ifQ(2221)
+.answered(1)
+.appear(Q(621), Q(661), Q(691), Q(701), Q(711), Q(1261), Q(801), Q(811), Q(831))
+
+// If QID 2081 is answered Option 1, then set value to Option 1 to QID 2261.
+ifQ(2081)
+.answered(1)
+.setValue( Q(2261), 1)
+
+// If QID 2081 is answered Option 2, then set value to Option 2 to QID 2261.
+ifQ(2081)
+.answered(2)
+.setValue( Q(2261), 2)
+
+// Disappear QID 2261.
+ifQ()
+.disappear(Q(2261))
+
+// If QID 2101 is answered Option 2, then set value to Option 1 to QID 2271.
+ifQ(2101)
+.answered(2)
+.setValue( Q(2271), 1)
+
+// If QID 2101 is answered Option 1, then set value to Option 2 to QID 2271.
+ifQ(2101)
+.answered(1)
+.setValue( Q(2271), 2)
+
+// Disappear QID 2271.
+ifQ()
+.disappear(Q(2271))
+
+// If QID 2121 is answered Option 2, then set value to Option 1 to QID 2281.
+ifQ(2121)
+.answered(2)
+.setValue( Q(2281), 1)
+
+// If QID 2121 is answered Option 1, then set value to Option 2 to QID 2281.
+ifQ(2121)
+.answered(1)
+.setValue( Q(2281), 2)
+
+// Disappear QID 2281.
+ifQ()
+.disappear(Q(2281))
