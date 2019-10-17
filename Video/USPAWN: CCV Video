@@ -1,0 +1,29 @@
+// Last Updated:
+
+
+// Calcs the wait time in line for the item value.
+ifQ(1432)
+.answered()
+.andQ(1442)
+.answered()
+.sub(Q(1442) , Q(1432))
+.store(Q(1452));
+
+// Okay-Option 1 selected if time is 4 min (approved by Renee DeSantis 7/12/2018).
+ifQ(1452)
+.greaterThanOrEqual(0)
+.andifQ(1452)
+.lessThanOrEqual(240)
+.setValue(Q(922),1)
+
+// If QID 1452 is > 240 and <= 360, then set value to Option 2 to QID 922.
+ifQ(1452)
+.greaterThan(240)
+.andifQ(1452)
+.lessThanOrEqual(360)
+.setValue(Q(922),2)
+
+// If QID 1452 is > 360, then set value to Option 3 to QID 922.
+ifQ(1452)
+.greaterThan(360)
+.setValue(Q(922),3);
