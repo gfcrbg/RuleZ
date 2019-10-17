@@ -12,6 +12,7 @@ Benfits of transferring to this platform:
 - Export repositories
 
 If you have any questions, ask the current QA Analyst.
-_Greg Steelman_
-_gsteelman@realitybasedgroup.com_
+
+ _Greg Steelman
+ gsteelman@realitybasedgroup.com_
 
