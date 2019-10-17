@@ -1,0 +1,26 @@
+//Last Updated: 8/27/2019
+
+
+
+
+//*******************************
+// ORDER FULFILLMENT - Begin 
+//*******************************
+
+//If QID 3331 is answered Option 2 or 3, then disappear QIDs: [3371, 3351] and clear answer to QIDs [3371, 3351].
+ifQ(3331)
+.answered(2,3)
+.disappear(Q(3371), Q(3351))
+.clearAnswer(Q(3371), Q(3351))
+
+//If QID 1441 is answered Option 1, then disappear and clear answer to QID 1621.
+ifQ(1441)
+.answered(1)
+.disappear(Q(1621))
+.clearAnswer(Q(1621))
+
+//*******************************
+// ORDER FULFILLMENT - End 
+//*******************************
+
+
