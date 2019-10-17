@@ -1,0 +1,13 @@
+// Last Updated:
+
+// If QID 311 is answered Options [1, 2, or 3] and Option 4, then trigger error string.
+ifQ(311)
+.answered(1, 2, 3)
+.andQ(311)
+.answered(4)
+.setError("'*None of the above' cannot be checked with any other options, please check your answer.")
+
+// If QID 1041 is not answered anything, then set value to Option 1 to QID 1041.
+ifQ(1041)
+.notAnswered()
+.setValue( Q(1041), 1)
