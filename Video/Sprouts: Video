@@ -1,0 +1,27 @@
+// Last Updated: 7/2/2019
+
+
+
+
+//*******************************
+// STORE WIDE - Begin
+//*******************************
+
+// If QID 1811 answered Option [1,2,3,4, and 5], then set value to QID 1811 as Options 1,2,3,4,5, and 6 ('All of the above').
+ifQ(1811)
+.answered([1,2,3,4,5])
+.setValue(Q(1811), 1,2,3,4,5,6)
+
+// If QID 1831 answered Option 2, then show QID 2361.
+ifQ(1831)
+.answered(2)
+.appear(Q(2361))
+
+// If QID 1 is answered anything, then set value "50" to QID 2351.
+ifQ(1)
+.answered()
+.setValue(Q(2351), "50")
+
+//*******************************
+// STORE WIDE - End
+//*******************************
