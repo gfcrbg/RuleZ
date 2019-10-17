@@ -1,0 +1,19 @@
+// Last Updated:
+
+// If QIDs [61, 41] answered anything, then trigger math operation: QID 41 - QID 61 = QID 51.
+ifQ(61)
+.answered()
+.andQ(41)
+.answered()
+.sub(Q(41) , Q(61))
+.store(Q(51));
+
+// If QID 51 is greater than 3600, then trigger error string.
+ifQ(51)
+.greaterThan(3600)
+. setError("Total call time is more than 1 hour.  Please check your start and end times.")
+
+// If QID 51 is less than 0, then trigger error string.  
+ifQ(51)
+.lessThan(0)
+. setError("End time is before start time.  Please check your start and end times.")
