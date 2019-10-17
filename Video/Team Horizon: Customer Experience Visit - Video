@@ -1,0 +1,1143 @@
+//Last Update: 1/11/2019
+
+
+// Sets "During which time of day did the evaluation occur?" based on "Time of shop:".
+// Before 6am.
+ifQ(11)
+.greaterThanOrEqual(0)
+.andifQ(11)
+.lessThanOrEqual(21540)
+.setValue( Q(2741),4)
+
+// Between 6am and 10:30am.
+ifQ(11)
+.greaterThanOrEqual(21600)
+.andifQ(11)
+.lessThanOrEqual(37800)
+.setValue( Q(2741),1)
+
+// Between 10:30am and 4pm.
+ifQ(11)
+.greaterThanOrEqual(37860)
+.andifQ(11)
+.lessThanOrEqual(57600)
+.setValue( Q(2741),2)
+
+// Between 4pm and 9pm.
+ifQ(11)
+.greaterThanOrEqual(57660)
+.andifQ(11)
+.lessThanOrEqual(75600)
+.setValue( Q(2741),3)
+
+// Between 9pm and 12am.
+ifQ(11)
+.greaterThanOrEqual(75660)
+.andifQ(11)
+.lessThanOrEqual(86340)
+.setValue( Q(2741),4)
+// End of Time of Shop radio button input.
+
+
+
+//*******************************
+// STORE EXTERIOR - Begin
+//*******************************
+
+// Sets All of the Above if all options are selected for the Fuel Island Stock levels.
+ifQ(1571)
+.answered(1)
+.andQ(1571)
+.answered(2)
+.andQ(1571)
+.answered(3)
+.setValue(Q(1571),1,2,3,4)
+
+//*******************************
+// STORE EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// STORE INTERIOR - Begin
+//*******************************
+
+// If QID 1591 is answered Option 3, then appear QID 5011.
+ifQ(1591)
+.answered(3)
+.appear(Q(5011))
+
+// If QID 5011 is answered Option 4, then appear QID 5021.
+ifQ(5011)
+.answered(4)
+.appear(Q(5021))
+
+// Sets All of the Above if all options are selected for the Restroom Stock levels.
+ifQ(1601)
+.answered(1)
+.andQ(1601)
+.answered(2)
+.andQ(1601)
+.answered(3)
+.setValue(Q(1601),1,2,3,4);
+
+// Sets Freshness 6281 by date calculation.
+// If no date is entered, set Freshness to N/A.
+ifQ(3121)
+.notAnswered()
+.setValue(Q(6281),3)
+
+// Otherwise, sub today from the date entered and store the value in 3131.
+ifQ(3121)
+.answered()
+.sub( Q(3121), Q(1))
+.store(Q(3131))
+
+// If 3131 is less than 1 days, mark not fresh.
+ifQ(3131)
+.answered()
+.andifQ(3131)
+.lessThanOrEqual(0)
+.setValue(Q(6281),2)
+
+// If 3131 is over 1 day, mark as fresh.
+ifQ(3131)
+.greaterThan(0)
+.setValue(Q(6281),1)
+
+//*******************************
+// STORE INTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+//  LTC - Begin
+//*******************************
+
+// If the LTC isn't open, hide all these questions.
+ifQ(1151)
+.answered(2,3)
+.disappear(Q(1471),Q(1191),Q(271),Q(2091),Q(1481),Q(2391),Q(2411),Q(2801),Q(2811),Q(2781),Q(2761),Q(251),Q(301),Q(2221),Q(331),Q(3171),Q(3071));
+
+// Sets how long food took to come out from LTC.
+ifQ(2801)
+.answered()
+.andQ(2811)
+.answered()
+.sub(Q(2811) , Q(2801))
+.store(Q(301))
+
+// Sets radio button for how long food took to come out from LTC.
+// Less than a minute.
+ifQ(301)
+.greaterThan(0)
+.andifQ(301)
+.lessThanOrEqual(60)
+.setValue( Q(2781),1)
+
+// Less than 2 minutes.
+ifQ(301)
+.greaterThanOrEqual(61)
+.andifQ(301)
+.lessThanOrEqual(120)
+.setValue( Q(2781),2)
+
+// Less than 3 minutes.
+ifQ(301)
+.greaterThanOrEqual(121)
+.andifQ(301)
+.lessThanOrEqual(180)
+.setValue( Q(2781),3)
+
+// Less than 4 minutes.
+ifQ(301)
+.greaterThanOrEqual(181)
+.andifQ(301)
+.lessThanOrEqual(240)
+.setValue( Q(2781),4)
+
+// Less than 5 minutes.
+ifQ(301)
+.greaterThanOrEqual(241)
+.andifQ(301)
+.lessThanOrEqual(300)
+.setValue( Q(2781),5)
+
+// More than 5 minutes.
+ifQ(301)
+.greaterThanOrEqual(301)
+.setValue( Q(2781),6)
+//end of first LTC radio button stuff
+
+// Take answers to how long it took to get food and fill if that time was under 3 minutes.
+// Under 3 min (LTC).
+ifQ(301)
+.greaterThan(0)
+.andifQ(301)
+.lessThan(180)
+.setValue( Q(2221),1)
+
+// Over 3 min (LTC).
+ifQ(301)
+.greaterThanOrEqual(180)
+.setValue( Q(2221),2)
+
+//*******************************
+//  LTC - End
+//*******************************
+
+
+
+
+
+
+//*******************************
+//  FRIED CHICKEN DELI - Begin
+//*******************************
+
+//shows  Fried Chicken Deli questions if the  Fried Chicken Deli is open
+ifQ(5091)
+.answered(1)
+.appear(Q(5921), Q(5641), Q(5111), Q(5121), Q(5651), Q(5131), Q(5931), Q(5151), Q(5161), Q(5171), Q(5181), Q(5941), Q(5661), Q(5671), Q(5681), Q(5691))
+
+//Calc guest's approx wait in line (Fried Chicken Deli)
+ifQ(5151)
+.answered()
+.andQ(5161)
+.answered()
+.sub(Q(5161) , Q(5151))
+.store(Q(5171))
+
+//Set radio button to reflect time spent in line (Fried Chicken Deli)
+//Under 1 min
+ifQ(5171)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(5171)
+.lessThanOrEqual(60)
+.setValue( Q(5181),1)
+
+//Under 2  min
+ifQ(5171)
+.greaterThanOrEqual(61)
+.andifQ(5171)
+.lessThanOrEqual(120)
+.setValue( Q(5181),2)
+
+//Under 3  min
+ifQ(5171)
+.greaterThanOrEqual(121)
+.andifQ(5171)
+.lessThanOrEqual(180)
+.setValue( Q(5181),3)
+
+//Over 3  min
+ifQ(5171)
+.greaterThanOrEqual(181)
+.setValue( Q(5181),4)
+//End of setting radio buttons for time spent in line (Fried Chicken Deli)
+
+//Versioned in 7/1/2018
+//Under 3 min (Fried Chicken Deli)
+ifQ(5171)
+.greaterThan(0)
+.andifQ(5171)
+.lessThan(180)
+.setValue( Q(5941),1)
+
+//Versioned in 7/1/2018
+//Over 3 min (Fried Chicken Deli)
+ifQ(5171)
+.greaterThanOrEqual(180)
+.setValue( Q(5941),2)
+
+//*******************************
+//  FRIED CHICKEN DELI - End
+//*******************************
+
+
+
+
+
+
+//*******************************
+//  ANGELINA'S TACOS - Begin
+//*******************************
+
+//shows Angelina's Tacos questions if the Angelina's Tacos  is open
+ifQ(3521)
+.answered(1)
+.appear(Q(3531), Q(3541), Q(5201), Q(3551), Q(3771), Q(5211), Q(3561), Q(3571), Q(3581), Q(3591), Q(3601), Q(3611), Q(5221), Q(5231), Q(5701), Q(5241))
+
+//Calc guest's approx wait in line (Angelina's Tacos)
+ifQ(3571)
+.answered()
+.andQ(3581)
+.answered()
+.sub(Q(3581) , Q(3571))
+.store(Q(3591))
+
+//Set radio button to reflect time spent in line (Angelina's Tacos)
+//Under 1  min
+ifQ(3591)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(3591)
+.lessThanOrEqual(60)
+.setValue( Q(3601),1)
+
+//Under 2  min
+ifQ(3591)
+.greaterThanOrEqual(61)
+.andifQ(3591)
+.lessThanOrEqual(120)
+.setValue( Q(3601),2)
+
+//Under 3  min
+ifQ(3591)
+.greaterThanOrEqual(121)
+.andifQ(3591)
+.lessThanOrEqual(180)
+.setValue( Q(3601),3)
+
+//Over 3  min
+ifQ(3591)
+.greaterThanOrEqual(181)
+.setValue( Q(3601),4)
+//End of setting radio buttons for time spent in line (Angelina's Tacos)
+
+//Under 3 min (Angelina's Tacos)
+ifQ(3591)
+.greaterThan(0)
+.andifQ(3591)
+.lessThan(180)
+.setValue( Q(3611),1)
+
+//Over 3 min (Angelina's Tacos)
+ifQ(3591)
+.greaterThanOrEqual(180)
+.setValue( Q(3611),2)
+
+//*******************************
+//  ANGELINA'S TACOS - End
+//*******************************
+
+
+
+
+
+
+//*******************************
+//  CINNABON BAKERY - Begin
+//*******************************
+
+//shows Cinnabon Bakery questions if the Cinnabon Bakery is open
+ifQ(3801)
+.answered(1)
+.appear(Q(3811), Q(3821), Q(3831), Q(3841), Q(3851), Q(3861), Q(3871), Q(3881), Q(3891), Q(3901))
+
+//Calc guest's approx wait in line (Cinnabon Bakery)
+ifQ(3861)
+.answered()
+.andQ(3871)
+.answered()
+.sub(Q(3871) , Q(3861))
+.store(Q(3881))
+
+//Set radio button to reflect time spent in line (Cinnabon Bakery)
+//Under 1  min
+ifQ(3881)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(3881)
+.lessThanOrEqual(60)
+.setValue( Q(3891),1)
+
+//Under 2  min
+ifQ(3881)
+.greaterThanOrEqual(61)
+.andifQ(3881)
+.lessThanOrEqual(120)
+.setValue( Q(3891),2)
+
+//Under 3  min
+ifQ(3881)
+.greaterThanOrEqual(121)
+.andifQ(3881)
+.lessThanOrEqual(180)
+.setValue( Q(3891),3)
+
+//Over 3  min
+ifQ(3881)
+.greaterThanOrEqual(181)
+.setValue( Q(3891),4)
+//End of setting radio buttons for time spent in line (Cinnabon Bakery)
+
+//Under 3 min (Cinnabon Bakery)
+ifQ(3881)
+.greaterThan(0)
+.andifQ(3881)
+.lessThan(180)
+.setValue( Q(3901),1)
+
+//Over 3 min (Cinnabon Bakery)
+ifQ(3881)
+.greaterThanOrEqual(180)
+.setValue( Q(3901),2)
+
+//*******************************
+//  CINNABON BAKERY - End
+//*******************************
+
+
+
+//*******************************
+//  HUNT BROTHERS - Begin
+//*******************************
+
+//shows Hunt Brothers  questions if the Hunt Brothers  is open
+ifQ(3921)
+.answered(1)
+.appear(Q(5711), Q(3941), Q(5251), Q(3951), Q(5261), Q(3961), Q(5721), Q(3981), Q(3991), Q(4001), Q(4011), Q(5731), Q(5271), Q(5281), Q(5951))
+
+//Calc guest's approx wait in line (Hunt Brothers)
+ifQ(3981)
+.answered()
+.andQ(3991)
+.answered()
+.sub(Q(3991) , Q(3981))
+.store(Q(4001))
+
+//Set radio button to reflect time spent in line (Hunt Brothers)
+//Under 1  min
+ifQ(4001)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4001)
+.lessThanOrEqual(60)
+.setValue( Q(4011),1)
+
+//Under 2  min
+ifQ(4001)
+.greaterThanOrEqual(61)
+.andifQ(4001)
+.lessThanOrEqual(120)
+.setValue( Q(4011),2)
+
+//Under 3  min
+ifQ(4001)
+.greaterThanOrEqual(121)
+.andifQ(4001)
+.lessThanOrEqual(180)
+.setValue( Q(4011),3)
+
+//Over 3  min
+ifQ(4001)
+.greaterThanOrEqual(181)
+.setValue( Q(4011),4)
+//End of setting radio buttons for time spent in line (Hunt Brothers)
+
+//Versioned in 7/1/2018
+//Under 3 min (Hunt Brothers)
+ifQ(4001)
+.greaterThan(0)
+.andifQ(4001)
+.lessThan(600)
+.setValue( Q(5731),1)
+
+//Versioned in 7/1/2018
+//Over 10 min (Hunt Brothers)
+ifQ(4001)
+.greaterThanOrEqual(600)
+.setValue( Q(5731),2)
+
+//*******************************
+//  HUNT BROTHERS - End
+//*******************************
+
+
+
+
+
+//*******************************
+//  KFC - Begin
+//*******************************
+
+//shows KFC questions if the KFC is open
+ifQ(4041)
+.answered(1)
+.appear(Q(4051), Q(4061), Q(4071), Q(4081), Q(4091), Q(4101), Q(4111), Q(4121), Q(4131), Q(4141))
+
+//Calc guest's approx wait in line (KFC)
+ifQ(4101)
+.answered()
+.andQ(4111)
+.answered()
+.sub(Q(4111) , Q(4101))
+.store(Q(4121))
+
+//Set radio button to reflect time spent in line (KFC)
+//Under 1  min
+ifQ(4121)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4121)
+.lessThanOrEqual(60)
+.setValue( Q(4131),1)
+
+//Under 2  min
+ifQ(4121)
+.greaterThanOrEqual(61)
+.andifQ(4121)
+.lessThanOrEqual(120)
+.setValue( Q(4131),2)
+
+//Under 3  min
+ifQ(4121)
+.greaterThanOrEqual(121)
+.andifQ(4121)
+.lessThanOrEqual(180)
+.setValue( Q(4131),3)
+
+//Over 3  min
+ifQ(4121)
+.greaterThanOrEqual(181)
+.setValue( Q(4131),4)
+//End of setting radio buttons for time spent in line (KFC)
+
+//Under 3 min (KFC)
+ifQ(4121)
+.greaterThan(0)
+.andifQ(4121)
+.lessThan(180)
+.setValue( Q(4141),1)
+
+//Over 3 min (KFC)
+ifQ(4121)
+.greaterThanOrEqual(180)
+.setValue( Q(4141),2)
+
+//*******************************
+//  KFC - End
+//*******************************
+
+
+
+
+
+
+//*******************************
+//  LADSON GRILL - Begin
+//*******************************
+
+//shows Ladson Grill questions if the Ladson Grill is open
+ifQ(4161)
+.answered(1)
+.appear(Q(5751), Q(4181), Q(5291), Q(4191), Q(4201), Q(5761), Q(4221), Q(4231), Q(4241), Q(4251), Q(5741), Q(5301), Q(5311), Q(5321), Q(5331), Q(5341), Q(5351), Q(5361))
+
+//Calc guest's approx wait in line (Ladson Grill)
+ifQ(4221)
+.answered()
+.andQ(4231)
+.answered()
+.sub(Q(4231) , Q(4221))
+.store(Q(4241))
+
+//Set radio button to reflect time spent in line (Ladson Grill)
+//Under 1  min
+ifQ(4241)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4241)
+.lessThanOrEqual(60)
+.setValue( Q(4251),1)
+
+//Under 2  min
+ifQ(4241)
+.greaterThanOrEqual(61)
+.andifQ(4241)
+.lessThanOrEqual(120)
+.setValue( Q(4251),2)
+
+//Under 3  min
+ifQ(4241)
+.greaterThanOrEqual(121)
+.andifQ(4241)
+.lessThanOrEqual(180)
+.setValue( Q(4251),3)
+
+//Over 3  min
+ifQ(4241)
+.greaterThanOrEqual(181)
+.setValue( Q(4251),4)
+//End of setting radio buttons for time spent in line (Ladson Grill)
+
+//Versioned in 7/1/2018
+//Under 5 min (Ladson Grill)
+ifQ(4241)
+.greaterThan(0)
+.andifQ(4241)
+.lessThan(300)
+.setValue( Q(5741),1)
+
+//Versioned in 7/1/2018
+//Over 5 min (Ladson Grill)
+ifQ(4241)
+.greaterThanOrEqual(300)
+.setValue( Q(5741),2)
+
+//*******************************
+//  LADSON GRILL - End
+//*******************************
+
+
+
+
+
+
+
+//*******************************
+//  LONG JOHN SILVER'S- Begin
+//*******************************
+
+
+//shows Long John Silver's questions if the Long John Silver's is open
+ifQ(4281)
+.answered(1)
+.appear(Q(4291), Q(4301), Q(4311), Q(4321), Q(4331), Q(4341), Q(4351), Q(4361), Q(4371), Q(4381))
+
+//Calc guest's approx wait in line (Long John Silver's)
+ifQ(4341)
+.answered()
+.andQ(4351)
+.answered()
+.sub(Q(4351) , Q(4341))
+.store(Q(4361))
+
+//Set radio button to reflect time spent in line (Long John Silver's)
+//Under 1  min
+ifQ(4361)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4361)
+.lessThanOrEqual(60)
+.setValue( Q(4371),1)
+
+//Under 2  min
+ifQ(4361)
+.greaterThanOrEqual(61)
+.andifQ(4361)
+.lessThanOrEqual(120)
+.setValue( Q(4371),2)
+
+//Under 3  min
+ifQ(4361)
+.greaterThanOrEqual(121)
+.andifQ(4361)
+.lessThanOrEqual(180)
+.setValue( Q(4371),3)
+
+//Over 3  min
+ifQ(4361)
+.greaterThanOrEqual(181)
+.setValue( Q(4371),4)
+//End of setting radio buttons for time spent in line (Long John Silver's)
+
+//Under 3 min (Long John Silver's)
+ifQ(4361)
+.greaterThan(0)
+.andifQ(4361)
+.lessThan(180)
+.setValue( Q(4381),1)
+
+//Over 3 min (Long John Silver's)
+ifQ(4361)
+.greaterThanOrEqual(180)
+.setValue( Q(4381),2)
+
+//*******************************
+//  LONG JOHN SILVER'S- End
+//*******************************
+
+
+
+
+
+//*******************************
+//  PAPA JOHN'S- Begin
+//*******************************
+
+//shows Papa John's questions if the Papa John's is open
+ifQ(4401)
+.answered(1)
+.appear(Q(5771), Q(4421), Q(5371), Q(4431), Q(4441), Q(5781), Q(4461), Q(4471), Q(4481), Q(4491), Q(5791), Q(5381), Q(5391), Q(5401))
+
+//Calc guest's approx wait in line (Papa John's)
+ifQ(4461)
+.answered()
+.andQ(4471)
+.answered()
+.sub(Q(4471) , Q(4461))
+.store(Q(4481))
+
+//Set radio button to reflect time spent in line (Papa John's)
+//Under 1  min
+ifQ(4481)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4481)
+.lessThanOrEqual(60)
+.setValue( Q(4491),1)
+
+//Under 2  min
+ifQ(4481)
+.greaterThanOrEqual(61)
+.andifQ(4481)
+.lessThanOrEqual(120)
+.setValue( Q(4491),2)
+
+//Under 3  min
+ifQ(4481)
+.greaterThanOrEqual(121)
+.andifQ(4481)
+.lessThanOrEqual(180)
+.setValue( Q(4491),3)
+
+//Over 3  min
+ifQ(4481)
+.greaterThanOrEqual(181)
+.setValue( Q(4491),4)
+//End of setting radio buttons for time spent in line (Papa John's)
+
+//Versioned in 7/1/2018
+//Under 10 min (Papa John's)
+ifQ(4481)
+.greaterThan(0)
+.andifQ(4241)
+.lessThan(600)
+.setValue( Q(5791),1)
+
+//Versioned in 7/1/2018
+//Over 10 min (Papa John's)
+ifQ(4481)
+.greaterThanOrEqual(600)
+.setValue( Q(5791),2)
+
+//*******************************
+//  PAPA JOHN'S- End
+//*******************************
+
+
+
+
+
+//*******************************
+//  PARLOR PIZZA - Begin
+//*******************************
+
+//shows Parlor Pizza questions if the Parlor Pizza is open
+ifQ(4521)
+.answered(1)
+.appear(Q(5801), Q(5411), Q(4541), Q(4551), Q(4561), Q(5811), Q(4581), Q(4591), Q(4601), Q(4611), Q(5821), Q(5421), Q(5431), Q(5441))
+
+//Calc guest's approx wait in line (Parlor Pizza)
+ifQ(4581)
+.answered()
+.andQ(4591)
+.answered()
+.sub(Q(4591) , Q(4581))
+.store(Q(4601))
+
+//Set radio button to reflect time spent in line (Parlor Pizza)
+//Under 1  min
+ifQ(4601)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4601)
+.lessThanOrEqual(60)
+.setValue( Q(4611),1)
+
+//Under 2  min
+ifQ(4601)
+.greaterThanOrEqual(61)
+.andifQ(4601)
+.lessThanOrEqual(120)
+.setValue( Q(4611),2)
+
+//Under 3  min
+ifQ(4601)
+.greaterThanOrEqual(121)
+.andifQ(4601)
+.lessThanOrEqual(180)
+.setValue( Q(4611),3)
+
+//Over 3  min
+ifQ(4601)
+.greaterThanOrEqual(181)
+.setValue( Q(4611),4)
+//End of setting radio buttons for time spent in line (Parlor Pizza)
+
+//Versioned in 7/1/2018
+//Under 10 min (Parlor Pizza)
+ifQ(4601)
+.greaterThan(0)
+.andifQ(4601)
+.lessThan(600)
+.setValue( Q(5821),1)
+
+//Versioned in 7/1/2018
+//Over 10 min (Parlor Pizza)
+ifQ(4601)
+.greaterThanOrEqual(600)
+.setValue( Q(5821),2)
+
+//*******************************
+//  PARLOR PIZZA - End
+//*******************************
+
+
+
+
+
+
+//*******************************
+//  SCHLOTZSKY'S - Begin
+//*******************************
+
+//Begin Schlotzsky's section
+//shows Schlotzsky's questions if the Schlotzsky's is open
+ifQ(4641)
+.answered(1)
+.appear(Q(5831), Q(4661), Q(5451), Q(4671), Q(4681), Q(5841), Q(4701), Q(4711), Q(4721), Q(4731), Q(5851), Q(5461), Q(5471), Q(5481), Q(5491))
+
+//Calc guest's approx wait in line (Schlotzsky's)
+ifQ(4701)
+.answered()
+.andQ(4711)
+.answered()
+.sub(Q(4711) , Q(4701))
+.store(Q(4721))
+
+//Set radio button to reflect time spent in line (Schlotzsky's)
+//Under 1  min
+ifQ(4721)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4721)
+.lessThanOrEqual(60)
+.setValue( Q(4731),1)
+
+//Under 2  min
+ifQ(4721)
+.greaterThanOrEqual(61)
+.andifQ(4721)
+.lessThanOrEqual(120)
+.setValue( Q(4731),2)
+
+//Under 3  min
+ifQ(4721)
+.greaterThanOrEqual(121)
+.andifQ(4721)
+.lessThanOrEqual(180)
+.setValue( Q(4731),3)
+
+//Over 3  min
+ifQ(4721)
+.greaterThanOrEqual(181)
+.setValue( Q(4731),4)
+//End of setting radio buttons for time spent in line (Schlotzsky's)
+
+//Versioned in 7/1/2018
+//Under 6 min (Schlotzsky's)
+ifQ(4721)
+.greaterThan(0)
+.andifQ(4721)
+.lessThan(360)
+.setValue( Q(5851),1)
+
+//Versioned in 7/1/2018
+//Over 6 min (Schlotzsky's)
+ifQ(4721)
+.greaterThanOrEqual(360)
+.setValue( Q(5851),2)
+
+//*******************************
+//  SCHLOTZSKY'S - End
+//*******************************
+
+
+
+
+
+//*******************************
+//  SUBWAY - Begin
+//*******************************
+
+//shows Subway questions if the Subway is open
+ifQ(4761)
+.answered(1)
+.appear(Q(5861), Q(5501), Q(4781), Q(4791), Q(4801), Q(5871), Q(4821), Q(4831), Q(4841), Q(4851), Q(5881), Q(5511), Q(5521), Q(5531), Q(5541))
+
+//Calc guest's approx wait in line (Subway)
+ifQ(4821)
+.answered()
+.andQ(4831)
+.answered()
+.sub(Q(4831) , Q(4821))
+.store(Q(4841))
+
+//Set radio button to reflect time spent in line (Subway)
+//Under 1  min
+ifQ(4841)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4841)
+.lessThanOrEqual(60)
+.setValue( Q(4851),1)
+
+//Under 2  min
+ifQ(4841)
+.greaterThanOrEqual(61)
+.andifQ(4841)
+.lessThanOrEqual(120)
+.setValue( Q(4851),2)
+
+//Under 3  min
+ifQ(4841)
+.greaterThanOrEqual(121)
+.andifQ(4841)
+.lessThanOrEqual(180)
+.setValue( Q(4851),3)
+
+//Over 3  min
+ifQ(4841)
+.greaterThanOrEqual(181)
+.setValue( Q(4851),4)
+//End of setting radio buttons for time spent in line (Subway)
+
+//Versioned in 7/1/2018
+//Under 6 min (Subway)
+ifQ(4841)
+.greaterThan(0)
+.andifQ(4841)
+.lessThan(360)
+.setValue( Q(5881),1)
+
+//Versioned in 7/1/2018
+//Over 6 min (Subway)
+ifQ(4841)
+.greaterThanOrEqual(360)
+.setValue( Q(5881),2)
+
+//*******************************
+//  SUBWAY - End
+//*******************************
+
+
+
+
+
+//*******************************
+//  TIM HORTONS - Begin
+//*******************************
+
+//shows Tim Hortons questions if the Tim Hortons is open
+ifQ(4881)
+.answered(1)
+.appear(Q(5891), Q(5551), Q(5561), Q(4901), Q(4911), Q(4921), Q(5901), Q(4941), Q(4951), Q(4961), Q(4971), Q(5911), Q(5571), Q(5581), Q(5591), Q(5601), Q(5611), Q(5621), Q(5631))
+
+//Calc guest's approx wait in line (Tim Hortons)
+ifQ(4941)
+.answered()
+.andQ(4951)
+.answered()
+.sub(Q(4951) , Q(4941))
+.store(Q(4961))
+
+//Set radio button to reflect time spent in line (Tim Hortons)
+//Under 1  min
+ifQ(4961)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(4961)
+.lessThanOrEqual(60)
+.setValue( Q(4971),1)
+
+//Under 2  min
+ifQ(4961)
+.greaterThanOrEqual(61)
+.andifQ(4961)
+.lessThanOrEqual(120)
+.setValue( Q(4971),2)
+
+//Under 3  min
+ifQ(4961)
+.greaterThanOrEqual(121)
+.andifQ(4961)
+.lessThanOrEqual(180)
+.setValue( Q(4971),3)
+
+//Over 3  min
+ifQ(4961)
+.greaterThanOrEqual(181)
+.setValue( Q(4971),4)
+//End of setting radio buttons for time spent in line (Tim Hortons)
+
+//Versioned in 7/1/2018
+//Under 3 min (Tim Hortons)
+ifQ(4961)
+.greaterThan(0)
+.andifQ(4961)
+.lessThan(180)
+.setValue( Q(5911),1)
+
+//Versioned in 7/1/2018
+//Over 3 min (Tim Hortons)
+ifQ(4961)
+.greaterThanOrEqual(180)
+.setValue( Q(5911),2)
+
+//*******************************
+//  TIM HORTONS - End
+//*******************************
+
+
+
+
+//*******************************
+//  ROOST - Begin
+//*******************************
+
+//shows Roost questions if the Roost is open
+ifQ(6051)
+.answered(1)
+.appear(Q(6061), Q(6071), Q(6081), Q(6091), Q(6101), Q(6111), Q(6121), Q(6131), Q(6221), Q(6231), Q(6141), Q(6151), Q(6161), Q(6171), Q(6181), Q(6191), Q(6201), Q(6211))
+
+//Calc guest's approx wait in line (Roost)
+ifQ(6151)
+.answered()
+.andQ(6161)
+.answered()
+.sub(Q(6161) , Q(6151))
+.store(Q(6171))
+
+//Set radio button to reflect time spent in line (Roost)
+//Under 1  min
+ifQ(6171)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(6171)
+.lessThanOrEqual(60)
+.setValue( Q(6181),1)
+
+//Under 2  min
+ifQ(6171)
+.greaterThanOrEqual(61)
+.andifQ(6171)
+.lessThanOrEqual(120)
+.setValue( Q(6181),2)
+
+//Under 3  min
+ifQ(6171)
+.greaterThanOrEqual(121)
+.andifQ(6171)
+.lessThanOrEqual(180)
+.setValue( Q(6181),3)
+
+//Over 3  min
+ifQ(6171)
+.greaterThanOrEqual(181)
+.setValue( Q(6181),4)
+//End of setting radio buttons for time spent in line (Roost)
+
+//Versioned in 7/1/2018
+//Under 5 min (Ladson Grill)
+ifQ(6171)
+.greaterThan(0)
+.andifQ(6171)
+.lessThan(300)
+.setValue( Q(6191),1)
+
+//Versioned in 7/1/2018
+//Over 5 min (Ladson Grill)
+ifQ(6171)
+.greaterThanOrEqual(300)
+.setValue( Q(6191),2)
+
+//*******************************
+//  ROOST - End
+//*******************************
+
+
+
+
+//*******************************
+//  FINAL GAS STATION 
+//  CASHIER CHECK OUT - Begin
+//*******************************
+
+// Calc guest's aprox wait in line (store counter).
+ifQ(2831)
+.answered()
+.andQ(2821)
+.answered()
+.sub(Q(2821) , Q(2831))
+.store(Q(3091))
+
+// Set radio button to reflect time spent in line (store counter).
+// Under 1  min.
+ifQ(3091)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(3091)
+.lessThan(60)
+.setValue( Q(3101),1)
+
+// Under 2  min.
+ifQ(3091)
+.greaterThanOrEqual(61)
+.andifQ(3091)
+.lessThanOrEqual(120)
+.setValue( Q(3101),2)
+
+// Under 3  min.
+ifQ(3091)
+.greaterThanOrEqual(121)
+.andifQ(3091)
+.lessThanOrEqual(180)
+.setValue( Q(3101),3)
+
+// Over 3  min.
+ifQ(3091)
+.greaterThanOrEqual(181)
+.setValue( Q(3101),4)
+//End of setting radio buttons for time spent in line (store counter)
+
+// If the time in line is less than 2 min, set the under 2 min question to yes, otherwise no.
+// Under 2 min.
+ifQ(3091)
+.lessThan(120)
+.setValue(Q(2211),1)
+
+// Over 2 min.
+ifQ(3091)
+.greaterThanOrEqual(120)
+.setValue(Q(2211),2)
+
+// Sets All of the Above if all options are selected for the Employee Uniform reqs.
+ifQ(1631)
+.answered(1)
+.andQ(1631)
+.answered(2)
+.andQ(1631)
+.answered(3)
+.setValue(Q(1631),1,2,3,4);
+
+//*******************************
+//  FINAL GAS STATION 
+//  CASHIER CHECK OUT - End
+//*******************************
