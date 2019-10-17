@@ -1,0 +1,21 @@
+//Last Updated:
+
+//If QID 61 is answered Option 2, then disappear QID 71.
+ifQ(61)
+.answered(2)
+.disappear(Q(71));
+
+//If QID 61 is answered Option 2, then disappear QID 461.
+ifQ(61)
+.answered(2)
+.disappear(Q(461))
+
+//If QID 681 is answered Option 2, then disappear QID 691.
+ifQ(681)
+.answered(2)
+.disappear(Q(691));
+
+//If QID 681 is answered Option 2, then disappear QID 701.
+ifQ(681)
+.answered(2)
+.disappear(Q(701))
