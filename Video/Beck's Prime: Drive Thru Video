@@ -1,0 +1,22 @@
+// Last Updated:
+
+// If QIDs [621, 11] answered anything, then trigger math operation: QID 621 - QID 11 = QID 1131.
+ifQ(621)
+.answered()
+.andQ(11)
+.answered()
+.sub(Q(621) , Q(11))
+.store(Q(1131))
+
+// If QIDs [951, 621] answered anything, then trigger math operation: QID 951 - QID 621 = QID 1141.
+ifQ(951)
+.answered()
+.andQ(621)
+.answered()
+.sub(Q(951) , Q(621))
+.store(Q(1141))
+
+// If QID 672 is not answered anything, then disappear QIDs: [81, 1291, 1331, 1371, 441, 1351, 401, 691, 241, 1321, 1231].
+ifQ(672)
+.notAnswered()
+.disappear(Q(81),	Q(1291),	Q(1331),	Q(1371),	Q(441),	Q(1351),	Q(401),	Q(691),	Q(241),	Q(1321),	Q(1231));
