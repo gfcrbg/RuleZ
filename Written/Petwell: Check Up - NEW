@@ -1,0 +1,84 @@
+//Sets All of the Above if all options are selected for the phone greeting.
+ifQ(481)
+.answered(1)
+.andQ(481)
+.answered(2)
+.andQ(481)
+.answered(3)
+.setValue(Q(481),1,2,3,4)
+
+//Sets All of the Above if all options are selected for the phone call confirmation information.
+ifQ(501)
+.answered(1)
+.andQ(501)
+.answered(2)
+.andQ(501)
+.answered(3)
+.setValue(Q(501),1,2,3,4)
+
+//Sets All of the Above if all options are selected for the walk in.
+ifQ(881)
+.answered(1)
+.andQ(881)
+.answered(2)
+.andQ(881)
+.answered(3)
+.setValue(Q(881),1,2,3,4)
+
+//Sets All of the Above if all options are selected for information collection at check-in.
+ifQ(511)
+.answered(1)
+.andQ(511)
+.answered(2)
+.andQ(511)
+.answered(3)
+.andQ(511)
+.answered(4)
+.setValue(Q(511),1,2,3,4,5)
+
+//Sets All of the Above if all options are selected for pet information confirmation at check-in.
+ifQ(641)
+.answered(1)
+.andQ(641)
+.answered(2)
+.setValue(Q(641),1,2,3)
+
+//Sets All of the Above if all options are selected for the vet tech greeting.
+ifQ(461)
+.answered(1)
+.andQ(461)
+.answered(2)
+.andQ(461)
+.answered(3)
+.andQ(461)
+.answered(4)
+.andQ(461)
+.answered(5)
+.setValue(Q(461),1,2,3,4,5,6)
+
+//Sets All of the Above if all options are selected for vet doctor greeting.
+ifQ(661)
+.answered(1)
+.andQ(661)
+.answered(2)
+.andQ(661)
+.answered(3)
+.setValue(Q(661),1,2,3,4)
+
+//Sets All of the Above if all options are selected for vet tech addressed the following before the end of the appointment.
+ifQ(901)
+.answered(1)
+.andQ(901)
+.answered(2)
+.andQ(901)
+.answered(3)
+.andQ(901)
+.answered(4)
+.setValue(Q(901),1,2,3,4,5)
+
+//Sets All of the Above if all options are selected for CSR or Tech established next steps.
+ifQ(691)
+.answered(1)
+.andQ(691)
+.answered(2)
+.setValue(Q(691),1,2,3)
