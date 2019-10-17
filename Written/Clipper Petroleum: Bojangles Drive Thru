@@ -1,0 +1,4 @@
+//If QID 291 is >= '241', set value to Option 2 to QID 1431. 
+ifQ(291)		
+.greaterThanOrEqual(241)
+.setValue( Q(1431),2)
