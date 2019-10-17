@@ -1,0 +1,9 @@
+//Last Updated:
+
+//If QIDs: [21, 11] answered anything, then trigger math operation: QID 21 - QID 11 = QID 1131.
+ifQ(21)
+.answered()
+.andQ(11)
+.answered()
+.sub(Q(21) , Q(11))
+.store(Q(1131))
