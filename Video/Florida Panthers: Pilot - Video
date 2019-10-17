@@ -1,0 +1,193 @@
+// Last Update: 3/28/2019
+
+
+//*******************************
+// TICKET TAKER - Begin
+//*******************************
+
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// Subtract Exit Time from Enter Time and store difference.
+ifQ(2362)
+.answered()
+.sub(Q(2352), Q(2362))
+.store(Q(2372))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minutes 
+ifQ(2372)
+.lessThanOrEqual(60)
+.setValue(Q(2382), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(2372)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2382), 2)
+
+// If elapsed time is greater than 180 seconds, but less than or equal to 300 seconds; then set value to '3:01-5:00 minutes'.
+ifQ(2372)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(2382), 3)
+
+// If elapsed time is greater than 300 seconds; then set value to '5:01 minutes or more'.
+ifQ(2372)
+.greaterThan(300)
+.setValue(Q(2382), 4)
+
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+//*******************************
+// TICKET TAKER - End
+//*******************************
+
+
+
+
+//*******************************
+// CONCESSIONS - Begin
+//*******************************
+
+// If the shopper did not visit a Concessions stand, then hide and clear answers to Concessions (1) section.
+// Also, set answer to QID 2512 (second Concessions stand question) to NO.
+ifQ(2412)
+.answered(2)
+.disappear(Q(2212), Q(2222), Q(1482), Q(2422), Q(2432), Q(2452), Q(2462), Q(1472), Q(1422), Q(2472), Q(2482), Q(2492), Q(2502))
+.clearAnswer(Q(2212), Q(2222), Q(1482), Q(2422), Q(2432), Q(2452), Q(2462), Q(1472), Q(1422), Q(2472), Q(2482), Q(2492), Q(2502))
+.setValue(Q(2512), 2)
+
+//--------------------------------------------
+// Concessions 1
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// Subtract Placed Order Time from Received Order Time and store difference.
+ifQ(2212)
+.answered()
+.sub(Q(2222), Q(2212))
+.store(Q(1482))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minutes 
+ifQ(1482)
+.lessThanOrEqual(60)
+.setValue(Q(2422), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(1482)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2422), 2)
+
+// If elapsed time is greater than 180 seconds, but less than or equal to 300 seconds; then set value to '3:01-5:00 minutes'.
+ifQ(1482)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(2422), 3)
+
+// If elapsed time is greater than 300 seconds; then set value to '5:01 minutes or more'.
+ifQ(1482)
+.greaterThan(300)
+.setValue(Q(2422), 4)
+
+//--------------------------------------------
+// Concessions 1
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+// If the shopper did not visit a second concessions stand, hide and clear answers to the Concessions(2) section.
+ifQ(2512)
+.answered(2)
+.disappear(Q(2522), Q(2532), Q(2542), Q(2552), Q(2562), Q(2572), Q(2582), Q(2592), Q(2602), Q(2612), Q(2622), Q(2632), Q(2642))
+.clearAnswer(Q(2522), Q(2532), Q(2542), Q(2552), Q(2562), Q(2572), Q(2582), Q(2592), Q(2602), Q(2612), Q(2622), Q(2632), Q(2642))
+
+//--------------------------------------------
+// Concessions 2
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// Subtract Placed Order Time from Received Order Time and store difference.
+ifQ(2522)
+.answered()
+.sub(Q(2532), Q(2522))
+.store(Q(2542))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minutes 
+ifQ(2542)
+.lessThanOrEqual(60)
+.setValue(Q(2552), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(2542)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2552), 2)
+
+// If elapsed time is greater than 180 seconds, but less than or equal to 300 seconds; then set value to '3:01-5:00 minutes'.
+ifQ(2542)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(2552), 3)
+
+// If elapsed time is greater than 300 seconds; then set value to '5:01 minutes or more'.
+ifQ(2542)
+.greaterThan(300)
+.setValue(Q(2552), 4)
+
+//--------------------------------------------
+// Concessions 2
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+//*******************************
+// CONCESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// RETAIL - Begin
+//*******************************
+
+// If QID 1992 is answered NO or N/A, then hide and clear Answer to QID 2682.
+ifQ(1992)
+.answered(2,3)
+.disappear(Q(2682))
+.clearAnswer(Q(2682))
+
+// If QID 2892 answered NO, then hide and clear Answer to the second Retail section.
+ifQ(2892)
+.answered(2)
+.disappear(Q(2722), Q(2732), Q(2742), Q(2752), Q(2762), Q(2772), Q(2782), Q(2792), Q(2802), Q(2812), Q(2822), Q(2832), Q(2842), Q(2852))
+.clearAnswer(Q(2722), Q(2732), Q(2742), Q(2752), Q(2762), Q(2772), Q(2782), Q(2792), Q(2802), Q(2812), Q(2822), Q(2832), Q(2842), Q(2852))
+
+// If QID 2782 is answered NO, N/A, or no answer, then hide and clear Answer to QID 2792.
+ifQ(2782)
+.answered(0,2,3)
+.disappear(Q(2792))
+.clearAnswer(Q(2792))
+
+//*******************************
+// RETAIL - End
+//*******************************
+
+
+
+
+//*******************************
+// ARENA USHERS - Begin
+//*******************************
+
+// If QID 2902 is answered NO, then hide and clear Answer to the section Arena Ushers section.
+ifQ(2902)
+.answered(2)
+.disappear(Q(2872), Q(2882))
+.clearAnswer(Q(2872), Q(2882))
+
+//*******************************
+// ARENA USHERS - End
+//*******************************
