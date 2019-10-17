@@ -1,0 +1,18 @@
+// Last Updated: 8/2/2019
+
+
+
+
+//*******************************
+//POOL/FITNESS CENTER - Begin
+//*******************************
+
+// If QID 3681 is answered Option 2, then disappear and clear answer to QIDs: [4131, 4221].
+ifQ(3681)
+.answered(2)
+.disappear(Q(4131), Q(4221))
+.clearAnswer(Q(4131), Q(4221))
+
+//*******************************
+//POOL/FITNESS CENTER - End
+//*******************************
