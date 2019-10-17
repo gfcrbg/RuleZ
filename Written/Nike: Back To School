@@ -1,0 +1,51 @@
+//Last Updated:
+
+//If QID 591 is answered Option 1, then appear QIDs: [81, 91, 241].
+ifQ(591)
+.answered(1)
+.appear(Q(81),Q(91),Q(241))
+
+//If QID 601 is answered Option 1, then appear QIDs: [121, 151].
+ifQ(601)
+.answered(1)
+.appear(Q(121),Q(151))
+
+//If QID 611 is answered Option 1, then appear QID 161.
+ifQ(611)
+.answered(1)
+.appear(Q(161))
+
+//If QID 661 is answered Option 1, then appear QID 651.
+ifQ(661)
+.answered(1)
+.appear(Q(651))
+
+//If QID 701 is answered Option 1, then appear QID 381.
+ifQ(701)
+.answered(1)
+.appear(Q(381))
+
+//If QID 711 is answered Option 1, then appear QID 391.
+ifQ(711)
+.answered(1)
+.appear(Q(391))
+
+//If QID 721 is answered Option 1, then appear QIDs: [451, 471].
+ifQ(721)
+.answered(1)
+.appear(Q(451),Q(471))
+
+//If QID 741 is answered Option 1, then appear QIDs: [481, 501].
+ifQ(741)
+.answered(1)
+.appear(Q(481),Q(501))
+
+//If QID 751 is answered Option 1, then appear QIDs: [511, 531].
+ifQ(751)
+.answered(1)
+.appear(Q(511),Q(531))
+
+//If QID 861 is answered Option 1, then appear QIDs: [871, 881].
+ifQ(861)
+.answered(1)
+.appear(Q(871),Q(881))
