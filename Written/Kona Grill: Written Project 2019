@@ -1,0 +1,44 @@
+//Last Updated:  7/17/2019
+
+
+
+
+//*******************************
+// GUEST GREETER - Begin 
+//*******************************
+
+//If QID 1751 is answered Option 2, then hide QIDs [1701, 1711, 1721].
+ifQ(1751)
+.answered(2)
+.disappear(Q(1701), Q(1711), Q(1721))
+
+//*******************************
+// GUEST GREETER - End 
+//*******************************
+
+
+
+
+//*******************************
+// MANAGER ON DUTY - Begin 
+//*******************************
+
+//If QID 1061 is answered Option 2, then the following effects are triggered...
+//Disappear QIDs: [1071, 1091, 1351, 1681, 1851, 1861, 1141].
+//Clear answer to QIDs: [1071, 1091, 1681].
+//Set value to "N/A" for QID 1351.
+//Set value to Option 2 for QID 1851.
+//Set value to Option 2 for QID 1861.
+//Set value to "I did not see a Manager during my visit at this location." for QID 1141.
+ifQ(1061)
+.answered(2)
+.disappear(Q(1071), Q(1091), Q(1351), Q(1681), Q(1851), Q(1861), Q(1141))
+.clearAnswer(Q(1071), Q(1091), Q(1681))
+.setValue(Q(1351), "N/A")
+.setValue(Q(1851), 2)
+.setValue(Q(1861), 2)
+.setValue(Q(1141), "I did not see a Manager during my visit at this location.")
+
+//*******************************
+// MANAGER ON DUTY - End 
+//*******************************
