@@ -1,0 +1,39 @@
+// Last Updated:
+
+
+// If QIDs [51, 41] answered anything, then trigger math operation: QID 51 - QID 41 = QID 1741.
+ifQ(51)
+.answered()
+.andQ(41)
+.answered()
+.sub(Q(51) , Q(41))
+.store(Q(1741))
+
+// If QIDs [1831, 1821] answered anything, then trigger math operation: QID 1831 - QID 1821 = QID 1841.
+ifQ(1831)
+.answered()
+.andQ(1821)
+.answered()
+.sub(Q(1831) , Q(1821))
+.store(Q(1841))
+
+// If QIDs [1851, 1831] answered anything, then trigger math operation: QID 1851 - QID 1831 = QID 121.
+ifQ(1851)
+.answered()
+.andQ(1831)
+.answered()
+.sub(Q(1851) , Q(1831))
+.store(Q(121))
+
+// If QIDs [2091, 1831] answered anything, then trigger math operation: QID 2091 - QID 1831 = QID 1871.
+ifQ(2091)
+.answered()
+.andQ(1831)
+.answered()
+.sub(Q(2091) , Q(1831))
+.store(Q(1871))
+
+// If QID 672 is not answered, then disappear QIDs [1841, 121, 691, 1011, 1761, 971, 901, 881, 1721, 911, 171, 201, 951, 201].
+ifQ(672)
+.notAnswered()
+.disappear (Q(1841),	Q(121),	Q(691),	Q(1011),	Q(1761),	Q(971),	Q(901),	Q(881),	Q(1721),	Q(911),	Q(171),	Q(201),	Q(951),	Q(201));
