@@ -1,0 +1,95 @@
+//Last Updated: 8/8/2019
+
+//If QID 351 is answered Option 2, then disappear QID 41.
+ifQ(351)
+.answered(2)
+.disappear(Q(41))
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE - Begin
+//*******************************
+
+//If QID 351 is answered Option 2, then disappear and clear answer to QID 61.
+ifQ(351)
+.answered(2)
+.disappear(Q(61))
+.clearAnswer(Q(61))
+
+//If QID 561 is answered Option 2, then disappear and clear answer to QID 551.
+ifQ(561)
+.answered(2)
+.disappear(Q(551))
+.clearAnswer(Q(551))
+
+//If QID 61 is answered Option 1, then disappear and clear answer QID 71.
+ifQ(61)
+.answered(1)
+.disappear(Q(71))
+.clearAnswer(Q(71))
+
+//If QID 61 is answered Option 0 or 4, then disappear and clear answer QIDs: [421, 101, 511, 111, 131, 241, 271, 151, 161, 171, 181, 191, 211, 221].
+ifQ(61)
+.answered(0,4)
+.disappear(Q(91), Q(421), Q(101), Q(511), Q(111), Q(131), Q(241), Q(271), Q(151), Q(161), Q(171), Q(181), Q(191), Q(211), Q(221))
+.clearAnswer(Q(91), Q(421), Q(101), Q(511), Q(111), Q(131), Q(241), Q(271), Q(151), Q(161), Q(171), Q(181), Q(191), Q(211), Q(221))
+
+//If QID 111 is answered Option 0 or 2, then disappear and clear answer to QID 121.
+ifQ(111)
+.answered(0,2)
+.disappear(Q(121))
+.clearAnswer(Q(121))
+
+//If QID 551 is answered Option 1 or 2, then disappear and clear answer to QID 521.
+ifQ(551)
+.answered(1,2)
+.disappear(Q(521))
+.clearAnswer(Q(521))
+
+//If QID 551 is answered Option 1 or 3, then disappear and clear answer to QID 531.
+ifQ(551)
+.answered(1,3)
+.disappear(Q(531))
+.clearAnswer(Q(531))
+
+//If QID 151 is answered Option 0 or 1, then disappear and clear answer to QID 571.
+ifQ(151)
+.answered(0,1)
+.disappear(Q(571))
+.clearAnswer(Q(571))
+
+//If QID 161 is answered Option 0 or 2, then disappear and clear answer to QID 301.
+ifQ(161)
+.answered(0,2)
+.disappear(Q(301))
+.clearAnswer(Q(301))
+
+//If QID 171 answered Option 0 or 2, then disappear and clear answer to QID 311.
+ifQ(171)
+.answered(0,2)
+.disappear(Q(311))
+.clearAnswer(Q(311))
+
+//If QID 181 is answered Option 0 or 2, then disappear and clear answer to QID 321.
+ifQ(181)
+.answered(0,2)
+.disappear(Q(321))
+.clearAnswer(Q(321))
+
+//If QID 191 is answered Option 0 or 2, then disappear and clear answer to QID 201.
+ifQ(191)
+.answered(0,2)
+.disappear(Q(201))
+.clearAnswer(Q(201))
+
+//If QID 121 is answered Option 0 or 2, then disappear and clear answer to QID 331.
+ifQ(121)
+.answered(0,2)
+.disappear(Q(331))
+.clearAnswer(Q(331))
+
+//*******************************
+// CUSTOMER SERVICE - End
+//*******************************
