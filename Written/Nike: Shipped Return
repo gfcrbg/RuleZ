@@ -1,0 +1,78 @@
+//Last Update: 3/19/2019
+
+//if QID 711 answered Options 2 or 3, then show QID 701.
+ifQ(711)
+.answered(2,3)
+.appear(Q(701))
+
+//if QID 631 answered YES, then show QID 441.
+ifQ(631)
+.answered(1)
+.appear(Q(441));
+
+//if QID 641 answered YES, then show QID 451.
+ifQ(641)
+.answered(1)
+.appear(Q(451));
+
+//if QID 651 answered YES, then show QID 461.
+ifQ(651)
+.answered(1)
+.appear(Q(461));
+
+//if QID 661 answered YES, then show QIDs 471 and 811.
+ifQ(661)
+.answered(1)
+.appear(Q(471), Q(811));
+
+//if QID 501 answered NO, then show QID 511.
+ifQ(501)
+.answered(2)
+.appear(Q(511));
+
+
+//***************************
+//RuleZ Deactivated
+//***************************
+
+//Active: 11/1/2018 - 12/31/2018
+ifQ(751)
+.dateAfter("2018-10-31")
+.dateBefore("2019-01-01")
+.answered(2)
+.appear(Q(761))
+
+//Active: 11/1/2018 - 12/31/2018
+ifQ(751)
+.dateAfter("2018-10-31")
+.dateBefore("2019-01-01")
+.answered(1)
+.disappear(Q(761))
+
+//Active: 11/1/2018 - 12/31/2018
+ifQ(771)
+.dateAfter("2018-10-31")
+.dateBefore("2019-01-01")
+.answered(1)
+.appear(Q(781))
+
+//Active: 11/1/2018 - 12/31/2018
+ifQ(771)
+.dateAfter("2018-10-31")
+.dateBefore("2019-01-01")
+.answered(2)
+.disappear(Q(781))
+
+//Active: 11/1/2018 - 12/31/2018
+ifQ(781)
+.dateAfter("2018-10-31")
+.dateBefore("2019-01-01")
+.answered(1)
+.appear(Q(791), Q(801))
+
+//Active: 11/1/2018 - 12/31/2018
+ifQ(781)
+.dateAfter("2018-10-31")
+.dateBefore("2019-01-01")
+.answered(2)
+.disappear(Q(791), Q(801))
