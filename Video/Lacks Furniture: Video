@@ -1,0 +1,7 @@
+// Last Updated:
+
+
+// If QID 672 is not answered anything, then hide scorecard.
+ifQ(672)
+.notAnswered()
+.disappear(Q(71),	Q(81),	Q(872),	Q(91),	Q(101),	Q(111),	Q(121),	Q(131),	Q(61),	Q(211),	Q(882),	Q(311),	Q(141),	Q(151),	Q(161),	Q(171),	Q(892),	Q(181),	Q(201),	Q(902),	Q(221),	Q(231),	Q(251),	Q(952),	Q(912),	Q(411),	Q(261),	Q(281),	Q(291),	Q(321));
