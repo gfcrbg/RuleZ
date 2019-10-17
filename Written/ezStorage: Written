@@ -1,0 +1,20 @@
+// Last Updated: 9/17/2019
+
+
+// If QID 251 is answered Option 2, then disappear and clear answer to QID 261.
+ifQ(251)
+.answered(2)
+.disappear(Q(261))
+.clearAnswer(Q(261))
+
+// If QID 281 is answered Option 2, then disappear and clear answer to QID 291.
+ifQ(281)
+.answered(2)
+.disappear(Q(291))
+.clearAnswer(Q(291))
+
+// If QID 301 is answered Option 2, then disappear and clear answer to QID 321.
+ifQ(301)
+.answered(2)
+.disappear(Q(321))
+.clearAnswer(Q(321))
