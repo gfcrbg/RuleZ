@@ -1,0 +1,20 @@
+//Last Updated: 
+
+//If QID 511 is answered Option 2, or if QID 521 is answered Option 2, then make required QID 531.
+ifQ(511)
+.answered(2)
+.orifQ(521)
+.answered(2)
+.makeRequired( Q(531));
+
+//401 Enter the amount of your purchase- $46.99
+//601 Enter amount credited for the return- $40.00
+//611 Amount not credited - $6.99    
+
+
+//ifQ(401)
+//.answered()
+//.andifQ(601)
+//.answered()
+//.sub( Q(401), Q(601) )// subtracts 601 from 401
+//.store( Q(611) );// and store it here
