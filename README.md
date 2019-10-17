@@ -1,8 +1,8 @@
 # RuleZ
 
-**10/17/2019**
+## October 2019
 
-Transferred RuleZ in Gist to respositories in GitHub.  
+Transferred RuleZ from Gist to GitHub (repositories).  
 Benfits of transferring to this platform:
 
 - Better navigation
