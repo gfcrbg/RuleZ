@@ -1,0 +1,13 @@
+//If QID 1261 and QID 21 are answered anything, then subtract QID 21 from QID 1261 and store the difference in QID 3821.
+ifQ(1261)
+.answered()
+.andQ(21)
+.answered()
+.sub(Q(1261) , Q(21))
+.store(Q(3821))
+
+//If QID 3941 is answered Options 2, 3, 4, or 5, then disappear and make not required Section 11.
+ifQ(3941)
+.answered(2,3,4,5)
+.makeNotRequired(Section(11))
+.disappear(Section(11))
