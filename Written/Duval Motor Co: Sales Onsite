@@ -1,0 +1,63 @@
+//Last Update: 3/26/2019
+
+//*******************************
+// TELEPHONE EVALUATION - Begin 
+//*******************************
+
+//If QID 131 is answered Option 2, then appear QID 141 and clear answers to QIDs: [101, 121, 151, 161, 171, 181, 191, 201, 231]. 
+ifQ(131)
+.answered(2)
+.appear(Q(141))
+.clearAnswer(Q(101), Q(121), Q(151), Q(161), Q(171), Q(181), Q(191), Q(201), Q(231))
+
+//If QID 131 is answered Option 1, then appear QIDs: [101, 121, 151, 161, 171, 181, 191, 201, 231] and clear answer to QID 141.
+ifQ(131)
+.answered(1)
+.appear(Q(101), Q(121), Q(151), Q(161), Q(171), Q(181), Q(191), Q(201), Q(231))
+.clearAnswer(Q(141))
+
+//*******************************
+// TELEPHONE EVALUATION - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES PRESENTATION - Begin 
+//*******************************
+
+//If QID 381 is answered Option 2, then disappear and clear answer to QID 391.
+ifQ(381)
+.answered(2)
+.disappear(Q(391))
+.clearAnswer(Q(391))
+
+
+//If QID 471 is answered Option 2, then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(2)
+.disappear(Q(481))
+.clearAnswer(Q(481))
+
+//*******************************
+// SALES PRESENTATION - End
+//*******************************
+
+
+
+
+//*******************************
+// OPERATIONS/FOLLOW UP - Begin
+//*******************************
+
+//If QID 621 is answered Option 2, then disappear and clear answer to QID 631.
+ifQ(621)
+.answered(2)
+.disappear(Q(631))
+.clearAnswer(Q(631))
+
+
+//*******************************
+// OPERATIONS/FOLLOW UP - End
+//*******************************
