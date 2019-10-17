@@ -1,0 +1,99 @@
+//Sets Freshness 2431 by date calculation
+//If no date is entered, set Freshness to N/A
+ifQ(5521)
+.notAnswered()
+.setValue(Q(2431),3)
+
+//Otherwise, sub today from the date entered and store the value in 5531
+ifQ(5521)
+.answered()
+.sub(Q(5521), Q(1))
+.store(Q(5531))
+
+//If 5531 is less than the shop date, mark not fresh
+ifQ(5531)
+.answered()
+.andifQ(5531)
+.lessThan(0)
+.setValue(Q(2431),2)
+
+//If 5531 is greater than the shop date, mark as fresh
+ifQ(5531)
+.greaterThanOrEqual(0)
+.setValue(Q(2431),1)
+
+//Calc guest's approx wait in line (store counter)
+ifQ(5541)
+.answered()
+.andQ(5551)
+.answered()
+.sub(Q(5551) , Q(5541))
+.store(Q(3091))
+
+//Set radio button to reflect time spent in line (store counter)
+//Under 1  min
+ifQ(3091)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(3091)
+.lessThan(60)
+.setValue( Q(3101),1)
+
+//Under 2  min
+ifQ(3091)
+.greaterThanOrEqual(61)
+.andifQ(3091)
+.lessThanOrEqual(120)
+.setValue( Q(3101),2)
+
+//Under 3  min
+ifQ(3091)
+.greaterThanOrEqual(121)
+.andifQ(3091)
+.lessThanOrEqual(180)
+.setValue( Q(3101),3)
+
+//Over 3  min
+ifQ(3091)
+.greaterThanOrEqual(181)
+.setValue( Q(3101),4)
+//End of setting radio buttons for time spent in line (store counter)
+
+//If the time in line is less than 2 min, set the under 2 min question to yes, otherwise no
+//Under 2 min
+ifQ(3091)
+.lessThan(120)
+.setValue(Q(2211),1)
+
+//Over 2 min
+ifQ(3091)
+.greaterThanOrEqual(120)
+.setValue(Q(2211),2)
+
+//Sets All of the Above if all options are selected for the Fuel Island Stock levels
+ifQ(1571)
+.answered(1)
+.andQ(1571)
+.answered(2)
+.andQ(1571)
+.answered(3)
+.setValue(Q(1571),1,2,3,4)
+
+
+//Sets All of the Above if all options are selected for the Restroom Stock levels
+ifQ(6271)
+.answered(1)
+.andQ(6271)
+.answered(2)
+.andQ(6271)
+.answered(3)
+.setValue(Q(6271),1,2,3,4);
+
+//Sets All of the Above if all options are selected for the Employee Uniform reqs
+ifQ(1631)
+.answered(1)
+.andQ(1631)
+.answered(2)
+.andQ(1631)
+.answered(3)
+.setValue(Q(1631),1,2,3,4);
