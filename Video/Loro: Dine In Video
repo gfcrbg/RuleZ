@@ -1,0 +1,28 @@
+// Last Updated:
+
+
+// If QIDs [1361, 1371] answered anything, then trigger math operation: QID 1371 - QID 1361 = QID 111.
+ifQ(1361)
+.answered()
+.andQ(1371)
+.answered()
+.sub(Q(1371), Q(1361))
+.store(Q(111))
+
+// If QID 1381 is answered Option 1, then appears QIDs [1391, 1401].
+ifQ(1381)
+.answered(1)
+.appear(Q(1391), Q(1401))
+
+// If QID 1341 is answered Option 1, then appear QIDs [1321, 1331].
+ifQ(1341)
+.answered(1)
+.appear(Q(1321), Q(1331))
+
+// If QIDs [1421, 1431] answered anything, then trigger math operation: QID 1431 - QID 1421 = QID 1201.
+ifQ(1421)
+.answered()
+.andQ(1431)
+.answered()
+.sub(Q(1431), Q(1421))
+.store(Q(1201))
