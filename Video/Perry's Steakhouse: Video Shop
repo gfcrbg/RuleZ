@@ -1,0 +1,41 @@
+// Last Updated: 5/22/2019
+
+
+
+
+//*******************************
+// BAR SERVICE - Begin 
+//*******************************
+
+// If QID 3411 is answered anything, then trigger math operation: QID 3411 - QID 3401 = QID 3311.
+ifQ(3411)
+.answered()
+.sub(Q(3411), Q(3401))
+.store(Q(3311))
+
+//*******************************
+// BAR SERVICE - End 
+//*******************************
+
+
+
+
+//*******************************
+// FOOD & BEVERAGE TIMING - Begin 
+//*******************************
+
+// If QID 3431 answered anything, then trigger math operation: QID 3431 - QID 3421 = QID 2951.
+ifQ(3431)
+.answered()
+.sub(Q(3431), Q(3421))
+.store(Q(2951))
+
+// If QID 3451 is answered anything, then trigger math operation: QID 3451 - QID 3441 = QID 3371.
+ifQ(3451)
+.answered()
+.sub(Q(3451), Q(3441))
+.store(Q(3371))
+
+//*******************************
+// FOOD & BEVERAGE TIMING - End 
+//*******************************
