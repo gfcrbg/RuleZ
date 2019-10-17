@@ -1,0 +1,284 @@
+//last updated: 2/8/2019
+
+//*******************************
+// FRONT END - Begin
+//*******************************
+
+//if employee is not wearing a name tag, show physical description question
+ifQ(211)
+.answered(2)
+.appear(Q(221))
+
+//*******************************
+// FRONT END - End
+//*******************************
+
+
+
+
+//*******************************
+// SUSHI - Begin
+//*******************************
+
+//if employee available in Sushi department, show Sushi questions
+ifQ(401)
+.answered(1)
+.appear(Q(411), Q(421), Q(441), Q(451), Q(461), Q(491), Q(501), Q(511), Q(521), Q(431))
+
+//if employee is NOT available in Sushi department, clear answers to Sushi section
+ifQ(401)
+.answered(2)
+.clearAnswer(Q(411), Q(421), Q(441), Q(451), Q(461), Q(491), Q(501), Q(511), Q(521), Q(431))
+
+
+//*******************************
+// SUSHI - End
+//*******************************
+
+
+
+
+//*******************************
+// MEAT - Begin
+//*******************************
+
+//if employee available in Meat department, show Meat questions
+ifQ(571)
+.answered(1)
+.appear(Q(581), Q(591), Q(611), Q(621), Q(631), Q(641), Q(661), Q(671), Q(681), Q(691), Q(601))
+
+//if employee is NOT available in Meat department, clear answers to Meat section
+ifQ(571)
+.answered(2)
+.clearAnswer(Q(581), Q(591), Q(611), Q(621), Q(631), Q(641), Q(661), Q(671), Q(681), Q(691), Q(601))
+
+//*******************************
+// MEAT - End
+//*******************************
+
+
+
+
+//*******************************
+// SEAFOOD - Begin
+//*******************************
+
+//if employee available in Seafood department, show Seafood questions
+ifQ(1981)
+.answered(1)
+.appear(Q(1991), Q(2001), Q(2021), Q(2031), Q(2041), Q(2051), Q(2061), Q(2071), Q(2081), Q(2091), Q(2011))
+
+//if employee is NOT available in Seafood department, clear answers to Seafood section
+ifQ(1981)
+.answered(2)
+.clearAnswer(Q(1991), Q(2001), Q(2021), Q(2031), Q(2041), Q(2051), Q(2061), Q(2071), Q(2081), Q(2091), Q(2011))
+
+//*******************************
+// SEAFOOD - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCE - Begin
+//*******************************
+
+//if employee available in Produce department, show Produce questions
+ifQ(731)
+.answered(1)
+.appear(Q(741), Q(751), Q(771), Q(781), Q(791), Q(881), Q(801), Q(811), Q(821), Q(831), Q(841), Q(851), Q(761))
+
+//if employee is NOT available in Produce department, clear answers to Produce questions
+ifQ(731)
+.answered(2)
+.clearAnswer(Q(741), Q(751), Q(771), Q(781), Q(791), Q(881), Q(801), Q(811), Q(821), Q(831), Q(841), Q(851), Q(761))
+
+//if employee offered a sample, show question that asks what sample was available/offered
+ifQ(881)
+.answered(1)
+.appear(Q(1941))
+
+//*******************************
+// PRODUCE - End
+//*******************************
+
+
+
+
+//*******************************
+// BAKERY - Begin
+//*******************************
+
+//if employee available in Bakery department, show Bakery questions
+ifQ(901)
+.answered(1)
+.appear(Q(911), Q(921), Q(971), Q(941), Q(951), Q(981), Q(961), Q(1001), Q(1011), Q(1021), Q(1031), Q(931))
+
+//if employee is NOT available in Bakery department, clear answers to Bakery questions
+ifQ(901)
+.answered(2)
+.clearAnswer(Q(911), Q(921), Q(971), Q(941), Q(951), Q(981), Q(961), Q(1001), Q(1011), Q(1021), Q(1031), Q(931))
+
+//if employee offered a sample, show question that asks what sample was available/offered
+ifQ(971)
+.answered(1)
+.appear(Q(1951))
+
+//*******************************
+// BAKERY - End
+//*******************************
+
+
+
+
+//*******************************
+//  DELI - Begin
+//*******************************
+
+//if employee available in Deli department, show Deli questions
+ifQ(1071)
+.answered(1)
+.appear(Q(1081), Q(1091), Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1171), Q(1181), Q(1191), Q(1201), Q(1101))
+
+//if employee is NOT available in Deli department, clear answers to Deli questions
+ifQ(1071)
+.answered(2)
+.clearAnswer(Q(1081), Q(1091), Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1171), Q(1181), Q(1191), Q(1201), Q(1101))
+
+//if employee offered a sample, show question that asks what sample was available/offered
+ifQ(1111)
+.answered(1)
+.appear(Q(1961))
+
+//*******************************
+//  DELI - End
+//*******************************
+
+
+
+
+//*******************************
+//  FLORAL - Begin
+//*******************************
+
+//if employee available in Floral department, show Floral questions
+ifQ(1241)
+.answered(1)
+.appear(Q(1251), Q(1261), Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1271))
+
+//if employee is NOT available in Floral department, clear answers to Floral questions
+ifQ(1241)
+.answered(2)
+.clearAnswer(Q(1251), Q(1261), Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1271))
+
+//*******************************
+//  FLORAL - End
+//*******************************
+
+
+
+
+//*******************************
+//  COFFEE/JUICE - Begin
+//*******************************
+
+//if employee available in Coffee/Juice department, show Coffee/Juice questions
+ifQ(1401)
+.answered(1)
+.appear(Q(1411), Q(1421), Q(1441), Q(1451), Q(1461), Q(1471), Q(1491), Q(1501), Q(1511), Q(1521), Q(1431))
+
+//if employee is NOT available in Coffee/Juice department, clear answers to Coffee/Juice questions
+ifQ(1401)
+.answered(2)
+.clearAnswer(Q(1411), Q(1421), Q(1441), Q(1451), Q(1461), Q(1471), Q(1491), Q(1501), Q(1511), Q(1521), Q(1431))
+
+//*******************************
+//  COFFEE/JUICE - End
+//*******************************
+
+
+
+
+//*******************************
+//  GROCERY - Begin
+//*******************************
+
+//if employee available in Grocery department, show Grocery questions
+ifQ(1571)
+.answered(1)
+.appear(Q(1581), Q(1561), Q(1601), Q(1611), Q(1621), Q(1631), Q(2121), Q(1651), Q(1661), Q(1681), Q(1591))
+
+//if employee is NOT available in Grocery department, clear answers to Grocery questions
+ifQ(1571)
+.answered(2)
+.clearAnswer(Q(1581), Q(1561), Q(1601), Q(1611), Q(1621), Q(1631), Q(2121), Q(1651), Q(1661), Q(1681), Q(1591))
+
+//*******************************
+//  GROCERY - End
+//*******************************
+
+
+
+
+//*******************************
+//  WINE - Begin
+//*******************************
+
+//if employee available in Wine department, show Wine questions
+ifQ(1721)
+.answered(1)
+.appear(Q(1731), Q(1741), Q(1761), Q(1771), Q(1781), Q(1791), Q(1801), Q(1811), Q(1821), Q(1831), Q(1841), Q(1751))
+
+//if employee is NOT available in Wine department, clear answers to Wine questions
+ifQ(1721)
+.answered(2)
+.clearAnswer(Q(1731), Q(1741), Q(1761), Q(1771), Q(1781), Q(1791), Q(1801), Q(1811), Q(1821), Q(1831), Q(1841), Q(1751))
+
+//*******************************
+//  WINE - End
+//*******************************
+
+
+
+
+//*******************************
+//  CHEESE - Begin
+//*******************************
+
+//if employee available in Cheese department, show Cheese questions
+ifQ(2141)
+.answered(1)
+.appear(Q(2151), Q(2161), Q(2181), Q(2191), Q(2201), Q(2211), Q(2221), Q(2231), Q(2241), Q(2251), Q(2261), Q(2171))
+
+//if employee is NOT available in Cheese department, clear answers to Cheese questions
+ifQ(2141)
+.answered(2)
+.clearAnswer(Q(2151), Q(2161), Q(2181), Q(2191), Q(2201), Q(2211), Q(2221), Q(2231), Q(2241), Q(2251), Q(2261), Q(2171))
+
+//*******************************
+//  CHEESE - End
+//*******************************
+
+
+
+
+//*******************************
+//  MANAGEMENT - Begin
+//*******************************
+
+//if the shopper observed a Store Director, Manager of Service, Manager of Merchandising, or Manager of Perishables, then show Management questions
+ifQ(2301)
+.answered(1,2,3,4)
+.appear(Q(2311), Q(2321), Q(2341), Q(2351), Q(2381), Q(2331))
+
+//if the shopper did NOT observe a Store Director, Manager of Service, Manager of Merchandising, or Manager of Perishables, then show Management questions
+ifQ(2301)
+.answered(5)
+.clearAnswer(Q(2311), Q(2321), Q(2341), Q(2351), Q(2381), Q(2331))
+
+//*******************************
+//  MANAGEMENT - End
+//*******************************
+
+
