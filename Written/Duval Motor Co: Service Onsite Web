@@ -1,0 +1,8 @@
+// Last Updated: 10/4/2019
+
+
+// If QID 51 is answered Option 2, then disappear and clear answer to QID 371.
+ifQ(51)
+.answered(2)
+.disappear(Q(371))
+.clearAnswer(Q(371))
