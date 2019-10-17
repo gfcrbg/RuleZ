@@ -1,0 +1,58 @@
+//Last Updated: 6/27/2019
+
+
+
+
+//*******************************
+//PATRON - DINE-IN - Begin
+//*******************************
+
+//Calculates elapsed time.  The difference of QIDs [941, 931].
+ifQ(941)
+.answered()
+.sub(Q(941), Q(931))
+.store(Q(101))
+
+//Calculates elapsed time.  The difference of QIDs [961, 951].
+ifQ(951)
+.answered()
+.sub(Q(961), Q(951))
+.store(Q(151))
+
+//Calculates elapsed time.  The difference of QIDs [1011, 1001].
+ifQ(1001)
+.answered()
+.sub(Q(1011), Q(1001))
+.store(Q(1041))
+
+//Calculates elapsed time.  The difference of QIDs [1031, 1021].
+ifQ(1021)
+.answered()
+.sub(Q(1031), Q(1021))
+.store(Q(1051))
+
+//Calculates elapsed time.  The difference of QIDs [981, 971].
+ifQ(971)
+.answered()
+.sub(Q(981), Q(971))
+.store(Q(991))
+
+//If QID 991 is less than or equal to 8 minutes, then set value to Option 1 for QID 291.
+ifQ(991)
+.lessThanOrEqual(480)
+.setValue(Q(291), 1)
+
+//If QID 991 is greater than 8 minutes and less than 10 minutes : 1 second, then set value to Option 2 for QID 291.
+ifQ(991)
+.greaterThan(480)
+.lessThan(601)
+.setValue(Q(291), 2)
+
+//If QID 991 is greater than or equal to 10 minutes: 1 second, then set value to Option 3 for QID 291.
+ifQ(991)
+.greaterThanOrEqual(601)
+.setValue(Q(291), 3)
+
+//*******************************
+//PATRON - DINE-IN - End
+//*******************************
