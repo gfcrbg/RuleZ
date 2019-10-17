@@ -1,0 +1,36 @@
+// Last Updated:
+
+// If QID 1281 is answered Option 1, then appear QIDs: [191, 201, 1321].
+ifQ(1281)
+.answered(1)
+.appear(Q(191), Q(201), Q(1321))
+
+// If QID 201 is answered Option 2, then appear QID 1321.
+ifQ(201)
+.answered(2)
+.appear(Q(1321))
+
+// If QID 1301 is answered Option 1, then appear QIDs: [741, 751, 761, 881, 891, 901, 1381].
+ifQ(1301)
+.answered(1)
+.appear(Q(741),Q(751),Q(761),Q(881),Q(891),Q(901),Q(1381))
+
+// If QID 1311 is answered Option 1, then appear QIDs: [791, 801, 941, 951, 961, 1401].
+ifQ(1311)
+.answered(1)
+.appear(Q(791),Q(801),Q(941),Q(951),Q(961),Q(1401))
+
+// If QID 1411 is answered Option 2, then appear QID 771.
+ifQ(1411)
+.answered(2)
+.appear(Q(771))
+
+// If QID 1311 is answered Option 1, then appear QID 1401.
+ifQ(1311)
+.answered(1)
+.appear(Q(1401))
+
+// If QID 1581 is answered Option 1, then appear QIDs: [1591, 1601, 1611, 1621].
+ifQ(1581)
+.answered(1)
+.appear(Q(1591), Q(1601), Q(1611), Q(1621))
