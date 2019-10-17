@@ -1,0 +1,10 @@
+// Last Updated: 
+
+
+// Calc for time length; food ordered and food delivered
+ifQ(742)
+.answered()
+.andQ(752)
+.answered()
+.sub(Q(752) , Q(742))
+.store(Q(762))
