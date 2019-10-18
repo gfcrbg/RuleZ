@@ -17,5 +17,12 @@ If you have any questions, ask the current QA Analyst.
  _Greg Steelman
  gsteelman@realitybasedgroup.com_
  
+ ## Documentation
+ 
+ [RuleZ Documentation](https://sassierulez.wordpress.com/)
+ 
+ [RuleZ Cause and Effect](https://www.sassieshop.com/site/z/rulez/index.php)
+ 
+ 
 
 
