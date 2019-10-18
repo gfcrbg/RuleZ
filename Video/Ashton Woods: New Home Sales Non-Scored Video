@@ -1,0 +1,22 @@
+// Last Updated: 10/18/2019
+
+
+
+
+// If QID 121 is answered Option 1, then disappear and clear answer to QIDs [141, 161].
+ifQ(121)
+.answered(1)
+.disappear(Q(141), Q(161))
+.clearAnswer(Q(141), Q(161))
+
+// If QID 141 is answered Option [0 or 2], then disappear and clear answer to QID 151.
+ifQ(141)
+.answered(0,2)
+.disappear(Q(151))
+.clearAnswer(Q(151))
+
+// If QID 161 is answered Option [0 or 2], then disappear and clear answer to QIDs [171, 181, 191].
+ifQ(161)
+.answered(0,2)
+.disappear(Q(171), Q(181), Q(191))
+.clearAnswer(Q(171), Q(181), Q(191))
