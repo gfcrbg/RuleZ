@@ -1,4 +1,4 @@
-// Last Updated: 9/30/2019
+// Last Updated: 10/24/2019
 
 
 
@@ -254,11 +254,11 @@ ifQ(1332)
 // RETAIL - Begin 
 //*******************************
 
-// If QID 2102 is answered Option 2, then disappear and clear answer to QIDs: [1532, 1542, 1552, 1562, 1572, 1582, 1592, 1612, 1622, 1632, 1642, 1652, 1662].
+// If QID 2102 is answered Option 2, then disappear and clear answer to QIDs: [1542, 1552, 1562, 1572, 1582, 1592, 1612, 1622, 1632, 1642, 1652, 1662].
 ifQ(2102)
 .answered(2)
-.disappear(Q(1532), Q(1542), Q(1552), Q(1562), Q(1572), Q(1582), Q(1592), Q(1612), Q(1622), Q(1632), Q(1642), Q(1652), Q(1662))
-.clearAnswer(Q(1532), Q(1542), Q(1552), Q(1562), Q(1572), Q(1582), Q(1592), Q(1612), Q(1622), Q(1632), Q(1642), Q(1652), Q(1662))
+.disappear(Q(1542), Q(1552), Q(1562), Q(1572), Q(1582), Q(1592), Q(1612), Q(1622), Q(1632), Q(1642), Q(1652), Q(1662))
+.clearAnswer(Q(1542), Q(1552), Q(1562), Q(1572), Q(1582), Q(1592), Q(1612), Q(1622), Q(1632), Q(1642), Q(1652), Q(1662))
 
 // If QID 2102 is answered Option 2, then disappear and clear answer QID 1672.
 ifQ(2102)
@@ -276,11 +276,11 @@ ifQ(1592)
 // Retail - Second Experience - Begin
 //--------------------------------------------
 
-// If QID 1672 is answered Options [0 or 2], then disappear and clear answer to QIDs: [1692, 1702, 1712, 1722, 1732, 1742, 1752, 1772, 1782, 1792, 1802, 1812, 1822].
+// If QID 1672 is answered Options [0 or 2], then disappear and clear answer to QIDs: [1702, 1712, 1722, 1732, 1742, 1752, 1772, 1782, 1792, 1802, 1812, 1822].
 ifQ(1672)
 .answered(0,2)
-.disappear(Q(1692), Q(1702), Q(1712), Q(1722), Q(1732), Q(1742), Q(1752), Q(1772), Q(1782), Q(1792), Q(1802), Q(1812), Q(1822))
-.clearAnswer(Q(1692), Q(1702), Q(1712), Q(1722), Q(1732), Q(1742), Q(1752), Q(1772), Q(1782), Q(1792), Q(1802), Q(1812), Q(1822))
+.disappear(Q(1702), Q(1712), Q(1722), Q(1732), Q(1742), Q(1752), Q(1772), Q(1782), Q(1792), Q(1802), Q(1812), Q(1822))
+.clearAnswer(Q(1702), Q(1712), Q(1722), Q(1732), Q(1742), Q(1752), Q(1772), Q(1782), Q(1792), Q(1802), Q(1812), Q(1822))
 
 // If QID 1752 is answered Options [0, 2, or 3], then disappear and clear answer to QID 1762.
 ifQ(1752)
