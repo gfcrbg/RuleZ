@@ -1,0 +1,248 @@
+// Last Updated: 10/25/2019
+
+
+
+
+//*******************************
+// WILL CALL - Begin 
+//*******************************
+
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// If QID 1952 is answered anything, then trigger math operation: QID 1962  - QID 1952 = QID 1972.
+ifQ(1952)
+.answered()
+.sub(Q(1962), Q(1952))
+.store(Q(1972))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minute or less'.
+ifQ(1972)
+.lessThanOrEqual(60)
+.setValue(Q(1982), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(1972)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(1982), 2)
+
+// If elapsed time is greater than 180 seconds, but less than or equal to 300 seconds; then set value to '3:01-5:00 minutes'.
+ifQ(1972)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(1982), 3)
+
+// If elapsed time is greater than 300 seconds; then set value to '5:01 minutes or more'.
+ifQ(1972)
+.greaterThan(300)
+.setValue(Q(1982), 4)
+
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+//*******************************
+// WILL CALL - End
+//*******************************
+
+
+
+//*******************************
+// SECURITY - Begin 
+//*******************************
+
+//----------------------------------------------
+// Calc Wait in Line Elapsed Time 1 - Begin
+//----------------------------------------------
+
+// If QID 922 is answered anything, then trigger math operation: QID 932  - QID 922 = QID 942.
+ifQ(922)
+.answered()
+.sub(Q(932), Q(922))
+.store(Q(942))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minute or less'.
+ifQ(942)
+.lessThanOrEqual(60)
+.setValue(Q(952), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(942)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(952), 2)
+
+// If elapsed time is greater than 180 seconds, but less than or equal to 300 seconds; then set value to '3:01-5:00 minutes'.
+ifQ(942)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(952), 3)
+
+// If elapsed time is greater than 300 seconds; then set value to '5:01 minutes or more'.
+ifQ(942)
+.greaterThan(300)
+.setValue(Q(952), 4)
+
+//----------------------------------------------
+// Calc Wait in Line Elapsed Time 1 - End
+//----------------------------------------------
+
+//*******************************
+// SECURITY - End
+//*******************************
+
+
+
+
+//*******************************
+// INTERIOR APPEARANCE - Begin 
+//*******************************
+
+// If QID 1062 is answered Option 1, then disappear and clear answer to QID 1072.
+ifQ(1062)
+.answered(1)
+.disappear(Q(1072))
+.clearAnswer(Q(1072))
+
+//*******************************
+// INTERIOR APPEARANCE - End 
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin 
+//*******************************
+
+// If QID 1092 is answered Option 1, then disappear and clear answer to QID 1102.
+ifQ(1092)
+.answered(1)
+.disappear(Q(1102))
+.clearAnswer(Q(1102))
+
+//*******************************
+// RESTROOMS - End 
+//*******************************
+
+
+
+
+//*******************************
+// CONCESSIONS - Begin 
+//*******************************
+
+//--------------------------------------------
+// Concessions - 100 Level
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// If QID 1162 is answered anything, then trigger math operation: QID 1172  - QID 1162 = QID 1182.
+ifQ(1162)
+.answered()
+.sub(Q(1172), Q(1162))
+.store(Q(1182))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minute or less'.
+ifQ(1182)
+.lessThanOrEqual(60)
+.setValue(Q(2372), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(1182)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2372), 2)
+
+// If elapsed time is greater than 180 seconds, then set value to '3:01 minutes or more'.
+ifQ(1182)
+.greaterThan(180)
+.setValue(Q(2372), 3)
+
+//--------------------------------------------
+// Concessions - 100 Level
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+
+//--------------------------------------------
+// Concessions - Club Level
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// If QID 1352 is answered anything, then trigger math operation: QID 1362  - QID 1352 = QID 1372.
+ifQ(1352)
+.answered()
+.sub(Q(1362), Q(1352))
+.store(Q(1372))
+
+// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minute or less'.
+ifQ(1372)
+.lessThanOrEqual(60)
+.setValue(Q(2392), 1)
+
+// If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
+ifQ(1372)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2392), 2)
+
+// If elapsed time is greater than 180 seconds, then set value to '3:01 minutes or more'.
+ifQ(1372)
+.greaterThan(180)
+.setValue(Q(2392), 3)
+
+//--------------------------------------------
+// Concessions - Club Level
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+//*******************************
+// CONCESSIONS - End 
+//*******************************
+
+
+
+
+//*******************************
+// RETAIL - Begin 
+//*******************************
+
+//--------------------------------------------
+// Grand Atrium Retail Store - Begin
+//--------------------------------------------
+
+// If QID 1592 is answered Options [0, 2, or 3], then disappear and clear answer to QID 1602.
+ifQ(1592)
+.answered(0,2,3)
+.disappear(Q(1602))
+.clearAnswer(Q(1602))
+
+//--------------------------------------------
+// Grand Atrium Retail Store - End
+//--------------------------------------------
+
+
+//--------------------------------------------
+// Club Level Retail Store - Begin
+//--------------------------------------------
+
+// If QID 1752 is answered Options [0, 2, or 3], then disappear and clear answer to QID 1762.
+ifQ(1752)
+.answered(0,2,3)
+.disappear(Q(1762))
+.clearAnswer(Q(1762))
+
+//--------------------------------------------
+// Club Level Retail Store - End
+//--------------------------------------------
+
+//*******************************
+// RETAIL - End
+//*******************************
