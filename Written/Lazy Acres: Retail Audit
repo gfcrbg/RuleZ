@@ -1,0 +1,18 @@
+// Last Updated: 11/4/2019
+
+
+
+
+//*******************************
+// CHEESE - Begin
+//*******************************
+
+// If QID 1581 is answered Option [2 or 3], then disappear and clear answer to QID 1601.
+ifQ(1581)
+.answered(2,3)
+.disappear(Q(1601))
+.clearAnswer(Q(1601))
+
+//*******************************
+// CHEESE - End
+//*******************************
