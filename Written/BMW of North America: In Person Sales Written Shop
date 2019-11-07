@@ -1,4 +1,4 @@
-//Last Updated: 7/10/2019
+//Last Updated: 11/7/2019
 
 //*******************************
 // PERMA HIDE - Options - BEGIN 
@@ -445,6 +445,11 @@ ifQ(2631)
 .answered(3)
 .disappear(Q(2641))
 .setValue(Q(2641), 2)
+
+// If Question 5.2.2 is Option [1 or 2], then set value to Option 1 to Question 5.6 (radio button).
+ifQ(2631)
+.answered(1,2)
+.setValue(Q(2641), 1)
 
 //*******************************
 //FOLLOW UP - END
