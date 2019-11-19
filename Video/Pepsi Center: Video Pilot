@@ -1,4 +1,21 @@
-// Last Updated: 10/25/2019
+// Last Updated: 11/19/2019
+
+
+
+
+//*******************************
+// PARKING - Begin 
+//*******************************
+
+// If QID 862 is answered Option 1, then disappear and clear answer to QID 2522.
+ifQ(862)
+.answered(1)
+.disappear(Q(2522))
+.clearAnswer(Q(2522))
+
+//*******************************
+// PARKING - Begin 
+//*******************************
 
 
 
@@ -162,6 +179,12 @@ ifQ(1182)
 .greaterThan(180)
 .setValue(Q(2372), 3)
 
+// If QID 1222 is answered Option 2, then disappear and clear answer to QID 1232.
+ifQ(1222)
+.answered(2)
+.disappear(Q(1232))
+.clearAnswer(Q(1232))
+
 //--------------------------------------------
 // Concessions - 100 Level
 //--------------------------------------------
@@ -196,6 +219,12 @@ ifQ(1372)
 ifQ(1372)
 .greaterThan(180)
 .setValue(Q(2392), 3)
+
+// If QID 1412 is answered Option 2, then disappear and clear answer to QID 1422.
+ifQ(1412)
+.answered(2)
+.disappear(Q(1422))
+.clearAnswer(Q(1422))
 
 //--------------------------------------------
 // Concessions - Club Level
