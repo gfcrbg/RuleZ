@@ -1,1 +1,169 @@
 // Last Updated: 11/21/2019
+
+
+
+
+//*******************************
+// FRIDAY - Begin 
+//*******************************
+
+//*******************************
+// Loco - Begin 
+//*******************************
+
+// If QID 491 is answered Option 1, then disappear and clear answer to QIDs [501, 511].
+ifQ(491)
+.answered(1)
+.disappear(Q(501), Q(511))
+.clearAnswer(Q(501), Q(511))
+
+// If QID 801 is answered Option 1, then disappear and clear answer to QID 811.
+ifQ(801)
+.answered(1)
+.disappear(Q(811))
+.clearAnswer(Q(811))
+
+//*******************************
+// Loco - End 
+//*******************************
+
+
+//*******************************
+// Table Games - Begin 
+//*******************************
+
+// If QID 5091 is answered Option [2 or 3], then disappear and clear answer to QID 5101.
+ifQ(5091)
+.answered(2,3)
+.disappear(Q(5101))
+.clearAnswer(Q(5101))
+
+//*******************************
+// Table Games - End 
+//*******************************
+
+//*******************************
+// FRIDAY - End 
+//*******************************
+
+
+
+
+//*******************************
+// SATURDAY - Begin 
+//*******************************
+
+//*******************************
+// Mabel's - Begin 
+//*******************************
+
+// If QID 3891 is answered Option 1, then disappear and clear answer to QID 3901.
+ifQ(3891)
+.answered(1)
+.disappear(Q(3901))
+.clearAnswer(Q(3901))
+
+//*******************************
+// Mabel's - End
+//*******************************
+
+
+//*******************************
+// Cafe Delphine - Begin 
+//*******************************
+
+// If QID 1071 is answered Option 1, then disappear and clear answer to QIDs [1081, 1091].
+ifQ(1071)
+.answered(1)
+.disappear(Q(1081), Q(1091))
+.clearAnswer(Q(1081), Q(1091))
+
+// If QID 1381 is answered Option 1, then disappear and clear answer to QID 1391.
+ifQ(1381)
+.answered(1)
+.disappear(Q(1391))
+.clearAnswer(Q(1391))
+
+//*******************************
+// Cafe Delphine - End
+//*******************************
+
+
+//*******************************
+// Mr. Lester's Steakhouse - Begin 
+//*******************************
+
+// If QID 1631 is answered Option 1, then disappear and clear answer to QIDs [1641, 1651].
+ifQ(1631)
+.answered(1)
+.disappear(Q(1641), Q(1651))
+.clearAnswer(Q(1641), Q(1651))
+
+// If QID 1941 is answered Option 1, then disappear and clear answer to QID 1951.
+ifQ(1941)
+.answered(1)
+.disappear(Q(1951))
+.clearAnswer(Q(1951))
+
+//*******************************
+// Mr. Lester's Steakhouse - End
+//*******************************
+
+
+//*******************************
+// Table Games - Begin 
+//*******************************
+
+// If QID 4351 is answered Option [2 or 3], then disappear and clear answer to QID 2581.
+ifQ(4351)
+.answered(2,3)
+.disappear(Q(2581))
+.clearAnswer(Q(2581))
+
+//*******************************
+// Table Games - End
+//*******************************
+
+//*******************************
+// SATURDAY - End
+//*******************************
+
+
+
+
+//*******************************
+// GENERAL INTERACTIONS - Begin 
+//*******************************
+
+//*******************************
+// ATM's - Begin 
+//*******************************
+
+// If QID 3221 is answered Option 2, then disappear and clear answer to QIDs [4901, 4911].
+ifQ(3221)
+.answered(2)
+.disappear(Q(4901), Q(4911))
+.clearAnswer(Q(4901), Q(4911))
+
+//*******************************
+// ATM's - End 
+//*******************************
+
+
+//*******************************
+// Retail - Begin 
+//*******************************
+
+// If QID 6241 is answered Option 1, then disappear and clear answer to QID 6251.
+ifQ(6241)
+.answered(1)
+.disappear(Q(6251))
+.clearAnswer(Q(6251))
+
+//*******************************
+// Retail - End
+//*******************************
+
+//*******************************
+// GENERAL INTERACTIONS - End 
+//*******************************
