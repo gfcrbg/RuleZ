@@ -1,4 +1,4 @@
-// Last Updated:  12/2/2019
+// Last Updated:  12/4/2019
 
 
 
@@ -15,6 +15,23 @@ ifQ(1751)
 
 //*******************************
 // GUEST GREETER - End 
+//*******************************
+
+
+
+
+//*******************************
+// SERVER/BARTENDER - Begin 
+//*******************************
+
+// If QID 2341 is answered Option 2, then disappear and clear answer to QIDs [2331, 2351].
+ifQ(2341)
+.answered(2)
+.disappear(Q(2331), Q(2351))
+.clearAnswer(Q(2331), Q(2351))
+
+//*******************************
+// SERVER/BARTENDER - End
 //*******************************
 
 
