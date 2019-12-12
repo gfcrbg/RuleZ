@@ -1,0 +1,96 @@
+// Last Updated: 12/12/2019
+
+
+
+
+// If QID 1681 is answered Option 2, then disappear and clear answer to QID 1701.
+ifQ(1681)
+.answered(2)
+.disappear(Q(1701))
+.clearAnswer(Q(1701))
+
+
+
+
+//*******************************
+// HOSTESS - Begin
+//*******************************
+
+// If QID 1281 is answered Option 2, then disappear and clear answer to QIDs [191, 201].
+ifQ(1281)
+.answered(2)
+.disappear(Q(191), Q(201))
+.clearAnswer(Q(191), Q(201))
+
+// If QID 201 is answered Option [1 or 0], then disappear and clear answer to QID 1321.
+ifQ(201)
+.answered(1,0)
+.disappear(Q(1321))
+.clearAnswer(Q(1321))
+
+//*******************************
+// HOSTESS - End
+//*******************************
+
+
+
+
+//*******************************
+// TIME STANDARDS - Begin
+//*******************************
+
+// If QID 1301 is answered Option 2, then disappear and clear answer to QIDs [741, 1891, 1901, 751, 1381, 761].
+ifQ(1301)
+.answered(2)
+.disappear(Q(741), Q(1891), Q(1901), Q(751), Q(1381), Q(761))
+.clearAnswer(Q(741), Q(1891), Q(1901), Q(751), Q(1381), Q(761))
+
+//
+ifQ(1311)
+.answered(2)
+.disappear(Q(791), Q(1401), Q(801))
+.clearAnswer(Q(791), Q(1401), Q(801))
+
+//*******************************
+// TIME STANDARDS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD AND BEVERAGE - Begin
+//*******************************
+
+// If QID 1301 is answered Option 2, then disappear and clear answer to QID 881.
+ifQ(1301)
+.answered(2)
+.disappear(Q(881))
+.clearAnswer(Q(881))
+
+// If QID 1311 is answered Option 2, then disappear and clear answer to QID 941.
+ifQ(1311)
+.answered(2)
+.disappear(Q(941))
+.clearAnswer(Q(941))
+
+//*******************************
+// FOOD AND BEVERAGE - End
+//*******************************
+
+
+
+
+//*******************************
+// MANAGEMENT - Begin
+//*******************************
+
+// If QID 1011 is answered Option 2, then disappear and clear answer to QIDs [1021, 1781, 1061].
+ifQ(1011)
+.answered(2)
+.disappear(Q(1021), Q(1781), Q(1061))
+.clearAnswer(Q(1021), Q(1781), Q(1061))
+
+//*******************************
+// MANAGEMENT - End
+//*******************************
