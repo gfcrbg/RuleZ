@@ -1,0 +1,102 @@
+// Last Updated: 12/12/2019
+
+
+
+
+//*******************************
+// SERVER - Begin
+//*******************************
+
+// If QID 1881 is answered anything, then trigger math function: [QID 1891] - [QID 1881] = [QID 2321]
+ifQ(1881)
+.answered()
+.sub(Q(1891), Q(1881))
+.store(Q(2321))
+
+// If QID 2321 is < 10:00 minutes, then set value to Option 1 to QID 1911.
+ifQ(2321)
+.lessThan(600)
+.setValue(Q(1911), 1)
+
+// If QID 2321 is > 9:59 minutes and < 14:01 minutes, then set value to Option 2 to QID 1911.
+ifQ(2321)
+.greaterThan(599)
+.lessThan(841)
+.setValue(Q(1911), 2)
+
+// If QID 2321 is > 14:00 minutes, then set value to Option 3 to QID 1911.
+ifQ(2321)
+.greaterThan(840)
+.setValue(Q(1911), 3)
+
+// -----------------------------
+
+// If QID 1951 is answered anything, then trigger math function: [QID 1941] - [QID 1951] = [QID 2331]
+ifQ(1951)
+.answered()
+.sub(Q(1941), Q(1951))
+.store(Q(2331))
+
+// If QID 2331 is < 2:00 minutes, then set value to Option 1 to QID 1931.
+ifQ(2331)
+.lessThan(120)
+.setValue(Q(1931), 1)
+
+// If QID 2331 is > 1:59 minutes, then set value to Option 2 to QID 1931.
+ifQ(2331)
+.greaterThan(119)
+.setValue(Q(1931), 2)
+
+//*******************************
+// SERVER - End
+//*******************************
+
+
+
+
+//*******************************
+// QUALITY - Begin
+//*******************************
+
+// If QID 2141 is answered anything, then trigger math function: [QID 2151] - [QID 2141] = [QID 2311]
+ifQ(2141)
+.answered()
+.sub(Q(2151), Q(2141))
+.store(Q(2311))
+
+// If QID 2311 is < 6:00 minutes, then set value to Option 1 to QID 2161.
+ifQ(2311)
+.lessThan(360)
+.setValue(Q(2161), 1)
+
+// If QID 2311 is > 5:59 minutes and < 10:01 minutes, then set value to Option 2 to QID 2161.
+ifQ(2311)
+.greaterThan(359)
+.lessThan(601)
+.setValue(Q(2161), 2)
+
+// If QID 2311 is > 10:00 minutes, then set value to Option 3 to QID 2161.
+ifQ(2311)
+.greaterThan(600)
+.setValue(Q(2161), 3)
+
+//*******************************
+// QUALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// If QID 2031 is answered Option 1, then disappear and clear answer to QIDs: [2291, 2301]
+ifQ(2031)
+.answered(1)
+.disappear(Q(2291), Q(2301))
+.clearAnswer(Q(2291), Q(2301))
+
+//*******************************
+// CLEANLINESS - End
+//*******************************
