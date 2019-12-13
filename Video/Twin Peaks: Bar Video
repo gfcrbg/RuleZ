@@ -1,0 +1,9 @@
+// Last Updated: 12/13/2019
+
+
+
+
+// If QID 1151 is answered Option 1, then appear QID 1171.
+ifQ(1151)
+.answered(1)
+.appear(Q(1171))
