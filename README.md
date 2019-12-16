@@ -4,7 +4,7 @@
 
 [Standard RuleZ Writing Format](https://docs.google.com/spreadsheets/d/1zAgehz1o9aOUK-pku8Py8pRmmYcFWZpwoQrSVfo8wkM/edit?usp=sharing)
 
-'// Last Updated: {enter date}
+`// Last Updated: {enter date}
 
 
 
@@ -21,7 +21,7 @@ ifQ(1631)
 
 //*******************************
 // {NAME OF SECTION}  - End
-//*******************************'
+//*******************************`
 
 ### October 2019
 
