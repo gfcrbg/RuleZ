@@ -1,6 +1,6 @@
 # RuleZ
 
-### December 2019
+## December 2019
 
 ### Standard RuleZ Writing Format
 ```
@@ -24,7 +24,7 @@ ifQ(1631)
 //*******************************
 ```
 
-### October 2019
+## October 2019
 
 Transferred RuleZ from Gist to GitHub (repositories).  
 Benfits of transferring to this platform:
@@ -41,7 +41,7 @@ If you have any questions, ask the current QA Analyst.
  _Greg Steelman
  gsteelman@realitybasedgroup.com_
  
- ## Documentation
+ ### Documentation
  
  [RuleZ Documentation](https://sassierulez.wordpress.com/)
  
