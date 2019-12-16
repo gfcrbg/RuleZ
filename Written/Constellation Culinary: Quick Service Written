@@ -1,0 +1,18 @@
+// Last Updated: 12/16/2019
+
+
+
+
+//*******************************
+// COUNTER/REGISTER STAFF - Begin
+//*******************************
+
+// If QID 111 is answered Option 1, then disappear and clear answer to QID 121.
+ifQ(111)
+.answered(1)
+.disappear(Q(121))
+.clearAnswer(Q(121))
+
+//*******************************
+// COUNTER/REGISTER STAFF - End
+//*******************************
