@@ -2,26 +2,7 @@
 
 ### December 2019
 
-Standard RuleZ writing format.
-
-// Last Updated: {enter date}
-
-
-
-
-//*******************************
-// {NAME OF SECTION} - Begin
-//*******************************
-
-// {notes go here -->} If QID 1631 is answered Option 2, then disappear and clear answer to QID 1641.
-ifQ(1631)
-.answered(2)
-.disappear(Q(1641))
-.clearAnswer(Q(1641))
-
-//*******************************
-// {NAME OF SECTION}  - End
-//*******************************
+[Standard RuleZ Writing Format](https://docs.google.com/spreadsheets/d/1zAgehz1o9aOUK-pku8Py8pRmmYcFWZpwoQrSVfo8wkM/edit?usp=sharing)
 
 ### October 2019
 
