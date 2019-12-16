@@ -41,7 +41,7 @@ If you have any questions, ask the current QA Analyst.
  _Greg Steelman
  gsteelman@realitybasedgroup.com_
  
- ### Documentation
+ ## Documentation
  
  [RuleZ Documentation](https://sassierulez.wordpress.com/)
  
