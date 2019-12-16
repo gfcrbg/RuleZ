@@ -2,7 +2,7 @@
 
 ### December 2019
 
-## Standard RuleZ Writing Format
+### Standard RuleZ Writing Format
 ```
 // Last Updated: {enter date}
 
