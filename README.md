@@ -3,10 +3,9 @@
 ### December 2019
 
 [Standard RuleZ Writing Format](https://docs.google.com/spreadsheets/d/1zAgehz1o9aOUK-pku8Py8pRmmYcFWZpwoQrSVfo8wkM/edit?usp=sharing)
-
-
-
-
+###
+###
+###
 ### October 2019
 
 Transferred RuleZ from Gist to GitHub (repositories).  
