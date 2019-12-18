@@ -1,4 +1,4 @@
-// Last Updated: 12/13/2019
+// Last Updated: 12/18/2019
 
 
 
@@ -7,3 +7,81 @@
 ifQ(1151)
 .answered(1)
 .appear(Q(1171))
+
+
+
+
+//*******************************
+// BAR SERVICE - Begin
+//*******************************
+
+// If QID 1 is answered anything, then trigger math operation: [QID 1531] - [QID 1521] = [QID 321]
+ifQ(1)
+.answered()
+.sub(Q(1531), Q(1521))
+.store(Q(321))
+
+//*******************************
+// BAR SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD SERVICE - Begin
+//*******************************
+
+// If QID 1 answered anything, then trigger math operation: [QID 1551] - [QID 1541] = [QID 1571]
+ifQ(1)
+.answered()
+.sub(Q(1551), Q(1541))
+.store(Q(1571))
+
+// If QID 1571 < 10 minutes, then set value to Option 1 to QID 1501.
+ifQ(1571)
+.lessThan(600)
+.setValue(Q(1501), 1)
+
+// If QID 1571 >= 10 minutes AND < 12 minutes, then set value to Option 2 to QID 1501.
+ifQ(1571)
+.greaterThanOrEqual(600)
+.lessThan(720)
+.setValue(Q(1501), 2)
+
+// If QID 1571 >= 12 minutes, then set value to Option 3 to QID 1501.
+ifQ(1571)
+.greaterThanOrEqual(720)
+.setValue(Q(1501), 3)
+
+// If QID 1551 is answered anything, then trigger math operation: [QID 1561] - [QID 1551] = [QID 1391]
+ifQ(1551)
+.answered()
+.sub(Q(1561), Q(1551))
+.store(Q(1391))
+
+// If QID 1391 is > 0 AND < 2 minutes, then set value to Option 1 to QID 1511.
+ifQ(1391)
+.greaterThan(0)
+.lessThan(120)
+.setValue(Q(1511), 1)
+
+// If QID 1391 is >= 2 minutes AND <= 5 minutes, then set value to Option 2 to QID 1511.
+ifQ(1391)
+.greaterThanOrEqual(120)
+.lessThanOrEqual(300)
+.setValue(Q(1511), 2)
+
+// If QID 1391 is <= 0, then set value to Option 3 to QID 1511.
+ifQ(1391)
+.lessThanOrEqual(0)
+.setValue(Q(1511), 3)
+
+// If QID 1391 is > 5 minutes, then set value to Option 3 to QID 1511.
+ifQ(1391)
+.greaterThan(300)
+.setValue(Q(1511), 3)
+
+//*******************************
+// FOOD SERVICE - End
+//*******************************
