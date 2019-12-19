@@ -1,4 +1,13 @@
-// Last Updated: 12/16/2019
+// Last Updated: 12/19/2019
+
+
+
+
+// If QID 791 is answered anything, then trigger math operation: [QID 791] + [QID 801] = [QID 811]
+ifQ(791)
+.answered()
+.sum(Q(791), Q(801))
+.store(Q(811))
 
 
 
