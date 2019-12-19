@@ -1,0 +1,18 @@
+// Last Updated: 12/19/2019
+
+
+
+
+//*******************************
+// RETAIL - Begin
+//*******************************
+
+// If QID 291 is answered Option 2, then disappear and clear answer to QIDs [301, 481].
+ifQ(291)
+.answered(2)
+.disappear(Q(301), Q(481))
+.clearAnswer(Q(301), Q(481))
+
+//*******************************
+// RETAIL - End
+//*******************************
