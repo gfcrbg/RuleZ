@@ -1,4 +1,65 @@
-// Last Updated: 12/16/2019
+// Last Updated: 12/19/2019
+
+
+
+
+//*******************************
+// MEAL SERVICE AND DELIVERY - Begin
+//*******************************
+
+// If QID 1241 is answered anything, then trigger math operation: [QID 1791] - [QID 1781] = [QID 1811]
+ifQ(1241)
+.answered()
+.sub(Q(1791), Q(1781))
+.store(Q(1811))
+
+// If QID 1811 is < 6 minutes, then set value to Option 1 to QID 1401.
+ifQ(1811)
+.lessThan(360)
+.setValue(Q(1401), 1)
+
+// If QID 1811 is >= 6 minutes AND < 8 minutes, then set value to Option 2 to QID 1401.
+ifQ(1811)
+.greaterThanOrEqual(360)
+.lessThan(480)
+.setValue(Q(1401), 2)
+
+// If QID 1811 is >= 8 minutes AND <= 10 minutes, then set value to Option 3 to QID 1401.
+ifQ(1811)
+.greaterThanOrEqual(480)
+.lessThanOrEqual(600)
+.setValue(Q(1401), 3)
+
+// If QID 1811 is > 10 minutes, then set value to Option 4 to QID 1401.
+ifQ(1811)
+.greaterThan(600)
+.setValue(Q(1401), 4)
+
+// If QID 1791 is answered anything, then trigger math operation: [QID 1801] - [QID 1791] = [QID 1821]
+ifQ(1791)
+.answered()
+.sub(Q(1801), Q(1791))
+.store(Q(1821))
+
+// If QID 1821 is > 0 AND <= 2 minutes, then set value to Option 1 to QID 1461.
+ifQ(1821)
+.greaterThan(0)
+.lessThanOrEqual(120)
+.setValue(Q(1461), 1)
+
+// If QID 1821 is <= 0, then set value to Option 2 to QID 1461.
+ifQ(1821)
+.lessThanOrEqual(0)
+.setValue(Q(1461), 2)
+
+// If QID 1821 is > 2 minutes, then set value to Option 2 to QID 1461.
+ifQ(1821)
+.greaterThan(120)
+.setValue(Q(1461), 2)
+
+//*******************************
+// MEAL SERVICE AND DELIVERY - End
+//*******************************
 
 
 
