@@ -1,4 +1,4 @@
-// Last Updated: 12/18/2019
+// Last Updated: 1/16/2020
 
 
 
@@ -79,8 +79,9 @@ ifQ(1301)
 .sub(Q(2091), Q(2081))
 .store(Q(1381))
 
-// If QID 1381 is < 10 minutes, set value to Option 1 to QID 1971.
+// If QID 1381 is >= 1 second AND < 10 minutes, set value to Option 1 to QID 1971.
 ifQ(1381)
+.greaterThanOrEqual(1)
 .lessThan(600)
 .setValue(Q(1971), 1)
 
