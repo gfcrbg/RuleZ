@@ -47,11 +47,11 @@ ifQ(2451)
 .disappear(Q(2441))
 .clearAnswer(Q(2441))
 
-// If QID 2441 answered Option [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, or 17], then disappear and clear answer to QID 1591.
+// If QID 2441 answered Option [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16, or 17], then disappear and set value to Option 3 to QID 1591.
 ifQ(2441)
 .answered(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)
 .disappear(Q(1591))
-.clearAnswer(Q(1591))
+.setValue(Q(1591), 3)
 
 //*******************************
 // SALESMANSHIP - End 
