@@ -4,15 +4,68 @@
 
 
 //*******************************
-// {NAME OF SECTION} - Begin
+// CUSTOMER FEEDBACK - Begin
 //*******************************
 
-// {notes go here -->} If QID 1631 is answered Option 2, then disappear and clear answer to QID 1641.
-ifQ(1631)
+// If QID 481 is answered Option 2, then disappear and clear answer QIDs [491, 501, 511].
+ifQ(481)
 .answered(2)
-.disappear(Q(1641))
-.clearAnswer(Q(1641))
+.disappear(Q(491), Q(501), Q(511))
+.clearAnswer(Q(491), Q(501), Q(511))
+
+// If QID 561 is answered Option 2, then disappear and clear answer to QID 791.
+ifQ(561)
+.answered(2)
+.disappear(Q(791))
+.clearAnswer(Q(791))
+
+// If QID 571 is answered Option 2, then disappear and clear answer to QID 591.
+ifQ(571)
+.answered(2)
+.disappear(Q(591))
+.clearAnswer(Q(591))
+
+// If QID 631 is answered Option 2, then disappear and clear answer to QID 641.
+ifQ(631)
+.answered(2)
+.disappear(Q(641))
+.clearAnswer(Q(641))
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QID 651.
+ifQ(741)
+.answered(2)
+.disappear(Q(651))
+.clearAnswer(Q(651))
+
+// If QID 681 is answered Option 2, then disappear and clear answer to QID 691.
+ifQ(681)
+.answered(2)
+.disappear(Q(691))
+.clearAnswer(Q(691))
 
 //*******************************
-// {NAME OF SECTION}  - End
+// CUSTOMER FEEDBACK  - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 721 is answered Option 2, then disappear and clear answer to QIDs [751, 761].
+ifQ(721)
+.answered(2)
+.disappear(Q(751), Q(761))
+.clearAnswer(Q(751), Q(761))
+
+// If QID 771 is answered Option 2, then disappear and clear answer to QID 781.
+ifQ(771)
+.answered(2)
+.disappear(Q(781))
+.clearAnswer(Q(781))
+
+//*******************************
+// FOLLOW UP  - End
 //*******************************
