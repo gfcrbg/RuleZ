@@ -19,11 +19,17 @@ ifQ(561)
 .disappear(Q(791))
 .clearAnswer(Q(791))
 
-// If QID 571 is answered Option 2, then disappear and clear answer to QID 591.
+// If QID 571 is answered Option 2, then disappear and clear answer to QIDs [831, 591].
 ifQ(571)
 .answered(2)
-.disappear(Q(591))
-.clearAnswer(Q(591))
+.disappear(Q(831), Q(591))
+.clearAnswer(Q(831), Q(591))
+
+// If QID 611 is answered Option 2, then disappear and clear answer to QID 621.
+ifQ(611)
+.answered(2)
+.disappear(Q(621))
+.clearAnswer(Q(621))
 
 // If QID 631 is answered Option 2, then disappear and clear answer to QID 641.
 ifQ(631)
