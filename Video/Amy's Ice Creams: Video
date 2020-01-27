@@ -1,0 +1,23 @@
+// Last Updated: 1/27/2020
+
+
+
+
+//*******************************
+// CLEANLINESS/MAINTENANCE - Begin
+//*******************************
+
+// If QID 1212 is answered Option [1 OR 3], then clear answer and disappear QID 1242.
+ifQ(1212)
+.answered(1,3)
+.disappear(Q(1242))
+.clearAnswer(Q(1242))
+
+// If QID 1252 is answered Option [1,2, AND 3], then set value to QID 1252 to Option [1,2,3,4].
+ifQ(1252)
+.answered([1,2,3])
+.setValue(Q(1252),1,2,3,4)
+
+//*******************************
+// CLEANLINESS/MAINTENANCE - End
+//*******************************
