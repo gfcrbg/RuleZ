@@ -1,4 +1,4 @@
-// Last Updated: 1/27/2020
+// Last Updated: 1/28/2020
 
 
 
@@ -7,14 +7,14 @@
 // TELEPHONE EVALUATION - Begin
 //*******************************
 
-// If QID 81 is answered Option 1, then disappear and clear answer to QID 91.
-ifQ(81)
+// If QID 351 is answered Option 1, then disappear and clear answer to QID 91.
+ifQ(351)
 .answered(1)
 .disappear(Q(91))
 .clearAnswer(Q(91))
 
-// If QID 81 is answered Option [], then disappear and clear answer to QIDs [].
-ifQ(81)
+// If QID 351 is answered Option [4], then disappear and clear answer to QIDs [].
+ifQ(351)
 .answered(4)
 .disappear(Q(101), Q(111), Q(121), Q(131), Q(141), Q(151), Q(341), Q(301), Q(161), Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(281), Q(231), Q(241), Q(261))
 .clearAnswer(Q(101), Q(111), Q(121), Q(131), Q(141), Q(151), Q(341), Q(301), Q(161), Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(281), Q(231), Q(241), Q(261))
