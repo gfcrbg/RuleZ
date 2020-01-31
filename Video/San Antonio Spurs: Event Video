@@ -1,4 +1,4 @@
-// Last Update: 11/8/2019
+// Last Update: 1/31/2020
 
 
 
@@ -13,11 +13,11 @@ ifQ(3562)
 // WILL CALL - Begin
 //*******************************
 
-// If QID 3432 is answered Option 2, then disappear and clear answers to QIDs [2182, 2192, 2202, 1012, 3082, 2322, 2332, 2342].
+// If QID 3432 is answered Option [0 OR 2], then disappear and clear answers to QIDs [2182, 2192, 2202, 3082, 2322, 2332, 2342, 1012].
 ifQ(3432)
-.answered(2)
-.disappear(Q(2182), Q(2192), Q(2202), Q(1012), Q(3082), Q(2322), Q(2332), Q(2342))
-.clearAnswer(Q(2182), Q(2192), Q(2202), Q(1012), Q(3082), Q(2322), Q(2332), Q(2342))
+.answered(0,2)
+.disappear(Q(2182), Q(2192), Q(2202), Q(3082), Q(2322), Q(2332), Q(2342), Q(1012))
+.clearAnswer(Q(2182), Q(2192), Q(2202), Q(3082), Q(2322), Q(2332), Q(2342), Q(1012))
 
 //--------------------------------------------
 // Calc Wait in Line Elapsed Time - Begin
@@ -29,9 +29,11 @@ ifQ(3432)
 .sub(Q(2192), Q(2182))
 .store(Q(2202))
 
-// If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minutes or less'.
+// If elapsed time is <= to 60 seconds AND QID 3432 is answered Option 1, then set value to '1:00 minutes or less'.
 ifQ(2202)
 .lessThanOrEqual(60)
+.andQ(3432)
+.answered(1)
 .setValue(Q(1012), 1)
 
 // If elapsed time is greater than 60 seconds, but less than or equal to 180 seconds; then set value to '1:01-3:00 minutes'.
