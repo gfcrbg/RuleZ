@@ -1,4 +1,4 @@
-// Last Update: 1/31/2020
+// Last Update: 2/6/2020
 
 
 
@@ -110,11 +110,11 @@ ifQ(3122)
 // Security II - Begin
 //--------------------------------------------
 
-// If QID 3542 is answered Option 2, then disappear and clear answer to QIDs [3512, 3532, 3522].
+// If QID 3542 is answered Option 2, then disappear and clear answer to QIDs [3512, 3532, 3522, 4302, 4312, 4322].
 ifQ(3542)
 .answered(2)
-.disappear(Q(3512), Q(3532), Q(3522))
-.clearAnswer(Q(3512), Q(3532), Q(3522))
+.disappear(Q(3512), Q(3532), Q(3522), Q(4302), Q(4312), Q(4322))
+.disappear(Q(3512), Q(3532), Q(3522), Q(4302), Q(4312), Q(4322))
 
 //--------------------------------------------
 // Security II - End
