@@ -1,4 +1,4 @@
-// Last Updated:  1/20/2020
+// Last Updated:  2/5/2020
 
 
 
@@ -7,11 +7,45 @@
 // GUEST GREETER - Begin 
 //*******************************
 
-// If QID 1751 is answered Option 2, then disappear and clear answer to QIDs [1701, 1711, 1721].
+// If QID 1751 is answered Option 2, then disappear QIDs [1701, 1711].
+// ...clear answer to QIDs [1701, 1711].
+// ...set value to Option 3 to QID 1721.
 ifQ(1751)
 .answered(2)
-.disappear(Q(1701), Q(1711), Q(1721))
-.clearAnswer(Q(1701), Q(1711), Q(1721))
+.disappear(Q(1701), Q(1711))
+.clearAnswer(Q(1701), Q(1711))
+.setValue(Q(1721), 3)
+
+// If QID 1751 answered Option 1 AND QID 2411 answered Option 2, then set value to Option 2 to QID 1721.
+ifQ(1751)
+.answered(1)
+.andQ(2411)
+.answered(2)
+.setValue(Q(1721), 2)
+
+// If QID 1751 answered Option 2 OR QID 2411 answered Option 2, then disappear QID 1721.
+ifQ(1751)
+.answered(2)
+.orQ(2411)
+.answered(2)
+.disappear(Q(1721))
+
+// If QID 2411 is answered Option 2, then disappear QIDs: [1831, 2261, 2101, 2271, 2111, 2061, 1461, 1511].
+// ...set value to Option 4 to QID 1831.
+// ...set value to Option 2 to QIDs: [2261, 2101, 2271, 2111, 2061].
+// ...set value to Option 3 to QID 1461.
+// ...set value to text string "I did not see a guest greeter upon entrance of this location." to QID 1511.
+ifQ(2411)
+.answered(2)
+.disappear(Q(1831), Q(2261), Q(2101), Q(2271), Q(2111), Q(2061), Q(1461), Q(1511))
+.setValue(Q(1831), 4)
+.setValue(Q(2261), 2)
+.setValue(Q(2101), 2)
+.setValue(Q(2271), 2)
+.setValue(Q(2111), 2)
+.setValue(Q(2061), 2)
+.setValue(Q(1461), 3)
+.setValue(Q(1511), "I did not see a guest greeter upon entrance of this location.")
 
 //*******************************
 // GUEST GREETER - End 
@@ -66,15 +100,21 @@ ifQ(2441)
 
 // If QID 1061 is answered Option 2, then the following effects are triggered...
 // Disappear QIDs: [1071, 1091, 1351, 1681, 1851, 1861, 1141].
-// Clear answer to QIDs: [1071, 1091, 1681, 1851, 1861].
-// Set value to "N/A" for QID 1351.
-// Set value to "I did not see a Manager during my visit at this location." for QID 1141.
+// Clear answer to QID 1091.
+// Set value to "N/A" for QIDs: [1071, 1351].
+// Set value to Option 2 for QIDs: [1681, 1851, 1861].
+// Set value to "I did not see a manger on duty during my visit." for QID 1141.
+// Versioned out 10/31/2019 - QIDs: [1091, 1351] 
 ifQ(1061)
 .answered(2)
 .disappear(Q(1071), Q(1091), Q(1351), Q(1681), Q(1851), Q(1861), Q(1141))
-.clearAnswer(Q(1071), Q(1091), Q(1681), Q(1851), Q(1861))
-.setValue(Q(1351), "N/A")
-.setValue(Q(1141), "I did not see a Manager during my visit at this location.")
+.clearAnswer(Q(1091))  
+.setValue(Q(1071), "N/A")
+.setValue(Q(1681), 2)
+.setValue(Q(1851), 2)
+.setValue(Q(1861), 2)
+.setValue(Q(1351), "N/A") 
+.setValue(Q(1141), "I did not see a manger on duty during my visit.")
 
 //*******************************
 // MANAGER ON DUTY - End 
