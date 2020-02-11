@@ -4,11 +4,32 @@
 
 
 //*******************************
-// {NAME OF SECTION} - Begin
+// CLOSING - Begin
 //*******************************
 
-// 
+// If QID 231 is answered Option 2, then disappear and clear answer to QID 401.
+ifQ(231)
+.answered(2)
+.disappear(Q(401))
+.clearAnswer(Q(401))
 
 //*******************************
-// {NAME OF SECTION}  - End
+// CLOSING  - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 291 is answered Option 2, then disappear and clear answer to QIDs [301, 311].
+ifQ(291)
+.answered(2)
+.disappear(Q(301), Q(311))
+.clearAnswer(Q(301), Q(311))
+
+//*******************************
+// FOLLOW UP  - End
 //*******************************
