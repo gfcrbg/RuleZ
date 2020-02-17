@@ -1,0 +1,78 @@
+// Last Updated: 2/17/2020
+
+
+
+
+// If QID 51 answered anything, then trigger math operation: [QID 51] + [QID 61] = [QID 801] 
+ifQ(51)
+.answered()
+.sum(Q(51), Q(61))
+.store(Q(801))
+
+
+
+
+//*******************************
+// BOX OFFICE - Begin
+//*******************************
+
+// If QID 921 is answered Option 2, then disappear and clear answer to QIDs: [91, 101, 131,141, 151, 161, 171, 201, 181].
+ifQ(921)
+.answered(2)
+.disappear(Q(91), Q(101), Q(131), Q(141), Q(151), Q(161), Q(171), Q(201), Q(181))
+.clearAnswer(Q(91), Q(101), Q(131), Q(141), Q(151), Q(161), Q(171), Q(201), Q(181))
+
+//*******************************
+// BOX OFFICE  - End
+//*******************************
+
+
+
+
+//*******************************
+// CONCESSIONS - Begin
+//*******************************
+
+// If QID 331 is answered Option 2, then disappear and clear answer to QID 341.
+ifQ(331)
+.answered(2)
+.disappear(Q(341))
+.clearAnswer(Q(341))
+
+//*******************************
+// CONCESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// TICKET TAKER - Begin
+//*******************************
+
+// If QID 411 is answered Option 2, then disappear and clear answer to QIDs: [381, 391, 401, 421].
+ifQ(411)
+.answered(2)
+.disappear(Q(381), Q(391), Q(401), Q(421))
+.clearAnswer(Q(381), Q(391), Q(401), Q(421))
+
+//*******************************
+// TICKET TAKER - End
+//*******************************
+
+
+
+
+//*******************************
+// THEATRE - Begin
+//*******************************
+
+// If QID 541 is answered Option 1, then disappear and clear answer to QID 551.
+ifQ(541)
+.answered(1)
+.disappear(Q(551))
+.clearAnswer(Q(551))
+
+//*******************************
+// THEATRE - End
+//*******************************
