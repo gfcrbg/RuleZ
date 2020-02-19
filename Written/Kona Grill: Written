@@ -1,4 +1,4 @@
-// Last Updated:  2/13/2020
+// Last Updated:  2/19/2020
 
 
 
@@ -16,26 +16,26 @@ ifQ(1751)
 .clearAnswer(Q(1701), Q(1711))
 .setValue(Q(1721), 3)
 
-// If QID 1751 answered Option 1 AND QID 2411 answered Option 2, then set value to Option 2 to QID 1721.
+// If QID 1751 answered Option 1 AND QID 2461 answered Option 2, then set value to Option 2 to QID 1721.
 ifQ(1751)
 .answered(1)
-.andQ(2411)
+.andQ(2461)
 .answered(2)
 .setValue(Q(1721), 2)
 
-// If QID 1751 answered Option 2 OR QID 2411 answered Option 2, then disappear QID 1721.
+// If QID 1751 answered Option 2 OR QID 2461 answered Option 2, then disappear QID 1721.
 ifQ(1751)
 .answered(2)
-.orQ(2411)
+.orQ(2461)
 .answered(2)
 .disappear(Q(1721))
 
-// If QID 2411 is answered Option 2, then disappear QIDs: [1831, 2261, 2101, 2271, 2111, 2061, 1461].
+// If QID 2461 is answered Option 2, then disappear QIDs: [1831, 2261, 2101, 2271, 2111, 2061, 1461].
 // ...set value to Option 4 to QID 1831.
 // ...set value to Option 2 to QIDs: [2261, 2101, 2271, 2111, 2061].
 // ...set value to Option 3 to QID 1461.
 
-ifQ(2411)
+ifQ(2461)
 .answered(2)
 .disappear(Q(1831), Q(2261), Q(2101), Q(2271), Q(2111), Q(2061), Q(1461))
 .setValue(Q(1831), 4)
