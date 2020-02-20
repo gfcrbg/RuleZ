@@ -1,4 +1,4 @@
-// Last Updated: 2/19/2020
+// Last Updated: 2/20/2020
 
 
 
@@ -282,8 +282,8 @@ ifQ(1191)
 //
 ifQ(2031)
 .answered(2,3)
-.disappear(Q(1411))
-.clearAnswer(Q(1411))
+.disappear(Q(1411), Q(1421))
+.clearAnswer(Q(1411), Q(1421))
 
 //*******************************
 // CLEANLINESS - End
