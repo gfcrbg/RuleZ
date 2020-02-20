@@ -1,0 +1,44 @@
+// Last Updated: 2/20/2020
+
+
+
+
+// If QID 401 is answered Option 2, then disappear and clear answer to QIDs [371, 391].
+ifQ(401)
+.answered(2)
+.disappear(Q(371), Q(391))
+.clearAnswer(Q(371), Q(391))
+
+
+
+
+//*******************************
+// ARRIVAL EXPERIENCE - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QID 41.
+ifQ(31)
+.answered(2)
+.disappear(Q(41))
+.clearAnswer(Q(41))
+
+//*******************************
+// ARRIVAL EXPERIENCE   - End
+//*******************************
+
+
+
+
+//*******************************
+// ROOM PRESENTATION - Begin
+//*******************************
+
+// If QID 151 is answered Option 2, then disappear and clear answer QID 161.
+ifQ(151)
+.answered(2)
+.disappear(Q(161))
+.clearAnswer(Q(161))
+
+//*******************************
+// ROOM PRESENTATION - End
+//*******************************
