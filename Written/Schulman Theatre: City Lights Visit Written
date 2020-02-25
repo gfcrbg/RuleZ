@@ -1,4 +1,4 @@
-// Last Updated: 2/17/2020
+// Last Updated: 2/25/2020
 
 
 
@@ -33,11 +33,11 @@ ifQ(921)
 // CONCESSIONS - Begin
 //*******************************
 
-// If QID 331 is answered Option 2, then disappear and clear answer to QID 341.
+// If QID 331 is answered Option 2, then disappear and clear answer to QID 951.
 ifQ(331)
 .answered(2)
-.disappear(Q(341))
-.clearAnswer(Q(341))
+.disappear(Q(951))
+.clearAnswer(Q(951))
 
 //*******************************
 // CONCESSIONS - End
