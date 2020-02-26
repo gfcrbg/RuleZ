@@ -1,6 +1,5 @@
-// Last Updated: 2/20/2020
-
-
+// Last Updated: 2/26/2020
+// These RuleZ still need to be documented.  Holding off until after this scorecard goes live as there's bound to be changes.  - Greg S. 2/25/2020
 
 
 // Activates Scenario: Dine-in Movie & Arcade
@@ -21,6 +20,8 @@ ifQ(2031)
 // Activates Dine-in Movie
 ifQ(2051)
 .answered(1)
+.appear(Q(41), Q(51), Q(61), Q(71), Q(2081), Q(81), Q(2091)) // [pre-cursory inputs]
+.appear(Q(1591)) // [uploaded images]
 .appear(Q(131), Q(141), Q(2041))  // [Section: Dine-In Movie]
 .appear(Q(211), Q(1991))  // [Section: At the Box Office]
 .appear(Q(261), Q(1741), Q(1751))  // [Section: Ticket Taker]
@@ -30,6 +31,8 @@ ifQ(2051)
 // Clears Dine-in Movie
 ifQ(2051)
 .notAnswered(1)
+.clearAnswer(Q(41), Q(51), Q(61), Q(71), Q(2081), Q(81), Q(2091))  // [pre-cursory inputs]
+.clearAnswer(Q(1591)) // [uploaded images]
 .clearAnswer(Q(131), Q(141), Q(2041))  // [Section: Dine-In Movie]
 .clearAnswer(Q(211), Q(1991))  // [Section: At the Box Office]
 .clearAnswer(Q(261), Q(1741), Q(1751))  // [Section: Ticket Taker]
@@ -39,6 +42,8 @@ ifQ(2051)
 // Activates Bowling
 ifQ(2051)
 .answered(2)
+.appear(Q(91), Q(101)) // [pre-cursory inputs]
+.appear(Q(1601), Q(1611)) // [uploaded images]
 .appear(Q(681), Q(691), Q(2001), Q(701), Q(711), Q(721), Q(731), Q(1801), Q(741), Q(751), Q(761), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851), Q(781))  // [Section: Bowl Desk]
 .appear(Q(791), Q(801), Q(2011), Q(821), Q(831), Q(841), Q(851), Q(881))  // [Section: Bowling]
 .appear(Q(891), Q(901), Q(911), Q(931), Q(941), Q(951), Q(961), Q(971), Q(981), Q(991), Q(1001), Q(1011))  // [Section: Bowling Food Service]
@@ -47,6 +52,8 @@ ifQ(2051)
 // Clears Bowling
 ifQ(2051)
 .notAnswered(2)
+.clearAnswer(Q(91), Q(101)) // [pre-cursory inputs]
+.clearAnswer(Q(1601), Q(1611)) // [uploaded images]
 .clearAnswer(Q(681), Q(691), Q(2001), Q(701), Q(711), Q(721), Q(731), Q(1801), Q(741), Q(751), Q(761), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851), Q(781))  // [Section: Bowl Desk]
 .clearAnswer(Q(791), Q(801), Q(2011), Q(821), Q(831), Q(841), Q(851), Q(881))  // [Section: Bowling]
 .clearAnswer(Q(891), Q(901), Q(911), Q(931), Q(941), Q(951), Q(961), Q(971), Q(981), Q(991), Q(1001), Q(1011))  // [Section: Bowling Food Service]
@@ -55,21 +62,27 @@ ifQ(2051)
 // Activates Arcade
 ifQ(2051)
 .answered(3)
-.appear(Q(1091), Q(1981))  // [Section: Arcade Experience ]
+.appear(Q(121)) // [pre-cursory inputs]
+.appear(Q(1091), Q(1101), Q(1121), Q(1131), Q(1151), Q(1171), Q(1091), Q(1981))  // [Section: Arcade Experience ]
 
 // Clears Arcade
 ifQ(2051)
 .notAnswered(3)
-.clearAnswer(Q(1091), Q(1981))  // [Section: Arcade Experience ]
+.clearAnswer(Q(121)) // [pre-cursory inputs]
+.clearAnswer(Q(1091), Q(1101), Q(1121), Q(1131), Q(1151), Q(1171), Q(1091), Q(1981))   // [Section: Arcade Experience ]
 
 // Activates 5S Rock Bar
 ifQ(2051)
 .answered(4)
+.appear(Q(111)) // [pre-cursory inputs]
+.appear(Q(1621)) // [uploaded images]
 .appear(Q(1251), Q(1861), Q(1261), Q(1871), Q(1271), Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341))  // [Section: 5S Rock Bar]
 
 // Clears 5S Rock Bar
 ifQ(2051)
 .notAnswered(4)
+.clearAnswer(Q(111)) // [pre-cursory inputs]
+.clearAnswer(Q(1621)) // [uploaded images]
 .clearAnswer(Q(1251), Q(1861), Q(1261), Q(1871), Q(1271), Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341))  // [Section: 5S Rock Bar]
 
 // If QID 21 is answered anything, then trigger math operation: [QID 71] + [QID  81] + [QID 91] + [QID 101] + [QID 111] + [QID 121] = [QID 1631]
@@ -96,6 +109,11 @@ ifQ(2041)
 .answered(2)
 .appear(Q(181), Q(191))
 .clearAnswer(Q(171), Q(211), Q(1991))
+
+//
+ifQ(2041)
+.answered(0)
+.clearAnswer(Q(171))
 
 //*******************************
 // DINE-IN MOVIE  - End
@@ -236,31 +254,14 @@ ifQ(1071)
 
 
 //*******************************
-// ARCADE ATMOSPHERE - Begin
-//*******************************
-
-//
-ifQ(1981)
-.answered(0,2)
-.disappear(Q(1101), Q(1121), Q(1131), Q(1151), Q(1171))
-.clearAnswer(Q(1121), Q(1131), Q(1151), Q(1171))
-
-//*******************************
-// ARCADE ATMOSPHERE  - End
-//*******************************
-
-
-
-
-//*******************************
 // REDEMPTION STORE - Begin
 //*******************************
 
 //
 ifQ(1981)
 .answered(0,2)
-.disappear(Q(1181), Q(1191), Q(1221), Q(1231), Q(1241))
-.clearAnswer(Q(1191), Q(1221), Q(1231), Q(1241))
+.disappear(Q(1181), Q(1191), Q(1221), Q(1231), Q(1241), Q(2061))
+.clearAnswer(Q(1191), Q(1221), Q(1231), Q(1241), Q(2061))
 
 //
 ifQ(1191)
@@ -270,21 +271,4 @@ ifQ(1191)
 
 //*******************************
 // REDEMPTION STORE - End
-//*******************************
-
-
-
-
-//*******************************
-// CLEANLINESS - Begin
-//*******************************
-
-//
-ifQ(2031)
-.answered(2,3)
-.disappear(Q(1411), Q(1421))
-.clearAnswer(Q(1411), Q(1421))
-
-//*******************************
-// CLEANLINESS - End
 //*******************************
