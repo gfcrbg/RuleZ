@@ -1,4 +1,4 @@
-// Last Updated: 12/18/2019
+// Last Updated: 3/10/2020
 
 
 
@@ -32,9 +32,9 @@ ifQ(1)
 // FOOD SERVICE - Begin
 //*******************************
 
-// If QID 1 answered anything, then trigger math operation: [QID 1551] - [QID 1541] = [QID 1571]
-ifQ(1)
-.answered()
+// If shop date is before March 1, 2020, then trigger math operation: [QID 1551] - [QID 1541] = [QID 1571]
+ifQ()
+.dateBefore("2020-03-01")
 .sub(Q(1551), Q(1541))
 .store(Q(1571))
 
