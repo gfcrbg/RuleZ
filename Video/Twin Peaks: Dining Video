@@ -1,4 +1,4 @@
-// Last Updated: 1/16/2020
+// Last Updated: 3/10/2020
 
 
 
@@ -51,9 +51,9 @@ ifQ(1311)
 .disappear(Q(2021), Q(2031), Q(1401), Q(791), Q(2041), Q(2011))
 .clearAnswer(Q(2021), Q(2031), Q(1401), Q(791), Q(2041), Q(2011))
 
-// If QID 1 is answered anything, then trigger math operation: [QID 2061] - [QID 2071] = [QID 1371]
-ifQ(1)
-.answered()
+// If shop date is before March 1, 2020, then trigger math operation: [QID 2061] - [QID 2071] = [QID 1371]  
+ifQ()
+.dateBefore("2020-03-01")
 .sub(Q(2061), Q(2071))
 .store(Q(1371))
 
@@ -73,9 +73,9 @@ ifQ(1371)
 .lessThanOrEqual(0)
 .setValue(Q(721), 3)
 
-// If QID 1301 is answered Option 1, then trigger math operation: [QID 2091] - [QID 2081] = [QID 1381] 
-ifQ(1301)
-.answered(1)
+// If shop date is before March 1, 2020, then trigger math operation: [QID 2091] - [QID 2081] = [QID 1381]  
+ifQ()
+.dateBefore("2020-03-01")
 .sub(Q(2091), Q(2081))
 .store(Q(1381))
 
@@ -102,9 +102,9 @@ ifQ(1381)
 .greaterThan(840)
 .setValue(Q(1971), 4)
 
-// If QID 1311 is answered Option 1, then trigger math operation: [QID 2031] - [QID 2021] = [QID 1401]
-ifQ(1311)
-.answered(1)
+// If shop date is before March 1, 2020, then trigger math operation: [QID 2031] - [QID 2021] = [QID 1401]  
+ifQ()
+.dateBefore("2020-03-01")
 .sub(Q(2031), Q(2021))
 .store(Q(1401))
 
