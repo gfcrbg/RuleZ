@@ -13,7 +13,7 @@ ifQ(2592)
 .sub(Q(2592), Q(2582))
 .store(Q(3002))
 
-// If QID 2992 is > 0, then trigger math operation: QID 2992 - QID 2592 = QID 3012.
+// If QID 2992 is > 0, then trigger math operation: QID 2992  + QID 2592 = QID 3012.
 ifQ(2992)
 .greaterThan(0)
 .sub(Q(2992), Q(2592))
@@ -210,10 +210,10 @@ ifQ(1182)
 // Calc Wait in Line Elapsed Time - Begin
 //--------------------------------------------
 
-// If QID 3022 is answered anything, then trigger math operation: QID 2732  - QID 2742 = QID 2752.
+// If QID 3022 is answered anything, then trigger math operation: QID 2742  - QID 2732 = QID 2752.
 ifQ(3022)
 .answered()
-.sub(Q(2732), Q(2742))
+.sub(Q(2742), Q(2732))
 .store(Q(2752))
 
 // If elapsed time less is than or equal to 60 seconds; then set value to '1:00 minute or less'.
