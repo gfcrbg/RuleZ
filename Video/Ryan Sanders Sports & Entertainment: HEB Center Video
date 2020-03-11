@@ -1,4 +1,4 @@
-// Last Updated: 3/6/2020
+// Last Updated: 3/11/2020
 
 
 
@@ -7,25 +7,29 @@
 // PARKING - Begin 
 //*******************************
 
+// If QID 2582 is > 0, then trigger math operation: QID 2592  - QID 2582 = QID 3002.
+ifQ(2592)
+.greaterThan(0)
+.sub(Q(2592), Q(2582))
+.store(Q(3002))
+
+// If QID 2992 is > 0, then trigger math operation: QID 2992  + QID 2592 = QID 3012.
+ifQ(2992)
+.greaterThan(0)
+.sub(Q(2992), Q(2592))
+.store(Q(3012))
+
+// If QID 2992 is > 0, then trigger math operation: QID 3002  + QID 3012 = QID 2602.
+ifQ(3012)
+.greaterThan(0)
+.sum(Q(3002), Q(3012))
+.store(Q(2602))
+
 // If QID 862 is answered Option 1, then disappear and clear answer to QID 2522.
 ifQ(862)
 .answered(1)
 .disappear(Q(2522))
 .clearAnswer(Q(2522))
-
-// If QID 2582 is answered anything, then trigger math operation: QID 2582  + QID 2592 = QID 3002.
-ifQ(2582)
-.answered()
-.sum(Q(2582), Q(2592))
-.store(Q(3002))
-
-// If QID 2582 is answered anything, then trigger math operation: QID 2582  + QID 2992 = QID 3012.
-ifQ(2582)
-.answered()
-.sum(Q(2582), Q(2992))
-.store(Q(3012))
-
-
 
 //*******************************
 // PARKING - Begin 
