@@ -1,4 +1,4 @@
-// Last Updated: 3/12/2020
+// Last Updated: 3/20/2020
 
 // If shop date is entered (any date), set answer to reimbursement currency value to "5.00".
 ifQ(1)
@@ -112,11 +112,16 @@ ifQ(6231)
 // RESTROOMS - End
 //***************************
 
-// If shop date is AFTER February 29, 2020 AND BEFORE April 1, 2020, then set value to Option 3 to QID 111.
+// If shop date is AFTER February 29, 2020 AND BEFORE May 1, 2020, then set values to QIDs: [111 = Option 3], [5271 = Option 3], [5251 = Option 3], [2341 = Option 3], [6691 = Option 5], [2421 = Option 3]
 ifQ()
 .dateAfter("2020-02-29")
-.dateBefore("2020-04-01")
+.dateBefore("2020-05-01")
 .setValue(Q(111), 3)
+.setValue(Q(5271), 3)
+.setValue(Q(5251), 3)
+.setValue(Q(2341), 3)
+.setValue(Q(6691), 5)
+.setValue(Q(2421), 3)
 
 // If QID 3031 is answered Option [1 or 3], then disappear and clear answer to QID 2911.
 ifQ(3031)
