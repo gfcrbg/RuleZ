@@ -1,0 +1,59 @@
+// Last Updated: 3/27/2020
+
+
+
+
+//*************************************
+// I. PERSONAL BANKER INTERACTION - Begin
+//*************************************
+
+// If QID 221 is answered Option [2 OR 3], then disappear and clear answer to QID 231.
+ifQ(221)
+.answered(2,3)
+.disappear(Q(231))
+.clearAnswer(Q(231))
+
+// If QID 241 is answered Option 2, then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(2)
+.disappear(Q(251))
+.clearAnswer(Q(251))
+
+// If QID 271 is answered Option 2, then disappear and clear answer to QIDs [281, 291].
+ifQ(271)
+.answered(2)
+.disappear(Q(281), Q(291))
+.clearAnswer(Q(281), Q(291))
+
+// If QID 321 is answered Option [2 OR 3], then disappear and clear answer to QID 331.
+ifQ(321)
+.answered(2,3)
+.disappear(Q(331))
+.clearAnswer(Q(331))
+
+//*************************************
+// I. PERSONAL BANKER INTERACTION - End
+//*************************************
+
+
+
+
+//*************************************
+// II. RSR/TELLER INTERACTION - Begin
+//*************************************
+
+// If QID 661 is answered Option [1 OR 3], then disappear and clear answer to QIDs [401, 411]. 
+ifQ(661)
+.answered(1,3)
+.disappear(Q(401), Q(411))
+.clearAnswer(Q(401), Q(411))
+
+// If QID 541 is answered Option 2, then disappear and clear answer to QIDs [551, 561].
+ifQ(541)
+.answered(2)
+.disappear(Q(551), Q(561))
+.clearAnswer(Q(551), Q(561))
+
+//*************************************
+// II. RSR/TELLER INTERACTION - End
+//*************************************
