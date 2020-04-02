@@ -1,4 +1,4 @@
-//Last Update: 1/11/2019
+//Last Update: 4/2/2020
 
 
 // Sets "During which time of day did the evaluation occur?" based on "Time of shop:".
@@ -63,6 +63,21 @@ ifQ(1571)
 //*******************************
 // STORE INTERIOR - Begin
 //*******************************
+
+
+//--------------------------------------------
+// COVID FOCUS QUESTIONS - Begin
+//--------------------------------------------
+
+// If QID 6601 is answered Option [1,2,3,4, AND 5], then set value to QID 6601 to Option [1,2,3,4,5,6].
+ifQ(6601)
+.answered([1,2,3,4,5])
+.setValue(Q(6601), 1,2,3,4,5,6)
+
+//--------------------------------------------
+// COVID FOCUS QUESTIONS - End
+//--------------------------------------------
+
 
 // If QID 1591 is answered Option 3, then appear QID 5011.
 ifQ(1591)
