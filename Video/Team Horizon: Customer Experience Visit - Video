@@ -1,5 +1,19 @@
-//Last Update: 4/2/2020
+//Last Update: 4/3/2020
 
+
+
+
+// If ulg is 'McAllen', then set value to Option 3 (N/A), and string ("Operational Override"), to QIDs [2131, 2141, 2151, 2161, 5051, 6411, 6421, 6301]. 
+ifQ()
+.ulgIs('McAllen')
+.setValue(Q(2131), 3)
+.setValue(Q(2141), 3)
+.setValue(Q(2151), 3)
+.setValue(Q(2161), 3)
+.setValue(Q(5051), "Operational Override")
+.setValue(Q(6411), 3)
+.setValue(Q(6421), 3)
+.setValue(Q(6301), 3)
 
 // Sets "During which time of day did the evaluation occur?" based on "Time of shop:".
 // Before 6am.
