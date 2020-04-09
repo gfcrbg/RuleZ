@@ -1,4 +1,4 @@
-// Last Updated: 4/8/2020
+// Last Updated: 4/9/2020
 
 // If shop date is entered (any date), set answer to reimbursement currency value to "5.00".
 ifQ(1)
@@ -56,11 +56,6 @@ ifQ(6221)
 .answered(0,2)
 .forceDisappear(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
 .clearAnswer(Q(6231), Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
-
-// If QID 6221 is answered Option 1, then show QID 6231.
-ifQ(6221)
-.answered(1)
-.appear(Q(6231))
 
 // If QID 6231 is answered Options 1,3, or 4, then show QID 6241.
 ifQ(6231)
