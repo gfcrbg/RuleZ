@@ -182,10 +182,10 @@ ifQ(6231)
 
 
 
-// If shop date is AFTER February 29, 2020 AND BEFORE May 1, 2020, then set values to QIDs: [111 = Option 3], [5271 = Option 3], [5251 = Option 3], [2341 = Option 3], [6691 = Option 5], [2421 = Option 3]
+// If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [5271 = Option 3], [5251 = Option 3], [2341 = Option 3], [6691 = Option 5], [2421 = Option 3]
 ifQ()
 .dateAfter("2020-02-29")
-.dateBefore("2020-05-01")
+.dateBefore("2020-06-01")
 .setValue(Q(111), 3)
 .setValue(Q(5271), 3)
 .setValue(Q(5251), 3)
