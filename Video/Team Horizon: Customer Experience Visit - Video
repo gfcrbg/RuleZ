@@ -1,4 +1,4 @@
-//Last Update: 4/13/2020
+//Last Update: 4/17/2020
 
 
 
@@ -15,42 +15,42 @@ ifQ()
 .setValue(Q(6421), 3)
 .setValue(Q(6301), 3)
 
-// If shop date is within the months of March and April, 2020, and if QID 2421 is answered Option 2, then set value to QID 2421 to Option 3.
+// If shop date is within the months of March through May, 2020, and if QID 2421 is answered Option 2, then set value to QID 2421 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
-.dateBefore('2020-05-01')
+.dateBefore('2020-06-01')
 .andifQ(2421)
 .answered(2)
 .setValue(Q(2421), 3)
 
-// If shop date is within the months of March and April, 2020, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
+// If shop date is within the months of March through May, 2020, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
-.dateBefore('2020-05-01')
+.dateBefore('2020-06-01')
 .andifQ(111)
 .answered(2)
 .setValue(Q(111), 3)
 
-// If shop date is within the months of March and April, 2020, and if QID 2341 is answered Option 2, then set value to QID 2341 to Option 3.
+// If shop date is within the months of March through May, 2020, and if QID 2341 is answered Option 2, then set value to QID 2341 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
-.dateBefore('2020-05-01')
+.dateBefore('2020-06-01')
 .andifQ(2341)
 .answered(2)
 .setValue(Q(2341), 3)
 
-// If shop date is within the months of March and April, 2020, and if QID 6341 is answered Option 2, then set value to QID 6341 to Option 3.
+// If shop date is within the months of March through May, 2020, and if QID 6341 is answered Option 2, then set value to QID 6341 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
-.dateBefore('2020-05-01')
+.dateBefore('2020-06-01')
 .andifQ(6341)
 .answered(2)
 .setValue(Q(6341), 3)
 
-// If shop date is within the months of March and April, 2020, and if QID 2411 is answered Option 2, then set value to QID 2411 to Option 3.
+// If shop date is within the months of March through May, 2020, and if QID 2411 is answered Option 2, then set value to QID 2411 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
-.dateBefore('2020-05-01')
+.dateBefore('2020-06-01')
 .andifQ(2411)
 .answered(2)
 .setValue(Q(2411), 3)
