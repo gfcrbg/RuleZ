@@ -1,4 +1,4 @@
-// Last Updated: 4/9/2020
+// Last Updated: 4/17/2020
 
 // If shop date is entered (any date), set answer to reimbursement currency value to "5.00".
 ifQ(1)
@@ -22,29 +22,80 @@ ifQ()
 .ulgIs('Dark Stores')
 .setValue(Q(6861), 1)
 
-// If country is Canada, shop date is AFTER 3/31/2020, and shop date is BEFORE 5/1/2020, then set values to QIDs.
+// If country is Canada, shop date is within the months of March through May, 2020, then set values to QIDs.
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
-.dateBefore('2020-05-01')
+.dateBefore('2020-06-01')
 .setValue(Q(2131), 3)
 .setValue(Q(6721), 5)
-.setValue(Q(2141), 3)
 .setValue(Q(2151), 3)
 .setValue(Q(6731), 3)
-.setValue(Q(2161), 3)
-.setValue(Q(5371), 3)
 .setValue(Q(6741), 5)
 .setValue(Q(2171), 3)
 .setValue(Q(6751), 4)
-.setValue(Q(2181), 3)
 .setValue(Q(6761), 4)
 .setValue(Q(5291), 3)
 .setValue(Q(6771), 4)
 
+// If country is 'Canada' AND ulg is 'Covid Markets' AND shop date is within the months of March through May, 2020, AND if QID 2181 is answered Option 2, then set value to QID 2181 to Option 3.
+ifQ()
+.countryIs('Canada')
+.orQ()
+.ulgIs('Covid Markets')
+.andQ()
+.dateAfter('2020-02-29')
+.dateBefore('2020-06-01')
+.andifQ(2181)
+.answered(2)
+.setValue(Q(2181), 3)
+
+// If country is 'Canada' AND ulg is 'Covid Markets' AND shop date is within the months of March through May, 2020, AND if QID 2141 is answered Option 2, then set value to QID 2141 to Option 3.
+ifQ()
+.countryIs('Canada')
+.orQ()
+.ulgIs('Covid Markets')
+.andQ()
+.dateAfter('2020-02-29')
+.dateBefore('2020-06-01')
+.andifQ(2141)
+.answered(2)
+.setValue(Q(2141), 3)
+
+// If country is 'Canada' AND ulg is 'Covid Markets' AND shop date is within the months of March through May, 2020, AND if QID 2161 is answered Option 2, then set value to QID 2161 to Option 3.
+ifQ()
+.countryIs('Canada')
+.orQ()
+.ulgIs('Covid Markets')
+.andQ()
+.dateAfter('2020-02-29')
+.dateBefore('2020-06-01')
+.andifQ(2161)
+.answered(2)
+.setValue(Q(2161), 3)
+
+// If country is 'Canada' AND ulg is 'Covid Markets' AND shop date is within the months of March through May, 2020, AND if QID 5371 is answered Option 2, then set value to QID 5371 to Option 3.
+ifQ()
+.countryIs('Canada')
+.orQ()
+.ulgIs('Covid Markets')
+.andQ()
+.dateAfter('2020-02-29')
+.dateBefore('2020-06-01')
+.andifQ(5371)
+.answered(2)
+.setValue(Q(5371), 3)
+
 //***************************
 // RESTROOMS - Begin
 //***************************
+
+// If country is 'Canada' AND shop date is within the months of March through May, 2020, then set value to QID 6221 to Option 2.
+ifQ()
+.countryIs('Canada')
+.dateAfter('2020-02-29')
+.dateBefore('2020-06-01')
+.setValue(Q(6221), 2)
 
 // If QID 6221 is answered Option 1, then show QID 6231.
 ifQ(6221)
