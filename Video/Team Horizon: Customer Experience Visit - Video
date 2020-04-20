@@ -1,4 +1,4 @@
-//Last Update: 4/17/2020
+//Last Update: 4/20/2020
 
 
 
@@ -123,10 +123,10 @@ ifQ(1571)
 // COVID FOCUS QUESTIONS - Begin
 //--------------------------------------------
 
-// If QID 6611 is answered Option [1,2,3, AND 4], then set value to QID 6611 to Option [1,2,3,4,5].
+// If QID 6611 is answered Option [1,2, AND 3], then set value to QID 6611 to Option [1,2,3,4].
 ifQ(6611)
-.answered([1,2,3,4])
-.setValue(Q(6611), 1,2,3,4,5)
+.answered([1,2,3])
+.setValue(Q(6611), 1,2,3,4)
 
 //--------------------------------------------
 // COVID FOCUS QUESTIONS - End
