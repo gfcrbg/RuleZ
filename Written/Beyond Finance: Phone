@@ -1,0 +1,137 @@
+// Last Updated: 5/11/2020
+
+
+
+
+//**************************************
+// WEBSITE - Begin
+//**************************************
+
+// 
+ifQ(121)
+.answered(1)
+.disappear(Q(151))
+.clearAnswer(Q(151))
+
+//
+ifQ(121)
+.answered(2)
+.disappear(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231))
+.clearAnswer(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231))
+
+//
+ifQ(231)
+.answered(0,2)
+.disappear(Q(281), Q(241), Q(301))
+.clearAnswer(Q(281), Q(241), Q(301))
+
+//
+ifQ(301)
+.answered(0,2)
+.disappear(Q(701))
+.clearAnswer(Q(701))
+
+//**************************************
+// WEBSITE - End
+//**************************************
+
+
+
+
+//**************************************
+// CALL DETAILS - Begin
+//**************************************
+
+//
+ifQ(511)
+.answered(2)
+.disappear(Q(521))
+.clearAnswer(Q(521))
+
+//**************************************
+// CALL DETAILS - End
+//**************************************
+
+
+
+
+//**************************************
+// NEEDS ASSESSMENT - Begin
+//**************************************
+
+//
+ifQ(571)
+.notAnswered(5)
+.disappear(Q(581))
+.clearAnswer(Q(581))
+
+//
+ifQ(621)
+.notAnswered(4)
+.disappear(Q(631))
+.clearAnswer(Q(631))
+
+//**************************************
+// NEEDS ASSESSMENT - End
+//**************************************
+
+
+
+
+//**************************************
+// DEBT REVIEW / BUDGET ASSESSMENT - Begin
+//**************************************
+
+//
+ifQ(891)
+.answered(2)
+.disappear(Q(1011))
+.clearAnswer(Q(1011))
+
+//
+ifQ(1011)
+.answered(0,2)
+.disappear(Q(911), Q(931), Q(971))
+.clearAnswer(Q(911), Q(931), Q(971))
+
+//
+ifQ(971)
+.answered(0)
+.orifQ(971)
+.notAnswered(4)
+.disappear(Q(981))
+.clearAnswer(Q(981))
+
+//**************************************
+// DEBT REVIEW / BUDGET ASSESSMENT - End
+//**************************************
+
+
+
+
+//**************************************
+// PAYMENT OPTIONS / FOLLOW UP - Begin
+//**************************************
+
+//
+ifQ(591)
+.answered(2)
+.disappear(Q(771))
+.clearAnswer(Q(771))
+
+//
+ifQ(721)
+.answered(2,3)
+.disappear(Q(731))
+.clearAnswer(Q(731))
+
+//
+ifQ(1001)
+.notAnswered(1,2)
+.disappear(Q(751), Q(761))
+.clearAnswer(Q(751), Q(761))
+
+
+//**************************************
+// PAYMENT OPTIONS / FOLLOW UP - End
+//**************************************
