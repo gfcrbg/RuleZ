@@ -7,25 +7,25 @@
 // WEBSITE - Begin
 //**************************************
 
-// 
+// If QID 121 is answered Option 1, then disappear and clear answer to QID 151.
 ifQ(121)
 .answered(1)
 .disappear(Q(151))
 .clearAnswer(Q(151))
 
-//
+// If QID 121 is answered Option 2, then disappear and clear answer to QIDs: [161, 171, 181, 201, 261, 271, 211, 221, 231].
 ifQ(121)
 .answered(2)
 .disappear(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231))
 .clearAnswer(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231))
 
-//
+// If QID 231 is answered Option [0 or 2], then disappear and clear answer to QIDs [281, 241, 301].
 ifQ(231)
 .answered(0,2)
 .disappear(Q(281), Q(241), Q(301))
 .clearAnswer(Q(281), Q(241), Q(301))
 
-//
+// If QID 301 is answered Option [0 or 2], then disappear and clear answer to QID 701.
 ifQ(301)
 .answered(0,2)
 .disappear(Q(701))
@@ -42,7 +42,7 @@ ifQ(301)
 // CALL DETAILS - Begin
 //**************************************
 
-//
+// If QID 511 is answered Option 2, then disappear and clear answer to QID 521.
 ifQ(511)
 .answered(2)
 .disappear(Q(521))
@@ -59,13 +59,13 @@ ifQ(511)
 // NEEDS ASSESSMENT - Begin
 //**************************************
 
-//
+// If QID 571 is not answered Option 5, then disappear and clear answer to QID 581.
 ifQ(571)
 .notAnswered(5)
 .disappear(Q(581))
 .clearAnswer(Q(581))
 
-//
+// If QID 621 is not answered Option 4, then disappear and clear answer to QID 631.
 ifQ(621)
 .notAnswered(4)
 .disappear(Q(631))
@@ -82,19 +82,19 @@ ifQ(621)
 // DEBT REVIEW / BUDGET ASSESSMENT - Begin
 //**************************************
 
-//
+// If QID 891 is answered Option 2, then disappear and clear answer to QID 1011.
 ifQ(891)
 .answered(2)
 .disappear(Q(1011))
 .clearAnswer(Q(1011))
 
-//
+// If QID 1011 is answered Option [0 or 2], then disappear and clear answer to QIDs [911, 931, 971].
 ifQ(1011)
 .answered(0,2)
 .disappear(Q(911), Q(931), Q(971))
 .clearAnswer(Q(911), Q(931), Q(971))
 
-//
+// If QID 971 is answered Option 0 or if QID 971 is not answered Option 4, then disappear and clear answer to QID 981.
 ifQ(971)
 .answered(0)
 .orifQ(971)
@@ -113,19 +113,19 @@ ifQ(971)
 // PAYMENT OPTIONS / FOLLOW UP - Begin
 //**************************************
 
-//
+// If QID 591 is answered Option 2, then disappear and clear answer to QID 771.
 ifQ(591)
 .answered(2)
 .disappear(Q(771))
 .clearAnswer(Q(771))
 
-//
+// If QID 721 is answered Option [2 or 3], then disappear and clear answer to QID 731.
 ifQ(721)
 .answered(2,3)
 .disappear(Q(731))
 .clearAnswer(Q(731))
 
-//
+// If QID 1001 is answered Option [1 or 2], then disappear and clear answer to QIDs: [751, 761].
 ifQ(1001)
 .notAnswered(1,2)
 .disappear(Q(751), Q(761))
