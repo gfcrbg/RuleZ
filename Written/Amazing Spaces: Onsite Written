@@ -7,7 +7,7 @@
 // III. FACILITY TOUR - Begin
 //*******************************
 
-//
+// If QID 601 is answered Option 2, then disappear and clear answer to QID 611.
 ifQ(601)
 .answered(2)
 .disappear(Q(611))
@@ -24,7 +24,7 @@ ifQ(601)
 // IV. ANCILLARY SALES - Begin
 //*******************************
 
-//
+// If QID 341 is answered Option 2, then disappear and clear answer to QID 701.
 ifQ(341)
 .answered(2)
 .disappear(Q(701))
@@ -41,7 +41,7 @@ ifQ(341)
 // VI. FOLLOW-UP INFORMATION- Begin
 //*******************************
 
-//
+// If QID 481 is answered Option 2, then disappear and clear answer to QID 681.
 ifQ(481)
 .answered(2)
 .disappear(Q(681))
