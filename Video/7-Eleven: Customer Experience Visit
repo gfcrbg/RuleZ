@@ -1,8 +1,8 @@
-// Last Updated: 4/17/2020
+// Last Updated: 5/19/2020
 
 // If shop date is entered (any date), set answer to reimbursement currency value to "5.00".
-ifQ(1)
-.answered()
+ifQ()
+.dateBefore("2020-06-01")
 .setValue(Q(6401), "5.00")
 
 // Question updated again on 6/3/2019 value pointed //to question 6301 instead of 6401 -mjm.
