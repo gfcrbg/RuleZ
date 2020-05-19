@@ -1,4 +1,4 @@
-// Last Updated: 5/11/2020
+// Last Updated: 5/19/2020
 
 
 
@@ -82,22 +82,8 @@ ifQ(621)
 // DEBT REVIEW / BUDGET ASSESSMENT - Begin
 //**************************************
 
-// If QID 891 is answered Option 2, then disappear and clear answer to QID 1011.
-ifQ(891)
-.answered(2)
-.disappear(Q(1011))
-.clearAnswer(Q(1011))
-
-// If QID 1011 is answered Option [0 or 2], then disappear and clear answer to QIDs [911, 931, 971].
-ifQ(1011)
-.answered(0,2)
-.disappear(Q(911), Q(931), Q(971))
-.clearAnswer(Q(911), Q(931), Q(971))
-
-// If QID 971 is answered Option 0 or if QID 971 is not answered Option 4, then disappear and clear answer to QID 981.
+// If QID 971 is not answered Option 4, then disappear and clear answer to QID 981.
 ifQ(971)
-.answered(0)
-.orifQ(971)
 .notAnswered(4)
 .disappear(Q(981))
 .clearAnswer(Q(981))
