@@ -1,4 +1,4 @@
-// Last Updated: 6/1/2020
+// Last Updated: 6/2/2020
 
 
 
@@ -69,14 +69,30 @@ ifQ()
 .setValue(Q(5301), 3)
 .setValue(Q(6781), 3)
 
-// If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [5271 = Option 3], [2341 = Option 3], [6691 = Option 5], [2421 = Option 3]
+
+// If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [5271 = Option 3], [2341 = Option 3], [6691 = Option 5]
 ifQ()
 .dateAfter("2020-02-29")
 .dateBefore("2020-06-01")
-.setValue(Q(111), 3)
 .setValue(Q(5271), 3)
 .setValue(Q(2341), 3)
 .setValue(Q(6691), 5)
+
+
+// If country is 'US' AND if shop date is AFTER February 29, 2020 then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+ifQ()
+.countryIs('US')
+.dateAfter("2020-02-29")
+.setValue(Q(111), 3)
+.setValue(Q(2421), 3)
+
+
+// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+ifQ()
+.countryIs('Canada')
+.dateAfter("2020-02-29")
+.dateBefore("2020-06-01")
+.setValue(Q(111), 3)
 .setValue(Q(2421), 3)
 
 // If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QID 5251.
