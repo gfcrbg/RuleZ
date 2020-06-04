@@ -1,4 +1,4 @@
-// Last Updated: 9/30/2019
+// Last Updated: 6/4/2019
 
 
 
@@ -39,11 +39,11 @@ ifQ(3931)
 // PRODUCE - Begin
 //*******************************
 
-// If QID 2451 answered Option 2, then disappear and clear answer to QIDs: [3231, 4401, 4341, 4351, 3251, 4361, 4371, 4381, 3241, 4941].
+// If QID 2451 answered Option 2, then disappear and clear answer to QIDs: [3231, 4401, 4341, 4351, 3251, 4361, 4371, 4381, 3241].
 ifQ(2451)
 .answered(2)
-.disappear(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241), Q(4941))
-.clearAnswer(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241), Q(4941))
+.disappear(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241))
+.clearAnswer(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241))
 
 //*******************************
 //PRODUCE - End
