@@ -41,7 +41,7 @@ ifQ()
 // GAS - Begin
 //********************************
 
-// Sets All of the Above if all options are selected for the Fuel Island Stock levels
+// If QID 1571 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 1571.
 ifQ(1571)
 .answered(1)
 .andQ(1571)
@@ -67,7 +67,11 @@ ifQ(3031)
 .disappear(Q(2911))
 .clearAnswer(Q(2911))
 
-// Calc guest's approx wait in line (store counter)
+//---------------------------------------------
+// [Time Calc] Wait Time in Line - Begin
+//---------------------------------------------
+
+// If QIDs [5541 AND 5551] answered anything, then trigger QID math operation: [5551] - [5541] = [3091]
 ifQ(5541)
 .answered()
 .andQ(5551)
@@ -75,34 +79,36 @@ ifQ(5541)
 .sub(Q(5551) , Q(5541))
 .store(Q(3091))
 
-// Set radio button to reflect time spent in line (store counter)
-//Under 1  min
+// If QID 3091 is >= 0 AND < 60 seconds, then set value to Option 1 to QID 3101.
 ifQ(3091)
 .answered()
 .greaterThanOrEqual(0)
 .andifQ(3091)
 .lessThan(60)
-.setValue( Q(3101),1)
+.setValue(Q(3101),1)
 
-// Under 2  min
+// If QID 3091 is >= 61 seconds AND <= 120 seconds, then set value to Option 2 to QID 3101.
 ifQ(3091)
 .greaterThanOrEqual(61)
 .andifQ(3091)
 .lessThanOrEqual(120)
-.setValue( Q(3101),2)
+.setValue(Q(3101),2)
 
-// Under 3  min
+// If QID 3091 is >= 121 seconds AND <= 180 seconds, then set value to Option 3 to QID 3101.
 ifQ(3091)
 .greaterThanOrEqual(121)
 .andifQ(3091)
 .lessThanOrEqual(180)
-.setValue( Q(3101),3)
+.setValue(Q(3101),3)
 
-// Over 3  min
+// If QID 3091 is >= 181 seconds, then set value to Option 4 to QID 3101.
 ifQ(3091)
 .greaterThanOrEqual(181)
 .setValue( Q(3101),4)
-//End of setting radio buttons for time spent in line (store counter)
+
+//---------------------------------------------
+// [Time Calc] Wait Time in Line - End
+//---------------------------------------------
 
 // If country is 'Canada' AND QID 3091 is > 3 minutes, then set value to Option 2 to QID 2211.
 ifQ()
@@ -111,14 +117,14 @@ ifQ()
 .greaterThan(180)
 .setValue(Q(2211),2)
 
-// Sets All of the Above if all options are selected for the Employee Uniform reqs
+// If QID 1631 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 1631.
 ifQ(1631)
 .answered(1)
 .andQ(1631)
 .answered(2)
 .andQ(1631)
 .answered(3)
-.setValue(Q(1631),1,2,3,4);
+.setValue(Q(1631),1,2,3,4)
 
 //********************************
 // CUSTOMER SERVICE - End
@@ -131,7 +137,7 @@ ifQ(1631)
 // COVID QUESTIONS - Begin
 //********************************
 
-// If QID 7741 is answered Option [1,2,3,4, AND 5], then set value to QID 7741 to Option [1,2,3,4,5,6].
+// If QID 7741 is answered Option [1,2,3,4, AND 5], then set value to QID 7741 to Option [1,2,3,4,5 AND 6].
 ifQ(7741)
 .answered([1,2,3,4,5])
 .setValue(Q(7741), 1,2,3,4,5,6)
@@ -147,7 +153,7 @@ ifQ(7741)
 // RESTROOMS - Begin
 //********************************
 
-// If country is 'Canada' AND shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to QID 6221 to Option 2.
+// If country is 'Canada' AND shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 2 to QID 6221.
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-02-29')
@@ -159,18 +165,18 @@ ifQ(6221)
 .answered(1)
 .appear(Q(6231))
 
-// If QID 6221 is answered Option 0 or 2, then force hide QIDs: [6241, 6251, 3061, 3221, 6261, 6271, 6281] and clear answers to QIDs: [6231, 6241, 6251, 3061, 3221, 6261, 6271, 6281, 6481].
+// If QID 6221 is answered Option [0 OR 2], then force hide QIDs: [6241, 6251, 3061, 3221, 6261, 6271, 6281] and clear answers to QIDs: [6231, 6241, 6251, 3061, 3221, 6261, 6271, 6281, 6481].
 ifQ(6221)
 .answered(0,2)
 .forceDisappear(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
 .clearAnswer(Q(6231), Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
 
-// If QID 6231 is answered Options 1,3, or 4, then show QID 6241.
+// If QID 6231 is answered Option [1,3, OR 4], then show QID 6241.
 ifQ(6231)
 .answered(1,3,4)
 .appear(Q(6241))
 
-// If QID 6231 is answered Option 1, then set value to Option 4 to QID 6241; hide Options 1,2,3, and 5 to QID 6241; and show QIDs: [6251, 6261, 6271, 6281].
+// If QID 6231 is answered Option 1, then set value to Option 4 to QID 6241; hide Option [1,2,3, AND 5] to QID 6241; and show QIDs: [6251, 6261, 6271, 6281].
 ifQ(6231)
 .answered(1)
 .setValue(Q(6241), 4)
@@ -182,22 +188,22 @@ ifQ(6231)
 .answered(2)
 .clearAnswer(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281))
 
-// If QID 6241 is answered Options 1 or 4, then show QIDs: [6251, 6261, 6271, 6281].
+// If QID 6241 is answered Option [1 OR 4], then show QIDs: [6251, 6261, 6271, 6281].
 ifQ(6241)
 .answered(1,4)
 .appear(Q(6251), Q(6261), Q(6271), Q(6281))
 
-// If QID 6241 is answered Option 1, then show QID 6481 and award the bonus points (3 total).
+// If QID 6241 is answered Option 1, then set value to Option 1 to QID 6481.
 ifQ(6241)
 .answered(1)
 .setValue(Q(6481), 1)
 
-// If QID 6241 is answered Options 2,3,4,or 5, then hide and clear answer to QID 6481.
+// If QID 6241 is answered Option [2,3,4, OR 5], then hide and clear answer to QID 6481.
 ifQ(6241)
 .answered(2,3,4,5)
 .clearAnswer(Q(6481))
 
-// If QID 6241 is answered Options 3 or 5, then set value Option 3 to QID 6251; set value Option 4 to QID 6261; set value Option 6 to QID 6271; set value Option 3 to QID 6281.
+// If QID 6241 is answered Option [3 OR 5], then set values to QIDs: [6251 = Option 3], [6261 = Option 4], [6271 = Option 6], [6281 = Option 3].
 ifQ(6241)
 .answered(3,5)
 .setValue(Q(6251), 3)
@@ -215,7 +221,7 @@ ifQ(3061)
 .answered(7)
 .appear(Q(3221))
 
-// If QID 6221 is answered Option 2, then set value to Option 1 to QIDs [6601, 6611, 6621, 6631].
+// If QID 6221 is answered Option 2, then set value to Option 1 to QIDs: [6601, 6611, 6621, 6631].
 ifQ(6221)
 .answered(2)
 .setValue(Q(6601), 1)
@@ -223,7 +229,7 @@ ifQ(6221)
 .setValue(Q(6621), 1)
 .setValue(Q(6631), 1)
 
-// If QID 6231 is answered Option 2, then set value to Option 2 to QIDs [6601, 6611, 6621, 6631].
+// If QID 6231 is answered Option 2, then set value to Option 2 to QIDs: [6601, 6611, 6621, 6631].
 ifQ(6231)
 .answered(2)
 .setValue(Q(6601), 2)
@@ -231,7 +237,7 @@ ifQ(6231)
 .setValue(Q(6621), 2)
 .setValue(Q(6631), 2)
 
-// Sets All of the Above if all options are selected for the Restroom Stock levels
+// If QID 6271 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 6271.
 ifQ(6271)
 .answered(1)
 .andQ(6271)
@@ -251,13 +257,13 @@ ifQ(6271)
 // STORE INTERIOR - Begin
 //********************************
 
-// If country is 'US' AND if shop date is AFTER February 29, 2020 then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+// If country is 'US' AND if shop date is AFTER February 29, 2020 then set value to Option 3 to QID 111.
 ifQ()
 .countryIs('US')
 .dateAfter("2020-02-29")
 .setValue(Q(111), 3)
 
-// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set value to Option 3 to QID 111.
 ifQ()
 .countryIs('Canada')
 .dateAfter("2020-02-29")
@@ -275,29 +281,36 @@ ifQ()
 // FRESH FOOD - Begin
 //********************************
 
-// Sets Freshness 2431 by date calculation
-// If no date is entered, set Freshness to N/A
+//---------------------------------------------
+// [Time Calc] Freshness Date - Begin
+//---------------------------------------------
+
+// If QID 5521 is not answered anything, then set value to Option 3 to QID 2431.
 ifQ(5521)
 .notAnswered()
 .setValue(Q(2431),3)
 
-// Otherwise, sub today from the date entered and store the value in 5531
+// If QID 5521 is answered anything, then trigger QID math operation: [5521] - [1] = [5531]
 ifQ(5521)
 .answered()
 .sub(Q(5521), Q(1))
 .store(Q(5531))
 
-// If 5531 is less than the shop date, mark not fresh
+// If QID 5531 is answered anything AND if QID 5531 is < 0 then set value to Option 2 to QID 2431.
 ifQ(5531)
 .answered()
 .andifQ(5531)
 .lessThan(0)
 .setValue(Q(2431),2)
 
-// If 5531 is greater than the shop date, mark as fresh
+// If QID 5531 is >= 0, then set value to Option 1 to QID 2431.
 ifQ(5531)
 .greaterThanOrEqual(0)
 .setValue(Q(2431),1)
+
+//---------------------------------------------
+// [Time Calc] Freshness Date - Begin
+//---------------------------------------------
 
 // If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [5271 = Option 3], [2341 = Option 3], [6691 = Option 5]
 ifQ()
@@ -324,7 +337,7 @@ ifQ()
 // PROPRIETARY BEVERAGE - Begin
 //********************************
 
-// If country is Canada and shop date is AFTER March 31, 2020 AND BEFORE June 1, 2020, then set values to QIDs.
+// If country is 'Canada' and shop date is AFTER March 31, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [6721 = Option 5], [6731 = Option 3]. [6771 = Option 4].
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
@@ -333,7 +346,7 @@ ifQ()
 .setValue(Q(6731), 3)
 .setValue(Q(6771), 4)
 
-// If shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs.
+// If shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs: [6741 = Option 5], [6751 = Option 4], [6761 = Option 4].
 ifQ()
 .dateAfter('2020-03-31')
 .dateBefore('2020-08-01')
@@ -341,7 +354,7 @@ ifQ()
 .setValue(Q(6751), 4)
 .setValue(Q(6761), 4)
 
-// If country is Canada and shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs.
+// If country is 'Canada' and shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [2131, 2151, 2171, 5291].
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
@@ -360,7 +373,7 @@ ifQ()
 .setValue(Q(2161), 3)
 .setValue(Q(5371), 3)
 
-// If country is US and shop date is AFTER May 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [5301, 6781].
+// If country is 'US' and shop date is AFTER May 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [5301, 6781].
 ifQ()
 .countryIs('US')
 .dateAfter('2020-05-31')
@@ -379,13 +392,13 @@ ifQ()
 // VAULT - Begin
 //********************************
 
-// If country is 'US' AND if shop date is AFTER February 29, 2020 then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+// If country is 'US' AND if shop date is AFTER February 29, 2020 then set value to Option 3 to QID 2421.
 ifQ()
 .countryIs('US')
 .dateAfter("2020-02-29")
 .setValue(Q(2421), 3)
 
-// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set value to Option 3 to QID 2421.
 ifQ()
 .countryIs('Canada')
 .dateAfter("2020-02-29")
@@ -403,19 +416,19 @@ ifQ()
 // INTERNAL DATA - Begin
 //********************************
 
-// If QID 1 answered anything, then subtract QID 2021 from QID 1 and store output in QID 6521.
+// If QID 1 is answered anything, then trigger QID math operation: [2021] - [1] = [6521].
 ifQ(1)
 .answered()
 .sub(Q(2021), Q(1))
 .store(Q(6521))
 
-// If QID 1 answered anything, then divide QID 6521 by 3600000 and store output in QID 6531.
+// If QID 1 is answered anything, then trigger QID math operation: [6521] / 3600000 = [6531]
 ifQ(1)
 .answered()
 .divide(Q(6521), 3600000)
 .store(Q(6531))
 
-// If QID 1 answered anything, then divide QID 6531 by 24 and store output in QID 6541.
+// If QID 1 is answered anything, then trigger QID math operation: [6531] / 24 = [6541].
 ifQ(1)
 .answered()
 .divide(Q(6531), 24)
