@@ -8,14 +8,19 @@ ifQ()
 .dateBefore("2020-06-01")
 .setValue(Q(6401), "5.00")
 
-// Question updated again on 6/3/2019 value pointed //to question 6301 instead of 6401 -mjm.
 
-// If ulg set is 'MA shops vs Scored', appear QIDs [6891, 6901, 6911, 6921, 6931, 6941, 6951, 6961, 6971, 6981, 6991, 7001, 7011, 7021, 7031, 7041, 7051, 7071, 7081, 7091, 7121, 7131, 7061, 7101, 7111, 7141, 7151, 7161, 7171, 7181, 7191, 7201, 7211, 7221, 7231, 7241, 7251, 7261, 7271, 7281, 7291, 7301, 7311, 7321, 7331, 7341, 7351, 7361, 7371, 7381, 7391, 7401, 7411, 7421, 7341, 7441].
+
+
+//---------------------------------------------
+// ULG Settings - Begin
+//---------------------------------------------
+
+// If ulg set is 'MA shops vs Scored', appear QIDs.
 ifQ()
 .ulgSetIs('MA shops vs Scored')
 .appear(Q(6891), Q(6901), Q(6911), Q(6921), Q(6931), Q(6941), Q(6951), Q(6961), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7051), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441))
 
-// If ulg set is NOT 'MA shops vs Scored', clear answer to QIDs [6891, 6901, 6911, 6921, 6931, 6941, 6951, 6961, 6971, 6981, 6991, 7001, 7011, 7021, 7031, 7041, 7051, 7071, 7081, 7091, 7121, 7131, 7061, 7101, 7111, 7141, 7151, 7161, 7171, 7181, 7191, 7201, 7211, 7221, 7231, 7241, 7251, 7261, 7271, 7281, 7291, 7301, 7311, 7321, 7331, 7341, 7351, 7361, 7371, 7381, 7391, 7401, 7411, 7421, 7341, 7441].
+// If ulg set is NOT 'MA shops vs Scored', clear answer to QIDs.
 ifQ()
 .ulgSetNot('MA shops vs Scored')
 .clearAnswer(Q(6891), Q(6901), Q(6911), Q(6921), Q(6931), Q(6941), Q(6951), Q(6961), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7051), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441))
@@ -25,90 +30,123 @@ ifQ()
 .ulgIs('Dark Stores')
 .setValue(Q(6861), 1)
 
-// If country is Canada and shop date is AFTER March 31, 2020 AND BEFORE June 1, 2020, then set values to QIDs.
+//---------------------------------------------
+// ULG Settings - End
+//---------------------------------------------
+
+
+
+
+//********************************
+// GAS - Begin
+//********************************
+
+// Sets All of the Above if all options are selected for the Fuel Island Stock levels
+ifQ(1571)
+.answered(1)
+.andQ(1571)
+.answered(2)
+.andQ(1571)
+.answered(3)
+.setValue(Q(1571),1,2,3,4)
+
+//********************************
+// GAS - End
+//********************************
+
+
+
+
+//********************************
+// CUSTOMER SERVICE - Begin
+//********************************
+
+// If QID 3031 is answered Option [1 or 3], then disappear and clear answer to QID 2911.
+ifQ(3031)
+.answered(1,3)
+.disappear(Q(2911))
+.clearAnswer(Q(2911))
+
+// Calc guest's approx wait in line (store counter)
+ifQ(5541)
+.answered()
+.andQ(5551)
+.answered()
+.sub(Q(5551) , Q(5541))
+.store(Q(3091))
+
+// Set radio button to reflect time spent in line (store counter)
+//Under 1  min
+ifQ(3091)
+.answered()
+.greaterThanOrEqual(0)
+.andifQ(3091)
+.lessThan(60)
+.setValue( Q(3101),1)
+
+// Under 2  min
+ifQ(3091)
+.greaterThanOrEqual(61)
+.andifQ(3091)
+.lessThanOrEqual(120)
+.setValue( Q(3101),2)
+
+// Under 3  min
+ifQ(3091)
+.greaterThanOrEqual(121)
+.andifQ(3091)
+.lessThanOrEqual(180)
+.setValue( Q(3101),3)
+
+// Over 3  min
+ifQ(3091)
+.greaterThanOrEqual(181)
+.setValue( Q(3101),4)
+//End of setting radio buttons for time spent in line (store counter)
+
+// If country is 'Canada' AND QID 3091 is > 3 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .countryIs('Canada')
-.dateAfter('2020-03-31')
-.dateBefore('2020-06-01')
-.setValue(Q(6721), 5)
-.setValue(Q(6731), 3)
-.setValue(Q(6771), 4)
+.andQ(3091)
+.greaterThan(180)
+.setValue(Q(2211),2)
 
-// If shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs.
-ifQ()
-.dateAfter('2020-03-31')
-.dateBefore('2020-08-01')
-.setValue(Q(6741), 5)
-.setValue(Q(6751), 4)
-.setValue(Q(6761), 4)
+// Sets All of the Above if all options are selected for the Employee Uniform reqs
+ifQ(1631)
+.answered(1)
+.andQ(1631)
+.answered(2)
+.andQ(1631)
+.answered(3)
+.setValue(Q(1631),1,2,3,4);
 
-// If country is Canada and shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs.
-ifQ()
-.countryIs('Canada')
-.dateAfter('2020-03-31')
-.dateBefore('2020-08-01')
-.setValue(Q(2131), 3)
-.setValue(Q(2151), 3)
-.setValue(Q(2171), 3)
-.setValue(Q(5291), 3)
-
-// If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [2181, 2141, 2161, 5371].
-ifQ()
-.dateAfter('2020-02-29')
-.dateBefore('2020-08-01')
-.setValue(Q(2181), 3)
-.setValue(Q(2141), 3)
-.setValue(Q(2161), 3)
-.setValue(Q(5371), 3)
-
-// If country is US and shop date is AFTER May 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [5301, 6781].
-ifQ()
-.countryIs('US')
-.dateAfter('2020-05-31')
-.dateBefore('2020-08-01')
-.setValue(Q(5301), 3)
-.setValue(Q(6781), 3)
-
-
-// If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [5271 = Option 3], [2341 = Option 3], [6691 = Option 5]
-ifQ()
-.dateAfter("2020-02-29")
-.dateBefore("2020-06-01")
-.setValue(Q(5271), 3)
-.setValue(Q(2341), 3)
-.setValue(Q(6691), 5)
-
-
-// If country is 'US' AND if shop date is AFTER February 29, 2020 then set values to QIDs: [111 = Option 3], [2421 = Option 3]
-ifQ()
-.countryIs('US')
-.dateAfter("2020-02-29")
-.setValue(Q(111), 3)
-.setValue(Q(2421), 3)
-
-
-// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [2421 = Option 3]
-ifQ()
-.countryIs('Canada')
-.dateAfter("2020-02-29")
-.dateBefore("2020-06-01")
-.setValue(Q(111), 3)
-.setValue(Q(2421), 3)
-
-// If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QID 5251.
-ifQ()
-.dateAfter("2020-02-29")
-.dateBefore("2020-08-01")
-.setValue(Q(5251), 3)
+//********************************
+// CUSTOMER SERVICE - End
+//********************************
 
 
 
 
-//***************************
+//********************************
+// COVID QUESTIONS - Begin
+//********************************
+
+// If QID 7741 is answered Option [1,2,3,4, AND 5], then set value to QID 7741 to Option [1,2,3,4,5,6].
+ifQ(7741)
+.answered([1,2,3,4,5])
+.setValue(Q(7741), 1,2,3,4,5,6)
+
+//********************************
+// COVID QUESTIONS - End
+//********************************
+
+
+
+
+//********************************
 // RESTROOMS - Begin
-//***************************
+//********************************
 
-// new
 // If country is 'Canada' AND shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to QID 6221 to Option 2.
 ifQ()
 .countryIs('Canada')
@@ -193,17 +231,49 @@ ifQ(6231)
 .setValue(Q(6621), 2)
 .setValue(Q(6631), 2)
 
-//***************************
+// Sets All of the Above if all options are selected for the Restroom Stock levels
+ifQ(6271)
+.answered(1)
+.andQ(6271)
+.answered(2)
+.andQ(6271)
+.answered(3)
+.setValue(Q(6271),1,2,3,4);
+
+//********************************
 // RESTROOMS - End
-//***************************
+//********************************
 
 
 
-// If QID 3031 is answered Option [1 or 3], then disappear and clear answer to QID 2911.
-ifQ(3031)
-.answered(1,3)
-.disappear(Q(2911))
-.clearAnswer(Q(2911))
+
+//********************************
+// STORE INTERIOR - Begin
+//********************************
+
+// If country is 'US' AND if shop date is AFTER February 29, 2020 then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+ifQ()
+.countryIs('US')
+.dateAfter("2020-02-29")
+.setValue(Q(111), 3)
+
+// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+ifQ()
+.countryIs('Canada')
+.dateAfter("2020-02-29")
+.dateBefore("2020-06-01")
+.setValue(Q(111), 3)
+
+//********************************
+// STORE INTERIOR - End
+//********************************
+
+
+
+
+//********************************
+// FRESH FOOD - Begin
+//********************************
 
 // Sets Freshness 2431 by date calculation
 // If no date is entered, set Freshness to N/A
@@ -229,121 +299,109 @@ ifQ(5531)
 .greaterThanOrEqual(0)
 .setValue(Q(2431),1)
 
-// Calc guest's approx wait in line (store counter)
-ifQ(5541)
-.answered()
-.andQ(5551)
-.answered()
-.sub(Q(5551) , Q(5541))
-.store(Q(3091))
-
-// Set radio button to reflect time spent in line (store counter)
-//Under 1  min
-ifQ(3091)
-.answered()
-.greaterThanOrEqual(0)
-.andifQ(3091)
-.lessThan(60)
-.setValue( Q(3101),1)
-
-// Under 2  min
-ifQ(3091)
-.greaterThanOrEqual(61)
-.andifQ(3091)
-.lessThanOrEqual(120)
-.setValue( Q(3101),2)
-
-// Under 3  min
-ifQ(3091)
-.greaterThanOrEqual(121)
-.andifQ(3091)
-.lessThanOrEqual(180)
-.setValue( Q(3101),3)
-
-// Over 3  min
-ifQ(3091)
-.greaterThanOrEqual(181)
-.setValue( Q(3101),4)
-//End of setting radio buttons for time spent in line (store counter)
-
-// If country is 'US' AND QID 3091 is < 2 minutes, then set value to Option 1 to QID 2211.
+// If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [5271 = Option 3], [2341 = Option 3], [6691 = Option 5]
 ifQ()
-.countryIs('US')
-.andQ(3091)
-.lessThan(120)
-.setValue(Q(2211),1)
+.dateAfter("2020-02-29")
+.dateBefore("2020-06-01")
+.setValue(Q(5271), 3)
+.setValue(Q(2341), 3)
+.setValue(Q(6691), 5)
 
-// If country is 'US' AND QID 3091 is >= 2 minutes, then set value to Option 2 to QID 2211.
+// If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QID 5251.
 ifQ()
-.countryIs('US')
-.andQ(3091)
-.greaterThanOrEqual(120)
-.setValue(Q(2211),2)
+.dateAfter("2020-02-29")
+.dateBefore("2020-08-01")
+.setValue(Q(5251), 3)
 
-// If country is 'Canada' AND QID 3091 is <= 3 minutes, then set value to Option 1 to QID 2211.
+//********************************
+// FRESH FOOD - End
+//********************************
+
+
+
+
+//********************************
+// PROPRIETARY BEVERAGE - Begin
+//********************************
+
+// If country is Canada and shop date is AFTER March 31, 2020 AND BEFORE June 1, 2020, then set values to QIDs.
 ifQ()
 .countryIs('Canada')
-.andQ(3091)
-.lessThanOrEqual(180)
-.setValue(Q(2211),1)
+.dateAfter('2020-03-31')
+.dateBefore('2020-06-01')
+.setValue(Q(6721), 5)
+.setValue(Q(6731), 3)
+.setValue(Q(6771), 4)
 
-// If country is 'Canada' AND QID 3091 is > 3 minutes, then set value to Option 2 to QID 2211.
+// If shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs.
+ifQ()
+.dateAfter('2020-03-31')
+.dateBefore('2020-08-01')
+.setValue(Q(6741), 5)
+.setValue(Q(6751), 4)
+.setValue(Q(6761), 4)
+
+// If country is Canada and shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs.
 ifQ()
 .countryIs('Canada')
-.andQ(3091)
-.greaterThan(180)
-.setValue(Q(2211),2)
+.dateAfter('2020-03-31')
+.dateBefore('2020-08-01')
+.setValue(Q(2131), 3)
+.setValue(Q(2151), 3)
+.setValue(Q(2171), 3)
+.setValue(Q(5291), 3)
 
-// Sets All of the Above if all options are selected for the Fuel Island Stock levels
-ifQ(1571)
-.answered(1)
-.andQ(1571)
-.answered(2)
-.andQ(1571)
-.answered(3)
-.setValue(Q(1571),1,2,3,4)
+// If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [2181, 2141, 2161, 5371].
+ifQ()
+.dateAfter('2020-02-29')
+.dateBefore('2020-08-01')
+.setValue(Q(2181), 3)
+.setValue(Q(2141), 3)
+.setValue(Q(2161), 3)
+.setValue(Q(5371), 3)
 
+// If country is US and shop date is AFTER May 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [5301, 6781].
+ifQ()
+.countryIs('US')
+.dateAfter('2020-05-31')
+.dateBefore('2020-08-01')
+.setValue(Q(5301), 3)
+.setValue(Q(6781), 3)
 
-// Sets All of the Above if all options are selected for the Restroom Stock levels
-ifQ(6271)
-.answered(1)
-.andQ(6271)
-.answered(2)
-.andQ(6271)
-.answered(3)
-.setValue(Q(6271),1,2,3,4);
-
-// Sets All of the Above if all options are selected for the Employee Uniform reqs
-ifQ(1631)
-.answered(1)
-.andQ(1631)
-.answered(2)
-.andQ(1631)
-.answered(3)
-.setValue(Q(1631),1,2,3,4);
+//********************************
+// PROPRIETARY BEVERAGE - End
+//********************************
 
 
 
 
-//***************************
-// COVID QUESTIONS - Begin
-//***************************
+//********************************
+// VAULT - Begin
+//********************************
 
-// If QID 7741 is answered Option [1,2,3,4, AND 5], then set value to QID 7741 to Option [1,2,3,4,5,6].
-ifQ(7741)
-.answered([1,2,3,4,5])
-.setValue(Q(7741), 1,2,3,4,5,6)
+// If country is 'US' AND if shop date is AFTER February 29, 2020 then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+ifQ()
+.countryIs('US')
+.dateAfter("2020-02-29")
+.setValue(Q(2421), 3)
 
-//***************************
-// COVID QUESTIONS - End
-//***************************
+// If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [111 = Option 3], [2421 = Option 3]
+ifQ()
+.countryIs('Canada')
+.dateAfter("2020-02-29")
+.dateBefore("2020-06-01")
+.setValue(Q(2421), 3)
+
+//********************************
+// VAULT - End
+//********************************
 
 
 
 
-//***************************
+//********************************
 // INTERNAL DATA - Begin
-//***************************
+//********************************
 
 // If QID 1 answered anything, then subtract QID 2021 from QID 1 and store output in QID 6521.
 ifQ(1)
@@ -363,6 +421,6 @@ ifQ(1)
 .divide(Q(6531), 24)
 .store(Q(6541))
 
-//***************************
+//********************************
 // INTERNAL DATA - End
-//***************************
+//********************************
