@@ -1,4 +1,4 @@
-// Last Updated: 6/2/2020
+// Last Updated: 6/8/2020
 
 
 
@@ -110,11 +110,18 @@ ifQ(3091)
 // [Time Calc] Wait Time in Line - End
 //---------------------------------------------
 
-// If country is 'Canada' AND QID 3091 is > 3 minutes, then set value to Option 2 to QID 2211.
+// If country is 'Canada' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .countryIs('Canada')
 .andQ(3091)
-.greaterThan(180)
+.lessThan(180)
+.setValue(Q(2211),1)
+
+// If country is 'Canada' AND QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
+ifQ()
+.countryIs('Canada')
+.andQ(3091)
+.greaterThanOrEqual(180)
 .setValue(Q(2211),2)
 
 // If QID 1631 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 1631.
