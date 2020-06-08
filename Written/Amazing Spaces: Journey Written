@@ -1,0 +1,18 @@
+// Last Updated: 6/8/2020
+
+
+
+
+//*******************************
+// V. RENTAL/MOVE IN PROCESS - Begin
+//*******************************
+
+// If QID 611 is answered Option 1, then disappear and clear answer to QID 621.
+ifQ(611)
+.answered(1)
+.disappear(Q(621))
+.clearAnswer(Q(621))
+
+//*******************************
+// V. RENTAL/MOVE IN PROCESS - End
+//*******************************
