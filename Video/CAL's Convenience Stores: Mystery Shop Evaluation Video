@@ -7,10 +7,10 @@ ifQ()
 .setValue(Q(2421), 1)
 .setValue(Q(111), 1)
 
-// If shop date is within the months of April through May, 2020, then set value to Option 1 to QIDs [2201, 2141, 2161, 2181, 3051, 2341, 2361].
+// If shop date is within the months of April through July, 2020, then set value to Option 1 to QIDs [2201, 2141, 2161, 2181, 3051, 2341, 2361].
 ifQ()
 .dateAfter('2020-03-31')
-.dateBefore('2020-06-01')
+.dateBefore('2020-08-01')
 .setValue(Q(2201), 1)
 .setValue(Q(2141), 1)
 .setValue(Q(2161), 1)
@@ -19,12 +19,12 @@ ifQ()
 .setValue(Q(2341), 1)
 .setValue(Q(2361), 1)
 
-// If QID 1151 is answered Option 1 AND shop date is within the months of April through May, 2020, then set value to Option 1 to QID 2411.
+// If QID 1151 is answered Option 1 AND shop date is within the months of April through July, 2020, then set value to Option 1 to QID 2411.
 ifQ(1151)
 .answered(1)
 .andifQ()
 .dateAfter('2020-03-31')
-.dateBefore('2020-06-01')
+.dateBefore('2020-08-01')
 .setValue(Q(2411), 1)
 
 //Sets "During which time of day did the evaluation occur?" based on "Time of shop:"
