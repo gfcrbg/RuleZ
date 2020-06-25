@@ -1,4 +1,4 @@
-// Last Updated: 6/16/2020
+// Last Updated: 6/25/2020
 
 
 
@@ -30,11 +30,17 @@ ifQ(61)
 // II. EMAIL REPLY - Begin
 //*******************************
 
+// If QID 531 is answered Option 2, then disappear and clear answer to QID 741.
+ifQ(531)
+.answered(2)
+.disappear(Q(741))
+.clearAnswer(Q(741))
+
 // If QID 531 is answered Option [2 OR 4], then disappear and clear answer to QIDs.
 ifQ(531)
 .answered(2,4)
-.disappear(Q(671), Q(741), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(311), Q(321), Q(481), Q(491), Q(511)) 
-.clearAnswer(Q(671), Q(741), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(311), Q(321), Q(481), Q(491), Q(511)) 
+.disappear(Q(671), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(311), Q(321), Q(481), Q(491), Q(511)) 
+.clearAnswer(Q(671), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(311), Q(321), Q(481), Q(491), Q(511)) 
 
 // If QID 281 is answered Option [0 OR 2], then disappear and clear answer to QID 291.
 ifQ(281)
@@ -59,11 +65,17 @@ ifQ(511)
 // III. PHONE REPLY - Begin
 //*******************************
 
+// If QID 531 is answered Option 1, then disappear and clear answer to QID 751.
+ifQ(531)
+.answered(1)
+.disappear(Q(751))
+.clearAnswer(Q(751))
+
 // If QID 531 is answered Option [1 OR 4], then disappear and clear answer to QIDs. 
 ifQ(531)
 .answered(1,4)
-.disappear(Q(551), Q(751), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621), Q(631), Q(731), Q(641), Q(661), Q(711), Q(651)) 
-.clearAnswer(Q(551), Q(751), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621), Q(631), Q(731), Q(641), Q(661), Q(711), Q(651))
+.disappear(Q(551), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621), Q(631), Q(731), Q(641), Q(661), Q(711), Q(651)) 
+.clearAnswer(Q(551), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621), Q(631), Q(731), Q(641), Q(661), Q(711), Q(651))
 
 //*******************************
 // III. PHONE REPLY - End
