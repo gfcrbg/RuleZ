@@ -1,1 +1,59 @@
+// Last Updated: 6/30/2020
 
+
+
+
+//***************************************
+// I. PERSONAL BANKER INTERACTION - Begin
+//***************************************
+
+//
+ifQ(231)
+.answered(2,3)
+.disappear(Q(241))
+.clearAnswer(Q(241))
+
+//
+ifQ(251)
+.answered(2)
+.disappear(Q(261))
+.clearAnswer(Q(261)) 
+
+//
+ifQ(281)
+.answered(2)
+.disappear(Q(291))
+.clearAnswer(Q(291)) 
+
+//
+ifQ(331)
+.answered(2,3)
+.disappear(Q(341))
+.clearAnswer(Q(341))  
+
+//***************************************
+// I. PERSONAL BANKER INTERACTION   - End
+//***************************************
+
+
+
+
+//***************************************
+// II. RSR/TELLER INTERACTION  - Begin
+//***************************************
+
+//
+ifQ(401)
+.answered(1,3)
+.disappear(Q(411), Q(421))
+.clearAnswer(Q(411), Q(421))
+
+//
+ifQ(561)
+.answered(2)
+.disappear(Q(571), Q(581))
+.clearAnswer(Q(571), Q(581))
+
+//***************************************
+// II. RSR/TELLER INTERACTION  - End
+//***************************************
