@@ -1,5 +1,5 @@
-// Last Update: 6/29/2020
-
+// Last Update: 7/2/2020
+// currently set up on UAT
 
 
 
@@ -143,6 +143,18 @@ ifQ(5011)
 .answered(4)
 .appear(Q(5021))
 
+// If QID 1591 is answered Option [1 OR 3], then disappear and clear answer to QID 3061.
+ifQ(1591)
+.answered(1,3)
+.disappear(Q(3061))
+.clearAnswer(Q(3061))
+
+// If QID 3061 is NOT answered Option 7, then disappear and clear answer to QID 3221.
+ifQ(3061)
+.notAnswered(7)
+.disappear(Q(3221))
+.clearAnswer(Q(3221))
+
 // Sets All of the Above if all options are selected for the Restroom Stock levels.
 ifQ(1601)
 .answered(1)
@@ -176,6 +188,18 @@ ifQ(3131)
 .greaterThan(0)
 .setValue(Q(6281),1)
 
+// If QID 3031 is answered Option [1 OR 3], then disappear and clear answer to QID 2911.
+ifQ(3031)
+.answered(1,3)
+.disappear(Q(2911))
+.clearAnswer(Q(2911))
+
+// If QID 1421 is answered Option 1, then disappear and clear answer to QID 2591.
+ifQ(1421)
+.answered(1)
+.disappear(Q(2591))
+.clearAnswer(Q(2591))
+
 //*******************************
 // STORE INTERIOR - End
 //*******************************
@@ -187,10 +211,29 @@ ifQ(3131)
 //  LTC - Begin
 //*******************************
 
-// If the LTC isn't open, hide all these questions.
+// If QID 1151 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(1151)
 .answered(2,3)
-.disappear(Q(1471),Q(1191),Q(271),Q(2091),Q(1481),Q(2391),Q(2411),Q(2801),Q(2811),Q(2781),Q(251),Q(301),Q(2221),Q(3171),Q(3071));
+.disappear(Q(6561), Q(1471), Q(3171), Q(7661), Q(1191), Q(2381), Q(6571), Q(2091), Q(1481), Q(271), Q(6581), Q(6591), Q(6601), Q(251), Q(2801), Q(2811), Q(301), Q(2781), Q(2221), Q(3071), Q(2391), Q(2401), Q(2411), Q(3051), Q(2311), Q(2351), Q(6291), Q(6611), Q(6621), Q(6631), Q(6641))
+.clearAnswer(Q(6561), Q(1471), Q(3171), Q(7661), Q(1191), Q(2381), Q(6571), Q(2091), Q(1481), Q(271), Q(6581), Q(6591), Q(6601), Q(251), Q(2801), Q(2811), Q(301), Q(2781), Q(2221), Q(3071), Q(2391), Q(2401), Q(2411), Q(3051), Q(2311), Q(2351), Q(6291), Q(6611), Q(6621), Q(6631), Q(6641))
+
+// testy
+ifQ(2381)
+.answered(0,1,2)
+.disappear(Q(5041))
+.clearAnswer(Q(5041))
+
+// testy
+ifQ(6621)
+.answered(0,1,3)
+.disappear(Q(7451))
+.clearAnswer(Q(7451))
+
+// testy
+ifQ(7451)
+.notAnswered(4)
+.disappear(Q(7461))
+.clearAnswer(Q(7461))
 
 // Sets how long food took to come out from LTC.
 ifQ(2801)
@@ -268,8 +311,21 @@ ifQ(301)
 
 //shows Ladson Grill questions if the Ladson Grill is open
 ifQ(4161)
-.answered(1)
-.appear(Q(5751), Q(4181), Q(5291), Q(4191), Q(4201), Q(4221), Q(4231), Q(4241), Q(5741), Q(5301), Q(5311), Q(5321), Q(5331), Q(5341), Q(5351))
+.answered(2)
+.disappear(Q(7191), Q(5751), Q(4181), Q(7691), Q(5291), Q(4191), Q(4201), Q(4221), Q(4231), Q(4241), Q(5741), Q(5301), Q(7211), Q(7221), Q(7231), Q(5351), Q(5311), Q(5321), Q(5331), Q(5341), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311)) 
+.clearAnswer(Q(7191), Q(5751), Q(4181), Q(7691), Q(5291), Q(4191), Q(4201), Q(4221), Q(4231), Q(4241), Q(5741), Q(5301), Q(7211), Q(7221), Q(7231), Q(5351), Q(5311), Q(5321), Q(5331), Q(5341), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311))
+
+// testy
+ifQ(7291)
+.answered(0,1,3)
+.disappear(Q(7491))
+.clearAnswer(Q(7491))
+
+// testy
+ifQ(7491)
+.notAnswered(4)
+.disappear(Q(7551))
+.clearAnswer(Q(7551))
 
 //Calc guest's approx wait in line (Ladson Grill)
 ifQ(4221)
