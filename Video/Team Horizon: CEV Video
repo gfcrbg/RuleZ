@@ -1,6 +1,10 @@
-// Last Update: 7/6/2020
+// Last Update: 7/7/2020
 
+//Set restaurants question to Yes if the location in the group Stores With Restaurants
 
+ifQ()
+.ulgIs("Stores With Restaurants")
+.setValue(Q(7591), 1);
 
 
 // If ulg is 'McAllen', then set value to Option 3 (N/A), and string ("Operational Override"), to QIDs [2131, 2141, 2151, 2161, 5051, 6411, 6421, 6301]. 
