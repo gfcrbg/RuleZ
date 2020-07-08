@@ -1,4 +1,4 @@
-// Last Updated: 6/18/2020
+// Last Updated: 7/8/2020
 
 
 
@@ -29,6 +29,13 @@ ifQ()
 ifQ()
 .ulgIs('Dark Stores')
 .setValue(Q(6861), 1)
+
+// If ulg is 'Canada Airport Locations', then set value to QIDs,
+ifQ()
+.ulgIs('Canada Airport Locations')
+.setValue(Q(2121), 1)
+.setValue(Q(51), 4)
+.setValue(Q(6871), 3)
 
 //---------------------------------------------
 // ULG Settings - End
