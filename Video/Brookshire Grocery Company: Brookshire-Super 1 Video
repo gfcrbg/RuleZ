@@ -1,4 +1,4 @@
-// Last Updated: 6/4/2019
+// Last Updated: 7/10/2020
 
 
 
@@ -42,8 +42,8 @@ ifQ(3931)
 // If QID 2451 answered Option 2, then disappear and clear answer to QIDs: [3231, 4401, 4341, 4351, 3251, 4361, 4371, 4381, 3241].
 ifQ(2451)
 .answered(2)
-.disappear(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241))
-.clearAnswer(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241))
+.disappear(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241), Q(5041))
+.clearAnswer(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241), Q(5041))
 
 //*******************************
 //PRODUCE - End
@@ -59,8 +59,8 @@ ifQ(2451)
 // If QID 2591 answered Option 2, then disappear and clear answer to QIDs: [2621, 4391, 4411, 4421, 2711, 4431, 4441, 4451, 2701].
 ifQ(2591)
 .answered(2)
-.disappear(Q(2621), Q(4391), Q(4411), Q(4421), Q(2711), Q(4431), Q(4441), Q(4451), Q(2701))
-.clearAnswer(Q(2621), Q(4391), Q(4411), Q(4421), Q(2711), Q(4431), Q(4441), Q(4451), Q(2701))
+.disappear(Q(2621), Q(4391), Q(4411), Q(4421), Q(2711), Q(4431), Q(4441), Q(4451), Q(2701), Q(5051))
+.clearAnswer(Q(2621), Q(4391), Q(4411), Q(4421), Q(2711), Q(4431), Q(4441), Q(4451), Q(2701), Q(5051))
 
 //*******************************
 //MARKET - End
@@ -82,8 +82,8 @@ ifQ(3331)
 // If QID 4461 is answered Option [0, 2, or 3], then disappear and clear answer to QIDs [4471, 4481, 4491, 4501, 4511, 4521, 4531, 4541, 4551, 4561].
 ifQ(4461)
 .answered(0,2,3)
-.disappear(Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4521), Q(4531), Q(4541), Q(4551), Q(4561))
-.clearAnswer(Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4521), Q(4531), Q(4541), Q(4551), Q(4561))
+.disappear(Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4521), Q(4531), Q(4541), Q(4551), Q(4561), Q(5061))
+.clearAnswer(Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4521), Q(4531), Q(4541), Q(4551), Q(4561), Q(5061))
 
 //************************************
 //SERVICE COUNTER (IF APPLICABLE) - End
@@ -99,8 +99,8 @@ ifQ(4461)
 // If QID 2311 answered Option 2, then disappear and clear answer to QIDs: [3371, 4581, 4591, 4601, 3391, 4611, 4621, 4631, 3381, 4641].
 ifQ(2311)
 .answered(2)
-.disappear(Q(3371), Q(4581), Q(4591), Q(4601), Q(3391), Q(4611), Q(4621), Q(4631), Q(3381), Q(4641))
-.clearAnswer(Q(3371), Q(4581), Q(4591), Q(4601), Q(3391), Q(4611), Q(4621), Q(4631), Q(3381), Q(4641))
+.disappear(Q(3371), Q(4581), Q(4591), Q(4601), Q(3391), Q(4611), Q(4621), Q(4631), Q(3381), Q(4641), Q(5071))
+.clearAnswer(Q(3371), Q(4581), Q(4591), Q(4601), Q(3391), Q(4611), Q(4621), Q(4631), Q(3381), Q(4641), Q(5071))
 
 //*******************************
 // DELI - End
@@ -116,8 +116,8 @@ ifQ(2311)
 // If QID 1361 answered Option 2, then disappear and clear answer to QIDs: [2261, 4651, 4661, 4671, 3451, 4681, 4691, 4701, 3441].
 ifQ(1361)
 .answered(2)
-.disappear(Q(2261), Q(4651), Q(4661), Q(4671), Q(3451), Q(4681), Q(4691), Q(4701), Q(3441))
-.clearAnswer(Q(2261), Q(4651), Q(4661), Q(4671), Q(3451), Q(4681), Q(4691), Q(4701), Q(3441))
+.disappear(Q(2261), Q(4651), Q(4661), Q(4671), Q(3451), Q(4681), Q(4691), Q(4701), Q(3441), Q(5081))
+.clearAnswer(Q(2261), Q(4651), Q(4661), Q(4671), Q(3451), Q(4681), Q(4691), Q(4701), Q(3441), Q(5081))
 
 //*******************************
 // BAKERY - End
@@ -133,8 +133,8 @@ ifQ(1361)
 // If QID 2731 answered Option 2, then disappear and clear answer to QIDs: [2761, 4711, 4721, 4731, 3501, 4741, 4751, 4761, 4771, 3491].
 ifQ(2731)
 .answered(2)
-.disappear(Q(2761), Q(4711), Q(4721), Q(4731), Q(3501), Q(4741), Q(4751), Q(4761), Q(4771), Q(3491))
-.clearAnswer(Q(2761), Q(4711), Q(4721), Q(4731), Q(3501), Q(4741), Q(4751), Q(4761), Q(4771), Q(3491))
+.disappear(Q(2761), Q(4711), Q(4721), Q(4731), Q(3501), Q(4741), Q(4751), Q(4761), Q(4771), Q(3491), Q(5091))
+.clearAnswer(Q(2761), Q(4711), Q(4721), Q(4731), Q(3501), Q(4741), Q(4751), Q(4761), Q(4771), Q(3491), Q(5091))
 
 //*******************************
 // CENTER STORE (GROCERY) - End
@@ -150,8 +150,8 @@ ifQ(2731)
 // If QID 3801 answered Option 2, then disappear and clear answer to QIDs: [3541, 3531, 4781, 4791, 3571, 4801, 4811, 4821, 3561].
 ifQ(3801)
 .answered(2)
-.disappear(Q(3541), Q(3531), Q(4781), Q(4791), Q(3571), Q(4801), Q(4811), Q(4821), Q(3561))
-.clearAnswer(Q(3541), Q(3531), Q(4781), Q(4791), Q(3571), Q(4801), Q(4811), Q(4821), Q(3561))
+.disappear(Q(3541), Q(3531), Q(4781), Q(4791), Q(3571), Q(4801), Q(4811), Q(4821), Q(3561), Q(5101))
+.clearAnswer(Q(3541), Q(3531), Q(4781), Q(4791), Q(3571), Q(4801), Q(4811), Q(4821), Q(3561), Q(5101))
 
 //*******************************
 // PHARMACY - End
@@ -191,49 +191,3 @@ ifQ(4881)
 //*******************************
 // FRONT END - End
 //*******************************
-
-
-
-
-//--------------------------------------------
-// Partner Acknowledgement - Begin
-//--------------------------------------------
-
-// If QID 4111 is answered anything, then divide QID 4121 by QID 4111.  Store quotient in QID 4141.
-ifQ(4111)
-.answered()
-.divide(Q(4121), Q(4111))
-.store(Q(4141))
-
-// If QID 4141 is answered anything, then multiply QID 4141 by 100.  Store product in QID 4151.
-ifQ(4141)
-.answered()
-.multiply(Q(4141), 100)
-.store(Q(4151))
-
-// If QID 4151 is answered '100', then set value QID 4161 to Option 1.
-ifQ(4151)
-.answered('100')
-.setValue(Q(4161), 1)
-
-// If QID 4151 is answered '75' to '99', then set value QID 4161 to Option 2.
-ifQ(4151)
-.greaterThanOrEqual('75')
-.lessThanOrEqual('99')
-.setValue(Q(4161), 2)
-
-// If QID 4151 is answered '50' to '74', then set value QID 4161 to Option 3.
-ifQ(4151)
-.greaterThanOrEqual('50')
-.lessThanOrEqual('74')
-.setValue(Q(4161), 3)
-
-// If QID 4151 is answered '0' to '49', then set value QID 4161 to Option 4.
-ifQ(4151)
-.greaterThanOrEqual('0')
-.lessThanOrEqual('49')
-.setValue(Q(4161), 4)
-
-//--------------------------------------------
-// Partner Acknowledgement - End
-//--------------------------------------------
