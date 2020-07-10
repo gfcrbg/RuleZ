@@ -22,7 +22,7 @@ ifQ()
 .ulgIs('Gas Station Stores')
 .setValue(Q(3931), 1)
 
-// If QID 3931 is answered Option 2, then disappear and clear answer to QIDs: [4911, 4921, 3871, 3901].
+// If QID 3931 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3931)
 .answered(2)
 .disappear(Q(4911), Q(4921), Q(3871), Q(3901))
@@ -39,7 +39,7 @@ ifQ(3931)
 // PRODUCE - Begin
 //*******************************
 
-// If QID 2451 answered Option 2, then disappear and clear answer to QIDs: [3231, 4401, 4341, 4351, 3251, 4361, 4371, 4381, 3241].
+// If QID 2451 answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2451)
 .answered(2)
 .disappear(Q(3231), Q(4401), Q(4341), Q(4351), Q(3251), Q(4361), Q(4371), Q(4381), Q(3241), Q(5041))
@@ -56,7 +56,7 @@ ifQ(2451)
 //MARKET - Begin
 //*******************************
 
-// If QID 2591 answered Option 2, then disappear and clear answer to QIDs: [2621, 4391, 4411, 4421, 2711, 4431, 4441, 4451, 2701].
+// If QID 2591 answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2591)
 .answered(2)
 .disappear(Q(2621), Q(4391), Q(4411), Q(4421), Q(2711), Q(4431), Q(4441), Q(4451), Q(2701), Q(5051))
@@ -73,13 +73,13 @@ ifQ(2591)
 //SERVICE COUNTER (IF APPLICABLE) - Begin
 //************************************
 
-// If QID 3331 answered Option [0 or 2], then disappear and clear answer to QIDs: [4461, 4571].
+// If QID 3331 answered Option [0 or 2], then disappear and clear answer to QIDs.
 ifQ(3331)
 .answered(0,2)
 .disappear(Q(4461), Q(4571))
 .clearAnswer(Q(4461), Q(4571))
 
-// If QID 4461 is answered Option [0, 2, or 3], then disappear and clear answer to QIDs [4471, 4481, 4491, 4501, 4511, 4521, 4531, 4541, 4551, 4561].
+// If QID 4461 is answered Option [0, 2, or 3], then disappear and clear answer to QIDs.
 ifQ(4461)
 .answered(0,2,3)
 .disappear(Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4521), Q(4531), Q(4541), Q(4551), Q(4561), Q(5061))
@@ -96,7 +96,7 @@ ifQ(4461)
 // DELI - Begin
 //*******************************
 
-// If QID 2311 answered Option 2, then disappear and clear answer to QIDs: [3371, 4581, 4591, 4601, 3391, 4611, 4621, 4631, 3381, 4641].
+// If QID 2311 answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2311)
 .answered(2)
 .disappear(Q(3371), Q(4581), Q(4591), Q(4601), Q(3391), Q(4611), Q(4621), Q(4631), Q(3381), Q(4641), Q(5071))
@@ -113,7 +113,7 @@ ifQ(2311)
 // BAKERY - Begin
 //*******************************
 
-// If QID 1361 answered Option 2, then disappear and clear answer to QIDs: [2261, 4651, 4661, 4671, 3451, 4681, 4691, 4701, 3441].
+// If QID 1361 answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1361)
 .answered(2)
 .disappear(Q(2261), Q(4651), Q(4661), Q(4671), Q(3451), Q(4681), Q(4691), Q(4701), Q(3441), Q(5081))
@@ -130,7 +130,7 @@ ifQ(1361)
 //CENTER STORE (GROCERY) - Begin
 //*******************************
 
-// If QID 2731 answered Option 2, then disappear and clear answer to QIDs: [2761, 4711, 4721, 4731, 3501, 4741, 4751, 4761, 4771, 3491].
+// If QID 2731 answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2731)
 .answered(2)
 .disappear(Q(2761), Q(4711), Q(4721), Q(4731), Q(3501), Q(4741), Q(4751), Q(4761), Q(4771), Q(3491), Q(5091))
@@ -147,7 +147,7 @@ ifQ(2731)
 // PHARMACY - Begin
 //*******************************
 
-// If QID 3801 answered Option 2, then disappear and clear answer to QIDs: [3541, 3531, 4781, 4791, 3571, 4801, 4811, 4821, 3561].
+// If QID 3801 answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3801)
 .answered(2)
 .disappear(Q(3541), Q(3531), Q(4781), Q(4791), Q(3571), Q(4801), Q(4811), Q(4821), Q(3561), Q(5101))
