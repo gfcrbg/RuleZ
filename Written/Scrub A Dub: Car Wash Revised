@@ -1,0 +1,47 @@
+// Last Updated: 7/13/2020
+
+
+
+
+//***************************************
+// I. EMPLOYEE EVALUATION - Begin
+//***************************************
+
+// 
+ifQ(181)
+.answered(2)
+.disappear(Q(191))
+.clearAnswer(Q(191))
+
+//
+ifQ(271)
+.answered(2,3)
+.disappear(Q(221))
+.clearAnswer(Q(221))
+
+//***************************************
+// I. EMPLOYEE EVALUATION - End
+//***************************************
+
+
+
+
+//***************************************
+// II. FACILITY & CAR WASH EVALUATION - Begin
+//***************************************
+
+//
+ifQ(441)
+.answered(1)
+.disappear(Q(451))
+.clearAnswer(Q(451))
+
+//
+ifQ(461)
+.answered(1)
+.disappear(Q(471))
+.clearAnswer(Q(471))
+
+//***************************************
+// II. FACILITY & CAR WASH EVALUATION - End
+//***************************************
