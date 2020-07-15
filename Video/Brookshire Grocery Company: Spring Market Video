@@ -1,4 +1,4 @@
-// Last Updated: 9/30/2019
+// Last Updated: 7/15/2020
 
 
 
@@ -7,11 +7,11 @@
 // CENTER STORE (GROCERY) - Begin
 //*****************************
 
-// If QID 2731 is answered Option 2, disappear and clear answer to QIDs: [2761, 2741, 4051, 4061, 3501, 4071, 4081, 3511, 4101, 4111].
+// If QID 2731 is answered Option 2, disappear and clear answer to QIDs.
 ifQ(2731)
 .answered(2)
-.disappear(Q(2761), Q(2741), Q(4051), Q(4061), Q(3501), Q(4071), Q(4081), Q(3511), Q(4101), Q(4111))
-.clearAnswer(Q(2761), Q(2741), Q(4051), Q(4061), Q(3501), Q(4071), Q(4081), Q(3511), Q(4101), Q(4111))
+.disappear(Q(2761), Q(2741), Q(4051), Q(4061), Q(3501), Q(4071), Q(4081), Q(3511), Q(4101), Q(4111), Q(4191))
+.clearAnswer(Q(2761), Q(2741), Q(4051), Q(4061), Q(3501), Q(4071), Q(4081), Q(3511), Q(4101), Q(4111), Q(4191))
 
 //*****************************
 // CENTER STORE (GROCERY) - End
@@ -33,49 +33,3 @@ ifQ(3721)
 //*****************************
 // FRONT END - End
 //*****************************
-
-
-
-
-//--------------------------------------------
-// Partner Acknowledgement - Begin
-//--------------------------------------------
-
-// If QID 3931 is answered anything, then divide QID 3941 by QID 3931.  Store quotient in QID 3961.
-ifQ(3931)
-.answered()
-.divide(Q(3941), Q(3931))
-.store(Q(3961))
-
-// If QID 3961 is answered anything, then multiply QID 3961 by 100.  Store product in QID 3971.
-ifQ(3961)
-.answered()
-.multiply(Q(3961), 100)
-.store(Q(3971))
-
-// If QID 3971 is answered '100', then set value QID 3981 to Option 1.
-ifQ(3971)
-.answered('100')
-.setValue(Q(3981), 1)
-
-// If QID 3971 is answered '75' to '99', then set value QID 3981 to Option 2.
-ifQ(3971)
-.greaterThanOrEqual('75')
-.lessThanOrEqual('99')
-.setValue(Q(3981), 2)
-
-// If QID 3971 is answered '50' to '74', then set value QID 3981 to Option 3.
-ifQ(3971)
-.greaterThanOrEqual('50')
-.lessThanOrEqual('74')
-.setValue(Q(3981), 3)
-
-// If QID 3971 is answered '0' to '49', then set value QID 3981 to Option 4.
-ifQ(3971)
-.greaterThanOrEqual('0')
-.lessThanOrEqual('49')
-.setValue(Q(3981), 4)
-
-//--------------------------------------------
-// Partner Acknowledgement - End
-//--------------------------------------------
