@@ -1,4 +1,4 @@
-// Last Updated: 7/23/2020
+// Last Updated: 7/24/2020
 
 
 
@@ -199,11 +199,10 @@ ifQ(7741)
 // RESTROOMS - Begin
 //********************************
 
-// If country is 'Canada' AND shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 2 to QID 6221.
+// Shop Date Trigger [March, 2020], if country is 'Canada', then set value to Option 2 to QID 6221.
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-02-29')
-.dateBefore('2020-08-01')
 .setValue(Q(6221), 2)
 
 // If QID 6221 is answered Option 1, then show QID 6231.
@@ -366,10 +365,9 @@ ifQ()
 .setValue(Q(2341), 3)
 .setValue(Q(6691), 5)
 
-// If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QID 5251.
+// Shop Date Trigger [March, 2020], set value to Option 3 to QID 5251.
 ifQ()
 .dateAfter("2020-02-29")
-.dateBefore("2020-08-01")
 .setValue(Q(5251), 3)
 
 //********************************
@@ -392,44 +390,39 @@ ifQ()
 .setValue(Q(6731), 3)
 .setValue(Q(6771), 4)
 
-// If shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set values to QIDs: [6741 = Option 5], [6761 = Option 4].
+// Shop Date Trigger [April, 2020], set values to QIDs: [6741 = Option 5], [6761 = Option 4].
 ifQ()
 .dateAfter('2020-03-31')
-.dateBefore('2020-08-01')
 .setValue(Q(6741), 5)
 .setValue(Q(6761), 4)
 
-// If country is 'Canada' and shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set value to Option 4 to QID 6751.
+// Shop Date Trigger [April, 2020], if country is 'Canada', then set value to Option 4 to QID 6751.
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
-.dateBefore('2020-08-01')
 .setValue(Q(6751), 4)
 
-// If country is 'Canada' and shop date is AFTER March 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [2131, 2151, 2171, 5291].
+// Shop Date Trigger [April, 2020], if country is 'Canada', then set value to Option 3 to QIDs: [2131, 2151, 2171, 5291].
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
-.dateBefore('2020-08-01')
 .setValue(Q(2131), 3)
 .setValue(Q(2151), 3)
 .setValue(Q(2171), 3)
 .setValue(Q(5291), 3)
 
-// If shop date is AFTER February 29, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [2181, 2141, 2161, 5371].
+// Shop Date Trigger [March, 2020], set value to Option 3 to QIDs: [2181, 2141, 2161, 5371].
 ifQ()
 .dateAfter('2020-02-29')
-.dateBefore('2020-08-01')
 .setValue(Q(2181), 3)
 .setValue(Q(2141), 3)
 .setValue(Q(2161), 3)
 .setValue(Q(5371), 3)
 
-// If country is 'US' and shop date is AFTER May 31, 2020 AND BEFORE August 1, 2020, then set value to Option 3 to QIDs: [5301, 6781].
+// Shop Date Trigger [June, 2020], if country is 'US', then set value to Option 3 to QIDs: [5301, 6781].
 ifQ()
 .countryIs('US')
 .dateAfter('2020-05-31')
-.dateBefore('2020-08-01')
 .setValue(Q(5301), 3)
 .setValue(Q(6781), 3)
 
