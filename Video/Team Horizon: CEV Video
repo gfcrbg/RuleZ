@@ -1,4 +1,4 @@
-// Last Update: 7/20/2020
+// Last Update: 7/24/2020
 
 //Set restaurants question to Yes if the location in the group Stores With Restaurants
 
@@ -122,15 +122,29 @@ ifQ(1571)
 // COVID FOCUS QUESTIONS - Begin
 //--------------------------------------------
 
-// If QID 6611 is answered Option [1,2, AND 3], then set value to QID 6611 to Option [1,2,3,4].
-ifQ(6611)
-.answered([1,2,3])
-.setValue(Q(6611), 1,2,3,4)
+// If QID 7651 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7651.
+ifQ(7651)
+.answered(1)
+.andQ(7651)
+.answered(2)
+.andQ(7651)
+.answered(3)
+.setValue(Q(7651),1,2,3,4);
+
+// If QID 7651 is not answered Option 4, then set value to Option 6 to QID 7651.
+ifQ(7651)
+.notAnswered(4)
+.setValue(Q(7651), 6)
 
 //--------------------------------------------
 // COVID FOCUS QUESTIONS - End
 //--------------------------------------------
 
+
+// If QID 6611 is answered Option [1,2, AND 3], then set value to QID 6611 to Option [1,2,3,4].
+ifQ(6611)
+.answered([1,2,3])
+.setValue(Q(6611), 1,2,3,4)
 
 // If QID 1591 is answered Option 3, then appear QID 5011.
 ifQ(1591)
