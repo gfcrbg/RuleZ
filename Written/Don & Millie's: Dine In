@@ -1,0 +1,18 @@
+// Last Updated: 7/27/2020
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE- DINE IN - Begin
+//*******************************
+
+// If QID 661 answered Option 2, then disappear and clear answer to QID 671.
+ifQ(661)
+.answered(2)
+.disappear(Q(671))
+.clearAnswer(Q(671))
+
+//*******************************
+// CUSTOMER SERVICE- DINE IN - End
+//*******************************
