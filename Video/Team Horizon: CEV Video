@@ -1,4 +1,4 @@
-// Last Update: 7/24/2020
+// Last Update: 7/28/2020
 
 //Set restaurants question to Yes if the location in the group Stores With Restaurants
 
@@ -206,6 +206,24 @@ ifQ(3031)
 .answered(1,3)
 .disappear(Q(2911))
 .clearAnswer(Q(2911))
+
+// Shop Date Trigger [July, 2020], if QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 2911.
+ifQ()
+.dateAfter("2020-06-30")
+.andQ(3031)
+.answered(2)
+.hideOptions(Q(2911), 3,4)
+
+// Shop Date Trigger [July, 2020], if QID 3031 answered Option 2 and QID 2911 answered Option [3 OR 4] and if QID 2911 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
+ifQ()
+.dateAfter("2020-06-30")
+.andQ(3031)
+.answered(2)
+.andQ(2911)
+.answered(3,4)
+.andifQ(2911)
+.notAnswered(1,2,5)
+.setValue(Q(3031), 1)
 
 // If QID 1421 is answered Option 1, then disappear and clear answer to QID 2591.
 ifQ(1421)
