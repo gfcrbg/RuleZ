@@ -1,4 +1,4 @@
-// Last Update: 7/28/2020
+// Last Update: 7/29/2020
 
 //Set restaurants question to Yes if the location in the group Stores With Restaurants
 
@@ -97,7 +97,7 @@ ifQ(11)
 // STORE EXTERIOR - Begin
 //*******************************
 
-// Sets All of the Above if all options are selected for the Fuel Island Stock levels.
+// If QID 1571 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 1571.
 ifQ(1571)
 .answered(1)
 .andQ(1571)
@@ -329,6 +329,15 @@ ifQ(301)
 .greaterThanOrEqual(180)
 .setValue( Q(2221),2)
 
+// If QID 6641 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 6641.
+ifQ(6641)
+.answered(1)
+.andQ(6641)
+.answered(2)
+.andQ(6641)
+.answered(3)
+.setValue(Q(6641),1,2,3,4)
+
 //*******************************
 //  LTC - End
 //*******************************
@@ -373,11 +382,20 @@ ifQ(4241)
 .lessThan(300)
 .setValue( Q(5741),1)
 
-//Versioned in 7/1/2018
 //Over 5 min (Ladson Grill)
 ifQ(4241)
 .greaterThanOrEqual(300)
 .setValue( Q(5741),2)
+
+// If QID 7311 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7311.
+ifQ(7311)
+.answered(1)
+.andQ(7311)
+.answered(2)
+.andQ(7311)
+.answered(3)
+.setValue(Q(7311),1,2,3,4)
+
 
 //*******************************
 //  LADSON GRILL - End
