@@ -1,4 +1,4 @@
-// Last Updated: 7/24/2020
+// Last Updated: 7/30/2020
 
 
 
@@ -135,18 +135,36 @@ ifQ(3091)
 // [Time Calc] Wait Time in Line - End
 //---------------------------------------------
 
-// If country is 'US' AND QID 3091 is < 2 minutes, then set value to Option 1 to QID 2211.
+// Shop Date Trigger [Before August, 2020], if country is 'US' AND QID 3091 is < 2 minutes, then set value to Option 1 to QID 2211.
 ifQ()
+.dateBefore("2020-08-01")
 .countryIs('US')
 .andQ(3091)
 .lessThan(120)
 .setValue(Q(2211),1)
 
-// If country is 'US' AND QID 3091 is >= 2 minutes, then set value to Option 2 to QID 2211.
+// Shop Date Trigger [Before August, 2020], if country is 'US' AND QID 3091 is >= 2 minutes, then set value to Option 2 to QID 2211.
 ifQ()
+.dateBefore("2020-08-01")
 .countryIs('US')
 .andQ(3091)
 .greaterThanOrEqual(120)
+.setValue(Q(2211),2)
+
+// Shop Date Trigger [After July, 2020], if country is 'US' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
+ifQ()
+.dateAfter("2020-07-31")
+.countryIs('US')
+.andQ(3091)
+.lessThan(180)
+.setValue(Q(2211),1)
+
+// Shop Date Trigger [After July, 2020], if country is 'US' AND QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
+ifQ()
+.dateAfter("2020-07-31")
+.countryIs('US')
+.andQ(3091)
+.greaterThanOrEqual(180)
 .setValue(Q(2211),2)
 
 // If country is 'Canada' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
