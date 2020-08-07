@@ -1,10 +1,16 @@
-// Last Update: 7/29/2020
+// Last Update: 8/5/2020
 
-//Set restaurants question to Yes if the location in the group Stores With Restaurants
+//Set restaurants question to Yes if the location in the group Angelina's Tacos, LTC, LTC | Lad. G., Lad. G., Parlor Pizza, QuikTrip, Roost
 
 ifQ()
-.ulgIs("Stores With Restaurants")
+.groupIs("Angelina's Tacos", "LTC", "LTC | Lad. G.", "Lad. G.", "Parlor Pizza", "QuikTrip", "Roost")
 .setValue(Q(7591), 1);
+
+//Set restaurants question to No if the location in the group Non Restaurant Locations
+
+ifQ()
+.groupIs("Non Restaurant Locations")
+.setValue(Q(7591), 2);
 
 
 // If ulg is 'McAllen', then set value to Option 3 (N/A), and string ("Operational Override"), to QIDs [2131, 2141, 2151, 2161, 5051, 6411, 6421, 6301]. 
