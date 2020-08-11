@@ -4,6 +4,7 @@
 
 For numerical input, ```.clearAnswer``` will set the value to '0'.  
 This doesn't fully clear the answer, as '0' is still considered a value.  The user must manually delete the '0' for the QID to be considered clear.
+Basically, do not use ```.clearAnswer``` for numerical input.
 
 ## December 2019
 
