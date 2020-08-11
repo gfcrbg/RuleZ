@@ -1,0 +1,110 @@
+// Last Updated: 8/11/2020
+
+
+
+
+//*******************************
+// INITIAL CALL - Begin
+//*******************************
+
+//
+ifQ(151)
+.answered(1)
+.disappear(Q(161))
+.clearAnswer(Q(161))
+
+//
+ifQ(151)
+.answered(4)
+.disappear(Q(171), Q(181), Q(491), Q(221), Q(231), Q(251), Q(261), Q(311), Q(321), Q(421), Q(441), Q(461), Q(351), Q(501))
+.clearAnswer(Q(171), Q(181), Q(491), Q(221), Q(231), Q(251), Q(261), Q(311), Q(321), Q(421), Q(441), Q(461), Q(351), Q(501))
+
+// Hides Black and Red Remarks.
+ifQ(151)
+.answered(4)
+.disappear(Q(211), Q(241), Q(481))
+
+//
+ifQ(421)
+.answered(0,2)
+.disappear(Q(431))
+.clearAnswer(Q(431))
+
+//
+ifQ(441)
+.answered(0,2)
+.disappear(Q(451))
+
+//
+ifQ(461)
+.answered(0,2)
+.disappear(Q(471))
+.clearAnswer(Q(471))
+
+//
+ifQ(351)
+.answered(0,2)
+.disappear(Q(361))
+
+//*******************************
+// INITIAL CALL - End
+//*******************************
+
+
+
+
+//*******************************
+// TRANSFERRED CALL - Begin
+//*******************************
+
+// Hides sectional header.
+ifQ(151)
+.answered(4)
+.disappear(Q(511))
+.clearAnswer(Q(511))
+
+//
+ifQ(501)
+.answered(0,2)
+.disappear(Q(521), Q(541), Q(551), Q(571), Q(581), Q(591), Q(601), Q(621), Q(641), Q(661), Q(681))
+.clearAnswer(Q(521), Q(541), Q(551), Q(571), Q(581), Q(591), Q(601), Q(621), Q(641), Q(661), Q(681))
+
+// Hides Black and Red Remarks.
+ifQ(501)
+.answered(0,2)
+.disappear(Q(531), Q(561), Q(611))
+.clearAnswer(Q(531), Q(561), Q(611))
+
+//
+ifQ(621)
+.answered(0,2)
+.disappear(Q(631))
+.clearAnswer(Q(631))
+
+//
+ifQ(641)
+.answered(0,2)
+.disappear(Q(651))
+
+
+//
+ifQ(661)
+.answered(0,2)
+.disappear(Q(671))
+.clearAnswer(Q(671))
+
+//
+ifQ(681)
+.answered(0,2)
+.disappear(Q(691))
+
+
+//
+ifQ(151)
+.answered(4)
+.disappear(Q(701))
+.clearAnswer(Q(701))
+
+//*******************************
+// TRANSFERRED CALL - End
+//*******************************
