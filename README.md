@@ -2,8 +2,7 @@
 
 ## August 2020
 
-For numerical input, .clearAnswer will set the value to '0'.
-
+For numerical input, .clearAnswer will set the value to '0'.  
 This doesn't fully clear the answer, as '0' is still considered a value.  The user must manually delete the '0' for the QID to be considered clear.
 
 ## December 2019
