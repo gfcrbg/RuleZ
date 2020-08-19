@@ -1,4 +1,4 @@
-// Last Update: 8/5/2020
+// Last Update: 8/19/2020
 
 //Set restaurants question to Yes if the location in the group Angelina's Tacos, LTC, LTC | Lad. G., Lad. G., Parlor Pizza, QuikTrip, Roost
 
@@ -32,7 +32,7 @@ ifQ()
 .answered(2)
 .setValue(Q(2421), 3)
 
-// If shop date is after March, 2020,, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
+// If shop date is after March, 2020, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(111)
@@ -127,6 +127,13 @@ ifQ(1571)
 //--------------------------------------------
 // COVID FOCUS QUESTIONS - Begin
 //--------------------------------------------
+
+// Shop Date Trigger [August, 2020], if QID 7631 is answered Option 2 then set value to QID 7631 to Option 3.
+ifQ()
+.dateAfter('2020-07-31')
+.andifQ(7631)
+.answered(2)
+.setValue(Q(7631), 3)
 
 // If QID 7651 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7651.
 ifQ(7651)
