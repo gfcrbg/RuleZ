@@ -19,7 +19,7 @@ Basically, do not use ```.clearAnswer``` for numerical input.
 // {NAME OF SECTION} - Begin
 //*******************************
 
-// {notes go here -->} If QID 1631 is answered Option 2, then disappear and clear answer to QID 1641.
+// {comments go here -->} If QID 1631 is answered Option 2, then disappear and clear answer to QID 1641.
 ifQ(1631)
 .answered(2)
 .disappear(Q(1641))
