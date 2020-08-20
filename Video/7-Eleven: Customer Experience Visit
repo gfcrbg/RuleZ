@@ -1,4 +1,4 @@
-// Last Updated: 7/30/2020
+// Last Updated: 8/20/2020
 
 
 
@@ -36,6 +36,18 @@ ifQ()
 .setValue(Q(2121), 1)
 .setValue(Q(51), 4)
 .setValue(Q(6871), 3)
+
+// If ulg is 'Confirmed No Gas', disappear and set value to 'N/A' to the following QIDs
+ifQ()
+.ulgIs('Confirmed No Gas')
+.disappear(Q(1761), Q(5071), Q(2991), Q(1641), Q(1651), Q(2271), Q(1571))
+.setValue(Q(1761), 3)
+.setValue(Q(5071), 3)
+.setValue(Q(2991), 3)
+.setValue(Q(1641), 3)
+.setValue(Q(1651), 3)
+.setValue(Q(2271), 3)
+.setValue(Q(1571), 6)
 
 //---------------------------------------------
 // ULG Settings - End
