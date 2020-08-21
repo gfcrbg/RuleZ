@@ -1,4 +1,4 @@
-// Last Update: 8/19/2020
+// Last Update: 8/21/2020
 
 //Set restaurants question to Yes if the location in the group Angelina's Tacos, LTC, LTC | Lad. G., Lad. G., Parlor Pizza, QuikTrip, Roost
 
@@ -447,18 +447,23 @@ ifQ(4581)
 .sub(Q(4591) , Q(4581))
 .store(Q(4601))
 
-//Under 10 min (Parlor Pizza)
+// Under 10 min (Parlor Pizza)
 ifQ(4601)
 .greaterThan(0)
 .andifQ(4601)
 .lessThan(600)
 .setValue( Q(5821),1)
 
-//Versioned in 7/1/2018
-//Over 10 min (Parlor Pizza)
+// Versioned in 7/1/2018
+// Over 10 min (Parlor Pizza)
 ifQ(4601)
 .greaterThanOrEqual(600)
 .setValue( Q(5821),2)
+
+// If QID 7181 is answered Option [1, 2, OR 3], then set value to Option [1, 2, 3, AND 4] to QID 7181.
+ifQ(7181)
+.answered([1,2,3])
+.setValue(Q(7181), 1,2,3,4)
 
 //*******************************
 //  PARLOR PIZZA - End
@@ -539,6 +544,11 @@ ifQ(6171)
 ifQ(6171)
 .greaterThanOrEqual(300)
 .setValue( Q(6191),2)
+
+// If QID 7441 is answered Option [1, 2, OR 3], then set value to Option [1, 2, 3, AND 4] to QID 7441.
+ifQ(7441)
+.answered([1,2,3])
+.setValue(Q(7441), 1,2,3,4)
 
 //*******************************
 //  ROOST - End
