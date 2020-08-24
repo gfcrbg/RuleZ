@@ -1,4 +1,4 @@
-// Last Updated: 8/20/2020
+// Last Updated: 8/24/2020
 
 
 
@@ -116,12 +116,12 @@ ifQ(5541)
 .sub(Q(5551) , Q(5541))
 .store(Q(3091))
 
-// If QID 3091 is >= 0 AND < 60 seconds, then set value to Option 1 to QID 3101.
+// If QID 3091 is >= 0 AND < 61 seconds, then set value to Option 1 to QID 3101.
 ifQ(3091)
 .answered()
 .greaterThanOrEqual(0)
 .andifQ(3091)
-.lessThan(60)
+.lessThan(61)
 .setValue(Q(3101),1)
 
 // If QID 3091 is >= 61 seconds AND <= 120 seconds, then set value to Option 2 to QID 3101.
