@@ -2,6 +2,9 @@
 
 ## September 2020
 
+RuleZ-Hidden, (QIDs that are ```.disappear```), will now, by default, visibily hide from the user in Review view.  To show RuleZ-Hidden QIDs on said view, the follwing button must be toggled:  
+![alt text](https://onedrive.live.com/?cid=27B8B96F9F159DDD&id=27B8B96F9F159DDD%2116241&parId=27B8B96F9F159DDD%2115863&o=OneUp)
+
 Created a [RuleZ Wiki](https://github.com/gfcrbg/RuleZ/wiki).
 
 
