@@ -1,4 +1,4 @@
-// Last Updated: 8/28/2020
+// Last Updated: 9/14/2020
 
 
 
@@ -449,16 +449,19 @@ ifQ()
 .setValue(Q(2171), 3)
 .setValue(Q(5291), 3)
 
-// Shop Date Trigger [March, 2020], if ULG is 'No Self-Serve' set value to Option 3 to QIDs.
+// Shop Date Trigger [March, 2020], if ULG is 'No Self-Serve' or country is 'Canada', then set value to Option 3 to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
 .ulgIs('No Self-Serve')
+.orQ()
+.dateAfter('2020-02-29')
+.countryIs('Canada')
 .setValue(Q(2181), 3)
 .setValue(Q(2141), 3)
 .setValue(Q(2161), 3)
 .setValue(Q(5371), 3)
 
-// Shop Date Trigger [March, 2020 to August, 2020], set value to Option 3 to QIDs.
+// Shop Date Trigger [March, 2020 to August, 2020], then set value to Option 3 to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
 .dateBefore('2020-09-01')
