@@ -1,17 +1,11 @@
-// Last Updated: 11/27/2019
+// Last Updated: 9/17/2020
 
 
-// If QID 501 is answered Option 2, then disappear and clear answer to QIDs [81, 91, 111, 121, 131, 161, 171, 181, 191, 221, 231, 241, 261, 291, 301].
+// If QID 501 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(501)
 .answered(2)
-.disappear(Q(81), Q(91), Q(111), Q(121), Q(131), Q(161), Q(171), Q(181), Q(191), Q(221), Q(231), Q(241), Q(261), Q(291), Q(301))
-.clearAnswer(Q(81), Q(91), Q(111), Q(121), Q(131), Q(161), Q(171), Q(181), Q(191), Q(221), Q(231), Q(241), Q(261), Q(291), Q(301))
-
-// If QID 501 is answered Option 1, then disappear and clear answer to QIDs [511, 521, 531].
-ifQ(501)
-.answered(1)
-.disappear(Q(511), Q(521), Q(531))
-.clearAnswer(Q(511), Q(521), Q(531))
+.disappear(Q(81), Q(91))
+.clearAnswer(Q(81), Q(91))
 
 // If QID 261 is answered Option 2, then disappear and clear answer to QID 271.
 ifQ(261)
