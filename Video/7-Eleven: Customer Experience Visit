@@ -1,4 +1,4 @@
-// Last Updated: 9/14/2020
+// Last Updated: 9/18/2020
 
 
 
@@ -411,45 +411,20 @@ ifQ()
 // PROPRIETARY BEVERAGE - Begin
 //********************************
 
-// If country is 'Canada' and shop date is AFTER March 31, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [6721 = Option 5], [6731 = Option 3]. [6771 = Option 4].
-ifQ()
-.countryIs('Canada')
-.dateAfter('2020-03-31')
-.dateBefore('2020-06-01')
-.setValue(Q(6721), 5)
-.setValue(Q(6731), 3)
-.setValue(Q(6771), 4)
-
-// Shop Date Trigger [April, 2020], if ULG is 'No Self-Serve', set value to QIDs.
-ifQ()
-.dateAfter('2020-03-31')
-.ulgIs('No Self-Serve')
-.setValue(Q(6741), 5)
-.setValue(Q(6761), 4)
-
-// Shop Date Trigger [April, 2020 to August, 2020], set  value to QIDs.
-ifQ()
-.dateAfter('2020-03-31')
-.dateBefore('2020-09-01')
-.setValue(Q(6741), 5)
-.setValue(Q(6761), 4)
-
-// Shop Date Trigger [April, 2020], if country is 'Canada', then set value to Option 4 to QID 6751.
-ifQ()
-.countryIs('Canada')
-.dateAfter('2020-03-31')
-.setValue(Q(6751), 4)
-
-// Shop Date Trigger [April, 2020], if country is 'Canada', then set value to Option 3 to QIDs: [2131, 2151, 2171, 5291].
+// Shop Date Trigger [April, 2020], if country is 'Canada', then set value to QIDs.
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
 .setValue(Q(2131), 3)
+.setValue(Q(6721), 5) // N/A to 2131
 .setValue(Q(2151), 3)
+.setValue(Q(6731), 5) // N/A to 2151
 .setValue(Q(2171), 3)
+.setValue(Q(6751), 4) // N/A to 2171
 .setValue(Q(5291), 3)
+.setValue(Q(6771), 4) // N/A to 5291
 
-// Shop Date Trigger [March, 2020], if ULG is 'No Self-Serve' or country is 'Canada', then set value to Option 3 to QIDs.
+// Shop Date Trigger [March, 2020], if ULG is 'No Self-Serve' or country is 'Canada', then set value to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
 .ulgIs('No Self-Serve')
@@ -457,18 +432,22 @@ ifQ()
 .dateAfter('2020-02-29')
 .countryIs('Canada')
 .setValue(Q(2181), 3)
+.setValue(Q(6761), 4) // N/A to 2181
 .setValue(Q(2141), 3)
 .setValue(Q(2161), 3)
 .setValue(Q(5371), 3)
+.setValue(Q(6741), 5) // N/A to 5371
 
-// Shop Date Trigger [March, 2020 to August, 2020], then set value to Option 3 to QIDs.
+// Shop Date Trigger [March, 2020 to August, 2020], then set value to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
 .dateBefore('2020-09-01')
 .setValue(Q(2181), 3)
+.setValue(Q(6761), 4) // N/A to 2181
 .setValue(Q(2141), 3)
 .setValue(Q(2161), 3)
 .setValue(Q(5371), 3)
+.setValue(Q(6741), 5) // N/A to 5731
 
 // Shop Date Trigger [June, 2020], if country is 'US' and ULG is 'No Self-Serve', then set value to Option 3 to QIDs.
 ifQ()
