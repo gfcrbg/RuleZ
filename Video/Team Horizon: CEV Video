@@ -32,28 +32,28 @@ ifQ()
 .answered(2)
 .setValue(Q(2421), 3)
 
-// If shop date is after March, 2020, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
+// If shop date is after February, 2020, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(111)
 .answered(2)
 .setValue(Q(111), 3)
 
-// If shop date is after March, 2020, and if QID 2341 is answered Option 2, then set value to QID 2341 to Option 3.
+// If shop date is after February, 2020, and if QID 2341 is answered Option 2, then set value to QID 2341 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(2341)
 .answered(2)
 .setValue(Q(2341), 3)
 
-// If shop date is after March, 2020, and if QID 6341 is answered Option 2, then set value to QID 6341 to Option 3.
+// If shop date is after February, 2020, and if QID 6341 is answered Option 2, then set value to QID 6341 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(6341)
 .answered(2)
 .setValue(Q(6341), 3)
 
-// If shop date is after March, 2020, and if QID 2411 is answered Option 2, then set value to QID 2411 to Option 3.
+// If shop date is after February, 2020, and if QID 2411 is answered Option 2, then set value to QID 2411 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(2411)
