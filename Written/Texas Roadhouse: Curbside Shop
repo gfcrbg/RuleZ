@@ -1,0 +1,64 @@
+//************************
+// SID: 4366
+// Last Updated: 9/23/2020
+//************************
+
+
+
+
+//*******************************
+// PHONE - Begin
+//*******************************
+
+//
+ifQ(221)
+.answered(2,3)
+.disappear(Q(321)) // section header 
+.disappear(Q(331)) // red remark
+.disappear(Q(341), Q(351), Q(371), Q(391), Q(401), Q(411), Q(421))
+.clearAnswer(Q(341), Q(351), Q(371), Q(391), Q(401), Q(411), Q(421))
+
+//
+ifQ(351)
+.answered(0,2)
+.disappear(Q(361))
+.clearAnswer(Q(361))
+
+//*******************************
+// PHONE - End
+//*******************************
+
+
+
+
+//*******************************
+// CURBSIDE - Begin
+//*******************************
+
+//
+ifQ(21)
+.answered(1,3)
+.disappear(Q(31))
+.clearAnswer(Q(31))
+
+//
+ifQ(431)
+.answered(1)
+.disappear(Q(41), Q(51), Q(61))
+.clearAnswer(Q(41), Q(51), Q(61))
+
+//
+ifQ(431)
+.answered(2)
+.disappear(Q(441), Q(451))
+.clearAnswer(Q(441), Q(451))
+
+//
+ifQ(241)
+.answered(1)
+.disappear(Q(251))
+.clearAnswer(Q(251))
+
+//*******************************
+// CURBSIDE - End
+//*******************************
