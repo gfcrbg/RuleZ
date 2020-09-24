@@ -1,6 +1,0 @@
-// Last Updated:
-
-// If QID 781 is answered Option 2, then set value to Options [1,2] to QID 781.
-ifQ(781)
-.answered(2)
-.setValue(Q(781), 1,2)
