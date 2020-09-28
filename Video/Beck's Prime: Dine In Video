@@ -1,4 +1,11 @@
-// Last Updated: 
+//*******************************
+// CID: 317
+// SID: 3127
+// Last Updated:
+//*******************************
+
+
+
 
 // Calcs length of time spent in location.  Time exited minus time entered.
 ifQ(51)
