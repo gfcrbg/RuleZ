@@ -1,4 +1,11 @@
-// Last Updated:
+//*******************************
+// CID: 65
+// SID: 3121
+// Last Updated: 
+//*******************************
+
+
+
 
 // Time Calculation
 // This pair of functions evaluates if Time Shopped is within set // parameters, 8am to 8pm in this case.  
