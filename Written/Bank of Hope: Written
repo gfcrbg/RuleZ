@@ -48,8 +48,8 @@ ifQ(181)
 //
 ifQ(31)
 .notAnswered(1,6,7,11,12)
-.disappear(Q(231))
-.clearAnswer(Q(231))
+.disappear(Q(571))
+.clearAnswer(Q(571))
 
 //
 ifQ(31)
@@ -140,12 +140,6 @@ ifQ(211)
 .answered(2,3)
 .disappear(Q(221))
 .clearAnswer(Q(221))
-
-//
-ifQ(231)
-.answered(2) 
-.disappear(Q(241))
-.clearAnswer(Q(241))
 
 //
 ifQ(441)
