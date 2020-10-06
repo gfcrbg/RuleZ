@@ -1,0 +1,38 @@
+//*******************************	
+// CID: 706
+// SID: 4404	
+// Last Updated: 10/6/2020
+//*******************************	
+
+
+
+
+//*******************************
+// EXPERIENCE - Begin
+//*******************************
+
+// If QID 1791 is answered anything, then trigger math operation: QID 1791 - QID 1781 = QID 121.
+ifQ(1791)
+.answered()
+.sub(Q(1791), Q(1781))
+.store(Q(121))
+
+//*******************************
+// EXPERIENCE - End
+//*******************************
+
+
+
+//*******************************
+// PRODUCT - Begin
+//*******************************
+
+// If QID 181 is answered Option 1, then disappear and clear answer to QID 1241.
+ifQ(181)
+.answered(1)
+.disappear(Q(1241))
+.clearAnswer(Q(1241))
+
+//*******************************
+// PRODUCT - End
+//*******************************
