@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 10/1/2020
+// Last Updated: 10/7/2020
 //*******************************
 
 
@@ -469,11 +469,12 @@ ifQ()
 .setValue(Q(5301), 3)
 .setValue(Q(6781), 3)
 
-// Shop Date Trigger [October, 2020], if country is 'Canada', then set value to Option 3 to QID 5301.
+// Shop Date Trigger [October, 2020], if country is 'Canada', then set value to Option 3 to QIDs.
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-09-30')
 .setValue(Q(5301), 3)
+.setValue(Q(6781), 3)
 
 //********************************
 // PROPRIETARY BEVERAGE - End
