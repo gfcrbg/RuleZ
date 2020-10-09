@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 641	
 // SID: 4428	
-// Last Updated: 10/6/2020	
+// Last Updated: 10/9/2020	
 //*******************************	
 
 
@@ -10,16 +10,6 @@
 //**************************************
 // FUEL CENTER - Begin
 //**************************************
-
-//
-ifQ()
-.ulgSetNot("Express Lane - Zippy B")
-.setValue(Q(5541), 1)
-
-//
-ifQ()
-.ulgSetIs("Express Lane - Zippy B")
-.setValue(Q(5541), 2)
 
 //
 ifQ(5541)
@@ -580,14 +570,20 @@ ifQ()
 //
 ifQ(5811)
 .notAnswered(1)
-.disappear(Q(5651), Q(5661), Q(5671))
-.clearAnswer(Q(5651), Q(5661), Q(5671))
+.disappear(Q(5651), Q(5661), Q(5671), Q(5681))
+.clearAnswer(Q(5651), Q(5661), Q(5671), Q(5681))
 
 //
 ifQ(5671)
-.notAnswered(1)
-.disappear(Q(5691), Q(5681), Q(5711), Q(5721))
-.clearAnswer(Q(5691), Q(5681), Q(5711), Q(5721))
+.answered(0,2)
+.disappear(Q(5691))
+.clearAnswer(Q(5691))
+
+//
+ifQ(5681)
+.answered(0,2,3)
+.disappear(Q(5711), Q(5721))
+.clearAnswer(Q(5711), Q(5721))
 
 //**************************************
 // FRONT END - End
