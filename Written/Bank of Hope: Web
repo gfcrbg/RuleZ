@@ -11,7 +11,7 @@
 // BANK EXPERIENCE - Begin
 //*******************************
 
-//
+// If QID 51 is not answered Option 1, then disappear and clear answer to QID 61.
 ifQ(51)
 .notAnswered(1)
 .disappear(Q(61))
@@ -136,7 +136,7 @@ ifQ(41)
 .disappear(Q(381))
 .clearAnswer(Q(381))
 
-//
+// If QID 401 is not answered Option 1, then disappear and clear answer to QID 411.
 ifQ(401)
 .notAnswered(1)
 .disappear(Q(411))
