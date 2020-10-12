@@ -81,19 +81,19 @@ ifQ(31)
 .disappear(Q(291))
 .clearAnswer(Q(291))
 
-//
+// If QID 31 is not answered Option [4 OR 9], then disappear and clear answer to QID 301.
 ifQ(31)
 .notAnswered(4,9)
 .disappear(Q(301))
 .clearAnswer(Q(301))
 
-//
+// If QID 31 is not answered Option 10, then disappear and clear answer to QID 311.
 ifQ(31)
 .notAnswered(10)
 .disappear(Q(311))
 .clearAnswer(Q(311))
 
-//
+// If QID 31 is not answered Option [1,6,11, OR 12], then disappear and clear answer to QID 321.
 ifQ(31)
 .notAnswered(1,6,11,12)
 .disappear(Q(321))
