@@ -51,31 +51,31 @@ ifQ(591)
 // TECHNICAL - Begin
 //*******************************
 
-//
+// If QID 31 is not answered Option [1,6,7,11, OR 12], then disappear and clear answer to QID 571.
 ifQ(31)
 .notAnswered(1,6,7,11,12)
 .disappear(Q(571))
 .clearAnswer(Q(571))
 
-//
+// If QID 31 is not answered Option 2, then disappear and clear answer to QID 251.
 ifQ(31)
 .notAnswered(2)
 .disappear(Q(251))
 .clearAnswer(Q(251))
 
-//
+// If QID 31 is not answered Option [3 OR 8], then disappear and clear answer to QID 261.
 ifQ(31)
 .notAnswered(3,8)
 .disappear(Q(261))
 .clearAnswer(Q(261))
 
-//
+// If QID 31 is not answered Option [4 OR 9], then disappear and clear answer to QID 271.
 ifQ(31)
 .notAnswered(4,9)
 .disappear(Q(271))
 .clearAnswer(Q(271))
 
-//
+// If QID 31 is not answered Option 5, then disappear and clear answer QID 291.
 ifQ(31)
 .notAnswered(5)
 .disappear(Q(291))
