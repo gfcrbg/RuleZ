@@ -1,4 +1,4 @@
-### RuleZ
+### Announcements
 
 ## September 2020
 
