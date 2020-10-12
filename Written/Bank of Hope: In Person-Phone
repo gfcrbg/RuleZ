@@ -99,61 +99,61 @@ ifQ(31)
 .disappear(Q(321))
 .clearAnswer(Q(321))
 
-//
+// If QID 31 is not answered Option 2, then disappear and clear answer to QID 331.
 ifQ(31)
 .notAnswered(2)
 .disappear(Q(331))
 .clearAnswer(Q(331))
 
-//
+// If QID 31 is not answered Option 7, then disappear and clear answer to QID 341.
 ifQ(31)
 .notAnswered(7)
 .disappear(Q(341))
 .clearAnswer(Q(341))
 
-//
+// If QID 31 is not answered Option [3 OR 8], then disappear and clear answer to QID 351.
 ifQ(31)
 .notAnswered(3,8)
 .disappear(Q(351))
 .clearAnswer(Q(351))
 
-//
+// If QID 31 is not answered Option [4,5,9, OR 10], then disappear and clear answer to QID 361.
 ifQ(31)
 .notAnswered(4,5,9,10)
 .disappear(Q(361))
 .clearAnswer(Q(361))
 
-//
+// If QID 31 is not answered Option [4 OR 9], then disappear and clear answer to QID 381.
 ifQ(31)
 .notAnswered(4,9)
 .disappear(Q(381))
 .clearAnswer(Q(381))
 
-//
+// If QID 31 is not answered Option [1,2,3,6,7,8,10,11, OR 12], then disappear and clear answer to QID 411.
 ifQ(31)
 .notAnswered(1,2,3,6,7,8,10,11,12)
 .disappear(Q(411))
 .clearAnswer(Q(411))
 
-//
+// If QID 31 is not answered Option [4 OR 9], then disappear and clear answer to QID 421.
 ifQ(31)
 .notAnswered(4,9)
 .disappear(Q(421))
 .clearAnswer(Q(421))
 
-//
+// If QID 211 is answered Option [2 OR 3], then disappear and clear answer to QID 221.
 ifQ(211)
 .answered(2,3)
 .disappear(Q(221))
 .clearAnswer(Q(221))
 
-//
+// If QID 441 is answered Option 2, then disappear and clear answer to QID 451.
 ifQ(441)
 .answered(2)
 .disappear(Q(451))
 .clearAnswer(Q(451))
 
-//
+// If QID 471 is answered Option 2, then disappear and clear answer to QID 581.
 ifQ(471)
 .answered(2)
 .disappear(Q(581))
