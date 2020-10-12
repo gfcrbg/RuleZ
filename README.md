@@ -38,15 +38,6 @@ If you have any inquiries, ask IT personnel via email.
  _IT it@realitybasedgroup.com_
  
 If you have an issue or a request, submit an IT ticket via Salesforce.
-
- 
- ## Documentation
- 
- [Sassie Knowledge Base](https://help.sassieshop.com/support/home)
- 
- [RuleZ Documentation](https://sassierulez.wordpress.com/)
- 
- [RuleZ Cause and Effect](https://www.sassieshop.com/site/z/rulez/index.php)
  
  
 
