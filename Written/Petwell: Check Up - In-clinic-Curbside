@@ -6,13 +6,13 @@
 
 
 
-//
+// If QID 561 is answered Option 1, then disappear and clear answer to QID 581.
 ifQ(561)
 .answered(1)
 .disappear(Q(581))
 .clearAnswer(Q(581))
 
-//
+// If QID 561 is answered Option 2, then disappear and clear answer to QID 591.
 ifQ(561)
 .answered(2)
 .disappear(Q(591))
@@ -25,7 +25,7 @@ ifQ(561)
 // IN-CLINIC CHECK-IN - Begin
 //*******************************
 
-//
+// If QID 1311 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1311)
 .answered(2)
 .disappear(Q(881), Q(491), Q(511), Q(141), Q(941), Q(651), Q(151))
@@ -42,7 +42,7 @@ ifQ(1311)
 // CURBSIDE CHECK-IN - Begin
 //*******************************
 
-// 
+// If QID 1311 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(1311)
 .answered(1)
 .disappear(Q(1351), Q(1361), Q(1371), Q(1381))
@@ -59,7 +59,7 @@ ifQ(1311)
 // IN-CLINIC EXAM ROOM - Begin
 //*******************************
 
-//
+// If QID 1311 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1311)
 .answered(2)
 .disappear(Q(1011)) // hides red remark
@@ -67,7 +67,7 @@ ifQ(1311)
 .disappear(Q(461), Q(661), Q(911), Q(191), Q(681), Q(231), Q(901), Q(271))
 .clearAnswer(Q(461), Q(661), Q(911), Q(191), Q(681), Q(231), Q(901), Q(271))
 
-// 
+// If QID 231 is answered Option [0 OR 1], then disappear and clear answer to QID 431.
 ifQ(231)
 .answered(0,1)
 .disappear(Q(431))
@@ -84,7 +84,7 @@ ifQ(231)
 // CURBSIDE EXAM - Begin
 //*******************************
 
-//
+// If QID 1311 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(1311)
 .answered(1)
 .disappear(Q(1461)) // hides red remark 
@@ -93,7 +93,7 @@ ifQ(1311)
 .clearAnswer(Q(1391), Q(1401), Q(1411), Q(1421), Q(1441), Q(1451))
 
 
-//
+// If QID 1421 is answered Option [0 OR 1], then disappear and clear answer to QID 1431.
 ifQ(1421)
 .answered(0,1)
 .disappear(Q(1431))
