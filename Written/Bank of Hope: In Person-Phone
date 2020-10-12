@@ -6,13 +6,13 @@
 
 
 
-//
+// If QID 181 is answered Option 2, then disappear and clear answer to QID 561.
 ifQ(181)
 .answered(2)
 .disappear(Q(561))
 .clearAnswer(Q(561))
 
-//
+// If QID 181 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(181)
 .answered(1)
 .disappear(Q(11), Q(21), Q(171))
@@ -22,19 +22,19 @@ ifQ(181)
 // BANK EXPERIENCE - Begin
 //*******************************
 
-//
+// If QID 81 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(81)
 .answered(2,3)
 .disappear(Q(91), Q(101))
 .clearAnswer(Q(91), Q(101))
 
-//
+// If QID 181 is answered Option 1, then disappear and clear answer to QID 141. 
 ifQ(181)
 .answered(1)
 .disappear(Q(141))
 .clearAnswer(Q(141))
 
-//
+// If QID 591 is not answered Option 1, then disappear and clear answer to QIDs.
 ifQ(591)
 .notAnswered(1)
 .disappear(Q(601), Q(611))
@@ -170,13 +170,13 @@ ifQ(471)
 // BRANCH EXPERIENCE - Begin
 //*******************************
 
-// 
+// If QID 181 is not answered Option 2, then disappear and clear answer to QIDs.
 ifQ(181)
 .notAnswered(2)
 .disappear(Q(511), Q(521))
 .clearAnswer(Q(511), Q(521))
 
-// 
+// If QID 181 is not answered Option 1, then disappear and clear answer to QID 621.
 ifQ(181)
 .notAnswered(1)
 .disappear(Q(621))
