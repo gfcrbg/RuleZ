@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 641	
 // SID: 4428	
-// Last Updated: 10/9/2020	
+// Last Updated: 10/16/2020	
 //*******************************	
 
 
@@ -29,16 +29,6 @@ ifQ(5541)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5731), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5731), 2)
-
-//
 ifQ(5731)
 .notAnswered(1)
 .disappear(Q(4631), Q(5551), Q(921), Q(5331), Q(3191))
@@ -56,16 +46,6 @@ ifQ(5731)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5741), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5741), 2)
-
-//
 ifQ(5741)
 .notAnswered(1)
 .disappear(Q(931), Q(5341), Q(4641), Q(891), Q(3201), Q(5701), Q(3221))
@@ -81,16 +61,6 @@ ifQ(5741)
 //**************************************
 // PRODUCE - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5571), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5571), 2)
 
 //
 ifQ(5571)
@@ -116,16 +86,6 @@ ifQ(2451)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5581), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5581), 2)
-
-//
 ifQ(5581)
 .notAnswered(1)
 .disappear(Q(2591), Q(3311))
@@ -147,16 +107,6 @@ ifQ(2591)
 //**************************************
 // SERVICE COUNTER (MEAT/SEAFOOD) - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5561), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5561), 2)
 
 //
 ifQ(5561)
@@ -183,16 +133,6 @@ ifQ(4481)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5591), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5591), 2)
-
-//
 ifQ(5591)
 .notAnswered(1)
 .disappear(Q(2311), Q(3421), Q(3411))
@@ -215,16 +155,6 @@ ifQ(2311)
 //**************************************
 // BAKERY - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5601), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1")
-.setValue(Q(5601), 2)
 
 //
 ifQ(5601)
@@ -251,16 +181,6 @@ ifQ(1361)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH")
-.setValue(Q(5611), 1)
-
-//
-ifQ()
-.groupNot("FRESH")
-.setValue(Q(5611), 2)
-
-//
 ifQ(5611)
 .notAnswered(1)
 .disappear(Q(3961), Q(4041))
@@ -282,16 +202,6 @@ ifQ(3961)
 //**************************************
 // HEALTH/WELLNESS - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH")
-.setValue(Q(5621), 1)
-
-//
-ifQ()
-.groupNot("FRESH")
-.setValue(Q(5621), 2)
 
 //
 ifQ(5621)
@@ -317,16 +227,6 @@ ifQ(4061)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH")
-.setValue(Q(5751), 1)
-
-//
-ifQ()
-.groupNot("FRESH")
-.setValue(Q(5751), 2)
-
-//
 ifQ(5751)
 .notAnswered(1)
 .disappear(Q(4161), Q(4241))
@@ -348,16 +248,6 @@ ifQ(4161)
 //**************************************
 // PATIO/GRILL - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH")
-.setValue(Q(5761), 1)
-
-//
-ifQ()
-.groupNot("FRESH")
-.setValue(Q(5761), 2)
 
 //
 ifQ(5761)
@@ -383,16 +273,6 @@ ifQ(4261)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH")
-.setValue(Q(5771), 1)
-
-//
-ifQ()
-.groupNot("FRESH")
-.setValue(Q(5771), 2)
-
-//
 ifQ(5771)
 .notAnswered(1)
 .disappear(Q(4371), Q(4451), Q(4461))
@@ -414,16 +294,6 @@ ifQ(4371)
 //**************************************
 // CENTER STORE (GROCERY) - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5781), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5781), 2)
 
 //
 ifQ(5781)
@@ -448,20 +318,11 @@ ifQ(2731)
 // PHARMACY - Begin
 //**************************************
 
-ifQ()
-.ulgSetNot("Pharmacy locations")
-.setValue(Q(5631), 2)
-
+//
 ifQ(5631)
 .notAnswered(1)
 .disappear(Q(4471), Q(3581))
 .clearAnswer(Q(4471), Q(3581))
-
-
-ifQ()
-.ulgSetIs("Pharmacy locations")
-.setValue(Q(5631), 1)
-
 
 // If QID 4471 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(4471)
@@ -482,16 +343,6 @@ ifQ(4471)
 //**************************************
 
 //
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5791), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5791), 2)
-
-//
 ifQ(5791)
 .notAnswered(1)
 .disappear(Q(3591), Q(5301), Q(3651))
@@ -509,16 +360,6 @@ ifQ(5791)
 //**************************************
 
 //
-ifQ()
-.ulgSetIs("Express Lane - Zippy B")
-.setValue(Q(5901), 1)
-
-//
-ifQ()
-.ulgSetNot("Express Lane - Zippy B")
-.setValue(Q(5901), 2)
-
-//
 ifQ(5901)
 .notAnswered(1)
 .disappear(Q(5831), Q(5841), Q(5851), Q(5861), Q(5881), Q(5891))
@@ -534,16 +375,6 @@ ifQ(5901)
 //**************************************
 // FRONT END - Begin
 //**************************************
-
-//
-ifQ()
-.groupIs("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5801), 1)
-
-//
-ifQ()
-.groupNot("FRESH", "Brookshire's", "Super 1","Spring Market")
-.setValue(Q(5801), 2)
 
 //
 ifQ(5801)
