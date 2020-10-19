@@ -11,7 +11,7 @@
 // EXTERIOR/INTERIOR APPEARANCE - Begin
 //***********************************
 
-//
+// If QID 811 is not answered Option 1, then disappear and clear answer to QIDs.
 ifQ(811)
 .notAnswered(1)
 .disappear(Q(821), Q(831))
@@ -28,7 +28,7 @@ ifQ(811)
 // FRONT DESK EXPERIENCE - Begin
 //***********************************
 
-//
+// If QID 211 is not answered Option 2, then disappear and clear answer to QID 221.
 ifQ(211)
 .notAnswered(2)
 .disappear(Q(221))
@@ -45,7 +45,7 @@ ifQ(211)
 // RESOURCE ROOM EXPERIENCE - Begin
 //***********************************
 
-// 
+// If QID 951 is not answered Option 1, then disappear and clear answer to QID 961.
 ifQ(951)
 .notAnswered(1)
 .disappear(Q(961))
@@ -62,13 +62,13 @@ ifQ(951)
 // OVERALL EXPERIENCE - Begin
 //***********************************
 
-// 
+// If QID 1021 is not answered Option 1, then disappear and clear answer to QID 1031.
 ifQ(1021)
 .notAnswered(1)
 .disappear(Q(1031))
 .clearAnswer(Q(1031))
 
-//
+// If QID 751 is not answered Option 1, then disappear and clear answer to QID 761.
 ifQ(751)
 .notAnswered(1)
 .disappear(Q(761))
