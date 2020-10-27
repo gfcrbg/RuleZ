@@ -1,0 +1,85 @@
+//*******************************	
+// CID: 716	
+// SID: 4434	
+// Last Updated: 10/27/2020	
+//*******************************	
+
+
+
+
+//*******************************
+// TELEPHONE EVALUATION - Begin
+//*******************************
+
+//
+ifQ(111)
+.answered(1)
+.disappear(Q(131))
+.clearAnswer(Q(131))
+
+//
+ifQ(111)
+.answered(4)
+.disappear(Q(201)) // header
+.disappear(Q(211)) // black remark
+.disappear(Q(361)) // red remark
+.disappear(Q(221), Q(231), Q(241), Q(381), Q(281))
+.clearAnswer(Q(221), Q(231), Q(241), Q(381), Q(281))
+
+//
+ifQ(221)
+.answered(0,2)
+.disappear(Q(311))
+.clearAnswer(Q(311))
+
+//
+ifQ(231)
+.answered(0,3)
+.disappear(Q(321))
+.clearAnswer(Q(321))
+
+//
+ifQ(241)
+.answered(0,3)
+.disappear(Q(331))
+.clearAnswer(Q(331))
+
+//
+ifQ(381)
+.answered(0,1,2,3,4,5,6,8)
+.disappear(Q(391))
+.clearAnswer(Q(391))
+
+//
+ifQ(381)
+.answered(0,8)
+.disappear(Q(401))
+.clearAnswer(Q(401))
+
+//
+ifQ(401)
+.notAnswered(6)
+.disappear(Q(411))
+.clearAnswer(Q(411))
+
+//
+ifQ(281)
+.answered(0,1)
+.disappear(Q(341))
+.clearAnswer(Q(341))
+
+//
+ifQ(281)
+.answered(0,2)
+.disappear(Q(351))
+.clearAnswer(Q(351))
+
+//
+ifQ(351)
+.answered(0,2)
+.disappear(Q(291))
+.clearAnswer(Q(291))
+
+//*******************************
+// TELEPHONE EVALUATION - End
+//*******************************
