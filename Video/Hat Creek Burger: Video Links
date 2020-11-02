@@ -1,11 +1,1 @@
-//*******************************
-// CID: 250
-// SID: 2836
-// Last Updated:
-//*******************************
-
-
-// If QID 672 is not answered anything, then hide scorecard.
-ifQ(672)
-.notAnswered()
-.disappear(Q(811),	Q(51),	Q(672),	Q(731),	Q(91),	Q(111),	Q(121),	Q(131),	Q(141),	Q(681),	Q(691),	Q(161),	Q(201),	Q(821),	Q(831),	Q(841));
+//
