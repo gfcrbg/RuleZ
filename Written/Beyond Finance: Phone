@@ -1,8 +1,8 @@
-//*******************************
+//*******************************	
 // CID: 702
-// SID: 4373
-// Last Updated: 5/19/2020
-//*******************************
+// SID: 4373	
+// Last Updated: 11/11/2020	
+//*******************************	
 
 
 
@@ -102,12 +102,6 @@ ifQ(971)
 //**************************************
 // PAYMENT OPTIONS / FOLLOW UP - Begin
 //**************************************
-
-// If QID 591 is answered Option 2, then disappear and clear answer to QID 771.
-ifQ(591)
-.answered(2)
-.disappear(Q(771))
-.clearAnswer(Q(771))
 
 // If QID 721 is answered Option [2 or 3], then disappear and clear answer to QID 731.
 ifQ(721)
