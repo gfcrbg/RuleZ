@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 10/7/2020
+// Last Updated: 11/25/2020
 //*******************************
 
 
@@ -336,10 +336,11 @@ ifQ(6271)
 // STORE INTERIOR - Begin
 //********************************
 
-// If country is 'US' AND if shop date is AFTER February 29, 2020 then set value to Option 3 to QID 111.
+// If country is 'US' AND if shop date is within March, 2020 AND November, 2020, then set value to Option 3 to QID 111.
 ifQ()
 .countryIs('US')
 .dateAfter("2020-02-29")
+.dateBefore("2020-12-01")
 .setValue(Q(111), 3)
 
 // If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set value to Option 3 to QID 111.
@@ -388,7 +389,7 @@ ifQ(5531)
 .setValue(Q(2431),1)
 
 //---------------------------------------------
-// [Time Calc] Freshness Date - Begin
+// [Time Calc] Freshness Date - End
 //---------------------------------------------
 
 // If shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set values to QIDs: [5271 = Option 3], [2341 = Option 3], [6691 = Option 5]
@@ -399,9 +400,24 @@ ifQ()
 .setValue(Q(2341), 3)
 .setValue(Q(6691), 5)
 
-// Shop Date Trigger [March, 2020], set value to Option 3 to QID 5251.
+// Shop Date Trigger [March, 2020 to November, 2020], set value to Option 3 to QID 5251.
+ifQ()
+.countryIs("US")
+.dateAfter("2020-02-29")
+.dateBefore("2020-12-01")
+.setValue(Q(5251), 3)
+
+// Shop Date Trigger [March, 2020], if country is "Canada", then set value to Option 3 to QID 5251.
 ifQ()
 .dateAfter("2020-02-29")
+.countryIs("Canada")
+.setValue(Q(5251), 3)
+
+// Shop Date Trigger [December, 2020], if country is "US" AND ULG is "No Self-Serve", then set value to Option 3 to QID 5251. 
+ifQ()
+.dateAfter("2020-11-30")
+.ulgIs("No Self-Serve")
+.countryIs("US")
 .setValue(Q(5251), 3)
 
 //********************************
@@ -487,10 +503,11 @@ ifQ()
 // VAULT - Begin
 //********************************
 
-// If country is 'US' AND if shop date is AFTER February 29, 2020 then set value to Option 3 to QID 2421.
+// If country is 'US' AND if shop date is within March, 2020 AND November, 2020, then set value to Option 3 to QID 2421.
 ifQ()
 .countryIs('US')
 .dateAfter("2020-02-29")
+.dateBefore("2020-12-01")
 .setValue(Q(2421), 3)
 
 // If country is 'Canada' AND if shop date is AFTER February 29, 2020 AND BEFORE June 1, 2020, then set value to Option 3 to QID 2421.
