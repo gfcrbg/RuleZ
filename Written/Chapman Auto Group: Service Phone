@@ -1,8 +1,8 @@
-//*******************************
-// CID: 704
-// SID: 4396
-// Last Updated: 8/11/2020
-//*******************************
+//*******************************	
+// CID: 704	
+// SID: 4396	
+// Last Updated: 12/1/2020	
+//*******************************	
 
 
 
@@ -72,15 +72,14 @@ ifQ(151)
 // If QID 501 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(501)
 .answered(0,2)
-.disappear(Q(521), Q(541), Q(551), Q(571), Q(581), Q(591), Q(601), Q(621), Q(641), Q(661), Q(681))
-.clearAnswer(Q(521), Q(541), Q(551), Q(571), Q(581), Q(591), Q(601), Q(621), Q(641), Q(661), Q(681))
+.disappear(Q(521), Q(541), Q(551), Q(571), Q(581), Q(591), Q(781), Q(801), Q(601), Q(621), Q(641), Q(661), Q(681))
+.clearAnswer(Q(521), Q(541), Q(551), Q(571), Q(581), Q(591), Q(781), Q(801), Q(601), Q(621), Q(641), Q(661), Q(681))
 
 // Hides Black and Red Remarks.
-// If QID 501 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+// If QID 501 is answered Option [0 OR 2], then disappear QIDs.
 ifQ(501)
 .answered(0,2)
-.disappear(Q(531), Q(561), Q(611))
-.clearAnswer(Q(531), Q(561), Q(611))
+.disappear(Q(531), Q(561), Q(771), Q(791), Q(611))
 
 // If QID 621 is answered Option [0 OR 2], then disappear QID 631.
 ifQ(621)
