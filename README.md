@@ -6,7 +6,6 @@ RuleZ-Hidden, (QIDs that are ```.disappear```), will now, by default, visibily h
 
 ![alt text](https://xhnmga.ch.files.1drv.com/y4mSXWkKVy5MWCNJONrnsKwRiX7rgp2YzVZiymzDrrT57Vv6XFwfzjuLrHHxxVynQj033eUH0CvUjmcDeXNbKaEiYUyACmHy1OO6gv6wdZB3B_OBuM-KQOP8z4XvnKUQq8WC4KBd4W4X9sakfftH9XHaILF5hMWiJfo6GZRTkbEbfRP3IcjGuBjDtyUX_UKhNfV_HUKJ-_aFTVqRk61V_valg?width=387&height=77&cropmode=none)  
 
-**NOTE:**  Suggested action, DO NOT USE.  Not working as intended.  Related support [tracker](https://www.sassieshop.com/2mysteryshopinc/sassiehelpers/sassietrackCL/notice.php?noticeID=139437&mode=edit).
 
 Created a [RuleZ Wiki](https://github.com/gfcrbg/RuleZ/wiki).
 
