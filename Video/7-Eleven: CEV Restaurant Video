@@ -94,7 +94,7 @@ ifQ()
 //  LTC - Begin
 //*******************************
 
-// If QID 1151 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+// If QID 1151 is answered Option [0, 2, OR 3], then disappear, clear answer, and make not required to QOrder [15800, 21100].
 ifQ(1151)
 .answered(0,2,3)
 .disappear(QOrder(15800,21100))
@@ -195,13 +195,13 @@ ifQ(6641)
 // LTC Timestamps - Begin
 //-------------------------------------------
 
-//
+// If QID 2871 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8161.
 ifQ(2871)
 .answered(0,1,3)
 .disappear(Q(8161))
 .clearAnswer(Q(8161))
 
-//
+// If QID 1471 is answered Option 1 OR QID answered Option [0, 2, OR 3], then disappear and clear answer to QID 8171.
 ifQ(1471)
 .answered(1)
 .orQ(1151)
@@ -209,7 +209,7 @@ ifQ(1471)
 .disappear(Q(8171))
 .clearAnswer(Q(8171))
 
-//
+// If QID 7661 is answered Option [0 OR 1] OR if QID 1151 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 8181.
 ifQ(7661)
 .answered(0,1)
 .orifQ(1151)
@@ -217,97 +217,97 @@ ifQ(7661)
 .disappear(Q(8181))
 .clearAnswer(Q(8181))
 
-//
+// If QID 2381 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8191.
 ifQ(2381)
 .answered(0,1,3)
 .disappear(Q(8191))
 .clearAnswer(Q(8191))
 
-//
+// If QID 6571 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8201.
 ifQ(6571)
 .answered(0,1,3)
 .disappear(Q(8201))
 .clearAnswer(Q(8201))
 
-//
+// If QID 2091 is answered Option [0 OR 1], then disappear and clear answer to QID 8211.
 ifQ(2091)
 .answered(0,1)
 .disappear(Q(8211))
 .clearAnswer(Q(8211))
 
-//
+// If QID 1481 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8221.
 ifQ(1481)
 .answered(0,1,3)
 .disappear(Q(8221))
 .clearAnswer(Q(8221))
 
-//
+// If QID 6581 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8231.
 ifQ(6581)
 .answered(0,1,3)
 .disappear(Q(8231))
 .clearAnswer(Q(8231))
 
-//
+// If QID 6601 is answered Option [0 OR 1], then disappear and clear answer to QID 8241.
 ifQ(6601)
 .answered(0,1)
 .disappear(Q(8241))
 .clearAnswer(Q(8241))
 
-//
+// If QID 2391 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8251.
 ifQ(2391)
 .answered(0,1,3)
 .disappear(Q(8251))
 .clearAnswer(Q(8251))
 
-//
+// If QID 2401 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8261.
 ifQ(2401)
 .answered(0,1,3)
 .disappear(Q(8261))
 .clearAnswer(Q(8261))
 
-//
+// If QID 2411 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8271.
 ifQ(2411)
 .answered(0,1,3)
 .disappear(Q(8271))
 .clearAnswer(Q(8271))
 
-//
+// If QID 3051 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8281.
 ifQ(3051)
 .answered(0,1,3)
 .disappear(Q(8281))
 .clearAnswer(Q(8281))
 
-//
+// If QID 2311 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8291.
 ifQ(2311)
 .answered(0,1,3)
 .disappear(Q(8291))
 .clearAnswer(Q(8291))
 
-//
+// If QID 2351 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8301.
 ifQ(2351)
 .answered(0,1,3)
 .disappear(Q(8301))
 .clearAnswer(Q(8301))
 
-//
+// If QID 6291 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8311.
 ifQ(6291)
 .answered(0,1,3)
 .disappear(Q(8311))
 .clearAnswer(Q(8311))
 
-//
+// If QID 6611 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8321.
 ifQ(6611)
 .answered(0,1,3)
 .disappear(Q(8321))
 .clearAnswer(Q(8321))
 
-//
+// If QID 6631 is answered Option [0 OR 1], then disappear and clear answer to QID 8331.
 ifQ(6631)
 .answered(0,1)
 .disappear(Q(8331))
 .clearAnswer(Q(8331))
 
-//
+// If QID 6641 is answered Option [4 OR 3] OR QID 1151 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 8341.
 ifQ(6641)
 .answered(4,6)
 .orQ(1151)
@@ -330,7 +330,7 @@ ifQ(6641)
 //  LADSON GRILL - Begin
 //*******************************
 
-//shows Ladson Grill questions if the Ladson Grill is open
+// If QID 4161 is answered Option [0 OR 2], then disappear, clear answer, and make not required QOrder [30600, 35200].
 ifQ(4161)
 .answered(0,2)
 .disappear(QOrder(30600,35200))
@@ -382,13 +382,13 @@ ifQ(7311)
 // Ladson Grill Timestamps - Begin
 //-------------------------------------------
 
-//
+// If QID 7201 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8661.
 ifQ(7201)
 .answered(0,1,3)
 .disappear(Q(8661))
 .clearAnswer(Q(8661))
 
-//
+// If QID 5751 is answered Option [1 OR 5] OR QID 4161 is answered Option [0 OR 2], then disappear and clear answer to QID 8671.
 ifQ(5751)
 .answered(1,5)
 .orQ(4161)
@@ -396,85 +396,85 @@ ifQ(5751)
 .disappear(Q(8671))
 .clearAnswer(Q(8671))
 
-//
+// If QID 7691 is answered Option [0 OR 1], then disappear and clear answer to QID 8681.
 ifQ(7691)
 .answered(0,1)
 .disappear(Q(8681))
 .clearAnswer(Q(8681))
 
-//
+// If QID 5301 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8691.
 ifQ(5301)
 .answered(0,1,3)
 .disappear(Q(8691))
 .clearAnswer(Q(8691))
 
-//
+// If QID 7211 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8701.
 ifQ(7211)
 .answered(0,1,3)
 .disappear(Q(8701))
 .clearAnswer(Q(8701))
 
-//
+// If QID 7221 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8711.
 ifQ(7221)
 .answered(0,1,3)
 .disappear(Q(8711))
 .clearAnswer(Q(8711))
 
-//
+// If QID 7231 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8721.
 ifQ(7231)
 .answered(0,1,3)
 .disappear(Q(8721))
 .clearAnswer(Q(8721))
 
-//
+// If QID 5351 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8731.
 ifQ(5351)
 .answered(0,1,3)
 .disappear(Q(8731))
 .clearAnswer(Q(8731))
 
-//
+// If QID 5311 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8741.
 ifQ(5311)
 .answered(0,1,3)
 .disappear(Q(8741))
 .clearAnswer(Q(8741))
 
-//
+// If QID 7241 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8751.
 ifQ(7241)
 .answered(0,1,3)
 .disappear(Q(8751))
 .clearAnswer(Q(8751))
 
-//
+// If QID 7251 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8761.
 ifQ(7251)
 .answered(0,1,3)
 .disappear(Q(8761))
 .clearAnswer(Q(8761))
 
-//
+// If QID 7261 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8771.
 ifQ(7261)
 .answered(0,1,3)
 .disappear(Q(8771))
 .clearAnswer(Q(8771))
 
-//
+// If QID 7271 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8781.
 ifQ(7271)
 .answered(0,1,3)
 .disappear(Q(8781))
 .clearAnswer(Q(8781))
 
-//
+// If QID 7281 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8791.
 ifQ(7281)
 .answered(0,1,3)
 .disappear(Q(8791))
 .clearAnswer(Q(8791))
 
-//
+// If QID 7301 is answered Option [0 OR 1], then disappear and clear answer to QID 8801.
 ifQ(7301)
 .answered(0,1)
 .disappear(Q(8801))
 .clearAnswer(Q(8801))
 
-//
+// If QID 7311 is answered Option [4 OR 6] OR QID 4161 is answered Option [0 OR 2], then disappear and clear answer to QID 8811.
 ifQ(7311)
 .answered(4,6)
 .orQ(4161)
@@ -497,7 +497,7 @@ ifQ(7311)
 //  PARLOR PIZZA - Begin
 //*******************************
 
-// If QID 4521 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID 4521 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [35500, 39005].
 ifQ(4521)
 .answered(0,2)
 .disappear(QOrder(35500,39005))
@@ -537,7 +537,7 @@ ifQ(4601)
 .greaterThanOrEqual(600)
 .setValue( Q(5821),2)
 
-// If QID 7181 is answered Option [1, 2, OR 3], then set value to Option [1, 2, 3, AND 4] to QID 7181.
+// If QID 7181 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7181.
 ifQ(7181)
 .answered([1,2,3])
 .setValue(Q(7181), 1,2,3,4)
@@ -546,13 +546,13 @@ ifQ(7181)
 // Parlor Pizza Timestamps - Begin
 //-------------------------------------------
 
-//
+// If QID 7061 is answered Option [0 OR 1], then disappear and clear answer to QID 8821.
 ifQ(7061)
 .answered(0,1)
 .disappear(Q(8821))
 .clearAnswer(Q(8821))
 
-//
+// If QID 5801 is answered Option [1 OR 5] OR QID 4521 is answered Option [0 OR 2], then disappear and clear answer to QID 8831. 
 ifQ(5801)
 .answered(1,5)
 .orQ(4521)
@@ -560,79 +560,79 @@ ifQ(5801)
 .disappear(Q(8831))
 .clearAnswer(Q(8831))
 
-//
+// If QID 7701 is answered Option [0 OR 1], then disappear and clear answer to QID 8841.
 ifQ(7701)
 .answered(0,1)
 .disappear(Q(8841))
 .clearAnswer(Q(8841))
 
-//
+// If QID 5431 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8851.
 ifQ(5431)
 .answered(0,1,3)
 .disappear(Q(8851))
 .clearAnswer(Q(8851))
 
-//
+// If QID 7071 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8861.
 ifQ(7071)
 .answered(0,1,3)
 .disappear(Q(8861))
 .clearAnswer(Q(8861))
 
-//
+// If QID 7081 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8871.
 ifQ(7081)
 .answered(0,1,3)
 .disappear(Q(8871))
 .clearAnswer(Q(8871))
 
-//
+// If QID 5811 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8881.
 ifQ(5811)
 .answered(0,1,3)
 .disappear(Q(8881))
 .clearAnswer(Q(8881))
 
-//
+// If QID 7091 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8891.
 ifQ(7091)
 .answered(0,1,3)
 .disappear(Q(8891))
 .clearAnswer(Q(8891))
 
-//
+// If QID 7111 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8921.
 ifQ(7111)
 .answered(0,1,3)
 .disappear(Q(8921))
 .clearAnswer(Q(8921))
 
-//
+// If QID 7121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8931.
 ifQ(7121)
 .answered(0,1,3)
 .disappear(Q(8931))
 .clearAnswer(Q(8931))
 
-//
+// If QID 7131 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8941.
 ifQ(7131)
 .answered(0,1,3)
 .disappear(Q(8941))
 .clearAnswer(Q(8941))
 
-//
+// If QID 7141 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8951.
 ifQ(7141)
 .answered(0,1,3)
 .disappear(Q(8951))
 .clearAnswer(Q(8951))
 
-//
+// If QID 7151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8961.
 ifQ(7151)
 .answered(0,1,3)
 .disappear(Q(8961))
 .clearAnswer(Q(8961))
 
-//
+// If QID 7171 is answered Option [0 OR 1], then disappear and clear answer to QID 8971.
 ifQ(7171)
 .answered(0,1)
 .disappear(Q(8971))
 .clearAnswer(Q(8971))
 
-//
+// If QID 7181 is answered Option [4 OR 6] OR QID 4521 is answered Option [0 OR 2], then disappear and clear answer to QID 8981.
 ifQ(7181)
 .answered(4,6)
 .orQ(4521)
@@ -655,7 +655,7 @@ ifQ(7181)
 //  ROOST - Begin
 //*******************************
 
-// If QID 6051 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID 6051 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [39300, 42205].
 ifQ(6051)
 .answered(0,2)
 .disappear(QOrder(39300,42205))
@@ -725,7 +725,7 @@ ifQ(6171)
 .greaterThanOrEqual(300)
 .setValue( Q(6191),2)
 
-// If QID 7441 is answered Option [1, 2, OR 3], then set value to Option [1, 2, 3, AND 4] to QID 7441.
+// If QID 7441 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7441.
 ifQ(7441)
 .answered([1,2,3])
 .setValue(Q(7441), 1,2,3,4)
@@ -734,14 +734,13 @@ ifQ(7441)
 // Roost Timestamps - Begin
 //-------------------------------------------
 
-//
+// If QID 7331 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8991.
 ifQ(7331)
 .answered(0,1,3)
 .disappear(Q(8991))
 .clearAnswer(Q(8991))
 
-//
-//
+// If QID 6061 is answered Option [1 OR 5] OR QID 6051 is answered Option [0 OR 2], then disappear and clear answer to QID 9021.
 ifQ(6061)
 .answered(1,5)
 .orQ(6051)
@@ -749,85 +748,85 @@ ifQ(6061)
 .disappear(Q(9021))
 .clearAnswer(Q(9021))
 
-//
+// If QID 7711 is answered Option [0 OR 1], then disappear and clear answer to QID 9011.
 ifQ(7711)
 .answered(0,1)
 .disappear(Q(9011))
 .clearAnswer(Q(9011))
 
-//
+// If QID 7341 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9031.
 ifQ(7341)
 .answered(0,1,3)
 .disappear(Q(9031))
 .clearAnswer(Q(9031))
 
-//
-ifQ(6121)
+// If QID 6121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9041.
+.ifQ(6121)
 .answered(0,1,3)
 .disappear(Q(9041))
 .clearAnswer(Q(9041))
 
-//
+// If QID 7351 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9051.
 ifQ(7351)
 .answered(0,1,3)
 .disappear(Q(9051))
 .clearAnswer(Q(9051))
 
-//
+// If QID 7361 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9061.
 ifQ(7361)
 .answered(0,1,3)
 .disappear(Q(9061))
 .clearAnswer(Q(9061))
 
-//
+// If QID 6101 is answered Option [0 OR 1], then disappear and clear answer to QID 9071.
 ifQ(6101)
 .answered(0,1)
 .disappear(Q(9071))
 .clearAnswer(Q(9071))
 
-//
+// If QID 6111 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9081.
 ifQ(6111)
 .answered(0,1,3)
 .disappear(Q(9081))
 .clearAnswer(Q(9081))
 
-//
+// If QID 7371 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9091.
 ifQ(7371)
 .answered(0,1,3)
 .disappear(Q(9091))
 .clearAnswer(Q(9091))
 
-//
+// If QID 7381 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9101.
 ifQ(7381)
 .answered(0,1,3)
 .disappear(Q(9101))
 .clearAnswer(Q(9101))
 
-//
+// If QID 7391 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9111.
 ifQ(7391)
 .answered(0,1,3)
 .disappear(Q(9111))
 .clearAnswer(Q(9111))
 
-//
+// If QID 7401 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9121.
 ifQ(7401)
 .answered(0,1,3)
 .disappear(Q(9121))
 .clearAnswer(Q(9121))
 
-//
+// If QID 7411 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9131.
 ifQ(7411)
 .answered(0,1,3)
 .disappear(Q(9131))
 .clearAnswer(Q(9131))
 
-//
+// If QID 7431 is answered Option [0 OR 1], then disappear and clear answer to QID 9141.
 ifQ(7431)
 .answered(0,1)
 .disappear(Q(9141))
 .clearAnswer(Q(9141))
 
-//
+// If QID 7441 is answered Option [4 OR 6] or QID 6051 is answered Option [0 OR 2], then disappear and clear answer to QID 9151.
 ifQ(7441)
 .answered(4,6)
 .orQ(6051)
