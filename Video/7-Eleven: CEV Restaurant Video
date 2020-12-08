@@ -1,8 +1,9 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 11/6/2020	
+// Last Updated: 12/8/2020	
 //*******************************	
+
 
 
 
@@ -52,37 +53,37 @@ ifQ(11)
 // LTC
 ifQ()
 .ulgIs('LTC')
-.disappear(QOrder(30400,42205))
-.clearAnswer(QOrder(30400,42205))
-.makeNotRequired(QOrder(30400,42205))
+.disappear(Section(5), Section(6), Section(7))
+.clearAnswer(Section(5), Section(6), Section(7))
+.makeNotRequired(Section(5), Section(6), Section(7))
 
 // Ladson Grill
 ifQ()
 .ulgIs('Ladson Grill')
-.disappear(QOrder(15600,21100),QOrder(35300,42205))
-.clearAnswer(QOrder(15600,21100),QOrder(35300,42205))
-.makeNotRequired(QOrder(15600,21100),QOrder(35300,42205))
+.disappear(Section(4), Section(6), Section(7))
+.clearAnswer(Section(4), Section(6), Section(7))
+.makeNotRequired(Section(4), Section(6), Section(7))
 
 // Parlor Pizza
 ifQ()
 .ulgIs('Parlor Pizza')
-.disappear(QOrder(15600,35200),QOrder(39100,42205))
-.clearAnswer(QOrder(15600,35200),QOrder(39100,42205))
-.makeNotRequired(QOrder(15600,35200),QOrder(39100,42205))
+.disappear(Section(4), Section(5), Section(7))
+.clearAnswer(Section(4), Section(5), Section(7))
+.makeNotRequired(Section(4), Section(5), Section(7))
 
 // Roost
 ifQ()
 .ulgIs('Roost')
-.disappear(QOrder(15600,39005))
-.clearAnswer(QOrder(15600,39005))
-.makeNotRequired(QOrder(15600,39005))
+.disappear(Section(4), Section(5), Section(6))
+.clearAnswer(Section(4), Section(5), Section(6))
+.makeNotRequired(Section(4), Section(5), Section(6))
 
 // LTC and Ladson Grill
 ifQ()
 .ulgIs('LTC and Ladson Grill')
-.disappear(QOrder(35300,42205))
-.clearAnswer(QOrder(35300,42205))
-.makeNotRequired(QOrder(35300,42205))
+.disappear(Section(6), Section(7))
+.clearAnswer(Section(6), Section(7))
+.makeNotRequired(Section(6), Section(7))
 
 //-------------------------------------------
 // ULG Switch - End
@@ -95,10 +96,10 @@ ifQ()
 
 // If QID 1151 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(1151)
-.answered(2,3)
-.disappear(QOrder(16000,21100))
-.clearAnswer(QOrder(16000,21100))
-.makeNotRequired(QOrder(16000,21100))
+.answered(0,2,3)
+.disappear(QOrder(15800,21100))
+.clearAnswer(QOrder(15800,21100))
+.makeNotRequired(QOrder(15800,21100))
 
 // If QID 2381 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 5041.
 ifQ(2381)
@@ -210,9 +211,9 @@ ifQ(1471)
 
 //
 ifQ(7661)
-.answered(1)
+.answered(0,1)
 .orifQ(1151)
-.answered(2,3)
+.answered(0,2,3)
 .disappear(Q(8181))
 .clearAnswer(Q(8181))
 
@@ -332,9 +333,9 @@ ifQ(6641)
 //shows Ladson Grill questions if the Ladson Grill is open
 ifQ(4161)
 .answered(0,2)
-.disappear(QOrder(30800,35200))
-.clearAnswer(QOrder(30800,35200))
-.makeNotRequired(QOrder(30800,35200))
+.disappear(QOrder(30600,35200))
+.clearAnswer(QOrder(30600,35200))
+.makeNotRequired(QOrder(30600,35200))
 
 // If QID 7291 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7491.
 ifQ(7291)
@@ -499,9 +500,9 @@ ifQ(7311)
 // If QID 4521 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(4521)
 .answered(0,2)
-.disappear(QOrder(35700,39005))
-.clearAnswer(QOrder(35700,39005))
-.makeNotRequired(QOrder(35700,39005))
+.disappear(QOrder(35500,39005))
+.clearAnswer(QOrder(35500,39005))
+.makeNotRequired(QOrder(35500,39005))
 
 // If QID 7161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7501.
 ifQ(7161)
@@ -657,9 +658,9 @@ ifQ(7181)
 // If QID 6051 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(6051)
 .answered(0,2)
-.disappear(QOrder(39400,42205))
-.clearAnswer(QOrder(39400,42205))
-.makeNotRequired(QOrder(39400,42205))
+.disappear(QOrder(39300,42205))
+.clearAnswer(QOrder(39300,42205))
+.makeNotRequired(QOrder(39300,42205))
 
 // If QID 7421 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7511.
 ifQ(7421)
