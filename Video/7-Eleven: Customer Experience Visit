@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 11/25/2020
+// Last Updated: 12/31/2020
 //*******************************
 
 
@@ -240,68 +240,94 @@ ifQ()
 .setValue(Q(6221), 2)
 
 // If QID 6221 is answered Option 1, then show QID 6231.
-ifQ(6221)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6221)
 .answered(1)
 .appear(Q(6231))
 
 // If QID 6221 is answered Option [0 OR 2], then force hide QIDs: [6241, 6251, 3061, 3221, 6261, 6271, 6281] and clear answers to QIDs: [6231, 6241, 6251, 3061, 3221, 6261, 6271, 6281, 6481].
-ifQ(6221)
-.answered(0,2)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6221)
+.answered(2)
 .forceDisappear(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
 .clearAnswer(Q(6231), Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
 
 // If QID 6231 is answered Option [1,3, OR 4], then show QID 6241.
-ifQ(6231)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6231)
 .answered(1,3,4)
 .appear(Q(6241))
 
 // If QID 6231 is answered Option 1, then set value to Option 4 to QID 6241; hide Option [1,2,3, AND 5] to QID 6241; and show QIDs: [6251, 6261, 6271, 6281].
-ifQ(6231)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6231)
 .answered(1)
 .setValue(Q(6241), 4)
 .hideOptions(Q(6241), 1,2,3,5)
-.appear(Q(6251), Q(6261), Q(6271), Q(6281))
 
 // If QID 6231 is answered Option 2, then clear answers to QIDs: [6241, 6251. 3061, 3221, 6261, 6271, 6281].
-ifQ(6231)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6231)
 .answered(2)
 .clearAnswer(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281))
 
 // If QID 6241 is answered Option [1 OR 4], then show QIDs: [6251, 6261, 6271, 6281].
-ifQ(6241)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6241)
 .answered(1,4)
 .appear(Q(6251), Q(6261), Q(6271), Q(6281))
 
 // If QID 6241 is answered Option 1, then set value to Option 1 to QID 6481.
-ifQ(6241)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6241)
 .answered(1)
 .setValue(Q(6481), 1)
 
 // If QID 6241 is answered Option [2,3,4, OR 5], then hide and clear answer to QID 6481.
-ifQ(6241)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6241)
 .answered(2,3,4,5)
 .clearAnswer(Q(6481))
 
 // If QID 6241 is answered Option [3 OR 5], then set values to QIDs: [6251 = Option 3], [6261 = Option 4], [6271 = Option 6], [6281 = Option 3].
-ifQ(6241)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6241)
 .answered(3,5)
 .setValue(Q(6251), 3)
 .setValue(Q(6261), 4)
 .setValue(Q(6271), 6)
 .setValue(Q(6281), 3)
 
+// works on both
 // If QID 6251 is answered Option 2, then show QID 3061.
 ifQ(6251)
 .answered(2)
 .appear(Q(3061))
 
+// meh
+ifQ(6251)
+.answered(1,3)
+.clearAnswer(Q(3061))
+
+// works on both
 // If QID 3061 is answered Option 7, then show QID 3221.
 ifQ(3061)
 .answered(7)
 .appear(Q(3221))
 
 // If QID 6221 is answered Option 2, then set value to Option 1 to QIDs: [6601, 6611, 6621, 6631].
-ifQ(6221)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6221)
 .answered(2)
 .setValue(Q(6601), 1)
 .setValue(Q(6611), 1)
@@ -309,13 +335,16 @@ ifQ(6221)
 .setValue(Q(6631), 1)
 
 // If QID 6231 is answered Option 2, then set value to Option 2 to QIDs: [6601, 6611, 6621, 6631].
-ifQ(6231)
+ifQ()
+.dateBefore('2021-01-01')
+.andifQ(6231)
 .answered(2)
 .setValue(Q(6601), 2)
 .setValue(Q(6611), 2)
 .setValue(Q(6621), 2)
 .setValue(Q(6631), 2)
 
+// works on both
 // If QID 6271 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 6271.
 ifQ(6271)
 .answered(1)
@@ -324,6 +353,95 @@ ifQ(6271)
 .andQ(6271)
 .answered(3)
 .setValue(Q(6271),1,2,3,4);
+
+//---------------------------
+
+//
+ifQ(6221)
+.answered(0,1)
+.disappear(Q(8081))
+.clearAnswer(Q(8081))
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(6221)
+.answered(1)
+.clearAnswer(Q(6601), Q(6611), Q(6621), Q(6631))
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(6221)
+.answered(2)
+.clearAnswer(Q(6251), Q(3061), Q(6261), Q(6271), Q(6281))
+
+//
+ifQ(6221)
+.answered(1)
+.andifQ(8081)
+.notAnswered()
+.appear(Q(6251), Q(6261), Q(6271), Q(6281))
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(8081)
+.answered(1)
+.setValue(Q(6601), 1)
+.setValue(Q(6611), 1)
+.setValue(Q(6621), 1)
+.setValue(Q(6631), 1)
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(8081)
+.answered(2)
+.setValue(Q(6601), 2)
+.setValue(Q(6611), 2)
+.setValue(Q(6621), 2)
+.setValue(Q(6631), 2)
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(8081)
+.answered(3)
+.setValue(Q(6601), 5)
+.setValue(Q(6611), 5)
+.setValue(Q(6621), 5)
+.setValue(Q(6631), 5)
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(8081)
+.answered(4)
+.setValue(Q(6601), 4)
+.setValue(Q(6611), 4)
+.setValue(Q(6621), 4)
+.setValue(Q(6631), 4)
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(8081)
+.answered(5)
+.setValue(Q(6601), 6)
+.setValue(Q(6611), 6)
+.setValue(Q(6621), 6)
+.setValue(Q(6631), 6)
+
+//
+ifQ()
+.dateAfter('2020-12-31')
+.andifQ(8081)
+.answered(6)
+.setValue(Q(6601), 3)
+.setValue(Q(6611), 3)
+.setValue(Q(6621), 3)
+.setValue(Q(6631), 3)
 
 //********************************
 // RESTROOMS - End
