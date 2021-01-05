@@ -1,0 +1,35 @@
+//*******************************	
+// CID: 713	
+// SID: 4425	
+// Last Updated: 1/5/2021	
+//*******************************	
+
+
+
+
+// If QID 31 and QID 41 are answered anything, then trigger math operation: [QID 41] - [QID 31] = [QID 51]
+ifQ(31)
+.answered()
+.andifQ(41)
+.answered()
+.sub(Q(41), Q(31))
+.store(Q(51))
+
+
+
+
+//*******************************
+// COMMUNITY TOUR - Begin
+//*******************************
+
+// smartforming
+// If QID 2311 is answered Option 2, then disappear and clear answer to QID 2321.
+ifQ(2311)
+.answered(2)
+.disappear(Q(2321))
+.clearAnswer(Q(2321))
+
+//*******************************
+// COMMUNITY TOUR - End
+//*******************************
+
