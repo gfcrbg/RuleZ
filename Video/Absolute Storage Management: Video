@@ -1,0 +1,211 @@
+//*******************************	
+// CID: 256	
+// SID: 2843	
+// Last Updated: 1/19/2021	
+//*******************************
+
+
+
+
+//*******************************
+// COVID-19 - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(1292), 5)
+.setValue(Q(1402), 2)
+.setValue(Q(1302), 2)
+.setValue(Q(1312), 2)
+.setValue(Q(1332), 2)
+
+//*******************************
+// COVID-19 - End
+//*******************************
+
+
+
+
+//*******************************
+// PROPERTY APPEARANCE - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(131), 2)
+.setValue(Q(141), 2)
+
+//*******************************
+// PROPERTY APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// GREETING - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(1082), 2)
+.setValue(Q(1092), 2)
+.setValue(Q(171), 2)
+.setValue(Q(181), 2)
+.setValue(Q(191), 2)
+.setValue(Q(201), 2)
+
+//*******************************
+// GREETING - End
+//*******************************
+
+
+
+
+//*******************************
+// OFFICE APPEARANCE - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(231), 2)
+.setValue(Q(241), 2)
+.setValue(Q(1432), 2)
+.setValue(Q(1422), 2)
+
+//*******************************
+// OFFICE APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES AND SERVICE - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(902), 2)
+.setValue(Q(1382), 2)
+.setValue(Q(912), 2)
+.setValue(Q(922), 2)
+.setValue(Q(932), 2)
+.setValue(Q(942), 2)
+.setValue(Q(1072), 1)
+.setValue(Q(311), 2)
+.setValue(Q(1042), 4)
+.setValue(Q(371), 2)
+.setValue(Q(381), 2)
+.setValue(Q(1172), 2)
+.setValue(Q(1182), 2)
+.setValue(Q(1242), 2)
+.setValue(Q(962), 2)
+.setValue(Q(1062), 2)
+
+//
+ifQ(1442)
+.answered(2)
+.disappear(Q(291), Q(301), Q(331), Q(341), Q(351))
+.clearAnswer(Q(291), Q(301), Q(331), Q(341), Q(351))
+
+//
+ifQ(1442)
+.answered(2)
+.andifQ(1382)
+.answered(1)
+.setValue(Q(1392), 2)
+
+//
+ifQ(1442)
+.answered(2)
+.andifQ(1212)
+.answered(2)
+.setValue(Q(1192), 2)
+.setValue(Q(1222), 2)
+.setValue(Q(1232), 2)
+
+//*******************************
+// SALES AND SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// CLOSING - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.makeNotRequired(Q(461))
+.disappear(Q(461))
+.clearAnswer(Q(461))
+.makeNotRequired(Q(471))
+.disappear(Q(471))
+.clearAnswer(Q(471))
+.makeNotRequired(Q(481))
+.disappear(Q(481))
+.clearAnswer(Q(481))
+.disappear(Q(491))
+.setValue(Q(411), 2)
+.setValue(Q(421), 2)
+.setValue(Q(431), 2)
+.setValue(Q(441), 2)
+.setValue(Q(451), 2)
+
+//*******************************
+// CLOSING - End
+//*******************************
+
+
+
+
+//*******************************
+// BEHAVIOR - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(972), 2)
+.setValue(Q(982), 2)
+.setValue(Q(992), 2)
+.setValue(Q(1002), 2)
+
+//*******************************
+// BEHAVIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL EXPERIENCE - Begin
+//*******************************
+
+//
+ifQ(1442)
+.answered(2)
+.setValue(Q(1012), 2)
+.makeNotRequired(Q(581))
+.disappear(Q(581))
+.clearAnswer(Q(581))
+.makeNotRequired(Q(591))
+.disappear(Q(591))
+.clearAnswer(Q(591))
+.makeNotRequired(Q(601))
+.disappear(Q(601))
+.clearAnswer(Q(601))
+.disappear(Q(611))
+.clearAnswer(Q(611))
+
+//*******************************
+// OVERALL EXPERIENCE - End
+//*******************************
