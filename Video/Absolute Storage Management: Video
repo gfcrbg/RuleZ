@@ -11,7 +11,7 @@
 // COVID-19 - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then set values to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(1292), 5)
@@ -31,7 +31,7 @@ ifQ(1442)
 // PROPERTY APPEARANCE - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then set value to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(131), 2)
@@ -48,7 +48,7 @@ ifQ(1442)
 // GREETING - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then set value to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(1082), 2)
@@ -69,7 +69,7 @@ ifQ(1442)
 // OFFICE APPEARANCE - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then set value to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(231), 2)
@@ -88,7 +88,7 @@ ifQ(1442)
 // SALES AND SERVICE - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then set value to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(902), 2)
@@ -108,20 +108,20 @@ ifQ(1442)
 .setValue(Q(962), 2)
 .setValue(Q(1062), 2)
 
-//
+// If QID 1442 is answered Option 2, then disappear and clear answers to QIDs.
 ifQ(1442)
 .answered(2)
 .disappear(Q(291), Q(301), Q(331), Q(341), Q(351))
 .clearAnswer(Q(291), Q(301), Q(331), Q(341), Q(351))
 
-//
+// If QID 1442 is answered Option 2 and if QID 1382 is answered Option 1, then set value to Option 2 to QID 1392.
 ifQ(1442)
 .answered(2)
 .andifQ(1382)
 .answered(1)
 .setValue(Q(1392), 2)
 
-//
+// If QID 1442 is answered Option 2 and if QID 1212 is answered Option 2, then set value to QIDs.
 ifQ(1442)
 .answered(2)
 .andifQ(1212)
@@ -141,7 +141,7 @@ ifQ(1442)
 // CLOSING - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then make not required, disappear, clear answers, and set value to QIDs.
 ifQ(1442)
 .answered(2)
 .makeNotRequired(Q(461))
@@ -171,7 +171,7 @@ ifQ(1442)
 // BEHAVIOR - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then set value to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(972), 2)
@@ -190,7 +190,7 @@ ifQ(1442)
 // OVERALL EXPERIENCE - Begin
 //*******************************
 
-//
+// If QID 1442 is answered Option 2, then make not required, disappear, clear answers, and set value to QIDs.
 ifQ(1442)
 .answered(2)
 .setValue(Q(1012), 2)
