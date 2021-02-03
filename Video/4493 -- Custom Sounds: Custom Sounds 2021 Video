@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 356	
+// SID: 4493	
+// Last Updated: 2/3/2021	
+//*******************************	
+
+
+
+
+//*******************************
+// SHOW - Begin
+//*******************************
+
+// If QID 51 is answered Option [1 OR 2], then disappear and clear answer to QIDs.
+ifQ(51)
+.answered(1,2)
+.disappear(Q(271), Q(281), Q(291))
+.clearAnswer(Q(271), Q(281), Q(291))
+
+//*******************************
+// SHOW - End
+//*******************************
+
+
+
+
+//*******************************
+// CLOSE - Begin
+//*******************************
+
+// If QID 51 is answered Option [1 OR 2], then disappear and clear answer to QIDs.
+ifQ(51)
+.answered(1,2)
+.disappear(Q(371), Q(381), Q(391), Q(401))
+.clearAnswer(Q(371), Q(381), Q(391), Q(401))
+
+//*******************************
+// CLOSE - End
+//*******************************
