@@ -1,5 +1,10 @@
 ### Announcements
 
+## January 2021
+
+Changed the naming convention of GitHub files to include Survey ID (SID).  
+"[SID] -- [Survey Name]"
+
 ## September 2020
 
 RuleZ-Hidden, (QIDs that are ```.disappear```), will now, by default, visibily hide from the user in Review view.  To show RuleZ-Hidden QIDs on said view, the follwing button must be toggled:  
