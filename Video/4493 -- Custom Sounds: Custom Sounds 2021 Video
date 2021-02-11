@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 356	
 // SID: 4493	
-// Last Updated: 2/3/2021	
+// Last Updated: 2/11/2021	
 //*******************************	
 
 
@@ -17,6 +17,28 @@ ifQ(51)
 .disappear(Q(271), Q(281), Q(291))
 .clearAnswer(Q(271), Q(281), Q(291))
 
+// If QID 791 is answered anything, then trigger math operation: [791] - [781] = [81]
+ifQ(791)
+.answered()
+.sub(Q(791), Q(781))
+.store(Q(81))
+
+// If QID 81 is < 31 seconds, then set value to Option 1 to QID 71.
+ifQ(81)
+.lessThan(31)
+.setValue(Q(71), 1)
+
+// If QID 81 is > 30 seconds, then set value to Option 2 to QID 71.
+ifQ(81)
+.greaterThan(30)
+.setValue(Q(71), 2)
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 81.
+ifQ(71)
+.answered(1)
+.disappear(Q(81))
+.clearAnswer(Q(81))
+
 //*******************************
 // SHOW - End
 //*******************************
@@ -31,8 +53,8 @@ ifQ(51)
 // If QID 51 is answered Option [1 OR 2], then disappear and clear answer to QIDs.
 ifQ(51)
 .answered(1,2)
-.disappear(Q(371), Q(381), Q(391), Q(401))
-.clearAnswer(Q(371), Q(381), Q(391), Q(401))
+.disappear(Q(371), Q(381), Q(391))
+.clearAnswer(Q(371), Q(381), Q(391))
 
 //*******************************
 // CLOSE - End
