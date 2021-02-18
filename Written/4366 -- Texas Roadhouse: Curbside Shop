@@ -1,7 +1,7 @@
 //*******************************
 // CID: 9
 // SID: 4366
-// Last Updated: 9/24/2020
+// Last Updated: 2/18/2021
 //*******************************
 
 
@@ -15,8 +15,8 @@
 ifQ(221)
 .answered(2,3)
 .disappear(Q(321)) // section header 
-.disappear(Q(341), Q(351), Q(371), Q(391), Q(401), Q(411), Q(421))
-.clearAnswer(Q(341), Q(351), Q(371), Q(391), Q(401), Q(411), Q(421))
+.disappear(Q(341), Q(351), Q(371), Q(391), Q(401), Q(411), Q(421), Q(471))
+.clearAnswer(Q(341), Q(351), Q(371), Q(391), Q(401), Q(411), Q(421), Q(471))
 
 // If QID 351 is answered Option [0 OR 2], then disappear and clear answer to QID 361.
 ifQ(351)
