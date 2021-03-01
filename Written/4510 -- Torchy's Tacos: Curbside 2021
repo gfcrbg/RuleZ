@@ -11,7 +11,7 @@
 // PHONE CALL - Begin
 //*******************************
 
-//
+// If QID 131 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(131)
 .answered(2)
 .disappear(Q(141)) // medium header
@@ -29,7 +29,7 @@ ifQ(131)
 // WEB ORDER - Begin
 //*******************************
 
-//
+// If QID 131 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(131)
 .answered(1)
 .disappear(Q(271)) // medium header
@@ -39,3 +39,5 @@ ifQ(131)
 //*******************************
 // WEB ORDER - End
 //*******************************
+
+
