@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 12/31/2020
+// Last Updated: 3/1/2021
 //*******************************
 
 
@@ -52,6 +52,12 @@ ifQ()
 .setValue(Q(1651), 3)
 .setValue(Q(2271), 3)
 .setValue(Q(1571), 6)
+
+// If ulg is NOT 'Esso/Petro', then set value to Option 3 to QIDs.
+ifQ()
+.ulgNot('Esso/Petro')
+.setValue(Q(8171), 3)
+.setValue(Q(8181), 3)
 
 //---------------------------------------------
 // ULG Settings - End
