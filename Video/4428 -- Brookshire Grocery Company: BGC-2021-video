@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 641	
 // SID: 4428	
-// Last Updated: 1/21/2021	
+// Last Updated: 3/26/2021	
 //*******************************	
 
 
@@ -11,13 +11,14 @@
 // RESTROOMS - Begin
 //**************************************
 
+// Disabled 3/26/2021 (see SF ticket 03856)
 // If QID 5931 is answered Option 2, then disappear and set value to QIDs.
-ifQ(5931)
-.answered(2)
-.disappear(Q(3591), Q(5301), Q(3651))
-.setValue(Q(3591), 2)
-.setValue(Q(5301), 2)
-.setValue(Q(3651), 2)
+// ifQ(5931)
+// .answered(2)
+// .disappear(Q(3591), Q(5301), Q(3651))
+// .setValue(Q(3591), 2)
+// .setValue(Q(5301), 2)
+// .setValue(Q(3651), 2)
 
 //**************************************
 // RESTROOMS - End
