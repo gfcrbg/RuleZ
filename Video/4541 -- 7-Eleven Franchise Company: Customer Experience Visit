@@ -58,12 +58,12 @@ ifQ(3031)
 .disappear(Q(2911))
 .clearAnswer(Q(2911))
 
-// Shop Date Trigger [July 2020], if QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 2911.
+// If QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 2911.
 ifQ(3031)
 .answered(2)
 .hideOptions(Q(2911), 3,4)
 
-// Shop Date Trigger [after June 2020], if QID 3031 answered Option 2 and QID 2911 answered Option [3 OR 4] and if QID 2911 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
+// If QID 3031 answered Option 2 and QID 2911 answered Option [3 OR 4] and if QID 2911 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
 ifQ(3031)
 .answered(2)
 .andQ(2911)
@@ -115,12 +115,12 @@ ifQ(3091)
 // [Time Calc] Wait Time in Line - End
 //---------------------------------------------
 
-// Shop Date Trigger [after July 2020], if country is 'US' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
+// If QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
 ifQ(3091)
 .lessThan(180)
 .setValue(Q(2211),1)
 
-// Shop Date Trigger [after July 2020], if country is 'US' AND QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
+// If QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
 ifQ(3091)
 .greaterThanOrEqual(180)
 .setValue(Q(2211),2)
@@ -175,12 +175,12 @@ ifQ(6221)
 .disappear(Q(8081))
 .clearAnswer(Q(8081))
 
-// Shop Date Trigger [after December 2020], if QID 6221 is answered Option 1, then clear answer to QIDs.
+// If QID 6221 is answered Option 1, then clear answer to QIDs.
 ifQ(6221)
 .answered(1)
 .clearAnswer(Q(6601), Q(6611), Q(6621), Q(6631))
 
-// Shop Date Trigger [after December 2020], if QID 6221 is answered Option 2, then clear answer to QIDs.
+// If QID 6221 is answered Option 2, then clear answer to QIDs.
 ifQ(6221)
 .answered(2)
 .clearAnswer(Q(6251), Q(3061), Q(6261), Q(6271), Q(6281))
@@ -192,7 +192,7 @@ ifQ(6221)
 .notAnswered()
 .appear(Q(6251), Q(6261), Q(6271), Q(6281))
 
-// Shop Date Trigger [after December 2020], if QID 8081 is answered Option 1, then set value to Option 1 to QIDs.
+// If QID 8081 is answered Option 1, then set value to Option 1 to QIDs.
 ifQ(8081)
 .answered(1)
 .setValue(Q(6601), 1)
@@ -200,7 +200,7 @@ ifQ(8081)
 .setValue(Q(6621), 1)
 .setValue(Q(6631), 1)
 
-// Shop Date Trigger [after December 2020], if QID 8081 is answered Option 2, then set value to Option 2 to QIDs.
+// If QID 8081 is answered Option 2, then set value to Option 2 to QIDs.
 ifQ(8081)
 .answered(2)
 .setValue(Q(6601), 2)
@@ -208,7 +208,7 @@ ifQ(8081)
 .setValue(Q(6621), 2)
 .setValue(Q(6631), 2)
 
-// Shop Date Trigger [after December 2020], if QID 8081 is answered Option 3, then set value to Option 5 to QIDs.
+// If QID 8081 is answered Option 3, then set value to Option 5 to QIDs.
 ifQ(8081)
 .answered(3)
 .setValue(Q(6601), 5)
@@ -216,7 +216,7 @@ ifQ(8081)
 .setValue(Q(6621), 5)
 .setValue(Q(6631), 5)
 
-// Shop Date Trigger [after December 2020], if QID 8081 is answered Option 4, then set value to Option 4 to QIDs.
+// If QID 8081 is answered Option 4, then set value to Option 4 to QIDs.
 ifQ(8081)
 .answered(4)
 .setValue(Q(6601), 4)
@@ -224,7 +224,7 @@ ifQ(8081)
 .setValue(Q(6621), 4)
 .setValue(Q(6631), 4)
 
-// Shop Date Trigger [after December 2020], if QID 8081 is answered Option 5, then set value to Option 6 to QIDs.
+// If QID 8081 is answered Option 5, then set value to Option 6 to QIDs.
 ifQ(8081)
 .answered(5)
 .setValue(Q(6601), 6)
@@ -232,7 +232,7 @@ ifQ(8081)
 .setValue(Q(6621), 6)
 .setValue(Q(6631), 6)
 
-// Shop Date Trigger [after December 2020], if QID 8081 is answered Option 6, then set value to Option 3 to QIDs.
+// If QID 8081 is answered Option 6, then set value to Option 3 to QIDs.
 ifQ(8081)
 .answered(6)
 .setValue(Q(6601), 3)
