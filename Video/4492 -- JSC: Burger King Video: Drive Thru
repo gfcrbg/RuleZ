@@ -1,0 +1,41 @@
+//*******************************	
+// CID: 730	
+// SID: 4492	
+// Last Updated: 4/26/2021	
+//*******************************	
+
+
+
+
+//*******************************
+// SERVICE TIME - Begin
+//*******************************
+
+//-------------------------------------------
+// TIME CALCULATION - Begin
+// From menu board until food received.
+//-------------------------------------------
+ifQ(641)
+.answered()
+.andifQ(651)
+.answered()
+.sub(Q(651), Q(641))
+.store(Q(271))
+
+// If QID 271 > 185 seconds, then set value to Option 1 for QID 661. 
+ifQ(271)
+.greaterThan(185)
+.setValue(Q(661), 1)
+
+// If QID 271 <= 185 seconds, then set value to Option 2 for QID 661. 
+ifQ(271)
+.lessThanOrEqual(185)
+.setValue(Q(661), 2)
+
+//-------------------------------------------
+// TIME CALCULATION - End
+//-------------------------------------------
+
+//*******************************
+// SERVICE TIME - End
+//*******************************
