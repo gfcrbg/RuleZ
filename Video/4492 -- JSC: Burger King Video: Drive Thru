@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 730	
 // SID: 4492	
-// Last Updated: 4/26/2021	
+// Last Updated: 5/12/2021	
 //*******************************	
 
 
@@ -15,6 +15,8 @@
 // TIME CALCULATION - Begin
 // From menu board until food received.
 //-------------------------------------------
+
+// If QIDs [641 AND 651] answered anything, then trigger math operation: [651] - [641] = [271]
 ifQ(641)
 .answered()
 .andifQ(651)
@@ -35,6 +37,12 @@ ifQ(271)
 //-------------------------------------------
 // TIME CALCULATION - End
 //-------------------------------------------
+
+// If QID 661 is answered Option 2, then disappear and clear answer to QID 751.
+ifQ(661)
+.answered(2)
+.disappear(Q(751))
+.clearAnswer(Q(751))
 
 //*******************************
 // SERVICE TIME - End
