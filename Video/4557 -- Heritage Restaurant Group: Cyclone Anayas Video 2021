@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 739	
 // SID: 4557
-// Last Updated: 5/17/2021
+// Last Updated: 5/20/2021
 //*******************************	
 
 
@@ -28,6 +28,16 @@ ifQ(351)
 .answered()
 .sub(Q(361), Q(351))
 .store(Q(371))
+
+// If QID 371 is <= 60 seconds, then set value to Option 1 for QID 381.
+ifQ(371)
+.lessThanOrEqual(60)
+.setValue(Q(381), 1)
+
+// If QID 371 is > 60 seconds, then set value to Option 2 for QID 381.
+ifQ(371)
+.greaterThan(60)
+.setValue(Q(381), 2)
 
 //---------------------------------------------------------------
 // Time Calc: Seating to Greeting - End
@@ -93,6 +103,16 @@ ifQ(611)
 .sub(Q(621), Q(611))
 .store(Q(631))
 
+// If QID 631 is <= 120 seconds, then set value to Option 1 for QID 641.
+ifQ(631)
+.lessThanOrEqual(120)
+.setValue(Q(641), 1)
+
+// If QID 631 is > 120 seconds, then set value to Option 2 for QID 641.
+ifQ(631)
+.greaterThan(120)
+.setValue(Q(641), 2)
+
 //---------------------------------------------------------------
 // Time Calc: Entree Delivery to Check-Back - End
 //---------------------------------------------------------------
@@ -124,6 +144,16 @@ ifQ(701)
 .answered()
 .sub(Q(711), Q(701))
 .store(Q(721))
+
+// If QID 721 is <= 120 seconds, then set value to Option 1 for QID 731.
+ifQ(721)
+.lessThanOrEqual(120)
+.setValue(Q(731), 1)
+
+// If QID 721 is > 120 seconds, then set value to Option 2 for QID 731.
+ifQ(721)
+.greaterThan(120)
+.setValue(Q(731), 2)
 
 //---------------------------------------------------------------
 // Time Calc: Check Pick-Up to Return - End
