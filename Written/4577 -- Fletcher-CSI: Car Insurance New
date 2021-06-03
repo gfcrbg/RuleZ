@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 466	
 // SID: 4577	
-// Last Updated: 5/28/2021	
+// Last Updated: 6/3/2021	
 //*******************************	
 
 
@@ -35,6 +35,243 @@ ifQ(61)
 //**********************************
 
 //
+ifQ(81)
+.answered(1,2,5,6)
+.disappear(Q(181))
+.clearAnswer(Q(181))
+
+//
+ifQ(81)
+.answered(1,5)
+.disappear(Q(261), Q(271), Q(291), Q(401), Q(411), Q(421), Q(441), Q(451), Q(461), Q(481), Q(491), Q(501), Q(511), Q(531), Q(551), Q(591), Q(611), Q(631), Q(641), Q(651), Q(661), Q(681), Q(691), Q(711), Q(731), Q(751), Q(771), Q(791), Q(801))
+.clearAnswer(Q(261), Q(271), Q(291), Q(401), Q(411), Q(421), Q(441), Q(451), Q(461), Q(481), Q(491), Q(501), Q(511), Q(531), Q(551), Q(591), Q(611), Q(631), Q(641), Q(651), Q(661), Q(681), Q(691), Q(711), Q(731), Q(751), Q(771), Q(791), Q(801))
+
+//
+ifQ(81)
+.answered(1,3,4,5)
+.disappear(Q(281), Q(3451))
+.clearAnswer(Q(281), Q(3451))
+
+//
+ifQ(281)
+.answered(0,2)
+.disappear(Q(351))
+.clearAnswer(Q(351))
+
+//
+ifQ(291)
+.answered(0,2)
+.disappear(Q(301), Q(311), Q(321))
+.clearAnswer(Q(301), Q(311), Q(321))
+
+//
+ifQ(301)
+.answered(0,1)
+.disappear(Q(371))
+.clearAnswer(Q(371))
+
+//
+ifQ(311)
+.answered(0,2)
+.disappear(Q(361))
+.clearAnswer(Q(361))
+
+//
+ifQ(321)
+.answered(0,2)
+.disappear(Q(381))
+.clearAnswer(Q(381))
+
+//
+ifQ(81)
+.answered(1,2,3,5,6)
+.disappear(Q(331))
+.clearAnswer(Q(331))
+
+//
+ifQ(331)
+.answered(0,2)
+.disappear(Q(391))
+.clearAnswer(Q(391))
+
+//
+ifQ(3451)
+.answered(0,2)
+.disappear(Q(3461))
+.clearAnswer(Q(3461))
+
+//
+ifQ(511)
+.answered(0,2)
+.disappear(Q(521))
+.clearAnswer(Q(521))
+
+//
+ifQ(531)
+.answered(0,2)
+.disappear(Q(541))
+.clearAnswer(Q(541))
+
+//
+ifQ(551)
+.notAnswered(4)
+.disappear(Q(561))
+.clearAnswer(Q(561))
+
+//
+ifQ(551)
+.notAnswered(1,2,3,4)
+.disappear(Q(571))
+.clearAnswer(Q(571))
+
+//
+ifQ(571)
+.answered(0,2)
+.disappear(Q(581))
+.clearAnswer(Q(581))
+
+//
+ifQ(691)
+.answered(0,2)
+.disappear(Q(701))
+.clearAnswer(Q(701))
+
+//
+ifQ(711)
+.answered(0,2)
+.disappear(Q(721))
+.clearAnswer(Q(721))
+
+//
+ifQ(731)
+.answered(0,2)
+.disappear(Q(741))
+.clearAnswer(Q(741))
+
+//
+ifQ(771)
+.answered(0,2)
+.disappear(Q(781))
+.clearAnswer(Q(781))
+
+//
+ifQ(81)
+.answered(1,4,5)
+.disappear(Q(811), Q(841), Q(851), Q(871), Q(891), Q(911), Q(961), Q(981), Q(1001), Q(1011), Q(1031), Q(1051), Q(1061), Q(1071), Q(1081), Q(1101), Q(1111), Q(1121), Q(1131), Q(1141), Q(1161), Q(1181), Q(1191), Q(1211), Q(1221), Q(1241), Q(1261), Q(1281), Q(1291), Q(1301), Q(1311), Q(1431), Q(3781), Q(1451), Q(1461), Q(1491), Q(1511), Q(1521), Q(1531), Q(1541), Q(1561), Q(1581), Q(1591), Q(1601), Q(1611), Q(1631), Q(1651), Q(1661), Q(1681), Q(1701), Q(1711), Q(1721), Q(1741), Q(1761), Q(1771), Q(1781), Q(1791), Q(1801), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851), Q(1861), Q(1871))
+.clearAnswer(Q(811), Q(841), Q(851), Q(871), Q(891), Q(911), Q(961), Q(981), Q(1001), Q(1011), Q(1031), Q(1051), Q(1061), Q(1071), Q(1081), Q(1101), Q(1111), Q(1121), Q(1131), Q(1141), Q(1161), Q(1181), Q(1191), Q(1211), Q(1221), Q(1241), Q(1261), Q(1281), Q(1291), Q(1301), Q(1311), Q(1431), Q(3781), Q(1451), Q(1461), Q(1491), Q(1511), Q(1521), Q(1531), Q(1541), Q(1561), Q(1581), Q(1591), Q(1601), Q(1611), Q(1631), Q(1651), Q(1661), Q(1681), Q(1701), Q(1711), Q(1721), Q(1741), Q(1761), Q(1771), Q(1781), Q(1791), Q(1801), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851), Q(1861), Q(1871))
+
+//
+ifQ(851)
+.notAnswered(9)
+.disappear(Q(861))
+.clearAnswer(Q(861))
+
+//
+ifQ(871)
+.answered(0,2)
+.disappear(Q(881))
+.clearAnswer(Q(881))
+
+//
+ifQ(891)
+.answered(0,2)
+.disappear(Q(901))
+.clearAnswer(Q(901))
+
+//
+ifQ(911)
+.answered(0,2)
+.disappear(Q(931))
+.clearAnswer(Q(931))
+
+//
+ifQ(961)
+.answered(0,2)
+.disappear(Q(971))
+.clearAnswer(Q(971))
+
+//
+ifQ(981)
+.answered(0,1,2,3)
+.disappear(Q(991))
+.clearAnswer(Q(991))
+
+//
+ifQ(1031)
+.answered(0,2)
+.disappear(Q(1041))
+.clearAnswer(Q(1041))
+
+//
+ifQ(1081)
+.answered(0,2)
+.disappear(Q(1091))
+.clearAnswer(Q(1091))
+
+//
+ifQ(1161)
+.answered(0,2)
+.disappear(Q(1171))
+.clearAnswer(Q(1171))
+
+//
+ifQ(1221)
+.answered(0,2)
+.disappear(Q(1231))
+.clearAnswer(Q(1231))
+
+//
+ifQ(1241)
+.answered(0,2)
+.disappear(Q(1251))
+.clearAnswer(Q(1251))
+
+//
+ifQ(1261)
+.answered(0,2)
+.disappear(Q(1271))
+.clearAnswer(Q(1271))
+
+//
+ifQ(1311)
+.answered(0,2)
+.disappear(Q(1321), Q(1341), Q(1351), Q(1361), Q(1371), Q(1381), Q(1401), Q(1391), Q(1411), Q(1421))
+.clearAnswer(Q(1321), Q(1341), Q(1351), Q(1361), Q(1371), Q(1381), Q(1401), Q(1391), Q(1411), Q(1421))
+
+//
+ifQ(3781)
+.answered(0,2)
+.disappear(Q(3791))
+.clearAnswer(Q(3791))
+
+//
+ifQ(1561)
+.answered(0,2)
+.disappear(Q(1571))
+.clearAnswer(Q(1571))
+
+//
+ifQ(1661)
+.answered(0,2)
+.disappear(Q(1671))
+.clearAnswer(Q(1671))
+
+//
+ifQ(1681)
+.notAnswered(7)
+.disappear(Q(1691))
+.clearAnswer(Q(1691))
+
+//
+ifQ(1741)
+.answered(0,2)
+.disappear(Q(1751))
+.clearAnswer(Q(1751))
+
+//
+ifQ(81)
+.answered(1,5,6)
+.disappear(Q(5461), Q(941), Q(1021))
 
 //**********************************
 // PHONE INTERACTION - End
@@ -48,6 +285,231 @@ ifQ(61)
 //**********************************
 
 //
+ifQ(81)
+.answered(3,4,5,6)
+.disappear(Q(1881), Q(1901), Q(1911), Q(1921), Q(1941), Q(3891), Q(3901), Q(1961), Q(1981), Q(1991), Q(2001), Q(2011), Q(2031), Q(2051), Q(2071), Q(2101), Q(2911), Q(2931))
+.clearAnswer(Q(1881), Q(1901), Q(1911), Q(1921), Q(1941), Q(3891), Q(3901), Q(1961), Q(1981), Q(1991), Q(2001), Q(2011), Q(2031), Q(2051), Q(2071), Q(2101), Q(2911), Q(2931))
+
+//
+ifQ(81)
+.answered(2,3,4,5,6)
+.disappear(Q(1931), Q(1951), Q(2161), Q(2181), Q(2251), Q(3861), Q(3681), Q(3691), Q(3701), Q(3711), Q(3721), Q(2281), Q(2321), Q(2341), Q(2361), Q(2371), Q(2491), Q(2501), Q(2521), Q(2541), Q(3481), Q(2561), Q(2571), Q(2611), Q(2631), Q(2641), Q(2671), Q(2681), Q(2701), Q(2711), Q(2721), Q(2731), Q(2741), Q(2761), Q(2771), Q(2781), Q(2801), Q(2851), Q(2861), Q(2871), Q(2881), Q(2891), Q(3551), Q(2971), Q(2991), Q(3001), Q(3011), Q(3031), Q(3041), Q(3051), Q(3061), Q(3071), Q(3081), Q(3091), Q(3111), Q(3121), Q(3141), Q(3151), Q(3161), Q(3171), Q(3181), Q(3191), Q(3201), Q(3211), Q(3221), Q(3741), Q(3761), Q(3231), Q(3241), Q(3511), Q(3521))
+.clearAnswer(Q(1931), Q(1951), Q(2161), Q(2181), Q(2251), Q(3861), Q(3681), Q(3691), Q(3701), Q(3711), Q(3721), Q(2281), Q(2321), Q(2341), Q(2361), Q(2371), Q(2491), Q(2501), Q(2521), Q(2541), Q(3481), Q(2561), Q(2571), Q(2611), Q(2631), Q(2641), Q(2671), Q(2681), Q(2701), Q(2711), Q(2721), Q(2731), Q(2741), Q(2761), Q(2771), Q(2781), Q(2801), Q(2851), Q(2861), Q(2871), Q(2881), Q(2891), Q(3551), Q(2971), Q(2991), Q(3001), Q(3011), Q(3031), Q(3041), Q(3051), Q(3061), Q(3071), Q(3081), Q(3091), Q(3111), Q(3121), Q(3141), Q(3151), Q(3161), Q(3171), Q(3181), Q(3191), Q(3201), Q(3211), Q(3221), Q(3741), Q(3761), Q(3231), Q(3241), Q(3511), Q(3521))
+
+//
+ifQ(3901)
+.answered(0,2)
+.disappear(Q(3911), Q(3921))
+.clearAnswer(Q(3911), Q(3921))
+
+//
+ifQ(2031)
+.answered(0,2)
+.disappear(Q(2041))
+.clearAnswer(Q(2041))
+
+//
+ifQ(2071)
+.answered(0,1)
+.disappear(Q(2081), Q(2091))
+.clearAnswer(Q(2081))
+
+//
+ifQ(2101)
+.answered(0,2)
+.disappear(Q(2111), Q(2131))
+.clearAnswer(Q(2111), Q(2131))
+
+//
+ifQ(2131)
+.answered(0,2)
+.disappear(Q(2141), Q(2151))
+.clearAnswer(Q(2141), Q(2151))
+
+//
+ifQ(2161)
+.answered(0,2)
+.disappear(Q(2171))
+.clearAnswer(Q(2171))
+
+//
+ifQ(2181)
+.answered(0,2)
+.disappear(Q(2191), Q(2201), Q(2211), Q(2221), Q(2241))
+.clearAnswer(Q(2191), Q(2201), Q(2211), Q(2221), Q(2241))
+
+//
+ifQ(2221)
+.answered(0,2)
+.disappear(Q(2231))
+.clearAnswer(Q(2231))
+
+//
+ifQ(2281)
+.answered(0,2)
+.disappear(Q(2291), Q(2301))
+.clearAnswer(Q(2291), Q(2301))
+
+//
+ifQ(2341)
+.answered(0,2)
+.disappear(Q(2351))
+.clearAnswer(Q(2351))
+
+//
+ifQ(2371)
+.answered(0,2)
+.disappear(Q(2381), Q(2401), Q(2411), Q(2421), Q(2431), Q(2441), Q(2451), Q(2471), Q(2481))
+.clearAnswer(Q(2381), Q(2401), Q(2411), Q(2421), Q(2431), Q(2441), Q(2451), Q(2471), Q(2481))
+
+//
+ifQ(2451)
+.answered(0,2)
+.disappear(Q(2461))
+.clearAnswer(Q(2461))
+
+//
+ifQ(2501)
+.notAnswered(9)
+.disappear(Q(2511))
+.clearAnswer(Q(2511))
+
+//
+ifQ(2521)
+.answered(0,2)
+.disappear(Q(2531))
+.clearAnswer(Q(2531))
+
+//
+ifQ(2541)
+.answered(0,2)
+.disappear(Q(2551))
+.clearAnswer(Q(2551))
+
+//
+ifQ(3481)
+.answered(0,2)
+.disappear(Q(3491))
+.clearAnswer(Q(3491))
+
+//
+ifQ(2571)
+.answered(0,2)
+.disappear(Q(2581))
+.clearAnswer(Q(2581))
+
+//
+ifQ(2611)
+.answered(0,2)
+.disappear(Q(2621))
+.clearAnswer(Q(2621))
+
+//
+ifQ(2641)
+.answered(0,2)
+.disappear(Q(2651))
+.clearAnswer(Q(2651))
+
+//
+ifQ(2681)
+.answered(0,2)
+.disappear(Q(2691))
+.clearAnswer(Q(2691))
+
+//
+ifQ(2741)
+.answered(0,2)
+.disappear(Q(2751))
+.clearAnswer(Q(2751))
+
+//
+ifQ(2801)
+.answered(0,2)
+.disappear(Q(2811), Q(2831), Q(2841))
+.clearAnswer(Q(2811), Q(2831), Q(2841))
+
+//
+ifQ(81)
+.answered(1,3,4,5,6)
+.disappear(Q(2901), Q(2921), Q(2951))
+.clearAnswer(Q(2901), Q(2921), Q(2951))
+
+//
+ifQ(2901)
+.answered(0,2)
+.disappear(Q(3531))
+.clearAnswer(Q(3531))
+
+//
+ifQ(2911)
+.answered(0,2)
+.disappear(Q(3541))
+.clearAnswer(Q(3541))
+
+//
+ifQ(2951)
+.answered(0,2)
+.disappear(Q(2961))
+.clearAnswer(Q(2961))
+
+//
+ifQ(3551)
+.answered(0,2)
+.disappear(Q(3561), Q(3571), Q(3581))
+.clearAnswer(Q(3561), Q(3571), Q(3581))
+
+//
+ifQ(3581)
+.answered(0,2)
+.disappear(Q(3601), Q(3611), Q(3631))
+.clearAnswer(Q(3601), Q(3611), Q(3631))
+
+//
+ifQ(3611)
+.answered(0,2)
+.disappear(Q(3621))
+.clearAnswer(Q(3621))
+
+//
+ifQ(3631)
+.answered(0,2)
+.disappear(Q(3641))
+.clearAnswer(Q(3641))
+
+//
+ifQ(3581)
+.answered(0,1)
+.disappear(Q(3651), Q(3661), Q(3671))
+.clearAnswer(Q(3651), Q(3661), Q(3671))
+
+//
+ifQ(3011)
+.answered(0,2)
+.disappear(Q(3021))
+.clearAnswer(Q(3021))
+
+//
+ifQ(3111)
+.answered(0,2)
+.disappear(Q(3501))
+.clearAnswer(Q(3501))
+
+//
+ifQ(3741)
+.answered(0,2)
+.disappear(Q(3751))
+.clearAnswer(Q(3751))
+
+//
+ifQ(3761)
+.answered(0,2)
+.disappear(Q(3771))
+.clearAnswer(Q(3771))
+
+//
+ifQ(81)
+.answered(1,2,3,4)
+.disappear(Q(3591))
 
 //**********************************
 // ONLINE INTERACTION - End
@@ -61,6 +523,226 @@ ifQ(61)
 //**********************************
 
 //
+ifQ(81)
+.answered(1,2,3,5,6)
+.disappear(Q(3931), Q(3941), Q(3961), Q(3971), Q(3981), Q(3991), Q(4001), Q(4011), Q(4051), Q(4061), Q(4071), Q(4081), Q(4091), Q(4101), Q(4121), Q(4131), Q(4161), Q(4211), Q(4231), Q(4301), Q(4311), Q(4321), Q(4331), Q(4341), Q(4351), Q(4361), Q(4371), Q(4401), Q(4411), Q(4431), Q(4441), Q(4551), Q(4561), Q(4581), Q(4601), Q(4621), Q(4641), Q(4651), Q(4671), Q(4691), Q(4701), Q(4721), Q(4731), Q(4751), Q(4761), Q(4771), Q(4781), Q(4791), Q(4811), Q(4821), Q(4831), Q(4841), Q(4881), Q(4891), Q(4901), Q(4911), Q(4921), Q(4931), Q(4951), Q(4981), Q(5011), Q(5141), Q(5151), Q(5161), Q(5171), Q(5191), Q(5201), Q(5211), Q(5221), Q(5231), Q(5241), Q(5251), Q(5261), Q(5281), Q(5291), Q(5301), Q(5311), Q(5321), Q(5331), Q(5341), Q(5351), Q(5361), Q(5371), Q(5381), Q(5401), Q(5421), Q(5431), Q(5441), Q(5451))
+.clearAnswer(Q(3931), Q(3941), Q(3961), Q(3971), Q(3981), Q(3991), Q(4001), Q(4011), Q(4051), Q(4061), Q(4071), Q(4081), Q(4091), Q(4101), Q(4121), Q(4131), Q(4161), Q(4211), Q(4231), Q(4301), Q(4311), Q(4321), Q(4331), Q(4341), Q(4351), Q(4361), Q(4371), Q(4401), Q(4411), Q(4431), Q(4441), Q(4551), Q(4561), Q(4581), Q(4601), Q(4621), Q(4641), Q(4651), Q(4671), Q(4691), Q(4701), Q(4721), Q(4731), Q(4751), Q(4761), Q(4771), Q(4781), Q(4791), Q(4811), Q(4821), Q(4831), Q(4841), Q(4881), Q(4891), Q(4901), Q(4911), Q(4921), Q(4931), Q(4951), Q(4981), Q(5011), Q(5141), Q(5151), Q(5161), Q(5171), Q(5191), Q(5201), Q(5211), Q(5221), Q(5231), Q(5241), Q(5251), Q(5261), Q(5281), Q(5291), Q(5301), Q(5311), Q(5321), Q(5331), Q(5341), Q(5351), Q(5361), Q(5371), Q(5381), Q(5401), Q(5421), Q(5431), Q(5441), Q(5451))
+
+//
+ifQ(81)
+.answered(1,2,3,4)
+.disappear(Q(3951))
+.clearAnswer(Q(3951))
+
+//
+ifQ(4011)
+.answered(0,2)
+.disappear(Q(4021), Q(4031))
+.clearAnswer(Q(4021), Q(4031))
+
+//
+ifQ(4101)
+.answered(0,2)
+.disappear(Q(4111))
+.clearAnswer(Q(4111))
+
+//
+ifQ(4131)
+.answered(0,1)
+.disappear(Q(4141), Q(4151))
+.clearAnswer(Q(4141))
+
+//
+ifQ(4161)
+.answered(0,2)
+.disappear(Q(4171), Q(4181))
+.clearAnswer(Q(4171), Q(4181))
+
+//
+ifQ(4181)
+.answered(0,2)
+.disappear(Q(4191), Q(4201))
+.clearAnswer(Q(4191), Q(4201))
+
+//
+ifQ(4211)
+.answered(0,2)
+.disappear(Q(4221))
+.clearAnswer(Q(4221))
+
+//
+ifQ(4231)
+.answered(0,2)
+.disappear(Q(4241), Q(4251), Q(4261), Q(4271), Q(4291))
+.clearAnswer(Q(4241), Q(4251), Q(4261), Q(4271), Q(4291))
+
+//
+ifQ(4271)
+.answered(0,2)
+.disappear(Q(4281))
+.clearAnswer(Q(4281))
+
+//
+ifQ(4371)
+.answered(0,2)
+.disappear(Q(4381), Q(4391))
+.clearAnswer(Q(4381), Q(4391))
+
+//
+ifQ(4411)
+.answered(0,2)
+.disappear(Q(4421))
+.clearAnswer(Q(4421))
+
+//
+ifQ(4441)
+.answered(0,2)
+.disappear(Q(4451), Q(4461), Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4531), Q(4541))
+.clearAnswer(Q(4451), Q(4461), Q(4471), Q(4481), Q(4491), Q(4501), Q(4511), Q(4531), Q(4541))
+
+//
+ifQ(4511)
+.answered(0,2)
+.disappear(Q(4521))
+.clearAnswer(Q(4521))
+
+//
+ifQ(4561)
+.notAnswered(9)
+.disappear(Q(4571))
+.clearAnswer(Q(4571))
+
+//
+ifQ(4581)
+.answered(0,2)
+.disappear(Q(4591))
+.clearAnswer(Q(4591))
+
+//
+ifQ(4601)
+.answered(0,2)
+.disappear(Q(4611))
+.clearAnswer(Q(4611))
+
+//
+ifQ(4621)
+.answered(0,2)
+.disappear(Q(4631))
+.clearAnswer(Q(4631))
+
+//
+ifQ(4651)
+.answered(0,2)
+.disappear(Q(4661))
+.clearAnswer(Q(4661))
+
+//
+ifQ(4671)
+.answered(0,2)
+.disappear(Q(4681))
+.clearAnswer(Q(4681))
+
+//
+ifQ(4701)
+.answered(0,2)
+.disappear(Q(4711))
+.clearAnswer(Q(4711))
+
+//
+ifQ(4731)
+.answered(0,2)
+.disappear(Q(4741))
+.clearAnswer(Q(4741))
+
+//
+ifQ(4791)
+.answered(0,2)
+.disappear(Q(4801))
+.clearAnswer(Q(4801))
+
+//
+ifQ(4841)
+.answered(0,2)
+.disappear(Q(4851), Q(4861), Q(4871))
+.clearAnswer(Q(4851), Q(4861), Q(4871))
+
+//
+ifQ(4931)
+.answered(0,2)
+.disappear(Q(4941))
+.clearAnswer(Q(4941))
+
+//
+ifQ(4951)
+.answered(0,2)
+.disappear(Q(4961))
+.clearAnswer(Q(4961))
+
+//
+ifQ(81)
+.answered(1,2,3,4,5)
+.disappear(Q(4971), Q(4991))
+.clearAnswer(Q(4971), Q(4991))
+
+//
+ifQ(4991)
+.answered(0,2)
+.disappear(Q(5001))
+.clearAnswer(Q(5001))
+
+//
+ifQ(5011)
+.answered(0,2)
+.disappear(Q(5021), Q(5031), Q(5041))
+.clearAnswer(Q(5021), Q(5031), Q(5041))
+
+//
+ifQ(5041)
+.answered(0,2)
+.disappear(Q(5061), Q(5071), Q(5091))
+.clearAnswer(Q(5061), Q(5071), Q(5091))
+
+//
+ifQ(5071)
+.answered(0,2)
+.disappear(Q(5081))
+.clearAnswer(Q(5081))
+
+//
+ifQ(5091)
+.answered(0,2)
+.disappear(Q(5101))
+.clearAnswer(Q(5101))
+
+//
+ifQ(5041)
+.answered(0,1)
+.disappear(Q(5111), Q(5121), Q(5131))
+.clearAnswer(Q(5111), Q(5121), Q(5131))
+
+//
+ifQ(5171)
+.answered(0,2)
+.disappear(Q(5181))
+.clearAnswer(Q(5181))
+
+//
+ifQ(5261)
+.answered(0,2)
+.disappear(Q(5271))
+.clearAnswer(Q(5271))
+
+//
+ifQ(5381)
+.answered(0,2)
+.disappear(Q(5391))
+.clearAnswer(Q(5391))
+
+//
+ifQ(5401)
+.answered(0,2)
+.disappear(Q(5411))
+.clearAnswer(Q(5411))
 
 //**********************************
 // MOBILE WEBSITE INTERACTION - End
@@ -73,7 +755,35 @@ ifQ(61)
 // PURCHASE INTERACTION - Begin
 //**********************************
 
+// 
+ifQ(3271)
+.answered(0,2)
+.disappear(Q(3281), Q(3291), Q(3301), Q(3311), Q(3321), Q(3331), Q(3391), Q(3421), Q(3431))
+.clearAnswer(Q(3281), Q(3291), Q(3301), Q(3311), Q(3321), Q(3331), Q(3391), Q(3421), Q(3431))
+
 //
+ifQ(3321)
+.answered(0,2)
+.disappear(Q(3731))
+.clearAnswer(Q(3731))
+
+//
+ifQ(3331)
+.answered(0,2)
+.disappear(Q(3341), Q(3351), Q(3361), Q(3371), Q(3381))
+.clearAnswer(Q(3341), Q(3351), Q(3361), Q(3371), Q(3381))
+
+//
+ifQ(3391)
+.answered(0,2)
+.disappear(Q(3401))
+.clearAnswer(Q(3401))
+
+//
+ifQ(3391)
+.answered(0,1)
+.disappear(Q(3411))
+.clearAnswer(Q(3411))
 
 //**********************************
 // PURCHASE INTERACTION - End
@@ -87,6 +797,16 @@ ifQ(61)
 //**********************************
 
 //
+ifQ(81)
+.answered(1,3,5)
+.disappear(Q(3811), Q(3821), Q(3831))
+.clearAnswer(Q(3811), Q(3821), Q(3831))
+
+//
+ifQ(81)
+.answered(3)
+.disappear(Q(3851))
+.clearAnswer(Q(3851))
 
 //**********************************
 // OMNI-CHANNEL INTERACTION - End
