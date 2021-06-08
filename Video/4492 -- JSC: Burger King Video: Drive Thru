@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 730	
 // SID: 4492	
-// Last Updated: 6/7/2021	
+// Last Updated: 6/8/2021	
 //*******************************	
 
 
@@ -41,14 +41,14 @@ ifQ(641)
 .store(Q(271))
 
 // If QID 271 > 185 seconds, then set value to Option 1 for QID 661. 
-ifQ(271)
-.greaterThan(185)
-.setValue(Q(661), 1)
+// ifQ(271)
+// .greaterThan(185)
+// .setValue(Q(661), 1)
 
 // If QID 271 <= 185 seconds, then set value to Option 2 for QID 661. 
-ifQ(271)
-.lessThanOrEqual(185)
-.setValue(Q(661), 2)
+// ifQ(271)
+// .lessThanOrEqual(185)
+// .setValue(Q(661), 2)
 
 //-------------------------------------------
 // TIME CALCULATION - End
