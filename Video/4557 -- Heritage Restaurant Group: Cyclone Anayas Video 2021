@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 739	
 // SID: 4557
-// Last Updated: 5/20/2021
+// Last Updated: 6/9/2021
 //*******************************	
 
 
@@ -116,6 +116,12 @@ ifQ(631)
 //---------------------------------------------------------------
 // Time Calc: Entree Delivery to Check-Back - End
 //---------------------------------------------------------------
+
+// If QID 661 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(661)
+.answered(2)
+.disappear(Q(671), Q(681), Q(691))
+.clearAnswer(Q(671), Q(681), Q(691))
 
 //---------------------------------------------------------------
 // Time Calc: Check Request to Delivery - Begin
