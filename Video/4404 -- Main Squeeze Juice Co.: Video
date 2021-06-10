@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 706
 // SID: 4404	
-// Last Updated: 10/6/2020
+// Last Updated: 6/10/2021
 //*******************************	
 
 
@@ -16,6 +16,11 @@ ifQ(1791)
 .answered()
 .sub(Q(1791), Q(1781))
 .store(Q(121))
+
+// If QID 1891 is answered Option [1 OR 2], then set value to Option 1 to QID 1591.
+ifQ(1891)
+.answered(1,2)
+.setValue(Q(1591), 1)
 
 //*******************************
 // EXPERIENCE - End
