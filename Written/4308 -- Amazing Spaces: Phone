@@ -15,7 +15,7 @@
 ifQ(231)
 .answered(2)
 .disappear(Q(401))
-.clearAnswer(Q(401))
+.clearAnswer(Q(401));
 
 //*******************************
 // CLOSING  - End
@@ -32,7 +32,7 @@ ifQ(231)
 ifQ(291)
 .answered(2)
 .disappear(Q(301), Q(311))
-.clearAnswer(Q(301), Q(311))
+.clearAnswer(Q(301), Q(311));
 
 //*******************************
 // FOLLOW UP  - End
