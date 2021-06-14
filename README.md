@@ -1,5 +1,8 @@
 ### Announcements
 
+## June 2021
+New standard practice.  Every code block must end with a semicolon.  This will allow the error checker to identify code blocks that erroenously begin with a period.  Such as .ifQ()
+
 ## January 2021
 
 Changed the naming convention of GitHub files to include Survey ID (SID).  
