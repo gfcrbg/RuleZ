@@ -15,7 +15,7 @@
 ifQ(331)
 .answered(2)
 .disappear(Q(341))
-.clearAnswer(Q(341))
+.clearAnswer(Q(341));
 
 //*******************************
 // FACILITY TOUR  - End
@@ -32,7 +32,7 @@ ifQ(331)
 ifQ(411)
 .answered(2)
 .disappear(Q(421))
-.clearAnswer(Q(421))
+.clearAnswer(Q(421));
 
 //*******************************
 // ANCILLARY SALES - End
@@ -49,7 +49,7 @@ ifQ(411)
 ifQ(511)
 .answered(2)
 .disappear(Q(521))
-.clearAnswer(Q(521))
+.clearAnswer(Q(521));
 
 //*******************************
 // FOLLOW-UP INFORMATION - End
