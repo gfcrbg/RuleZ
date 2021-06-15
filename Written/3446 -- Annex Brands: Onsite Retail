@@ -2,7 +2,7 @@
 // CID: 432	
 // SID: 3446	
 // Last Updated: 9/14/2020	
-//*******************************	
+//*******************************
 
 
 
@@ -15,13 +15,13 @@
 ifQ(521)
 .answered(2, 3, 4, 6)
 .disappear(Q(531), Q(541), Q(551))
-.clearAnswer(Q(531), Q(541), Q(551))
+.clearAnswer(Q(531), Q(541), Q(551));
 
 // If QID 521 is answered Options [1 OR 5], then disappear and clear answer to QIDs.
 ifQ(521)
 .answered(1,5)
 .disappear(Q(201), Q(121), Q(141), Q(131))
-.clearAnswer(Q(201), Q(121), Q(141), Q(131))
+.clearAnswer(Q(201), Q(121), Q(141), Q(131));
 
 //*******************************
 // SECTION I - End
