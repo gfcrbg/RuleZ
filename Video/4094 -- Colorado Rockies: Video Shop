@@ -8,7 +8,7 @@
 
 
 //*******************************
-// Will Call - BEGIN
+// WILL CALL - Begin
 //*******************************
 
 //--------------------------------------------
@@ -19,43 +19,43 @@
 ifQ(2102)
 .answered()
 .sub(Q(2112), Q(2102))
-.store(Q(2262))
+.store(Q(2262));
 
 // If elapsed time less is than 60 seconds; then set value to 'Under 1 minute'.
 ifQ(2262)
 .lessThan(60)
-.setValue(Q(1002), 1)
+.setValue(Q(1002), 1);
 
 // If elapsed time is greater than or equal to 60 seconds, but less than or equal to 180 seconds; then set value to '1-3 minutes'.
 ifQ(2262)
 .greaterThanOrEqual(60)
 .lessThanOrEqual(180)
-.setValue(Q(1002), 2)
+.setValue(Q(1002), 2);
 
 // If elapsed time is greater than 180 seconds, but less than or equal to 300 seconds; then set value to '3-5 minutes'.
 ifQ(2262)
 .greaterThan(180)
 .lessThanOrEqual(300)
-.setValue(Q(1002), 3)
+.setValue(Q(1002), 3);
 
 // If elapsed time is greater than 300 seconds; then set value to 'More than 5 minutes'.
 ifQ(2262)
 .greaterThan(300)
-.setValue(Q(1002), 4)
+.setValue(Q(1002), 4);
 
 //--------------------------------------------
 // Calc Wait in Line Elapsed Time - End
 //--------------------------------------------
 
 //*******************************
-// Will Call - END
+// WILL CALL - End
 //*******************************
 
 
 
 
 //*******************************
-// Concessions - BEGIN
+// CONCESSIONS - Begin
 //*******************************
 
 //--------------------------------------------
@@ -66,13 +66,13 @@ ifQ(2262)
 ifQ(2292)
 .answered()
 .sub(Q(2312), Q(2292))
-.store(Q(2272))
+.store(Q(2272));
 
 // Subtract Received Order from Completed Order and store difference in QID 1472.
 ifQ(2292)
 .answered()
 .sub(Q(2312), Q(2292))
-.store(Q(1472))
+.store(Q(1472));
 
 //--------------------------------------------
 // Calc Time to Receive Order #1 - End
@@ -87,18 +87,18 @@ ifQ(2292)
 ifQ(2302)
 .answered()
 .sub(Q(2322), Q(2302))
-.store(Q(2282))
+.store(Q(2282));
 
 // Subtract Received Order from Completed Order and store difference in QID 2192.
 ifQ(2302)
 .answered()
 .sub(Q(2322), Q(2302))
-.store(Q(2192))
+.store(Q(2192));
 
 //--------------------------------------------
 // Calc Time to Receive Order #2 - End
 //--------------------------------------------
 
 //*******************************
-// Concessions - END
+// CONCESSIONS - End
 //*******************************
