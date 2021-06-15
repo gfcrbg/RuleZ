@@ -15,7 +15,7 @@
 ifQ(761)
 .answered()
 .sub(Q(721), Q(761))
-.store(Q(91))
+.store(Q(91));
 
 //*************************************
 //  I. PERSONAL BANKER INTERACTION - End
@@ -32,7 +32,7 @@ ifQ(761)
 ifQ(741)
 .answered()
 .sub(Q(751), Q(741))
-.store(Q(461))
+.store(Q(461));
 
 //*******************************
 //  II. TELLER INTERACTION - End
