@@ -7,10 +7,10 @@
 
 
 
-//If QID 21 and QID 11 are answered anything, then subtract QID 11 from QID 21 and store the difference in QID 1131.
+// If QID 21 and QID 11 are answered anything, then subtract QID 11 from QID 21 and store the difference in QID 1131.
 ifQ(21)
 .answered()
 .andQ(11)
 .answered()
 .sub(Q(21) , Q(11))
-.store(Q(1131))
+.store(Q(1131));
