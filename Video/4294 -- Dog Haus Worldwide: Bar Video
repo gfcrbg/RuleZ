@@ -15,29 +15,29 @@
 ifQ(391)
 .answered()
 .sub(Q(401), Q(391))
-.store(Q(732))
+.store(Q(732));
 
 // If QID 732 is < 6 minutes, then set value to Option 1 to QID 21.
 ifQ(732)
 .lessThan(360)
-.setValue(Q(21), 1)
+.setValue(Q(21), 1);
 
 // If QID 732 is >= 6 minutes AND < 8 minutes, then set value to Option 2 to QID 21.
 ifQ(732)
 .greaterThanOrEqual(360)
 .lessThan(480)
-.setValue(Q(21), 2)
+.setValue(Q(21), 2);
 
 // If QID 732 is >= 8 minutes AND <= 10 minutes, then set value to Option 3 to QID 21.
 ifQ(732)
 .greaterThanOrEqual(480)
 .lessThanOrEqual(600)
-.setValue(Q(21), 3)
+.setValue(Q(21), 3);
 
 // If QID 732 is > 10 minutes, then set value to Option 4 to QID 21.
 ifQ(732)
 .greaterThan(600)
-.setValue(Q(21), 4)
+.setValue(Q(21), 4);
 
 
 //*******************************
