@@ -11,63 +11,63 @@
 ifQ(2011)
 .answered()
 .sub(Q(2011), Q(2001))
-.store(Q(2021))
+.store(Q(2021));
 
 // Calculation: QID 1701 - QID 1691 = store difference in QID 1021
 ifQ(1701)
 .answered()
 .sub(Q(1701), Q(1691))
-.store(Q(1021))
+.store(Q(1021));
 
 // Calculation: QID 1721 - QID 1711 = store difference in QID 251
 ifQ(1721)
 .answered()
 .sub(Q(1721), Q(1711))
-.store(Q(251))
+.store(Q(251));
 
 // If QID 1011 is answered Option 1, trigger >> Calculation: QID 1721 - QID 1701 = store difference in QID 1031
 ifQ(1011)
 .answered(1)
 .sub(Q(1721), Q(1701))
-.store(Q(1031))
+.store(Q(1031));
 
 // If QID 1011 is answered Option 2, then clear answer to QID 1031.
 ifQ(1011)
 .answered(2)
-.clearAnswer(Q(1031))
+.clearAnswer(Q(1031));
 
 // Calculation: QID 2051 - QID 2041 = store difference in QID 2031
 ifQ(2051)
 .answered()
 .sub(Q(2051), Q(2041))
-.store(Q(2031))
+.store(Q(2031));
 
 // Calculation: QID 2071 - QID 2061 = store difference in QID 551
 ifQ(2071)
 .answered()
 .sub(Q(2071), Q(2061))
-.store(Q(551))
+.store(Q(551));
 
 // Calculation: QID 2091 - QID 2081 = store difference in QID 2101
 ifQ(2091)
 .answered()
 .sub(Q(2091), Q(2081))
-.store(Q(2101))
+.store(Q(2101));
 
 // Calculation: QID 2231 - QID 2221 = store difference in QID 2251
 ifQ(2231)
 .answered()
 .sub(Q(2231), Q(2221))
-.store(Q(2251))
+.store(Q(2251));
 
 // Calculation: QID 2351 - QID 2341 = store difference in QID 2361
 ifQ(2351)
 .answered()
 .sub(Q(2351), Q(2341))
-.store(Q(2361))
+.store(Q(2361));
 
 // Calculation: QID 2381 - QID 2371 = store difference in QID 2391
 ifQ(2381)
 .answered()
 .sub(Q(2381), Q(2371))
-.store(Q(2391))
+.store(Q(2391));
