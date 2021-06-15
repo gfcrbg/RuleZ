@@ -15,7 +15,7 @@
 ifQ(811)
 .notAnswered(1)
 .disappear(Q(821), Q(831))
-.clearAnswer(Q(821), Q(831)) 
+.clearAnswer(Q(821), Q(831)); 
 
 //***********************************
 // EXTERIOR/INTERIOR APPEARANCE - End
@@ -32,7 +32,7 @@ ifQ(811)
 ifQ(211)
 .notAnswered(2)
 .disappear(Q(221))
-.clearAnswer(Q(221)) 
+.clearAnswer(Q(221)); 
 
 //***********************************
 // FRONT DESK EXPERIENCE - End
@@ -49,7 +49,7 @@ ifQ(211)
 ifQ(951)
 .notAnswered(1)
 .disappear(Q(961))
-.clearAnswer(Q(961))
+.clearAnswer(Q(961));
 
 //***********************************
 // RESOURCE ROOM EXPERIENCE - End
@@ -66,13 +66,13 @@ ifQ(951)
 ifQ(1021)
 .notAnswered(1)
 .disappear(Q(1031))
-.clearAnswer(Q(1031))
+.clearAnswer(Q(1031));
 
 // If QID 751 is not answered Option 1, then disappear and clear answer to QID 761.
 ifQ(751)
 .notAnswered(1)
 .disappear(Q(761))
-.clearAnswer(Q(761))
+.clearAnswer(Q(761));
 
 //***********************************
 // OVERALL EXPERIENCE - End
