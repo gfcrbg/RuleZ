@@ -8,20 +8,20 @@
 
 
 //*******************************
-//  II. Greeting - BEGIN
+//  II. GREETING - Begin
 //*******************************
 
 // If QID 161 is < 901, then set value to Option 1 to QID 171.
 ifQ(161)
 .lessThan(901)
-.setValue(Q(171),1)
+.setValue(Q(171),1);
 
 
 // If QID 161 is > 900, then set value to Option 2 to QID 171.
 ifQ(161)
 .greaterThan(900)
-.setValue(Q(171),2)
+.setValue(Q(171),2);
 
 //*******************************
-//  II. Greeting - END
+//  II. GREETING - End
 //*******************************
