@@ -2,7 +2,7 @@
 // CID: 384	
 // SID: 4380	
 // Last Updated: 6/12/2020	
-//*******************************	
+//*******************************
 
 
 
@@ -15,31 +15,31 @@
 ifQ(161)
 .answered(1,2)
 .disappear(Q(171))
-.clearAnswer (Q(171))
+.clearAnswer (Q(171));
 
 // If QID 161 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(161)
 .answered(4)
 .disappear(Q(131), Q(141), Q(151), Q(181), Q(191), Q(201), Q(211), Q(221), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(301), Q(471), Q(431), Q(341), Q(481), Q(351), Q(441), Q(371), Q(381), Q(391), Q(401), Q(411), Q(421))
-.clearAnswer(Q(131), Q(141), Q(151), Q(181), Q(191), Q(201), Q(211), Q(221), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(301), Q(471), Q(431), Q(341), Q(481), Q(351), Q(441), Q(371), Q(381), Q(391), Q(401), Q(411), Q(421))
+.clearAnswer(Q(131), Q(141), Q(151), Q(181), Q(191), Q(201), Q(211), Q(221), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(301), Q(471), Q(431), Q(341), Q(481), Q(351), Q(441), Q(371), Q(381), Q(391), Q(401), Q(411), Q(421));
 
 // If QID 221 is answered Option [0 OR 2], then disappear and clear answer to QID 231.
 ifQ(221)
 .answered(0,2)
 .disappear(Q(231))
-.clearAnswer(Q(231))
+.clearAnswer(Q(231));
 
 // If QID 391 is answered Option [0 OR 2], then disappear and clear answer to QID 491.
 ifQ(391)
 .answered(0,2)
 .disappear(Q(491))
-.clearAnswer(Q(491))
+.clearAnswer(Q(491));
 
 // If QID 401 is answered Option [0,2, OR 3], then disappear and clear answer to QID 501.
 ifQ(401)
 .answered(0,2,3)
 .disappear(Q(501))
-.clearAnswer(Q(501))
+.clearAnswer(Q(501));
 
 
 //*******************************
