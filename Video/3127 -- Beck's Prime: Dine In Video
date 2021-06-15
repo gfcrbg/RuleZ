@@ -13,7 +13,7 @@ ifQ(51)
 .andQ(41)
 .answered()
 .sub(Q(51) , Q(41))
-.store(Q(1741))
+.store(Q(1741));
 
 // Calcs how long the shopper spent in line.  Time receipt was printed minus time entered line at register. 
 ifQ(1831)
@@ -21,7 +21,7 @@ ifQ(1831)
 .andQ(1821)
 .answered()
 .sub(Q(1831) , Q(1821))
-.store(Q(1841))
+.store(Q(1841));
 
 // Calcs how long it took for the shopper to receive their order.  Time when shopper receives order minus the time receipt was printed.
 ifQ(1851)
@@ -29,14 +29,14 @@ ifQ(1851)
 .andQ(1831)
 .answered()
 .sub(Q(1851) , Q(1831))
-.store(Q(121))
+.store(Q(121));
 
 // If QID 1011 is answered Option 2, then disappear QID 1761.
 ifQ(1011)
 .answered(2)
-.disappear(Q(1761))
+.disappear(Q(1761));
 
 // If QID 1011 is answered Option 2, then make void required QID 1761.
 ifQ(1011)
 .answered(2)
-.makeVoidRequired(Q(1761))
+.makeVoidRequired(Q(1761));
