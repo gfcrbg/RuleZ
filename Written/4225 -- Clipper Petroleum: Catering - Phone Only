@@ -15,7 +15,7 @@
 ifQ(1071)
 .answered(2,3)
 .disappear(Q(1081))
-.clearAnswer(Q(1081))
+.clearAnswer(Q(1081));
 
 //*******************************
 // PHONE - End
