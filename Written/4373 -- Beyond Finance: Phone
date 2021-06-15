@@ -15,25 +15,25 @@
 ifQ(121)
 .answered(1)
 .disappear(Q(151))
-.clearAnswer(Q(151))
+.clearAnswer(Q(151));
 
 // If QID 121 is answered Option 2, then disappear and clear answer to QIDs: [161, 171, 181, 201, 261, 271, 211, 221, 231].
 ifQ(121)
 .answered(2)
 .disappear(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231))
-.clearAnswer(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231))
+.clearAnswer(Q(161), Q(171), Q(181), Q(201), Q(261), Q(271), Q(211), Q(221), Q(231));
 
 // If QID 231 is answered Option [0 or 2], then disappear and clear answer to QIDs [281, 241, 301].
 ifQ(231)
 .answered(0,2)
 .disappear(Q(281), Q(241), Q(301))
-.clearAnswer(Q(281), Q(241), Q(301))
+.clearAnswer(Q(281), Q(241), Q(301));
 
 // If QID 301 is answered Option [0 or 2], then disappear and clear answer to QID 701.
 ifQ(301)
 .answered(0,2)
 .disappear(Q(701))
-.clearAnswer(Q(701))
+.clearAnswer(Q(701));
 
 //**************************************
 // WEBSITE - End
@@ -50,7 +50,7 @@ ifQ(301)
 ifQ(511)
 .answered(2)
 .disappear(Q(521))
-.clearAnswer(Q(521))
+.clearAnswer(Q(521));
 
 //**************************************
 // CALL DETAILS - End
@@ -67,13 +67,13 @@ ifQ(511)
 ifQ(571)
 .notAnswered(5)
 .disappear(Q(581))
-.clearAnswer(Q(581))
+.clearAnswer(Q(581));
 
 // If QID 621 is not answered Option 4, then disappear and clear answer to QID 631.
 ifQ(621)
 .notAnswered(4)
 .disappear(Q(631))
-.clearAnswer(Q(631))
+.clearAnswer(Q(631));
 
 //**************************************
 // NEEDS ASSESSMENT - End
@@ -90,7 +90,7 @@ ifQ(621)
 ifQ(971)
 .notAnswered(4)
 .disappear(Q(981))
-.clearAnswer(Q(981))
+.clearAnswer(Q(981));
 
 //**************************************
 // DEBT REVIEW / BUDGET ASSESSMENT - End
@@ -107,13 +107,13 @@ ifQ(971)
 ifQ(721)
 .answered(2,3)
 .disappear(Q(731))
-.clearAnswer(Q(731))
+.clearAnswer(Q(731));
 
 // If QID 1001 is answered Option [1 or 2], then disappear and clear answer to QIDs: [751, 761].
 ifQ(1001)
 .notAnswered(1,2)
 .disappear(Q(751), Q(761))
-.clearAnswer(Q(751), Q(761))
+.clearAnswer(Q(751), Q(761));
 
 
 //**************************************
