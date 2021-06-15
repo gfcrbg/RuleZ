@@ -15,7 +15,7 @@
 ifQ(661)
 .answered(2)
 .disappear(Q(671))
-.clearAnswer(Q(671))
+.clearAnswer(Q(671));
 
 //*******************************
 // CUSTOMER SERVICE- DINE IN - End
