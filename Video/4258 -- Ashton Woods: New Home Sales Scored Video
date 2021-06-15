@@ -11,10 +11,10 @@
 ifQ(751)
 .answered(2,3)
 .disappear(Q(881))
-.clearAnswer(Q(881))
+.clearAnswer(Q(881));
 
 // If QID 731 is answered Option [2 or 3], then disappear and clear answer to QIDs [741, 851, 861].
 ifQ(731)
 .answered(2,3)
 .disappear(Q(741), Q(851), Q(861))
-.clearAnswer(Q(741), Q(851), Q(861))
+.clearAnswer(Q(741), Q(851), Q(861));
