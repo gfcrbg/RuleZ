@@ -2,15 +2,15 @@
 // CID: 317	
 // SID: 3128	
 // Last Updated: 	
-//*******************************	
+//*******************************
 
 
 
 
-//If QIDs 51 and 41 are answered anything, then subtract QID 41 from QID 51 and store the difference in QID 1771.
+// If QIDs 51 and 41 are answered anything, then subtract QID 41 from QID 51 and store the difference in QID 1771.
 ifQ(51)
 .answered()
 .andQ(41)
 .answered()
 .sub(Q(51) , Q(41))
-.store(Q(1771))
+.store(Q(1771));
