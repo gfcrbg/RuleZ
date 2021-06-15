@@ -11,28 +11,28 @@
 ifQ(1551)
 .answered(1)
 .disappear(Q(1531))
-.clearAnswer(Q(1531))
+.clearAnswer(Q(1531));
 
 // If QID 1461 is answered Option 2, then disappear and clear answer to QID 1891.
 ifQ(1461)
 .answered(2)
 .disappear(Q(1891))
-.clearAnswer(Q(1891))
+.clearAnswer(Q(1891));
 
 // If QID 1891 is answered Options [0 or 2], then disappear and clear answer to QID 1901.
 ifQ(1891)
 .answered(0,2)
 .disappear(Q(1901))
-.clearAnswer(Q(1901))
+.clearAnswer(Q(1901));
 
 // If QID 1341 is answered Option 2, then disappear and clear answer to QID 1601.
 ifQ(1341)
 .answered(2)
 .disappear(Q(1601))
-.clearAnswer(Q(1601))
+.clearAnswer(Q(1601));
 
 // If QID 1711 is answered Option 1, then disappear and clear answer to QID 1721.
 ifQ(1711)
 .answered(1)
 .disappear(Q(1721))
-.clearAnswer(Q(1721))
+.clearAnswer(Q(1721));
