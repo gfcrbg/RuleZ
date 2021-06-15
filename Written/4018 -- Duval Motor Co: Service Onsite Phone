@@ -11,11 +11,11 @@
 // TELEPHONE EVALUATION - Begin
 //******************************
 
-//If QID 41 is answered anything, then: QID 51 - QID 41 = QID 81.
+// If QID 41 is answered anything, then: QID 51 - QID 41 = QID 81.
 ifQ(41)
 .answered()
 .sub(Q(51), Q(41))
-.store(Q(81))
+.store(Q(81));
 
 //******************************
 // TELEPHONE EVALUATION - End
@@ -28,29 +28,29 @@ ifQ(41)
 // SERVICE VISIT - Begin
 //******************************
 
-//If QID 101 is answered Option 1, then disappear and clear answer to QID 111.
+// If QID 101 is answered Option 1, then disappear and clear answer to QID 111.
 ifQ(101)
 .answered(1)
 .disappear(Q(111))
-.clearAnswer(Q(111))
+.clearAnswer(Q(111));
 
-//If QID 101 is answered Option 4, then disappear and clear answer to QIDs: [121, 131, 141, 151, 171, 161, 181, 191, 201, 211, 221, 231, 241, 251, 261, 271, 281, 291, 311, 341].
+// If QID 101 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(101)
 .answered(4)
 .disappear(Q(121), Q(131), Q(141), Q(151), Q(171), Q(161), Q(181), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(311), Q(341))
-.clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(171), Q(161), Q(181), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(311), Q(341))
+.clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(171), Q(161), Q(181), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(311), Q(341));
 
-//If QID 291 is answered Option 0 or 2, then disappear and clear answer to QID 301.
+// If QID 291 is answered Option 0 or 2, then disappear and clear answer to QID 301.
 ifQ(291)
 .answered(0,2)
 .disappear(Q(301))
-.clearAnswer(Q(301))
+.clearAnswer(Q(301));
 
-//If QID 341 is answered Option 0, then disappear and clear answer to QID 351.
+// If QID 341 is answered Option 0, then disappear and clear answer to QID 351.
 ifQ(341)
 .answered(0)
 .disappear(Q(351))
-.clearAnswer(Q(351))
+.clearAnswer(Q(351));
 
 //******************************
 // SERVICE VISIT - End
