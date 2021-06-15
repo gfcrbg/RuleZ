@@ -11,29 +11,29 @@
 // I. PERSONAL BANKER INTERACTION - Begin
 //***************************************
 
-//
+// If QID 231 answered Option [2 OR 3], then disappear and clear answer to QID 241.
 ifQ(231)
 .answered(2,3)
 .disappear(Q(241))
-.clearAnswer(Q(241))
+.clearAnswer(Q(241));
 
-//
+// If QID 251 is answered Option 2, then disappear and clear answer to QID 261.
 ifQ(251)
 .answered(2)
 .disappear(Q(261))
-.clearAnswer(Q(261)) 
+.clearAnswer(Q(261));
 
-//
+// If QID 281 is answered Option 2, then disappear and clear answer to QID 291.
 ifQ(281)
 .answered(2)
 .disappear(Q(291))
-.clearAnswer(Q(291)) 
+.clearAnswer(Q(291)); 
 
-//
+// If QID 331 is answered Option [2 OR 3], then disappear and clear answer to QID 341.
 ifQ(331)
 .answered(2,3)
 .disappear(Q(341))
-.clearAnswer(Q(341))  
+.clearAnswer(Q(341));  
 
 //***************************************
 // I. PERSONAL BANKER INTERACTION   - End
@@ -46,17 +46,17 @@ ifQ(331)
 // II. RSR/TELLER INTERACTION  - Begin
 //***************************************
 
-//
+// If QID 401 is answered Option [1 OR 3], then disappear and clear answer to QIDs.
 ifQ(401)
 .answered(1,3)
 .disappear(Q(411), Q(421))
-.clearAnswer(Q(411), Q(421))
+.clearAnswer(Q(411), Q(421));
 
-//
+// If QID 561 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(561)
 .answered(2)
 .disappear(Q(571), Q(581))
-.clearAnswer(Q(571), Q(581))
+.clearAnswer(Q(571), Q(581));
 
 //***************************************
 // II. RSR/TELLER INTERACTION  - End
