@@ -15,7 +15,7 @@
 ifQ(271)
 .answered(1)
 .disappear(Q(281))
-.clearAnswer(Q(281))
+.clearAnswer(Q(281));
 
 //*******************************
 // V. RESERVATIONS - End 
@@ -32,7 +32,7 @@ ifQ(271)
 ifQ(501)
 .answered(2)
 .disappear(Q(511))
-.clearAnswer(Q(511))
+.clearAnswer(Q(511));
 
 //*******************************
 // VII. OVERALL EXPERIENCE - End 
