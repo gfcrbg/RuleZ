@@ -15,25 +15,25 @@
 ifQ(351)
 .answered(1)
 .disappear(Q(91))
-.clearAnswer(Q(91))
+.clearAnswer(Q(91));
 
 // If QID 351 is answered Option [4], then disappear and clear answer to QIDs [101, 111, 121, 131, 141, 151, 341, 301, 161, 171, 181, 191, 201, 211, 221, 281, 231, 241, 261].
 ifQ(351)
 .answered(4)
 .disappear(Q(101), Q(111), Q(121), Q(131), Q(141), Q(151), Q(341), Q(301), Q(161), Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(281), Q(231), Q(241), Q(261))
-.clearAnswer(Q(101), Q(111), Q(121), Q(131), Q(141), Q(151), Q(341), Q(301), Q(161), Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(281), Q(231), Q(241), Q(261))
+.clearAnswer(Q(101), Q(111), Q(121), Q(131), Q(141), Q(151), Q(341), Q(301), Q(161), Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(281), Q(231), Q(241), Q(261));
 
 // If QID 281 is answered Option [0 OR 2], then disappear and clear answer to QID 291.
 ifQ(281)
 .answered(0,2)
 .disappear(Q(291))
-.clearAnswer(Q(291))
+.clearAnswer(Q(291));
 
 // If QID 241 is answered Option [0], then disappear and clear answer QID 251.
 ifQ(241)
 .answered(0)
 .disappear(Q(251))
-.clearAnswer(Q(251))
+.clearAnswer(Q(251));
 
 //*******************************
 // TELEPHONE EVALUATION  - End
