@@ -10,25 +10,25 @@
 //If QID 2001 is not answered Option 3, then disappear Section 14.
 ifQ(2001)
 .notAnswered(3)
-.disappear( Section(14))
+.disappear( Section(14));
 
 //If QID 2001 is answered Option 1, then appear Section 12.
 ifQ(2001)
 .answered(1)
-.appear( Section(12))
+.appear( Section(12));
 
 //If QID 2001 is answered Option 4, then appear Section 13.
 ifQ(2001)
 .answered(4)
-.appear( Section(13))
+.appear( Section(13));
 
 //This is for Historical Data purposes.
 //If QID 2271 is answered Option 2, then make not required Section 3.
 ifQ(2271)
 .answered(2)
-.makeNotRequired( Section(3))
+.makeNotRequired( Section(3));
 
 //If QID 2291 is answered Option 2, then disappear Section 2.
 ifQ(2291)
 .answered(2)
-.disappear ( Section(2))
+.disappear ( Section(2));
