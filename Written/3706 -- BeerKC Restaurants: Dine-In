@@ -7,22 +7,22 @@
 
 
 
-//If QID 1121 is answered Option 1, then appear Section 12.
+// If QID 1121 is answered Option 1, then appear Section 12.
 ifQ(1121)
 .answered(1)
-.appear( Section(12))
+.appear( Section(12));
 
-//If QID 1401 is answered Option 1, then appear Section 13.
+// If QID 1401 is answered Option 1, then appear Section 13.
 ifQ(1401)
 .answered(1)
-.appear( Section(13))
+.appear( Section(13));
 
-//If QID 1931 is answered Option 1, then make not required Section 2.
+// If QID 1931 is answered Option 1, then make not required Section 2.
 ifQ(1931)
 .answered(1)
-.makeNotRequired( Section(2))
+.makeNotRequired( Section(2));
 
-//If QID 1931 is answered Option 1, then disappear Section 2.
+// If QID 1931 is answered Option 1, then disappear Section 2.
 ifQ(1931)
 .answered(1)
-.disappear( Section(2))
+.disappear( Section(2));
