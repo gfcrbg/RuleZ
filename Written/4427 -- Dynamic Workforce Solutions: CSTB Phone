@@ -15,7 +15,7 @@
 ifQ(71)
 .notAnswered(2,3,4)
 .disappear(Q(81))
-.clearAnswer(Q(81))
+.clearAnswer(Q(81));
 
 // If QID 71 is not answered Option [1,2, OR 3], then disappear and clear answer to QIDs.
 ifQ(71)
@@ -23,19 +23,19 @@ ifQ(71)
 .disappear(Q(431))  // black remark 
 .disappear(Q(421))  // red remark 
 .disappear(Q(171), Q(201), Q(391), Q(401), Q(411))
-.clearAnswer(Q(171), Q(201), Q(391), Q(401), Q(411))
+.clearAnswer(Q(171), Q(201), Q(391), Q(401), Q(411));
 
 // If QID 171 is not answered Option 1, then disappear and clear answer to QIDs.
 ifQ(171)
 .notAnswered(1)
 .disappear(Q(181), Q(191))
-.clearAnswer(Q(181), Q(191))
+.clearAnswer(Q(181), Q(191));
 
 // If QID 201 is not answered Option 1, then disappear and clear answer to QID 211.
 ifQ(201)
 .notAnswered(1)
 .disappear(Q(211))
-.clearAnswer(Q(211))
+.clearAnswer(Q(211));
 
 //*******************************
 // CALL DETAILS - End
@@ -53,12 +53,12 @@ ifQ(71)
 .notAnswered(1,2,3)
 .disappear(Q(141))  // black remark
 .disappear(Q(121), Q(131), Q(151), Q(161), Q(241), Q(221), Q(261), Q(381), Q(271), Q(281), Q(291), Q(251), Q(301), Q(311), Q(321))
-.clearAnswer(Q(121), Q(131), Q(151), Q(161), Q(241), Q(221), Q(261), Q(381), Q(271), Q(281), Q(291), Q(251), Q(301), Q(311), Q(321))
+.clearAnswer(Q(121), Q(131), Q(151), Q(161), Q(241), Q(221), Q(261), Q(381), Q(271), Q(281), Q(291), Q(251), Q(301), Q(311), Q(321));
 
 // If QID 131 is answered Option [1,2, AND 3], then set value to QID 131 to Option [1,2,3, AND 4].
 ifQ(131)
 .answered([1,2,3])
-.setValue(Q(131), [1,2,3,4])
+.setValue(Q(131), [1,2,3,4]);
 
 //*******************************
 // TELEPHONE EVALUATION - End
