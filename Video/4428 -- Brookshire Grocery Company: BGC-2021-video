@@ -14,7 +14,7 @@
 // If Location ID is [801], then set value to Option 3 for QID 5701.
 ifQ()
 .locIDIs(801)
-.setValue(Q(5701), 3)
+.setValue(Q(5701), 3);
 
 //**************************************
 // ENTRANCE - End
@@ -33,7 +33,7 @@ ifQ(5961)
 .disappear(Q(3591), Q(5301), Q(3651))
 .setValue(Q(3591), 2)
 .setValue(Q(5301), 2)
-.setValue(Q(3651), 2)
+.setValue(Q(3651), 2);
 
 //**************************************
 // RESTROOMS - End
