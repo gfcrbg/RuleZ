@@ -14,7 +14,7 @@
 // If QID 741 answered Option [1 AND 2], then set value to Option [1,2,3] to QID 741.
 ifQ(741)
 .answered([1,2])
-.setValue(Q(741), 1,2,3)
+.setValue(Q(741), 1,2,3);
 
 //*******************************
 // COUNTER SERVICE - End
@@ -36,7 +36,7 @@ ifQ(681)
 .andifQ(691)
 .answered()
 .sub(Q(691), Q(681))
-.store(Q(821))
+.store(Q(821));
 //-------------------------------------------
 // TIME CALCULATION - End
 //-------------------------------------------
@@ -50,7 +50,7 @@ ifQ(691)
 .andifQ(861)
 .answered()
 .sub(Q(691), Q(861))
-.store(Q(391))
+.store(Q(391));
 //-------------------------------------------
 // TIME CALCULATION - End
 //-------------------------------------------
