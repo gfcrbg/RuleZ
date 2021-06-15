@@ -12,5 +12,5 @@ ifQ(401)
 .answered()
 .andQ(601)
 .answered()
-.sub( Q(401), Q(601) )// subtracts 31 from 21
-.store( Q(611) );// and write it here
+.sub( Q(401),Q(601) )
+.store(Q(611));
