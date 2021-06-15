@@ -14,7 +14,7 @@
 // If QID 791 answered Option [1 AND 2], then set value to Option [1,2,3] to QID 791.
 ifQ(791)
 .answered([1,2])
-.setValue(Q(791), 1,2,3)
+.setValue(Q(791), 1,2,3);
 
 //*******************************
 // DRIVE THRU SERVICE - End
@@ -38,17 +38,17 @@ ifQ(641)
 .andifQ(651)
 .answered()
 .sub(Q(651), Q(641))
-.store(Q(271))
+.store(Q(271));
 
 // If QID 271 > 185 seconds, then set value to Option 1 for QID 661. 
 // ifQ(271)
 // .greaterThan(185)
-// .setValue(Q(661), 1)
+// .setValue(Q(661), 1);
 
 // If QID 271 <= 185 seconds, then set value to Option 2 for QID 661. 
 // ifQ(271)
 // .lessThanOrEqual(185)
-// .setValue(Q(661), 2)
+// .setValue(Q(661), 2);
 
 //-------------------------------------------
 // TIME CALCULATION - End
@@ -58,7 +58,7 @@ ifQ(641)
 ifQ(661)
 .answered(2)
 .disappear(Q(751))
-.clearAnswer(Q(751))
+.clearAnswer(Q(751));
 
 //*******************************
 // SERVICE TIME - End
@@ -82,7 +82,7 @@ ifQ(731)
 .answered(1)
 .andifQ(341)
 .answered(1)
-.setValue(Q(771), 1)
+.setValue(Q(771), 1);
 
 // If QID [731, 661, 301, 671, OR 341] answered negatively, then set value to Option 2 to QID 771.
 ifQ(731)
@@ -95,7 +95,7 @@ ifQ(731)
 .answered(2)
 .orifQ(341)
 .answered(2)
-.setValue(Q(771), 2)
+.setValue(Q(771), 2);
 
 //*******************************
 // FOOD QUALITY - End
