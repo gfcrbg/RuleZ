@@ -15,29 +15,29 @@
 ifQ(1811)
 .answered()
 .sub(Q(1821), Q(1811))
-.store(Q(1881))
+.store(Q(1881));
 
 // If QID 1881 is < 6 minutes, then set value to Option 1 to QID 1401 .
 ifQ(1881)
 .lessThan(360)
-.setValue(Q(1401), 1)
+.setValue(Q(1401), 1);
 
 // If QID 1881 is >= 6 minutes AND < 8 minutes, then set value to Option 2 to QID 1401.
 ifQ(1881)
 .greaterThanOrEqual(360)
 .lessThan(480)
-.setValue(Q(1401), 2)
+.setValue(Q(1401), 2);
 
 // If QID 1881 is >= 8 minutes AND <= 10 minutes, then set value to Option 3 to QID 1401.
 ifQ(1881)
 .greaterThanOrEqual(480)
 .lessThanOrEqual(600)
-.setValue(Q(1401), 3)
+.setValue(Q(1401), 3);
 
 // If QID 1881 is > 10 minutes, then set value to Option 4 to QID 1401.
 ifQ(1881)
 .greaterThan(600)
-.setValue(Q(1401), 4)
+.setValue(Q(1401), 4);
 
 //*******************************
 // MEAL SERVICE AND DELIVERY - End
