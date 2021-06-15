@@ -15,7 +15,7 @@
 ifQ(371)
 .answered(2)
 .disappear(Q(381), Q(391))
-.clearAnswer(Q(381), Q(391))
+.clearAnswer(Q(381), Q(391));
 
 //*******************************
 // EXPERIENCE  - End
@@ -32,7 +32,7 @@ ifQ(371)
 ifQ(511)
 .answered(2)
 .disappear(Q(521))
-.clearAnswer(Q(521))
+.clearAnswer(Q(521));
 
 //*******************************
 // SALES SKILLS - End
