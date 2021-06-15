@@ -13,35 +13,35 @@ ifQ(11)
 .greaterThanOrEqual(0)
 .andifQ(11)
 .lessThanOrEqual(21540)
-.setValue( Q(2741),4)
+.setValue( Q(2741),4);
 
 //Between 6am and 10:30am
 ifQ(11)
 .greaterThanOrEqual(21600)
 .andifQ(11)
 .lessThanOrEqual(37800)
-.setValue( Q(2741),1)
+.setValue( Q(2741),1);
 
 //Between 10:30am and 4pm
 ifQ(11)
 .greaterThanOrEqual(37860)
 .andifQ(11)
 .lessThanOrEqual(57600)
-.setValue( Q(2741),2)
+.setValue( Q(2741),2);
 
 //Between 4pm and 9pm
 ifQ(11)
 .greaterThanOrEqual(57660)
 .andifQ(11)
 .lessThanOrEqual(75600)
-.setValue( Q(2741),3)
+.setValue( Q(2741),3);
 
 //Between 9pm and 12am
 ifQ(11)
 .greaterThanOrEqual(75660)
 .andifQ(11)
 .lessThanOrEqual(86340)
-.setValue( Q(2741),4)
+.setValue( Q(2741),4);
 //End of Time of Shop radio button input
 
 
@@ -58,7 +58,7 @@ ifQ(1571)
 .answered(2)
 .andQ(1571)
 .answered(3)
-.setValue(Q(1571),1,2,3,4)
+.setValue(Q(1571),1,2,3,4);
 
 //*******************************
 //  Gas - END
@@ -76,7 +76,7 @@ ifQ(2831)
 .andQ(2821)
 .answered()
 .sub(Q(2821) , Q(2831))
-.store(Q(3091))
+.store(Q(3091));
 
 //Set radio button to reflect time spent in line (store counter)
 //Under 1  min
@@ -85,38 +85,38 @@ ifQ(3091)
 .greaterThanOrEqual(0)
 .andifQ(3091)
 .lessThan(60)
-.setValue( Q(3101),1)
+.setValue( Q(3101),1);
 
 //Under 2  min
 ifQ(3091)
 .greaterThanOrEqual(61)
 .andifQ(3091)
 .lessThanOrEqual(120)
-.setValue( Q(3101),2)
+.setValue( Q(3101),2);
 
 //Under 3  min
 ifQ(3091)
 .greaterThanOrEqual(121)
 .andifQ(3091)
 .lessThanOrEqual(180)
-.setValue( Q(3101),3)
+.setValue( Q(3101),3);
 
 //Over 3  min
 ifQ(3091)
 .greaterThanOrEqual(181)
-.setValue( Q(3101),4)
+.setValue( Q(3101),4);
 //End of setting radio buttons for time spent in line (store counter)
 
 //If the time in line is less than 2 min, set the under 2 min question to yes, otherwise no
 //Under 2 min
 ifQ(3091)
 .lessThan(120)
-.setValue(Q(2211),1)
+.setValue(Q(2211),1);
 
 //Over 2 min
 ifQ(3091)
 .greaterThanOrEqual(120)
-.setValue(Q(2211),2)
+.setValue(Q(2211),2);
 
 //Sets All of the Above if all options are selected for the Employee Uniform reqs
 ifQ(1631)
@@ -140,11 +140,11 @@ ifQ(1631)
 
 ifQ(1591)
 .answered(3)
-.appear(Q(5011))
+.appear(Q(5011));
 
 ifQ(5011)
 .answered(4)
-.appear(Q(5021))
+.appear(Q(5021));
 
 //Sets All of the Above if all options are selected for the Restroom Stock levels
 ifQ(1601)
@@ -170,25 +170,25 @@ ifQ(1601)
 //If no date is entered, set Freshness to N/A
 ifQ(3121)
 .notAnswered()
-.setValue(Q(6281),3)
+.setValue(Q(6281),3);
 
 //Otherwise, sub today from the date entered and store the value in 3131
 ifQ(3121)
 .answered()
 .sub( Q(3121), Q(1))
-.store(Q(3131))
+.store(Q(3131));
 
 //If 3131 is less than 1 days, mark not fresh
 ifQ(3131)
 .answered()
 .andifQ(3131)
 .lessThanOrEqual(0)
-.setValue(Q(6281),2)
+.setValue(Q(6281),2);
 
 //If 3131 is over 1 day, mark as fresh
 ifQ(3131)
 .greaterThan(0)
-.setValue(Q(6281),1)
+.setValue(Q(6281),1);
 
 //*******************************
 //  Fresh Food - END
@@ -212,7 +212,7 @@ ifQ(2801)
 .andQ(2811)
 .answered()
 .sub(Q(2811) , Q(2801))
-.store(Q(301))
+.store(Q(301));
 
 //Sets radio button for how long food took to come out from LTC
 //Less than a minute
@@ -220,40 +220,40 @@ ifQ(301)
 .greaterThan(0)
 .andifQ(301)
 .lessThanOrEqual(60)
-.setValue( Q(2781),1)
+.setValue( Q(2781),1);
 
 //Less than 2 minutes
 ifQ(301)
 .greaterThanOrEqual(61)
 .andifQ(301)
 .lessThanOrEqual(120)
-.setValue( Q(2781),2)
+.setValue( Q(2781),2);
 
 //Less than 3 minutes
 ifQ(301)
 .greaterThanOrEqual(121)
 .andifQ(301)
 .lessThanOrEqual(180)
-.setValue( Q(2781),3)
+.setValue( Q(2781),3);
 
 //Less than 4 minutes
 ifQ(301)
 .greaterThanOrEqual(181)
 .andifQ(301)
 .lessThanOrEqual(240)
-.setValue( Q(2781),4)
+.setValue( Q(2781),4);
 
 //Less than 5 minutes
 ifQ(301)
 .greaterThanOrEqual(241)
 .andifQ(301)
 .lessThanOrEqual(300)
-.setValue( Q(2781),5)
+.setValue( Q(2781),5);
 
 //More than 5 minutes
 ifQ(301)
 .greaterThanOrEqual(301)
-.setValue( Q(2781),6)
+.setValue( Q(2781),6);
 //end of first LTC radio button stuff
 
 //Take answers to how long it took to get food and fill if that time was under 3 minutes
@@ -263,12 +263,12 @@ ifQ(301)
 .greaterThan(0)
 .andifQ(301)
 .lessThan(180)
-.setValue( Q(2221),1)
+.setValue( Q(2221),1);
 
 //Over 3 min (LTC)
 ifQ(301)
 .greaterThanOrEqual(180)
-.setValue( Q(2221),2)
+.setValue( Q(2221),2);
 
 //*******************************
 //  LTC - End
