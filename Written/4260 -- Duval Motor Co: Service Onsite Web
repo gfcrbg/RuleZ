@@ -11,4 +11,4 @@
 ifQ(51)
 .answered(2)
 .disappear(Q(371))
-.clearAnswer(Q(371))
+.clearAnswer(Q(371));
