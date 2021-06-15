@@ -12,53 +12,53 @@ ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.disappear( Section(1))
+.disappear( Section(1));
 
 //If QID 441 is answered Option 2, and if QID 431 is answered Option 6, then make not required Section 1.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.makeNotRequired( Section(1))
+.makeNotRequired( Section(1));
 
 //If QID 441 is answered Option 2, and if QID 431 is answered Option 6, then disappear Order Range 21 to 81.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.disappear( QRange(21, 81))
+.disappear( QRange(21, 81));
 
 //If QID 441 is answered Option 2, and if QID is answered Option 6, then make not required Order Range 21 to 81.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.makeNotRequired( QRange(21, 81))
+.makeNotRequired( QRange(21, 81));
 
 //If QID 441 is answered Option 2, and if QID 431 is answered Option 6, then disappear QID 421.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.disappear ( Q(421))
+.disappear ( Q(421));
 
 //If QID 441 is answered Option 2, and if QID 431 is answered Option 6, then make not required QID 421.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.makeNotRequired ( Q(421))
+.makeNotRequired ( Q(421));
 
 //If QID 441 is answered Option 2, and if QID 431 is answered Option 6, then disappear QID 451.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.disappear ( Q(451))
+.disappear ( Q(451));
 
 //If QID 441 is answered Option 2, and if QID 431 is answered Option 6, then make not required QID 451.
 ifQ(441)
 .answered(2)
 .andifQ(431)
 .answered (6)
-.makeNotRequired ( Q(451))
+.makeNotRequired ( Q(451));
