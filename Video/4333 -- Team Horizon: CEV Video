@@ -30,42 +30,42 @@ ifQ()
 .setValue(Q(5051), "Operational Override")
 .setValue(Q(6411), 3)
 .setValue(Q(6421), 3)
-.setValue(Q(6301), 3)
+.setValue(Q(6301), 3);
 
 // If shop date is after March, 2020, and if QID 2421 is answered Option 2, then set value to QID 2421 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(2421)
 .answered(2)
-.setValue(Q(2421), 3)
+.setValue(Q(2421), 3);
 
 // If shop date is after February, 2020, and if QID 111 is answered Option 2, then set value to QID 111 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(111)
 .answered(2)
-.setValue(Q(111), 3)
+.setValue(Q(111), 3);
 
 // If shop date is after February, 2020, and if QID 2341 is answered Option 2, then set value to QID 2341 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(2341)
 .answered(2)
-.setValue(Q(2341), 3)
+.setValue(Q(2341), 3);
 
 // If shop date is after February, 2020, and if QID 6341 is answered Option 2, then set value to QID 6341 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(6341)
 .answered(2)
-.setValue(Q(6341), 3)
+.setValue(Q(6341), 3);
 
 // If shop date is after February, 2020, and if QID 2411 is answered Option 2, then set value to QID 2411 to Option 3.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ(2411)
 .answered(2)
-.setValue(Q(2411), 3)
+.setValue(Q(2411), 3);
 
 // Sets "During which time of day did the evaluation occur?" based on "Time of shop:".
 // Before 6am.
@@ -73,35 +73,35 @@ ifQ(11)
 .greaterThanOrEqual(0)
 .andifQ(11)
 .lessThanOrEqual(21540)
-.setValue( Q(2741),4)
+.setValue( Q(2741),4);
 
 // Between 6am and 10:30am.
 ifQ(11)
 .greaterThanOrEqual(21600)
 .andifQ(11)
 .lessThanOrEqual(37800)
-.setValue( Q(2741),1)
+.setValue( Q(2741),1);
 
 // Between 10:30am and 4pm.
 ifQ(11)
 .greaterThanOrEqual(37860)
 .andifQ(11)
 .lessThanOrEqual(57600)
-.setValue( Q(2741),2)
+.setValue( Q(2741),2);
 
 // Between 4pm and 9pm.
 ifQ(11)
 .greaterThanOrEqual(57660)
 .andifQ(11)
 .lessThanOrEqual(75600)
-.setValue( Q(2741),3)
+.setValue( Q(2741),3);
 
 // Between 9pm and 12am.
 ifQ(11)
 .greaterThanOrEqual(75660)
 .andifQ(11)
 .lessThanOrEqual(86340)
-.setValue( Q(2741),4)
+.setValue( Q(2741),4);
 // End of Time of Shop radio button input.
 
 
@@ -117,7 +117,7 @@ ifQ(1571)
 .answered(2)
 .andQ(1571)
 .answered(3)
-.setValue(Q(1571),1,2,3,4)
+.setValue(Q(1571),1,2,3,4);
 
 //*******************************
 // STORE EXTERIOR - End
@@ -140,7 +140,7 @@ ifQ()
 .dateAfter('2020-07-31')
 .andifQ(7631)
 .answered(2)
-.setValue(Q(7631), 3)
+.setValue(Q(7631), 3);
 
 // If QID 7651 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7651.
 ifQ(7651)
@@ -154,7 +154,7 @@ ifQ(7651)
 // If QID 7651 is not answered Option 4, then set value to Option 6 to QID 7651.
 ifQ(7651)
 .notAnswered(4)
-.setValue(Q(7651), 6)
+.setValue(Q(7651), 6);
 
 //--------------------------------------------
 // COVID FOCUS QUESTIONS - End
@@ -164,29 +164,29 @@ ifQ(7651)
 // If QID 6611 is answered Option [1,2, AND 3], then set value to QID 6611 to Option [1,2,3,4].
 ifQ(6611)
 .answered([1,2,3])
-.setValue(Q(6611), 1,2,3,4)
+.setValue(Q(6611), 1,2,3,4);
 
 // If QID 1591 is answered Option 3, then appear QID 5011.
 ifQ(1591)
 .answered(3)
-.appear(Q(5011))
+.appear(Q(5011));
 
 // If QID 5011 is answered Option 4, then appear QID 5021.
 ifQ(5011)
 .answered(4)
-.appear(Q(5021))
+.appear(Q(5021));
 
 // If QID 1591 is answered Option [1 OR 3], then disappear and clear answer to QID 3061.
 ifQ(1591)
 .answered(1,3)
 .disappear(Q(3061))
-.clearAnswer(Q(3061))
+.clearAnswer(Q(3061));
 
 // If QID 3061 is NOT answered Option 7, then disappear and clear answer to QID 3221.
 ifQ(3061)
 .notAnswered(7)
 .disappear(Q(3221))
-.clearAnswer(Q(3221))
+.clearAnswer(Q(3221));
 
 // Sets All of the Above if all options are selected for the Restroom Stock levels.
 ifQ(1601)
@@ -201,38 +201,38 @@ ifQ(1601)
 // If no date is entered, set Freshness to N/A.
 ifQ(3121)
 .notAnswered()
-.setValue(Q(6281),3)
+.setValue(Q(6281),3);
 
 // Otherwise, sub today from the date entered and store the value in 3131.
 ifQ(3121)
 .answered()
 .sub( Q(3121), Q(1))
-.store(Q(3131))
+.store(Q(3131));
 
 // If 3131 is less than 1 days, mark not fresh.
 ifQ(3131)
 .answered()
 .andifQ(3131)
 .lessThanOrEqual(0)
-.setValue(Q(6281),2)
+.setValue(Q(6281),2);
 
 // If 3131 is over 1 day, mark as fresh.
 ifQ(3131)
 .greaterThan(0)
-.setValue(Q(6281),1)
+.setValue(Q(6281),1);
 
 // If QID 3031 is answered Option [1 OR 3], then disappear and clear answer to QID 2911.
 ifQ(3031)
 .answered(1,3)
 .disappear(Q(2911))
-.clearAnswer(Q(2911))
+.clearAnswer(Q(2911));
 
 // Shop Date Trigger [July, 2020], if QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 2911.
 ifQ()
 .dateAfter("2020-06-30")
 .andQ(3031)
 .answered(2)
-.hideOptions(Q(2911), 3,4)
+.hideOptions(Q(2911), 3,4);
 
 // Shop Date Trigger [July, 2020], if QID 3031 answered Option 2 and QID 2911 answered Option [3 OR 4] and if QID 2911 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
 ifQ()
@@ -243,13 +243,13 @@ ifQ()
 .answered(3,4)
 .andifQ(2911)
 .notAnswered(1,2,5)
-.setValue(Q(3031), 1)
+.setValue(Q(3031), 1);
 
 // If QID 1421 is answered Option 1, then disappear and clear answer to QID 2591.
 ifQ(1421)
 .answered(1)
 .disappear(Q(2591))
-.clearAnswer(Q(2591))
+.clearAnswer(Q(2591));
 
 //*******************************
 // STORE INTERIOR - End
@@ -266,25 +266,25 @@ ifQ(1421)
 ifQ(1151)
 .answered(2,3)
 .disappear(Q(6561), Q(1471), Q(3171), Q(7661), Q(1191), Q(2381), Q(6571), Q(2091), Q(1481), Q(271), Q(6581), Q(6591), Q(6601), Q(251), Q(2801), Q(2811), Q(301), Q(2781), Q(2221), Q(3071), Q(2391), Q(2401), Q(2411), Q(3051), Q(2311), Q(2351), Q(6291), Q(6611), Q(6621), Q(6631), Q(6641))
-.clearAnswer(Q(6561), Q(1471), Q(3171), Q(7661), Q(1191), Q(2381), Q(6571), Q(2091), Q(1481), Q(271), Q(6581), Q(6591), Q(6601), Q(251), Q(2801), Q(2811), Q(301), Q(2781), Q(2221), Q(3071), Q(2391), Q(2401), Q(2411), Q(3051), Q(2311), Q(2351), Q(6291), Q(6611), Q(6621), Q(6631), Q(6641))
+.clearAnswer(Q(6561), Q(1471), Q(3171), Q(7661), Q(1191), Q(2381), Q(6571), Q(2091), Q(1481), Q(271), Q(6581), Q(6591), Q(6601), Q(251), Q(2801), Q(2811), Q(301), Q(2781), Q(2221), Q(3071), Q(2391), Q(2401), Q(2411), Q(3051), Q(2311), Q(2351), Q(6291), Q(6611), Q(6621), Q(6631), Q(6641));
 
 // If QID 2381 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 5041.
 ifQ(2381)
 .answered(0,1,2)
 .disappear(Q(5041))
-.clearAnswer(Q(5041))
+.clearAnswer(Q(5041));
 
 // If QID 6621 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7451.
 ifQ(6621)
 .answered(0,1,3)
 .disappear(Q(7451))
-.clearAnswer(Q(7451))
+.clearAnswer(Q(7451));
 
 // If QID 7451 is not answered Option 4, then disappear and clear answer to QID 7461.
 ifQ(7451)
 .notAnswered(4)
 .disappear(Q(7461))
-.clearAnswer(Q(7461))
+.clearAnswer(Q(7461));
 
 // Sets how long food took to come out from LTC.
 ifQ(2801)
@@ -292,7 +292,7 @@ ifQ(2801)
 .andQ(2811)
 .answered()
 .sub(Q(2811) , Q(2801))
-.store(Q(301))
+.store(Q(301));
 
 // Sets radio button for how long food took to come out from LTC.
 // Less than a minute.
@@ -300,40 +300,40 @@ ifQ(301)
 .greaterThan(0)
 .andifQ(301)
 .lessThanOrEqual(60)
-.setValue( Q(2781),1)
+.setValue( Q(2781),1);
 
 // Less than 2 minutes.
 ifQ(301)
 .greaterThanOrEqual(61)
 .andifQ(301)
 .lessThanOrEqual(120)
-.setValue( Q(2781),2)
+.setValue( Q(2781),2);
 
 // Less than 3 minutes.
 ifQ(301)
 .greaterThanOrEqual(121)
 .andifQ(301)
 .lessThanOrEqual(180)
-.setValue( Q(2781),3)
+.setValue( Q(2781),3);
 
 // Less than 4 minutes.
 ifQ(301)
 .greaterThanOrEqual(181)
 .andifQ(301)
 .lessThanOrEqual(240)
-.setValue( Q(2781),4)
+.setValue( Q(2781),4);
 
 // Less than 5 minutes.
 ifQ(301)
 .greaterThanOrEqual(241)
 .andifQ(301)
 .lessThanOrEqual(300)
-.setValue( Q(2781),5)
+.setValue( Q(2781),5);
 
 // More than 5 minutes.
 ifQ(301)
 .greaterThanOrEqual(301)
-.setValue( Q(2781),6)
+.setValue( Q(2781),6);
 //end of first LTC radio button stuff
 
 // Take answers to how long it took to get food and fill if that time was under 3 minutes.
@@ -342,12 +342,12 @@ ifQ(301)
 .greaterThan(0)
 .andifQ(301)
 .lessThan(180)
-.setValue( Q(2221),1)
+.setValue( Q(2221),1);
 
 // Over 3 min (LTC).
 ifQ(301)
 .greaterThanOrEqual(180)
-.setValue( Q(2221),2)
+.setValue( Q(2221),2);
 
 // If QID 6641 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 6641.
 ifQ(6641)
@@ -356,7 +356,7 @@ ifQ(6641)
 .answered(2)
 .andQ(6641)
 .answered(3)
-.setValue(Q(6641),1,2,3,4)
+.setValue(Q(6641),1,2,3,4);
 
 //*******************************
 //  LTC - End
@@ -373,19 +373,19 @@ ifQ(6641)
 ifQ(4161)
 .answered(2)
 .disappear(Q(7191), Q(5751), Q(4181), Q(7691), Q(5291), Q(4191), Q(4201), Q(4221), Q(4231), Q(4241), Q(5741), Q(5301), Q(7211), Q(7221), Q(7231), Q(5351), Q(5311), Q(5321), Q(5331), Q(5341), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311)) 
-.clearAnswer(Q(7191), Q(5751), Q(4181), Q(7691), Q(5291), Q(4191), Q(4201), Q(4221), Q(4231), Q(4241), Q(5741), Q(5301), Q(7211), Q(7221), Q(7231), Q(5351), Q(5311), Q(5321), Q(5331), Q(5341), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311))
+.clearAnswer(Q(7191), Q(5751), Q(4181), Q(7691), Q(5291), Q(4191), Q(4201), Q(4221), Q(4231), Q(4241), Q(5741), Q(5301), Q(7211), Q(7221), Q(7231), Q(5351), Q(5311), Q(5321), Q(5331), Q(5341), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311));
 
 // If QID 7291 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7491.
 ifQ(7291)
 .answered(0,1,3)
 .disappear(Q(7491))
-.clearAnswer(Q(7491))
+.clearAnswer(Q(7491));
 
 // If QID 7491 is not answered Option 4, then disappear and clear answer to QID 7551.
 ifQ(7491)
 .notAnswered(4)
 .disappear(Q(7551))
-.clearAnswer(Q(7551))
+.clearAnswer(Q(7551));
 
 //Calc guest's approx wait in line (Ladson Grill)
 ifQ(4221)
@@ -393,19 +393,19 @@ ifQ(4221)
 .andQ(4231)
 .answered()
 .sub(Q(4231) , Q(4221))
-.store(Q(4241))
+.store(Q(4241));
 
 //Under 5 min (Ladson Grill)
 ifQ(4241)
 .greaterThan(0)
 .andifQ(4241)
 .lessThan(300)
-.setValue( Q(5741),1)
+.setValue( Q(5741),1);
 
 //Over 5 min (Ladson Grill)
 ifQ(4241)
 .greaterThanOrEqual(300)
-.setValue( Q(5741),2)
+.setValue( Q(5741),2);
 
 // If QID 7311 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7311.
 ifQ(7311)
@@ -414,7 +414,7 @@ ifQ(7311)
 .answered(2)
 .andQ(7311)
 .answered(3)
-.setValue(Q(7311),1,2,3,4)
+.setValue(Q(7311),1,2,3,4);
 
 
 //*******************************
@@ -432,19 +432,19 @@ ifQ(7311)
 ifQ(4521)
 .answered(2)
 .disappear(Q(7051), Q(5801), Q(4541), Q(7701), Q(5411), Q(4551), Q(4561), Q(5431), Q(7071), Q(7081), Q(5811), Q(7091), Q(7101), Q(4581), Q(4591), Q(4601), Q(5821), Q(7111), Q(7121), Q(7131), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181))
-.clearAnswer(Q(7051), Q(5801), Q(4541), Q(7701), Q(5411), Q(4551), Q(4561), Q(5431), Q(7071), Q(7081), Q(5811), Q(7091), Q(7101), Q(4581), Q(4591), Q(4601), Q(5821), Q(7111), Q(7121), Q(7131), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181))
+.clearAnswer(Q(7051), Q(5801), Q(4541), Q(7701), Q(5411), Q(4551), Q(4561), Q(5431), Q(7071), Q(7081), Q(5811), Q(7091), Q(7101), Q(4581), Q(4591), Q(4601), Q(5821), Q(7111), Q(7121), Q(7131), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181));
 
 // If QID 7161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7501.
 ifQ(7161)
 .answered(0,1,3)
 .disappear(Q(7501))
-.clearAnswer(Q(7501))
+.clearAnswer(Q(7501));
 
 // If QID 7501 is not answered Option 4, then disappear and clear answer to QID 7561.
 ifQ(7501)
 .notAnswered(4)
 .disappear(Q(7561))
-.clearAnswer(Q(7561))
+.clearAnswer(Q(7561));
 
 //Calc guest's approx wait in line (Parlor Pizza)
 ifQ(4581)
@@ -452,25 +452,25 @@ ifQ(4581)
 .andQ(4591)
 .answered()
 .sub(Q(4591) , Q(4581))
-.store(Q(4601))
+.store(Q(4601));
 
 // Under 10 min (Parlor Pizza)
 ifQ(4601)
 .greaterThan(0)
 .andifQ(4601)
 .lessThan(600)
-.setValue( Q(5821),1)
+.setValue( Q(5821),1);
 
 // Versioned in 7/1/2018
 // Over 10 min (Parlor Pizza)
 ifQ(4601)
 .greaterThanOrEqual(600)
-.setValue( Q(5821),2)
+.setValue( Q(5821),2);
 
 // If QID 7181 is answered Option [1, 2, OR 3], then set value to Option [1, 2, 3, AND 4] to QID 7181.
 ifQ(7181)
 .answered([1,2,3])
-.setValue(Q(7181), 1,2,3,4)
+.setValue(Q(7181), 1,2,3,4);
 
 //*******************************
 //  PARLOR PIZZA - End
@@ -487,19 +487,19 @@ ifQ(7181)
 ifQ(6051)
 .answered(2)
 .disappear(Q(7321), Q(6061), Q(6071), Q(7711), Q(6081), Q(6091), Q(6141), Q(6151), Q(6161), Q(6171), Q(6181), Q(6191), Q(7341), Q(6121), Q(7351), Q(7361), Q(6101), Q(6111), Q(6201), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441)) 
-.clearAnswer(Q(7321), Q(6061), Q(6071), Q(7711), Q(6081), Q(6091), Q(6141), Q(6151), Q(6161), Q(6171), Q(6181), Q(6191), Q(7341), Q(6121), Q(7351), Q(7361), Q(6101), Q(6111), Q(6201), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441)) 
+.clearAnswer(Q(7321), Q(6061), Q(6071), Q(7711), Q(6081), Q(6091), Q(6141), Q(6151), Q(6161), Q(6171), Q(6181), Q(6191), Q(7341), Q(6121), Q(7351), Q(7361), Q(6101), Q(6111), Q(6201), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
 
 // If QID 7421 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7511.
 ifQ(7421)
 .answered(0,1,3)
 .disappear(Q(7511))
-.clearAnswer(Q(7511))
+.clearAnswer(Q(7511));
 
 // If QID 7511 is not answered Option 4, then disappear and clear answer to QID 7571.
 ifQ(7511)
 .notAnswered(4)
 .disappear(Q(7571))
-.clearAnswer(Q(7571))
+.clearAnswer(Q(7571));
 
 //Calc guest's approx wait in line (Roost)
 ifQ(6151)
@@ -507,7 +507,7 @@ ifQ(6151)
 .andQ(6161)
 .answered()
 .sub(Q(6161) , Q(6151))
-.store(Q(6171))
+.store(Q(6171));
 
 //Set radio button to reflect time spent in line (Roost)
 //Under 1  min
@@ -516,26 +516,26 @@ ifQ(6171)
 .greaterThanOrEqual(0)
 .andifQ(6171)
 .lessThanOrEqual(60)
-.setValue( Q(6181),1)
+.setValue( Q(6181),1);
 
 //Under 2  min
 ifQ(6171)
 .greaterThanOrEqual(61)
 .andifQ(6171)
 .lessThanOrEqual(120)
-.setValue( Q(6181),2)
+.setValue( Q(6181),2);
 
 //Under 3  min
 ifQ(6171)
 .greaterThanOrEqual(121)
 .andifQ(6171)
 .lessThanOrEqual(180)
-.setValue( Q(6181),3)
+.setValue( Q(6181),3);
 
 //Over 3  min
 ifQ(6171)
 .greaterThanOrEqual(181)
-.setValue( Q(6181),4)
+.setValue( Q(6181),4);
 //End of setting radio buttons for time spent in line (Roost)
 
 //Versioned in 7/1/2018
@@ -544,18 +544,18 @@ ifQ(6171)
 .greaterThan(0)
 .andifQ(6171)
 .lessThan(300)
-.setValue( Q(6191),1)
+.setValue( Q(6191),1);
 
 //Versioned in 7/1/2018
 //Over 5 min (Ladson Grill)
 ifQ(6171)
 .greaterThanOrEqual(300)
-.setValue( Q(6191),2)
+.setValue( Q(6191),2);
 
 // If QID 7441 is answered Option [1, 2, OR 3], then set value to Option [1, 2, 3, AND 4] to QID 7441.
 ifQ(7441)
 .answered([1,2,3])
-.setValue(Q(7441), 1,2,3,4)
+.setValue(Q(7441), 1,2,3,4);
 
 //*******************************
 //  ROOST - End
@@ -575,7 +575,7 @@ ifQ(2831)
 .andQ(2821)
 .answered()
 .sub(Q(2821) , Q(2831))
-.store(Q(3091))
+.store(Q(3091));
 
 // Set radio button to reflect time spent in line (store counter).
 // Under 1  min.
@@ -584,38 +584,38 @@ ifQ(3091)
 .greaterThanOrEqual(0)
 .andifQ(3091)
 .lessThan(60)
-.setValue( Q(3101),1)
+.setValue( Q(3101),1);
 
 // Under 2  min.
 ifQ(3091)
 .greaterThanOrEqual(61)
 .andifQ(3091)
 .lessThanOrEqual(120)
-.setValue( Q(3101),2)
+.setValue( Q(3101),2);
 
 // Under 3  min.
 ifQ(3091)
 .greaterThanOrEqual(121)
 .andifQ(3091)
 .lessThanOrEqual(180)
-.setValue( Q(3101),3)
+.setValue( Q(3101),3);
 
 // Over 3  min.
 ifQ(3091)
 .greaterThanOrEqual(181)
-.setValue( Q(3101),4)
+.setValue( Q(3101),4);
 //End of setting radio buttons for time spent in line (store counter)
 
 // If the time in line is less than 2 min, set the under 2 min question to yes, otherwise no.
 // Under 2 min.
 ifQ(3091)
 .lessThan(120)
-.setValue(Q(2211),1)
+.setValue(Q(2211),1);
 
 // Over 2 min.
 ifQ(3091)
 .greaterThanOrEqual(120)
-.setValue(Q(2211),2)
+.setValue(Q(2211),2);
 
 // Sets All of the Above if all options are selected for the Employee Uniform reqs.
 ifQ(1631)
