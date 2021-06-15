@@ -15,7 +15,7 @@
 ifQ(702)
 .answered()
 .sub(Q(712), Q(702))
-.store(Q(191))
+.store(Q(191));
 
 //**********************************
 // MERCHANDISE STAFF MEMBER 1 - End
@@ -32,7 +32,7 @@ ifQ(702)
 ifQ(802)
 .answered()
 .sub(Q(872), Q(802))
-.store(Q(882))
+.store(Q(882));
 
 //**********************************
 // MERCHANDISE STAFF MEMBER 2 - End
@@ -49,7 +49,7 @@ ifQ(802)
 ifQ(1212)
 .answered()
 .sub(Q(1282), Q(1212))
-.store(Q(1292))
+.store(Q(1292));
 
 //**********************************
 // MERCHANDISE STAFF MEMBER 3 - End
@@ -66,7 +66,7 @@ ifQ(1212)
 ifQ(1622)
 .answered()
 .sub(Q(1692), Q(1622))
-.store(Q(1702))
+.store(Q(1702));
 
 //**********************************
 // MERCHANDISE STAFF MEMBER 4 - End
@@ -83,7 +83,7 @@ ifQ(1622)
 ifQ(2032)
 .answered()
 .sub(Q(2102), Q(2032))
-.store(Q(2112))
+.store(Q(2112));
 
 //**********************************
 // MERCHANDISE STAFF MEMBER 5 - End
