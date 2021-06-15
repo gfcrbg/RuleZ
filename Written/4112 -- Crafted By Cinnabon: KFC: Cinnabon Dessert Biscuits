@@ -10,24 +10,24 @@
 //If QID 351 answered Option 1, then appear QIDs: [461, 471].
 ifQ(351)
 .answered(1)
-.appear(Q(461), Q(471))
+.appear(Q(461), Q(471));
 
 //If QID 351 answered Option 2, then appear QIDs: [491, 521].
 ifQ(351)
 .answered(2)
-.appear(Q(491), Q(521))
+.appear(Q(491), Q(521));
 
 //If QID 501 answered Option 2, then appear QID 511.
 ifQ(501)
 .answered(2)
-.appear(Q(511))
+.appear(Q(511));
 
 //If QID 511 answered Option 2, then appear QID 81.
 ifQ(511)
 .answered(2)
-.appear(Q(81))
+.appear(Q(81));
 
-//If QID 161 answered Option 1, then appear QIDs: [171, 341, 181, 381, 251, 261, 271, 431].
+//If QID 161 answered Option 1, then appear QIDs.
 ifQ(161)
 .answered(1)
-.appear(Q(171), Q(341), Q(181), Q(381), Q(251), Q(261), Q(271), Q(431))
+.appear(Q(171), Q(341), Q(181), Q(381), Q(251), Q(261), Q(271), Q(431));
