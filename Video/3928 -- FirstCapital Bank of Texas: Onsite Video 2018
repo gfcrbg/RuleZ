@@ -13,7 +13,7 @@ ifQ(761)
 .andQ(771)
 .answered()
 .sub(Q(771), Q(761))
-.store(Q(91))
+.store(Q(91));
 
 // Calcs how long the shopper took to speak to a personal banker.
 ifQ(781)
@@ -21,4 +21,4 @@ ifQ(781)
 .andQ(791)
 .answered()
 .sub(Q(791), Q(781))
-.store(Q(361))
+.store(Q(361));
