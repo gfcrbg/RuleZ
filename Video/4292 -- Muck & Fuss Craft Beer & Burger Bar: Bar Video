@@ -15,13 +15,13 @@
 ifQ(671)
 .answered(2,3)
 .disappear(Q(681), Q(691), Q(701))
-.clearAnswer(Q(681), Q(691), Q(701))
+.clearAnswer(Q(681), Q(691), Q(701));
 
 // If QID 671 is answered Option 2, then disappear and clear answer to QID 711.
 ifQ(671)
 .answered(2)
 .disappear(Q(711))
-.clearAnswer(Q(711))
+.clearAnswer(Q(711));
 
 //*******************************
 // HOST  - End
@@ -38,73 +38,73 @@ ifQ(671)
 ifQ(191)
 .answered(1)
 .disappear(Q(201))
-.clearAnswer(Q(201))
+.clearAnswer(Q(201));
 
 // If QID 141 is answered anything, then trigger math operation: [QID 151] - [QID 141] = [QID 161]
 ifQ(141)
 .answered()
 .sub(Q(151), Q(141))
-.store(Q(161))
+.store(Q(161));
 
 // If QID 151 is answered anything, then trigger math operation: [QID 911] - [QID 151] = [QID 971]
 ifQ(151)
 .answered()
 .sub(Q(911), Q(151))
-.store(Q(971))
+.store(Q(971));
 
 // If QID 971 is <= 2 minutes, then set value to Option 1 to QID 181.
 ifQ(971)
 .lessThanOrEqual(120)
-.setValue(Q(181), 1)
+.setValue(Q(181), 1);
 
 // If QID 971 is > 2 minutes, then set value to Option 2 to QID 181.
 ifQ(971)
 .greaterThan(120)
-.setValue(Q(181), 2)
+.setValue(Q(181), 2);
 
 // If QID 861 is answered anything, then trigger math operation: [QID 871] - [QID 861] = [QID 891]
 ifQ(861)
 .answered()
 .sub(Q(871), Q(861))
-.store(Q(891))
+.store(Q(891));
 
 // If QID 871 is answered anything, then trigger math operation: [QID 901] - [QID 871] = [QID 981]
 ifQ(871)
 .answered()
 .sub(Q(901), Q(871))
-.store(Q(981))
+.store(Q(981));
 
 // If QID 981 is <= 2 minutes, then set value to Option 1 to QID 851.
 ifQ(981)
 .lessThanOrEqual(120)
-.setValue(Q(851), 1)
+.setValue(Q(851), 1);
 
 // If QID 981 is > 2 minutes, then set value to Option 2 to QID 851.
 ifQ(981)
 .greaterThan(120)
-.setValue(Q(851), 2)
+.setValue(Q(851), 2);
 
 // If QID 211 is answered anything, then trigger math operation: [QID 221] - [QID 211] = [QID 231]
 ifQ(211)
 .answered()
 .sub(Q(221), Q(211))
-.store(Q(231))
+.store(Q(231));
 
 // If QID 241 is answered anything, then trigger math operation: [QID 251] - [QID 241] = [QID 261]
 ifQ(241)
 .answered()
 .sub(Q(251), Q(241))
-.store(Q(261))
+.store(Q(261));
 
 // If QID 261 is <= 2 minutes, then set value to Option 1 to QID 271.
 ifQ(261)
 .lessThanOrEqual(120)
-.setValue(Q(271), 1)
+.setValue(Q(271), 1);
 
 // If QID 261 is > 2 minutes, then set value to Option 2 to QID 271.
 ifQ(261)
 .greaterThan(120)
-.setValue(Q(271), 2)
+.setValue(Q(271), 2);
 
 //*******************************
 // BARTENDER/SERVER  - End
