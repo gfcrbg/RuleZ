@@ -4,8 +4,8 @@
 // Last Updated:
 //*******************************
 
- 
- 
+
+
  
 // Calcs how long the shopper waited in line for the value of the pawn item.
 ifQ(1131)
@@ -20,14 +20,14 @@ ifQ(1041)
 .greaterThanOrEqual(0)
 .andifQ(1041)
 .lessThanOrEqual(240)
-.setValue(Q(1371),1)
+.setValue(Q(1371),1);
 
 // If QID 1041 is > 240 and <= 360, then set value to Option 2 to QID 1371.
 ifQ(1041)
 .greaterThan(240)
 .andifQ(1041)
 .lessThanOrEqual(360)
-.setValue(Q(1371),2)
+.setValue(Q(1371),2);
 
 // If QID 1041 is > 360, then set value to Option 3 to QID 1371.
 ifQ(1041)
