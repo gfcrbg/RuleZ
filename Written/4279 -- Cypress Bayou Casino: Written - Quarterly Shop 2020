@@ -19,13 +19,13 @@
 ifQ(491)
 .answered(1)
 .disappear(Q(501), Q(511))
-.clearAnswer(Q(501), Q(511))
+.clearAnswer(Q(501), Q(511));
 
 // If QID 801 is answered Option 1, then disappear and clear answer to QID 811.
 ifQ(801)
 .answered(1)
 .disappear(Q(811))
-.clearAnswer(Q(811))
+.clearAnswer(Q(811));
 
 //*******************************
 // Loco - End 
@@ -40,7 +40,7 @@ ifQ(801)
 ifQ(5091)
 .answered(2,3)
 .disappear(Q(5101))
-.clearAnswer(Q(5101))
+.clearAnswer(Q(5101));
 
 //*******************************
 // Table Games - End 
@@ -65,7 +65,7 @@ ifQ(5091)
 ifQ(3891)
 .answered(1)
 .disappear(Q(3901))
-.clearAnswer(Q(3901))
+.clearAnswer(Q(3901));
 
 //*******************************
 // Mabel's - End
@@ -80,13 +80,13 @@ ifQ(3891)
 ifQ(1071)
 .answered(1)
 .disappear(Q(1081), Q(1091))
-.clearAnswer(Q(1081), Q(1091))
+.clearAnswer(Q(1081), Q(1091));
 
 // If QID 1381 is answered Option 1, then disappear and clear answer to QID 1391.
 ifQ(1381)
 .answered(1)
 .disappear(Q(1391))
-.clearAnswer(Q(1391))
+.clearAnswer(Q(1391));
 
 //*******************************
 // Cafe Delphine - End
@@ -101,13 +101,13 @@ ifQ(1381)
 ifQ(1631)
 .answered(1)
 .disappear(Q(1641), Q(1651))
-.clearAnswer(Q(1641), Q(1651))
+.clearAnswer(Q(1641), Q(1651));
 
 // If QID 1941 is answered Option 1, then disappear and clear answer to QID 1951.
 ifQ(1941)
 .answered(1)
 .disappear(Q(1951))
-.clearAnswer(Q(1951))
+.clearAnswer(Q(1951));
 
 //*******************************
 // Mr. Lester's Steakhouse - End
@@ -122,7 +122,7 @@ ifQ(1941)
 ifQ(4351)
 .answered(2,3)
 .disappear(Q(2581))
-.clearAnswer(Q(2581))
+.clearAnswer(Q(2581));
 
 //*******************************
 // Table Games - End
@@ -147,7 +147,7 @@ ifQ(4351)
 ifQ(3221)
 .answered(2)
 .disappear(Q(4901), Q(4911))
-.clearAnswer(Q(4901), Q(4911))
+.clearAnswer(Q(4901), Q(4911));
 
 //*******************************
 // ATM's - End 
@@ -162,7 +162,7 @@ ifQ(3221)
 ifQ(6241)
 .answered(1)
 .disappear(Q(6251))
-.clearAnswer(Q(6251))
+.clearAnswer(Q(6251));
 
 //*******************************
 // Retail - End
