@@ -8,15 +8,15 @@
 
 
 //*************************************
-// Employee Presentation & Interaction - Begin
+// EMPLOYEE PRESENTATION & INTERACTION - Begin
 //*************************************
 
 // If QID 131 is answered Option 1, then disappear and clear answer to QID 101.
 ifQ(131)
 .answered(1)
 .disappear(Q(101))
-.clearAnswer(Q(101))
+.clearAnswer(Q(101));
 
 //*************************************
-// Employee Presentation & Interaction  - End
+// EMPLOYEE PRESENTATION & INTERACTION - End
 //*************************************
