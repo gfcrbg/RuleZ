@@ -13,20 +13,20 @@ ifQ(1122)
 .andQ(1132)
 .answered()
 .sub(Q(1132),Q(1122))
-.store(Q(1182))
+.store(Q(1182));
 //End calc for time length
 
 // Server check back within 3 minutes.
 ifQ(1182)
 .answered()
 .lessThan(181)
-.setValue(Q(241), 1)
+.setValue(Q(241), 1);
 
 // If QID 1182 is answered anything and > 180, then set value to Option 2 to QID 241.
 ifQ(1182)
 .answered()
 .greaterThan(180)
-.setValue(Q(241), 2)
+.setValue(Q(241), 2);
 
 // Calc for time length; drink order and drink delivery.
 ifQ(1152)
@@ -34,19 +34,19 @@ ifQ(1152)
 .andQ(1162)
 .answered()
 .sub(Q(1162),Q(1152))
-.store(Q(1192))
+.store(Q(1192));
 
 // Drinks delivered within 5 minutes of ordering.
 ifQ(1192)
 .answered()
 .lessThan(301)
-.setValue(Q(561), 1)
+.setValue(Q(561), 1);
 
 // If QID 1192 is answered anything and > 300, then set value to Option 2 to QID 561.
 ifQ(1192)
 .answered()
 .greaterThan(300)
-.setValue(Q(561), 2)
+.setValue(Q(561), 2);
 
 // Calc for time length; appetizer order and appetizer delivery.
 ifQ(1232)
@@ -54,4 +54,4 @@ ifQ(1232)
 .andQ(1242)
 .answered()
 .sub(Q(1242),Q(1232))
-.store(Q(1252))
+.store(Q(1252));
