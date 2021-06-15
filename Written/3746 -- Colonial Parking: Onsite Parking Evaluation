@@ -13,22 +13,22 @@ ifQ(1261)
 .andQ(21)
 .answered()
 .sub(Q(1261) , Q(21))
-.store(Q(3821))
+.store(Q(3821));
 
 // If QID 3941 is answered Option [2, 3, 4, or 5], then disappear and make not required Section 11.
 ifQ(3941)
 .answered(2,3,4,5)
 .makeNotRequired(Section(11))
-.disappear(Section(11))
+.disappear(Section(11));
 
 // If QID 3941 is answered Option [2, 3, 4, or 5], then disappear and clear answer QID 4061.
 ifQ(3941)
 .answered(2,3,4,5)
 .disappear(Q(4061))
-.clearAnswer(Q(4061))
+.clearAnswer(Q(4061));
 
 // If QID 4061 is answered Option [0 or 1], then disappear and clear answer to QID 4071.
 ifQ(4061)
 .answered(0,1)
 .disappear(Q(4071))
-.clearAnswer(Q(4071))
+.clearAnswer(Q(4071));
