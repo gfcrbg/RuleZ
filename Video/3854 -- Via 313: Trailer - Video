@@ -13,4 +13,4 @@ ifQ(742)
 .andQ(752)
 .answered()
 .sub(Q(752) , Q(742))
-.store(Q(762))
+.store(Q(762));
