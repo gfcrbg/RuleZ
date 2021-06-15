@@ -11,7 +11,7 @@
 ifQ(791)
 .answered()
 .sum(Q(791), Q(801))
-.store(Q(811))
+.store(Q(811));
 
 
 
@@ -24,7 +24,7 @@ ifQ(791)
 ifQ(111)
 .answered(1)
 .disappear(Q(121))
-.clearAnswer(Q(121))
+.clearAnswer(Q(121));
 
 //*******************************
 // COUNTER/REGISTER STAFF - End
