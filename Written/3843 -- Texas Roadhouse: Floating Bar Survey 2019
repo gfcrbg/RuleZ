@@ -10,7 +10,7 @@
 // If QID 381 is answered Option 1, then appear QID 1411.
 ifQ(381)
 .answered(1)
-.appear(Q(1411))
+.appear(Q(1411));
 
 // If QID 541 is answered Option 1, then set value to Option 1 to QID 1681.
 ifQ(541)
@@ -98,17 +98,15 @@ ifQ(541)
 .answered()
 .orQ(591)
 .answered()
-
-
 .sum( Q(1681), Q(1691), Q(1701), Q(1711), Q(1721), Q(1731), Q(1661) )// add these responses
-.store( Q(1671) );// and write them here
+.store( Q(1671) ); // and write them here
 
 // If QID 1671 is >= 3, then set value to Option 1 to QID 981.
 ifQ(1671)
 .greaterThanOrEqual( 3 )
-.setValue( Q(981), 1)
+.setValue( Q(981), 1);
 
 // If QID 1671 is < 3, then set value to Option 0 to QID 981.
 ifQ(1671)
 .lessThan( 3 )
-.setValue( Q(981), 0)
+.setValue( Q(981), 0);
