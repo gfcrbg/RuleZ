@@ -12,9 +12,9 @@ ifQ(311)
 .answered(1, 2, 3)
 .andQ(311)
 .answered(4)
-.setError("'*None of the above' cannot be checked with any other options, please check your answer.")
+.setError("'*None of the above' cannot be checked with any other options, please check your answer.");
 
 // If QID 1041 is not answered anything, then set value to Option 1 to QID 1041.
 ifQ(1041)
 .notAnswered()
-.setValue( Q(1041), 1)
+.setValue( Q(1041), 1);
