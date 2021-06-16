@@ -15,13 +15,13 @@
 ifQ(181)
 .answered(2)
 .disappear(Q(191))
-.clearAnswer(Q(191))
+.clearAnswer(Q(191));
 
 // If QID 271 is answered Option [2 OR 3], then disappear and clear answer to QID 221.
 ifQ(271)
 .answered(2,3)
 .disappear(Q(221))
-.clearAnswer(Q(221))
+.clearAnswer(Q(221));
 
 //***************************************
 // I. EMPLOYEE EVALUATION - End
@@ -38,13 +38,13 @@ ifQ(271)
 ifQ(441)
 .answered(1)
 .disappear(Q(451))
-.clearAnswer(Q(451))
+.clearAnswer(Q(451));
 
 // If QID 461 is answered Option 1, then disappear and clear answer to QID 471.
 ifQ(461)
 .answered(1)
 .disappear(Q(471))
-.clearAnswer(Q(471))
+.clearAnswer(Q(471));
 
 //***************************************
 // II. FACILITY & CAR WASH EVALUATION - End
