@@ -15,7 +15,7 @@
 ifQ(291)
 .answered(2)
 .disappear(Q(301))
-.clearAnswer(Q(301))
+.clearAnswer(Q(301));
 
 //*******************************
 // RETAIL - End
