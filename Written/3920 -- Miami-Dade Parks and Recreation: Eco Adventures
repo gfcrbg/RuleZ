@@ -11,11 +11,11 @@
 //RESERVATION - Begin
 //*******************************
 
-//If QID 661 is answered Option 2, then disappear and clear answer QIDs: [41, 71, 81, 91, 101, 111].
+// If QID 661 is answered Option 2, then disappear and clear answer QIDs.
 ifQ(661)
 .answered(2)
 .disappear(Q(41), Q(71), Q(81), Q(91), Q(101), Q(111))
-.clearAnswer(Q(41), Q(71), Q(81), Q(91), Q(101), Q(111))
+.clearAnswer(Q(41), Q(71), Q(81), Q(91), Q(101), Q(111));
 
 //*******************************
 //RESERVATION - End
