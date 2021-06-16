@@ -11,7 +11,7 @@
 ifQ(401)
 .answered(2)
 .disappear(Q(371))
-.clearAnswer(Q(371))
+.clearAnswer(Q(371));
 
 
 
@@ -24,7 +24,7 @@ ifQ(401)
 ifQ(31)
 .answered(2)
 .disappear(Q(41))
-.clearAnswer(Q(41))
+.clearAnswer(Q(41));
 
 //*******************************
 // ARRIVAL EXPERIENCE   - End
@@ -41,7 +41,7 @@ ifQ(31)
 ifQ(151)
 .answered(2)
 .disappear(Q(161))
-.clearAnswer(Q(161))
+.clearAnswer(Q(161));
 
 //*******************************
 // ROOM PRESENTATION - End
