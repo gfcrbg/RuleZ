@@ -18,9 +18,9 @@ ifQ(61)
 // If QID 51 is greater than 3600, then trigger error string.
 ifQ(51)
 .greaterThan(3600)
-. setError("Total call time is more than 1 hour.  Please check your start and end times.")
+. setError("Total call time is more than 1 hour.  Please check your start and end times.");
 
 // If QID 51 is less than 0, then trigger error string.
 ifQ(51)
 .lessThan(0)
-. setError("End time is before start time.  Please check your start and end times.")
+. setError("End time is before start time.  Please check your start and end times.");
