@@ -8,121 +8,116 @@
 
 
 //*******************************
-//Restrooms - BEGIN
+// RESTROOMS - Begin
 //*******************************
 
-//If QID 1292 is Option 2, then appear and clear answer to QID 2252.
+// If QID 1292 is Option 2, then appear and clear answer to QID 2252.
 ifQ(1292)
 .answered(1)
 .disappear(Q(2252))
-.clearAnswer(Q(2252))
+.clearAnswer(Q(2252));
 
 //*******************************
-//Restrooms - END
+// RESTROOMS - End
 //*******************************
 
 
 
 
 //*******************************
-//Concessions - BEGIN
+// CONCESSIONS - Begin
 //*******************************
 
-//If QID 2412 is Option 2, then disappear QIDs: [2922, 2422, 2432, 2452, 2462, 1472, 1422, 2472, 2482, 2492, 2952, 2512]
-//If QID 2412 is Option 2, then clear answer to QIDs [2922, 2422, 2432, 2452, 2462, 1472, 1422, 2472, 2482, 2492, 2952]
-//If QID 2412 is Option 2, then set value to Option 2 to QID 2512.
+// If QID 2412 is answered Option 2, then disappear and clear answer to QIDs; set value to Option 2 to QID 2512.
 ifQ(2412)
 .answered(2)
 .disappear(Q(2922), Q(2422), Q(2432), Q(2452), Q(2462), Q(1472), Q(1422), Q(2472), Q(2482), Q(2492), Q(2952), Q(2512)) 
 .clearAnswer(Q(2922), Q(2422), Q(2432), Q(2452), Q(2462), Q(1472), Q(1422), Q(2472), Q(2482), Q(2492), Q(2952)) 
-.setValue(Q(2512), 2)
+.setValue(Q(2512), 2);
 
-//If QID 2512 is Option 2, then disappear QIDs: [2942, 2552, 2562, 2572, 2582, 2592, 2602, 2612, 2622, 2632, 3042]
-//If QID 2512 is Option 2, then clear answer to QIDs: [2942, 2552, 2562, 2572, 2582, 2592, 2602, 2612, 2622, 2632, 3042]
+// If QID 2512 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2512)
 .answered(2)
 .disappear(Q(2942), Q(2552), Q(2562), Q(2572), Q(2582), Q(2592), Q(2602), Q(2612), Q(2622), Q(2632), Q(3042))
-.clearAnswer(Q(2942), Q(2552), Q(2562), Q(2572), Q(2582), Q(2592), Q(2602), Q(2612), Q(2622), Q(2632), Q(3042))
+.clearAnswer(Q(2942), Q(2552), Q(2562), Q(2572), Q(2582), Q(2592), Q(2602), Q(2612), Q(2622), Q(2632), Q(3042));
 
 //*******************************
-//Concessions - END
+// CONCESSIONS - End
 //*******************************
 
 
 
 
 //*******************************
-//Retail - BEGIN
+// RETAIL - Begin
 //*******************************
 
-//If QID 1992 is Options 2 or 3, then disappear and clear answer QID 2682.
+// If QID 1991 is answered Option [2 OR 3], then disappear and clear answer to QID 2682.
 ifQ(1992)
 .answered(2,3)
 .disappear(Q(2682))
-.clearAnswer(Q(2682))
+.clearAnswer(Q(2682));
 
-//If QID 2892 is answered Option 2, then disappear QIDs: [2772, 2732, 2752, 2772, 2782, 2792, 2812, 2832, 2852, 3152].
-//If QID 2892 is answered Option 2, then clear answers to QIDs: [2772, 2732, 2752, 2772, 2782, 2792, 2812, 2832, 2852, 3152].
+// If QID 2892 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2892)
 .answered(2)
 .disappear(Q(2722), Q(2732), Q(2752), Q(2772), Q(2782), Q(2792), Q(2812), Q(2832), Q(2852), Q(3152))
-.clearAnswer(Q(2722), Q(2732), Q(2752), Q(2772), Q(2782), Q(2792), Q(2812), Q(2832), Q(2852), Q(3152))
+.clearAnswer(Q(2722), Q(2732), Q(2752), Q(2772), Q(2782), Q(2792), Q(2812), Q(2832), Q(2852), Q(3152));
 
-//If QID 2782 is Options 0, 2, or 3, then disappear and clear answer QID 2792.
+//If QID 2782 is Option [0, 2, OR 3], then disappear and clear answer QID 2792.
 ifQ(2782)
 .answered(0,2,3)
 .disappear(Q(2792))
-.clearAnswer(Q(2792))
+.clearAnswer(Q(2792));
 
 //*******************************
-//Retail - END
+// RETAIL - End
 //*******************************
 
 
 
 
 //*******************************
-//Ushers - BEGIN
+// USHERS - Begin
 //*******************************
 
-//If QID 3122 is answered Options 2 or 3, then disappear and clear answer to QIDs: [1612].
-//If QID 3122 is answered Options 2 or 3, then set value to Option 2 to QID 2902.
+// If QID 3122 is answered Option [2 OR 3], then disappear and clear answer to QID 1612; and set value to Option 2 to QID 2902. 
 ifQ(3122)
 .answered(2,3)
 .disappear(Q(1612))
 .clearAnswer(Q(1612))
-.setValue(Q(2902), 2) 
+.setValue(Q(2902), 2);
 
-//If QID 2902 is answered Option 2, then disappear and clear answer to QIDs: [2872, 3132].
+// If QID 2902 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2902)
 .answered(2)
 .disappear(Q(2872), Q(3132))
-.clearAnswer(Q(2872), Q(3132))
+.clearAnswer(Q(2872), Q(3132));
 
 
 //*******************************
-//Ushers - END
+// USHERS - End
 //*******************************
 
 
 
 
 //*******************************
-//Guest Experience - BEGIN
+// GUEST EXPERIENCE - Begin
 //*******************************
 
-//If QID 2992 is answered Option 2, then disappear and clear answer to QIDs: [3032, 3002, 3022].
+// If QID 2992 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2992)
 .answered(2,3)
 .disappear(Q(3032), Q(3002), Q(3022))
-.clearAnswer(Q(3032), Q(3002), Q(3022))
+.clearAnswer(Q(3032), Q(3002), Q(3022));
 
-//If QID 2962 is answered Option 2, disappear and clear answer QID 2972.
+// If QID 2962 is answered Option 2, then disappear and clear answer QID 2972.
 ifQ(2962)
 .answered(2)
 .disappear(Q(2972))
-.clearAnswer(Q(2972))
+.clearAnswer(Q(2972));
 
 //*******************************
-//Guest Experience - END
+// GUEST EXPERIENCE - End
 //*******************************
