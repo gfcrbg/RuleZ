@@ -10,14 +10,14 @@
 // If QID 411 is answered Option 2, then appear Section 3.
 ifQ(411)
 .answered (2)
-.appear(Section(3))
+.appear(Section(3));
 
 // If QID 1191 is answered Option 1, then appear Section 12.
 ifQ(1191)
 .answered (1)
-.appear(Section(12))
+.appear(Section(12));
 
 // If QID 1291 is answered Option 1, then appear Section 13.
 ifQ(1291)
 .answered (1)
-.appear(Section(13))
+.appear(Section(13));
