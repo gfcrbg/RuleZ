@@ -6,45 +6,45 @@
 
 
 
+
 //*******************************
-//Online/App Check In - BEGIN
+// Online/App Check In - BEGIN
 //*******************************
 
-//if QID 1311 answered "Online Check-In" or "App", then show all but QID 1351 (conditional based on QID 1341) in the Online/App Check In section.
+// If QID 1311 answered "Online Check-In" or "App", then show all but QID 1351 (conditional based on QID 1341) in the Online/App Check In section.
 ifQ(1311)
 .answered(2,3)
-.appear(Q(1321), Q(1331), Q(1341), Q(1361), Q(1371), Q(1411))
+.appear(Q(1321), Q(1331), Q(1341), Q(1361), Q(1371), Q(1411));
 
-//if QID 1311 answered "Walk-In", then hide all questions in the Online/App Check In section.
+// If QID 1311 answered "Walk-In", then hide all questions in the Online/App Check In section.
 ifQ(1311)
 .answered(1)
-.disappear(Q(1321), Q(1331), Q(1341), Q(1361), Q(1371), Q(1411))
+.disappear(Q(1321), Q(1331), Q(1341), Q(1361), Q(1371), Q(1411));
 
-//if QID 1341 answered YES and QID 1311 answered "Online Check-In" or "App", then show QID 1351.
+// If QID 1341 answered YES and QID 1311 answered "Online Check-In" or "App", then show QID 1351.
 ifQ(1341)
 .answered(1)
 .andifQ(1311)
 .answered(2,3)
-.appear(Q(1351))
+.appear(Q(1351));
 
 //*******************************
-//Online/App Check In - END
+// Online/App Check In - END
 //*******************************
 
 
 
 
 //*******************************
-//The Kick Off - BEGIN
+// The Kick Off - BEGIN
 //*******************************
 
-//if QID 1311 answered "Online Check-In" or "App" AND the shop date is after 3/31/2019, then disappear QID 1251.
+// If QID 1311 answered "Online Check-In" or "App" AND the shop date is after 3/31/2019, then disappear QID 1251.
 ifQ(1311)
 .dateAfter("2019-03-31")
 .answered(2,3)
-.disappear(Q(1251))
+.disappear(Q(1251));
 
 //*******************************
-//The Kick Off - END
+// The Kick Off - END
 //*******************************
-
