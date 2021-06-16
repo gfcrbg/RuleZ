@@ -15,43 +15,43 @@
 ifQ(481)
 .notAnswered(0,1)
 .disappear(Q(491), Q(501), Q(511))
-.clearAnswer(Q(491), Q(501), Q(511))
+.clearAnswer(Q(491), Q(501), Q(511));
 
 // If QID 561 is not answered Option [0 OR 1], then disappear and clear answer to QID 791.
 ifQ(561)
 .notAnswered(0,1)
 .disappear(Q(791))
-.clearAnswer(Q(791))
+.clearAnswer(Q(791));
 
 // If QID 571 is not answered Option [0 OR 1], then disappear and clear answer to QIDs.
 ifQ(571)
 .notAnswered(0,1)
 .disappear(Q(831), Q(591))
-.clearAnswer(Q(831), Q(591))
+.clearAnswer(Q(831), Q(591));
 
 // If QID 611 is not answered Option [0 OR 1], then disappear and clear answer to QID 621.
 ifQ(611)
 .notAnswered(0,1)
 .disappear(Q(621))
-.clearAnswer(Q(621))
+.clearAnswer(Q(621));
 
 // If QID 631 is not answered Option [0 OR 1], then disappear and clear answer to QID 641.
 ifQ(631)
 .notAnswered(0,1)
 .disappear(Q(641))
-.clearAnswer(Q(641))
+.clearAnswer(Q(641));
 
 // If QID 741 is not answered Option [0 OR 1], then disappear and clear answer to QID 651.
 ifQ(741)
 .notAnswered(0,1)
 .disappear(Q(651))
-.clearAnswer(Q(651))
+.clearAnswer(Q(651));
 
 // If QID 681 is not answered Option [0 OR 1], then disappear and clear answer to QID 691.
 ifQ(681)
 .notAnswered(0,1)
 .disappear(Q(691))
-.clearAnswer(Q(691))
+.clearAnswer(Q(691));
 
 //*******************************
 // CUSTOMER FEEDBACK - End
@@ -68,13 +68,13 @@ ifQ(681)
 ifQ(721)
 .notAnswered(0,1)
 .disappear(Q(751), Q(761))
-.clearAnswer(Q(751), Q(761))
+.clearAnswer(Q(751), Q(761));
 
 // If QID 771 is not answered Option [0 OR 1], then disappear and clear answer to QID 781.
 ifQ(771)
 .notAnswered(0,1)
 .disappear(Q(781))
-.clearAnswer(Q(781))
+.clearAnswer(Q(781));
 
 //*******************************
 // FOLLOW UP - End
