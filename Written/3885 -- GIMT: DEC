@@ -3,18 +3,3 @@
 // SID: 3885
 // Last Updated: 9/17/2020
 //*******************************
-
-
-
-
-// If QID 501 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(501)
-.answered(2)
-.disappear(Q(81), Q(91))
-.clearAnswer(Q(81), Q(91))
-
-// If QID 261 is answered Option [2 OR 3], then disappear and clear answer to QID 271.
-ifQ(261)
-.answered(2,3)
-.disappear(Q(271))
-.clearAnswer(Q(271))
