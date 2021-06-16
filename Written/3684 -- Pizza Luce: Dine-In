@@ -6,32 +6,32 @@
 
 
 
-
+// If QID 1641 is answered Option 1, then appear Section 13.
 ifQ(1641)
 .answered(1)
-.appear( Section(13))
+.appear( Section(13));
 
-
+// If QID 1651 is answered Option 1, then appear Section 14.
 ifQ(1651)
 .answered(1)
-.appear( Section(14))
+.appear( Section(14));
 
-//this is for Historical Data purposes
+// This is for Historical Data purposes.
 ifQ(1761)
 .answered(1)
-.makeNotRequired( Section(3))
+.makeNotRequired( Section(3));
 
-//if QID 1631 is answered Option 2, then show Section VI, Item II questions.
+// If QID 1631 is answered Option 2, then show Section VI, Item II questions.
 ifQ(1631)
 .answered(2)
-.appear(Q(861), Q(871), Q(881), Q(891), Q(901), Q(911), Q(921), Q(931), Q(941))
+.appear(Q(861), Q(871), Q(881), Q(891), Q(901), Q(911), Q(921), Q(931), Q(941));
 
-//if QID 1641 is answered Option 1, then show Section VI, Item III questions.
+// If QID 1641 is answered Option 1, then show Section VI, Item III questions.
 ifQ(1641)
 .answered(1)
-.appear(Q(961), Q(971), Q(981), Q(991), Q(1001), Q(1011), Q(1021), Q(1031), Q(1041))
+.appear(Q(961), Q(971), Q(981), Q(991), Q(1001), Q(1011), Q(1021), Q(1031), Q(1041));
 
-//if QID 1651 is answered Option 1, then show Section VI, Item IV questions.
+// If QID 1651 is answered Option 1, then show Section VI, Item IV questions.
 ifQ(1651)
 .answered(1)
-.appear(Q(1061), Q(1071), Q(1081), Q(1091), Q(1101), Q(1111), Q(1121), Q(1131), Q(1141))
+.appear(Q(1061), Q(1071), Q(1081), Q(1091), Q(1101), Q(1111), Q(1121), Q(1131), Q(1141));
