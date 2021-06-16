@@ -11,11 +11,11 @@
 //Phone Greeting - BEGIN
 //*******************************
 
-//if Question 1 (yes - no radio button) is answered YES, appear Questions 1a (yes - no - N/A radio button), 1b (yes - no - N/A radio button), and 1c (yes - no radio button) in Sales Service section. Triggers when shop date is greater than or equal to 4/1/2019.
+// If QID 1311 is after March, 2019 AND answered Option 2, then disappear QIDs.
 ifQ(1311)
 .dateAfter("2019-03-31")
 .answered(2)
-.disappear(Q(1321), Q(1331), Q(1281))
+.disappear(Q(1321), Q(1331), Q(1281));
 
 //*******************************
 //Phone Greeting - END
