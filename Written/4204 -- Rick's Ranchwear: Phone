@@ -11,17 +11,17 @@
 // PHONE CALL - Begin 
 //*******************************
 
-//If QID 91 is answered Option 1, then disappear and clear answer to QID 101.
+// If QID 91 is answered Option 1, then disappear and clear answer to QID 101.
 ifQ(91)
 .answered(1)
 .disappear(Q(101))
-.clearAnswer(Q(101))
+.clearAnswer(Q(101));
 
-//If QID 91 is answered Option 4, then disappear and clear answer to QIDs: [391, 131, 381]
+// If QID 91 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(91)
 .answered(4)
 .disappear(Q(391), Q(131), Q(381))
-.clearAnswer(Q(391), Q(131), Q(381))
+.clearAnswer(Q(391), Q(131), Q(381));
 
 //*******************************
 // PHONE CALL - End
