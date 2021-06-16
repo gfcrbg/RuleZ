@@ -13,7 +13,7 @@ ifQ(31)
 .andifQ(41)
 .answered()
 .sub(Q(41), Q(31))
-.store(Q(51))
+.store(Q(51));
 
 
 
@@ -27,9 +27,8 @@ ifQ(31)
 ifQ(2311)
 .answered(2)
 .disappear(Q(2321))
-.clearAnswer(Q(2321))
+.clearAnswer(Q(2321));
 
 //*******************************
 // COMMUNITY TOUR - End
 //*******************************
-
