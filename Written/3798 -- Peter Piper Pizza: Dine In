@@ -7,16 +7,16 @@
 
 
 
-//if QID 21 time is set to midnight to 4pm, then set value to QID 1241 to 'Lunch'.
+// If QID 21 time is set to midnight to 4pm, then set value to QID 1241 to 'Lunch'.
 ifQ(21)
 .greaterThanOrEqual(0)
 .andifQ(21)
 .lessThanOrEqual(57600)
-.setValue(Q(1241), 1)
+.setValue(Q(1241), 1);
 
-//if QID 21 time is set to 4:01pm to 11:59pm, then set value to QID 1241 to 'Dinner'.
+// If QID 21 time is set to 4:01pm to 11:59pm, then set value to QID 1241 to 'Dinner'.
 ifQ(21)
 .greaterThanOrEqual(57601)
 .andifQ(21)
 .lessThanOrEqual(86399)
-.setValue(Q(1241), 2)
+.setValue(Q(1241), 2);
