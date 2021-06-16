@@ -10,4 +10,4 @@
 // If QID is answered Option 1, then appear QID 1221.
 ifQ(1201)
 .answered(1)
-.appear(Q(1221))
+.appear(Q(1221));
