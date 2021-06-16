@@ -11,7 +11,7 @@
 ifQ(51)
 .answered()
 .sum(Q(51), Q(61))
-.store(Q(801))
+.store(Q(801));
 
 
 
@@ -24,7 +24,7 @@ ifQ(51)
 ifQ(921)
 .answered(2)
 .disappear(Q(91), Q(101), Q(131), Q(141), Q(151), Q(161), Q(171), Q(201), Q(181))
-.clearAnswer(Q(91), Q(101), Q(131), Q(141), Q(151), Q(161), Q(171), Q(201), Q(181))
+.clearAnswer(Q(91), Q(101), Q(131), Q(141), Q(151), Q(161), Q(171), Q(201), Q(181));
 
 //*******************************
 // BOX OFFICE  - End
@@ -41,7 +41,7 @@ ifQ(921)
 ifQ(331)
 .answered(2)
 .disappear(Q(951))
-.clearAnswer(Q(951))
+.clearAnswer(Q(951));
 
 //*******************************
 // CONCESSIONS - End
@@ -58,7 +58,7 @@ ifQ(331)
 ifQ(411)
 .answered(2)
 .disappear(Q(381), Q(391), Q(401), Q(421))
-.clearAnswer(Q(381), Q(391), Q(401), Q(421))
+.clearAnswer(Q(381), Q(391), Q(401), Q(421));
 
 //*******************************
 // TICKET TAKER - End
@@ -75,7 +75,7 @@ ifQ(411)
 ifQ(541)
 .answered(1)
 .disappear(Q(551))
-.clearAnswer(Q(551))
+.clearAnswer(Q(551));
 
 //*******************************
 // THEATRE - End
