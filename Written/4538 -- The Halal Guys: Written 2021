@@ -14,7 +14,7 @@
 // If QID 101 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4].
 ifQ(101)
 .answered([1,2,3])
-.setValue(Q(101),1,2,3,4)
+.setValue(Q(101),1,2,3,4);
 
 //*******************************
 // ASSEMBLY LINE - End
