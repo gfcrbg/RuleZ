@@ -2,22 +2,22 @@
 // CID: 113
 // SID: 1931
 // Last Updated: 
-//*******************************
+//******************************* 
 
 
 
 
-//If QID 762 is answered Option 2, then appear Order Range (531, 601).
+// If QID 762 is answered Option 2, then appear Order Range (531, 601).
 ifQ(761)
 .answered(2)
 .appear(QRange(531,601));
 
-//If QID 771 is answered Option 2, then appear Order Range (611, 671).
+// If QID 771 is answered Option 2, then appear Order Range (611, 671).
 ifQ(771)
 .answered(2)
 .appear(QRange(611,671));
 
-//If QID 781 is answered Option 2, then appear Order Range (681, 741).
+// If QID 781 is answered Option 2, then appear Order Range (681, 741).
 ifQ(781)
 .answered(2)
-.appear(QRange(681,741))
+.appear(QRange(681,741));
