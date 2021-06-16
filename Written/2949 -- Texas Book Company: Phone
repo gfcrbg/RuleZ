@@ -7,17 +7,17 @@
 
 
 
-//If QID 41 is answered Option 1, then disappear QID 351.
+// If QID 41 is answered Option 1, then disappear QID 351.
 ifQ(41)
 .answered(1)
-.disappear(Q(351))
+.disappear(Q(351));
 
-//If QID 381 is answered Option 2, then set value to Option 3 to QID 641.
+// If QID 381 is answered Option 2, then set value to Option 3 to QID 641.
 ifQ(381)
 .answered(2)
-.setValue(Q(641),3)
+.setValue(Q(641),3);
 
-//If QID 381 is answered Option 2, then disappear QIDs: [401, 611, 71, 411].
+// If QID 381 is answered Option 2, then disappear QIDs.
 ifQ(381)
 .answered(2)
-.disappear(Q(401), Q(611), Q(71), Q(411))
+.disappear(Q(401), Q(611), Q(71), Q(411));
