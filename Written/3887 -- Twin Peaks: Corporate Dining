@@ -7,37 +7,57 @@
 
 
 
-// If QID 1281 is answered Option 1, then appear QIDs: [191, 201].
+// If QID 1281 is answered Option 1, then appear QIDs.
 ifQ(1281)
 .answered(1)
-.appear(Q(191),Q(201))
+.appear(Q(191),Q(201));
 
 // If QID 201 is answered Option 2, then appear QID 1321.
 ifQ(201)
 .answered(2)
-.appear(Q(1321))
+.appear(Q(1321));
 
-// If QID 1301 is answered Option 1, then appears QIDs: [741, 751, 761, 881, 891, 901, 1381].
+// If QID 1301 is answered Option 1, then appears QIDs.
 ifQ(1301)
 .answered(1)
-.appear(Q(741),Q(751),Q(761),Q(881),Q(891),Q(901),Q(1381))
+.appear(Q(741),Q(751),Q(761),Q(881),Q(891),Q(901),Q(1381));
 
-// If QID 1311 is answered Option 1, then appear QIDs: [791, 801, 941, 951, 961, 1041].
+// If QID 1311 is answered Option 1, then appear QIDs.
 ifQ(1311)
 .answered(1)
-.appear(Q(791),Q(801),Q(941),Q(951),Q(961),Q(1041))
+.appear(Q(791),Q(801),Q(941),Q(951),Q(961),Q(1041));
 
-// If QID 1011 is answered Option 1, then appear QIDs: [1021, 1031, 1041, 1051, 1061].
+// If QID 1011 is answered Option 1, then appear QIDs.
 ifQ(1011)
 .answered(1)
-.appear(Q(1021),Q(1031),Q(1041),Q(1051),Q(1061))
+.appear(Q(1021),Q(1031),Q(1041),Q(1051),Q(1061));
+
+// Less than 14 minutes.
+ifQ(1391)
+.answered()
+.lessThan(840)
+.setValue( Q(771),1);
+
+// Between 14 and 16 minutes.
+ifQ(1391)
+.answered()
+.greaterThanOrEqual(840)
+.andifQ(1391)
+.lessThanOrEqual(960)
+.setValue( Q(771),2);
+
+// Over 16 minutes.
+ifQ(1391)
+.answered()
+.greaterThan(960)
+.setValue( Q(771),3);
 
 // If QID 1311 is answered Option 2, then appear QID 1401.
 ifQ(1311)
 .answered(2)
-.appear(Q(1401))
+.appear(Q(1401));
 
 // If QID 1681 is answered Option 1, then appear QID 1701.
 ifQ(1681)
 .answered(1)
-.appear(Q(1701))
+.appear(Q(1701));
