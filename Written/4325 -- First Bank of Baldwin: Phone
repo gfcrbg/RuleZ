@@ -15,7 +15,7 @@
 ifQ(301)
 .answered(2,3)
 .disappear(Q(311))
-.clearAnswer(Q(311))
+.clearAnswer(Q(311));
 
 //*******************************
 // SALES AND SERVICE  - End
