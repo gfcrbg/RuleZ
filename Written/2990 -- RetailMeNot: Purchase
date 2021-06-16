@@ -7,63 +7,63 @@
 
 
 
-//if QID 171 is answered YES, disappear QID 181
+// If QID 171 is answered YES, disappear QID 181
 ifQ(171)
 .answered(1)
-.disappear(Q(181))
+.disappear(Q(181));
 
-//if QID 341 is answered NO, disappear QID 481
+// If QID 341 is answered NO, disappear QID 481
 ifQ(341)
 .answered(2)
-.disappear(Q(481))
+.disappear(Q(481));
 
-//if QID 331 is answered NO, disappear QID 351
+// If QID 331 is answered NO, disappear QID 351
 ifQ(331)
 .answered(2)
-.disappear(Q(351))
+.disappear(Q(351));
 
-//if QID 491 is answered YES, disappear QID 721
+// If QID 491 is answered YES, disappear QID 721
 ifQ(491)
 .answered(1)
-.disappear(Q(721))
+.disappear(Q(721));
 
-//if QID 491 is answered YES, disappear QID 551
+// If QID 491 is answered YES, disappear QID 551
 ifQ(491)
 .answered(1)
-.disappear(Q(551))
+.disappear(Q(551));
 
-//if QID 491 is answered NO, disappear QID 221
+// If QID 491 is answered NO, disappear QID 221
 ifQ(491)
 .answered(2)
-.disappear(Q(221))
+.disappear(Q(221));
 
-//if QID 491 is answered NO, disappear QID 691
+// If QID 491 is answered NO, disappear QID 691
 ifQ(491)
 .answered(2)
-.disappear(Q(691))
+.disappear(Q(691));
 
-//if QID 491 is answered NO, or if QID 691 is answered YES, disappear QID 701
-ifQ(491)
-.answered(2)
-.orQ(691)
-.answered(1)
-.disappear(Q(701))
-
-//if QID 491 is answered NO, or if QID 691 is answered YES, disappear QID 731
+// If QID 491 is answered NO, or if QID 691 is answered YES, disappear QID 701
 ifQ(491)
 .answered(2)
 .orQ(691)
 .answered(1)
-.disappear(Q(731))
+.disappear(Q(701));
 
-//if QID 491 is answered NO, or if QID 691 is answered YES, disappear QID 521
+// If QID 491 is answered NO, or if QID 691 is answered YES, disappear QID 731
 ifQ(491)
 .answered(2)
 .orQ(691)
 .answered(1)
-.disappear(Q(521))
+.disappear(Q(731));
 
-//if QID 581 is answered NO, disappear QID 591
+// If QID 491 is answered NO, or if QID 691 is answered YES, disappear QID 521
+ifQ(491)
+.answered(2)
+.orQ(691)
+.answered(1)
+.disappear(Q(521));
+
+// If QID 581 is answered NO, disappear QID 591
 ifQ(581)
 .answered(2)
-.disappear(Q(591))
+.disappear(Q(591));
