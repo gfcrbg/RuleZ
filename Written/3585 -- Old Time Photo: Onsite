@@ -7,10 +7,10 @@
 
 
 
-//If QIDs: [31, 41] answered anything, then trigger math operation: QID 41 - QID 31 = QID 51.
+// If QIDs: [31, 41] answered anything, then trigger math operation: QID 41 - QID 31 = QID 51.
 ifQ(31)
 .answered()
 .andQ(41)
 .answered()
 .sub(Q(41) , Q(31))
-.store(Q(51))
+.store(Q(51));
