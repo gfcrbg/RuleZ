@@ -7,16 +7,16 @@
 
 
 
-//If QID 311 is answered Options [1, 2, 3, 4, or 5] and Option 6, then set error string: ""N/A cannot be checked with any other options, please check your answer."
+// If QID 311 is answered Options [1, 2, 3, 4, or 5] and Option 6, then set error string: ""N/A cannot be checked with any other options, please check your answer."
 ifQ(311)
 .answered(1, 2, 3, 4, 5)
 .andQ(311)
 .answered(6)
-.setError("N/A cannot be checked with any other options, please check your answer.")
+.setError("N/A cannot be checked with any other options, please check your answer.");
 
-//If QID 351 is answered Options [1, 2, 3, 4, or 5] and Option 6, then set error string: "N/A cannot be checked with any other options, please check your answer."
+// If QID 351 is answered Options [1, 2, 3, 4, or 5] and Option 6, then set error string: "N/A cannot be checked with any other options, please check your answer."
 ifQ(351)
 .answered(1, 2, 3, 4, 5)
 .andQ(351)
 .answered(6)
-.setError("N/A cannot be checked with any other options, please check your answer.")
+.setError("N/A cannot be checked with any other options, please check your answer.");
