@@ -16,15 +16,15 @@ ifQ(1701)
 .andQ(1)
 .answered()
 .sub(Q(1701),Q(1))
-.store(Q(1711))
+.store(Q(1711));
 
 ifQ(1711)
 .greaterThan(345600000)
-.setValue(Q(1721),1)
+.setValue(Q(1721),1);
 
 ifQ(1711)
 .lessThan(345600001)
-.setValue(Q(1721),2)
+.setValue(Q(1721),2);
 
 //--------------------------
 // Age Calculator - End
@@ -124,16 +124,15 @@ ifQ(541)
 .answered()
 .orQ(591)
 .answered()
-
 .sum( Q(1601), Q(1611), Q(1621), Q(1631), Q(1641), Q(1651), Q(1661) )// add these responses
-.store( Q(1591) );// and write them here
+.store( Q(1591) ); // and write them here
 
 // If QID 1591 is >= 3, then set value to Option 1 to QID 981.
 ifQ(1591)
 .greaterThanOrEqual( 3 )
-.setValue( Q(981), 1)
+.setValue( Q(981), 1);
 
 // If QID 1591 is < 3, then set value to Option 0 to QID 981.
 ifQ(1591)
 .lessThan( 3 )
-.setValue( Q(981), 0)
+.setValue( Q(981), 0);
