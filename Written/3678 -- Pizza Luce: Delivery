@@ -7,17 +7,17 @@
 
 
 
-//If QID 1021 is answered Option 1, then appear Section 12.
+// If QID 1021 is answered Option 1, then appear Section 12.
 ifQ(1021)
 .answered(1)
-.appear( Section(12))
+.appear( Section(12));
 
-//If QID 1001 is answered Option 1, then appear Section 13.
+// If QID 1001 is answered Option 1, then appear Section 13.
 ifQ(1001)
 .answered(1)
-.appear( Section(13))
+.appear( Section(13));
 
-//If QID 1011 is answered Option 1, then appear Section 14.
+// If QID 1011 is answered Option 1, then appear Section 14.
 ifQ(1011)
 .answered(1)
-.appear( Section(14))
+.appear( Section(14));
