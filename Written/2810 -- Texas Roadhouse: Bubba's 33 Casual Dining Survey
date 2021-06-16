@@ -8,7 +8,7 @@
 
 
 //--------------------------
-//Age Calculator - Begin
+// Age Calculator - Begin
 //--------------------------
 
 ifQ(1281)
@@ -16,16 +16,16 @@ ifQ(1281)
 .andQ(1)
 .answered()
 .sub(Q(1281),Q(1))
-.store(Q(1291))
+.store(Q(1291));
 
 ifQ(1291)
 .greaterThan(345600000)
-.setValue(Q(1301),1)
+.setValue(Q(1301),1);
 
 ifQ(1291)
 .lessThan(345600001)
-.setValue(Q(1301),2)
+.setValue(Q(1301),2);
 
 //--------------------------
-//Age Calculator - End
+// Age Calculator - End
 //--------------------------
