@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 4/14/2021	
+// Last Updated: 6/23/2021	
 //*******************************	
 
 
@@ -19,6 +19,51 @@ ifQ(791)
 .sub(Q(801) , Q(791))
 .store(Q(811));
 
+// If QID 811 is < 6 minutes, then set value to Option 1 to QID 161.
+ifQ(811)
+.lessThan(360)
+.setValue(Q(161),1);
+
+// If QID 811 is >= 6 minutes AND <= 10 minutes, then set value to Option 2 to QID 161.
+ifQ(811)
+.greaterThanOrEqual(360)
+.lessThanOrEqual(600)
+.setValue(Q(161),2);
+
+// If QID 811 is > 10 minutes, then set value to Option 3 to QID 161.
+ifQ(811)
+.greaterThan(600)
+.setValue(Q(161),3);
+
 //*******************************
 // ASSEMBLY LINE - End
+//*******************************
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QIDs [881 AND 891] answered anything, then trigger math operation: [891] - [881] = [911]
+ifQ(881)
+.answered()
+.andQ(891)
+.answered()
+.sub(Q(891),Q(881))
+.store(Q(911));
+
+// If QID 911 is <= 4 minutes, then set value to Option 1 to QID 371.
+ifQ(911)
+.lessThanOrEqual(240)
+.setValue(Q(371),1);
+
+// If QID 911 is > 4 minutes, then set value to Option 2 to QID 371.
+ifQ(911)
+.greaterThan(240)
+.setValue(Q(371),2);
+
+//*******************************
+// SERVICE - End
 //*******************************
