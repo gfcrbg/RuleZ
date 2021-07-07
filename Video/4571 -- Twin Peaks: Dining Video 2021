@@ -1,0 +1,126 @@
+//*******************************	
+// CID: 577	
+// SID: 4571	
+// Last Updated: 7/7/2021 	
+//*******************************	
+
+
+
+
+//*******************************
+// TIME STANDARDS - Begin
+//*******************************
+
+// 
+ifQ(2451)
+.answered()
+.andQ(2461)
+.answered()
+.sub(Q(2461), Q(2451))
+.store(Q(1371));
+
+//
+ifQ(1371)
+.lessThanOrEqual(180)
+.greaterThan(0)
+.setValue(Q(721), 1);
+
+//
+ifQ(1371)
+.greaterThan(180)
+.setValue(Q(721), 2);
+
+//
+ifQ(1371)
+.lessThanOrEqual(0)
+.setValue(Q(721), 3);
+
+//----------------------------------------
+
+// 
+ifQ(2471)
+.answered()
+.andQ(2481)
+.answered()
+.sub(Q(2481), Q(2471))
+.store(Q(1381));
+
+//
+ifQ(1381)
+.lessThan(600)
+.setValue(Q(1971), 1);
+
+//
+ifQ(1381)
+.greaterThanOrEqual(600)
+.lessThan(720)
+.setValue(Q(1971), 2);
+
+//
+ifQ(1381)
+.greaterThanOrEqual(720)
+.lessThanOrEqual(840)
+.setValue(Q(1971), 3);
+
+//
+ifQ(1381)
+.greaterThan(840)
+.setValue(Q(1971), 4);
+
+//----------------------------------------
+
+// 
+ifQ(2481)
+.answered()
+.andQ(2491)
+.answered()
+.sub(Q(2491), Q(2481))
+.store(Q(2501));
+
+//
+ifQ(2501)
+.lessThan(120)
+.setValue(Q(1981), 1);
+
+//
+ifQ(2501)
+.greaterThanOrEqual(120)
+.lessThanOrEqual(300)
+.setValue(Q(1981), 2);
+
+//
+ifQ(2501)
+.greaterThan(300)
+.orQ(2501)
+.notAnswered()
+.setValue(Q(1981), 3);
+
+//----------------------------------------
+
+// 
+ifQ(2511)
+.answered()
+.andQ(2521)
+.answered()
+.sub(Q(2521), Q(2511))
+.store(Q(1391));
+
+//
+ifQ(1391)
+.lessThan(840)
+.setValue(Q(1991), 1);
+
+//
+ifQ(1391)
+.greaterThanOrEqual(840)
+.lessThanOrEqual(960)
+.setValue(Q(1991), 2);
+
+//
+ifQ(1391)
+.greaterThan(960)
+.setValue(Q(1991), 3);
+
+//*******************************
+// TIME STANDARDS - End
+//*******************************
