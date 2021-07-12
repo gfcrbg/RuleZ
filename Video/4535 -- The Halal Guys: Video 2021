@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 7/6/2021	
+// Last Updated: 7/12/2021	
 //*******************************	
 
 
@@ -64,6 +64,16 @@ ifQ(911)
 .greaterThan(240)
 .setValue(Q(371),2);
 
+// If QID 911 is <= 4 minutes, then set value to Option 1 to QID 981.
+ifQ(911)
+.lessThanOrEqual(240)
+.setValue(Q(981),1);
+
+// If QID 911 is > 4 minutes, then set value to Option 2 to QID 981.
+ifQ(911)
+.greaterThan(240)
+.setValue(Q(981),2);
+
 // If QID 911 is answered <= 5 minutes, then set value to Option 1 to QID 971.
 ifQ(911)
 .lessThanOrEqual(300)
@@ -74,11 +84,11 @@ ifQ(911)
 .greaterThan(300)
 .setValue(Q(971), 2);
 
-// If QID 961 is answered Option 1, then disappear and clear answer to QID 371.
+// If QID 961 is answered Option 1, then disappear and clear answer to QID 981.
 ifQ(961)
 .answered(1)
-.disappear(Q(371))
-.clearAnswer(Q(371));
+.disappear(Q(981))
+.clearAnswer(Q(981));
 
 // If QID 961 is answered Option 2, then disappear and clear answer to QID 971.
 ifQ(961)
