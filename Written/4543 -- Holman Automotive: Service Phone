@@ -1,0 +1,81 @@
+//*******************************	
+// CID: 737
+// SID: 4543	
+// Last Updated: 7/15/2021
+//*******************************	
+
+
+
+
+//*******************************
+// CALL HANDLING SKILLS - Begin
+//*******************************
+
+// If QID 121 is answered Option 1, then disappear QIDs and clear answer to QID 141.
+ifQ(121)
+.answered(1)
+.disappear(Q(141), Q(151))
+.clearAnswer(Q(141));
+
+// If QID 121 is answered Option 4, then disappear and clear answer to QID 501.
+ifQ(121)
+.answered(4)
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QID 211.
+ifQ(201)
+.answered(2)
+.disappear(Q(211))
+.clearAnswer(Q(211));
+
+// If QID 491 is answered Option 2, then disappear and clear answer to QID 531.
+ifQ(491)
+.answered(2)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 391 is answered Option 2, then disappear and clear answer to QID 401.
+ifQ(391)
+.answered(2)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+//*******************************
+// CALL HANDLING SKILLS - End
+//*******************************
+
+
+
+
+//*******************************
+// COORDINATOR SERVICE SKILLS - Begin
+//*******************************
+
+// If QID 271 is answered Option 2, then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(2)
+.disappear(Q(281))
+.clearAnswer(Q(281)); 
+
+// If QID 271 is answered Option 1, then disappear and clear answer to QID 291.
+ifQ(271)
+.answered(1)
+.disappear(Q(291))
+.clearAnswer(Q(291)); 
+
+// If QID 301 is answered Option 2, then disappear and clear answer to QID 311.
+ifQ(301)
+.answered(2)
+.disappear(Q(311))
+.clearAnswer(Q(311)); 
+
+// If QID 301 is answered Option 1, then disappear and clear answer to QID 321.
+ifQ(301)
+.answered(1)
+.disappear(Q(321))
+.clearAnswer(Q(321)); 
+
+//*******************************
+// COORDINATOR SERVICE SKILLS - End
+//*******************************
