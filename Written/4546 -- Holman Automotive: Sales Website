@@ -1,0 +1,261 @@
+//*******************************	
+// CID: 737
+// SID: 4546	
+// Last Updated: 7/16/2021	
+//*******************************	
+
+
+
+
+//*******************************
+// EMAIL INQUIRY DETAILS - Begin
+//*******************************
+
+// 
+ifQ(101)
+.answered(1)
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+// 
+ifQ(101)
+.answered(2)
+.disappear(Q(1321), Q(191)) // red remarks
+.disappear(Q(1311), Q(201), Q(231), Q(211), Q(221))
+.clearAnswer(Q(1311), Q(201), Q(231), Q(211), Q(221));
+
+//
+ifQ(741)
+.answered(2)
+.disappear(Q(751))
+.clearAnswer(Q(751));
+
+//*******************************
+// EMAIL INQUIRY DETAILS - End
+//*******************************
+
+
+
+
+//*******************************
+// DEALER RESPONE - 48 HOUR - Begin
+//*******************************
+
+// 
+ifQ(261)
+.answered(2,3)
+.disappear(Q(271))
+.clearAnswer(Q(271));
+
+//
+ifQ(281)
+.answered(2,3)
+.disappear(Q(291), Q(361))
+.clearAnswer(Q(291), Q(361));
+
+//
+ifQ(301)
+.answered(1)
+.disappear(Q(461))
+.clearAnswer(Q(461));
+
+//
+ifQ(381)
+.answered(2,3)
+.disappear(Q(391))
+.clearAnswer(Q(391));
+
+//
+ifQ(391)
+.answered(0,2)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+//
+ifQ(1311)
+.answered(0,2)
+.disappear(Q(1111))  // red remark(s)
+.disappear(Q(1371))
+.clearAnswer(Q(1371));
+
+//
+ifQ(1371)
+.answered(0,2)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+//
+ifQ(481)
+.answered(0,2)
+.disappear(Q(491)) // black remark(s)
+.disappear(Q(501), Q(511), Q(521), Q(531), Q(541), Q(551))
+.clearAnswer(Q(501), Q(511), Q(521), Q(531), Q(541), Q(551));
+
+//
+ifQ(551)
+.answered(0,1)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+//
+ifQ(601)
+.answered(2,3)
+.disappear(Q(1191)) // red remark(s)
+.disappear(Q(1161))
+.clearAnswer(Q(1161));
+
+//
+ifQ(1161)
+.answered(0,2)
+.disappear(Q(631)) // black remark(s)
+.disappear(Q(961), Q(971), Q(611), Q(641), Q(651), Q(721), Q(671), Q(681), Q(691), Q(701))
+.clearAnswer(Q(961), Q(971), Q(611), Q(641), Q(651), Q(721), Q(671), Q(681), Q(691), Q(701));
+
+//
+ifQ(611)
+.answered(0,1)
+.disappear(Q(621))
+.clearAnswer(Q(621));
+
+//
+ifQ(1161)
+.answered(0,1)
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
+
+//
+ifQ(1181)
+.answered(0,2)
+.disappear(Q(1171))
+.clearAnswer(Q(1171));
+
+//*******************************
+// DEALER RESPONE - 48 HOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// DEALER RESPONE - DAY 3 - Begin
+//*******************************
+
+// 
+ifQ(1231)
+.answered(1)
+.disappear(Q(761)) // header(s)
+.disappear(Q(771)) // black remark(s)
+.disappear(Q(1121), Q(1281)) // red remark(s)
+.disappear(Q(931), Q(1351), Q(1361), Q(781))
+.clearAnswer(Q(931), Q(1351), Q(1361), Q(781));
+
+//
+ifQ(781)
+.answered(0,2)
+.disappear(Q(811))
+.clearAnswer(Q(811));
+
+//
+ifQ(811)
+.answered(0,2)
+.disappear(Q(831)) // black remark(s)
+.disappear(Q(791), Q(981), Q(991), Q(871), Q(841), Q(851), Q(861), Q(881), Q(891), Q(901))
+.clearAnswer(Q(791), Q(981), Q(991), Q(871), Q(841), Q(851), Q(861), Q(881), Q(891), Q(901));
+
+//
+ifQ(791)
+.answered(0,1)
+.disappear(Q(801))
+.clearAnswer(Q(801));
+
+//
+ifQ(811)
+.answered(0,1)
+.disappear(Q(1201))
+.clearAnswer(Q(1201));
+
+//
+ifQ(1201)
+.answered(0,2)
+.disappear(Q(1211))
+.clearAnswer(Q(1211));
+
+//*******************************
+// DEALER RESPONE - DAY 3 - End
+//*******************************
+
+
+
+
+//*******************************
+// DEALER RESPONE - DAY 4 - Begin
+//*******************************
+
+// 
+ifQ(1231)
+.answered(1)
+.disappear(Q(1071)) // header(s)
+.disappear(Q(1131)) // red remark(s)
+.disappear(Q(1381), Q(911))
+.clearAnswer(Q(1381), Q(911));
+
+//
+ifQ(1381)
+.answered(0,2)
+.disappear(Q(1391))
+.clearAnswer(Q(1391));
+
+//
+ifQ(1391)
+.answered(0,2)
+.disappear(Q(1291)) // red remark(s)
+.disappear(Q(1031), Q(1041))
+.clearAnswer(Q(1031), Q(1041));
+
+//
+ifQ(1391)
+.answered(0)
+.disappear(Q(941), Q(951))
+.clearAnswer(Q(941), Q(951));
+
+//*******************************
+// DEALER RESPONE - DAY 4 - End
+//*******************************
+
+
+
+
+//*******************************
+// DEALER RESPONE - DAY 5 - Begin
+//*******************************
+
+// 
+ifQ(1231)
+.answered(1)
+.disappear(Q(1081)) // header(s)
+.disappear(Q(1141)) // red remark(s)
+.disappear(Q(1401), Q(1001))
+.clearAnswer(Q(1401), Q(1001));
+
+//
+ifQ(1401)
+.answered(0,2)
+.disappear(Q(1411))
+.clearAnswer(Q(1411));
+
+//
+ifQ(1411)
+.answered(0,2)
+.disappear(Q(1301)) // red remark(s)
+.disappear(Q(1051), Q(1061))
+.clearAnswer(Q(1051), Q(1061));
+
+//
+ifQ(1411)
+.answered(0)
+.disappear(Q(1011), Q(1021))
+.clearAnswer(Q(1011), Q(1021));
+
+//*******************************
+// DEALER RESPONE - DAY 5 - End
+//*******************************
