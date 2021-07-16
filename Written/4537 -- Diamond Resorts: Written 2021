@@ -1,8 +1,45 @@
 //*******************************	
 // CID: 734	
 // SID: 4537
-// Last Updated: 6/24/2021	
+// Last Updated: 7/16/2021	
 //*******************************	
+
+
+
+
+//*******************************
+// EXPENSES - Begin
+//*******************************
+
+// If QID 3961 is answered anything, then copy the value of QID 3961 to QID 4001.
+ifQ(3961)
+.answered()
+.setValue(Q(4001), Q(3961));
+
+// If QID 3971 is answered anything, then copy the value of QID 3971 to QID 4011.
+ifQ(3971)
+.answered()
+.setValue(Q(4011), Q(3971));
+
+// If QID 3981 is answered anything, then copy the value of QID 3981 to QID 4021.
+ifQ(3981)
+.answered()
+.setValue(Q(4021), Q(3981));
+
+// If QID 3991 is answered anything, then copy the value of QID 3991 to QID 4031.
+ifQ(3991)
+.answered()
+.setValue(Q(4031), Q(3991));
+
+// Math Operation: [4001] + [4011] + [4021] + [4031] = [3691]
+ifQ()
+.sum(Q(4001), Q(4011), Q(4021), Q(4031))
+.store(Q(3691));
+
+
+//*******************************
+// EXPENSES - End
+//*******************************
 
 
 
