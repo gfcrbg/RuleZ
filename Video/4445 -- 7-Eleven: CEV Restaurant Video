@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 12/8/2020	
+// Last Updated: 7/19/2021	
 //*******************************	
 
 
@@ -13,35 +13,35 @@ ifQ(11)
 .greaterThanOrEqual(0)
 .andifQ(11)
 .lessThanOrEqual(21540)
-.setValue( Q(2741),4)
+.setValue( Q(2741),4);
 
 // Between 6am and 10:30am.
 ifQ(11)
 .greaterThanOrEqual(21600)
 .andifQ(11)
 .lessThanOrEqual(37800)
-.setValue( Q(2741),1)
+.setValue( Q(2741),1);
 
 // Between 10:30am and 4pm.
 ifQ(11)
 .greaterThanOrEqual(37860)
 .andifQ(11)
 .lessThanOrEqual(57600)
-.setValue( Q(2741),2)
+.setValue( Q(2741),2);
 
 // Between 4pm and 9pm.
 ifQ(11)
 .greaterThanOrEqual(57660)
 .andifQ(11)
 .lessThanOrEqual(75600)
-.setValue( Q(2741),3)
+.setValue( Q(2741),3);
 
 // Between 9pm and 12am.
 ifQ(11)
 .greaterThanOrEqual(75660)
 .andifQ(11)
 .lessThanOrEqual(86340)
-.setValue( Q(2741),4)
+.setValue( Q(2741),4);
 // End of Time of Shop radio button input.
 
 
@@ -55,35 +55,42 @@ ifQ()
 .ulgIs('LTC')
 .disappear(Section(5), Section(6), Section(7))
 .clearAnswer(Section(5), Section(6), Section(7))
-.makeNotRequired(Section(5), Section(6), Section(7))
+.makeNotRequired(Section(5), Section(6), Section(7));
 
 // Ladson Grill
 ifQ()
 .ulgIs('Ladson Grill')
 .disappear(Section(4), Section(6), Section(7))
 .clearAnswer(Section(4), Section(6), Section(7))
-.makeNotRequired(Section(4), Section(6), Section(7))
+.makeNotRequired(Section(4), Section(6), Section(7));
 
 // Parlor Pizza
 ifQ()
 .ulgIs('Parlor Pizza')
 .disappear(Section(4), Section(5), Section(7))
 .clearAnswer(Section(4), Section(5), Section(7))
-.makeNotRequired(Section(4), Section(5), Section(7))
+.makeNotRequired(Section(4), Section(5), Section(7));
 
 // Roost
 ifQ()
 .ulgIs('Roost')
 .disappear(Section(4), Section(5), Section(6))
 .clearAnswer(Section(4), Section(5), Section(6))
-.makeNotRequired(Section(4), Section(5), Section(6))
+.makeNotRequired(Section(4), Section(5), Section(6));
 
 // LTC and Ladson Grill
 ifQ()
 .ulgIs('LTC and Ladson Grill')
 .disappear(Section(6), Section(7))
 .clearAnswer(Section(6), Section(7))
-.makeNotRequired(Section(6), Section(7))
+.makeNotRequired(Section(6), Section(7));
+
+// Roost and Parlor Pizza
+ifQ()
+.ulgIs('Roost and Parlor Pizza')
+.disappear(Section(4), Section(5))
+.clearAnswer(Section(4), Section(5))
+.makeNotRequired(Section(4), Section(5));
 
 //-------------------------------------------
 // ULG Switch - End
@@ -99,25 +106,31 @@ ifQ(1151)
 .answered(0,2,3)
 .disappear(QOrder(15800,21100))
 .clearAnswer(QOrder(15800,21100))
-.makeNotRequired(QOrder(15800,21100))
+.makeNotRequired(QOrder(15800,21100));
+
+// If QID 1151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9291.
+ifQ(1151)
+.answered(0,1,3)
+.disappear(Q(9291))
+.clearAnswer(Q(9291));
 
 // If QID 2381 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 5041.
 ifQ(2381)
 .answered(0,1,2)
 .disappear(Q(5041))
-.clearAnswer(Q(5041))
+.clearAnswer(Q(5041));
 
 // If QID 6621 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7451.
 ifQ(6621)
 .answered(0,1,3)
 .disappear(Q(7451))
-.clearAnswer(Q(7451))
+.clearAnswer(Q(7451));
 
 // If QID 7451 is not answered Option 4, then disappear and clear answer to QID 7461.
 ifQ(7451)
 .notAnswered(4)
 .disappear(Q(7461))
-.clearAnswer(Q(7461))
+.clearAnswer(Q(7461));
 
 // Sets how long food took to come out from LTC.
 ifQ(2801)
@@ -125,7 +138,7 @@ ifQ(2801)
 .andQ(2811)
 .answered()
 .sub(Q(2811),Q(2801))
-.store(Q(301))
+.store(Q(301));
 
 // Sets radio button for how long food took to come out from LTC.
 // Less than a minute.
@@ -133,40 +146,40 @@ ifQ(301)
 .greaterThan(0)
 .andifQ(301)
 .lessThanOrEqual(60)
-.setValue( Q(2781),1)
+.setValue( Q(2781),1);
 
 // Less than 2 minutes.
 ifQ(301)
 .greaterThanOrEqual(61)
 .andifQ(301)
 .lessThanOrEqual(120)
-.setValue( Q(2781),2)
+.setValue( Q(2781),2);
 
 // Less than 3 minutes.
 ifQ(301)
 .greaterThanOrEqual(121)
 .andifQ(301)
 .lessThanOrEqual(180)
-.setValue( Q(2781),3)
+.setValue( Q(2781),3);
 
 // Less than 4 minutes.
 ifQ(301)
 .greaterThanOrEqual(181)
 .andifQ(301)
 .lessThanOrEqual(240)
-.setValue( Q(2781),4)
+.setValue( Q(2781),4);
 
 // Less than 5 minutes.
 ifQ(301)
 .greaterThanOrEqual(241)
 .andifQ(301)
 .lessThanOrEqual(300)
-.setValue( Q(2781),5)
+.setValue( Q(2781),5);
 
 // More than 5 minutes.
 ifQ(301)
 .greaterThanOrEqual(301)
-.setValue( Q(2781),6)
+.setValue( Q(2781),6);
 //end of first LTC radio button stuff
 
 // Take answers to how long it took to get food and fill if that time was under 3 minutes.
@@ -175,12 +188,12 @@ ifQ(301)
 .greaterThan(0)
 .andifQ(301)
 .lessThan(180)
-.setValue( Q(2221),1)
+.setValue( Q(2221),1);
 
 // Over 3 min (LTC).
 ifQ(301)
 .greaterThanOrEqual(180)
-.setValue( Q(2221),2)
+.setValue( Q(2221),2);
 
 // If QID 6641 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 6641.
 ifQ(6641)
@@ -189,7 +202,7 @@ ifQ(6641)
 .answered(2)
 .andQ(6641)
 .answered(3)
-.setValue(Q(6641),1,2,3,4)
+.setValue(Q(6641),1,2,3,4);
 
 //-------------------------------------------
 // LTC Timestamps - Begin
@@ -199,15 +212,15 @@ ifQ(6641)
 ifQ(2871)
 .answered(0,1,3)
 .disappear(Q(8161))
-.clearAnswer(Q(8161))
+.clearAnswer(Q(8161));
 
-// If QID 1471 is answered Option 1 OR QID answered Option [0, 2, OR 3], then disappear and clear answer to QID 8171.
+// If QID 1471 answered Option [1,2, AND 3], or if QID 1151 answered Option [0, 2, OR 3], then disappear and clear answer to QID 8171.
 ifQ(1471)
-.answered(1)
-.orQ(1151)
+.answered([1,2,3])
+.orifQ(1151)
 .answered(0,2,3)
 .disappear(Q(8171))
-.clearAnswer(Q(8171))
+.clearAnswer(Q(8171));
 
 // If QID 7661 is answered Option [0 OR 1] OR if QID 1151 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 8181.
 ifQ(7661)
@@ -215,97 +228,97 @@ ifQ(7661)
 .orifQ(1151)
 .answered(0,2,3)
 .disappear(Q(8181))
-.clearAnswer(Q(8181))
+.clearAnswer(Q(8181));
 
 // If QID 2381 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8191.
 ifQ(2381)
 .answered(0,1,3)
 .disappear(Q(8191))
-.clearAnswer(Q(8191))
+.clearAnswer(Q(8191));
 
 // If QID 6571 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8201.
 ifQ(6571)
 .answered(0,1,3)
 .disappear(Q(8201))
-.clearAnswer(Q(8201))
+.clearAnswer(Q(8201));
 
 // If QID 2091 is answered Option [0 OR 1], then disappear and clear answer to QID 8211.
 ifQ(2091)
 .answered(0,1)
 .disappear(Q(8211))
-.clearAnswer(Q(8211))
+.clearAnswer(Q(8211));
 
 // If QID 1481 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8221.
 ifQ(1481)
 .answered(0,1,3)
 .disappear(Q(8221))
-.clearAnswer(Q(8221))
+.clearAnswer(Q(8221));
 
 // If QID 6581 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8231.
 ifQ(6581)
 .answered(0,1,3)
 .disappear(Q(8231))
-.clearAnswer(Q(8231))
+.clearAnswer(Q(8231));
 
 // If QID 6601 is answered Option [0 OR 1], then disappear and clear answer to QID 8241.
 ifQ(6601)
 .answered(0,1)
 .disappear(Q(8241))
-.clearAnswer(Q(8241))
+.clearAnswer(Q(8241));
 
 // If QID 2391 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8251.
 ifQ(2391)
 .answered(0,1,3)
 .disappear(Q(8251))
-.clearAnswer(Q(8251))
+.clearAnswer(Q(8251));
 
 // If QID 2401 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8261.
 ifQ(2401)
 .answered(0,1,3)
 .disappear(Q(8261))
-.clearAnswer(Q(8261))
+.clearAnswer(Q(8261));
 
 // If QID 2411 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8271.
 ifQ(2411)
 .answered(0,1,3)
 .disappear(Q(8271))
-.clearAnswer(Q(8271))
+.clearAnswer(Q(8271));
 
 // If QID 3051 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8281.
 ifQ(3051)
 .answered(0,1,3)
 .disappear(Q(8281))
-.clearAnswer(Q(8281))
+.clearAnswer(Q(8281));
 
 // If QID 2311 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8291.
 ifQ(2311)
 .answered(0,1,3)
 .disappear(Q(8291))
-.clearAnswer(Q(8291))
+.clearAnswer(Q(8291));
 
 // If QID 2351 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8301.
 ifQ(2351)
 .answered(0,1,3)
 .disappear(Q(8301))
-.clearAnswer(Q(8301))
+.clearAnswer(Q(8301));
 
 // If QID 6291 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8311.
 ifQ(6291)
 .answered(0,1,3)
 .disappear(Q(8311))
-.clearAnswer(Q(8311))
+.clearAnswer(Q(8311));
 
 // If QID 6611 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8321.
 ifQ(6611)
 .answered(0,1,3)
 .disappear(Q(8321))
-.clearAnswer(Q(8321))
+.clearAnswer(Q(8321));
 
 // If QID 6631 is answered Option [0 OR 1], then disappear and clear answer to QID 8331.
 ifQ(6631)
 .answered(0,1)
 .disappear(Q(8331))
-.clearAnswer(Q(8331))
+.clearAnswer(Q(8331));
 
 // If QID 6641 is answered Option [4 OR 3] OR QID 1151 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 8341.
 ifQ(6641)
@@ -313,7 +326,7 @@ ifQ(6641)
 .orQ(1151)
 .answered(0,2,3)
 .disappear(Q(8341))
-.clearAnswer(Q(8341))
+.clearAnswer(Q(8341));
 
 //-------------------------------------------
 // LTC Timestamps - End
@@ -335,19 +348,25 @@ ifQ(4161)
 .answered(0,2)
 .disappear(QOrder(30600,35200))
 .clearAnswer(QOrder(30600,35200))
-.makeNotRequired(QOrder(30600,35200))
+.makeNotRequired(QOrder(30600,35200));
+
+// If QID 4161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9301.
+ifQ(4161)
+.answered(0,1,3)
+.disappear(Q(9301))
+.clearAnswer(Q(9301));
 
 // If QID 7291 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7491.
 ifQ(7291)
 .answered(0,1,3)
 .disappear(Q(7491))
-.clearAnswer(Q(7491))
+.clearAnswer(Q(7491));
 
 // If QID 7491 is not answered Option 4, then disappear and clear answer to QID 7551.
 ifQ(7491)
 .notAnswered(4)
 .disappear(Q(7551))
-.clearAnswer(Q(7551))
+.clearAnswer(Q(7551));
 
 //Calc guest's approx wait in line (Ladson Grill)
 ifQ(4221)
@@ -355,19 +374,19 @@ ifQ(4221)
 .andQ(4231)
 .answered()
 .sub(Q(4231) , Q(4221))
-.store(Q(4241))
+.store(Q(4241));
 
 //Under 5 min (Ladson Grill)
 ifQ(4241)
 .greaterThan(0)
 .andifQ(4241)
 .lessThan(300)
-.setValue( Q(5741),1)
+.setValue( Q(5741),1);
 
 //Over 5 min (Ladson Grill)
 ifQ(4241)
 .greaterThanOrEqual(300)
-.setValue( Q(5741),2)
+.setValue( Q(5741),2);
 
 // If QID 7311 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7311.
 ifQ(7311)
@@ -376,7 +395,7 @@ ifQ(7311)
 .answered(2)
 .andQ(7311)
 .answered(3)
-.setValue(Q(7311),1,2,3,4)
+.setValue(Q(7311),1,2,3,4);
 
 //-------------------------------------------
 // Ladson Grill Timestamps - Begin
@@ -386,93 +405,93 @@ ifQ(7311)
 ifQ(7201)
 .answered(0,1,3)
 .disappear(Q(8661))
-.clearAnswer(Q(8661))
+.clearAnswer(Q(8661));
 
-// If QID 5751 is answered Option [1 OR 5] OR QID 4161 is answered Option [0 OR 2], then disappear and clear answer to QID 8671.
+// If QID 5751 answered Option [1,2, AND 3, OR 5], or if QID 4161 is answered Option [0 OR 2], then disappear and clear answer to QID 8671.
 ifQ(5751)
-.answered(1,5)
+.answered([1,2,3],5)
 .orQ(4161)
 .answered(0,2)
 .disappear(Q(8671))
-.clearAnswer(Q(8671))
+.clearAnswer(Q(8671));
 
 // If QID 7691 is answered Option [0 OR 1], then disappear and clear answer to QID 8681.
 ifQ(7691)
 .answered(0,1)
 .disappear(Q(8681))
-.clearAnswer(Q(8681))
+.clearAnswer(Q(8681));
 
 // If QID 5301 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8691.
 ifQ(5301)
 .answered(0,1,3)
 .disappear(Q(8691))
-.clearAnswer(Q(8691))
+.clearAnswer(Q(8691));
 
 // If QID 7211 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8701.
 ifQ(7211)
 .answered(0,1,3)
 .disappear(Q(8701))
-.clearAnswer(Q(8701))
+.clearAnswer(Q(8701));
 
 // If QID 7221 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8711.
 ifQ(7221)
 .answered(0,1,3)
 .disappear(Q(8711))
-.clearAnswer(Q(8711))
+.clearAnswer(Q(8711));
 
 // If QID 7231 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8721.
 ifQ(7231)
 .answered(0,1,3)
 .disappear(Q(8721))
-.clearAnswer(Q(8721))
+.clearAnswer(Q(8721));
 
 // If QID 5351 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8731.
 ifQ(5351)
 .answered(0,1,3)
 .disappear(Q(8731))
-.clearAnswer(Q(8731))
+.clearAnswer(Q(8731));
 
 // If QID 5311 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8741.
 ifQ(5311)
 .answered(0,1,3)
 .disappear(Q(8741))
-.clearAnswer(Q(8741))
+.clearAnswer(Q(8741));
 
 // If QID 7241 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8751.
 ifQ(7241)
 .answered(0,1,3)
 .disappear(Q(8751))
-.clearAnswer(Q(8751))
+.clearAnswer(Q(8751));
 
 // If QID 7251 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8761.
 ifQ(7251)
 .answered(0,1,3)
 .disappear(Q(8761))
-.clearAnswer(Q(8761))
+.clearAnswer(Q(8761));
 
 // If QID 7261 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8771.
 ifQ(7261)
 .answered(0,1,3)
 .disappear(Q(8771))
-.clearAnswer(Q(8771))
+.clearAnswer(Q(8771));
 
 // If QID 7271 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8781.
 ifQ(7271)
 .answered(0,1,3)
 .disappear(Q(8781))
-.clearAnswer(Q(8781))
+.clearAnswer(Q(8781));
 
 // If QID 7281 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8791.
 ifQ(7281)
 .answered(0,1,3)
 .disappear(Q(8791))
-.clearAnswer(Q(8791))
+.clearAnswer(Q(8791));
 
 // If QID 7301 is answered Option [0 OR 1], then disappear and clear answer to QID 8801.
 ifQ(7301)
 .answered(0,1)
 .disappear(Q(8801))
-.clearAnswer(Q(8801))
+.clearAnswer(Q(8801));
 
 // If QID 7311 is answered Option [4 OR 6] OR QID 4161 is answered Option [0 OR 2], then disappear and clear answer to QID 8811.
 ifQ(7311)
@@ -480,7 +499,7 @@ ifQ(7311)
 .orQ(4161)
 .answered(0,2)
 .disappear(Q(8811))
-.clearAnswer(Q(8811))
+.clearAnswer(Q(8811));
 
 //-------------------------------------------
 // Ladson Grill Timestamps - End
@@ -502,19 +521,25 @@ ifQ(4521)
 .answered(0,2)
 .disappear(QOrder(35500,39005))
 .clearAnswer(QOrder(35500,39005))
-.makeNotRequired(QOrder(35500,39005))
+.makeNotRequired(QOrder(35500,39005));
+
+// If QID 4521 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9311.
+ifQ(4521)
+.answered(0,1,3)
+.disappear(Q(9311))
+.clearAnswer(Q(9311));
 
 // If QID 7161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7501.
 ifQ(7161)
 .answered(0,1,3)
 .disappear(Q(7501))
-.clearAnswer(Q(7501))
+.clearAnswer(Q(7501));
 
 // If QID 7501 is not answered Option 4, then disappear and clear answer to QID 7561.
 ifQ(7501)
 .notAnswered(4)
 .disappear(Q(7561))
-.clearAnswer(Q(7561))
+.clearAnswer(Q(7561));
 
 //Calc guest's approx wait in line (Parlor Pizza)
 ifQ(4581)
@@ -522,25 +547,25 @@ ifQ(4581)
 .andQ(4591)
 .answered()
 .sub(Q(4591) , Q(4581))
-.store(Q(4601))
+.store(Q(4601));
 
 // Under 10 min (Parlor Pizza)
 ifQ(4601)
 .greaterThan(0)
 .andifQ(4601)
 .lessThan(600)
-.setValue( Q(5821),1)
+.setValue( Q(5821),1);
 
 // Versioned in 7/1/2018
 // Over 10 min (Parlor Pizza)
 ifQ(4601)
 .greaterThanOrEqual(600)
-.setValue( Q(5821),2)
+.setValue( Q(5821),2);
 
 // If QID 7181 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7181.
 ifQ(7181)
 .answered([1,2,3])
-.setValue(Q(7181), 1,2,3,4)
+.setValue(Q(7181), 1,2,3,4);
 
 //-------------------------------------------
 // Parlor Pizza Timestamps - Begin
@@ -550,87 +575,87 @@ ifQ(7181)
 ifQ(7061)
 .answered(0,1)
 .disappear(Q(8821))
-.clearAnswer(Q(8821))
+.clearAnswer(Q(8821));
 
-// If QID 5801 is answered Option [1 OR 5] OR QID 4521 is answered Option [0 OR 2], then disappear and clear answer to QID 8831. 
+// If QID 5801 is answered Option [1,2, AND 3, OR 5], or if QID 4521 is answered Option [0 OR 2], then disappear and clear answer to QID 8831. 
 ifQ(5801)
-.answered(1,5)
+.answered([1,2,3],5)
 .orQ(4521)
 .answered(0,2)
 .disappear(Q(8831))
-.clearAnswer(Q(8831))
+.clearAnswer(Q(8831));
 
 // If QID 7701 is answered Option [0 OR 1], then disappear and clear answer to QID 8841.
 ifQ(7701)
 .answered(0,1)
 .disappear(Q(8841))
-.clearAnswer(Q(8841))
+.clearAnswer(Q(8841));
 
 // If QID 5431 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8851.
 ifQ(5431)
 .answered(0,1,3)
 .disappear(Q(8851))
-.clearAnswer(Q(8851))
+.clearAnswer(Q(8851));
 
 // If QID 7071 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8861.
 ifQ(7071)
 .answered(0,1,3)
 .disappear(Q(8861))
-.clearAnswer(Q(8861))
+.clearAnswer(Q(8861));
 
 // If QID 7081 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8871.
 ifQ(7081)
 .answered(0,1,3)
 .disappear(Q(8871))
-.clearAnswer(Q(8871))
+.clearAnswer(Q(8871));
 
 // If QID 5811 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8881.
 ifQ(5811)
 .answered(0,1,3)
 .disappear(Q(8881))
-.clearAnswer(Q(8881))
+.clearAnswer(Q(8881));
 
 // If QID 7091 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8891.
 ifQ(7091)
 .answered(0,1,3)
 .disappear(Q(8891))
-.clearAnswer(Q(8891))
+.clearAnswer(Q(8891));
 
 // If QID 7111 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8921.
 ifQ(7111)
 .answered(0,1,3)
 .disappear(Q(8921))
-.clearAnswer(Q(8921))
+.clearAnswer(Q(8921));
 
 // If QID 7121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8931.
 ifQ(7121)
 .answered(0,1,3)
 .disappear(Q(8931))
-.clearAnswer(Q(8931))
+.clearAnswer(Q(8931));
 
 // If QID 7131 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8941.
 ifQ(7131)
 .answered(0,1,3)
 .disappear(Q(8941))
-.clearAnswer(Q(8941))
+.clearAnswer(Q(8941));
 
 // If QID 7141 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8951.
 ifQ(7141)
 .answered(0,1,3)
 .disappear(Q(8951))
-.clearAnswer(Q(8951))
+.clearAnswer(Q(8951));
 
 // If QID 7151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 8961.
 ifQ(7151)
 .answered(0,1,3)
 .disappear(Q(8961))
-.clearAnswer(Q(8961))
+.clearAnswer(Q(8961));
 
 // If QID 7171 is answered Option [0 OR 1], then disappear and clear answer to QID 8971.
 ifQ(7171)
 .answered(0,1)
 .disappear(Q(8971))
-.clearAnswer(Q(8971))
+.clearAnswer(Q(8971));
 
 // If QID 7181 is answered Option [4 OR 6] OR QID 4521 is answered Option [0 OR 2], then disappear and clear answer to QID 8981.
 ifQ(7181)
@@ -638,7 +663,7 @@ ifQ(7181)
 .orQ(4521)
 .answered(0,2)
 .disappear(Q(8981))
-.clearAnswer(Q(8981))
+.clearAnswer(Q(8981));
 
 //-------------------------------------------
 // Parlor Pizza Timestamps - End
@@ -660,19 +685,25 @@ ifQ(6051)
 .answered(0,2)
 .disappear(QOrder(39300,42205))
 .clearAnswer(QOrder(39300,42205))
-.makeNotRequired(QOrder(39300,42205))
+.makeNotRequired(QOrder(39300,42205));
+
+// If QID 6051 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9321.
+ifQ(6051)
+.answered(0,1,3)
+.disappear(Q(9321))
+.clearAnswer(Q(9321));
 
 // If QID 7421 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7511.
 ifQ(7421)
 .answered(0,1,3)
 .disappear(Q(7511))
-.clearAnswer(Q(7511))
+.clearAnswer(Q(7511));
 
 // If QID 7511 is not answered Option 4, then disappear and clear answer to QID 7571.
 ifQ(7511)
 .notAnswered(4)
 .disappear(Q(7571))
-.clearAnswer(Q(7571))
+.clearAnswer(Q(7571));
 
 //Calc guest's approx wait in line (Roost)
 ifQ(6151)
@@ -680,7 +711,7 @@ ifQ(6151)
 .andQ(6161)
 .answered()
 .sub(Q(6161) , Q(6151))
-.store(Q(6171))
+.store(Q(6171));
 
 //Set radio button to reflect time spent in line (Roost)
 //Under 1  min
@@ -689,26 +720,26 @@ ifQ(6171)
 .greaterThanOrEqual(0)
 .andifQ(6171)
 .lessThanOrEqual(60)
-.setValue( Q(6181),1)
+.setValue( Q(6181),1);
 
 //Under 2  min
 ifQ(6171)
 .greaterThanOrEqual(61)
 .andifQ(6171)
 .lessThanOrEqual(120)
-.setValue( Q(6181),2)
+.setValue( Q(6181),2);
 
 //Under 3  min
 ifQ(6171)
 .greaterThanOrEqual(121)
 .andifQ(6171)
 .lessThanOrEqual(180)
-.setValue( Q(6181),3)
+.setValue( Q(6181),3);
 
 //Over 3  min
 ifQ(6171)
 .greaterThanOrEqual(181)
-.setValue( Q(6181),4)
+.setValue( Q(6181),4);
 //End of setting radio buttons for time spent in line (Roost)
 
 //Versioned in 7/1/2018
@@ -717,18 +748,18 @@ ifQ(6171)
 .greaterThan(0)
 .andifQ(6171)
 .lessThan(300)
-.setValue( Q(6191),1)
+.setValue( Q(6191),1);
 
 //Versioned in 7/1/2018
 //Over 5 min (Ladson Grill)
 ifQ(6171)
 .greaterThanOrEqual(300)
-.setValue( Q(6191),2)
+.setValue( Q(6191),2);
 
 // If QID 7441 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 7441.
 ifQ(7441)
 .answered([1,2,3])
-.setValue(Q(7441), 1,2,3,4)
+.setValue(Q(7441), 1,2,3,4);
 
 //-------------------------------------------
 // Roost Timestamps - Begin
@@ -738,93 +769,93 @@ ifQ(7441)
 ifQ(7331)
 .answered(0,1,3)
 .disappear(Q(8991))
-.clearAnswer(Q(8991))
+.clearAnswer(Q(8991));
 
-// If QID 6061 is answered Option [1 OR 5] OR QID 6051 is answered Option [0 OR 2], then disappear and clear answer to QID 9021.
+// If QID 6061 is answered Option [1, 2, AND 3, OR 5], or if QID 6051 is answered Option [0 OR 2], then disappear and clear answer to QID 9021.
 ifQ(6061)
-.answered(1,5)
+.answered([1,2,3],5)
 .orQ(6051)
 .answered(0,2)
 .disappear(Q(9021))
-.clearAnswer(Q(9021))
+.clearAnswer(Q(9021));
 
 // If QID 7711 is answered Option [0 OR 1], then disappear and clear answer to QID 9011.
 ifQ(7711)
 .answered(0,1)
 .disappear(Q(9011))
-.clearAnswer(Q(9011))
+.clearAnswer(Q(9011));
 
 // If QID 7341 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9031.
 ifQ(7341)
 .answered(0,1,3)
 .disappear(Q(9031))
-.clearAnswer(Q(9031))
+.clearAnswer(Q(9031));
 
 // If QID 6121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9041.
-.ifQ(6121)
+ifQ(6121)
 .answered(0,1,3)
 .disappear(Q(9041))
-.clearAnswer(Q(9041))
+.clearAnswer(Q(9041));
 
 // If QID 7351 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9051.
 ifQ(7351)
 .answered(0,1,3)
 .disappear(Q(9051))
-.clearAnswer(Q(9051))
+.clearAnswer(Q(9051));
 
 // If QID 7361 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9061.
 ifQ(7361)
 .answered(0,1,3)
 .disappear(Q(9061))
-.clearAnswer(Q(9061))
+.clearAnswer(Q(9061));
 
 // If QID 6101 is answered Option [0 OR 1], then disappear and clear answer to QID 9071.
 ifQ(6101)
 .answered(0,1)
 .disappear(Q(9071))
-.clearAnswer(Q(9071))
+.clearAnswer(Q(9071));
 
 // If QID 6111 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9081.
 ifQ(6111)
 .answered(0,1,3)
 .disappear(Q(9081))
-.clearAnswer(Q(9081))
+.clearAnswer(Q(9081));
 
 // If QID 7371 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9091.
 ifQ(7371)
 .answered(0,1,3)
 .disappear(Q(9091))
-.clearAnswer(Q(9091))
+.clearAnswer(Q(9091));
 
 // If QID 7381 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9101.
 ifQ(7381)
 .answered(0,1,3)
 .disappear(Q(9101))
-.clearAnswer(Q(9101))
+.clearAnswer(Q(9101));
 
 // If QID 7391 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9111.
 ifQ(7391)
 .answered(0,1,3)
 .disappear(Q(9111))
-.clearAnswer(Q(9111))
+.clearAnswer(Q(9111));
 
 // If QID 7401 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9121.
 ifQ(7401)
 .answered(0,1,3)
 .disappear(Q(9121))
-.clearAnswer(Q(9121))
+.clearAnswer(Q(9121));
 
 // If QID 7411 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9131.
 ifQ(7411)
 .answered(0,1,3)
 .disappear(Q(9131))
-.clearAnswer(Q(9131))
+.clearAnswer(Q(9131));
 
 // If QID 7431 is answered Option [0 OR 1], then disappear and clear answer to QID 9141.
 ifQ(7431)
 .answered(0,1)
 .disappear(Q(9141))
-.clearAnswer(Q(9141))
+.clearAnswer(Q(9141));
 
 // If QID 7441 is answered Option [4 OR 6] or QID 6051 is answered Option [0 OR 2], then disappear and clear answer to QID 9151.
 ifQ(7441)
@@ -832,7 +863,7 @@ ifQ(7441)
 .orQ(6051)
 .answered(0,2)
 .disappear(Q(9151))
-.clearAnswer(Q(9151))
+.clearAnswer(Q(9151));
 
 //-------------------------------------------
 // Roost Timestamps - End
