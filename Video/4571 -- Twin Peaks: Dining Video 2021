@@ -11,7 +11,7 @@
 // TIME STANDARDS - Begin
 //*******************************
 
-// 
+// If QID [2451 AND 2461] is answered anything, then trigger math operation: [2461] - [2451] = [1371]
 ifQ(2451)
 .answered()
 .andQ(2461)
@@ -19,25 +19,25 @@ ifQ(2451)
 .sub(Q(2461), Q(2451))
 .store(Q(1371));
 
-//
+// If QID 1371 is <= 3 minutes and > 0 minutes, then set value to Option 1 to QID 721.
 ifQ(1371)
 .lessThanOrEqual(180)
 .greaterThan(0)
 .setValue(Q(721), 1);
 
-//
+// If QID 1371 is > 3 minutes, then set value to Option 2 to QID 721.
 ifQ(1371)
 .greaterThan(180)
 .setValue(Q(721), 2);
 
-//
+// If QID 1371 <= to 0 minutes, then set value to Option 3 to QID 721.
 ifQ(1371)
 .lessThanOrEqual(0)
 .setValue(Q(721), 3);
 
 //----------------------------------------
 
-// 
+// If QID [2471 AND 2481] is answered anything, then trigger math operation: [2481] - [2471] = [1381]
 ifQ(2471)
 .answered()
 .andQ(2481)
@@ -45,31 +45,31 @@ ifQ(2471)
 .sub(Q(2481), Q(2471))
 .store(Q(1381));
 
-//
+// If QID 1381 is < 10 minutes, then set value to Option 1 to QID 1971.
 ifQ(1381)
 .lessThan(600)
 .setValue(Q(1971), 1);
 
-//
+// If QID 1381 is >= 10 minutes and < 12 minutes, then set value to Option 2 to QID 1971.
 ifQ(1381)
 .greaterThanOrEqual(600)
 .lessThan(720)
 .setValue(Q(1971), 2);
 
-//
+// If QID 1381 is >= 12 minutes and <= 14 minutes, then set value to Option 3 to QID 1971.
 ifQ(1381)
 .greaterThanOrEqual(720)
 .lessThanOrEqual(840)
 .setValue(Q(1971), 3);
 
-//
+// If QID 1381 is > 14 minutes, then set value to Option 4 to QID 1971.
 ifQ(1381)
 .greaterThan(840)
 .setValue(Q(1971), 4);
 
 //----------------------------------------
 
-// 
+// If QID [2481 AND 2491] is answered anything, then trigger math operation: [2491] - [2481] = [2501]
 ifQ(2481)
 .answered()
 .andQ(2491)
@@ -77,18 +77,18 @@ ifQ(2481)
 .sub(Q(2491), Q(2481))
 .store(Q(2501));
 
-//
+// If QID 2501 is < 2 minutes, then set value to Option 1 to QID 1981.
 ifQ(2501)
 .lessThan(120)
 .setValue(Q(1981), 1);
 
-//
+// If QID 2501 is >= 2 minutes and <= 5 minutes,  then set value to Option 2 to QID 1981.
 ifQ(2501)
 .greaterThanOrEqual(120)
 .lessThanOrEqual(300)
 .setValue(Q(1981), 2);
 
-//
+// If QID 2501 is > 5 minutes or not answered, then set value to Option 3 to QID 1981.
 ifQ(2501)
 .greaterThan(300)
 .orQ(2501)
@@ -97,7 +97,7 @@ ifQ(2501)
 
 //----------------------------------------
 
-// 
+// If QID [2511 AND 2521] is answered anything, then trigger math operation: [2521] - [2511] = [1391]
 ifQ(2511)
 .answered()
 .andQ(2521)
@@ -105,18 +105,18 @@ ifQ(2511)
 .sub(Q(2521), Q(2511))
 .store(Q(1391));
 
-//
+// If QID 1391 is < 14 minutes, then set value to Option 1 to QID 1991.
 ifQ(1391)
 .lessThan(840)
 .setValue(Q(1991), 1);
 
-//
+// If QID 1391 is >= 14 minutes and <= 16 minutes, then set value to Option 2 to QID 1991.
 ifQ(1391)
 .greaterThanOrEqual(840)
 .lessThanOrEqual(960)
 .setValue(Q(1991), 2);
 
-//
+// If QID 1391 is > 16 minutes, then set value to Option 3 to QID 1991.
 ifQ(1391)
 .greaterThan(960)
 .setValue(Q(1991), 3);
