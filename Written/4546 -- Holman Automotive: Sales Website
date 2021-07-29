@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 737
 // SID: 4546	
-// Last Updated: 7/16/2021	
+// Last Updated: 7/29/2021	
 //*******************************	
 
 
@@ -243,9 +243,9 @@ ifQ(1401)
 .disappear(Q(1411))
 .clearAnswer(Q(1411));
 
-// If QID 1411 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+// If QID 1411 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
 ifQ(1411)
-.answered(0,2)
+.answered(0,1)
 .disappear(Q(1301)) // red remark(s)
 .disappear(Q(1051), Q(1061))
 .clearAnswer(Q(1051), Q(1061));
