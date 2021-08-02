@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 7/6/2021
+// Last Updated: 8/2/2021
 //*******************************
 
 
@@ -464,19 +464,25 @@ ifQ()
 // STORE INTERIOR - Begin
 //********************************
 
-// Shop Date Trigger [after February 2020], if country is 'US', then set value to Option 3 to QID 111.
+// Shop Date Trigger [AFTER February 2020], if country is 'US', then set value to Option 3 to QID 111.
 ifQ()
 .countryIs('US')
 .dateAfter("2020-02-29")
 .dateBefore("2020-12-01")
 .setValue(Q(111), 3);
 
-// Shop Date Trigger [after February 2020], if country is 'Canada', then set value to Option 3 to QID 111.
+// Shop Date Trigger [AFTER February 2020], if country is 'Canada', then set value to Option 3 to QID 111.
 ifQ()
 .countryIs('Canada')
 .dateAfter("2020-02-29")
 .dateBefore("2020-06-01")
 .setValue(Q(111), 3);
+
+// Shop Date Trigger [AFTER July 2021], set value to Option 3 to QIDs.
+ifQ()
+.dateAfter("2021-07-31")
+.setValue(Q(111), 3)
+.setValue(Q(5131), 3);
 
 //********************************
 // STORE INTERIOR - End
@@ -492,6 +498,11 @@ ifQ()
 //---------------------------------------------
 // [Time Calc] Freshness Date - Begin
 //---------------------------------------------
+
+// Shop Date Trigger [AFTER July 2021], set value to Option 3 to QID 2361.
+ifQ()
+.dateAfter("2021-07-31")
+.setValue(Q(2361), 3);
 
 // If QID 5521 is not answered anything, then set value to Option 3 to QID 2431.
 ifQ(5521)
@@ -712,6 +723,12 @@ ifQ()
 .dateAfter("2021-06-30")
 .dateBefore("2021-08-01")
 .setValue(Q(2421), 3);
+
+// Shop Date Trigger [AFTER July 2021], set value to Option 3 to QIDs.
+ifQ()
+.dateAfter("2021-07-31")
+.setValue(Q(2421), 3)
+.setValue(Q(6311), 3);
 
 //********************************
 // VAULT - End
