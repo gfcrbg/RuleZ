@@ -1,0 +1,75 @@
+//*******************************	
+// CID: 750	
+// SID: 4605	
+// Last Updated: 8/2/2021
+//*******************************	
+
+
+
+
+//*******************************
+// EMPLOYEE APPEARANCE - Begin
+//*******************************
+
+// If QID 161 is answered Option 1, then disappear and clear answer to QID 171.
+ifQ(161)
+.answered(1)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+//*******************************
+// EMPLOYEE APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// MARKETING - Begin
+//*******************************
+
+// If QID 281 is answered Option 2, then disappear and clear answer to QID 291.
+ifQ(281)
+.answered(2)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+//*******************************
+// MARKETING - End
+//*******************************
+
+
+
+
+//*******************************
+// ALCOHOL COMPLIANCE - Begin
+//*******************************
+
+// If QID 341 is answered Option [2 OR 3], then disappear and clear answer to QID 351.
+ifQ(341)
+.answered(2,3)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+//*******************************
+// ALCOHOL COMPLIANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// DELI - Begin
+//*******************************
+
+// If QID [861 AND 881] answered anything, then trigger math operation: [881] - [861] = [1561]
+ifQ(861)
+.answered()
+.andQ(881)
+.answered()
+.sub(Q(881) , Q(861))
+.store(Q(1561));
+
+//*******************************
+// DELI - End
+//*******************************
