@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 712	
 // SID: 4474	
-// Last Updated: 5/18/2021	
+// Last Updated: 8/10/2021	
 //*******************************	
 
 
@@ -11,9 +11,10 @@
 // ENTRANCE - Begin
 //*******************************
 
-// If shop date is after April, 2021, then set value to Option 3 to QID 5831.
+// Shop Date Trigger [AFTER April 2021 and BEFORE August,5 2021], set value to Option 3 to QID 5831.
 ifQ()
 .dateAfter("2021-04-30")
+.dateBefore("2021-08-05")
 .setValue(Q(5831), 3);
 
 //*******************************
