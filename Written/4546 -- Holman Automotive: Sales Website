@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 737
 // SID: 4546	
-// Last Updated: 7/29/2021	
+// Last Updated: 8/12/2021	
 //*******************************	
 
 
@@ -52,6 +52,13 @@ ifQ(281)
 .answered(2,3)
 .disappear(Q(291), Q(361))
 .clearAnswer(Q(291), Q(361));
+
+// If QID 281 is answered Option [2 OR 3], then disappear, clear answer, and make not required to QIDs.
+ifQ(281)
+.answered(2,3)
+.disappear(Q(921), Q(1341), Q(1331))
+.clearAnswer(Q(921), Q(1341), Q(1331))
+.makeNotRequired(Q(921), Q(1341), Q(1331));
 
 // If QID 301 is answered Option 1, then disappear and clear answer to QID 461.
 ifQ(301)
