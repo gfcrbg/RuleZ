@@ -1,7 +1,7 @@
 ### Announcements
 
 ## June 2021
-New standard practice.  Every code block must end with a semicolon.  This will allow the error checker to identify code blocks that erroenously begin with a period.  Such as .ifQ()
+New standard practice.  Every code block must end with a semicolon.  This allows the error checker to identify code blocks that erroenously begin with a period.  Such as ```.ifQ()```.
 
 ## January 2021
 
