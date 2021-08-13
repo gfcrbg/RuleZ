@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 737
 // SID: 4546	
-// Last Updated: 8/12/2021	
+// Last Updated: 8/13/2021	
 //*******************************	
 
 
@@ -38,7 +38,7 @@ ifQ(741)
 
 
 //*******************************
-// DEALER RESPONE - 48 HOUR - Begin
+// DEALER RESPONSE - 48 HOUR - Begin
 //*******************************
 
 // If QID 261 is answered Option [2 OR 3], then disappear and clear answer to QID 271.
@@ -137,14 +137,14 @@ ifQ(1181)
 .clearAnswer(Q(1171));
 
 //*******************************
-// DEALER RESPONE - 48 HOUR - End
+// DEALER RESPONSE - 48 HOUR - End
 //*******************************
 
 
 
 
 //*******************************
-// DEALER RESPONE - DAY 3 - Begin
+// DEALER RESPONSE - DAY 3 - Begin
 //*******************************
 
 // If QID 1231 is answered Option 1, then disappear and clear answer to QIDs.
@@ -188,14 +188,14 @@ ifQ(1201)
 .clearAnswer(Q(1211));
 
 //*******************************
-// DEALER RESPONE - DAY 3 - End
+// DEALER RESPONSE - DAY 3 - End
 //*******************************
 
 
 
 
 //*******************************
-// DEALER RESPONE - DAY 4 - Begin
+// DEALER RESPONSE - DAY 4 - Begin
 //*******************************
 
 // If QID 1231 is answered Option 1, then disappear and clear answer to QIDs.
@@ -212,9 +212,9 @@ ifQ(1381)
 .disappear(Q(1391))
 .clearAnswer(Q(1391));
 
-// If QID 1391 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+// If QID 1391 is answered Option [0,2, OR 3], then disappear and clear answer to QIDs.
 ifQ(1391)
-.answered(0,2)
+.answered(0,2,3)
 .disappear(Q(1291)) // red remark(s)
 .disappear(Q(1031), Q(1041))
 .clearAnswer(Q(1031), Q(1041));
@@ -226,14 +226,14 @@ ifQ(1391)
 .clearAnswer(Q(941), Q(951));
 
 //*******************************
-// DEALER RESPONE - DAY 4 - End
+// DEALER RESPONSE - DAY 4 - End
 //*******************************
 
 
 
 
 //*******************************
-// DEALER RESPONE - DAY 5 - Begin
+// DEALER RESPONSE - DAY 5 - Begin
 //*******************************
 
 // If QID 1231 is answered Option 1, then disappear and clear answer to QIDs.
@@ -264,5 +264,5 @@ ifQ(1411)
 .clearAnswer(Q(1011), Q(1021));
 
 //*******************************
-// DEALER RESPONE - DAY 5 - End
+// DEALER RESPONSE - DAY 5 - End
 //*******************************
