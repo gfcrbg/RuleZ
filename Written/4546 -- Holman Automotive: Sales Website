@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 737
 // SID: 4546	
-// Last Updated: 8/13/2021	
+// Last Updated: 8/16/2021	
 //*******************************	
 
 
@@ -212,9 +212,9 @@ ifQ(1381)
 .disappear(Q(1391))
 .clearAnswer(Q(1391));
 
-// If QID 1391 is answered Option [0,2, OR 3], then disappear and clear answer to QIDs.
+// If QID 1391 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
 ifQ(1391)
-.answered(0,2,3)
+.answered(0,1)
 .disappear(Q(1291)) // red remark(s)
 .disappear(Q(1031), Q(1041))
 .clearAnswer(Q(1031), Q(1041));
