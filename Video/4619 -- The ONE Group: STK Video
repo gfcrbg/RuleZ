@@ -15,7 +15,7 @@
 // Time Calc Drinks - Begin
 //-------------------------------
 
-//
+// If QID [2501 AND 2511] answered anything, then trigger math operation: [2511] - [2501] = [2541]
 ifQ(2501)
 .answered()
 .andQ(2511)
@@ -23,18 +23,18 @@ ifQ(2501)
 .sub(Q(2511), Q(2501))
 .store(Q(2541));
 
-//
+// If QDI 2541 is answered < 5 minutes, then set value to Option 1 to QID 1091.
 ifQ(2541)
 .lessThan(300)
 .setValue(Q(1091),1);
 
-//
+// If QID 2541 is >= 5 minutes AND <= 7 minutes, then set value to Option 2 to QID 1091.
 ifQ(2541)
 .greaterThanOrEqual(300)
 .lessThanOrEqual(420)
 .setValue(Q(1091),2);
 
-//
+// If QID 2541 is > 7 minutes, set value to Option 3 to QID 1091.
 ifQ(2541)
 .greaterThan(420)
 .setValue(Q(1091),3);
@@ -58,7 +58,7 @@ ifQ(2541)
 // Time Calc Appetizers - Begin
 //-------------------------------
 
-//
+// If QID [2521 AND 2531] answered anything, then trigger math operation: [2531] - [2521] = [2551]
 ifQ(2521)
 .answered()
 .andQ(2531)
@@ -66,18 +66,18 @@ ifQ(2521)
 .sub(Q(2531), Q(2521))
 .store(Q(2551));
 
-//
+// If QID 2551 is < 10 minutes, then set value to Option 1 to QID 1131.
 ifQ(2551)
 .lessThan(600)
 .setValue(Q(1131),1);
 
-//
+// If QID 2551 is >= 10 minutes AND <= 15 minutes, then set value to Option 2 to QID 1131.
 ifQ(2551)
 .greaterThanOrEqual(600)
 .lessThanOrEqual(900)
 .setValue(Q(1131),2);
 
-//
+// If QID 2551 is > 15 minutes, then set value to Option 3 to QID 1131.
 ifQ(2551)
 .greaterThan(900)
 .setValue(Q(1131),3);
@@ -86,16 +86,16 @@ ifQ(2551)
 // Time Calc Appetizers - End
 //-------------------------------
 
-//
+// If shop date is anything, then set value to Option 4 to QID 1151.
 ifQ(1)
 .answered()
-.setValue(Q(1151),4)
+.setValue(Q(1151),4);
 
 //-------------------------------
 // Time Calc Dessert - Begin
 //-------------------------------
 
-//
+// If QID [2481 AND 2491] answered anything, then trigger math operation: [2491] - [2481] = [2561]
 ifQ(2481)
 .answered()
 .andQ(2491)
@@ -103,18 +103,18 @@ ifQ(2481)
 .sub(Q(2491), Q(2481))
 .store(Q(2561));
 
-//
+// If QID 2561 is < 7 minutes, then set value to Option 1 to QID 1171.
 ifQ(2561)
 .lessThan(420)
 .setValue(Q(1171),1);
 
-//
+// If QID 2561 is >= 7 minutes AND <= 12 minutes, then set value to Option 2 to QID 1171.
 ifQ(2561)
 .greaterThanOrEqual(420)
 .lessThanOrEqual(720)
 .setValue(Q(1171),2);
 
-//
+// If QID 2561 is > 12 minutes, then set value to Option 3 to QID 1171.
 ifQ(2561)
 .greaterThan(720)
 .setValue(Q(1171),3);
