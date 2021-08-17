@@ -7,6 +7,17 @@
 
 
 
+// If QID [2441 AND 2451] answered anything, then trigger math operation: [2451] - [2441] = [2571]
+ifQ(2441)
+.answered()
+.andQ(2451)
+.answered()
+.sub(Q(2451), Q(2441))
+.store(Q(2571));
+
+
+
+
 //*******************************
 // BEVERAGES - Begin
 //*******************************
