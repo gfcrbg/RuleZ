@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 8/2/2021
+// Last Updated: 8/19/2021
 //*******************************
 
 
@@ -96,22 +96,46 @@ ifQ(3031)
 .disappear(Q(2911))
 .clearAnswer(Q(2911));
 
-// Shop Date Trigger [July 2020], if QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 2911.
+// Shop Date Trigger [AFTER June 2020 and BEFORE August 2021], if QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 2911.
 ifQ()
 .dateAfter("2020-06-30")
+.dateBefore("2021-08-01")
 .andQ(3031)
 .answered(2)
 .hideOptions(Q(2911), 3,4);
 
-// Shop Date Trigger [after June 2020], if QID 3031 answered Option 2 and QID 2911 answered Option [3 OR 4] and if QID 2911 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
+// Shop Date Trigger [AFTER June 2020 and BEFORE August 2021], if QID 3031 answered Option 2 and QID 2911 answered Option [3 OR 4] and if QID 2911 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
 ifQ()
 .dateAfter("2020-06-30")
+.dateBefore("2021-08-01")
 .andQ(3031)
 .answered(2)
 .andQ(2911)
 .answered(3,4)
 .andifQ(2911)
 .notAnswered(1,2,5)
+.setValue(Q(3031), 1);
+
+//----8351------
+
+// If QID 3031 is answered Option [1 OR 3], then disappear and clear answer to QID 8351.
+ifQ(3031)
+.answered(1,3)
+.disappear(Q(8351))
+.clearAnswer(Q(8351));
+
+// If QID 3031 is answered Option 2, then hide Option [3 AND 4] for QID 8351.
+ifQ(3031)
+.answered(2)
+.hideOptions(Q(8351), 3,4);
+
+// If QID 3031 answered Option 2 and QID 8351 answered Option [3 OR 4] and if QID 8351 is not answered Option [1, 2, OR 5], then set value to Option 1 to QID 3031. 
+ifQ(3031)
+.answered(2)
+.andQ(8351)
+.answered(3,4)
+.andifQ(8351)
+.notAnswered(1,2,5,6,7)
 .setValue(Q(3031), 1);
 
 //---------------------------------------------
