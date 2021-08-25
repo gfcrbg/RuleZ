@@ -19,12 +19,21 @@ ifQ(861)
 .sub(Q(881), Q(861))
 .store(Q(1561));
 
-// If QID 1791 is answered Option 2, then disappear, clear answer, and make not required the QIDs.
+// If QID 1791 is answered Option 2, then disappear, clear answer, make not required, set value to 'N/A' to selected QIDs.
 ifQ(1791)
 .answered(2)
 .disappear(Q(741),Q(751),Q(761),Q(1451),Q(791),Q(841),Q(851),Q(861),Q(891),Q(881),Q(1551),Q(1561),Q(901),Q(911),Q(921),Q(931),Q(941),Q(951))
-.clearAnswer(Q(741),Q(751),Q(761),Q(1451),Q(791),Q(841),Q(851),Q(861),Q(891),Q(881),Q(1551),Q(1561),Q(901),Q(911),Q(921),Q(931),Q(941),Q(951))
-.makeNotRequired(Q(741),Q(751),Q(761),Q(1451),Q(791),Q(841),Q(851),Q(861),Q(891),Q(881),Q(1551),Q(1561),Q(901),Q(911),Q(921),Q(931),Q(941),Q(951));
+.makeNotRequired(Q(741),Q(751),Q(761),Q(1451),Q(791),Q(841),Q(851),Q(861),Q(891),Q(881),Q(1551),Q(1561),Q(901),Q(911),Q(921),Q(931),Q(941),Q(951))
+.clearAnswer(Q(751),Q(861),Q(881),Q(1561),Q(931),Q(951))
+.setValue(Q(741),3)
+.setValue(Q(761),3)
+.setValue(Q(791),3)
+.setValue(Q(891),3)
+.setValue(Q(1551),3)
+.setValue(Q(901),3)
+.setValue(Q(911),4)
+.setValue(Q(921),3)
+.setValue(Q(941),3);
 
 //*******************************
 // DELI - End
