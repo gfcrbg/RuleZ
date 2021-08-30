@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 643	
 // SID: 4619	
-// Last Updated: 8/17/2021	
+// Last Updated: 8/30/2021	
 //*******************************	
 
 
@@ -14,6 +14,49 @@ ifQ(2441)
 .answered()
 .sub(Q(2451), Q(2441))
 .store(Q(2571));
+
+
+
+
+
+//*******************************
+// TABLE SERVICE - Begin
+//*******************************
+
+//-------------------------------
+// Time Calc Greeting - Begin
+//-------------------------------
+
+// If QID [2461 AND 2471] answered anything, then trigger math operation: [2471] - [2461] = [2611]
+ifQ(2461)
+.answered()
+.andQ(2471)
+.answered()
+.sub(Q(2471), Q(2461))
+.store(Q(2611));
+
+// If QID 2611 is answered < 1.5 minutes, then set value to Option 1 to QID 761.
+ifQ(2611)
+.lessThan(90)
+.setValue(Q(761),1);
+
+// If QID 2611 is >= 1.5 minutes, then set value to Option 2 to QID 761.
+ifQ(2611)
+.greaterThanOrEqual(90)
+.setValue(Q(761),2);
+
+// If QID 2611 not answered, then set value to Option 3 to QID 761.
+ifQ(2611)
+.notAnswered()
+.setValue(Q(761),3);
+
+//-------------------------------
+// Time Calc Greeting - End
+//-------------------------------
+
+//*******************************
+// TABLE SERVICE - End
+//*******************************
 
 
 
@@ -34,7 +77,7 @@ ifQ(2501)
 .sub(Q(2511), Q(2501))
 .store(Q(2541));
 
-// If QDI 2541 is answered < 5 minutes, then set value to Option 1 to QID 1091.
+// If QID 2541 is answered < 5 minutes, then set value to Option 1 to QID 1091.
 ifQ(2541)
 .lessThan(300)
 .setValue(Q(1091),1);
