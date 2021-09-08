@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 712	
 // SID: 4474	
-// Last Updated: 8/10/2021	
+// Last Updated: 9/7/2021	
 //*******************************	
 
 
@@ -62,11 +62,33 @@ ifQ(1361)
 // MEAT - Begin
 //*******************************
 
-// If QID 2311 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+// If QID 2311 is answered Option [2 OR 3], then disappear and set value to Option 2 to QID 5881.
 ifQ(2311)
 .answered(2,3)
-.disappear(Q(3371), Q(3361), Q(5741), Q(3391), Q(4881), Q(4891), Q(3381), Q(3401), Q(5431))
-.clearAnswer(Q(3371), Q(3361), Q(5741), Q(3391), Q(4881), Q(4891), Q(3381), Q(3401), Q(5431));
+.setValue(Q(5881), 2)
+.disappear(Q(5881));
+
+// If QID 2311 is answered Option [2 OR 3] AND QID 5881 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2311)
+.answered(2,3)
+.andQ(5881)
+.answered(2)
+.disappear(Q(3371), Q(3361), Q(5741), Q(3381), Q(3401), Q(5431), Q(3391), Q(4881), Q(4891))
+.clearAnswer(Q(3371), Q(3361), Q(5741), Q(3381), Q(3401), Q(5431), Q(3391), Q(4881), Q(4891));
+
+// If QID 2311 AND QID 5881 is answered Option 1, then force appear, force disappear, and set value to QIDs.
+ifQ(2311)
+.answered(1)
+.andQ(5881)
+.answered(1)
+.forceAppear(Q(3391), Q(4881), Q(4891))
+.forceDisappear(Q(3371), Q(3361), Q(5741), Q(3381), Q(3401), Q(5431))
+.setValue(Q(3371), 3)
+.setValue(Q(3361), 3)
+.setValue(Q(5741), 6)
+.setValue(Q(3381), 3)
+.setValue(Q(3401), 3)
+.setValue(Q(5431), 3);
 
 //*******************************
 // MEAT - End
@@ -79,11 +101,33 @@ ifQ(2311)
 // SEAFOOD - Begin
 //*******************************
 
-// If QID 2591 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+// If QID 2591 is answered Option [2 OR 3], then disappear and set value to Option 2 to QID 5891.
 ifQ(2591)
 .answered(2,3)
-.disappear(Q(2621), Q(2601), Q(5751), Q(2711), Q(4741), Q(4751), Q(2701), Q(5671), Q(5411))
+.setValue(Q(5891), 2)
+.disappear(Q(5891));
+
+// If QID 2591 is answered Option [2 OR 3] AND QID 5891 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2591)
+.answered(2,3)
+.andQ(5891)
+.answered(2)
+.disappear(Q(2621), Q(2601), Q(5751), Q(2701), Q(5671), Q(5411), Q(2711), Q(4741), Q(4751))
 .clearAnswer(Q(2621), Q(2601), Q(5751), Q(2711), Q(4741), Q(4751), Q(2701), Q(5671), Q(5411));
+
+// If QID 2591 AND QID 5891 answered Option 1, then force appear, force disappear, and set value to QIDs.
+ifQ(2591)
+.answered(1)
+.andQ(5891)
+.answered(1)
+.forceAppear(Q(2711), Q(4741), Q(4751))
+.forceDisappear(Q(2621), Q(2601), Q(5751), Q(2701), Q(5671), Q(5411))
+.setValue(Q(2621), 3)
+.setValue(Q(2601), 3)
+.setValue(Q(5751), 6)
+.setValue(Q(2701), 3)
+.setValue(Q(5671), 3)
+.setValue(Q(5411), 3);
 
 //*******************************
 // SEAFOOD - End
