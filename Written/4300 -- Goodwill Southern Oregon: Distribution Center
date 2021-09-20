@@ -1,0 +1,20 @@
+//*******************************	
+// CID: 504	
+// SID: 4300	
+// Last Updated: 9/20/2021	
+//*******************************	
+
+
+
+
+// If QID 201 is answered Option 1, disappear and set value to QIDs.
+ifQ(201)
+.answered(1)
+.disappear(Q(51),Q(61),Q(71),Q(91))
+.setValue(Q(51), 3)
+.setValue(Q(61), 3)
+.setValue(Q(71), 3)
+.setValue(Q(91), 3);
+
+
+
