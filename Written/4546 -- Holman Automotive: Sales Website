@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 737
 // SID: 4546	
-// Last Updated: 9/23/2021	
+// Last Updated: 9/24/2021	
 //*******************************	
 
 
@@ -147,12 +147,13 @@ ifQ(1181)
 // DEALER RESPONSE - DAY 3 - Begin
 //*******************************
 
-// If QID 1231 is answered Option 1, then disappear and clear answer to QID 781 and black remark(s).
+// If QID 1231 is answered Option 1, then disappear and clear answer to QID 781, black remark, and red remarks.
 ifQ(1231)
 .answered(1)
 .disappear(Q(771), Q(831)) // black remarks
-.disappear(Q(781))
-.clearAnswer(Q(781));
+.disappear(Q(1121), Q(1281)) // red remarks
+.disappear(Q(781), Q(931), Q(1351), Q(1361))
+.clearAnswer(Q(781), Q(931), Q(1351), Q(1361));
 
 // If QID 781 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 811.
 ifQ(781)
