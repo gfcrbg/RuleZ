@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 7/19/2021	
+// Last Updated: 9/30/2021	
 //*******************************	
 
 
@@ -91,6 +91,13 @@ ifQ()
 .disappear(Section(4), Section(5))
 .clearAnswer(Section(4), Section(5))
 .makeNotRequired(Section(4), Section(5));
+
+// LTC and Roost
+ifQ()
+.ulgIs('LTC and Roost')
+.disappear(Section(5), Section(6))
+.clearAnswer(Section(5), Section(6))
+.makeNotRequired(Section(5), Section(6));
 
 //-------------------------------------------
 // ULG Switch - End
