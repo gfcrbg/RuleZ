@@ -1,0 +1,26 @@
+//*******************************	
+// CID: 652
+// SID: 4630	
+// Last Updated: 10/1/2021	
+//*******************************	
+
+
+
+
+//*******************************
+// BAR CONTROLS - Begin
+//*******************************
+
+// If QID 1521 is answered Option 2, then set values to QIDs.
+ifQ(1521)
+.answered(2)
+.setValue(Q(291), 3)
+.setValue(Q(301), 3) 
+.setValue(Q(311), 3) 
+.setValue(Q(321), 3) 
+.setValue(Q(331), 3) 
+.setValue(Q(1471), 3);  
+
+//*******************************
+// BAR CONTROLS - End
+//*******************************
