@@ -1,8 +1,26 @@
 //*******************************	
 // CID: 712	
 // SID: 4474	
-// Last Updated: 9/13/2021	
+// Last Updated: 10/14/2021	
 //*******************************	
+
+
+
+
+// If shop date is within the following date ranges, trigger error message.
+// Nov. 22-25 (Mon.-Thur.)
+// Dec. 20-25 (Mon.-Sat.)
+// Dec. 31-Jan. 1 (Fri.-Sun.
+ifQ(1)
+.dateAfter("2021-11-21")
+.dateBefore("2021-11-26")
+.orifQ(1)
+.dateAfter("2021-12-19")
+.dateBefore("2021-12-26")
+.orifQ(1)
+.dateAfter("2021-12-30")
+.dateBefore("2022-01-02")
+.setError("Date shop performed is a blackout date, please submit a mailer.");
 
 
 
