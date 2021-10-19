@@ -36,31 +36,61 @@ ifQ(1)
 // FOOD SERVICE - Begin
 //*******************************
 
-// If shop date is before March 1, 2020, then trigger math operation: [QID 1551] - [QID 1541] = [QID 1571]
+// If QID [1621 AND 1631] answered anything, then trigger math operation: [QID 1631] - [QID 1621] = [QID 1641]
+ifQ(1621)
+.answered()
+.andQ(1631)
+.answered()
+.sub(Q(1631), Q(1621))
+.store(Q(1641));
+
+// If shop date is AFTER February 29, 2020 AND QID 1571 < 10 minutes, then set value to Option 1 to QID 1501.
+ifQ()
+.dateAfter("2020-02-29")
+.andQ(1641)
+.lessThan(600)
+.setValue(Q(1501), 1);
+
+// If shop date is AFTER February 29, 2020 AND QID 1571 >= 10 minutes AND < 12 minutes, then set value to Option 2 to QID 1501.
+ifQ()
+.dateAfter("2020-02-29")
+.andifQ(1641)
+.greaterThanOrEqual(600)
+.lessThan(720)
+.setValue(Q(1501), 2);
+
+// If shop date is AFTER February 29, 2020 AND QID 1571 >= 12 minutes, then set value to Option 3 to QID 1501.
+ifQ()
+.dateAfter("2020-02-29")
+.andifQ(1641)
+.greaterThanOrEqual(720)
+.setValue(Q(1501), 3);
+
+// If shop date is BEFORE March 1, 2020, then trigger math operation: [QID 1551] - [QID 1541] = [QID 1571]
 ifQ()
 .dateBefore("2020-03-01")
 .sub(Q(1551), Q(1541))
 .store(Q(1571));
 
-// If QID 1571 < 10 minutes, then set value to Option 1 to QID 1501.
+// If shop date is BEFORE March 1, 2020 AND QID 1571 < 10 minutes, then set value to Option 1 to QID 1501.
 ifQ()
 .dateBefore("2020-03-01")
-.andifQ(1571)
+.andQ(1571)
 .lessThan(600)
 .setValue(Q(1501), 1);
 
-// If QID 1571 >= 10 minutes AND < 12 minutes, then set value to Option 2 to QID 1501.
+// If shop date is BEFORE March 1, 2020 AND QID 1571 >= 10 minutes AND < 12 minutes, then set value to Option 2 to QID 1501.
 ifQ()
 .dateBefore("2020-03-01")
-.andifQ(1571)
+.andQ(1571)
 .greaterThanOrEqual(600)
 .lessThan(720)
 .setValue(Q(1501), 2);
 
-// If QID 1571 >= 12 minutes, then set value to Option 3 to QID 1501.
+// If shop date is BEFORE March 1, 2020 AND QID 1571 >= 12 minutes, then set value to Option 3 to QID 1501.
 ifQ()
 .dateBefore("2020-03-01")
-.andifQ(1571)
+.andQ(1571)
 .greaterThanOrEqual(720)
 .setValue(Q(1501), 3);
 
