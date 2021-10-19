@@ -1,7 +1,7 @@
 //*******************************
 // CID: 577
 // SID: 4284
-// Last Updated: 3/10/2020
+// Last Updated: 10/19/2021
 //*******************************
 
 
@@ -43,18 +43,24 @@ ifQ()
 .store(Q(1571));
 
 // If QID 1571 < 10 minutes, then set value to Option 1 to QID 1501.
-ifQ(1571)
+ifQ()
+.dateBefore("2020-03-01")
+.andifQ(1571)
 .lessThan(600)
 .setValue(Q(1501), 1);
 
 // If QID 1571 >= 10 minutes AND < 12 minutes, then set value to Option 2 to QID 1501.
-ifQ(1571)
+ifQ()
+.dateBefore("2020-03-01")
+.andifQ(1571)
 .greaterThanOrEqual(600)
 .lessThan(720)
 .setValue(Q(1501), 2);
 
 // If QID 1571 >= 12 minutes, then set value to Option 3 to QID 1501.
-ifQ(1571)
+ifQ()
+.dateBefore("2020-03-01")
+.andifQ(1571)
 .greaterThanOrEqual(720)
 .setValue(Q(1501), 3);
 
