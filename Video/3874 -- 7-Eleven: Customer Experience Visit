@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 8/19/2021
+// Last Updated: 10/19/2021
 //*******************************
 
 
@@ -62,6 +62,32 @@ ifQ()
 //---------------------------------------------
 // ULG Settings - End
 //---------------------------------------------
+
+
+
+
+//********************************
+// STORE EXTERIOR - Begin
+//********************************
+
+// If shop date is AFTER September 30, 2021 and country is Canada, then hide Option 3 to QID 8331.
+ifQ()
+.dateAfter("2021-09-30") 
+.countryIs('Canada')
+.hideOptions(Q(8331), 3);
+
+// If shop date is AFTER September 30, 2021, country is Canada, and QID 8331 is answered Option 3, then clear answer to QID 8331 and trigger error string.
+ifQ()
+.dateAfter("2021-09-30") 
+.countryIs('Canada')
+.andQ(8331)
+.answered(3)
+.clearAnswer(Q(8331))
+.setError("Do NOT select Option 3.");
+
+//********************************
+// STORE EXTERIOR - End
+//********************************
 
 
 
