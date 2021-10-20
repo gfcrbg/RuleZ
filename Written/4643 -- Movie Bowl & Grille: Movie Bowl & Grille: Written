@@ -1,0 +1,60 @@
+//*******************************
+// CID: 762
+// SID: 4643
+// Last Updated: 10/20/2021
+//*******************************
+
+
+// Will add the cost of purchase when a field is filled.
+ifQ(71)
+.answered()
+.orifQ(91)
+.answered()
+.orifQ(111)
+.answered()
+.orifQ(121)
+.answered()
+.sum(Q(71), Q(91), Q(111), Q(121))
+.store(Q(1631))
+
+// Will clear the total amount if no values are entered.
+ifQ(71)
+.notAnswered()
+.andQ(91)
+.notAnswered()
+.andQ(111)
+.notAnswered()
+.andQ(121)
+.notAnswered()
+.clearAnswer(Q(1631))
+
+
+//----Section Activation----
+
+// Movies - hides movies section if not selected.
+ifQ(2191)
+.notAnswered(1)
+.disappear(Section(1))
+.clearAnswer(Section(1))
+.makeNotRequired(Section(1));
+
+// Bowling - hides bowling section if not selected.
+ifQ(2191)
+.notAnswered(2)
+.disappear(Section(2))
+.clearAnswer(Section(2))
+.makeNotRequired(Section(2));
+
+// Billy's Grille - hides Billy's Grille section if not selected.
+ifQ(2191)
+.notAnswered(3)
+.disappear(Section(4))
+.clearAnswer(Section(4))
+.makeNotRequired(Section(4));
+
+// Arcade - hides arcade section if not selected.
+ifQ(2191)
+.notAnswered(4)
+.disappear(Section(3))
+.clearAnswer(Section(3))
+.makeNotRequired(Section(3));
