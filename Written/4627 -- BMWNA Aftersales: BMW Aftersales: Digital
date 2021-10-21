@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 758	
 // SID: 4627	
-// Last Updated: 10/15/2021	
+// Last Updated: 10/21/2021	
 //*******************************	
 
 
@@ -58,11 +58,19 @@ ifQ(211)
 // ONLINE SCHEDULING TOOL - Begin
 //*******************************
 
+// If shop date is BEFORE October, 22 2021 and if QID 301 is answered Option 2, then disappear and clear answer to QID 1401.
+ifQ()
+.dateBefore("2021-10-22")
+.andQ(301)
+.answered(2)
+.disappear(Q(1401))
+.clearAnswer(Q(1401));
+
 // If QID 301 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(301)
 .answered(2)
-.disappear(Q(1401), Q(1121), Q(321), Q(331), Q(1611), Q(341), Q(351), Q(1621), Q(361), Q(371), Q(381), Q(1391), Q(391), Q(1331), Q(401), Q(1381), Q(411), Q(441), Q(451), Q(461), Q(471), Q(481), Q(501))
-.clearAnswer(Q(1401), Q(1121), Q(321), Q(331), Q(1611), Q(341), Q(351), Q(1621), Q(361), Q(371), Q(381), Q(1391), Q(391), Q(1331), Q(401), Q(1381), Q(411), Q(441), Q(451), Q(461), Q(471), Q(481), Q(501));
+.disappear(Q(1651), Q(1121), Q(321), Q(331), Q(1611), Q(341), Q(351), Q(1621), Q(361), Q(371), Q(381), Q(1391), Q(391), Q(1331), Q(401), Q(1381), Q(411), Q(441), Q(451), Q(461), Q(471), Q(481), Q(501))
+.clearAnswer(Q(1651), Q(1121), Q(321), Q(331), Q(1611), Q(341), Q(351), Q(1621), Q(361), Q(371), Q(381), Q(1391), Q(391), Q(1331), Q(401), Q(1381), Q(411), Q(441), Q(451), Q(461), Q(471), Q(481), Q(501));
 
 // If QID 1331 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1331)
