@@ -1,0 +1,857 @@
+//*******************************	
+// CID: 680	
+// SID: 4535	
+// Last Updated: 10/7/2021	
+//*******************************	
+
+
+
+
+//*******************************
+// ASSEMBLY LINE - Begin
+//*******************************
+
+// If QIDs [791 AND 801] answered anything, then trigger math operation: [801] - [791] = [811]
+ifQ(791)
+.answered()
+.andQ(801)
+.answered()
+.sub(Q(801) , Q(791))
+.store(Q(811));
+
+// If QID 811 is < 6 minutes, then set value to Option 1 to QID 161.
+ifQ(811)
+.lessThan(360)
+.setValue(Q(161),1);
+
+// If QID 811 is >= 6 minutes AND <= 10 minutes, then set value to Option 2 to QID 161.
+ifQ(811)
+.greaterThanOrEqual(360)
+.lessThanOrEqual(600)
+.setValue(Q(161),2);
+
+// If QID 811 is > 10 minutes, then set value to Option 3 to QID 161.
+ifQ(811)
+.greaterThan(600)
+.setValue(Q(161),3);
+
+// If QID 811 is not answered, clear answer to QID 161.
+ifQ(811)
+.notAnswered()
+.clearAnswer(Q(161))
+
+//*******************************
+// ASSEMBLY LINE - End
+//*******************************
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QIDs [881 AND 891] answered anything, then trigger math operation: [891] - [881] = [911]
+ifQ(961)
+.answered()
+.sub(Q(891),Q(881))
+.store(Q(911));
+
+// If QID 911 is <= 4 minutes, then set value to Option 1 to QID 371.
+ifQ(911)
+.lessThanOrEqual(240)
+.setValue(Q(371),1);
+
+// If QID 911 is > 4 minutes, then set value to Option 2 to QID 371.
+ifQ(911)
+.greaterThan(240)
+.setValue(Q(371),2);
+
+// If QID 911 is <= 4 minutes, then set value to Option 1 to QID 981.
+ifQ(911)
+.lessThanOrEqual(240)
+.setValue(Q(981),1);
+
+// If QID 911 is > 4 minutes, then set value to Option 2 to QID 981.
+ifQ(911)
+.greaterThan(240)
+.setValue(Q(981),2);
+
+// If QID 911 is answered <= 5 minutes, then set value to Option 1 to QID 971.
+ifQ(911)
+.lessThanOrEqual(300)
+.setValue(Q(971), 1);
+
+// If QID 911 is answered > 5 minutes, then set value to Option 2 to QID 971.
+ifQ(911)
+.greaterThan(300)
+.setValue(Q(971), 2);
+
+// If QID 961 is answered Option 1, then disappear and clear answer to QID 981.
+ifQ(961)
+.answered(1)
+.disappear(Q(981))
+.clearAnswer(Q(981));
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QID 971.
+ifQ(961)
+.answered(2)
+.disappear(Q(971))
+.clearAnswer(Q(971));
+
+//*******************************
+// SERVICE - End
+//*******************************
+
+
+
+
+
+
+//========================
+// Custom Scoring - Begin
+//========================
+
+//-------------------------------------------
+// Assembly Line Score Calc - Begin
+//-------------------------------------------
+
+// Assembly Line total points possible
+ifQ(1401)
+.greaterThanOrEqual(0)
+.setValue(Q(1441), 17);
+
+
+// Q161 score 2/2
+ifQ(161)
+.answered(1)
+.setValue(Q(1081), '2');
+
+// Q161 score 1/2
+ifQ(161)
+.answered(2)
+.setValue(Q(1081), '1');
+
+// Q161 score 0/2
+ifQ(161)
+.answered(3)
+.setValue(Q(1081), '0');
+
+// Q161 score No Answer
+ifQ(161)
+.notAnswered()
+.setValue(Q(1081), '');
+
+
+// Q171 score 1/1
+ifQ(171)
+.answered(1)
+.setValue(Q(1091), '1');
+
+// Q171 score 0/1
+ifQ(171)
+.answered(2)
+.setValue(Q(1091), '0');
+
+// Q171 score 0/0
+ifQ(171)
+.answered(3)
+.setValue(Q(1091), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Q1031 score 1/1
+ifQ(1031)
+.answered(1)
+.setValue(Q(1101), '1');
+
+// Q1031 score 0/1
+ifQ(1031)
+.answered(2)
+.setValue(Q(1101), '0');
+
+
+// Q1041 score 2/2
+ifQ(1041)
+.answered([1,2])
+.setValue(Q(1121), '2');
+
+// Q1041 score 1/2
+ifQ(1041)
+.answered(1)
+.notAnswered(2)
+.setValue(Q(1121), '1 ');
+
+// Q1041 score 1/2
+ifQ(1041)
+.answered(2)
+.notAnswered(1)
+.setValue(Q(1121), '1 ');
+
+// Q1041 score 0/2
+ifQ(1041)
+.answered(3)
+.setValue(Q(1121), '0');
+
+// Q1041 score 0/0
+ifQ(1041)
+.answered(4)
+.setValue(Q(1121), '')
+.sub(Q(1441), 2)
+.store(Q(1441));
+
+// Q1041 score No Answer
+ifQ(1041)
+.notAnswered()
+.setValue(Q(1121), '');
+
+
+// Q191 score 2/2
+ifQ(191)
+.answered(1)
+.setValue(Q(1131), '2');
+
+// Q191 score 0/2
+ifQ(191)
+.answered(2)
+.setValue(Q(1131), '0');
+
+// Q191 score 0/0
+ifQ(191)
+.answered(3)
+.setValue(Q(1131), '')
+.sub(Q(1441), 2)
+.store(Q(1441));
+
+
+// Q201 score 3/3
+ifQ(201)
+.answered(1)
+.setValue(Q(1141), '3');
+
+// Q201 score 0/3
+ifQ(201)
+.answered(2)
+.setValue(Q(1141), '0');
+
+// Q201 score 0/0
+ifQ(201)
+.answered(3)
+.setValue(Q(1141), '')
+.sub(Q(1441), 3)
+.store(Q(1441));
+
+
+// Q211 score 1/1
+ifQ(211)
+.answered(1)
+.setValue(Q(1151), '1');
+
+// Q211 score 0/1
+ifQ(211)
+.answered(2)
+.setValue(Q(1151), '0');
+
+// Q211 score 0/0
+ifQ(211)
+.answered(3)
+.setValue(Q(1151), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Q221 score 1/1
+ifQ(221)
+.answered(1)
+.setValue(Q(1161), '1');
+
+// Q221 score 0/1
+ifQ(221)
+.answered(2)
+.setValue(Q(1161), '0');
+
+// Q221 score 0/0
+ifQ(221)
+.answered(3)
+.setValue(Q(1161), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Q231 score 1/1
+ifQ(231)
+.answered(1)
+.setValue(Q(1171), '1');
+
+// Q231 score 0/1
+ifQ(231)
+.answered(2)
+.setValue(Q(1171), '0');
+
+// Q231 score 0/0
+ifQ(231)
+.answered(3)
+.setValue(Q(1171), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Q241 score 1/1
+ifQ(241)
+.answered(1)
+.setValue(Q(1181), '1');
+
+// Q241 score 0/1
+ifQ(241)
+.answered(2)
+.setValue(Q(1181), '0');
+
+// Q241 score 0/0
+ifQ(241)
+.answered(3)
+.setValue(Q(1181), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Q251 score 1/1
+ifQ(251)
+.answered(1)
+.setValue(Q(1191), '1');
+
+// Q251 score 0/1
+ifQ(251)
+.answered(2)
+.setValue(Q(1191), '0');
+
+// Q251 score 0/0
+ifQ(251)
+.answered(3)
+.setValue(Q(1191), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Q271 score 1/1
+ifQ(271)
+.answered(1)
+.setValue(Q(1201), '1');
+
+// Q271 score 0/1
+ifQ(271)
+.answered(2)
+.setValue(Q(1201), '0');
+
+// Q271 score 0/0
+ifQ(271)
+.answered(3)
+.setValue(Q(1201), '')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+
+// Assembly Line actual points
+ifQ(1)
+.answered()
+.sum(Q(1081), Q(1091), Q(1101), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1171), Q(1181), Q(1191), Q(1201))
+.store(Q(1401));
+
+// Assembly Line total points possible
+ifQ(1401)
+.notAnswered()
+.clearAnswer(Q(1441));
+
+// Assembly Line score
+ifQ(1401)
+.greaterThanOrEqual(0)
+.divide(Q(1401), Q(1441))
+.store(Q(1411))
+.multiply(Q(1411), 100)
+.store(Q(1411));
+
+//-------------------------------------------
+// Assembly Line Score Calc - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Cashier Score Calc - Begin
+//-------------------------------------------
+
+// Cashier total points possible
+ifQ(1451)
+.greaterThanOrEqual(0)
+.setValue(Q(1461), 8);
+
+
+// Q311 score 1/1
+ifQ(311)
+.answered(1)
+.setValue(Q(1211), '1');
+
+// Q311 score 0/1
+ifQ(311)
+.answered(2)
+.setValue(Q(1211), '0');
+
+// Q311 score 0/0
+ifQ(311)
+.answered(3)
+.setValue(Q(1211), '')
+.sub(Q(1461), 1)
+.store(Q(1461));
+
+
+// Q321 score 3/3
+ifQ(321)
+.answered(1)
+.setValue(Q(1221), '3');
+
+// Q321 score 0/3
+ifQ(321)
+.answered(2)
+.setValue(Q(1221), '0');
+
+// Q321 score 0/0
+ifQ(321)
+.answered(3)
+.setValue(Q(1221), '')
+.sub(Q(1461), 3)
+.store(Q(1461));
+
+
+// Q331 score 1/1
+ifQ(331)
+.answered(1)
+.setValue(Q(1231), '1');
+
+// Q331 score 0/1
+ifQ(331)
+.answered(2)
+.setValue(Q(1231), '0');
+
+
+// Q1061 score 1/1
+ifQ(1061)
+.answered(1)
+.setValue(Q(1251), '1');
+
+// Q1061 score 0/1
+ifQ(1061)
+.answered(2)
+.setValue(Q(1251), '0');
+
+// Q1061 score 0/0
+ifQ(1061)
+.answered(3)
+.setValue(Q(1251), '')
+.sub(Q(1461), 1)
+.store(Q(1461));
+
+
+// Q1051 score 2/2
+ifQ(1051)
+.answered([1,2])
+.setValue(Q(1261), '2');
+
+// Q1051 score 1/2
+ifQ(1051)
+.answered(1)
+.notAnswered(2)
+.setValue(Q(1261), '1');
+
+// Q1051 score 1/2
+ifQ(1051)
+.answered(2)
+.notAnswered(1)
+.setValue(Q(1261), '1');
+
+// Q1051 score 0/2
+ifQ(1051)
+.answered(3)
+.setValue(Q(1261), '0');
+
+// Q1051 score 0/0
+ifQ(1051)
+.answered(4)
+.setValue(Q(1261), '')
+.sub(Q(1461), 2)
+.store(Q(1461));
+
+// Q1051 score No Answer
+ifQ(1051)
+.notAnswered()
+.setValue(Q(1261), '');
+
+
+// Cashier actual points
+ifQ(1)
+.answered()
+.sum(Q(1211), Q(1221), Q(1231), Q(1251), Q(1261))
+.store(Q(1451));
+
+// Cashier total points possible
+ifQ(1451)
+.notAnswered()
+.clearAnswer(Q(1461));
+
+// Cashier score
+ifQ(1451)
+.greaterThanOrEqual(0)
+.divide(Q(1451), Q(1461))
+.store(Q(1471))
+.multiply(Q(1471), 100)
+.store(Q(1471));
+
+//-------------------------------------------
+// Cashier Score Calc - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Service Score Calc - Begin
+//-------------------------------------------
+
+// Service total points possible
+ifQ(1481)
+.greaterThanOrEqual(0)
+.setValue(Q(1491), 8);
+
+
+// Q981 score 2/2
+ifQ(981)
+.answered(1)
+.setValue(Q(1281), '2');
+
+// Q981 score 0/2
+ifQ(981)
+.answered(2)
+.setValue(Q(1281), '0');
+
+// Q981 No Answer
+ifQ(981)
+.notAnswered()
+.clearAnswer(Q(1281));
+
+
+// Q971 score 2/2
+ifQ(971)
+.answered(1)
+.setValue(Q(1291), '2');
+
+// Q971 score 0/2
+ifQ(971)
+.answered(2)
+.setValue(Q(1291), '0');
+
+// Q971 No Answer
+ifQ(971)
+.notAnswered()
+.clearAnswer(Q(1291));
+
+
+// Q381 score 1/1
+ifQ(381)
+.answered(1)
+.setValue(Q(1301), '1');
+
+// Q381 score 0/1
+ifQ(381)
+.answered(2)
+.setValue(Q(1301), '0');
+
+
+// Q411 score 2/2
+ifQ(411)
+.answered(1)
+.setValue(Q(1311), '2');
+
+// Q411 score 0/2
+ifQ(411)
+.answered(2)
+.setValue(Q(1311), '0');
+
+// Q411 score 0/0
+ifQ(411)
+.answered(3)
+.setValue(Q(1311), '')
+.sub(Q(1491), 2)
+.store(Q(1491));
+
+
+// Q421 score 2/2
+ifQ(421)
+.answered(1)
+.setValue(Q(1321), '2');
+
+// Q421 score 0/2
+ifQ(421)
+.answered(2)
+.setValue(Q(1321), '0');
+
+// Q421 score 0/0
+ifQ(421)
+.answered(3)
+.setValue(Q(1321), '')
+.sub(Q(1491), 2)
+.store(Q(1491));
+
+
+// Q431 score 1/1
+ifQ(431)
+.answered(1)
+.setValue(Q(1331), '1');
+
+// Q431 score 0/1
+ifQ(431)
+.answered(2)
+.setValue(Q(1331), '0');
+
+
+// Service actual points
+ifQ(1)
+.answered()
+.sum(Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331))
+.store(Q(1481));
+
+// Service total points possible
+ifQ(1481)
+.notAnswered()
+.clearAnswer(Q(1491));
+
+// Service score
+ifQ(1481)
+.greaterThanOrEqual(0)
+.divide(Q(1481), Q(1491))
+.store(Q(1501))
+.multiply(Q(1501), 100)
+.store(Q(1501));
+
+//-------------------------------------------
+// Service Score Calc - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Cleanliness Score Calc - Begin
+//-------------------------------------------
+
+// Cleanliness total points possible
+ifQ(1511)
+.greaterThanOrEqual(0)
+.setValue(Q(1521), 6);
+
+
+// Q451 score 1/1
+ifQ(451)
+.answered(1)
+.setValue(Q(1341), '1');
+
+// Q451 score 0/1
+ifQ(451)
+.answered(2)
+.setValue(Q(1341), '0');
+
+// Q451 score 0/0
+ifQ(451)
+.answered(3)
+.setValue(Q(1341), '')
+.sub(Q(1521), 1)
+.store(Q(1521));
+
+
+// Q461 score 1/1
+ifQ(461)
+.answered(1)
+.setValue(Q(1351), '1');
+
+// Q461 score 0/1
+ifQ(461)
+.answered(2)
+.setValue(Q(1351), '0');
+
+// Q461 score 0/0
+ifQ(461)
+.answered(3)
+.setValue(Q(1351), '')
+.sub(Q(1521), 1)
+.store(Q(1521));
+
+
+// Q481 score 1/1
+ifQ(481)
+.answered(1)
+.setValue(Q(1361), '1');
+
+// Q481 score 0/1
+ifQ(481)
+.answered(2)
+.setValue(Q(1361), '0');
+
+// Q481 score 0/0
+ifQ(481)
+.answered(3)
+.setValue(Q(1361), '')
+.sub(Q(1521), 1)
+.store(Q(1521));
+
+
+// Q501 score 1/1
+ifQ(501)
+.answered(1)
+.setValue(Q(1371), '1');
+
+// Q501 score 0/1
+ifQ(501)
+.answered(2)
+.setValue(Q(1371), '0');
+
+// Q501 score 0/0
+ifQ(501)
+.answered(3)
+.setValue(Q(1371), '')
+.sub(Q(1521), 1)
+.store(Q(1521));
+
+
+// Q511 score 2/2
+ifQ(511)
+.answered(1)
+.setValue(Q(1381), '2');
+
+// Q511 score 0/2
+ifQ(511)
+.answered(2)
+.setValue(Q(1381), '0');
+
+// Q511 score 0/0
+ifQ(511)
+.answered(3)
+.setValue(Q(1381), '')
+.sub(Q(1521), 2)
+.store(Q(1521));
+
+
+// Cleanliness actual points
+ifQ(1)
+.answered()
+.sum(Q(1341), Q(1351), Q(1361), Q(1371), Q(1381))
+.store(Q(1511));
+
+// Cleanliness total points possible
+ifQ(1511)
+.notAnswered()
+.clearAnswer(Q(1521));
+
+// Cleanliness score
+ifQ(1511)
+.greaterThanOrEqual(0)
+.divide(Q(1511), Q(1521))
+.store(Q(1531))
+.multiply(Q(1531), 100)
+.store(Q(1531));
+
+//-------------------------------------------
+// Cleanliness Score Calc - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Intent to Return Score Calc - Begin
+//-------------------------------------------
+
+// Intent to Return total points possible
+ifQ(1541)
+.greaterThanOrEqual(0)
+.setValue(Q(1551), 4);
+
+
+// Q551 score 4/4
+ifQ(551)
+.answered(1)
+.setValue(Q(1391), '4');
+
+// Q551 score 3/4
+ifQ(551)
+.answered(2)
+.setValue(Q(1391), '3');
+
+// Q551 score 2/4
+ifQ(551)
+.answered(3)
+.setValue(Q(1391), '2');
+
+// Q551 score 1/4
+ifQ(551)
+.answered(4)
+.setValue(Q(1391), '1');
+
+// Q551 score 0/4
+ifQ(551)
+.answered(5)
+.setValue(Q(1391), '0');
+
+
+// Intent to Return actual points
+ifQ(1)
+.answered()
+.sum(Q(1391))
+.store(Q(1541));
+
+// Intent to Return total points possible
+ifQ(1541)
+.notAnswered()
+.clearAnswer(Q(1551));
+
+// Intent to Return score
+ifQ(1541)
+.greaterThanOrEqual(0)
+.divide(Q(1541), Q(1551))
+.store(Q(1561))
+.multiply(Q(1561), 100)
+.store(Q(1561));
+
+//-------------------------------------------
+// Intent to Return Score Calc - End
+//-------------------------------------------
+
+// Scorecard actual points
+ifQ(1)
+.answered()
+.sum(Q(1401), Q(1451), Q(1481), Q(1511), Q(1541))
+.store(Q(1571)); 
+
+// Scorecard total points possible
+ifQ(1)
+.answered()
+.sum(Q(1441), Q(1461), Q(1491), Q(1521), Q(1551))
+.store(Q(1581));
+ 
+// Scorecard overall score
+ifQ(1571)
+.greaterThan(0)
+.divide(Q(1571), Q(1581))
+.store(Q(1591))
+.multiply(Q(1591), 100)
+.store(Q(1591));
+
+// Grade C Red
+ifQ(1591)
+.lessThan(60)
+.setValue(Q(1431), 3);
+
+// Grade B Yellow
+ifQ(1591)
+.greaterThanOrEqual(60)
+.lessThanOrEqual(79.99)
+.setValue(Q(1431), 2);
+
+// Grade A Green
+ifQ(1591)
+.greaterThan(79.99)
+.setValue(Q(1431), 1);
+
+//========================
+// Custom Scoring - End
+//========================
