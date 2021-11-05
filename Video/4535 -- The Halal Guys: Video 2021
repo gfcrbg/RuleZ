@@ -116,6 +116,11 @@ ifQ(961)
 // Assembly Line Score Calc - Begin
 //-------------------------------------------
 
+// Hides the Q scores in section
+ifQ(1)
+.answered()
+.disappear(Q(1081), Q(1091), Q(1101), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1171), Q(1181), Q(1191), Q(1201), Q(1401), Q(1441), Q(1411));
+
 // Assembly Line total points possible
 ifQ(1401)
 .greaterThanOrEqual(0)
@@ -407,6 +412,11 @@ ifQ(1401)
 // Cashier Score Calc - Begin
 //-------------------------------------------
 
+// Hides the Q scores in section
+ifQ(1)
+.answered()
+.disappear(Q(1211), Q(1221), Q(1231), Q(1251), Q(1261), Q(1451), Q(1461), Q(1471)); 
+
 // Cashier total points possible
 ifQ(1451)
 .greaterThanOrEqual(0)
@@ -541,6 +551,11 @@ ifQ(1451)
 // Service Score Calc - Begin
 //-------------------------------------------
 
+// Hides the Q scores in section
+ifQ(1)
+.answered()
+.disappear(Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1481), Q(1491), Q(1501)); 
+
 // Service total points possible
 ifQ(1481)
 .greaterThanOrEqual(0)
@@ -664,6 +679,11 @@ ifQ(1481)
 //-------------------------------------------
 // Cleanliness Score Calc - Begin
 //-------------------------------------------
+
+// Hides the Q scores in section
+ifQ(1)
+.answered()
+.disappear(Q(1341), Q(1351), Q(1361), Q(1371), Q(1381), Q(1511), Q(1521), Q(1531)); 
 
 // Cleanliness total points possible
 ifQ(1511)
@@ -823,6 +843,11 @@ ifQ(1511)
 //-------------------------------------------
 // Intent to Return Score Calc - Begin
 //-------------------------------------------
+
+// Hides the Q scores in section
+ifQ(1)
+.answered()
+.disappear(Q(1391), Q(1541), Q(1551), Q(1561)); 
 
 // Intent to Return total points possible
 ifQ(1541)
