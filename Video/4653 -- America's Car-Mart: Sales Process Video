@@ -1,0 +1,67 @@
+//*******************************	
+// CID: 760
+// SID: 4653	
+// Last Updated: 11/16/2021	
+//*******************************	
+
+
+
+
+//*******************************
+// SALES PRESENTATION - Begin
+//*******************************
+
+// If QID [81 AND 81] answered anything, then trigger math operation: [91] - [81] = [101]
+ifQ(81)
+.answered()
+.andQ(91)
+.answered()
+.sub(Q(91), Q(81))
+.store(Q(101));
+
+// If QID 101 is < 2 minutes, then set value to Option 1 to QID 752.
+ifQ(101)
+.lessThan(120)
+.setValue(Q(752), 1);
+
+// If QID 101 is >= 2 minutes, then set value to Option 2 to QID 752.
+ifQ(101)
+.greaterThanOrEqual(120)
+.setValue(Q(752), 2);
+
+// If QID 101< 3 minutes, then set value to Option 1 to QID 692.
+ifQ(101)
+.lessThan(180)
+.setValue(Q(692), 1);
+
+// If QID 101 is >= 3 minutes, then set value to Option 2 to QID 692.
+ifQ(101)
+.greaterThanOrEqual(180)
+.setValue(Q(692), 2);
+
+// If QID 171 is answered Option 1, then disappear and clear answer to QID 181.
+ifQ(171)
+.answered(1)
+.disappear(Q(181))
+.clearAnswer(Q(181));
+
+//*******************************
+// SALES PRESENTATION - End
+//*******************************
+
+
+
+
+//*******************************
+// LOT PRESENTATION - Begin
+//*******************************
+
+// If QID 722 is answered Option 2, then disappear and clear answer to QID 732.
+ifQ(722)
+.answered(2)
+.disappear(Q(732))
+.clearAnswer(Q(732));
+
+//*******************************
+// LOT PRESENTATION - End
+//*******************************
