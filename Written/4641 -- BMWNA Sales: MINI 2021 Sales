@@ -1,0 +1,18 @@
+//*******************************	
+// CID: 757	
+// SID: 4641	
+// Last Updated: ?	
+//*******************************	
+// written by Colleen
+
+
+
+//Hide Chat if it is not available
+ifQ(91)
+.answered(1)
+.appear(Section(1))
+
+//Hide DRT section if it is not available
+ifQ(1391)
+.answered(1)
+.appear(Section(4))
