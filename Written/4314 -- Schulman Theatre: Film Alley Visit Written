@@ -1,7 +1,7 @@
 //*******************************
 // CID: 689
 // SID: 4314
-// Last Updated: 11/15/2021
+// Last Updated: 12/7/2021
 //*******************************
 
 
@@ -156,8 +156,10 @@ ifQ(1991)
 //*******************************
 
 // Old
-// If QID 1751 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(1751)
+// If shop date is BEFORE 10/1/2021 AND QID 1751 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ()
+.dateBefore('2021-10-01')
+.andQ(1751)
 .answered(0,2)
 .disappear(Q(1761), Q(1771), Q(1781), Q(1791))
 .clearAnswer(Q(1761), Q(1771), Q(1781), Q(1791));
