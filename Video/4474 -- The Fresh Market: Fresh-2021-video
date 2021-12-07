@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 712	
 // SID: 4474	
-// Last Updated: 10/14/2021	
+// Last Updated: 12/7/2021	
 //*******************************	
 
 
@@ -108,6 +108,11 @@ ifQ(2311)
 .setValue(Q(3401), 3)
 .setValue(Q(5431), 3);
 
+// If QID 5911 is answered Option 1, then set value to Option 3 to QID 4891.
+ifQ(5911)
+.answered(1)
+.setValue(Q(4891), 3)
+
 //*******************************
 // MEAT - End
 //*******************************
@@ -146,6 +151,11 @@ ifQ(2591)
 .setValue(Q(2701), 3)
 .setValue(Q(5671), 3)
 .setValue(Q(5411), 3);
+
+// If QID 5921 is answered Option 1, then set value to Option 3 to QID 4751.
+ifQ(5921)
+.answered(1)
+.setValue(Q(4751), 3)
 
 //*******************************
 // SEAFOOD - End
