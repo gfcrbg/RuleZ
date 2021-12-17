@@ -22,12 +22,12 @@ ifQ()
 // If ulg set is 'MA shops vs Scored', appear QIDs.
 ifQ()
 .ulgSetIs('MA shops vs Scored')
-.appear(Q(6891), Q(6901), Q(6931), Q(6951), Q(6961), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7051), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
+.appear(Q(6891), Q(6901), Q(6931), Q(6951), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
 
 // If ulg set is NOT 'MA shops vs Scored', clear answer to QIDs.
 ifQ()
 .ulgSetNot('MA shops vs Scored')
-.clearAnswer(Q(6891), Q(6901), Q(6931), Q(6951), Q(6961), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7051), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
+.clearAnswer(Q(6891), Q(6901), Q(6931), Q(6951), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
 
 // If ulg is 'Dark Stores', set value to Option 1 to QID 6861.
 ifQ()
@@ -37,21 +37,15 @@ ifQ()
 // If ulg is 'Canada Airport Locations', then set value to QIDs.
 ifQ()
 .ulgIs('Canada Airport Locations')
-.setValue(Q(2121), 1)
 .setValue(Q(51), 4)
 .setValue(Q(6871), 3);
 
 // If ulg is 'Confirmed No Gas', disappear and set value to 'N/A' to QIDs.
 ifQ()
 .ulgIs('Confirmed No Gas')
-.disappear(Q(1761), Q(5071), Q(2991), Q(1641), Q(1651), Q(2271), Q(1571))
-.setValue(Q(1761), 3)
-.setValue(Q(5071), 3)
+.disappear(Q(2991), Q(1641))
 .setValue(Q(2991), 3)
-.setValue(Q(1641), 3)
-.setValue(Q(1651), 3)
-.setValue(Q(2271), 3)
-.setValue(Q(1571), 6);
+.setValue(Q(1641), 3);
 
 // If ulg is NOT 'Esso/Petro', then set value to Option 3 to QIDs.
 ifQ()
@@ -83,14 +77,7 @@ ifQ()
 // GAS - Begin
 //********************************
 
-// If QID 1571 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 1571.
-ifQ(1571)
-.answered(1)
-.andQ(1571)
-.answered(2)
-.andQ(1571)
-.answered(3)
-.setValue(Q(1571),1,2,3,4);
+
 
 //********************************
 // GAS - End
@@ -247,8 +234,8 @@ ifQ()
 .dateBefore('2021-01-01')
 .andifQ(6221)
 .answered(2)
-.forceDisappear(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481))
-.clearAnswer(Q(6231), Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281), Q(6481));
+.forceDisappear(Q(6241), Q(6271), Q(6481))
+.clearAnswer(Q(6231), Q(6241), Q(6271), Q(6481));
 
 // Shop Date Trigger [before January 2021], if QID 6231 is answered Option [1,3, OR 4], then show QID 6241.
 ifQ()
@@ -270,14 +257,14 @@ ifQ()
 .dateBefore('2021-01-01')
 .andifQ(6231)
 .answered(2)
-.clearAnswer(Q(6241), Q(6251), Q(3061), Q(3221), Q(6261), Q(6271), Q(6281));
+.clearAnswer(Q(6241), Q(6271));
 
 // Shop Date Trigger [before January 2021], if QID 6241 is answered Option [1 OR 4], then show QIDs.
 ifQ()
 .dateBefore('2021-01-01')
 .andifQ(6241)
 .answered(1,4)
-.appear(Q(6251), Q(6261), Q(6271), Q(6281));
+.appear(Q(6271));
 
 // Shop Date Trigger [before January 2021], if QID 6241 is answered Option 1, then set value to Option 1 to QID 6481.
 ifQ()
@@ -298,48 +285,21 @@ ifQ()
 .dateBefore('2021-01-01')
 .andifQ(6241)
 .answered(3,5)
-.setValue(Q(6251), 3)
-.setValue(Q(6261), 4)
-.setValue(Q(6271), 6)
-.setValue(Q(6281), 3);
+.setValue(Q(6271), 6);
 
-// works on both iterations
-// If QID 6251 is answered Option 2, then show QID 3061.
-ifQ(6251)
-.answered(2)
-.appear(Q(3061));
-
-// works on both iterations
-// If QID 6251 is answered Option [1 OR 3], then clear answer to QID 3061.
-ifQ(6251)
-.answered(1,3)
-.clearAnswer(Q(3061));
-
-// works on both iterations
-// If QID 3061 is answered Option 7, then show QID 3221.
-ifQ(3061)
-.answered(7)
-.appear(Q(3221));
-
-// If QID 6221 is answered Option 2, then set value to Option 1 to QIDs: [6601, 6611, 6621, 6631].
+// If QID 6221 is answered Option 2, then set value to Option 1 to QIDs: [6621].
 ifQ()
 .dateBefore('2021-01-01')
 .andifQ(6221)
 .answered(2)
-.setValue(Q(6601), 1)
-.setValue(Q(6611), 1)
-.setValue(Q(6621), 1)
-.setValue(Q(6631), 1);
+.setValue(Q(6621), 1);
 
 // Shop Date Trigger [before January 2021], if QID 6231 is answered Option 2, then set value to Option 2 to QIDs.
 ifQ()
 .dateBefore('2021-01-01')
 .andifQ(6231)
 .answered(2)
-.setValue(Q(6601), 2)
-.setValue(Q(6611), 2)
-.setValue(Q(6621), 2)
-.setValue(Q(6631), 2);
+.setValue(Q(6621), 2);
 
 // works on both
 // If QID 6271 is answered Option [1,2, AND 3], then set value to Option [1,2,3, AND 4] to QID 6271.
@@ -366,81 +326,63 @@ ifQ()
 .dateAfter('2020-12-31')
 .andifQ(6221)
 .answered(1)
-.clearAnswer(Q(6601), Q(6611), Q(6621), Q(6631));
+.clearAnswer(Q(6621));
 
 // Shop Date Trigger [after December 2020], if QID 6221 is answered Option 2, then clear answer to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(6221)
 .answered(2)
-.clearAnswer(Q(6251), Q(3061), Q(6261), Q(6271), Q(6281));
+.clearAnswer(Q(6271));
 
 // If QID 6221 is answered Option 1 AND QID 8081 is not answered anything, then appear QIDs.
 ifQ(6221)
 .answered(1)
 .andifQ(8081)
 .notAnswered()
-.appear(Q(6251), Q(6261), Q(6271), Q(6281));
+.appear(Q(6271));
 
 // Shop Date Trigger [after December 2020], if QID 8081 is answered Option 1, then set value to Option 1 to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(8081)
 .answered(1)
-.setValue(Q(6601), 1)
-.setValue(Q(6611), 1)
-.setValue(Q(6621), 1)
-.setValue(Q(6631), 1);
+.setValue(Q(6621), 1);
 
 // Shop Date Trigger [after December 2020], if QID 8081 is answered Option 2, then set value to Option 2 to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(8081)
 .answered(2)
-.setValue(Q(6601), 2)
-.setValue(Q(6611), 2)
-.setValue(Q(6621), 2)
-.setValue(Q(6631), 2);
+.setValue(Q(6621), 2);
 
 // Shop Date Trigger [after December 2020], if QID 8081 is answered Option 3, then set value to Option 5 to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(8081)
 .answered(3)
-.setValue(Q(6601), 5)
-.setValue(Q(6611), 5)
-.setValue(Q(6621), 5)
-.setValue(Q(6631), 5);
+.setValue(Q(6621), 5);
 
 // Shop Date Trigger [after December 2020], if QID 8081 is answered Option 4, then set value to Option 4 to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(8081)
 .answered(4)
-.setValue(Q(6601), 4)
-.setValue(Q(6611), 4)
-.setValue(Q(6621), 4)
-.setValue(Q(6631), 4);
+.setValue(Q(6621), 4);
 
 // Shop Date Trigger [after December 2020], if QID 8081 is answered Option 5, then set value to Option 6 to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(8081)
 .answered(5)
-.setValue(Q(6601), 6)
-.setValue(Q(6611), 6)
-.setValue(Q(6621), 6)
-.setValue(Q(6631), 6);
+.setValue(Q(6621), 6);
 
 // Shop Date Trigger [after December 2020], if QID 8081 is answered Option 6, then set value to Option 3 to QIDs.
 ifQ()
 .dateAfter('2020-12-31')
 .andifQ(8081)
 .answered(6)
-.setValue(Q(6601), 3)
-.setValue(Q(6611), 3)
-.setValue(Q(6621), 3)
-.setValue(Q(6631), 3);
+.setValue(Q(6621), 3);
 
 //********************************
 // RESTROOMS - End
@@ -453,24 +395,9 @@ ifQ()
 // STORE INTERIOR - Begin
 //********************************
 
-// Shop Date Trigger [AFTER February 2020], if country is 'US', then set value to Option 3 to QID 111.
-ifQ()
-.countryIs('US')
-.dateAfter("2020-02-29")
-.dateBefore("2020-12-01")
-.setValue(Q(111), 3);
-
-// Shop Date Trigger [AFTER February 2020], if country is 'Canada', then set value to Option 3 to QID 111.
-ifQ()
-.countryIs('Canada')
-.dateAfter("2020-02-29")
-.dateBefore("2020-06-01")
-.setValue(Q(111), 3);
-
 // Shop Date Trigger [AFTER July 2021], set value to Option 3 to QIDs.
 ifQ()
 .dateAfter("2021-07-31")
-.setValue(Q(111), 3)
 .setValue(Q(5131), 3);
 
 //********************************
