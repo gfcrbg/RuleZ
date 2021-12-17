@@ -43,9 +43,8 @@ ifQ()
 // If ulg is 'Confirmed No Gas', disappear and set value to 'N/A' to QIDs.
 ifQ()
 .ulgIs('Confirmed No Gas')
-.disappear(Q(2991), Q(1641))
-.setValue(Q(2991), 3)
-.setValue(Q(1641), 3);
+.disappear(Q(2991))
+.setValue(Q(2991), 3);
 
 // If ulg is NOT 'Esso/Petro', then set value to Option 3 to QIDs.
 ifQ()
