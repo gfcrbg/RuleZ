@@ -468,8 +468,7 @@ ifQ()
 ifQ()
 .countryIs('Canada')
 .dateAfter('2020-03-31')
-.setValue(Q(5291), 3)
-.setValue(Q(6771), 4); // N/A to 5291
+.setValue(Q(5291), 3);
 
 // Shop Date Trigger [after May 2020], if country is 'Canada' and ULG is not 'BC', then set value to Option 3 to QID 5251.
 ifQ()
