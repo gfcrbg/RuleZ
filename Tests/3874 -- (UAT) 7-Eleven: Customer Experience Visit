@@ -22,12 +22,12 @@ ifQ()
 // If ulg set is 'MA shops vs Scored', appear QIDs.
 ifQ()
 .ulgSetIs('MA shops vs Scored')
-.appear(Q(6891), Q(6901), Q(6931), Q(6951), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
+.appear(Q(6891), Q(6901), Q(6931), Q(6951), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
 
 // If ulg set is NOT 'MA shops vs Scored', clear answer to QIDs.
 ifQ()
 .ulgSetNot('MA shops vs Scored')
-.clearAnswer(Q(6891), Q(6901), Q(6931), Q(6951), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7241), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
+.clearAnswer(Q(6891), Q(6901), Q(6931), Q(6951), Q(6971), Q(6981), Q(6991), Q(7001), Q(7011), Q(7021), Q(7031), Q(7041), Q(7071), Q(7081), Q(7091), Q(7121), Q(7131), Q(7061), Q(7101), Q(7111), Q(7141), Q(7151), Q(7161), Q(7171), Q(7181), Q(7191), Q(7201), Q(7211), Q(7221), Q(7231), Q(7251), Q(7261), Q(7271), Q(7281), Q(7291), Q(7301), Q(7311), Q(7321), Q(7331), Q(7341), Q(7351), Q(7361), Q(7371), Q(7381), Q(7391), Q(7401), Q(7411), Q(7421), Q(7431), Q(7441));
 
 // If ulg is 'Dark Stores', set value to Option 1 to QID 6861.
 ifQ()
@@ -420,29 +420,6 @@ ifQ()
 .dateAfter("2021-07-31")
 .setValue(Q(2361), 3);
 
-// If QID 5521 is not answered anything, then set value to Option 3 to QID 2431.
-ifQ(5521)
-.notAnswered()
-.setValue(Q(2431),3);
-
-// If QID 5521 is answered anything, then trigger QID math operation: [5521] - [1] = [5531]
-ifQ(5521)
-.answered()
-.sub(Q(5521), Q(1))
-.store(Q(5531));
-
-// If QID 5531 is answered anything AND if QID 5531 is < 0 then set value to Option 2 to QID 2431.
-ifQ(5531)
-.answered()
-.andifQ(5531)
-.lessThan(0)
-.setValue(Q(2431),2);
-
-// If QID 5531 is >= 0, then set value to Option 1 to QID 2431.
-ifQ(5531)
-.greaterThanOrEqual(0)
-.setValue(Q(2431),1);
-
 //---------------------------------------------
 // [Time Calc] Freshness Date - End
 //---------------------------------------------
@@ -493,30 +470,6 @@ ifQ()
 .dateAfter('2020-03-31')
 .setValue(Q(5291), 3)
 .setValue(Q(6771), 4); // N/A to 5291
-
-// Shop Date Trigger [after March 2020 AND before April, 20201], if country is 'Canada', then set value to QIDs.
-ifQ()
-.countryIs('Canada')
-.dateAfter('2020-03-31')
-.dateBefore('2021-04-01')
-.setValue(Q(2131), 3)
-.setValue(Q(6721), 5) // N/A to 2131
-.setValue(Q(2151), 3)
-.setValue(Q(6731), 5) // N/A to 2151
-.setValue(Q(2171), 3)
-.setValue(Q(6751), 4); // N/A to 2171
-
-// Shop Date Trigger [after March 2020], if country is 'Canada' and ULG is not 'BC', then set value to QIDs.
-ifQ()
-.countryIs('Canada')
-.ulgNot('BC')
-.dateAfter('2021-03-31')
-.setValue(Q(2131), 3)
-.setValue(Q(6721), 5) // N/A to 2131
-.setValue(Q(2151), 3)
-.setValue(Q(6731), 5) // N/A to 2151
-.setValue(Q(2171), 3)
-.setValue(Q(6751), 4); // N/A to 2171
 
 // Shop Date Trigger [after May 2020], if country is 'Canada' and ULG is not 'BC', then set value to Option 3 to QID 5251.
 ifQ()
