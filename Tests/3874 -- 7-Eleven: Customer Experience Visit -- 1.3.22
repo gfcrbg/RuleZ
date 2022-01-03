@@ -199,7 +199,7 @@ ifQ(7741)
 .setValue(Q(7741), 1,2,3,4,5,6);
 
 // NEW
-//
+// If country is Canada and QID 7801 is answered option [1 OR 3], then disappear and clear answer to QID 7941.
 ifQ()
 .countryIs('Canada')
 .andQ(7801)
@@ -208,7 +208,7 @@ ifQ()
 .clearAnswer(Q(7941));
 
 // NEW
-//
+// If country is Canada and QID 7801 is answered option [1 OR 2], then disappear and clear answer to QID 7861.
 ifQ()
 .countryIs('Canada')
 .andQ(7801)
