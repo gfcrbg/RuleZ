@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4628	
-// Last Updated: 11/29/2021	
+// Last Updated: 1/13/2022	
 //*******************************
 
 
@@ -213,4 +213,209 @@ ifQ(1871)
 
 //*******************************
 // DRT - End
+//*******************************
+
+
+
+
+//*******************************
+// NPS - Begin
+//*******************************
+
+// Chat PROMOTER -- If QID 1941 is answered Option [10 OR 11], then set value to "1" to QID 3581.
+ifQ(1941)
+.answered(10,11)
+.setValue(Q(3581), "1");
+
+// Chat PROMOTER -- If QID 1941 is answered Option [10 OR 11], then set value to "1" to QID 3551 and clear answer to QIDs.
+ifQ(1941)
+.answered(10,11)
+.setValue(Q(3551), "1")
+.clearAnswer(Q(3561), Q(3571));
+
+// Chat PASSIVE -- If QID 1941 is answered Option [8 OR 9] or QID 91 is answered Option 2, then set value to "0" to QID 3581.
+ifQ(1941)
+.answered(8,9)
+.orQ(91)
+.answered(2)
+.setValue(Q(3581), "0");
+
+// Chat PASSIVE -- If QID 1941 is answered Option [8 OR 9] or QID 91 is answered Option 2, then set value to "1" to QID 3561 and clear answer to QIDs.
+ifQ(1941)
+.answered(8,9)
+.orQ(91)
+.answered(2)
+.setValue(Q(3561), "1")
+.clearAnswer(Q(3551), Q(3571));
+
+// Chat DETRACTOR -- If QID 1941 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 91 is answered Option 1, then set value to "-1" to QID 3581.
+ifQ(1941)
+.answered(0,1,2,3,4,5,6,7)
+.andQ(91)
+.answered(1)
+.setValue(Q(3581), "-1");
+
+// Chat DETRACTOR -- If QID 1941 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 91 is answered Option 1, then set value to "1" to QID 3571 and clear answer to QIDs.
+ifQ(1941)
+.answered(0,1,2,3,4,5,6,7)
+.andQ(91)
+.answered(1)
+.setValue(Q(3571), "1")
+.clearAnswer(Q(3551), Q(3561));
+
+
+
+// Email PROMOTER -- If QID 841 is answered Option [10 OR 11], then set value to "1" to QID 3621.
+ifQ(841)
+.answered(10,11)
+.setValue(Q(3621), "1");
+
+// Email PROMOTER -- If QID 841 is answered Option [10 OR 11], then set value to "1" to QID 3591 and clear answer to QIDs.
+ifQ(841)
+.answered(10,11)
+.setValue(Q(3591), "1")
+.clearAnswer(Q(3601), Q(3611));
+
+// Email PASSIVE -- If QID 841 is answered Option [8 OR 9], then set value to "0" to QID 3621.
+ifQ(841)
+.answered(8,9)
+.setValue(Q(3621), "0");
+
+// Email PASSIVE -- If QID 841 is answered Option [8 OR 9], then set value to "1" to QID 3601 and clear answer to QIDs.
+ifQ(841)
+.answered(8,9)
+.setValue(Q(3601), "1")
+.clearAnswer(Q(3591), Q(3611));
+
+// Email DETRACTOR -- If QID 841 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3621.
+ifQ(841)
+.answered(0,1,2,3,4,5,6,7)
+.setValue(Q(3621), "-1");
+
+// Email DETRACTOR -- If QID 841 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "1" to QID 3611 and clear answer to QIDs.
+ifQ(841)
+.answered(0,1,2,3,4,5,6,7)
+.setValue(Q(3611), "1")
+.clearAnswer(Q(3591), Q(3601));
+
+
+
+// Phone PROMOTER -- If QID 1311 is answered Option [10 OR 11], then set value to "1" to QID 3661.
+ifQ(1311)
+.answered(10,11)
+.setValue(Q(3661), "1");
+
+// Phone PROMOTER -- If QID 1311 is answered Option [10 OR 11], then set value to "1" to QID 3631 and clear answer to QIDs.
+ifQ(1311)
+.answered(10,11)
+.setValue(Q(3631), "1")
+.clearAnswer(Q(3641), Q(3651));
+
+// Phone PASSIVE -- If QID 1311 is answered Option [8 OR 9], then set value to "0" to QID 3661.
+ifQ(1311)
+.answered(8,9)
+.setValue(Q(3661), "0");
+
+// Phone PASSIVE -- If QID 1311 is answered Option [8 OR 9], then set value to "1" to QID 3641 and clear answer to QIDs.
+ifQ(1311)
+.answered(8,9)
+.setValue(Q(3641), "1")
+.clearAnswer(Q(3631), Q(3651));
+
+// Phone DETRACTOR -- If QID 1311 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3661.
+ifQ(1311)
+.answered(0,1,2,3,4,5,6,7)
+.setValue(Q(3661), "-1");
+
+// Phone DETRACTOR -- If QID 1311 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "1" to QID 3651 and clear answer to QIDs.
+ifQ(1311)
+.answered(0,1,2,3,4,5,6,7)
+.setValue(Q(3651), "1")
+.clearAnswer(Q(3631), Q(3641));
+
+
+
+// DRT PROMOTER -- If QID 1871 is answered Option [10 OR 11], then set value to "1" to QID 3701.
+ifQ(1871)
+.answered(10,11)
+.setValue(Q(3701), "1");
+
+// DRT PROMOTER -- If QID 1871 is answered Option [10 OR 11], then set value to "1" to QID 3671 and clear answer to QIDs.
+ifQ(1871)
+.answered(10,11)
+.setValue(Q(3671), "1")
+.clearAnswer(Q(3681), Q(3691));
+
+// DRT PASSIVE -- If QID 1871 is answered Option [8 OR 9] or QID 1391 is answered Option 2, then set value to "0" to QID 3701.
+ifQ(1871)
+.answered(8,9)
+.orQ(1391)
+.answered(2)
+.setValue(Q(3701), "0");
+
+// DRT PASSIVE -- If QID 1871 is answered Option [8 OR 9] or QID 1391 is answered Option 2, then set value to "1" to QID 3681 and clear answer to QIDs.
+ifQ(1871)
+.answered(8,9)
+.orQ(1391)
+.answered(2)
+.setValue(Q(3681), "1")
+.clearAnswer(Q(3671), Q(3691));
+
+// DRT DETRACTOR -- If QID 1871 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 1391 is answered Option 1, then set value to "-1" to QID 3701.
+ifQ(1871)
+.answered(0,1,2,3,4,5,6,7)
+.andQ(1391)
+.answered(1)
+.setValue(Q(3701), "-1");
+
+// DRT DETRACTOR -- If QID 1871 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 1391 is answered Option 1, then set value to "1" to QID 3691 and clear answer to QIDs.
+ifQ(1871)
+.answered(0,1,2,3,4,5,6,7)
+.andQ(1391)
+.answered(1)
+.setValue(Q(3691), "1")
+.clearAnswer(Q(3671), Q(3681));
+
+
+
+
+
+// --NPS Section--
+
+// Total PROMOTERS -- Math Operation: [3551] + [3591] + [3631] + [3671] = [3511]
+ifQ()
+.sum(Q(3551), Q(3591), Q(3631), Q(3671))
+.store(Q(3511));
+
+// Total PASSIVES -- Math Operation: [3561] + [3601] + [3641] + [3681] = [3521]
+ifQ()
+.sum(Q(3561), Q(3601), Q(3641), Q(3681))
+.store(Q(3521));
+
+// Total DETRACTORS -- Math Operation: [3571] + [3611] + [3651] + [3691] = [3531]
+ifQ()
+.sum(Q(3571), Q(3611), Q(3651), Q(3691))
+.store(Q(3531));
+
+
+// Calc 1 NPS -- Math Operation: [3581] + [3621] + [3661] + [3701] = [3541]
+ifQ()
+.sum(Q(3581), Q(3621), Q(3661), Q(3701))
+.store(Q(3541));
+
+// Calc 2 NPS -- Math Operation: [3541] / 4 = [3541]
+ifQ(3541)
+.answered()
+.divide(Q(3541), 4)
+.store(Q(3541))
+
+// Calc 3 Final NPS -- Math Operation: [3541] * 100 = [3541]
+ifQ(3541)
+.answered()
+.multiply(Q(3541), 100)
+.store(Q(3541))
+
+
+//*******************************
+// NPS - End
 //*******************************
