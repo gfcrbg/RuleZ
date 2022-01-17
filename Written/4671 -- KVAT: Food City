@@ -1,0 +1,94 @@
+//*******************************	
+// CID: 783
+// SID: 4671	
+// Last Updated: 1/14/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// V. DEPARTMENTS - Begin
+//*******************************
+
+//-------------------------------
+// Produce - Begin
+//-------------------------------
+
+// If QID 1191 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1191)
+.answered(2)
+.disappear(Q(431), Q(501)) // red remarks
+.disappear(Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(511))
+.clearAnswer(Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(511));
+
+//-------------------------------
+// Produce - End
+//-------------------------------
+
+
+//-------------------------------
+// Bakery/Deli - Begin
+//-------------------------------
+
+// If QID 651 is answered Option 2, then disappear and clear answer to QID 1201.
+ifQ(651)
+.answered(2)
+.disappear(Q(1201))
+.clearAnswer (Q(1201));
+
+// If QID 1201 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1201)
+.answered(2)
+.disappear(Q(611)) // red remark
+.disappear(Q(561), Q(571), Q(581), Q(591), Q(601), Q(641), Q(621))
+.clearAnswer(Q(561), Q(571), Q(581), Q(591), Q(601), Q(641), Q(621));
+
+//-------------------------------
+// Bakery/Deli - End
+//-------------------------------
+
+
+//-------------------------------
+// Meat/Seafood - Begin
+//-------------------------------
+
+// If QID 1211 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1211)
+.answered(2)
+.disappear(Q(741)) // red remark
+.disappear(Q(781), Q(691), Q(701), Q(711), Q(721), Q(731), Q(751), Q(761))
+.clearAnswer(Q(781), Q(691), Q(701), Q(711), Q(721), Q(731), Q(751), Q(761));
+
+//-------------------------------
+// Meat/Seafood - End
+//-------------------------------
+
+//*******************************
+// V. DEPARTMENTS - End
+//*******************************
+
+
+
+
+//*******************************
+// VI. FRONT END - Begin
+//*******************************
+
+//-------------------------------
+// Bagger/Carryout - Begin
+//-------------------------------
+
+// If QID 1031 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1031)
+.answered(2)
+.disappear(Q(1041), Q(1051), Q(1061), Q(1071))
+.clearAnswer(Q(1041), Q(1051), Q(1061), Q(1071));
+
+//-------------------------------
+// Bagger/Carryout - End
+//-------------------------------
+
+//*******************************
+// VI. FRONT END - End
+//*******************************
