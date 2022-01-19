@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4628	
-// Last Updated: 1/13/2022	
+// Last Updated: 1/19/2022	
 //*******************************
 
 
@@ -81,33 +81,47 @@ ifQ(1941)
 // EMAIL - Begin
 //*******************************
 
-// If QID 2721 is answered Option [1,2,3, OR 4], then disappear and clear answer to QID 3261.
+// If QID 3711 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(3711)
+.answered(2)
+.disappear(Q(2461), Q(3481), Q(2571), Q(2941), Q(2241))  // red remarks
+.disappear(Q(501), Q(511), Q(2851), Q(2721), Q(621), Q(611), Q(561), Q(571), Q(591), Q(601), Q(2211), Q(3431), Q(651), Q(691), Q(711), Q(721), Q(2871), Q(3141), Q(801), Q(841), Q(871), Q(881), Q(901))
+clearAnswer(Q(501), Q(511), Q(2851), Q(2721), Q(621), Q(611), Q(561), Q(571), Q(591), Q(601), Q(2211), Q(3431), Q(651), Q(691), Q(711), Q(721), Q(2871), Q(3141), Q(801), Q(841), Q(871), Q(881), Q(901));
+
+// If QID 2721 is answered Option [0,1,2,3, OR 4], then disappear and clear answer to QID 3261.
 ifQ(2721)
-.answered(1,2,3,4)
+.answered(0,1,2,3,4)
 .disappear(Q(3261))
 .clearAnswer(Q(3261));
 
-// If QID 561 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID 561 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(561)
-.answered(2)
+.answered(0,2)
 .disappear(Q(521), Q(531), Q(2191))
 .clearAnswer(Q(521), Q(531), Q(2191));
 
-// If QID 691 is answered Option 2, then disappear and clear answer to QID 701.
+// If QID 651 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(651)
+.answered(0,2)
+.disappear(Q(2561), Q(661))
+.clearAnswer(Q(2561), Q(661));
+
+// If QID 691 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(691)
-.answered(2)
+.answered(0,2)
+.disappear(Q(2471))  // red remark
 .disappear(Q(701))
 .clearAnswer(Q(701));
 
 // If QID 841 is answered Option [10 OR 11], then disappear and clear answer to QID 851.
 ifQ(841)
-.answered(10,11)
+.answered(0,10,11)
 .disappear(Q(851))
 .clearAnswer(Q(851));
 
 // If QID 841 is answered Option [1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 861.
 ifQ(841)
-.answered(1,2,3,4,5,6,7,8,9)
+.answered(0,1,2,3,4,5,6,7,8,9)
 .disappear(Q(861))
 .clearAnswer(Q(861));
 
@@ -122,27 +136,36 @@ ifQ(841)
 // PHONE - Begin
 //*******************************
 
-// If QID 2741 is answered Option [1,2,3, OR 4], then disappear and clear answer to QID 3291.
+// If QID 3721 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(3721)
+.answered(2)
+.makeNotRequired(Q(2611))
+.disappear(Q(3201)) // last call length
+.disappear(Q(2621), Q(2641), Q(2651), Q(2661), Q(2951))  // red remarks
+.disappear(Q(961), Q(971), Q(2911), Q(3161), Q(3171), Q(2611), Q(2861), Q(1111), Q(2741), Q(1101), Q(991), Q(2331), Q(1011), Q(1021), Q(1031), Q(1051), Q(1061), Q(1071), Q(1081), Q(2891), Q(981), Q(3441), Q(1121), Q(2631), Q(1151), Q(1171), Q(1181), Q(1191), Q(2881), Q(1201), Q(2981), Q(1261), Q(1291), Q(1311), Q(1371))
+.clearAnswer(Q(961), Q(971), Q(2911), Q(3161), Q(3171), Q(2611), Q(2861), Q(1111), Q(2741), Q(1101), Q(991), Q(2331), Q(1011), Q(1021), Q(1031), Q(1051), Q(1061), Q(1071), Q(1081), Q(2891), Q(981), Q(3441), Q(1121), Q(2631), Q(1151), Q(1171), Q(1181), Q(1191), Q(2881), Q(1201), Q(2981), Q(1261), Q(1291), Q(1311), Q(1371));
+
+// If QID 2741 is answered Option [0,1,2,3, OR 4], then disappear and clear answer to QID 3291.
 ifQ(2741)
-.answered(1,2,3,4)
+.answered(0,1,2,3,4)
 .disappear(Q(3291))
 .clearAnswer(Q(3291));
 
-// If QID 1081 is answered Option 2, then disappear and clear answer to QID 1091.
+// If QID 1081 is answered Option [0 OR 2], then disappear and clear answer to QID 1091.
 ifQ(1081)
-.answered(2)
+.answered(0,2)
 .disappear(Q(1091))
 .clearAnswer(Q(1091));
 
-// If QID 1311 is answered Option [10 OR 11], then disappear and clear answer to QID 1321.
+// If QID 1311 is answered Option [0,10 OR 11], then disappear and clear answer to QID 1321.
 ifQ(1311)
-.answered(10,11)
+.answered(0,10,11)
 .disappear(Q(1321))
 .clearAnswer(Q(1321));
 
-// If QID 1311 is answered Option [1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 2901.
+// If QID 1311 is answered Option [0,1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 2901.
 ifQ(1311)
-.answered(1,2,3,4,5,6,7,8,9)
+.answered(0,1,2,3,4,5,6,7,8,9)
 .disappear(Q(2901))
 .clearAnswer(Q(2901));
 
@@ -162,7 +185,6 @@ ifQ(1391)
 .disappear(Q(3181))
 .disappear(Q(3371)) // red remark
 .clearAnswer(Q(3181));
-
 
 // If QID 1391 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1391)
@@ -279,22 +301,30 @@ ifQ(841)
 // Email PASSIVE -- If QID 841 is answered Option [8 OR 9], then set value to "0" to QID 3621.
 ifQ(841)
 .answered(8,9)
+.orQ(3711)
+.answered(2)
 .setValue(Q(3621), "0");
 
 // Email PASSIVE -- If QID 841 is answered Option [8 OR 9], then set value to "1" to QID 3601 and clear answer to QIDs.
 ifQ(841)
 .answered(8,9)
+.orQ(3711)
+.answered(2)
 .setValue(Q(3601), "1")
 .clearAnswer(Q(3591), Q(3611));
 
 // Email DETRACTOR -- If QID 841 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3621.
 ifQ(841)
 .answered(0,1,2,3,4,5,6,7)
+.andQ(3711)
+.answered(1)
 .setValue(Q(3621), "-1");
 
 // Email DETRACTOR -- If QID 841 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "1" to QID 3611 and clear answer to QIDs.
 ifQ(841)
 .answered(0,1,2,3,4,5,6,7)
+.andQ(3711)
+.answered(1)
 .setValue(Q(3611), "1")
 .clearAnswer(Q(3591), Q(3601));
 
@@ -314,22 +344,30 @@ ifQ(1311)
 // Phone PASSIVE -- If QID 1311 is answered Option [8 OR 9], then set value to "0" to QID 3661.
 ifQ(1311)
 .answered(8,9)
+.orQ(3721)
+.answered(2)
 .setValue(Q(3661), "0");
 
 // Phone PASSIVE -- If QID 1311 is answered Option [8 OR 9], then set value to "1" to QID 3641 and clear answer to QIDs.
 ifQ(1311)
 .answered(8,9)
+.orQ(3721)
+.answered(2)
 .setValue(Q(3641), "1")
 .clearAnswer(Q(3631), Q(3651));
 
 // Phone DETRACTOR -- If QID 1311 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3661.
 ifQ(1311)
 .answered(0,1,2,3,4,5,6,7)
+.andQ(3721)
+.answered(1)
 .setValue(Q(3661), "-1");
 
 // Phone DETRACTOR -- If QID 1311 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "1" to QID 3651 and clear answer to QIDs.
 ifQ(1311)
 .answered(0,1,2,3,4,5,6,7)
+.andQ(3721)
+.answered(1)
 .setValue(Q(3651), "1")
 .clearAnswer(Q(3631), Q(3641));
 
