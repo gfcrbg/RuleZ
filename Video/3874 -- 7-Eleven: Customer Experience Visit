@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/17/2022
+// Last Updated: 1/20/2022
 //*******************************
 
 
@@ -55,6 +55,30 @@ ifQ()
 //---------------------------------------------
 // ULG Settings - End
 //---------------------------------------------
+
+
+
+
+// Shopped inside of 7am-7pm stocked hours
+ifQ(11)
+.greaterThanOrEqual(25200)
+.andifQ(11)
+.lessThanOrEqual(68400)
+.setValue( Q(8701), 1);
+
+// Shopped outside of 7am-7pm stocked hours (after 7pm/overnight)
+ifQ(11)
+.greaterThanOrEqual(0) //midnight
+.andifQ(11)
+.lessThan(25200)  // to 6:59 AM
+.setValue( Q(8701), 2);
+
+// Shopped outside of 7am-7pm stocked hours (after 7pm/overnight)
+ifQ(11)
+.greaterThan(68400) // 7:01 PM
+.andifQ(11)
+.lessThanOrEqual(86399) // to 11:59 PM
+.setValue( Q(8701), 2);
 
 
 
