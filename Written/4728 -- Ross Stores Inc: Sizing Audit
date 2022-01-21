@@ -1,0 +1,32 @@
+//*******************************	
+// CID: 770
+// SID: 4728	
+// Last Updated: 1/21/2022	
+//*******************************	
+
+
+
+
+// Total Units Counted
+ifQ()
+.sum(Q(101), Q(201), Q(131), Q(231), Q(281), Q(321))
+.store(Q(51));
+
+// Total Units Missized
+ifQ()
+.sum(Q(111), Q(211), Q(141), Q(241), Q(291), Q(331))
+.store(Q(61));
+
+// Total Units Missized / Total Units Counted
+ifQ(51)
+.answered()
+.andifQ(61)
+.answered()
+.divide(Q(61), Q(51))
+.store(Q(71));
+
+// Percent Missized
+ifQ(71)
+.answered()
+.multiply(Q(71), 100)
+.store(Q(71));
