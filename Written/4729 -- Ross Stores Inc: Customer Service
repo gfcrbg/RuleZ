@@ -1,0 +1,65 @@
+//*******************************	
+// CID: 770	
+// SID: 4729	
+// Last Updated: 1/21/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// CHECK-OUT - Begin
+//*******************************
+
+// Time length calculation.
+// Entered line to initial cashier interaction.
+ifQ(241)
+.answered()
+.andifQ(441)
+.answered()
+.sub(Q(441), Q(241))
+.store(Q(641));
+
+// If QID 641 is <= 4 minutes, then set value to Option 1 to QID 471.
+ifQ(641)
+.lessThanOrEqual(240)
+.setValue(Q(471), 1);
+
+// If QID 641 is > 4 minutes, then set value to Option 2 to QID 471.
+ifQ(641)
+.greaterThan(240)
+.setValue(Q(471), 2);
+
+//*******************************
+// CHECK-OUT - End
+//*******************************
+
+
+
+
+//*******************************
+// REFUND DESK - Begin
+//*******************************
+
+// Time length calculation.
+// Entered line to initial refund attendant interaction.
+ifQ(411)
+.answered()
+.andifQ(451)
+.answered()
+.sub(Q(451), Q(411))
+.store(Q(651));
+
+// If QID 651 is <= 4 minutes, then set value to Option 1 to QID 481.
+ifQ(651)
+.lessThanOrEqual(240)
+.setValue(Q(481), 1);
+
+// If QID 651 is > 4 minutes, then set value to Option 2 to QID 481.
+ifQ(651)
+.greaterThan(240)
+.setValue(Q(481), 2);
+
+//*******************************
+// REFUND DESK - End
+//*******************************
