@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/20/2022
+// Last Updated: 1/25/2022
 //*******************************
 
 
@@ -547,6 +547,15 @@ ifQ(2341)
 .answered(1,2)
 .disappear(Q(6691))
 .clearAnswer(Q(6691));
+
+// If ULG is "Speedway" and if QID 8701 is answered Option 2 and if QID 3051 is answered Option 2, then set value to Option 3 to QID 3051. 
+ifQ()
+.ulgIs("Speedway")
+.andifQ(8701)
+.answered(2)
+.andifQ(3051)
+.answered(2)
+.setValue(Q(3051), 3);
 
 //********************************
 // FRESH FOOD - End
