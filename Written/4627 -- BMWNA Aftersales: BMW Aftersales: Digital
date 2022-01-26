@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 758	
 // SID: 4627	
-// Last Updated: 10/21/2021	
+// Last Updated: 1/26/2022	
 //*******************************	
 
 
@@ -29,9 +29,9 @@ ifQ(181)
 .disappear(Q(1221), Q(1231))
 .clearAnswer(Q(1221), Q(1231));
 
-// If QID 181 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+// If QID 181 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(181)
-.answered(0,1)
+.answered(0,2)
 .disappear(Q(1241), Q(1251))
 .clearAnswer(Q(1241), Q(1251));
 
