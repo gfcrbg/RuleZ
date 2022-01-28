@@ -1,0 +1,86 @@
+//*******************************	
+// CID: 384
+// SID: 4736	
+// Last Updated: 1/28/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// I. TELEPHONE CONTACT - Begin
+//*******************************
+
+// If QID 151 is answered Option [1 OR 2], then disappear and clear answer to QID 161.
+ifQ(151)
+.answered(1,2)
+.disappear(Q(161))
+.clearAnswer (Q(161));
+
+// If QID 151 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(151)
+.answered(4)
+.disappear(Q(171), Q(181), Q(191), Q(201), Q(221), Q(231), Q(241), Q(251), Q(271), Q(281), Q(291), Q(311), Q(321), Q(331), Q(341), Q(351), Q(361), Q(381), Q(391), Q(401), Q(411), Q(481))
+.clearAnswer(Q(171), Q(181), Q(191), Q(201), Q(221), Q(231), Q(241), Q(251), Q(271), Q(281), Q(291), Q(311), Q(321), Q(331), Q(341), Q(351), Q(361), Q(381), Q(391), Q(401), Q(411), Q(481));
+
+// If QID 251 is answered Option [0 OR 2], then disappear and clear answer to QID 261.
+ifQ(251)
+.answered(0,2)
+.disappear(Q(261))
+.clearAnswer(Q(261));
+
+//*******************************
+// I. TELEPHONE CONTACT - End
+//*******************************
+
+
+
+
+//*******************************
+// III. DEMONSTRATION/TOUR - Begin
+//*******************************
+
+// If QID 651 is answered Option [1,3, OR 4], then disappear and clear answer to QID 661.
+ifQ(651)
+.answered(1,3,4)
+.disappear(Q(661))
+.clearAnswer(Q(661)); 
+
+// If QID 651 is answered Option [2,3, OR 4], then disappear and clear answer to QID 671.
+ifQ(651)
+.answered(2,3,4)
+.disappear(Q(671))
+.clearAnswer(Q(671)); 
+
+// If QID 1061 is answered Option 1, then disappear and clear answer to QID 1071.
+ifQ(1061)
+.answered(1)
+.disappear(Q(1071))
+.clearAnswer(Q(1071));
+
+//*******************************
+// III. DEMONSTRATION/TOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// IV. CLOSING/FOLLOW UP - Begin
+//*******************************
+
+// If QID 791 is answered Option [1 OR 2], then disappear and clear answer to QID 801.
+ifQ(791)
+.answered(1,2)
+.disappear(Q(801))
+.clearAnswer(Q(801));
+
+// If QID 851 is answered Option 2, then disappear and clear answer to QID 861.
+ifQ(851)
+.answered(2)
+.disappear(Q(861))
+.clearAnswer(Q(861));
+
+//*******************************
+// IV. CLOSING/FOLLOW UP - End
+//*******************************
