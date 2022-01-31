@@ -1,0 +1,233 @@
+//*******************************	
+// CID: 749	
+// SID: 4735
+// Last Updated: 1/31/2022	
+//*******************************	
+
+
+4735 -- Taco Johns: Video 2022
+
+//*******************************
+// CURB APPEAL - Begin
+//*******************************
+
+// If QID 901 is answered Option 1, then disappear and clear answer to QID 1191.
+ifQ(901)
+.answered(1)
+.disappear(Q(1191))
+.clearAnswer(Q(1191));
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2)
+.disappear(Q(1181), Q(1281), Q(1291), Q(1301))
+.clearAnswer(Q(1181), Q(1281), Q(1291), Q(1301));
+
+//*******************************
+// CURB APPEAL - End
+//*******************************
+
+
+
+
+//*******************************
+// INTERIOR ENVIRONMENT - Begin
+//*******************************
+
+// If QID 901 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(1)
+.disappear(Q(1511))  // medium header
+.disappear(Q(1361), Q(1501), Q(1521), Q(1591))
+.clearAnswer(Q(1361), Q(1501), Q(1521), Q(1591));
+
+// If QID 1591 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1601.
+ifQ(1591)
+.answered(0,2,3)
+.disappear(Q(1601))
+.clearAnswer(Q(1601));
+
+//*******************************
+// INTERIOR ENVIRONMENT  - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER TAKER ENGAGEMENT - Begin
+//*******************************
+
+//------------------------------------
+// Greeting Time Calc - Begin
+//------------------------------------
+
+// If QID 1211 and QID 1221 is answered anything, then trigger math operation: [1221] - [1211] = [1621]
+ifQ(1211)
+.answered()
+.andQ(1221)
+.answered()
+.sub(Q(1221), Q(1211))
+.store(Q(1621));
+
+// If QID 1621 is <= 3 seconds, then set value to Option 1 to QID 1321.
+ifQ(1621)
+.lessThanOrEqual(3)
+.setValue(Q(1321), 1);
+
+// If QID 1621 is > 3 seconds, then set value to Option 2 to QID 1321.
+ifQ(1621)
+.greaterThan(3)
+.setValue(Q(1321), 2);
+
+//------------------------------------
+// Greeting Time Calc - End
+//------------------------------------
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2)
+.disappear(Q(861), Q(171), Q(871))
+.clearAnswer(Q(861), Q(171), Q(871));
+
+// If QID 1561 is answered Option 2, then disappear and clear answer to QID 1571.
+ifQ(1561)
+.answered(2)
+.disappear(Q(1571))
+.clearAnswer(Q(1571));
+
+// If QID 1571 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 891.
+ifQ(1571)
+.answered(0,1,2,3)
+.disappear(Q(891))
+.clearAnswer(Q(891));
+
+//*******************************
+// ORDER TAKER ENGAGEMENT  - End
+//*******************************
+
+
+
+
+//*******************************
+// SPEED - Begin
+//*******************************
+
+//------------------------------------
+// Window Time Calc - Begin
+//------------------------------------
+
+// If QID 1341 and QID 1241 is answered anything, then trigger math operation: [1241] - [1341] = [1331]
+ifQ(1341)
+.answered()
+.andQ(1241)
+.answered()
+.sub(Q(1241), Q(1341))
+.store(Q(1331));
+
+// If QID 1331 is < 1 min. 30 sec., then set value to Option 1 to QID 311.
+ifQ(1331)
+.lessThan(90)
+.setValue(Q(311), 1);
+
+// If QID 1331 is > 1 min. 30 sec. AND <= 1 min. 51 sec., then set value to Option 2 to QID 311.
+ifQ(1331)
+.greaterThan(90)
+.lessThanOrEqual(111)
+.setValue(Q(311), 2);
+
+// If QID 1331 is > 1 min. 51 sec., then set value to Option 3 to QID 311.
+ifQ(1331)
+.greaterThan(111)
+.setValue(Q(311), 3);
+
+//------------------------------------
+// Window Time Calc - End
+//------------------------------------
+
+//------------------------------------
+// Line Time Calc - Begin
+//------------------------------------
+
+// If QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [1251]
+ifQ(1551)
+.answered()
+.andQ(1241)
+.answered()
+.sub(Q(1241), Q(1551))
+.store(Q(1251));
+
+// If QID 1251 is < 3 min. 30 sec., then set value to Option 1 to QID 341.
+ifQ(1251)
+.lessThan(210)
+.setValue(Q(341), 1);
+
+// If QID 1251 is > 3 min. 30 sec. AND <= 3 min. 51 sec., then set value to Option 2 to QID 341.
+ifQ(1251)
+.greaterThan(210)
+.lessThanOrEqual(231)
+.setValue(Q(341), 2);
+
+// If QID 1251 is > 3 min. 51 sec., then set value to Option 3 to QID 341.
+ifQ(1251)
+.greaterThan(231)
+.setValue(Q(341), 3);
+
+//------------------------------------
+// Line Time Calc - End
+//------------------------------------
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2)
+.disappear(Q(1341), Q(1331), Q(311))
+.clearAnswer(Q(1341), Q(1331), Q(311));   
+
+//*******************************
+// SPEED  - End
+//*******************************
+
+
+
+
+//*******************************
+// ACCURACY - Begin
+//*******************************
+
+// If QID 971 is answered Option [1 OR 3], then disappear and clear answer to QID 981.
+ifQ(971)
+.answered(1,3)
+.disappear(Q(981))
+.clearAnswer(Q(981));
+
+// If QID 991 is answered Option 1, then disappear and clear answer to QID 1011.
+ifQ(991)
+.answered(1)
+.disappear(Q(1011))
+.clearAnswer(Q(1011));
+
+// If QID 1001 is answered Option 1, then disappear and clear answer to QID 1141.
+ifQ(1001)
+.answered(1)
+.disappear(Q(1141))
+.clearAnswer(Q(1141));
+
+//*******************************
+// ACCURACY  - End
+//*******************************
+
+
+
+
+//*******************************
+// SHIFT MANAGEMENT - Begin
+//*******************************
+
+// If QID 1611 is answered Option [1, 2, 3, AND 4], then set value to Option [1, 2, 3, 4, AND 5] to QID 1611.
+ifQ(1611)
+.answered([1,2,3,4])
+.setValue(Q(1611), 1,2,3,4,5);
+
+//*******************************
+// SHIFT MANAGEMENT  - End
+//*******************************
