@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4641	
-// Last Updated: 1/31/2022	
+// Last Updated: 2/1/2022	
 //*******************************	
 
 
@@ -42,11 +42,17 @@ ifQ(181)
 .disappear(Q(2101))
 .clearAnswer(Q(2101));
 
-// If QID 1941 is answered Option [0,10, OR 11], then disappear and clear answer to QID 1951.
+// If QID 1941 is answered Option [0, 8, 9, 10, OR 11], then disappear and clear answer to QID 1951.
 ifQ(1941)
-.answered(0,10,11)
+.answered(0,8,9,10,11)
 .disappear(Q(1951))
 .clearAnswer(Q(1951));
+
+// If QID 1941 is answered Option [0, 8, 9, 10, OR 11], then disappear and clear answer to QID 3821.
+ifQ(1941)
+.answered(0,8,9,10,11)
+.disappear(Q(3821))
+.clearAnswer(Q(3821));
 
 // If QID 1941 is answered Option [0,1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 1961.
 ifQ(1941)
@@ -85,11 +91,17 @@ ifQ(691)
 .disappear(Q(701))
 .clearAnswer(Q(701));
 
-// If QID 841 is answered Option [0,10 OR 11], then disappear and clear answer to QID 851.
+// If QID 841 is answered Option 0, 8, 9, 10, OR 11], then disappear and clear answer to QID 851.
 ifQ(841)
-.answered(0,10,11)
+.answered(0,8,9,10,11)
 .disappear(Q(851))
 .clearAnswer(Q(851));
+
+// If QID 841 is answered Option [0, 8, 9, 10, OR 111], then disappear and clear answer to QID 3811.
+ifQ(841)
+.answered(0,8,9,10,11)
+.disappear(Q(3811))
+.clearAnswer(Q(3811));
 
 // If QID 841 is answered Option [0,1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 861.
 ifQ(841)
@@ -128,11 +140,17 @@ ifQ(3351)
 .disappear(Q(2631))
 .clearAnswer(Q(2631));
 
-// If QID 1311 is answered Option [0,10 OR 11], then disappear and clear answer to QID 1321.
+// If QID 1311 is answered Option [0, 8, 9, 10, OR 11], then disappear and clear answer to QID 1321.
 ifQ(1311)
-.answered(0,10,11)
+.answered(0,8,9,10,11)
 .disappear(Q(1321))
 .clearAnswer(Q(1321));
+
+// If QID 1311 is answered Option [0, 8, 9, 10, OR 11], then disappear and clear answer to QID 3801.
+ifQ(1311)
+.answered(0,8,9,10,11)
+.disappear(Q(3801))
+.clearAnswer(Q(3801));
 
 // If QID 1311 is answered Option [0,1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 2901.
 ifQ(1311)
@@ -183,11 +201,17 @@ ifQ(1551)
 .disappear(Q(3261), Q(3111))
 .clearAnswer(Q(3261), Q(3111));
 
-// If QID 1871 is answered Option [0,10, OR 11], then disappear and clear answer to QID 1881.
+// If QID 1871 is answered Option [0, 8, 9, 10, OR 11], then disappear and clear answer to QID 1881.
 ifQ(1871)
-.answered(0,10,11)
+.answered(0,8,9,10,11)
 .disappear(Q(1881))
 .clearAnswer(Q(1881));
+
+// If QID 1871 is answered Option [0, 8, 9, 10, OR 11], then disappear and clear answer to QID 3791.
+ifQ(1871)
+.answered(0,8,9,10,11)
+.disappear(Q(3791))
+.clearAnswer(Q(3791));
 
 // If QID 1871 is answered Option [0,1,2,3,4,5,6,7,8, OR 9], then disappear and clear answer to QID 1891.
 ifQ(1871)
