@@ -1,21 +1,21 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 1/31/2022	
+// Last Updated: 2/1/2022	
 //*******************************	
 
 
-4735 -- Taco Johns: Video 2022
+
 
 //*******************************
 // CURB APPEAL - Begin
 //*******************************
 
-// If QID 901 is answered Option 1, then disappear and clear answer to QID 1191.
+// If QID 901 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(1)
-.disappear(Q(1191))
-.clearAnswer(Q(1191));
+.disappear(Q(1191), Q(1201))
+.clearAnswer(Q(1191), Q(1201));
 
 // If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(901)
@@ -87,8 +87,8 @@ ifQ(1621)
 // If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2)
-.disappear(Q(861), Q(171), Q(871))
-.clearAnswer(Q(861), Q(171), Q(871));
+.disappear(Q(1631), Q(861), Q(171), Q(871))
+.clearAnswer(Q(1631), Q(861), Q(171), Q(871));
 
 // If QID 1561 is answered Option 2, then disappear and clear answer to QID 1571.
 ifQ(1561)
