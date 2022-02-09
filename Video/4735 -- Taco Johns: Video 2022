@@ -1,8 +1,20 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 2/1/2022	
+// Last Updated: 2/9/2022	
 //*******************************	
+
+
+
+
+// Controller for Badge calculator
+ifQ(1)
+.answered()
+.disappear(Q(1771), Q(1691), Q(1701), Q(1711), Q(1721), Q(1731), Q(1741), Q(1751), Q(1761)) // Curb Appeal
+.disappear(Q(1861), Q(1871), Q(1881), Q(1891), Q(1901)) // Cleanliness 
+.disappear(Q(1781), Q(1791), Q(1801), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851)) // Order Taker Engagement
+.disappear(Q(1681)) // Overall score for badges
+.setValue(Q(1681), 0)
 
 
 
@@ -87,8 +99,8 @@ ifQ(1621)
 // If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2)
-.disappear(Q(1631), Q(861), Q(171), Q(871))
-.clearAnswer(Q(1631), Q(861), Q(171), Q(871));
+.disappear(Q(861), Q(871))
+.clearAnswer(Q(861), Q(871));
 
 // If QID 1561 is answered Option 2, then disappear and clear answer to QID 1571.
 ifQ(1561)
@@ -231,3 +243,120 @@ ifQ(1611)
 //*******************************
 // SHIFT MANAGEMENT  - End
 //*******************************
+
+
+
+
+//====================
+// BADGE - Overall Score Calc
+//====================
+
+
+// Curb Appeal
+
+
+// QID 1181 -- Yes
+ifQ(1181)
+.answered(1)
+.setValue(Q(1691), '3');
+
+// QID 1181 -- No
+ifQ(1181)
+.answered(2)
+.setValue(Q(1691), '0');
+
+// QID 1181 -- N/A, not answered
+ifQ(1181)
+.answered(3)
+.orQ(1181)
+.notAnswered()
+.clearAnswer(Q(1691));
+
+
+// QID 1191 -- Yes
+ifQ(1191)
+.answered(1)
+.setValue(Q(1701), '3');
+
+// QID 1191 -- No
+ifQ(1191)
+.answered(2)
+.setValue(Q(1701), '0');
+
+// QID 1191 -- not answered
+ifQ(1191)
+.notAnswered()
+.clearAnswer(Q(1701));
+
+
+// Curb Appeal section score
+ifQ()
+.sum(Q(1691), Q(1701))
+.store(Q(1771));
+
+ifQ(1771)
+.answered()
+.divide(Q(1771), 14)
+.store(Q(1771));
+
+ifQ(1771)
+.answered()
+.multiply(Q(1771), 100)
+.store(Q(1771));
+
+
+
+// Cleanliness
+
+
+// QID 1361 -- Yes
+ifQ(1361)
+.answered(1)
+.setValue(Q(1871), '3');
+
+// QID 1361 -- No
+ifQ(1361)
+.answered(2)
+.setValue(Q(1871), '0');
+
+// QID 1361 -- not answered
+ifQ(1361)
+.notAnswered()
+.clearAnswer(Q(1871));
+
+
+// QID 1501 -- Option 1 OR Option 2
+ifQ(1501)
+.answered(1,2)
+.setValue(Q(1881), '2');
+
+// QID 1501 -- Option 1 AND Option 2
+ifQ(1501)
+.answered([1,2])
+.setValue(Q(1881), '4');
+
+// QID 1501 -- none of the above
+ifQ(1501)
+.answered(3)
+.setValue(Q(1881), '0');
+
+// QID 1501 -- not answered
+ifQ(1501)
+.notAnswered()
+.clearAnswer(Q(1881));
+
+
+// Cleanliness section score
+ifQ()
+.sum(Q(1871), Q(1881), Q(1891), Q(1901))
+.store(Q(1861));
+
+ifQ(1861)
+.answered()
+.divide(Q(1861), 14)
+.store(Q(1861));
+
+ifQ(1861)
+.answered()
+.multiply(Q(1861), 100)
+.store(Q(1861));
