@@ -106,13 +106,6 @@ ifQ(561)
 .disappear(Q(521), Q(531), Q(2191))
 .clearAnswer(Q(521), Q(531), Q(2191));
 
-// OLD - QID 651 versioned out 10/02/2021
-// If QID 651 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(651)
-.answered(0,2)
-.disappear(Q(2561), Q(661))
-.clearAnswer(Q(2561), Q(661));
-
 // If QID 3431 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(3431)
 .answered(0,2)
