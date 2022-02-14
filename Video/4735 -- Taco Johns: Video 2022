@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 2/9/2022	
+// Last Updated: 2/14/2022	
 //*******************************	
 
 
@@ -12,7 +12,7 @@ ifQ(1)
 .answered()
 .disappear(Q(1771), Q(1691), Q(1701), Q(1711), Q(1721), Q(1731), Q(1741), Q(1751), Q(1761)) // Curb Appeal
 .disappear(Q(1861), Q(1871), Q(1881), Q(1891), Q(1901)) // Cleanliness 
-.disappear(Q(1781), Q(1791), Q(1801), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851)) // Order Taker Engagement
+.disappear(Q(1781), Q(1791), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851)) // Order Taker Engagement
 .disappear(Q(1681)) // Overall score for badges
 .setValue(Q(1681), 0)
 
@@ -108,9 +108,9 @@ ifQ(1561)
 .disappear(Q(1571))
 .clearAnswer(Q(1571));
 
-// If QID 1571 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 891.
+// If QID 1571 is not answered Option 4, then disappear and clear answer to QID 891.
 ifQ(1571)
-.answered(0,1,2,3)
+.notAnswered(4)
 .disappear(Q(891))
 .clearAnswer(Q(891));
 
@@ -344,6 +344,55 @@ ifQ(1501)
 ifQ(1501)
 .notAnswered()
 .clearAnswer(Q(1881));
+
+
+
+// QID 1601
+ifQ()
+.setValue(Q(1901), 10);
+
+//
+ifQ(1601)
+.notAnswered(1)
+.sub(Q(1901), 2)
+.store(Q(1901));
+
+//
+ifQ(1601)
+.notAnswered(2)
+.sub(Q(1901), 2)
+.store(Q(1901));
+
+//
+ifQ(1601)
+.notAnswered(3)
+.sub(Q(1901), 2)
+.store(Q(1901));
+
+//
+ifQ(1601)
+.notAnswered(4)
+.sub(Q(1901), 2)
+.store(Q(1901));
+
+//
+ifQ(1601)
+.notAnswered(5)
+.sub(Q(1901), 2)
+.store(Q(1901));
+
+//
+ifQ(1601)
+.notAnswered([1,2,3,4,5])
+.setValue(Q(1901), '0');
+
+//
+ifQ(1591)
+.answered(0,2,3)
+.andQ(1601)
+.notAnswered([1,2,3,4,5])
+.clearAnswer(Q(1901));
+
 
 
 // Cleanliness section score
