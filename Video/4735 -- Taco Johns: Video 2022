@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 2/14/2022	
+// Last Updated: 2/15/2022	
 //*******************************	
 
 
@@ -82,14 +82,14 @@ ifQ(1211)
 .sub(Q(1221), Q(1211))
 .store(Q(1621));
 
-// If QID 1621 is <= 3 seconds, then set value to Option 1 to QID 1321.
+// If QID 1621 is <= 4 seconds, then set value to Option 1 to QID 1321.
 ifQ(1621)
-.lessThanOrEqual(3)
+.lessThanOrEqual(4)
 .setValue(Q(1321), 1);
 
-// If QID 1621 is > 3 seconds, then set value to Option 2 to QID 1321.
+// If QID 1621 is > 4 seconds, then set value to Option 2 to QID 1321.
 ifQ(1621)
-.greaterThan(3)
+.greaterThan(4)
 .setValue(Q(1321), 2);
 
 //------------------------------------
