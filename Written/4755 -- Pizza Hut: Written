@@ -1,0 +1,128 @@
+//*******************************	
+// CID: 807	
+// SID: 4755
+// Last Updated: 2/15/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// DIGITAL ORDERING - Begin
+//*******************************
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QID 1711.
+ifQ(901)
+.answered(2)
+.disappear(Q(1711))
+.clearAnswer(Q(1711));
+
+//*******************************
+// DIGITAL ORDERING - End
+//*******************************
+
+
+
+
+//*******************************
+// ENVIRONMENT - Begin
+//*******************************
+
+// If QID 901 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(4)
+.disappear(Q(1511))  // medium header
+.disappear(Q(1181), Q(1671))
+.clearAnswer(Q(1181), Q(1671));
+
+// If QID 901 is answered Option [1, 3, OR 4], then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(1,3,4)
+.disappear(Q(1191), Q(1361), Q(1501), Q(1521), Q(1591))
+.clearAnswer(Q(1191), Q(1361), Q(1501), Q(1521), Q(1591));
+
+// If QID 1591 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1601.
+ifQ(1591)
+.answered(0,2,3)
+.disappear(Q(1601))
+.clearAnswer(Q(1601));
+
+// If QID 901 is answered Option [3 OR 4], then disappear and clear answer to QID 1201.
+ifQ(901)
+.answered(3,4)
+.disappear(Q(1201))
+.clearAnswer(Q(1201));
+
+// If QID 901 is answered Option [1, 2, OR 4], then disappear and clear answer to QID 1541.
+ifQ(901)
+.answered(1,2,4)
+.disappear(Q(1541))
+.clearAnswer(Q(1541));
+
+// If QID 901 is answered Option [2, 3, OR 4], then disappear and clear answer to QID 1301.
+ifQ(901)
+.answered(2,3,4)
+.disappear(Q(1301))
+.clearAnswer(Q(1301));
+
+//*******************************
+// ENVIRONMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER FACING SERVICE - Begin
+//*******************************
+
+// If QID 901 is answered Option [3 OR 4], then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(3,4)
+.disappear(Q(1321), Q(1781), Q(161))
+.clearAnswer(Q(1321), Q(1781), Q(161));
+
+// If QID 901 is answered Option [1, 3, OR 4], then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(1,3,4)
+.disappear(Q(1561), Q(871), Q(911))
+.clearAnswer(Q(1561), Q(871), Q(911));
+
+// If QID 1561 is answered Option [0, 3, OR 4], then disappear and clear answer to QID 891.
+ifQ(1561)
+.answered(0,3,4)
+.disappear(Q(891))
+.clearAnswer(Q(891));
+
+//*******************************
+// CUSTOMER FACING SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// ACCURACY - Begin
+//*******************************
+
+// If QID 971 is answered Option [1 OR 3], then disappear and clear answer to QID 981.
+ifQ(971)
+.answered(1,3)
+.disappear(Q(981))
+.clearAnswer(Q(981));
+
+// If QID 991 is answered Option 1, then disappear and clear answer to QID 1011.
+ifQ(991)
+.answered(1)
+.disappear(Q(1011))
+.clearAnswer(Q(1011));
+
+// If QID 1001 is answered Option 1, then disappear and clear answer to QID 1141.
+ifQ(1001)
+.answered(1)
+.disappear(Q(1141))
+.clearAnswer(Q(1141));
+
+//*******************************
+// ACCURACY - End
+//*******************************
