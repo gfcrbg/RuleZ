@@ -1,26 +1,14 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 2/15/2022	
+// Last Updated: 2/22/2022	
 //*******************************	
 
 
 
 
-// Controller for Badge calculator
-ifQ(1)
-.answered()
-.disappear(Q(1771), Q(1691), Q(1701), Q(1711), Q(1721), Q(1731), Q(1741), Q(1751), Q(1761)) // Curb Appeal
-.disappear(Q(1861), Q(1871), Q(1881), Q(1891), Q(1901)) // Cleanliness 
-.disappear(Q(1781), Q(1791), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851)) // Order Taker Engagement
-.disappear(Q(1681)) // Overall score for badges
-.setValue(Q(1681), 0)
-
-
-
-
 //*******************************
-// CURB APPEAL - Begin
+// EXTERIOR CLEANLINESS - Begin
 //*******************************
 
 // If QID 901 is answered Option 1, then disappear and clear answer to QIDs.
@@ -36,14 +24,14 @@ ifQ(901)
 .clearAnswer(Q(1181), Q(1281), Q(1291), Q(1301));
 
 //*******************************
-// CURB APPEAL - End
+// EXTERIOR CLEANLINESS - End
 //*******************************
 
 
 
 
 //*******************************
-// INTERIOR ENVIRONMENT - Begin
+// INTERIOR CLEANLINESS - Begin
 //*******************************
 
 // If QID 901 is answered Option 1, then disappear and clear answer to QIDs.
@@ -60,14 +48,14 @@ ifQ(1591)
 .clearAnswer(Q(1601));
 
 //*******************************
-// INTERIOR ENVIRONMENT  - End
+// INTERIOR CLEANLINESS - End
 //*******************************
 
 
 
 
 //*******************************
-// ORDER TAKER ENGAGEMENT - Begin
+// GUEST ORDER - Begin
 //*******************************
 
 //------------------------------------
@@ -102,6 +90,12 @@ ifQ(901)
 .disappear(Q(861), Q(871))
 .clearAnswer(Q(861), Q(871));
 
+// If QID 901 is answered Option 1, then disappear and clear answer to QID 1981.
+ifQ(901)
+.answered(1)
+.disappear(Q(1981))
+.clearAnswer(Q(1981));
+
 // If QID 1561 is answered Option 2, then disappear and clear answer to QID 1571.
 ifQ(1561)
 .answered(2)
@@ -115,18 +109,47 @@ ifQ(1571)
 .clearAnswer(Q(891));
 
 //*******************************
-// ORDER TAKER ENGAGEMENT  - End
+// GUEST ORDER  - End
 //*******************************
 
 
 
 
 //*******************************
-// SPEED - Begin
+// SERVING OUR GUEST - Begin
 //*******************************
+
+// If QID 901 is answered Option [2], then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2)
+.disappear(Q(281), Q(911))
+.clearAnswer(Q(281), Q(911));
+
+//*******************************
+// SERVING OUR GUEST - End
+//*******************************
+
+
+
+
+//*******************************
+// QUICK STANDARDS - Begin
+//*******************************
+
+// If QID 901 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(1)
+.disappear(Q(2011), Q(2021))
+.clearAnswer(Q(2011), Q(2021));
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2)
+.disappear(Q(1341), Q(1331), Q(311))
+.clearAnswer(Q(1341), Q(1331), Q(311));   
 
 //------------------------------------
-// Window Time Calc - Begin
+// (DT) Window Time Calc - Begin
 //------------------------------------
 
 // If QID 1341 and QID 1241 is answered anything, then trigger math operation: [1241] - [1341] = [1331]
@@ -154,11 +177,11 @@ ifQ(1331)
 .setValue(Q(311), 3);
 
 //------------------------------------
-// Window Time Calc - End
+// (DT) Window Time Calc - End
 //------------------------------------
 
 //------------------------------------
-// Line Time Calc - Begin
+// (DT) Line Time Calc - Begin
 //------------------------------------
 
 // If QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [1251]
@@ -186,17 +209,43 @@ ifQ(1251)
 .setValue(Q(341), 3);
 
 //------------------------------------
-// Line Time Calc - End
+// (DT) Line Time Calc - End
 //------------------------------------
 
-// If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(901)
-.answered(2)
-.disappear(Q(1341), Q(1331), Q(311))
-.clearAnswer(Q(1341), Q(1331), Q(311));   
+//------------------------------------
+// (CS) Line Time Calc - Begin
+//------------------------------------
+
+// If QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [2011]
+ifQ(1551)
+.answered()
+.andQ(1241)
+.answered()
+.sub(Q(1241), Q(1551))
+.store(Q(2011));
+
+// If QID 2011 is < 3 min. 30 sec., then set value to Option 1 to QID 341.
+ifQ(2011)
+.lessThan(210)
+.setValue(Q(2021), 1);
+
+// If QID 2011 is > 3 min. 30 sec. AND <= 3 min. 51 sec., then set value to Option 2 to QID 2011.
+ifQ(2011)
+.greaterThan(210)
+.lessThanOrEqual(231)
+.setValue(Q(2021), 2);
+
+// If QID 2011 is > 3 min. 51 sec., then set value to Option 3 to QID 2011.
+ifQ(2011)
+.greaterThan(231)
+.setValue(Q(2021), 3);
+
+//------------------------------------
+// (CS) Line Time Calc - End
+//------------------------------------
 
 //*******************************
-// SPEED  - End
+// QUICK STANDARDS  - End
 //*******************************
 
 
@@ -205,6 +254,12 @@ ifQ(901)
 //*******************************
 // ACCURACY - Begin
 //*******************************
+
+// If QID 901 is answered Option [2], then disappear and clear answer to QID 1001.
+ifQ(901)
+.answered(2)
+.disappear(Q(1001))
+.clearAnswer(Q(1001));
 
 // If QID 971 is answered Option [1 OR 3], then disappear and clear answer to QID 981.
 ifQ(971)
@@ -218,9 +273,9 @@ ifQ(991)
 .disappear(Q(1011))
 .clearAnswer(Q(1011));
 
-// If QID 1001 is answered Option 1, then disappear and clear answer to QID 1141.
+// If QID 1001 is answered Option [0 OR 1], then disappear and clear answer to QID 1141.
 ifQ(1001)
-.answered(1)
+.answered(0,1)
 .disappear(Q(1141))
 .clearAnswer(Q(1141));
 
@@ -243,169 +298,3 @@ ifQ(1611)
 //*******************************
 // SHIFT MANAGEMENT  - End
 //*******************************
-
-
-
-
-//====================
-// BADGE - Overall Score Calc
-//====================
-
-
-// Curb Appeal
-
-
-// QID 1181 -- Yes
-ifQ(1181)
-.answered(1)
-.setValue(Q(1691), '3');
-
-// QID 1181 -- No
-ifQ(1181)
-.answered(2)
-.setValue(Q(1691), '0');
-
-// QID 1181 -- N/A, not answered
-ifQ(1181)
-.answered(3)
-.orQ(1181)
-.notAnswered()
-.clearAnswer(Q(1691));
-
-
-// QID 1191 -- Yes
-ifQ(1191)
-.answered(1)
-.setValue(Q(1701), '3');
-
-// QID 1191 -- No
-ifQ(1191)
-.answered(2)
-.setValue(Q(1701), '0');
-
-// QID 1191 -- not answered
-ifQ(1191)
-.notAnswered()
-.clearAnswer(Q(1701));
-
-
-// Curb Appeal section score
-ifQ()
-.sum(Q(1691), Q(1701))
-.store(Q(1771));
-
-ifQ(1771)
-.answered()
-.divide(Q(1771), 14)
-.store(Q(1771));
-
-ifQ(1771)
-.answered()
-.multiply(Q(1771), 100)
-.store(Q(1771));
-
-
-
-// Cleanliness
-
-
-// QID 1361 -- Yes
-ifQ(1361)
-.answered(1)
-.setValue(Q(1871), '3');
-
-// QID 1361 -- No
-ifQ(1361)
-.answered(2)
-.setValue(Q(1871), '0');
-
-// QID 1361 -- not answered
-ifQ(1361)
-.notAnswered()
-.clearAnswer(Q(1871));
-
-
-// QID 1501 -- Option 1 OR Option 2
-ifQ(1501)
-.answered(1,2)
-.setValue(Q(1881), '2');
-
-// QID 1501 -- Option 1 AND Option 2
-ifQ(1501)
-.answered([1,2])
-.setValue(Q(1881), '4');
-
-// QID 1501 -- none of the above
-ifQ(1501)
-.answered(3)
-.setValue(Q(1881), '0');
-
-// QID 1501 -- not answered
-ifQ(1501)
-.notAnswered()
-.clearAnswer(Q(1881));
-
-
-
-// QID 1601
-ifQ()
-.setValue(Q(1901), 10);
-
-//
-ifQ(1601)
-.notAnswered(1)
-.sub(Q(1901), 2)
-.store(Q(1901));
-
-//
-ifQ(1601)
-.notAnswered(2)
-.sub(Q(1901), 2)
-.store(Q(1901));
-
-//
-ifQ(1601)
-.notAnswered(3)
-.sub(Q(1901), 2)
-.store(Q(1901));
-
-//
-ifQ(1601)
-.notAnswered(4)
-.sub(Q(1901), 2)
-.store(Q(1901));
-
-//
-ifQ(1601)
-.notAnswered(5)
-.sub(Q(1901), 2)
-.store(Q(1901));
-
-//
-ifQ(1601)
-.notAnswered([1,2,3,4,5])
-.setValue(Q(1901), '0');
-
-//
-ifQ(1591)
-.answered(0,2,3)
-.andQ(1601)
-.notAnswered([1,2,3,4,5])
-.clearAnswer(Q(1901));
-
-
-
-// Cleanliness section score
-ifQ()
-.sum(Q(1871), Q(1881), Q(1891), Q(1901))
-.store(Q(1861));
-
-ifQ(1861)
-.answered()
-.divide(Q(1861), 14)
-.store(Q(1861));
-
-ifQ(1861)
-.answered()
-.multiply(Q(1861), 100)
-.store(Q(1861));
