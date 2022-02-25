@@ -1,0 +1,57 @@
+//*******************************	
+// CID: 809	
+// SID: 4754	
+// Last Updated: 2/25/2022
+//*******************************	
+
+
+
+
+//*****************************************
+// I. EMPLOYEE EVALUATION - Begin
+//*****************************************
+
+// If QID 641 is answered Option 1, then disappear and clear answer to QID 651.
+ifQ(641)
+.answered(1)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+// If QID 671 is answered Option 2, then disappear and clear answer to QID 681.
+ifQ(671)
+.answered(2)
+.disappear(Q(681))
+.clearAnswer(Q(681));
+
+// If QID 231 is answered Option [2 OR 3], then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(2,3)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+//*****************************************
+// I. EMPLOYEE EVALUATION - End
+//*****************************************
+
+
+
+
+//*****************************************
+// II. FACILITY AND CAR WASH EVALUATION - Begin
+//*****************************************
+
+// If QID 521 is answered Option 1, then disappear and clear answer to QID 531.
+ifQ(521)
+.answered(1)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 541 is answered Option 1, then disappear and clear answer to QID 551.
+ifQ(541)
+.answered(1)
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+//*****************************************
+// II. FACILITY AND CAR WASH EVALUATION  - End
+//*****************************************
