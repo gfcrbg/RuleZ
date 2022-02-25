@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/25/2022
+// Last Updated: 2/25/2022
 //*******************************
 
 
@@ -548,9 +548,9 @@ ifQ(2341)
 .disappear(Q(6691))
 .clearAnswer(Q(6691));
 
-// If ULG is "Speedway" and if QID 8701 is answered Option 2 and if QID 3051 is answered Option 2, then set value to Option 3 to QID 3051. 
+// If ULG is "Speedway Banner" and if QID 8701 is answered Option 2 and if QID 3051 is answered Option 2, then set value to Option 3 to QID 3051. 
 ifQ()
-.ulgIs("Speedway")
+.ulgIs("Speedway Banner")
 .andifQ(8701)
 .answered(2)
 .andifQ(3051)
@@ -649,6 +649,12 @@ ifQ()
 .dateAfter('2020-09-30')
 .setValue(Q(6781), 3);
 
+// Shop Date Trigger [January 28, 2022], if ULG is "Speedway Banner", then set value to Option 2 to QID 6781.
+ifQ()
+.ulgIs("Speedway Banner")
+.dateAfter("2022-01-27")
+.setValue(Q(6781), 2);
+
 // Shop Date Trigger [after September 2020 AND before April 2021], if country is 'Canada', then set value to Option 3 to QID 5301.
 ifQ()
 .countryIs('Canada')
@@ -686,6 +692,12 @@ ifQ(2181)
 .answered(1,3)
 .disappear(Q(6161))
 .clearAnswer(Q(6161));
+
+// Shop Date Trigger [January 28, 2022], if ULG is "Speedway Banner", then set value to Option 3 to QID 8611.
+ifQ()
+.ulgIs("Speedway Banner")
+.dateAfter("2022-01-27")
+.setValue(Q(8611), 3);
 
 // If QID 5301 is answered Option [1 OR 3], then disappear and clear answer to QID 6181.
 ifQ(5301)
