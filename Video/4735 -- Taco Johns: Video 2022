@@ -20,8 +20,8 @@ ifQ(901)
 // If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2)
-.disappear(Q(1181), Q(1281), Q(1291), Q(1301))
-.clearAnswer(Q(1181), Q(1281), Q(1291), Q(1301));
+.disappear(Q(1181), Q(1281), Q(1291), Q(1301), Q(1541))
+.clearAnswer(Q(1181), Q(1281), Q(1291), Q(1301), Q(1541));
 
 //*******************************
 // EXTERIOR CLEANLINESS - End
@@ -152,28 +152,36 @@ ifQ(901)
 // (DT) Window Time Calc - Begin
 //------------------------------------
 
-// If QID 1341 and QID 1241 is answered anything, then trigger math operation: [1241] - [1341] = [1331]
-ifQ(1341)
+// If QID 901 answered Option 1 AND QID 1341 and QID 1241 is answered anything, then trigger math operation: [1241] - [1341] = [1331]
+ifQ(901)
+.answered(1)
+.andQ(1341)
 .answered()
 .andQ(1241)
 .answered()
 .sub(Q(1241), Q(1341))
 .store(Q(1331));
 
-// If QID 1331 is < 1 min. 30 sec., then set value to Option 1 to QID 311.
+// If QID 1331 is < 1 min. 30 sec. AND QID 901 is answered Option 1, then set value to Option 1 to QID 311.
 ifQ(1331)
 .lessThan(90)
+.andQ(901)
+.answered(1)
 .setValue(Q(311), 1);
 
-// If QID 1331 is > 1 min. 30 sec. AND <= 1 min. 51 sec., then set value to Option 2 to QID 311.
+// If QID 1331 is > 1 min. 30 sec. AND <= 1 min. 51 sec., AND QID 901 is answered Option 1 then set value to Option 2 to QID 311.
 ifQ(1331)
 .greaterThan(90)
 .lessThanOrEqual(111)
+.andQ(901)
+.answered(1)
 .setValue(Q(311), 2);
 
-// If QID 1331 is > 1 min. 51 sec., then set value to Option 3 to QID 311.
+// If QID 1331 is > 1 min. 51 sec. AND QID 901 is answered Option 1, then set value to Option 3 to QID 311.
 ifQ(1331)
 .greaterThan(111)
+.andQ(901)
+.answered(1)
 .setValue(Q(311), 3);
 
 //------------------------------------
@@ -195,17 +203,23 @@ ifQ(1551)
 // If QID 1251 is < 3 min. 30 sec., then set value to Option 1 to QID 341.
 ifQ(1251)
 .lessThan(210)
+.andQ(901)
+.answered(1)
 .setValue(Q(341), 1);
 
 // If QID 1251 is > 3 min. 30 sec. AND <= 3 min. 51 sec., then set value to Option 2 to QID 341.
 ifQ(1251)
 .greaterThan(210)
 .lessThanOrEqual(231)
+.andQ(901)
+.answered(1)
 .setValue(Q(341), 2);
 
 // If QID 1251 is > 3 min. 51 sec., then set value to Option 3 to QID 341.
 ifQ(1251)
 .greaterThan(231)
+.andQ(901)
+.answered(1)
 .setValue(Q(341), 3);
 
 //------------------------------------
@@ -224,20 +238,26 @@ ifQ(1551)
 .sub(Q(1241), Q(1551))
 .store(Q(2011));
 
-// If QID 2011 is < 3 min. 30 sec., then set value to Option 1 to QID 2021.
+// If QID 2011 is < 3 min. 30 sec., then set value to Option 1 to QID 341.
 ifQ(2011)
 .lessThan(210)
+.andQ(901)
+.answered(2)
 .setValue(Q(2021), 1);
 
-// If QID 2011 is > 3 min. 30 sec. AND <= 3 min. 51 sec., then set value to Option 2 to QID 2021.
+// If QID 2011 is > 3 min. 30 sec. AND <= 3 min. 51 sec., then set value to Option 2 to QID 2011.
 ifQ(2011)
 .greaterThan(210)
 .lessThanOrEqual(231)
+.andQ(901)
+.answered(2)
 .setValue(Q(2021), 2);
 
-// If QID 2011 is > 3 min. 51 sec., then set value to Option 3 to QID 2021.
+// If QID 2011 is > 3 min. 51 sec., then set value to Option 3 to QID 2011.
 ifQ(2011)
 .greaterThan(231)
+.andQ(901)
+.answered(2)
 .setValue(Q(2021), 3);
 
 //------------------------------------
