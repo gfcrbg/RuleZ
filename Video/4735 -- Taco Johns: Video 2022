@@ -145,14 +145,54 @@ ifQ(901)
 // If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2)
-.disappear(Q(1341), Q(1331), Q(311))
-.clearAnswer(Q(1341), Q(1331), Q(311));   
+.disappear(Q(1341), Q(1331), Q(311), Q(1251), Q(341))
+.clearAnswer(Q(1341), Q(1331), Q(311), Q(1251), Q(341));
+
+//------------------------------------
+// (CS) Line Time Calc - Begin
+//------------------------------------
+
+// If QID 901 is answered Option 2 AND QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [2011]
+ifQ(901)
+.answered(2)
+.andQ(1551)
+.answered()
+.andQ(1241)
+.answered()
+.sub(Q(1241), Q(1551))
+.store(Q(2011));
+
+// If QID 2011 is < 3 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 1 to QID 341.
+ifQ(2011)
+.lessThan(210)
+.andQ(901)
+.answered(2)
+.setValue(Q(2021), 1);
+
+// If QID 2011 is > 3 min. 30 sec. AND <= 3 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2011.
+ifQ(2011)
+.greaterThan(210)
+.lessThanOrEqual(231)
+.andQ(901)
+.answered(2)
+.setValue(Q(2021), 2);
+
+// If QID 2011 is > 3 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2011.
+ifQ(2011)
+.greaterThan(231)
+.andQ(901)
+.answered(2)
+.setValue(Q(2021), 3);
+
+//------------------------------------
+// (CS) Line Time Calc - End
+//------------------------------------   
 
 //------------------------------------
 // (DT) Window Time Calc - Begin
 //------------------------------------
 
-// If QID 901 answered Option 1 AND QID 1341 and QID 1241 is answered anything, then trigger math operation: [1241] - [1341] = [1331]
+// If QID 901 is answered Option 1 AND QID 1341 and QID 1241 is answered anything, then trigger math operation: [1241] - [1341] = [1331]
 ifQ(901)
 .answered(1)
 .andQ(1341)
@@ -192,8 +232,10 @@ ifQ(1331)
 // (DT) Line Time Calc - Begin
 //------------------------------------
 
-// If QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [1251]
-ifQ(1551)
+// If QID 901 is answered Option 1 AND QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [1251]
+ifQ(901)
+.answered(1)
+.andQ(1551)
 .answered()
 .andQ(1241)
 .answered()
@@ -224,44 +266,6 @@ ifQ(1251)
 
 //------------------------------------
 // (DT) Line Time Calc - End
-//------------------------------------
-
-//------------------------------------
-// (CS) Line Time Calc - Begin
-//------------------------------------
-
-// If QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [2011]
-ifQ(1551)
-.answered()
-.andQ(1241)
-.answered()
-.sub(Q(1241), Q(1551))
-.store(Q(2011));
-
-// If QID 2011 is < 3 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 1 to QID 341.
-ifQ(2011)
-.lessThan(210)
-.andQ(901)
-.answered(2)
-.setValue(Q(2021), 1);
-
-// If QID 2011 is > 3 min. 30 sec. AND <= 3 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2011.
-ifQ(2011)
-.greaterThan(210)
-.lessThanOrEqual(231)
-.andQ(901)
-.answered(2)
-.setValue(Q(2021), 2);
-
-// If QID 2011 is > 3 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2011.
-ifQ(2011)
-.greaterThan(231)
-.andQ(901)
-.answered(2)
-.setValue(Q(2021), 3);
-
-//------------------------------------
-// (CS) Line Time Calc - End
 //------------------------------------
 
 //*******************************
