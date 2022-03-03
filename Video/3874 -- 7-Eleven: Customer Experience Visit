@@ -52,8 +52,7 @@ ifQ()
 .setValue(Q(8171), 3)
 .setValue(Q(8181), 3);
 
-// TEST
-//
+// If ULG is "Restaurants", appear QID 8801 (black remark).
 ifQ()
 .ulgIs("Restaurants")
 .appear(Q(8801));
