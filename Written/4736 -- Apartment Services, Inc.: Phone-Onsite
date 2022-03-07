@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 384
 // SID: 4736	
-// Last Updated: 1/28/2022	
+// Last Updated: 3/7/2022	
 //*******************************	
 
 
@@ -40,15 +40,15 @@ ifQ(251)
 // III. DEMONSTRATION/TOUR - Begin
 //*******************************
 
-// If QID 651 is answered Option [1,3, OR 4], then disappear and clear answer to QID 661.
+// If QID 651 is not answered Option [2], then disappear and clear answer to QID 661.
 ifQ(651)
-.answered(1,3,4)
+.notAnswered(2)
 .disappear(Q(661))
 .clearAnswer(Q(661)); 
 
-// If QID 651 is answered Option [2,3, OR 4], then disappear and clear answer to QID 671.
+// If QID 651 is not answered Option [1], then disappear and clear answer to QID 671.
 ifQ(651)
-.answered(2,3,4)
+.notAnswered(1)
 .disappear(Q(671))
 .clearAnswer(Q(671)); 
 
