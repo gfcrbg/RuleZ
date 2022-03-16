@@ -1,0 +1,108 @@
+//*******************************	
+// CID: 757	
+// SID: 4764	
+// Last Updated: 3/16/2022	
+//*******************************	
+
+
+
+
+//*******************************************
+// CONTACT - Begin
+//*******************************************
+
+// If QID 231 answered Option 2, then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(2)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+// If QID 231 is answered Option [1 OR 3], then disappear and clear answer to QID 251.
+ifQ(231)
+.answered(1,3)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+//*******************************************
+// CONTACT - End
+//*******************************************
+
+
+
+
+//*******************************************
+// VISIT AT THE DEALERSHIP - Begin
+//*******************************************
+
+// If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(671)
+.answered(3)
+.disappear(Q(351), Q(381), Q(391), Q(421))
+.clearAnswer(Q(351), Q(381), Q(391), Q(421));
+
+//*******************************************
+// VISIT AT THE DEALERSHIP - End
+//*******************************************
+
+
+
+
+//*******************************************
+// TEST DRIVE - Begin
+//*******************************************
+
+// If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(671)
+.answered(3)
+.disappear(Q(471), Q(481))
+.clearAnswer(Q(471), Q(481));
+
+// If QID 671 is answered Option [1 OR 2], then disappear and clear answer to QID 681.
+ifQ(671)
+.answered(1,2)
+.disappear(Q(681))
+.clearAnswer(Q(681)); 
+
+//*******************************************
+// TEST DRIVE - End
+//*******************************************
+
+
+
+
+//*******************************************
+// INTEGRATED OFFER - Begin
+//*******************************************
+
+// If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(671)
+.answered(3)
+.disappear(Q(531), Q(631), Q(561))
+.clearAnswer(Q(531), Q(631), Q(561));
+
+//*******************************************
+// INTEGRATED OFFER - End
+//*******************************************
+
+
+
+
+//*******************************************
+// CONTACT CARE - APPOINTMENT FOLLOW UP - Begin
+//*******************************************
+
+// If QID 581 is answered Option 3, then disappear and clear answer to QID 591.
+ifQ(581)
+.answered(3)
+.disappear(Q(591))
+.clearAnswer(Q(591));
+
+// If QID 651 is answered Option [9 OR 10], then disappear and clear answer to QID 661.
+ifQ(651)
+.answered(9,10)
+.disappear(Q(661))
+.clearAnswer(Q(661));
+
+//*******************************************
+// CONTACT CARE - APPOINTMENT FOLLOW UP - End
+//*******************************************
