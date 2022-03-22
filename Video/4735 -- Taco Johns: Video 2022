@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 3/1/2022	
+// Last Updated: 3/22/2022	
 //*******************************	
 
 
@@ -122,8 +122,8 @@ ifQ(1571)
 // If QID 901 is answered Option [2], then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2)
-.disappear(Q(281), Q(911))
-.clearAnswer(Q(281), Q(911));
+.disappear(Q(281))
+.clearAnswer(Q(281));
 
 //*******************************
 // SERVING OUR GUEST - End
