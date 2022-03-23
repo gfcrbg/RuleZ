@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 3/16/2022	
+// Last Updated: 3/23/2022	
 //*******************************	
 
 
@@ -11,17 +11,23 @@
 // CONTACT - Begin
 //*******************************************
 
-// If QID 231 answered Option 2, then disappear and clear answer to QID 241.
+// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(4)
+.disappear(Q(211), Q(221), Q(231))
+.clearAnswer(Q(211), Q(221), Q(231));
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(231)
 .answered(2)
-.disappear(Q(241))
-.clearAnswer(Q(241));
+.disappear(Q(241), Q(261))
+.clearAnswer(Q(241), Q(261));
 
-// If QID 231 is answered Option [1 OR 3], then disappear and clear answer to QID 251.
+// If QID 231 is answered Option [1 OR 3], then disappear and clear answer to QIDs.
 ifQ(231)
 .answered(1,3)
-.disappear(Q(251))
-.clearAnswer(Q(251));
+.disappear(Q(251), Q(711))
+.clearAnswer(Q(251), Q(711));
 
 //*******************************************
 // CONTACT - End
@@ -37,8 +43,14 @@ ifQ(231)
 // If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(671)
 .answered(3)
-.disappear(Q(351), Q(381), Q(391), Q(421))
-.clearAnswer(Q(351), Q(381), Q(391), Q(421));
+.disappear(Q(351), Q(371), Q(381), Q(421))
+.clearAnswer(Q(351), Q(371), Q(381), Q(421));
+
+// If QID 671 answered Option [1 OR 3], then disappear and clear answer to QID 391.
+ifQ(671)
+.answered(1,3)
+.disappear(Q(391))
+.clearAnswer(Q(391));
 
 //*******************************************
 // VISIT AT THE DEALERSHIP - End
@@ -61,7 +73,13 @@ ifQ(671)
 ifQ(671)
 .answered(1,2)
 .disappear(Q(681))
-.clearAnswer(Q(681)); 
+.clearAnswer(Q(681));
+
+// If QID 481 is answered Option [1, 2, 3, 4, 5, OR 6], then disappear and clear answer to QID 491.
+ifQ(481)
+.answered(1,2,3,4,5,6)
+.disappear(Q(491))
+.clearAnswer(Q(491));
 
 //*******************************************
 // TEST DRIVE - End
@@ -97,9 +115,9 @@ ifQ(581)
 .disappear(Q(591))
 .clearAnswer(Q(591));
 
-// If QID 651 is answered Option [9 OR 10], then disappear and clear answer to QID 661.
+// If QID 651 is answered Option [8, 9, 10, OR 11], then disappear and clear answer to QID 661.
 ifQ(651)
-.answered(9,10)
+.answered(8,9,10,11)
 .disappear(Q(661))
 .clearAnswer(Q(661));
 
