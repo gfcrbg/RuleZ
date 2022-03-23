@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 3/3/2022
+// Last Updated: 3/23/2022
 //*******************************
 
 
@@ -69,21 +69,21 @@ ifQ(11)
 .greaterThanOrEqual(25200)
 .andifQ(11)
 .lessThanOrEqual(68400)
-.setValue( Q(8701), 1);
+.setValue(Q(8701), 1);
 
 // Shopped outside of 7am-7pm stocked hours (after 7pm/overnight)
 ifQ(11)
 .greaterThanOrEqual(0) //midnight
 .andifQ(11)
 .lessThan(25200)  // to 6:59 AM
-.setValue( Q(8701), 2);
+.setValue(Q(8701), 2);
 
 // Shopped outside of 7am-7pm stocked hours (after 7pm/overnight)
 ifQ(11)
 .greaterThan(68400) // 7:01 PM
 .andifQ(11)
 .lessThanOrEqual(86399) // to 11:59 PM
-.setValue( Q(8701), 2);
+.setValue(Q(8701), 2);
 
 
 
@@ -138,6 +138,7 @@ ifQ(3091)
 // Shop Date Trigger [before August 2020], if country is 'US' AND QID 3091 is < 2 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .dateBefore("2020-08-01")
+.andifQ()
 .countryIs('US')
 .andQ(3091)
 .lessThan(120)
@@ -146,6 +147,7 @@ ifQ()
 // Shop Date Trigger [before August 2020], if country is 'US' AND QID 3091 is >= 2 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .dateBefore("2020-08-01")
+.andifQ()
 .countryIs('US')
 .andQ(3091)
 .greaterThanOrEqual(120)
@@ -154,6 +156,7 @@ ifQ()
 // Shop Date Trigger [after July 2020 AND before January 2022], if country is 'US' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .dateAfter("2020-07-31")
+.andifQ()
 .dateBefore("2021-12-31")
 .countryIs('US')
 .andQ(3091)
@@ -163,6 +166,7 @@ ifQ()
 // Shop Date Trigger [after July 2020 and before January 2022], if country is 'US' AND QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .dateAfter("2020-07-31")
+.andifQ()
 .dateBefore("2021-12-31")
 .countryIs('US')
 .andQ(3091)
@@ -172,6 +176,7 @@ ifQ()
 // Shop Date Trigger [after December 2021], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
+.andifQ()
 .countryIs('US')
 .andQ(3091)
 .lessThanOrEqual(120)
@@ -180,6 +185,7 @@ ifQ()
 // Shop Date Trigger [after December 2021], if country is 'US' AND QID 3091 is > 2 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
+.andifQ()
 .countryIs('US')
 .andQ(3091)
 .greaterThan(120)
@@ -299,7 +305,9 @@ ifQ()
 // Shop Date Trigger [after February 2020 AND before April 2021], if country is 'Canada', then set value to Option 2 to QID 6221.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter('2020-02-29')
+.andifQ()
 .dateBefore('2021-04-01')
 .setValue(Q(6221), 2);
 
@@ -508,6 +516,7 @@ ifQ()
 // Shop Date Trigger [after February 2020 AND before June 2020], if 2020, then set values to QIDs.
 ifQ()
 .dateAfter("2020-02-29")
+.andifQ()
 .dateBefore("2020-06-01")
 .setValue(Q(5271), 3)
 .setValue(Q(2341), 3)
@@ -523,21 +532,27 @@ ifQ(5271)
 // Shop Date Trigger [after February 2020 AND before December 2020], set value to Option 3 to QID 5251.
 ifQ()
 .countryIs("US")
+.andifQ()
 .dateAfter("2020-02-29")
+.andifQ()
 .dateBefore("2020-12-01")
 .setValue(Q(5251), 3);
 
 // Shop Date Trigger [after February 2020 AND before June 2021], if country is "Canada", then set value to Option 3 to QID 5251.
 ifQ()
 .dateAfter("2020-02-29")
+.andifQ()
 .dateBefore("2021-06-01")
+.andifQ()
 .countryIs("Canada")
 .setValue(Q(5251), 3);
 
 // Shop Date Trigger [after November 2020], if country is "US" AND ULG is "No Self-Serve", then set value to Option 3 to QID 5251. 
 ifQ()
 .dateAfter("2020-11-30")
+.andifQ()
 .ulgIs("No Self-Serve")
+.andifQ()
 .countryIs("US")
 .setValue(Q(5251), 3);
 
@@ -576,20 +591,25 @@ ifQ()
 // Shop Date Trigger [after March 2020], if country is 'Canada', then set value to QIDs.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter('2020-03-31')
 .setValue(Q(5291), 3);
 
 // Shop Date Trigger [after May 2021 AND before March 2022], if country is 'Canada' and ULG is not 'BC', then set value to Option 3 to QID 5251.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .ulgNot('BC')
+.andifQ()
 .dateAfter('2021-05-31')
+.andifQ()
 .dateBefore('2022-03-01')
 .setValue(Q(5251), 3);
 
 // Shop Date Trigger [after February 2020], if ULG is 'No Self-Serve', then set value to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
+.andifQ()
 .ulgIs('No Self-Serve')
 .setValue(Q(2181), 3)
 .setValue(Q(6761), 4) // N/A to 2181
@@ -601,7 +621,9 @@ ifQ()
 // Shop Date Trigger [after February 2020 AND before April, 2021], if country is 'Canada', then set value to QIDs.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter('2020-02-29')
+.andifQ()
 .dateBefore('2021-04-01')
 .setValue(Q(2181), 3)
 .setValue(Q(6761), 4) // N/A to 2181
@@ -613,8 +635,11 @@ ifQ()
 // Shop Date Trigger [after March 2021 AND before March 2022], if country is 'Canada' and ULG is not 'BC', then set value to QIDs.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .ulgNot('BC')
+.andifQ()
 .dateAfter('2021-03-31')
+.andifQ()
 .dateBefore('2022-03-01')
 .setValue(Q(2181), 3)
 .setValue(Q(6761), 4) // N/A to 2181
@@ -626,6 +651,7 @@ ifQ()
 // Shop Date Trigger [after February 2020 AND before September 2020], then set value to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
+.andifQ()
 .dateBefore('2020-09-01')
 .setValue(Q(2181), 3)
 .setValue(Q(6761), 4) // N/A to 2181
@@ -637,7 +663,9 @@ ifQ()
 // Shop Date Trigger [after May 2020], if country is 'US' and ULG is 'No Self-Serve', then set value to Option 3 to QIDs.
 ifQ()
 .countryIs('US')
+.andifQ()
 .dateAfter('2020-05-31')
+.andifQ()
 .ulgIs('No Self-Serve')
 .setValue(Q(5301), 3)
 .setValue(Q(6781), 3);
@@ -645,7 +673,9 @@ ifQ()
 // Shop Date Trigger [after May 2020 AND before September 2020], if country is 'US', then set value to Option 3 to QIDs.
 ifQ()
 .countryIs('US')
+.andifQ()
 .dateAfter('2020-05-31')
+.andifQ()
 .dateBefore('2020-09-01')
 .setValue(Q(5301), 3)
 .setValue(Q(6781), 3);
@@ -653,19 +683,23 @@ ifQ()
 // Shop Date Trigger [after September 2020], if country is 'Canada', then set value to Option 3 to QIDs.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter('2020-09-30')
 .setValue(Q(6781), 3);
 
 // Shop Date Trigger [January 28, 2022], if ULG is "Speedway Banner", then set value to Option 2 to QID 6781.
 ifQ()
 .ulgIs("Speedway Banner")
+.andifQ()
 .dateAfter("2022-01-27")
 .setValue(Q(6781), 2);
 
 // Shop Date Trigger [after September 2020 AND before April 2021], if country is 'Canada', then set value to Option 3 to QID 5301.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter('2020-09-30')
+.andifQ()
 .dateBefore('2021-04-01')
 .setValue(Q(5301), 3);
 
@@ -693,9 +727,10 @@ ifQ(2181)
 .disappear(Q(6161))
 .clearAnswer(Q(6161));
 
-// Shop Date Trigger [January 28, 2022], if ULG is "Speedway Banner", then set value to Option 3 to QID 8611.
+// Shop Date Trigger [January 28, 2022], AND if ULG is "Speedway Banner", then set value to Option 3 to QID 8611.
 ifQ()
 .ulgIs("Speedway Banner")
+.andifQ()
 .dateAfter("2022-01-27")
 .setValue(Q(8611), 3);
 
@@ -719,21 +754,27 @@ ifQ(5301)
 // Shop Date Trigger [AFTER February 2020 and BEFORE December 2020], if country is 'US', then set value to Option 3 to QID 2421.
 ifQ()
 .countryIs('US')
+.andifQ()
 .dateAfter("2020-02-29")
+.andifQ()
 .dateBefore("2020-12-01")
 .setValue(Q(2421), 3);
 
 // Shop Date Trigger [AFTER February 2020 and BEFORE June 2020], if country is 'Canada', then set value to Option 3 to QID 2421.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter("2020-02-29")
+.andifQ()
 .dateBefore("2020-06-01")
 .setValue(Q(2421), 3);
 
 // Shop Date Trigger [July 2021], if country is 'Canada', then set value to Option 3 to QID 2421.
 ifQ()
 .countryIs('Canada')
+.andifQ()
 .dateAfter("2021-06-30")
+.andifQ()
 .dateBefore("2021-08-01")
 .setValue(Q(2421), 3);
 
