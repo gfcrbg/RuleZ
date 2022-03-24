@@ -40,6 +40,14 @@ ifQ(231)
 // VISIT AT THE DEALERSHIP - Begin
 //*******************************************
 
+// If QIDs 721 AND 731 answered anything, then trigger math operation: [731] - [721] = [741]
+ifQ(721)
+.answered()
+.andQ(731)
+.answered()
+.sub(Q(731),Q(721))
+.store(Q(741));
+
 // If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(671)
 .answered(3)
