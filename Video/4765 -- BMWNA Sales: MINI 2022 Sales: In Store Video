@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4765	
-// Last Updated: 3/23/2022	
+// Last Updated: 3/24/2022	
 //*******************************	
 
 
@@ -45,6 +45,14 @@ ifQ(211)
 //*******************************************
 // VISIT AT THE DEALERSHIP - Begin
 //*******************************************
+
+// If QID 702 AND 712 answered anything, then trigger math operation: [712] - [702] = [722]
+ifQ(702)
+.answered()
+.andQ(712)
+.answered()
+.sub(Q(712) , Q(702))
+.store(Q(722));
 
 // If QID 131 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(131)
