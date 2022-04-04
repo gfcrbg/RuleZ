@@ -5,7 +5,7 @@
 //*******************************	
 
 
-// test shop: 2995280
+
 
 //*******************************
 // PRODUCE - Begin
@@ -40,7 +40,7 @@ ifQ(1251)
 .answered(1)
 .setValue(Q(671), 3)
 .setValue(Q(681), 7)
-.setValue(Q(691), 0) // no N/A option
+.setValue(Q(691), 5)
 .setValue(Q(701), 3)
 .setValue(Q(711), 3)
 .setValue(Q(721), 3)
