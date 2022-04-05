@@ -278,7 +278,7 @@ ifQ(1871)
 // NPS - Begin
 //*******************************
 
-// Chat
+// Chat -- If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(91)
 .answered(2)
 .clearAnswer(Q(3501), Q(3511), Q(3521), Q(3451))
@@ -295,27 +295,23 @@ ifQ(1941)
 .setValue(Q(3501), "1")
 .clearAnswer(Q(3511), Q(3521));
 
-// test
-// Chat PASSIVE -- If QID 1941 is answered Option [8 OR 9] or QID 91 is answered Option 2, then set value to "0" to QID 3451.
+// Chat PASSIVE -- If QID 1941 is answered Option [8 OR 9], then set value to "0" to QID 3451.
 ifQ(1941)
 .answered(8,9)
 .setValue(Q(3451), "0");
 
-// test
-// Chat PASSIVE -- If QID 1941 is answered Option [8 OR 9] or QID 91 is answered Option 2, then set value to "1" to QID 3511 and clear answer to QIDs.
+// Chat PASSIVE -- If QID 1941 is answered Option [8 OR 9], then set value to "1" to QID 3511 and clear answer to QIDs.
 ifQ(1941)
 .answered(8,9)
 .setValue(Q(3511), "1")
 .clearAnswer(Q(3501), Q(3521));
 
-// test
-// Chat DETRACTOR -- If QID 1941 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 91 is answered Option 1, then set value to "-1" to QID 3451.
+// Chat DETRACTOR -- If QID 1941 is answered Option [1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3451.
 ifQ(1941)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3451), "-1");
 
-// test
-// Chat DETRACTOR -- If QID 1941 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 91 is answered Option 1, then set value to "1" to QID 3521 and clear answer to QIDs.
+// Chat DETRACTOR -- If QID 1941 is answered Option [1,2,3,4,5,6, OR 7], then set value to "1" to QID 3521 and clear answer to QIDs.
 ifQ(1941)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3521), "1")
@@ -323,7 +319,7 @@ ifQ(1941)
 
 
 
-// Email 
+// Email -- If QID 3651 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3651)
 .answered(2)
 .clearAnswer(Q(3531), Q(3541), Q(3551), Q(3461))
@@ -351,12 +347,12 @@ ifQ(841)
 .setValue(Q(3541), "1")
 .clearAnswer(Q(3531), Q(3551));
 
-// Email DETRACTOR -- If QID 841 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3461.
+// Email DETRACTOR -- If QID 841 is answered Option [1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3461.
 ifQ(841)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3461), "-1");
 
-// Email DETRACTOR -- If QID 841 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "1" to QID 3551 and clear answer to QIDs.
+// Email DETRACTOR -- If QID 841 is answered Option [1,2,3,4,5,6, OR 7], then set value to "1" to QID 3551 and clear answer to QIDs.
 ifQ(841)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3551), "1")
@@ -364,7 +360,7 @@ ifQ(841)
 
 
 
-// Phone 
+// Phone -- If QID 3661 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3661)
 .answered(2)
 .clearAnswer(Q(3561), Q(3571), Q(3581), Q(3471))
@@ -392,12 +388,12 @@ ifQ(1311)
 .setValue(Q(3571), "1")
 .clearAnswer(Q(3561), Q(3581));
 
-// Phone DETRACTOR -- If QID 1311 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3471.
+// Phone DETRACTOR -- If QID 1311 is answered Option [1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3471.
 ifQ(1311)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3471), "-1");
 
-// Phone DETRACTOR -- If QID 1311 is answered Option [0,1,2,3,4,5,6, OR 7], then set value to "1" to QID 3581 and clear answer to QIDs.
+// Phone DETRACTOR -- If QID 1311 is answered Option [1,2,3,4,5,6, OR 7], then set value to "1" to QID 3581 and clear answer to QIDs.
 ifQ(1311)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3581), "1")
@@ -405,7 +401,7 @@ ifQ(1311)
 
 
 
-// DRT 
+// DRT -- If QID 1391 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1391)
 .answered(2)
 .clearAnswer(Q(3591), Q(3601), Q(3611), Q(3481))
@@ -422,23 +418,23 @@ ifQ(1871)
 .setValue(Q(3591), "1")
 .clearAnswer(Q(3601), Q(3611));
 
-// DRT PASSIVE -- If QID 1871 is answered Option [8 OR 9] or QID 1391 is answered Option 2, then set value to "0" to QID 3481.
+// DRT PASSIVE -- If QID 1871 is answered Option [8 OR 9], then set value to "0" to QID 3481.
 ifQ(1871)
 .answered(8,9)
 .setValue(Q(3481), "0");
 
-// DRT PASSIVE -- If QID 1871 is answered Option [8 OR 9] or QID 1391 is answered Option 2, then set value to "1" to QID 3601 and clear answer to QIDs.
+// DRT PASSIVE -- If QID 1871 is answered Option [8 OR 9], then set value to "1" to QID 3601 and clear answer to QIDs.
 ifQ(1871)
 .answered(8,9)
 .setValue(Q(3601), "1")
 .clearAnswer(Q(3591), Q(3611));
 
-// DRT DETRACTOR -- If QID 1871 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 1391 is answered Option 1, then set value to "-1" to QID 3481.
+// DRT DETRACTOR -- If QID 1871 is answered Option [1,2,3,4,5,6, OR 7], then set value to "-1" to QID 3481.
 ifQ(1871)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3481), "-1");
 
-// DRT DETRACTOR -- If QID 1871 is answered Option [0,1,2,3,4,5,6, OR 7] and QID 1391 is answered Option 1, then set value to "1" to QID 3611 and clear answer to QIDs.
+// DRT DETRACTOR -- If QID 1871 is answered Option [1,2,3,4,5,6, OR 7], then set value to "1" to QID 3611 and clear answer to QIDs.
 ifQ(1871)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(3611), "1")
