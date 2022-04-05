@@ -1,5 +1,9 @@
 ### Announcements  
 
+## April 2022
+Recalcs do NOT trigger RuleZ.  
+The shops must be updated to trigger RuleZ.  
+
 ## March 2022
 New standard practice.  Always use logic controllgers such as ```.andifQ() .andQ() .orifQ() .orQ()``` when more than one condition is utilized in a block of script.  
 
