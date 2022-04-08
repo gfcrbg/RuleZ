@@ -1,0 +1,60 @@
+//*******************************	
+// CID: 813	
+// SID: 4782	
+// Last Updated: 4/7/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// EMAIL INQUIRY SPECIFICS - Begin
+//*******************************
+
+// If QID 391 is answered Option 1, then disappear and clear answer to QID 401.
+ifQ(391)
+.answered(1)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+// If QID 391 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(391)
+.answered(2)
+.disappear(Q(431), Q(301))  // red remarks
+.disappear(Q(421), Q(331), Q(341), Q(371), Q(351), Q(71))
+.clearAnswer(Q(421), Q(331), Q(341), Q(371), Q(351), Q(71));
+
+// If QID 71 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(0,2)
+.disappear(Q(441))  // red remark
+.disappear(Q(471))  // black remark
+.disappear(Q(271), Q(101), Q(461), Q(121), Q(131), Q(141), Q(151), Q(171), Q(191), Q(181))
+.clearAnswer(Q(271), Q(101), Q(461), Q(121), Q(131), Q(141), Q(151), Q(171), Q(191), Q(181));
+
+// If QID 151 is answered Option [0 OR 2], then disappear and clear answer to QID 161.
+ifQ(151)
+.answered(0,2)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+//*******************************
+// EMAIL INQUIRY SPECIFICS - End
+//*******************************
+
+
+
+
+//*******************************
+// WEBSITE EVALUATION - Begin
+//*******************************
+
+// If QID 241 is answered Option 2, then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(2)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+//*******************************
+// WEBSITE EVALUATION - End
+//*******************************
