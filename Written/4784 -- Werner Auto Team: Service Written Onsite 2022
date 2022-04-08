@@ -1,0 +1,50 @@
+//*******************************	
+// CID: 813	
+// SID: 4784	
+// Last Updated: 4/7/2022	
+//*******************************	
+
+
+
+
+// If QIDs 11 AND 21 answered anything, trigger math operation: [21] - [11] = [31]
+ifQ(11)
+.answered()
+.andQ(21)
+.answered()
+.sub(Q(21), Q(11))
+.store(Q(31));
+
+
+
+
+//*******************************
+// SERVICE PROCESS - Begin
+//*******************************
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QID 911.
+ifQ(901)
+.answered(2)
+.disappear(Q(911))
+.clearAnswer(Q(911));
+
+//*******************************
+// SERVICE PROCESS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 721 is answered Option [2 OR 3], then disappear and clear answer to QID 731.
+ifQ(721)
+.answered(2,3)
+.disappear(Q(731))
+.clearAnswer(Q(731));
+
+//*******************************
+// FOLLOW UP - End
+//*******************************
