@@ -1,0 +1,45 @@
+//*******************************	
+// CID: 813	
+// SID: 4783	
+// Last Updated: 4/8/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// NEEDS ASSESSMENT - Begin
+//*******************************
+
+// If QID 151 is answered Option 2, then disappear and clear answer to QID 161.
+ifQ(151)
+.answered(2)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+// If QID 181 is answered Option 2, then disappear and clear answer to QID 551.
+ifQ(181)
+.answered(2)
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+//*******************************
+// NEEDS ASSESSMENT  - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL - Begin
+//*******************************
+
+// If QID 481 is answered Option 2, then disappear and clear answer to QID 561.
+ifQ(481)
+.answered(2)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+//*******************************
+// OVERALL  - End
+//*******************************
