@@ -1,0 +1,123 @@
+//******************************************
+// CID: 813
+// SID: 4780	
+// Last Updated: 4/7/2022
+//******************************************
+
+
+
+
+//******************************************
+// CALL HANDLING SKILLS - Begin
+//******************************************
+
+// If QID 121 is answered Option 1, then disappear QIDs and clear answer to QID 141.
+ifQ(121)
+.answered(1)
+.disappear(Q(141), Q(151))
+.clearAnswer(Q(141));
+
+// If QID 121 is answered Option 4, then disappear and clear answer to QID 501.
+ifQ(121)
+.answered(4)
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QID 211.
+ifQ(201)
+.answered(2)
+.disappear(Q(211))
+.clearAnswer(Q(211));
+
+// If QID 491 is answered Option 2, then disappear and clear answer to QID 531.
+ifQ(491)
+.answered(2)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 571 is answered Option 1, then disappear and clear answer to QID 491.
+ifQ(571)
+.answered(1)
+.disappear(Q(491))
+.clearAnswer(Q(491));
+
+// If QID 491 is answered Option [0 OR 2], then disappear and clear answer to QID 531.
+ifQ(491)
+.answered(0,2)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 391 is answered Option 2, then disappear QID 401.
+ifQ(391)
+.answered(2)
+.disappear(Q(401));
+
+//******************************************
+// CALL HANDLING SKILLS - End
+//******************************************
+
+
+
+
+//******************************************
+// COORDINATOR SERVICE SKILLS - SERVICE - Begin
+//******************************************
+
+// If QID 571 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(571)
+.answered(1)
+.disappear(Q(261))  // sectional header
+.disappear(Q(561))  // red remark
+.disappear(Q(271), Q(301), Q(421), Q(331), Q(341), Q(411))
+.clearAnswer(Q(271), Q(301), Q(421), Q(331), Q(341), Q(411));
+
+// If QID 271 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(0,2)
+.disappear(Q(281))
+.clearAnswer(Q(281)); 
+
+// If QID 271 is answered Option [0 OR 1], then disappear and clear answer to QID 291.
+ifQ(271)
+.answered(0,1)
+.disappear(Q(291))
+.clearAnswer(Q(291)); 
+
+// If QID 301 is answered Option [0 OR 2], then disappear QID 311.
+ifQ(301)
+.answered(0,2)
+.disappear(Q(311));
+
+// If QID 301 is answered Option [0 OR 1], then disappear and clear answer to QID 321.
+ifQ(301)
+.answered(0,1)
+.disappear(Q(321))
+.clearAnswer(Q(321)); 
+
+// If QID 421 is answered Option [0 OR 2], then disappear and clear answer to QID 431.
+ifQ(421)
+.answered(0,2)
+.disappear(Q(431))
+.clearAnswer(Q(431));
+
+//******************************************
+// COORDINATOR SERVICE SKILLS - SERVICE - End
+//******************************************
+
+
+
+
+//******************************************
+// COORDINATOR SERVICE SKILLS - SALES - Begin
+//******************************************
+
+// If QID 571 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(571)
+.answered(2)
+.disappear(Q(581))  // sectional header
+.disappear(Q(591), Q(601), Q(611), Q(621), Q(641), Q(631))
+.clearAnswer(Q(591), Q(601), Q(611), Q(621), Q(641), Q(631));
+
+//******************************************
+// COORDINATOR SERVICE SKILLS - SALES - End
+//******************************************
