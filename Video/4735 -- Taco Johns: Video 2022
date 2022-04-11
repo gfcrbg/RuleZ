@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 3/22/2022	
+// Last Updated: 4/11/2022	
 //*******************************	
 
 
@@ -102,9 +102,19 @@ ifQ(1561)
 .disappear(Q(1571))
 .clearAnswer(Q(1571));
 
-// If QID 1571 is not answered Option 4, then disappear and clear answer to QID 891.
-ifQ(1571)
+// If shop date is BEFORE April, 2022, and if QID 1571 is not answered Option 4, then disappear and clear answer to QID 891.
+ifQ()
+.dateBefore('2022-04-01')
+.andifQ(1571)
 .notAnswered(4)
+.disappear(Q(891))
+.clearAnswer(Q(891));
+
+// If shop date AFTER March, 2022, and if QID 2051 is not answered Option 5, the disappear and clear answer to QID 891.
+ifQ()
+.dateAfter('2022-03-31')
+.andifQ(2051)
+.notAnswered(5)
 .disappear(Q(891))
 .clearAnswer(Q(891));
 
