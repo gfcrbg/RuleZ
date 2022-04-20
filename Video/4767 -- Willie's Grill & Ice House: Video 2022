@@ -1,25 +1,8 @@
 //*******************************	
 // CID: 812	
 // SID: 4767	
-// Last Updated: 4/19/2022	
+// Last Updated: 4/20/2022	
 //*******************************	
-
-
-
-
-//*******************************
-// COUNTER SERVICE - Begin
-//*******************************
-
-// If QID 161 is answered Option [1 OR 3], then disappear and clear answer to QID 861.
-ifQ(161)
-.answered(1,3)
-.disappear(Q(861))
-.clearAnswer(Q(861));
-
-//*******************************
-// COUNTER SERVICE - End
-//*******************************
 
 
 
@@ -53,6 +36,11 @@ ifQ(1091)
 ifQ(1091)
 .greaterThan(60)
 .setValue(Q(271), 2);
+
+// If QID 1181 is answered Option 2, then set value to Option 3 to QID 301.
+ifQ(1181)
+.answered(2)
+.setValue(Q(301), 3);
 
 // If QID 1141 is answered Option [2 OR 3], then disappear and clear answer to QIDs.  Set value to Option 3 to QID 641.
 ifQ(1141)
