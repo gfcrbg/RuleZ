@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 812	
 // SID: 4767	
-// Last Updated: 4/18/2022	
+// Last Updated: 4/19/2022	
 //*******************************	
 
 
@@ -28,11 +28,11 @@ ifQ(161)
 // TABLE SERVICE - Begin
 //*******************************
 
-// If QID 931 is answered Option 2, then make not required, disappear, and clear answer to QIDs.  Set value to Option 3 to QID 651. 
+// If QID 931 is answered Option [2 OR 3], then make not required, disappear, and clear answer to QIDs.  Set value to Option 3 to QID 651. 
 ifQ(931)
-.answered(2)
+.answered(2,3)
 .makeNotRequired(Q(991), Q(1111))
-.disappear(Q(991), Q(1111))
+.disappear(Q(651), Q(991), Q(1111))
 .clearAnswer(Q(991), Q(1111))
 .setValue(Q(651), 3);
 
@@ -54,8 +54,17 @@ ifQ(1091)
 .greaterThan(60)
 .setValue(Q(271), 2);
 
-// If QID 941 AND 981 are answered, trigger math operation: [981] - [941] = [1101]
-ifQ(941)
+// If QID 1141 is answered Option [2 OR 3], then disappear and clear answer to QIDs.  Set value to Option 3 to QID 641.
+ifQ(1141)
+.answered(2,3)
+.disappear(Q(981), Q(1101), Q(641))
+.clearAnswer(Q(981), Q(1101))
+.setValue(Q(641), 3);
+
+// If QID 1141 is answered Option 1 AND if QID 941 AND 981 are answered, trigger math operation: [981] - [941] = [1101]
+ifQ(1141)
+.answered(1)
+.andQ(941)
 .answered()
 .andQ(981)
 .answered()
@@ -72,8 +81,15 @@ ifQ(1101)
 .greaterThan(180)
 .setValue(Q(641), 2);
 
-// If QID 941 AND 991 are answered, trigger math operation: [991] - [941] = [1111]
-ifQ(941)
+// If QID 1141 is answered Option [2 OR 3], then set value to Option 3, to QID 641.
+ifQ(1141)
+.answered(2,3)
+.setValue(Q(641), 3);
+
+// If QID 931 is answered Option 1 AND if QID 941 AND 991 are answered, trigger math operation: [991] - [941] = [1111]
+ifQ(931)
+.answered(1)
+.andQ(941)
 .answered()
 .andQ(991)
 .answered()
@@ -89,6 +105,11 @@ ifQ(1111)
 ifQ(1111)
 .greaterThan(360)
 .setValue(Q(651), 2);
+
+// If QID 931 is answered Option [2 OR 3], then set value to Option 3 to QID 651.
+ifQ(931)
+.answered(2,3)
+.setValue(Q(651), 3);
 
 // If QID 941 AND 1011 are answered, trigger math operation: [1011] - [941] = [1121]
 ifQ(941)
