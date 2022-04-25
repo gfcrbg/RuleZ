@@ -1,0 +1,202 @@
+//*******************************	
+// CID: 663	
+// SID: 4328	
+// Last Updated: 4/25/2022	
+//*******************************
+
+
+
+
+// If QID 3562 is answered Option 1, then disappear and clear answer to QID 3372.
+ifQ(3562)
+.answered(1)
+.disappear(Q(3372))
+.clearAnswer(Q(3372));
+
+
+
+
+//*******************************
+// BOX OFFIXE - Begin
+//*******************************
+
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - Begin
+//--------------------------------------------
+
+// If QIDs 2182 AND 2192 are answered, then trigger math operation: [2192] - [2182] = [2202]
+ifQ(2182)
+.answered()
+.andQ(2192)
+.answered()
+.sub(Q(2192), Q(2182))
+.store(Q(2202));
+
+// If QID 2202 is <= 1 minute, then set value to Option 1 to QID 1012.
+ifQ(2202)
+.lessThanOrEqual(60)
+.setValue(Q(1012), 1);
+
+// If QID 2202 is > 1 minute AND <= 3 minutes, then set value to Option 2 to QID 1012.
+ifQ(2202)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(1012), 2);
+
+// If QID 2202 is > 3 minutes AND <= 5 minutes, then set value to Option 3 to QID 1012.
+ifQ(2202)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(1012), 3);
+
+// If QID 2202 is > 5 minutes, then set value to Option 4 to QID 1012.
+ifQ(2202)
+.greaterThan(300)
+.setValue(Q(1012), 4);
+
+//--------------------------------------------
+// Calc Wait in Line Elapsed Time - End
+//--------------------------------------------
+
+//*******************************
+// BOX OFFICE - End
+//*******************************
+
+
+
+
+
+//*******************************
+// SECURITY - Begin
+//*******************************
+
+// If QID 3542 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(3542)
+.answered(2)
+.disappear(Q(3522))  // red remarks
+.disappear(Q(3512), Q(3532), Q(4302), Q(4312), Q(4322), Q(4392))
+.clearAnswer(Q(3512), Q(3532), Q(4302), Q(4312), Q(4322), Q(4392));
+
+//*******************************
+// SECURITY II - End
+//*******************************
+
+
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 1292 is answered Option 1, then disappear and clear answer to QID 2252.
+ifQ(1292)
+.answered(1)
+.disappear(Q(2252))
+.clearAnswer(Q(2252));
+
+//*******************************
+// RESTROOMS - End
+//*******************************
+
+
+
+
+//*******************************
+//  CONCESSIONS - Begin
+//*******************************
+
+// If QIDs 2212 AND 2222 are answered, then trigger math operation: [2222] - [2212] = [1482]
+ifQ(2212)
+.answered()
+.andQ(2222)
+.answered()
+.sub(Q(2222), Q(2212))
+.store(Q(1482));
+
+// If QID 1482 is <= 1 minute; then set value to Option 1 to QID 2422. 
+ifQ(1482)
+.lessThanOrEqual(60)
+.setValue(Q(2422), 1);
+
+// If QID 1482 is > 1 minute AND <= 3 minutes, then set value to Option 2 to QID 2422.
+ifQ(1482)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2422), 2);
+
+// If QID 1482 is > 3 minutes AND <= 5 minutes, then set value to Option 3 to QID 2422.
+ifQ(1482)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(2422), 3);
+
+// If QID 1482 is > 5 minutes, then set value to Option 4 to QID 2422.
+ifQ(1482)
+.greaterThan(300)
+.setValue(Q(2422), 4);
+
+//*******************************
+//  CONCESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+//  BARTENDER - Begin
+//*******************************
+
+// If QIDs 2522 AND 2532 are answered, then trigger math operation: [2532] - [2522] = [2542]
+ifQ(2522)
+.answered()
+.andQ(2532)
+.answered()
+.sub(Q(2532), Q(2522))
+.store(Q(2542));
+
+// If QID 2542 is <= 1 minute, then set value to Option 1 to QID 2552.
+ifQ(2542)
+.lessThanOrEqual(60)
+.setValue(Q(2552), 1);
+
+// If QID 2542 is > 1 minute AND <= 3 minutes, then set value to Option 2 to QID 2552.
+ifQ(2542)
+.greaterThan(60)
+.lessThanOrEqual(180)
+.setValue(Q(2552), 2);
+
+// If QID 2542 is > 3 minutes AND <= 5 minutes, then set value to Option 3 to QID 2552.
+ifQ(2542)
+.greaterThan(180)
+.lessThanOrEqual(300)
+.setValue(Q(2552), 3);
+
+// If QID 252 is > 5 minutes, then set value to Option 4 to QID 2552.
+ifQ(2542)
+.greaterThan(300)
+.setValue(Q(2552), 4);
+
+//*******************************
+//  BARTENDER - End
+//*******************************
+
+
+
+
+//*******************************
+//  50/50 RAFFLE SELLER - Begin
+//*******************************
+
+// If QID 3562 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(3562)
+.answered(1)
+.disappear(Q(3382))  // red remark
+.disappear(Q(3602))  // black remark
+.disappear(Q(3362), Q(3312), Q(3322), Q(3332), Q(3342), Q(3352))
+.clearAnswer(Q(3362), Q(3312), Q(3322), Q(3332), Q(3342), Q(3352));
+
+//*******************************
+//  50/50 RAFFLE SELLER - End
+//*******************************
