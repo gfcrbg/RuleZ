@@ -73,6 +73,7 @@ ifQ(2202)
 // If QID 3542 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3542)
 .answered(2)
+.disappear(Q(3462))  // header
 .disappear(Q(3522))  // red remarks
 .disappear(Q(3512), Q(3532), Q(4302), Q(4312), Q(4322), Q(4392))
 .clearAnswer(Q(3512), Q(3532), Q(4302), Q(4312), Q(4322), Q(4392));
