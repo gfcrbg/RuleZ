@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 3/24/2022
+// Last Updated: 4/26/2022
 //*******************************
 
 
@@ -347,13 +347,6 @@ ifQ()
 .andifQ(6231)
 .answered(2)
 .clearAnswer(Q(6241), Q(6271));
-
-// Shop Date Trigger [before January 2021], if QID 6241 is answered Option [1 OR 4], then show QIDs.
-ifQ()
-.dateBefore('2021-01-01')
-.andifQ(6241)
-.answered(1,4)
-.appear(Q(6271));
 
 // Shop Date Trigger [before January 2021], if QID 6241 is answered Option 1, then set value to Option 1 to QID 6481.
 ifQ()
