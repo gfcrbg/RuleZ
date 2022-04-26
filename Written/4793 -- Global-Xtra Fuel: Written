@@ -79,9 +79,9 @@ ifQ(241)
 // GAS - Begin
 //*******************************
 
-// If QID 301 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID 301 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(301)
-.answered(2)
+.answered(1)
 .disappear(Q(321), Q(311))
 .clearAnswer(Q(321), Q(311));
 
