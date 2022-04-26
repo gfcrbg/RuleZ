@@ -1,0 +1,126 @@
+//*******************************	
+// CID: 815
+// SID: 4793	
+// Last Updated: 4/26/2022	
+//*******************************	
+
+
+
+
+// If QID 891 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(891)
+.answered(2)
+.disappear(Q(881), Q(901))
+.clearAnswer(Q(881), Q(901));
+
+
+
+
+//*******************************
+// PROPERTY EXTERIOR - Begin
+//*******************************
+
+// If QID 51 is answered Option 2, then disappear and clear answer to QID 71.
+ifQ(51)
+.answered(2)
+.disappear(Q(71))
+.clearAnswer(Q(71));
+
+// If QID 71 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
+ifQ(71)
+.answered(0,1)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+// If QID 51 is answered Option 2, then disappear and clear answer to QID 81.
+ifQ(51)
+.answered(2)
+.disappear(Q(81))
+.clearAnswer(Q(81));
+
+// If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 131.
+ifQ(81)
+.answered(0,1)
+.disappear(Q(131))
+.clearAnswer(Q(131));
+
+// If QID 151 is answered Option 1, then disappear and clear answer to QID 161.
+ifQ(151)
+.answered(1)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+// If QID 181 is answered Option 1, then disappear and clear answer to QID 191.
+ifQ(181)
+.answered(1)
+.disappear(Q(191))
+.clearAnswer(Q(191));
+
+// If QID 211 is answered Option [1 OR 3], then disappear and clear answer to QID 221.
+ifQ(211)
+.answered(1,3)
+.disappear(Q(221))
+.clearAnswer(Q(221));
+
+// If QID 241 is answered Option [1 OR 3], then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(1,3)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+//*******************************
+// PROPERTY EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// GAS - Begin
+//*******************************
+
+// If QID 301 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(301)
+.answered(2)
+.disappear(Q(321), Q(311))
+.clearAnswer(Q(321), Q(311));
+
+// If QID 341 is answered Option 1, then disappear and clear answer to QID 351.
+ifQ(341)
+.answered(1)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+// If QID 411 is answered Option [1 OR 3], then disappear and clear answer to QID 421.
+ifQ(411)
+.answered(1,3)
+.disappear(Q(421))
+.clearAnswer(Q(421));
+
+// If QID 441 is answered Option 1, then disappear and clear answer to QID 451.
+ifQ(441)
+.answered(1)
+.disappear(Q(451))
+.clearAnswer(Q(451));
+
+//*******************************
+// GAS - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 511 is answered Option 5, then disappear and clear answer to QIDs.
+ifQ(511)
+.answered(5)
+.disappear(Q(571))  // red remark
+.disappear(Q(521), Q(531), Q(541), Q(551))
+.clearAnswer(Q(521), Q(531), Q(541), Q(551));
+
+//*******************************
+// RESTROOMS - End
+//*******************************
