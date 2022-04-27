@@ -1,0 +1,16 @@
+//*******************************	
+// CID: 478	
+// SID: 4788	
+// Last Updated: 4/27/2022	
+//*******************************	
+
+
+
+
+// If QIDs 651 AND 661 are answered, trigger math operation: [651] + [661] = [671]
+ifQ(651)
+.answered()
+.andQ(661)
+.answered()
+.sum(Q(651), Q(661))
+.store(Q(671));
