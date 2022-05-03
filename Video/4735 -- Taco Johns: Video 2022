@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 4/14/2022	
+// Last Updated: 5/3/2022	
 //*******************************	
 
 
@@ -312,14 +312,14 @@ ifQ(901)
 // (DT) Line Time Calc - Begin
 //------------------------------------
 
-// If QID 901 is answered Option 1 AND QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [1251]
+// If QID 901 is answered Option 1 AND QID 1211 and QID 1241 is answered, then trigger math operation: [1241] - [1211] = [1251]
 ifQ(901)
 .answered(1)
-.andQ(1551)
+.andQ(1211)
 .answered()
 .andQ(1241)
 .answered()
-.sub(Q(1241), Q(1551))
+.sub(Q(1241), Q(1211))
 .store(Q(1251));
 
 // If QID 1251 is < 3 min. 30 sec. AND QID 901 is answered Option 1, then set value to Option 1 to QID 341.
