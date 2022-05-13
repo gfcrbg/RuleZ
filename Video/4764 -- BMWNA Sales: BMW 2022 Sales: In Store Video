@@ -126,6 +126,11 @@ ifQ(671)
 .disappear(Q(531), Q(631), Q(561))
 .clearAnswer(Q(531), Q(631), Q(561));
 
+// If QID 631 is answered Option (1,2, AND 3), then set value to Option [1,2,3,4] to QID 631.
+ifQ(631)
+.answered([1,2,3])
+.setValue(Q(631), 1,2,3,4);
+
 //*******************************************
 // INTEGRATED OFFER - End
 //*******************************************
