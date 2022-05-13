@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4765	
-// Last Updated: 5/3/2022	
+// Last Updated: 5/13/2022	
 //*******************************	
 
 
@@ -60,6 +60,16 @@ ifQ(131)
 .disappear(Q(331), Q(351), Q(371))
 .clearAnswer(Q(331), Q(351), Q(371));
 
+// If QID 331 is answered Option (1,2, AND 3), then set value to Option [1,2,3,4] to QID 331.
+ifQ(331)
+.answered([1,2,3])
+.setValue(Q(331), 1,2,3,4);
+
+// If QID 351 is answered Option (1,2, AND 3), then set value to Option [1,2,3,4] to QID 351.
+ifQ(351)
+.answered([1,2,3])
+.setValue(Q(351), 1,2,3,4);
+
 // If QID 131 is answered Option [1 OR 3], then disappear and clear answer to QID 361.
 ifQ(131)
 .answered(1,3)
@@ -89,6 +99,16 @@ ifQ(131)
 .disappear(Q(441))
 .clearAnswer(Q(441));
 
+// If QID 441 is answered Option (1,2, AND 3), then set value to Option [1,2,3,4] to QID 441.
+ifQ(441)
+.answered([1,2,3])
+.setValue(Q(441), 1,2,3,4);
+
+// If QID 451 is answered Option (1,2,3, AND 4), then set value to Option [1,2,3,4,5] to QID 451.
+ifQ(451)
+.answered([1,2,3,4])
+.setValue(Q(451), 1,2,3,4,5);
+
 // If QID 451 is not answered Option [1, 2, 3, 4, 5, OR 6], then disappear and clear answer to QID 461.
 ifQ(451)
 .notAnswered(1,2,3,4,5,6)
@@ -111,6 +131,11 @@ ifQ(131)
 .answered(3)
 .disappear(Q(511), Q(531), Q(541))
 .clearAnswer(Q(511), Q(531), Q(541));
+
+// If QID 531 is answered Option (1 AND 2), then set value to Option [1,2,3] to QID 531.
+ifQ(531)
+.answered([1,2])
+.setValue(Q(531), 1,2,3);
 
 //*******************************************
 // INTEGRATED OFFER - End
