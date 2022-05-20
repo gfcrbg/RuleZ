@@ -1,0 +1,57 @@
+//*******************************	
+// CID: 464
+// SID: 4815	
+// Last Updated: 5/20/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE - Begin
+//*******************************
+
+// If QID 171 is answered Option 2, then disappear and clear answer to QID 181.
+ifQ(171)
+.answered(2)
+.disappear(Q(181))
+.clearAnswer(Q(181));
+
+// If QID 521 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(521)
+.answered(1)
+.disappear(Q(541), Q(551))
+.clearAnswer(Q(541), Q(551));
+
+// If QID 521 is answered Option 2, then disappear and clear answer to QID 561.
+ifQ(521)
+.answered(2)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+// If QID 241 is answered Option 1, then disappear and clear answer to QID 501.
+ifQ(241)
+.answered(1)
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+//*******************************
+// CUSTOMER SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// PHONE CALL - Begin
+//*******************************
+
+// If QID 341 is answered Option 1, then disappear and clear answer to QID 311.
+ifQ(341)
+.answered(1)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+//*******************************
+// PHONE CALL - End
+//*******************************
