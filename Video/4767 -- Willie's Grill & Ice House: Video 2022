@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 812	
 // SID: 4767	
-// Last Updated: 4/20/2022	
+// Last Updated: 5/25/2022	
 //*******************************	
 
 
@@ -41,6 +41,11 @@ ifQ(1091)
 ifQ(1181)
 .answered(2)
 .setValue(Q(301), 3);
+
+// If QID 1181 is answered Option 1, then set value to Option 3 to QID 311.
+ifQ(1181)
+.answered(1)
+.setValue(Q(311), 3);
 
 // If QID 1141 is answered Option [2 OR 3], then disappear and clear answer to QIDs.  Set value to Option 3 to QID 641.
 ifQ(1141)
