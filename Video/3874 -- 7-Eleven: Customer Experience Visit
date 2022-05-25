@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 4/26/2022
+// Last Updated: 5/25/2022
 //*******************************
 
 
@@ -477,9 +477,20 @@ ifQ()
 // STORE INTERIOR - Begin
 //********************************
 
-// Shop Date Trigger [AFTER July 2021], set value to Option 3 to QIDs.
+// Shop Date Trigger [AFTER July 2021], if country is US, then set value to Option 3 to QIDs.
 ifQ()
 .dateAfter("2021-07-31")
+.andifQ()
+.countryIs('US')
+.setValue(Q(5131), 3);
+
+// Shop Date Trigger [AFTER July 2021 AND BEFORE June 2022] if country is Canada, then set value to Option 3 to QIDs.
+ifQ()
+.dateAfter("2021-07-31")
+.andifQ()
+.dateBefore("2022-06-01")
+.andifQ()
+.countryIs('Canada')
 .setValue(Q(5131), 3);
 
 //********************************
@@ -497,9 +508,20 @@ ifQ()
 // [Time Calc] Freshness Date - Begin
 //---------------------------------------------
 
-// Shop Date Trigger [AFTER July 2021], set value to Option 3 to QID 2361.
+// Shop Date Trigger [AFTER July 2021] if country is US, then set value to Option 3 to QID 2361.
 ifQ()
 .dateAfter("2021-07-31")
+.andifQ()
+.countryIs('US')
+.setValue(Q(2361), 3);
+
+// Shop Date Trigger [AFTER July 2021 AND BEFORE June 2022]if country is Canada, then set value to Option 3 to QID 2361.
+ifQ()
+.dateAfter("2021-07-31")
+.andifQ()
+.dateBefore("2022-06-01")
+.andifQ()
+.countryIs('Canada')
 .setValue(Q(2361), 3);
 
 //---------------------------------------------
@@ -765,9 +787,21 @@ ifQ()
 .dateBefore("2021-08-01")
 .setValue(Q(2421), 3);
 
-// Shop Date Trigger [AFTER July 2021], set value to Option 3 to QIDs.
+// Shop Date Trigger [AFTER July 2021] if country is US, then set value to Option 3 to QIDs.
 ifQ()
+.countryIs('US')
+.andifQ()
 .dateAfter("2021-07-31")
+.setValue(Q(2421), 3)
+.setValue(Q(6311), 3);
+
+// Shop Date Trigger [AFTER July 2021 AND BEFORE June 2022] if country is Canada, then set value to Option 3 to QIDs.
+ifQ()
+.countryIs('Canada')
+.andifQ()
+.dateAfter("2021-07-31")
+.andifQ()
+.dateBefore("2022-06-01")
 .setValue(Q(2421), 3)
 .setValue(Q(6311), 3);
 
