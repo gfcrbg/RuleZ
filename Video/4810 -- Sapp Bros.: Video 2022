@@ -1,0 +1,140 @@
+//*******************************	
+// CID: 819	
+// SID: 4810
+// Last Updated: 5/27/2022	
+//*******************************	
+
+
+
+
+ifQ(61)
+.greaterThanOrEqual(0)
+.andifQ(61)
+.lessThan(21600)
+.setValue(Q(71), 4);
+
+ifQ(61)
+.greaterThanOrEqual(21600)
+.andifQ(61)
+.lessThanOrEqual(37800)
+.setValue(Q(71), 1);
+
+ifQ(61)
+.greaterThanOrEqual(37860)
+.andifQ(61)
+.lessThanOrEqual(57600)
+.setValue(Q(71), 2);
+
+ifQ(61)
+.greaterThanOrEqual(57660)
+.andifQ(61)
+.lessThanOrEqual(75600)
+.setValue(Q(71), 3);
+
+ifQ(61)
+.greaterThan(75600)
+.andifQ(61)
+.lessThanOrEqual(86400)
+.setValue(Q(71), 4);
+
+
+
+
+//*******************************
+// CUSTOMER EXPERIENCE - Begin
+//*******************************
+
+// 
+ifQ(211)
+.answered()
+.andifQ(221)
+.answered()
+.sub(Q(221), Q(211))
+.store(Q(231));
+
+//
+ifQ(231)
+.lessThan(60)
+.setValue(Q(241), 1);
+
+//
+ifQ(231)
+.greaterThanOrEqual(60)
+.andifQ(231)
+.lessThanOrEqual(120)
+.setValue(Q(241), 2);
+
+//
+ifQ(231)
+.greaterThan(120)
+.andifQ(231)
+.lessThanOrEqual(180)
+.setValue(Q(241), 3);
+
+//
+ifQ(231)
+.greaterThan(180)
+.setValue(Q(241), 4);
+
+//
+ifQ(231)
+.lessThan(120)
+.setValue(Q(251), 1);
+
+//
+ifQ(231)
+.greaterThanOrEqual(120)
+.setValue(Q(251), 2);
+
+//
+ifQ(281)
+.answered([1,2,3])
+.setValue(Q(281), [1,2,3,4]); 
+
+//*******************************
+// CUSTOMER EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// STORE EXTERIOR - Begin
+//*******************************
+
+//
+ifQ(371)
+.answered([1,2,3])
+.setValue(Q(371), [1,2,3,4]); 
+
+//*******************************
+// STORE EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+//
+ifQ(461)
+.answered(1,3)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+//
+ifQ(471)
+.notAnswered(7)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+//
+ifQ(501)
+.answered([1,2,3])
+.setValue(Q(501), [1,2,3,4]); 
+
+//*******************************
+// RESTROOMS - End
+//*******************************
