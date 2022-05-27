@@ -6,7 +6,7 @@
 
 
 
-
+// If QID 61 is >= 12:00 AM AND < 6:00 AM, then set value to Option 4 to QID 71.
 ifQ(61)
 .greaterThanOrEqual(0)
 .andifQ(61)
