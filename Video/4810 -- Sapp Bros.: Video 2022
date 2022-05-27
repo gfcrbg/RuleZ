@@ -48,7 +48,7 @@ ifQ(61)
 // CUSTOMER EXPERIENCE - Begin
 //*******************************
 
-// 
+// If QID 211 AND QID 221 are answered, then trigger math operation: [221] - [211] = [231]
 ifQ(211)
 .answered()
 .andifQ(221)
@@ -56,41 +56,41 @@ ifQ(211)
 .sub(Q(221), Q(211))
 .store(Q(231));
 
-//
+// If QID 231 is > 1 minute, then set value to Option 1 to QID 241.
 ifQ(231)
 .lessThan(60)
 .setValue(Q(241), 1);
 
-//
+// If QID 231 is >= 1 minute AND <= 2 minutes, then set value to Option 2 to QID 241.
 ifQ(231)
 .greaterThanOrEqual(60)
 .andifQ(231)
 .lessThanOrEqual(120)
 .setValue(Q(241), 2);
 
-//
+// If QID 231 is > 2 minutes AND <= 3 minutes, then set value to Option 3 to QID 241.
 ifQ(231)
 .greaterThan(120)
 .andifQ(231)
 .lessThanOrEqual(180)
 .setValue(Q(241), 3);
 
-//
+// If QID 231 is > 3 minutes, then set value to Option 4 to QID 241.
 ifQ(231)
 .greaterThan(180)
 .setValue(Q(241), 4);
 
-//
+// If QID 231 is < 2 minutes, then set value to Option 1 to QID 251.
 ifQ(231)
 .lessThan(120)
 .setValue(Q(251), 1);
 
-//
+// If QID 231 is >= 2 minutes, then set value to Option 2 to QID 251.
 ifQ(231)
 .greaterThanOrEqual(120)
 .setValue(Q(251), 2);
 
-//
+// If QID 281 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 281.
 ifQ(281)
 .answered([1,2,3])
 .setValue(Q(281), [1,2,3,4]); 
@@ -106,7 +106,7 @@ ifQ(281)
 // STORE EXTERIOR - Begin
 //*******************************
 
-//
+// If QID 371 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 371.
 ifQ(371)
 .answered([1,2,3])
 .setValue(Q(371), [1,2,3,4]); 
@@ -122,19 +122,19 @@ ifQ(371)
 // RESTROOMS - Begin
 //*******************************
 
-//
+// If QID 461 is answered Option [1 OR 3], then disappear and clear answer to QID 471.
 ifQ(461)
 .answered(1,3)
 .disappear(Q(471))
 .clearAnswer(Q(471));
 
-//
+// If QID 471 is not answered Option 7, then disappear and clear answer to QID 481. 
 ifQ(471)
 .notAnswered(7)
 .disappear(Q(481))
 .clearAnswer(Q(481));
 
-//
+// If QID 501 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 501.
 ifQ(501)
 .answered([1,2,3])
 .setValue(Q(501), [1,2,3,4]); 
