@@ -13,24 +13,28 @@ ifQ(61)
 .lessThan(21600)
 .setValue(Q(71), 4);
 
+// If QID 61 is >= 6:00 AM AND <= 10:30 AM, then set value to Option 1 to QID 71.
 ifQ(61)
 .greaterThanOrEqual(21600)
 .andifQ(61)
 .lessThanOrEqual(37800)
 .setValue(Q(71), 1);
 
+//  If QID 61 is >= 10:31 AM AND <= 4:00 PM, then set value to Option 2 to QID 71.
 ifQ(61)
 .greaterThanOrEqual(37860)
 .andifQ(61)
 .lessThanOrEqual(57600)
 .setValue(Q(71), 2);
 
+// If QID 61 is >= 4:01 PM AND <= 9:00 PM, then set value to Option 3 to QID 71.
 ifQ(61)
 .greaterThanOrEqual(57660)
 .andifQ(61)
 .lessThanOrEqual(75600)
 .setValue(Q(71), 3);
 
+// If QID 61 is > 9:00 PM AND <= 12:00 AM, then set value to Option 4 to QID 71.
 ifQ(61)
 .greaterThan(75600)
 .andifQ(61)
