@@ -1,0 +1,162 @@
+//*******************************	
+// CID: 821	
+// SID: 4817	
+// Last Updated: 6/8/2022	
+//*******************************	
+
+
+
+
+// If QIDs 11 and 21 are answered, then trigger math operation: [21] - [11] = [31]
+ifQ(11)
+.answered()
+.andifQ(21)
+.answered()
+.sub(Q(21), Q(11))
+.store(Q(31));
+
+
+
+
+//***********************************
+// CALL HANDLING SKILLS - Begin
+//***********************************
+
+// If QID 821 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(821)
+.answered(2)
+.disappear(Q(121), Q(151), Q(161))
+.clearAnswer(Q(121), Q(151), Q(161));
+
+// If QID 121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 131.
+ifQ(121)
+.answered(0,1,3)
+.disappear(Q(131))
+.clearAnswer(Q(131));
+
+// If QID 131 is NOT answered Option 4, then disappear and clear answer to QID 141.
+ifQ(131)
+.notAnswered(4)
+.disappear(Q(141))
+.clearAnswer(Q(141));
+
+// If QID 161 is answered Option [0 OR 2], then disappear and clear answer to QID 171.
+ifQ(161)
+.answered(0,2)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+//***********************************
+// CALL HANDLING SKILLS - End
+//***********************************
+
+
+
+
+//***********************************
+// DEALER REPRESENTATIVE SKILLS - Begin
+//***********************************
+
+// If QID 161 is answered Option [0 OR 2], then disappear and clear answer to QID 201.
+ifQ(161)
+.answered(0,2)
+.disappear(Q(201))
+.clearAnswer(Q(201));
+
+// If QID 201 is answered Option [0, 2, OR 4], then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(0,2,4)
+.disappear(Q(211))  // black remark(s)
+.disappear(Q(331), Q(411), Q(461), Q(521), Q(551))  // red remark(s)
+.disappear(Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(301), Q(311), Q(351), Q(361), Q(371), Q(421), Q(471), Q(491), Q(501), Q(511), Q(831), Q(561))
+.clearAnswer(Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(281), Q(291), Q(301), Q(311), Q(351), Q(361), Q(371), Q(421), Q(471), Q(491), Q(501), Q(511), Q(831), Q(561));
+
+// If QID 311 is answered Option [0 OR 2], then disappear and clear answer to QID 341.
+ifQ(311)
+.answered(0,2)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+// If QID 391 is answered Option 4, then disappear and clear answer to QID 401.
+ifQ(391)
+.answered(4)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+// If QID 421 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(421)
+.answered(0,2)
+.disappear(Q(431), Q(441))
+.clearAnswer(Q(431), Q(441));
+
+// If QID 471 is answered Option [0 OR 2]. then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(0,2)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 831 is answered Option [0 OR 1], then disappear and clear answer to QID 531.
+ifQ(831)
+.answered(0,1)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 531 is answered Option [0 OR 4], then disappear and clear answer to QID 541.
+ifQ(531)
+.answered(0,4)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+// If QID 561 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(561)
+.answered(0,2)
+.disappear(Q(571), Q(581))
+.clearAnswer(Q(571), Q(581));
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(2)
+.disappear(Q(591))  // red remark(s)
+.disappear(Q(601), Q(611), Q(621), Q(641), Q(671), Q(691))
+.clearAnswer(Q(601), Q(611), Q(621), Q(641), Q(671), Q(691));
+
+// If QID 621 is answered Option [0 OR 2], then disappear and clear answer to QID 621.
+ifQ(621)
+.answered(0,2)
+.disappear(Q(621))
+.clearAnswer(Q(621));
+
+// If QID 641 is answered Option [0 OR 2], then disappear and clear answer to QID 651.
+ifQ(641)
+.answered(0,2)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+// If QID 651 is NOT answered Option 5, then disappear and clear answer to QID 661.
+ifQ(651)
+.notAnswered(5)
+.disappear(Q(661))
+.clearAnswer(Q(661));
+
+// If QID 671 is answered Option [0 OR 2], then disappear and clear answer to QID 681.
+ifQ(671)
+.answered(0,2)
+.disappear(Q(681))
+.clearAnswer(Q(681));
+
+// If QID 201 is answered Option [1, 3, OR 4], then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(1,3,4)
+.disappear(Q(701))  // black remark(s)
+.disappear(Q(711))
+.clearAnswer(Q(711));
+
+// If QID 711 is answered Option [0, 2, OR 3], then disappear and clear answer to QIDs.
+ifQ(711)
+.answered(0,2,3)
+.disappear(Q(731), Q(741), Q(751), Q(761), Q(771))
+.clearAnswer(Q(731), Q(741), Q(751), Q(761), Q(771));
+
+//***********************************
+// DEALER REPRESENTATIVE SKILLS - End
+//***********************************
