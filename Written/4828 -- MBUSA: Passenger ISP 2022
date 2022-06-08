@@ -1,0 +1,102 @@
+//*******************************	
+// CID: 821	
+// SID: 4828	
+// Last Updated: 6/8/2022	
+//*******************************	
+
+
+
+
+// If QIDs 21 AND 31 are answered, then trigger math operation: [31] - [21] = [41]
+ifQ(21)
+.answered()
+.andifQ(31)
+.answered()
+.sub(Q(31), Q(21))
+.store(Q(41));
+
+
+
+
+//**********************************
+// DEALER REPRESENTATIVE SKILLS - Begin
+//**********************************
+
+// If QID 911 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(911)
+.answered(2)
+.disappear(Q(711), Q(721), Q(761), Q(821), Q(851), Q(891))  // red remark(s)
+.disappear(Q(201), Q(261), Q(331), Q(571), Q(341), Q(351), Q(581), Q(771), Q(791), Q(801), Q(811), Q(921), Q(861), Q(591), Q(901), Q(401), Q(421))
+.clearAnswer(Q(201), Q(261), Q(331), Q(571), Q(341), Q(351), Q(581), Q(771), Q(791), Q(801), Q(811), Q(921), Q(861), Q(591), Q(901), Q(401), Q(421));
+
+// If QID 331 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(331)
+.answered(0,2)
+.disappear(Q(551), Q(561))
+.clearAnswer(Q(551), Q(561));
+
+// If QID 351 is answered Option [0 OR 4], then disappear and clear answer to QID 651.
+ifQ(351)
+.answered(0,4)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+// If QID 581 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(581)
+.answered(0,2)
+.disappear(Q(631), Q(641))
+.clearAnswer(Q(631), Q(641));
+
+// If QID 771 is answered Option [0 OR 2], then disappear and clear answer to QID 781.
+ifQ(771)
+.answered(0,2)
+.disappear(Q(781))
+.clearAnswer(Q(781));
+
+// If QID 921 is answered Option [0 OR 1], then disappear and clear answer to QID 831.
+ifQ(921)
+.answered(0,1)
+.disappear(Q(831))
+.clearAnswer(Q(831));
+
+// If QID 831 is answered Option [0 OR 4], then disappear and clear answer to QID 841.
+ifQ(831)
+.answered(0,4)
+.disappear(Q(841))
+.clearAnswer(Q(841));
+
+// If QID 861 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(861)
+.answered(0,2)
+.disappear(Q(871), Q(881))
+.clearAnswer(Q(871), Q(881));
+
+// If QID 591 is answered Option [0 OR 2], then disappear and clear answer to QID 601.
+ifQ(591)
+.answered(0,2)
+.disappear(Q(601))
+.clearAnswer(Q(601));
+
+// If QID 401 is answered Option [0 OR 2], then disappear and clear answer to QID 411.
+ifQ(401)
+.answered(0,2)
+.disappear(Q(411))
+.clearAnswer(Q(411));
+
+// If QID 181 is answered Option [1, 3, 4, OR 5], then disappear and clear answer to QIDs.
+ifQ(181)
+.answered(1,3,4,5)
+.disappear(Q(431))  // black remark(s)
+.disappear(Q(441))
+.clearAnswer(Q(441));
+
+//
+ifQ(441)
+.answered(0,2,3)
+.disappear(Q(451))  // black remark(s)
+.disappear(Q(461), Q(471), Q(481), Q(491), Q(501))
+.clearAnswer(Q(461), Q(471), Q(481), Q(491), Q(501));
+
+//**********************************
+// DEALER REPRESENTATIVE SKILLS - End
+//**********************************
