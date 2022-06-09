@@ -1,0 +1,107 @@
+//*******************************	
+// CID: 786	
+// SID: 4657	
+// Last Updated: 6/9/2022	
+//*******************************	
+
+
+// UAT version
+
+//
+ifQ()
+.hideOptions(Q(41), 3)
+.disappear(Q(761));
+
+//
+ifQ(11)
+.greaterThanOrEqual(0)
+.andifQ(11)
+.lessThanOrEqual(21540)
+.setValue(Q(41), 3);
+
+//
+ifQ(11)
+.greaterThanOrEqual(21600)
+.andifQ(11)
+.lessThanOrEqual(43200)
+.setValue(Q(41), 1);
+
+//
+ifQ(11)
+.greaterThanOrEqual(43260)
+.andifQ(11)
+.lessThanOrEqual(79200)
+.setValue(Q(41), 2);
+
+//
+ifQ(11)
+.greaterThanOrEqual(79260)
+.andifQ(11)
+.lessThanOrEqual(86340)
+.setValue(Q(41), 3);
+
+
+//---------------------------
+
+//
+ifQ()
+.waveIs("AM")
+.andifQ(11)
+.answered()
+.andifQ(41)
+.answered(2)
+.setValue(Q(761), 1)
+.setError("WARNING! You were assigned an AM shop, but you have entered a time in the PM. Please correct your entry or check with your scheduler if you shopped at the wrong time.");
+
+//
+ifQ()
+.waveIs("AM")
+.andifQ(11)
+.answered()
+.andifQ(41)
+.answered(1)
+.setValue(Q(761), 2);
+
+//
+ifQ()
+.waveIs("PM")
+.andifQ(11)
+.answered()
+.andifQ(41)
+.answered(1)
+.setValue(Q(761), 1)
+.setError("WARNING! You were assigned a PM shop, but you have entered a time in the AM. Please correct your entry or check with your scheduler if you shopped at the wrong time.");
+
+//
+ifQ()
+.waveIs("PM")
+.andifQ(11)
+.answered()
+.andifQ(41)
+.answered(2)
+.setValue(Q(761), 2);
+
+//
+ifQ(41)
+.answered(3)
+.andifQ(11)
+.answered()
+.setValue(Q(761), 1)
+.setError("Outside shop hours.");
+
+//
+ifQ(761)
+.answered(1)
+.andifQ(11)
+.answered()
+.disappear(QOrder(1500,7300))
+
+//*******************************
+// {NAME OF SECTION} - Begin
+//*******************************
+
+// 
+
+//*******************************
+// {NAME OF SECTION} - End
+//*******************************
