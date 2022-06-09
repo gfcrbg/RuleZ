@@ -5,35 +5,35 @@
 //*******************************	
 
 
-// UAT version
 
-//
+
+// Hide Option 3 to QID 41 and disappear QID 761.
 ifQ()
 .hideOptions(Q(41), 3)
 .disappear(Q(761));
 
-//
+// If QID 11 is >= 12:00 AM AND <= 5:59 AM, then set value to Option 3 to QID 41.
 ifQ(11)
 .greaterThanOrEqual(0)
 .andifQ(11)
 .lessThanOrEqual(21540)
 .setValue(Q(41), 3);
 
-//
+// If QID 11 is >= 6:00 AM AND <= 12:00 PM, then set value to Option 1 to QID 41.
 ifQ(11)
 .greaterThanOrEqual(21600)
 .andifQ(11)
 .lessThanOrEqual(43200)
 .setValue(Q(41), 1);
 
-//
+// If QID 11 is >= 12:01 PM AND <= 10:00 PM, then set value to Option 2 to QID 41.
 ifQ(11)
 .greaterThanOrEqual(43260)
 .andifQ(11)
 .lessThanOrEqual(79200)
 .setValue(Q(41), 2);
 
-//
+// If QID 11 is >= 10:01 PM AND <= 11:59 PM, then set value to Option 3 to QID 41.
 ifQ(11)
 .greaterThanOrEqual(79260)
 .andifQ(11)
@@ -43,7 +43,7 @@ ifQ(11)
 
 //---------------------------
 
-//
+// If wave is "AM" and if QID 11 is answered and if QID 41 is answered Option 2, then set value to Option 1 to QID 761 and trigger error message.
 ifQ()
 .waveIs("AM")
 .andifQ(11)
@@ -53,7 +53,7 @@ ifQ()
 .setValue(Q(761), 1)
 .setError("WARNING! You were assigned an AM shop, but you have entered a time in the PM. Please correct your entry or check with your scheduler if you shopped at the wrong time.");
 
-//
+// If wave is "AM" and of QID 11 is answered and if QID 41 is answered Option 1, then set value to Option 2 to QID 761.
 ifQ()
 .waveIs("AM")
 .andifQ(11)
@@ -62,7 +62,7 @@ ifQ()
 .answered(1)
 .setValue(Q(761), 2);
 
-//
+// If wave is "PM" and if QID 11 is answered and if QID 41 is answered Option 1, then set value to Option 1 to QID 761 and trigger error message.
 ifQ()
 .waveIs("PM")
 .andifQ(11)
@@ -72,7 +72,7 @@ ifQ()
 .setValue(Q(761), 1)
 .setError("WARNING! You were assigned a PM shop, but you have entered a time in the AM. Please correct your entry or check with your scheduler if you shopped at the wrong time.");
 
-//
+// If wave is "PM" and if QID 11 is answered and if QID 41 is answered Option 2, then set value to Option 2 to QID 761.
 ifQ()
 .waveIs("PM")
 .andifQ(11)
@@ -81,7 +81,7 @@ ifQ()
 .answered(2)
 .setValue(Q(761), 2);
 
-//
+// If QID 41 is answered Option 3 AND if QID 11 is answered, then set value to Option 1 to QID 761 and trigger error message.
 ifQ(41)
 .answered(3)
 .andifQ(11)
@@ -89,19 +89,9 @@ ifQ(41)
 .setValue(Q(761), 1)
 .setError("Outside shop hours.");
 
-//
+// If QID 761 is answered Option 1 and if QID 11 is answered, then disappear QOrder [1500, 7300].
 ifQ(761)
 .answered(1)
 .andifQ(11)
 .answered()
 .disappear(QOrder(1500,7300))
-
-//*******************************
-// {NAME OF SECTION} - Begin
-//*******************************
-
-// 
-
-//*******************************
-// {NAME OF SECTION} - End
-//*******************************
