@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 9/30/2021	
+// Last Updated: 6/20/2022	
 //*******************************	
 
 
@@ -111,9 +111,9 @@ ifQ()
 // If QID 1151 is answered Option [0, 2, OR 3], then disappear, clear answer, and make not required to QOrder [15800, 21100].
 ifQ(1151)
 .answered(0,2,3)
-.disappear(QOrder(15800,21100))
-.clearAnswer(QOrder(15800,21100))
-.makeNotRequired(QOrder(15800,21100));
+.disappear(QOrder(2400,7500))
+.clearAnswer(QOrder(2400,7500))
+.makeNotRequired(QOrder(2400,7500));
 
 // If QID 1151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9291.
 ifQ(1151)
@@ -353,9 +353,9 @@ ifQ(6641)
 // If QID 4161 is answered Option [0 OR 2], then disappear, clear answer, and make not required QOrder [30600, 35200].
 ifQ(4161)
 .answered(0,2)
-.disappear(QOrder(30600,35200))
-.clearAnswer(QOrder(30600,35200))
-.makeNotRequired(QOrder(30600,35200));
+.disappear(QOrder(8100,12600))
+.clearAnswer(QOrder(8100,12600))
+.makeNotRequired(QOrder(8100,12600));
 
 // If QID 4161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9301.
 ifQ(4161)
@@ -526,9 +526,9 @@ ifQ(7311)
 // If QID 4521 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [35500, 39005].
 ifQ(4521)
 .answered(0,2)
-.disappear(QOrder(35500,39005))
-.clearAnswer(QOrder(35500,39005))
-.makeNotRequired(QOrder(35500,39005));
+.disappear(QOrder(13200,17400))
+.clearAnswer(QOrder(13200,17400))
+.makeNotRequired(QOrder(13200,17400));
 
 // If QID 4521 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9311.
 ifQ(4521)
@@ -690,9 +690,9 @@ ifQ(7181)
 // If QID 6051 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [39300, 42205].
 ifQ(6051)
 .answered(0,2)
-.disappear(QOrder(39300,42205))
-.clearAnswer(QOrder(39300,42205))
-.makeNotRequired(QOrder(39300,42205));
+.disappear(QOrder(18000,22300))
+.clearAnswer(QOrder(18000,22300))
+.makeNotRequired(QOrder(18000,22300));
 
 // If QID 6051 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9321.
 ifQ(6051)
