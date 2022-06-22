@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 6/20/2022	
+// Last Updated: 6/22/2022	
 //*******************************	
 
 
@@ -47,61 +47,74 @@ ifQ(11)
 
 //-------------------------------------------
 // ULG Switch - Begin
-//ltc 15600 21100, ladson grill 30400 35200, parlor pizza 35300 39005, roost 39100 42205
+//-------------------------------------------
+// Section 4: LTC
+// Section 5: Ladson Grill
+// Section 6: Parlor Pizza
+// Section 7: Roost
+// Section 8: Tedeschi Deli
 //-------------------------------------------
 
 // LTC
 ifQ()
 .ulgIs('LTC')
-.disappear(Section(5), Section(6), Section(7))
-.clearAnswer(Section(5), Section(6), Section(7))
-.makeNotRequired(Section(5), Section(6), Section(7));
+.disappear(Section(5), Section(6), Section(7), Section(8))
+.clearAnswer(Section(5), Section(6), Section(7), Section(8))
+.makeNotRequired(Section(5), Section(6), Section(7), Section(8));
 
 // Ladson Grill
 ifQ()
 .ulgIs('Ladson Grill')
-.disappear(Section(4), Section(6), Section(7))
-.clearAnswer(Section(4), Section(6), Section(7))
-.makeNotRequired(Section(4), Section(6), Section(7));
+.disappear(Section(4), Section(6), Section(7), Section(8))
+.clearAnswer(Section(4), Section(6), Section(7), Section(8))
+.makeNotRequired(Section(4), Section(6), Section(7), Section(8));
 
 // Parlor Pizza
 ifQ()
 .ulgIs('Parlor Pizza')
-.disappear(Section(4), Section(5), Section(7))
-.clearAnswer(Section(4), Section(5), Section(7))
-.makeNotRequired(Section(4), Section(5), Section(7));
+.disappear(Section(4), Section(5), Section(7), Section(8))
+.clearAnswer(Section(4), Section(5), Section(7), Section(8))
+.makeNotRequired(Section(4), Section(5), Section(7), Section(8));
 
 // Roost
 ifQ()
 .ulgIs('Roost')
-.disappear(Section(4), Section(5), Section(6))
-.clearAnswer(Section(4), Section(5), Section(6))
-.makeNotRequired(Section(4), Section(5), Section(6));
+.disappear(Section(4), Section(5), Section(6), Section(8))
+.clearAnswer(Section(4), Section(5), Section(6), Section(8))
+.makeNotRequired(Section(4), Section(5), Section(6), Section(8));
 
 // LTC and Ladson Grill
 ifQ()
 .ulgIs('LTC and Ladson Grill')
-.disappear(Section(6), Section(7))
-.clearAnswer(Section(6), Section(7))
-.makeNotRequired(Section(6), Section(7));
+.disappear(Section(6), Section(7), Section(8))
+.clearAnswer(Section(6), Section(7), Section(8))
+.makeNotRequired(Section(6), Section(7), Section(8));
 
 // Roost and Parlor Pizza
 ifQ()
 .ulgIs('Roost and Parlor Pizza')
-.disappear(Section(4), Section(5))
-.clearAnswer(Section(4), Section(5))
-.makeNotRequired(Section(4), Section(5));
+.disappear(Section(4), Section(5), Section(8))
+.clearAnswer(Section(4), Section(5), Section(8))
+.makeNotRequired(Section(4), Section(5), Section(8));
 
 // LTC and Roost
 ifQ()
 .ulgIs('LTC and Roost')
-.disappear(Section(5), Section(6))
-.clearAnswer(Section(5), Section(6))
-.makeNotRequired(Section(5), Section(6));
+.disappear(Section(5), Section(6), Section(8))
+.clearAnswer(Section(5), Section(6), Section(8))
+.makeNotRequired(Section(5), Section(6), Section(8));
+
+// Tedeschi Deli  
+ifQ()
+.ulgIs('Tedeschi Deli')
+.disappear(Section(4), Section(5), Section(6), Section(7))
+.clearAnswer(Section(4), Section(5), Section(6), Section(7))
+.makeNotRequired(Section(4), Section(5), Section(6), Section(7));
 
 //-------------------------------------------
 // ULG Switch - End
 //-------------------------------------------
+
 
 
 //*******************************
@@ -878,4 +891,161 @@ ifQ(7441)
 
 //*******************************
 //  ROOST - End
+//*******************************
+
+
+
+
+//*******************************
+//  TEDESCHI DELI - Begin
+//*******************************
+
+// If QID 9391 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [22700,27200].
+ifQ(9391)
+.answered(0,2)
+.disappear(QOrder(22700,27200))
+.clearAnswer(QOrder(22700,27200))
+.makeNotRequired(QOrder(22700,27200));
+
+// If QID 9391 is answered Option [0 OR 1], then disappear and clear answer to QID 9401.
+ifQ(9391)
+.answered(0,1)
+.disappear(Q(9401))
+.clearAnswer(Q(9401));
+
+// If QID 9801 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9811.
+ifQ(9801)
+.answered(0,1,3)
+.disappear(Q(9811))
+.clearAnswer(Q(9811));
+
+// If QID 9811 is not answered Option 4, then disappear and clear answer to QID 9821.
+ifQ(9811)
+.notAnswered(4)
+.disappear(Q(9821))
+.clearAnswer(Q(9821));
+
+// If QIDs 9511 AND 9521 are answered, then trigger math operation: [9521] - [9511] = [9531]
+ifQ(9511)
+.answered()
+.andifQ(9521)
+.answered()
+.sub(Q(9521), Q(9511))
+.store(Q(9531));
+
+// If QID 9531 is > 0 AND < 5 minutes, then set value to Option 1 to QID 9541.
+ifQ(9531)
+.greaterThan(0)
+.andifQ(9531)
+.lessThan(300)
+.setValue( Q(9541), 1);
+
+//If QID 9531 is >= 5 minutes, then set value to Option 2 to QID 9541.
+ifQ(9531)
+.greaterThanOrEqual(300)
+.setValue( Q(9541), 2);
+
+// If QID 9861 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 9861.
+ifQ(9861)
+.answered([1,2,3])
+.setValue(Q(9861), 1,2,3,4);
+
+//-------------------------------------------
+// Tedeschi Deli Timestamps - Begin
+//-------------------------------------------
+
+// If QID 9441 is answered Option [1, 2, AND 3, OR 5], or if QID 9391 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(9441)
+.answered([1,2,3],5)
+.orQ(9391)
+.answered(0,2)
+.disappear(Q(9451), Q(9881))
+.clearAnswer(Q(9451), Q(9881));
+
+// If QID 9551 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9561.
+ifQ(9551)
+.answered(0,1,3)
+.disappear(Q(9561))
+.clearAnswer(Q(9561));
+
+// If QID 9571 is answered Option [0, 1, OR 3], then disappear and clear answer to QIDs.
+ifQ(9571)
+.answered(0,1,3)
+.disappear(Q(9581), Q(9891))
+.clearAnswer(Q(9581), Q(9891));
+
+// If QID 9591 is answered Option [0, 1, OR 3], then disappear and clear answer to QIDs.
+ifQ(9591)
+.answered(0,1,3)
+.disappear(Q(9601), Q(9901))
+.clearAnswer(Q(9601), Q(9901));
+
+// If QID 9611 is answered Option [0, 1, OR 3], then disappear and clear answer to QIDs.
+ifQ(9611)
+.answered(0,1,3)
+.disappear(Q(9621), Q(9911))
+.clearAnswer(Q(9621), Q(9911));
+
+// If QID 9631 is answered Option [0, 1, OR 3], then disappear and clear answer to QIDs.
+ifQ(9631)
+.answered(0,1,3)
+.disappear(Q(9641), Q(9921))
+.clearAnswer(Q(9641), Q(9921));
+
+// If QID 9651 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9661.
+ifQ(9651)
+.answered(0,1,3)
+.disappear(Q(9661))
+.clearAnswer(Q(9661));
+
+// If QID 9701 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9711.
+ifQ(9701)
+.answered(0,1,3)
+.disappear(Q(9711))
+.clearAnswer(Q(9711));
+
+// If QID 9721 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9731.
+ifQ(9721)
+.answered(0,1,3)
+.disappear(Q(9731))
+.clearAnswer(Q(9731));
+
+// If QID 9741 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9751.
+ifQ(9741)
+.answered(0,1,3)
+.disappear(Q(9751))
+.clearAnswer(Q(9751));
+
+// If QID 9761 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9771.
+ifQ(9761)
+.answered(0,1,3)
+.disappear(Q(9771))
+.clearAnswer(Q(9771));
+
+// If QID 9781 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9791.
+ifQ(9781)
+.answered(0,1,3)
+.disappear(Q(9791))
+.clearAnswer(Q(9791));
+
+// If QID 9841 is answered Option [0 OR 1], then disappear and clear answer to QID 9851.
+ifQ(9841)
+.answered(0,1)
+.disappear(Q(9851))
+.clearAnswer(Q(9851));
+
+// If QID 9861 is answered Option [4 OR 6] or QID 9391 is answered Option [0 OR 2], then disappear and clear answer to QID 9871.
+ifQ(9861)
+.answered(4,6)
+.orQ(9391)
+.answered(0,2)
+.disappear(Q(9871))
+.clearAnswer(Q(9871));
+
+//-------------------------------------------
+// Tedeschi Deli Timestamps - End
+//-------------------------------------------
+
+//*******************************
+//  TEDESCHI DELI - End
 //*******************************
