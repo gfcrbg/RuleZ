@@ -5,7 +5,7 @@ Recalcs do NOT trigger RuleZ.
 The shops must be updated to trigger RuleZ.  
 
 ## March 2022
-New standard practice.  Always use logic controllgers such as ```.andifQ() .andQ() .orifQ() .orQ()``` when more than one condition is utilized in a block of script.  
+New standard practice.  Always use logic controllers such as ```.andifQ() .andQ() .orifQ() .orQ()``` when more than one condition is utilized in a block of script.  
 
 ## June 2021
 New standard practice.  Every code block must end with a semicolon.  This allows the error checker to identify code blocks that erroenously begin with a period.  Such as ```.ifQ()```.
