@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 624	
 // SID: 4129	
-// Last Updated: 5/16/2022	
+// Last Updated: 6/27/2022	
 //*******************************	
 
 
@@ -34,6 +34,11 @@ ifQ(1721)
 ifQ(1191)
 .answered(1,2)
 .setValue(Q(1581), 1);
+
+// If QID 1881 is answered Option 2, then set value to Option 3 to QID 1901.
+ifQ(1881)
+.answered(2)
+.setValue(Q(1901), 3);
 
 //*******************************
 // ORDER TAKING - End
