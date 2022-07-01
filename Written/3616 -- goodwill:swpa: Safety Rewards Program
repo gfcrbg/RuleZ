@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 174	
+// SID: 3616	
+// Last Updated: 7/1/2022	
+//*******************************	
+
+
+
+
+// If QID 171 is answered Option 1, then appear QIDs.
+ifQ(171)
+.answered(1)
+.appear(Q(131), Q(141));
+
+// If QID 171 is answered Option 2, then appear QIDs.
+ifQ(171)
+.answered(2)
+.appear(Q(151), Q(161));
+
+// If QID 171 is answered Option 3, then appear QIDs.
+ifQ(171)
+.answered(3)
+.appear(Q(91), Q(101));
+
+// If QID 171 is answered Option 4, then appear QIDs.
+ifQ(171)
+.answered(4)
+.appear(Q(111), Q(121));
