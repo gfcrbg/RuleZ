@@ -1,0 +1,62 @@
+//*******************************	
+// CID: 753	
+// SID: 4836	
+// Last Updated: 7/5/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// CURBSIDE EXPERIENCE - Begin
+//*******************************
+
+// If QID 241 is answered Option 2, then disappear and clear QIDs.
+ifQ(241)
+.answered(2)
+.disappear(Q(271), Q(1251), Q(301))
+.clearAnswer(Q(271), Q(1251), Q(301));
+
+// If QID 271 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(0,1,3)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+//*******************************
+// CURBSIDE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// WALK-IN EXPERIENCE - Begin
+//*******************************
+
+// If QID 241 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(241)
+.answered(1)
+.disappear(Q(1321), Q(1331), Q(1341))
+.clearAnswer(Q(1321), Q(1331), Q(1341));
+
+//*******************************
+// WALK-IN EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER ACCURACY - Begin
+//*******************************
+
+// If QID 811 is answered Option [1 OR 3], then disappear and clear answer to QID 821.
+ifQ(811)
+.answered(1,3)
+.disappear(Q(821))
+.clearAnswer(Q(821));
+
+//*******************************
+// ORDER ACCURACY - End
+//*******************************
