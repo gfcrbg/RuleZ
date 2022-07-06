@@ -1,0 +1,52 @@
+//*******************************	
+// CID: 753	
+// SID: 4837	
+// Last Updated: 7/5/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// SPEED OF SERVICE - Begin
+//*******************************
+
+// If QIDs 1191 AND 1201 are answered, then trigger math operation: [1201] - [1191] = [591]
+ifQ(1191)
+.answered()
+.andifQ(1201)
+.answered()
+.sub(Q(1201), Q(1191))
+.store(Q(591));
+
+// If QID 21 is answered Option 1 AND QID 591 is < 2 minutes, then set value to Option 1 to QID 581.
+ifQ(21)
+.answered(1)
+.andifQ(591)
+.lessThan(120)
+.setValue(Q(581), 1);
+
+// If QID 21 is answered Option 1 AND if QID 591 is > 1 minute, 59 seconds, then set value to Option 2 to QID 581.
+ifQ(21)
+.answered(1)
+.andifQ(591)
+.greaterThan(119)
+.setValue(Q(581), 2);
+
+// If QID 21 is answered Option [2 OR 3] AND if QID 591 is answered < 4 minutes, then set value to Option 1 to QID 581.
+ifQ(21)
+.answered(2,3)
+.andifQ(591)
+.lessThan(240)
+.setValue(Q(581), 1);
+
+// If QID 21 is answered Option [2 OR 3] AND if QID 591 is answered > 3 minutes, 59 seconds, then set value to Option 2 to QID 581.
+ifQ(21)
+.answered(2,3)
+.andifQ(591)
+.greaterThan(239)
+.setValue(Q(581), 2);
+
+//*******************************
+// SPEED OF SERVICE - End
+//*******************************
