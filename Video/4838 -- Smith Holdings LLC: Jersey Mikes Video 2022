@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 826	
 // SID: 4838	
-// Last Updated: 7/15/2022	
+// Last Updated: 7/18/2022	
 //*******************************	
 
 
@@ -19,25 +19,14 @@ ifQ(792)
 .sub(Q(802), Q(792))
 .store(Q(712));
 
-//*******************************
-// ORDERING - End
-//*******************************
-
-
-
-
-//*******************************
-// QUALITY - Begin
-//*******************************
-
-// If QIDs 742 AND 752 are answered, then trigger math operation: [752] - [742] = [682] 
-ifQ(742)
+// If QIDs 872 AND 882 are answered, then trigger math operation: [882] - [872] = [682] 
+ifQ(872)
 .answered()
-.andifQ(752)
+.andifQ(882)
 .answered()
-.sub(Q(752), Q(742))
+.sub(Q(882), Q(872))
 .store(Q(682));
 
 //*******************************
-// QUALITY - End
+// ORDERING - End
 //*******************************
