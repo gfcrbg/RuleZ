@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 824	
+// SID: 4841	
+// Last Updated: 7/19/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// LOYALTY - Begin
+//*******************************
+
+// If QID 501 is answered Option [2 OR 3], then disappear and clear answer to QID 1221.
+ifQ(501)
+.answered(2,3)
+.disappear(Q(1221))
+.clearAnswer(Q(1221));
+
+// If QID 1201 is answered Option [2 OR 3], then disappear and clear answer to QID 121.
+ifQ(1201)
+.answered(2,3)
+.disappear(Q(1291))
+.clearAnswer(Q(1291));
+
+//*******************************
+// LOYALTY - End
+//*******************************
