@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 819	
 // SID: 4810
-// Last Updated: 5/27/2022	
+// Last Updated: 7/22/2022	
 //*******************************	
 
 
@@ -122,15 +122,9 @@ ifQ(371)
 // RESTROOMS - Begin
 //*******************************
 
-// If QID 461 is answered Option [1 OR 3], then disappear and clear answer to QID 471.
-ifQ(461)
-.answered(1,3)
-.disappear(Q(471))
-.clearAnswer(Q(471));
-
-// If QID 471 is not answered Option 7, then disappear and clear answer to QID 481. 
-ifQ(471)
-.notAnswered(7)
+// If QID 901 is answered Option 1, then disappear and clear answer to QID 481.
+ifQ(901)
+.notAnswered(1)
 .disappear(Q(481))
 .clearAnswer(Q(481));
 
