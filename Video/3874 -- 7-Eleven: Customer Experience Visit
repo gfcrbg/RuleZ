@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 5/25/2022
+// Last Updated: 8/4/2022
 //*******************************
 
 
@@ -621,9 +621,18 @@ ifQ()
 .dateBefore('2022-03-01')
 .setValue(Q(5251), 3);
 
-// Shop Date Trigger [after February 2020], if ULG is 'No Self-Serve', then set value to QIDs.
+// Shop Date Trigger [after July 2022], if country is 'Canada', then set value to Option 3 to QID 2161.
+ifQ()
+.dateAfter('2022-07-31')
+.andifQ()
+.countryIs('Canada')
+.setValue(Q(2161), 3);
+
+// Shop Date Trigger [after February 2020 AND before August 2022], if ULG is 'No Self-Serve', then set value to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
+.andifQ()
+.dateBefore('2022-08-01')
 .andifQ()
 .ulgIs('No Self-Serve')
 .setValue(Q(2181), 3)
