@@ -1,13 +1,25 @@
 //*******************************	
 // CID: 464
 // SID: 4815	
-// Last Updated: 5/20/2022	
+// Last Updated: 8/9/2022	
 //*******************************	
 
-//Set answer to bulk candy counter to "N/A" if No until otherwise noted.
-ifQ(211)
-.answered(2)
-.setValue(Q(211), 3);
+
+
+
+// If wave is "Retail", then set value to Option 1, hide Option 2 to QID 521.
+ifQ()
+.waveIs("Retail")
+.setValue(Q(521), 1)
+.hideOptions(Q(521), 2);
+
+// If wave is "Volume Savings", then set value to Option 2, hide Option 1 to QID 521.
+ifQ()
+.waveIs("Volume Savings")
+.setValue(Q(521), 2)
+.hideOptions(Q(521), 1);
+
+
 
 
 //*******************************
@@ -31,6 +43,11 @@ ifQ(521)
 .answered(2)
 .disappear(Q(561))
 .clearAnswer(Q(561));
+
+// Set answer to bulk candy counter to "N/A" if No until otherwise noted.
+ifQ(211)
+.answered(2)
+.setValue(Q(211), 3);
 
 // If QID 241 is answered Option 1, then disappear and clear answer to QID 501.
 ifQ(241)
