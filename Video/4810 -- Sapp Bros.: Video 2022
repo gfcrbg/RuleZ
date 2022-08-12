@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 819	
 // SID: 4810
-// Last Updated: 7/22/2022	
+// Last Updated: 8/12/2022	
 //*******************************	
 
 
@@ -124,7 +124,7 @@ ifQ(371)
 
 // If QID 901 is answered Option 1, then disappear and clear answer to QID 481.
 ifQ(901)
-.notAnswered(1)
+.answered(1)
 .disappear(Q(481))
 .clearAnswer(Q(481));
 
