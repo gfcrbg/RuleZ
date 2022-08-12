@@ -1,0 +1,46 @@
+//*******************************	
+// CID: 829	
+// SID: 4850	
+// Last Updated: 8/10/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// II. FOOD PICK UP - Begin
+//*******************************
+
+// If QID 331 is answered Option 1, then disappear and clear answer to QID 781.
+ifQ(331)
+.answered(1)
+.disappear(Q(781))
+.clearAnswer(Q(781));
+
+// If QID 831 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(831)
+.answered(1)
+.disappear(Q(861)) // red remark
+.disappear(Q(841), Q(851))
+.clearAnswer(Q(841), Q(851));
+
+//*******************************
+// II. FOOD PICK UP - End
+//*******************************
+
+
+
+
+//*******************************
+// IV. ENVIRONMENT - Begin
+//*******************************
+
+// If QID 551 is answered Option 4, then disappear and clear answer to QID 561.
+ifQ(551)
+.answered(4)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+//*******************************
+// IV. ENVIRONMENT - End
+//*******************************
