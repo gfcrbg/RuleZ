@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 11/5/2021	
+// Last Updated: 8/17/2022	
 //*******************************	
 
 
@@ -22,23 +22,46 @@ ifQ(791)
 // If QID 811 is < 6 minutes, then set value to Option 1 to QID 161.
 ifQ(811)
 .lessThan(360)
-.setValue(Q(161),1);
+.setValue(Q(161), 1);
 
 // If QID 811 is >= 6 minutes AND <= 10 minutes, then set value to Option 2 to QID 161.
 ifQ(811)
 .greaterThanOrEqual(360)
+.andifQ(811)
 .lessThanOrEqual(600)
-.setValue(Q(161),2);
+.setValue(Q(161), 2);
 
 // If QID 811 is > 10 minutes, then set value to Option 3 to QID 161.
 ifQ(811)
 .greaterThan(600)
-.setValue(Q(161),3);
+.setValue(Q(161), 3);
 
 // If QID 811 is not answered, clear answer to QID 161.
 ifQ(811)
 .notAnswered()
-.clearAnswer(Q(161))
+.clearAnswer(Q(161));
+
+// If QID 811 is < 10 minutes, then set value to Option 1 to QID 1651.
+ifQ(811)
+.lessThan(600)
+.setValue(Q(1651), 1);
+
+// If QID 811 is >= 11 minutes AND <= 20 minutes, then set value to Option 2 to QID 1651.
+ifQ(811)
+.greaterThanOrEqual(660)
+.andifQ(811)
+.lessThanOrEqual(1200)
+.setValue(Q(1651), 2);
+
+// If QID 811 is > 20 minutes, then set value to Option 3 to QID 1651.
+ifQ(811)
+.greaterThan(1200)
+.setValue(Q(1651), 3);
+
+// If QID 811 is not answered, clear answer to QID 1651.
+ifQ(811)
+.notAnswered()
+.clearAnswer(Q(1651));
 
 //*******************************
 // ASSEMBLY LINE - End
@@ -54,7 +77,7 @@ ifQ(811)
 // If QIDs [881 AND 891] answered anything, then trigger math operation: [891] - [881] = [911]
 ifQ(961)
 .answered()
-.sub(Q(891),Q(881))
+.sub(Q(891), Q(881))
 .store(Q(911));
 
 // If QID 911 is <= 4 minutes, then set value to Option 1 to QID 371.
@@ -77,6 +100,16 @@ ifQ(911)
 .greaterThan(240)
 .setValue(Q(981),2);
 
+// If QID 911 is <= 8 minutes, then set value to Option 1 to QID 1661.
+ifQ(911)
+.lessThanOrEqual(480)
+.setValue(Q(1661), 1);
+
+// If QID 911 is > 8 minutes, then set value to Option 2 to QID 1661.
+ifQ(911)
+.greaterThan(480)
+.setValue(Q(1661), 2);
+
 // If QID 911 is answered <= 5 minutes, then set value to Option 1 to QID 971.
 ifQ(911)
 .lessThanOrEqual(300)
@@ -87,23 +120,48 @@ ifQ(911)
 .greaterThan(300)
 .setValue(Q(971), 2);
 
-// If QID 961 is answered Option 1, then disappear and clear answer to QID 981.
+// If QID 911 is <= 10 minutes, then set value to Option 1 to QID 1671.
+ifQ(911)
+.lessThanOrEqual(600)
+.setValue(Q(1671), 1);
+
+// If QID 911 is > 10 minutes, then set value to Option 2 to QID 1671.
+ifQ(911)
+.greaterThan(600)
+.setValue(Q(1671), 2);
+
+// If QID 961 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(961)
 .answered(1)
-.disappear(Q(981))
-.clearAnswer(Q(981));
+.disappear(Q(981), Q(1661))
+.clearAnswer(Q(981), Q(1661));
 
-// If QID 961 is answered Option 2, then disappear and clear answer to QID 971.
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(961)
 .answered(2)
-.disappear(Q(971))
-.clearAnswer(Q(971));
+.disappear(Q(971), Q(1671))
+.clearAnswer(Q(971), Q(1671));
 
 //*******************************
 // SERVICE - End
 //*******************************
 
 
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// If location ID is [001 OR 269], then disappear QIDs.
+ifQ()
+.locIDIs('001','269')
+.disappear(Q(441)) // medium header
+.disappear(Q(921)); // black remark
+
+//*******************************
+// CLEANLINESS - End
+//*******************************
 
 
 
@@ -119,12 +177,12 @@ ifQ(961)
 // Hides the Q scores in section
 ifQ(1)
 .answered()
-.disappear(Q(1081), Q(1091), Q(1101), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1171), Q(1181), Q(1191), Q(1201), Q(1401), Q(1441), Q(1411));
+.disappear(Q(1081), Q(1681), Q(1091), Q(1101), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1171), Q(1181), Q(1191), Q(1201), Q(1401), Q(1441), Q(1411));
 
 // Assembly Line total points possible
 ifQ(1401)
 .greaterThanOrEqual(0)
-.setValue(Q(1441), 17);
+.setValue(Q(1441), 19);
 
 
 // Q161 score 2/2
@@ -145,7 +203,42 @@ ifQ(161)
 // Q161 score No Answer
 ifQ(161)
 .notAnswered()
-.setValue(Q(1081), '');
+.setValue(Q(1081), ' ');
+
+// Q161 not visible
+ifQ()
+.locIDIs('269')
+.setValue(Q(1081), ' ')
+.sub(Q(1441), 2)
+.store(Q(1441));
+
+
+// Q1651 score 2/2
+ifQ(1651)
+.answered(1)
+.setValue(Q(1681), '2');
+
+// Q1651 score 1/2
+ifQ(1651)
+.answered(2)
+.setValue(Q(1681), '1');
+
+// Q1651 score 0/2
+ifQ(1651)
+.answered(3)
+.setValue(Q(1681), '0');
+
+// Q1651 score No Answer
+ifQ(1651)
+.notAnswered()
+.setValue(Q(1681), ' ');
+
+// Q1651 not visible
+ifQ()
+.locIDNot('269')
+.setValue(Q(1681), ' ')
+.sub(Q(1441), 2)
+.store(Q(1441));
 
 
 // Q171 score 1/1
@@ -161,14 +254,14 @@ ifQ(171)
 // Q171 score 0/0
 ifQ(171)
 .answered(3)
-.setValue(Q(1091), '')
+.setValue(Q(1091), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
 
 // Q171 not visible
 ifQ()
-.locIDNot('001','101','102')
-.setValue(Q(1091), '')
+.locIDIs('001','269')
+.setValue(Q(1091), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
 
@@ -268,7 +361,14 @@ ifQ(211)
 // Q211 score 0/0
 ifQ(211)
 .answered(3)
-.setValue(Q(1151), '')
+.setValue(Q(1151), ' ')
+.sub(Q(1441), 1)
+.store(Q(1441));
+
+// Q211 not visible
+ifQ()
+.locIDIs('269')
+.setValue(Q(1151), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
 
@@ -360,7 +460,7 @@ ifQ(251)
 
 // Q251 not visible
 ifQ()
-.locIDIs('001')
+.locIDIs('001', '269')
 .setValue(Q(1191), '')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -387,7 +487,7 @@ ifQ(271)
 // Assembly Line actual points
 ifQ(1)
 .answered()
-.sum(Q(1081), Q(1091), Q(1101), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1171), Q(1181), Q(1191), Q(1201))
+.sum(Q(1081), Q(1681), Q(1091), Q(1101), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1171), Q(1181), Q(1191), Q(1201))
 .store(Q(1401));
 
 // Assembly Line total points possible
@@ -469,6 +569,13 @@ ifQ(331)
 .answered(2)
 .setValue(Q(1231), '0');
 
+// Q331 not visible
+ifQ()
+.locIDIs('269')
+.setValue(Q(1231), ' ')
+.sub(Q(1461), 1)
+.store(Q(1461));
+
 
 // Q1061 score 1/1
 ifQ(1061)
@@ -520,7 +627,7 @@ ifQ(1051)
 // Q1051 score No Answer
 ifQ(1051)
 .notAnswered()
-.setValue(Q(1261), '');
+.setValue(Q(1261), ' ');
 
 
 // Cashier actual points
@@ -554,12 +661,12 @@ ifQ(1451)
 // Hides the Q scores in section
 ifQ(1)
 .answered()
-.disappear(Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1481), Q(1491), Q(1501)); 
+.disappear(Q(1281), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331), Q(1481), Q(1491), Q(1501)); 
 
 // Service total points possible
 ifQ(1481)
 .greaterThanOrEqual(0)
-.setValue(Q(1491), 8);
+.setValue(Q(1491), 14);
 
 
 // Q981 score 2/2
@@ -572,10 +679,34 @@ ifQ(981)
 .answered(2)
 .setValue(Q(1281), '0');
 
-// Q981 No Answer
+// Q981 No Answer OR Not visible
 ifQ(981)
 .notAnswered()
-.clearAnswer(Q(1281));
+.orifQ()
+.locIDIs('269')
+.setValue(Q(1281), ' ')
+.sub(Q(1491), 2)
+.store(Q(1491));
+
+
+// Q1661 score 2/2
+ifQ(1661)
+.answered(1)
+.setValue(Q(1691), '2');
+
+// Q1661 score 0/2
+ifQ(1661)
+.answered(2)
+.setValue(Q(1691), '0');
+
+// Q1661 No Answer OR Not visible
+ifQ(1661)
+.notAnswered()
+.orifQ()
+.locIDNot('269')
+.setValue(Q(1691), ' ')
+.sub(Q(1491), 2)
+.store(Q(1491));
 
 
 // Q971 score 2/2
@@ -588,10 +719,34 @@ ifQ(971)
 .answered(2)
 .setValue(Q(1291), '0');
 
-// Q971 No Answer
+// Q971 No Answer OR Not visible
 ifQ(971)
 .notAnswered()
-.clearAnswer(Q(1291));
+.orifQ()
+.locIDIs('269')
+.setValue(Q(1291), ' ')
+.sub(Q(1491), 2)
+.store(Q(1491));
+
+
+// Q1671 score 2/2
+ifQ(1671)
+.answered(1)
+.setValue(Q(1701), '2');
+
+// Q1671 score 0/2
+ifQ(1671)
+.answered(2)
+.setValue(Q(1701), '0');
+
+// Q1671 No Answer OR Not visible
+ifQ(1671)
+.notAnswered()
+.orifQ()
+.locIDNot('269')
+.setValue(Q(1701), ' ')
+.sub(Q(1491), 2)
+.store(Q(1491));
 
 
 // Q381 score 1/1
@@ -655,7 +810,7 @@ ifQ(431)
 // Service actual points
 ifQ(1)
 .answered()
-.sum(Q(1281), Q(1291), Q(1301), Q(1311), Q(1321), Q(1331))
+.sum(Q(1281), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
 .store(Q(1481));
 
 // Service total points possible
@@ -704,14 +859,14 @@ ifQ(451)
 // Q451 score 0/0
 ifQ(451)
 .answered(3)
-.setValue(Q(1341), '')
+.setValue(Q(1341), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
 // Q451 not visible
 ifQ()
-.locIDIs('001')
-.setValue(Q(1341), '')
+.locIDIs('001', '269')
+.setValue(Q(1341), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
@@ -729,14 +884,14 @@ ifQ(461)
 // Q461 score 0/0
 ifQ(461)
 .answered(3)
-.setValue(Q(1351), '')
+.setValue(Q(1351), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
 // Q461 not visible
 ifQ()
-.locIDIs('001')
-.setValue(Q(1351), '')
+.locIDIs('001', '269')
+.setValue(Q(1351), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
@@ -754,14 +909,14 @@ ifQ(481)
 // Q481 score 0/0
 ifQ(481)
 .answered(3)
-.setValue(Q(1361), '')
+.setValue(Q(1361), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
 // Q481 not visible
 ifQ()
-.locIDIs('001')
-.setValue(Q(1361), '')
+.locIDIs('001', '269')
+.setValue(Q(1361), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
@@ -779,14 +934,14 @@ ifQ(501)
 // Q501 score 0/0
 ifQ(501)
 .answered(3)
-.setValue(Q(1371), '')
+.setValue(Q(1371), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
 // Q501 not visible
 ifQ()
-.locIDIs('001')
-.setValue(Q(1371), '')
+.locIDIs('001', '269')
+.setValue(Q(1371), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
 
@@ -804,14 +959,14 @@ ifQ(511)
 // Q511 score 0/0
 ifQ(511)
 .answered(3)
-.setValue(Q(1381), '')
+.setValue(Q(1381), ' ')
 .sub(Q(1521), 2)
 .store(Q(1521));
 
 // Q511 not visible
 ifQ()
-.locIDIs('001')
-.setValue(Q(1381), '')
+.locIDIs('001', '269')
+.setValue(Q(1381), ' ')
 .sub(Q(1521), 2)
 .store(Q(1521));
 
