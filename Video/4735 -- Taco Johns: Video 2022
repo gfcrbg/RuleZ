@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 5/3/2022	
+// Last Updated: 8/22/2022	
 //*******************************	
 
 
@@ -236,24 +236,24 @@ ifQ(901)
 .sub(Q(1241), Q(1551))
 .store(Q(2011));
 
-// If QID 2011 is < 3 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 1 to QID 341.
+// If QID 2011 is <= 1 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 1 to QID 2021.
 ifQ(2011)
-.lessThan(210)
+.lessThanOrEqual(90)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 1);
 
-// If QID 2011 is > 3 min. 30 sec. AND <= 3 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2011.
+// If QID 2011 is > 1 min. 30 sec. AND <= 1 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2021.
 ifQ(2011)
-.greaterThan(210)
-.lessThanOrEqual(231)
+.greaterThan(90)
+.lessThanOrEqual(111)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 2);
 
-// If QID 2011 is > 3 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2011.
+// If QID 2011 is > 1 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2021.
 ifQ(2011)
-.greaterThan(231)
+.greaterThan(111)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 3);
@@ -276,9 +276,9 @@ ifQ(901)
 .sub(Q(1241), Q(1341))
 .store(Q(1331));
 
-// If QID 1331 is < 1 min. 30 sec. AND QID 901 is answered Option 1, then set value to Option 1 to QID 311.
+// If QID 1331 is <= 1 min. 30 sec. AND QID 901 is answered Option 1, then set value to Option 1 to QID 311.
 ifQ(1331)
-.lessThan(90)
+.lessThanOrEqual(90)
 .andQ(901)
 .answered(1)
 .setValue(Q(311), 1);
@@ -322,9 +322,9 @@ ifQ(901)
 .sub(Q(1241), Q(1211))
 .store(Q(1251));
 
-// If QID 1251 is < 3 min. 30 sec. AND QID 901 is answered Option 1, then set value to Option 1 to QID 341.
+// If QID 1251 is <= 3 min. 30 sec. AND QID 901 is answered Option 1, then set value to Option 1 to QID 341.
 ifQ(1251)
-.lessThan(210)
+.lessThanOrEqual(210)
 .andQ(901)
 .answered(1)
 .setValue(Q(341), 1);
