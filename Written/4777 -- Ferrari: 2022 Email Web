@@ -1,0 +1,27 @@
+//*******************************	
+// CID: 351	
+// SID: 4777	
+// Last Updated: 8/23/2022	
+//*******************************	
+
+
+
+
+// If QID 51 is not answered Option 4, then disappear and clear answer to QIDs.
+ifQ(51)
+.notAnswered(4)
+.disappear(Q(231), Q(371), Q(381), Q(391))
+.clearAnswer(Q(231), Q(371), Q(381), Q(391));
+
+// If QID 51 is not answered Option 6, then disappear and clear answer to QIDs,
+ifQ(51)
+.notAnswered(6)
+.disappear(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461), Q(481))
+.clearAnswer(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461), Q(481));
+
+// If QID 461 is answered Option [0 OR 2], then disappear and clear answer to QID 471.
+ifQ(461)
+.answered(0,2)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
