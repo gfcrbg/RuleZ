@@ -1,0 +1,24 @@
+//*******************************	
+// CID: 827	
+// SID: 4846	
+// Last Updated: 8/25/2022	
+//*******************************	
+
+
+
+
+//********************************
+// SALESPERSON INTRODUCTION - Begin
+//********************************
+
+// If QID 631 and QID 641 are answered, then trigger math operation: [641] - [631] = [651]
+ifQ(631)
+.answered()
+.andifQ(641)
+.answered()
+.sub(Q(641), Q(631))
+.store(Q(651));
+
+//********************************
+// SALESPERSON INTRODUCTION - End
+//********************************
