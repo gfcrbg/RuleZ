@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 464
 // SID: 4815	
-// Last Updated: 8/9/2022	
+// Last Updated: 8/26/2022	
 //*******************************	
 
 
@@ -38,11 +38,11 @@ ifQ(521)
 .disappear(Q(541), Q(551))
 .clearAnswer(Q(541), Q(551));
 
-// If QID 521 is answered Option 2, then disappear and clear answer to QID 561.
+// If QID 521 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(521)
 .answered(2)
-.disappear(Q(561))
-.clearAnswer(Q(561));
+.disappear(Q(561), Q(581))
+.clearAnswer(Q(561), Q(581));
 
 // Set answer to bulk candy counter to "N/A" if No until otherwise noted.
 ifQ(211)
