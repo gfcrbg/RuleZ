@@ -1,17 +1,17 @@
 //*******************************	
 // CID: 760
 // SID: 4653	
-// Last Updated: 11/16/2021	
+// Last Updated: 9/2/2022	
 //*******************************	
 
 
 
 
 //*******************************
-// SALES PRESENTATION - Begin
+// MISSION - Begin
 //*******************************
 
-// If QID [81 AND 81] answered anything, then trigger math operation: [91] - [81] = [101]
+// If QID [81 AND 91] answered anything, then trigger math operation: [91] - [81] = [101]
 ifQ(81)
 .answered()
 .andQ(91)
@@ -45,15 +45,20 @@ ifQ(171)
 .disappear(Q(181))
 .clearAnswer(Q(181));
 
-//*******************************
-// SALES PRESENTATION - End
-//*******************************
-
-
-
+// If QID 231 is answered Option [2 OR 3], then set value to Option 3 to QID 1072.
+ifQ(231)
+.answered(2,3)
+.setValue(Q(1072), 3);
 
 //*******************************
-// LOT PRESENTATION - Begin
+// MISSION - End
+//*******************************
+
+
+
+
+//*******************************
+// VISION - Begin
 //*******************************
 
 // If QID 722 is answered Option 2, then disappear and clear answer to QID 732.
@@ -63,5 +68,5 @@ ifQ(722)
 .clearAnswer(Q(732));
 
 //*******************************
-// LOT PRESENTATION - End
+// VISION - End
 //*******************************
