@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 830	
+// SID: 4853	
+// Last Updated: 9/8/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// ENGAGEMENT - Begin
+//*******************************
+
+// If QID 161 is not answered Option [1 OR 2], then disappear and clear answer to QID 301.
+ifQ(161)
+.notAnswered(1,2)
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+// If QID 161 is not answered Option 1, then disappear and clear answer to QID 271.
+ifQ(161)
+.notAnswered(1)
+.disappear(Q(271))
+.clearAnswer(Q(271));
+
+//*******************************
+// ENGAGEMENT - End
+//*******************************
