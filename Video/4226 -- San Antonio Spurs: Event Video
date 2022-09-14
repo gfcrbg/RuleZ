@@ -1,7 +1,7 @@
 //*******************************
 // CID: 663
 // SID: 4226
-// Last Updated: 3/25/2020
+// Last Updated: 9/14/2022
 //*******************************
 
 
@@ -12,6 +12,85 @@ ifQ(3562)
 .answered(1)
 .disappear(Q(3372))
 .clearAnswer(Q(3372));
+
+
+
+
+//*******************************
+// PARKING - Begin
+//*******************************
+
+// If QIDs 4472 AND 4482 are answered, then trigger math operation: [4482] - [4472] = [4492]
+ifQ(4472)
+.answered()
+.andifQ(4482)
+.answered()
+.sub(Q(4482), Q(4472))
+.store(Q(4492));
+
+// If QID 4492 is <= 1 minute, then set value to Option 1 to QID 4502.
+ifQ(4492)
+.lessThanOrEqual(60)
+.setValue(Q(4502), 1);
+
+// If QID 4492 is > 1 minutes AND <= 3 minutes, then set value to Option 2 to QID 4502.
+ifQ(4492)
+.greaterThan(60)
+.andifQ(4492)
+.lessThanOrEqual(180)
+.setValue(Q(4502), 2);
+
+// If QID 4492 is > 3 minutes AND <= 5 minutes, then set value to Option 3 to QID 4502.
+ifQ(4492)
+.greaterThan(180)
+.andifQ(4492)
+.lessThanOrEqual(300)
+.setValue(Q(4502), 3);
+
+// If QID 4492 is > 5 minutes, then set value to Option 4 to QID 4502.
+ifQ(4492)
+.greaterThan(300)
+.setValue(Q(4502), 4);
+
+//--------------------
+
+// If QIDs 4432 AND 4442 are answered, then trigger math operation: [4442] - [4432] = [4452]
+ifQ(4432)
+.answered()
+.andifQ(4442)
+.answered()
+.sub(Q(4442), Q(4432))
+.store(Q(4452));
+
+// If QID 4452 is <= 1 minute, then set value to Option 1 to QID 4462.
+ifQ(4452)
+.lessThanOrEqual(60)
+.setValue(Q(4462), 1);
+
+// If QID 4452  is > 1 minutes AND <= 3 minutes, then set value to Option 2 to QID 4462.
+ifQ(4452)
+.greaterThan(60)
+.andifQ(4452)
+.lessThanOrEqual(180)
+.setValue(Q(4462), 2);
+
+// If QID 4452  is > 3 minutes AND <= 5 minutes, then set value to Option 3 to QID 4462.
+ifQ(4452)
+.greaterThan(180)
+.andifQ(4452)
+.lessThanOrEqual(300)
+.setValue(Q(4462), 3);
+
+// If QID 4452  is > 5 minutes, then set value to Option 4 to QID 4462.
+ifQ(4452)
+.greaterThan(300)
+.setValue(Q(4462), 4);
+
+//*******************************
+// PARKING - End
+//*******************************
+
+
 
 
 //*******************************
