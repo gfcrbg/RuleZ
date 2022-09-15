@@ -1,0 +1,66 @@
+//*******************************	
+// CID: 798	
+// SID: 4675	
+// Last Updated: 9/15/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// QUALITY - Begin
+//*******************************
+
+// [Time Calc] If QIDs 221 and 761 are answered, then trigger math operation: [761] - [221] = [501] 
+ifQ(221)
+.answered()
+.andifQ(761)
+.answered()
+.sub(Q(761), Q(221))
+.store(Q(501));
+
+// If QID 801 answered Option 1 and if QID 501 <= 3 minutes, then set value to Option 1 to QID 171.
+ifQ(801)
+.answered(1)
+.andifQ(501)
+.lessThanOrEqual(180)
+.setValue(Q(171), 1);
+
+// If QID 801 is answered Option 1 and if QID 501 is > 3 minutes, then set value to Option 2 to QID 171.
+ifQ(801)
+.answered(1)
+.andifQ(501)
+.greaterThan(180)
+.setValue(Q(171), 2);
+
+// If QID 801 is answered Option 2 and if QID 501 is <= 3 minutes 30 seconds, then set value to Option 1 to QID 171.
+ifQ(801)
+.answered(2)
+.andifQ(501)
+.lessThanOrEqual(210)
+.setValue(Q(171), 1);
+
+// If QID 801 is answered Option 2 and if QID 501 is > 3 minutes 30 seconds, then set value to Option 2 to QID 171.
+ifQ(801)
+.answered(2)
+.andifQ(501)
+.greaterThan(210)
+.setValue(Q(171), 2);
+
+// If QID 801 is answered Option 3 and if QID 501 is <= 4 minutes, then set value to Option 1 to QID 171.
+ifQ(801)
+.answered(3)
+.andifQ(501)
+.lessThanOrEqual(240)
+.setValue(Q(171), 1);
+
+// If QID 801 is answered Option 3 and if QID 501 is > 4 minutes, then set value to Option 2 to QID 171.
+ifQ(801)
+.answered(3)
+.andifQ(501)
+.greaterThan(240)
+.setValue(Q(171), 2);
+
+//*******************************
+// QUALITY - End
+//*******************************
