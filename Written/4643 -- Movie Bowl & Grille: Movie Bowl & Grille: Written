@@ -1,12 +1,16 @@
 //*******************************
 // CID: 762
 // SID: 4643
-// Last Updated: 10/20/2021
+// Last Updated: 9/26/2022
 //*******************************
+
+
 
 
 // Will add the cost of purchase when a field is filled.
 ifQ(71)
+.answered()
+.orifQ(2541)
 .answered()
 .orifQ(91)
 .answered()
@@ -14,11 +18,13 @@ ifQ(71)
 .answered()
 .orifQ(121)
 .answered()
-.sum(Q(71), Q(91), Q(111), Q(121))
-.store(Q(1631))
+.sum(Q(71), Q(2541), Q(91), Q(111), Q(121))
+.store(Q(1631));
 
 // Will clear the total amount if no values are entered.
 ifQ(71)
+.notAnswered()
+.andQ(2541)
 .notAnswered()
 .andQ(91)
 .notAnswered()
@@ -26,7 +32,7 @@ ifQ(71)
 .notAnswered()
 .andQ(121)
 .notAnswered()
-.clearAnswer(Q(1631))
+.clearAnswer(Q(1631));
 
 
 //----Section Activation----
