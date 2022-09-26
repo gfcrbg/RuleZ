@@ -1,7 +1,7 @@
 //*******************************
 // CID: 663
 // SID: 4226
-// Last Updated: 9/14/2022
+// Last Updated: 9/26/2022
 //*******************************
 
 
@@ -54,8 +54,16 @@ ifQ(4492)
 
 //--------------------
 
+//
+ifQ(4422)
+.answered(2)
+.disappear(Q(4432), Q(4442), Q(4452), Q(4462))
+.clearAnswer(Q(4432), Q(4442), Q(4452), Q(4462));
+
 // If QIDs 4432 AND 4442 are answered, then trigger math operation: [4442] - [4432] = [4452]
-ifQ(4432)
+ifQ(4422)
+.answered(1)
+.andifQ(4432)
 .answered()
 .andifQ(4442)
 .answered()
@@ -63,26 +71,34 @@ ifQ(4432)
 .store(Q(4452));
 
 // If QID 4452 is <= 1 minute, then set value to Option 1 to QID 4462.
-ifQ(4452)
+ifQ(4422)
+.answered(1)
+.andifQ(4452)
 .lessThanOrEqual(60)
 .setValue(Q(4462), 1);
 
 // If QID 4452  is > 1 minutes AND <= 3 minutes, then set value to Option 2 to QID 4462.
-ifQ(4452)
+ifQ(4422)
+.answered(1)
+.andifQ(4452)
 .greaterThan(60)
 .andifQ(4452)
 .lessThanOrEqual(180)
 .setValue(Q(4462), 2);
 
 // If QID 4452  is > 3 minutes AND <= 5 minutes, then set value to Option 3 to QID 4462.
-ifQ(4452)
+ifQ(4422)
+.answered(1)
+.andifQ(4452)
 .greaterThan(180)
 .andifQ(4452)
 .lessThanOrEqual(300)
 .setValue(Q(4462), 3);
 
 // If QID 4452  is > 5 minutes, then set value to Option 4 to QID 4462.
-ifQ(4452)
+ifQ(4422)
+.answered(1)
+.andifQ(4452)
 .greaterThan(300)
 .setValue(Q(4462), 4);
 
