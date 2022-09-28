@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 4776	
-// Last Updated: 8/25/2022	
+// Last Updated: 9/28/2022	
 //*******************************	
 
 
@@ -73,6 +73,18 @@ ifQ(741)
 .answered(0,2)
 .disappear(Q(751))
 .clearAnswer(Q(751));
+
+// If QID 51 is not answered Option 6, then disappear and clear answer to QIDs.
+ifQ(51)
+.notAnswered(6)
+.disappear(Q(761), Q(771), Q(781), Q(791))
+.clearAnswer(Q(761), Q(771), Q(781), Q(791));
+
+// If QID 791 is answered Option [0 OR 2], then disappear and clear answer to QID 801.
+ifQ(791)
+.answered(0,2)
+.disappear(Q(801))
+.clearAnswer(Q(801));
 
 //*******************************
 // TELEPHONE CONTACT  - End
