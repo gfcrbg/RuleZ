@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 643	
 // SID: 4472	
-// Last Updated: 12/2/2020	
+// Last Updated: 10/6/2022	
 //*******************************	
 
 
@@ -83,27 +83,4 @@ ifQ(421)
 
 //*******************************
 // 300 - PICK UP - End
-//*******************************
-
-
-
-
-//*******************************
-// 400 - FOOD & ACCURACY - Begin
-//*******************************
-
-// If QID 591 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(591)
-.answered(2)
-.disappear(Q(601), Q(611), Q(621), Q(631), Q(641), Q(651), Q(661))
-.clearAnswer(Q(601), Q(611), Q(621), Q(631), Q(641), Q(651), Q(661));
-
-// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(741)
-.answered(2)
-.disappear(Q(751), Q(761), Q(771), Q(781), Q(791), Q(801), Q(811))
-.clearAnswer(Q(751), Q(761), Q(771), Q(781), Q(791), Q(801), Q(811));
-
-//*******************************
-// 400 - FOOD & ACCURACY - End
 //*******************************
