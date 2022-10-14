@@ -1,0 +1,32 @@
+//*******************************	
+// CID: 838	
+// SID: 4869	
+// Last Updated: 10/14/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// CUSTOMER RECEPTION - Begin
+//*******************************
+
+// If QIDs [151 AND 171] are answered, then trigger math operation: [171] - [151] = [181]
+ifQ(151)
+.answered()
+.andifQ(171)
+.answered()
+.sub(Q(171), Q(151))
+.store(Q(181)); 
+
+// If QIDs [171 AND 221] are answered, then trigger math operation: [221] - [171] = [231]
+ifQ(171)
+.answered()
+.andifQ(221)
+.answered()
+.sub(Q(221), Q(171))
+.store(Q(231));
+
+//*******************************
+// CUSTOMER RECEPTION - End
+//*******************************
