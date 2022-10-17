@@ -2,20 +2,21 @@
 
 ## October 2022
 RuleZ code-block to calculate date duration:  
-```ifQ(1161)
+```
+ifQ(A)
 .answered()
-.andifQ(1171)
+.andifQ(B)
 .answered()
-.sub(Q(1171), Q(1161))
-.store(Q(1191))
-.divide(Q(1191), 1000)
-.store(Q(1191))
-.divide(Q(1191), 24)
-.store(Q(1191))
-.divide(Q(1191), 60)
-.store(Q(1191))
-.divide(Q(1191), 60)
-.store(Q(1191));  
+.sub(Q(B), Q(A))
+.store(Q(C))
+.divide(Q(C), 1000)
+.store(Q(C))
+.divide(Q(C), 24)
+.store(Q(C))
+.divide(Q(C), 60)
+.store(Q(C))
+.divide(Q(C), 60)
+.store(Q(C));  
 ```
 
 ## April 2022
