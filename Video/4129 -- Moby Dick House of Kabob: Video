@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 624	
 // SID: 4129	
-// Last Updated: 6/27/2022	
+// Last Updated: 10/17/2022	
 //*******************************	
 
 
@@ -29,6 +29,61 @@ ifQ(1721)
 //*******************************
 // ORDER TAKING - Begin
 //*******************************
+
+// If QID 1961 is not answered, then clear answer to QID 1991.
+ifQ(1961)
+.notAnswered()
+.clearAnswer(Q(1991));
+
+// If QID 1961 is answered 1 of 3 options, then set value to '1' to QID 1991.
+ifQ(1961)
+.answered(1)
+.orifQ(1961)
+.answered(2)
+.orifQ(1961)
+.answered(3)
+.setValue(Q(1991), '1');
+
+// If QID 1961 is answered 2 of 3 options, then set value to '2' to QID 1991.
+ifQ(1961)
+.answered([1,2])
+.orifQ(1961)
+.answered([1,3])
+.orifQ(1961)
+.answered([2,3])
+.setValue(Q(1991), '2');
+
+// If QID 1961 is answered 3 of 3 options, then set value to '3' to QID 1991.
+ifQ(1961)
+.answered([1,2,3])
+.setValue(Q(1991), '3');
+
+// If QID 1961 is answered Option 4, then set value to '4' to QID 1991.
+ifQ(1961)
+.answered(4)
+.setValue(Q(1991), '0');
+
+// If QID 1991 is answered '1', then set value to Option 1 to QID 1981.
+ifQ(1991)
+.answered('1')
+.setValue(Q(1981), 1);
+
+// If QID 1991 is answered '2', then set value to Option 2 to QID 1981.
+ifQ(1991)
+.answered('2')
+.setValue(Q(1981), 2);
+
+// If QID 1991 is answered '3', then set value to Option 3 to QID 1981.
+ifQ(1991)
+.answered('3')
+.setValue(Q(1981), 3);
+
+// If QID 1991 is not answered OR answered '0', then set value to Option 4 to QID 1981.
+ifQ(1991)
+.notAnswered()
+.orifQ(1991)
+.answered('0')
+.setValue(Q(1981), 4);
 
 // If QID 1191 is answered Option [1 OR 2], then set value to Option 1 to QID 1581.
 ifQ(1191)
