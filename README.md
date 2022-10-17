@@ -2,7 +2,7 @@
 
 ## October 2022
 RuleZ code-block to calculate date duration:  
-NOTE:  Initially stored as milliseconds.  Must convert from initial format.  
+__NOTE__:  Initially stored as milliseconds.  Must convert from initial format.  
 ```
 ifQ(A)
 .answered()
