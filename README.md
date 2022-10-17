@@ -1,5 +1,9 @@
 ### Announcements  
 
+## October 2022
+RuleZ code-block to calculate date duration.
+  
+
 ## April 2022
 Recalcs do NOT trigger RuleZ.  
 The shops must be updated to trigger RuleZ.  
