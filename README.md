@@ -1,8 +1,22 @@
 ### Announcements  
 
 ## October 2022
-RuleZ code-block to calculate date duration.
-  
+RuleZ code-block to calculate date duration:  
+```ifQ(1161)
+.answered()
+.andifQ(1171)
+.answered()
+.sub(Q(1171), Q(1161))
+.store(Q(1191))
+.divide(Q(1191), 1000)
+.store(Q(1191))
+.divide(Q(1191), 24)
+.store(Q(1191))
+.divide(Q(1191), 60)
+.store(Q(1191))
+.divide(Q(1191), 60)
+.store(Q(1191));  
+```
 
 ## April 2022
 Recalcs do NOT trigger RuleZ.  
