@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 227	
 // SID: 2727	
-// Last Updated: 9/13/2022	
+// Last Updated: 10/27/2022	
 //*******************************	
 
 
@@ -10,6 +10,14 @@
 //*******************************
 // WELCOME - Begin
 //*******************************
+
+// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.  Make not required to QID 81.  Set value to '0' to QID 341.
+ifQ(71)
+.answered(2)
+.disappear(Q(1472), Q(1482), Q(81))
+.clearAnswer(Q(1472), Q(1482), Q(81))
+.makeNotRequired(Q(81))
+.setValue(Q(341), '0');
 
 // If QIDs 1472 AND 1482 are answered, then trigger math operation: [1482] - [1472] = [81]
 ifQ(1472)
