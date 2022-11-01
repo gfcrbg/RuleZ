@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 766	
 // SID: 4721	
-// Last Updated: 9/15/2022
+// Last Updated: 11/1/2022
 //*******************************	
 
 
@@ -11,23 +11,28 @@
 // SERVER - Begin
 //*******************************
 
-// If date is > 9/7/2022 AND and QID 21 is answered Option 1, then make not required, disappear, and clear answer to QID 421.
+// Hide answer options to QIDs.
+ifQ()
+.hideOptions(Q(421), 5)
+.hideOptions(Q(1541), 4);
+
+// If date is > 9/7/2022 AND and QID 21 is answered Option 1, then make not required, disappear, and set value to option 5 to QID 421.
 ifQ()
 .dateAfter('2022-09-07')
 .andifQ(21)
 .answered(1)
 .makeNotRequired(Q(421))
 .disappear(Q(421))
-.clearAnswer(Q(421));
+.setValue(Q(421), 5);
 
-// If date is > 9/7/2022 AND and QID 21 is answered Option [2 OR 3], then make not required, disappear, and clear answer to QID 1541. 
+// If date is > 9/7/2022 AND and QID 21 is answered Option [2 OR 3], then make not required, disappear, and set value to Option 4 to QID 1541. 
 ifQ()
 .dateAfter('2022-09-07')
 .andifQ(21)
 .answered(2,3)
 .makeNotRequired(Q(1541))
 .disappear(Q(1541))
-.clearAnswer(Q(1541));
+.setValue(Q(1541), 4);
 
 //*******************************
 // SERVER - End
