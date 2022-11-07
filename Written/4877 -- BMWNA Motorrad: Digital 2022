@@ -4,29 +4,34 @@
 // Last Updated: 11/4/2022	
 //*******************************
 
+
+
+
 // Disabled NPS fields.
 ifQ()
 .disappear(Q(3971), Q(3981), Q(3991), Q(4001));
+
+
 
 
 //*******************************
 // CHAT - Begin
 //*******************************
 
-//
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(91)
 .answered(2)
 .disappear(Q(3761), Q(2081), Q(3931), Q(2931), Q(3861), Q(2521), Q(3741), Q(2341))  // red remarks
 .disappear(Q(121), Q(461), Q(2701), Q(241), Q(151), Q(2451), Q(191), Q(4081), Q(4171), Q(211), Q(221), Q(2071), Q(3421), Q(2501), Q(301), Q(321), Q(2971), Q(181), Q(4101), Q(1971), Q(1981), Q(2001), Q(2361), Q(2371), Q(2381), Q(2391), Q(2401), Q(2411)) 
 .clearAnswer(Q(121), Q(461), Q(2701), Q(241), Q(151), Q(2451), Q(191), Q(4081), Q(4171), Q(211), Q(221), Q(2071), Q(3421), Q(2501), Q(301), Q(321), Q(2971), Q(181), Q(4101), Q(1971), Q(1981), Q(2001), Q(2361), Q(2371), Q(2381), Q(2391), Q(2401), Q(2411));
 
-//
+// If QID 2701 is answered Option [0,1,2,3, OR 4], then disappear and clear answer to QID 3231.
 ifQ(2701)
 .answered(0,1,2,3,4)
 .disappear(Q(3231))
 .clearAnswer(Q(3231));
 
-//
+// If QID 2451 is answered Option [0 OR 2], then disappear and clear answer to QID 2491.
 ifQ(2451)
 .answered(0,2)
 .disappear(Q(2491))
@@ -43,26 +48,26 @@ ifQ(2451)
 // EMAIL - Begin
 //*******************************
 
-//
+// If QID 3711 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3711)
 .answered(2)
 .disappear(Q(3771), Q(2461), Q(3481), Q(3791), Q(3941), Q(2571), Q(2941), Q(2241), Q(2251))  // red remarks
 .disappear(Q(501), Q(511), Q(2851), Q(2721), Q(621), Q(611),Q(561), Q(571), Q(4091), Q(601), Q(3431), Q(691), Q(711), Q(3141), Q(4111), Q(871), Q(881), Q(901), Q(2261), Q(2271), Q(2281))
 .clearAnswer(Q(501), Q(511), Q(2851), Q(2721), Q(621), Q(611),Q(561), Q(571), Q(4091), Q(601), Q(3431), Q(691), Q(711), Q(3141), Q(4111), Q(871), Q(881), Q(901), Q(2261), Q(2271), Q(2281));
 
-//
+// If QID 2721 is answered Option [0,1,2,3, OR 4], then disappear and clear answer to QID 3261.
 ifQ(2721)
 .answered(0,1,2,3,4)
 .disappear(Q(3261))
 .clearAnswer(Q(3261));
 
-//
+// If QID 561 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(561)
 .answered(0,2)
 .disappear(Q(521), Q(531), Q(2191))
 .clearAnswer(Q(521), Q(531), Q(2191));
 
-//
+// If QID 3431 is answered Option [O OR 2], then disappear and clear answer to QID 2561.
 ifQ(3431)
 .answered(0,2)
 .disappear(Q(2561))
@@ -79,14 +84,14 @@ ifQ(3431)
 // PHONE - Begin
 //*******************************
 
-//
+// If QID 3721 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(3721)
 .answered(2)
 .disappear(Q(2951))  // red remarks
 .disappear(Q(961), Q(971), Q(2911), Q(3161), Q(3171), Q(3201), Q(2611), Q(2861), Q(1111), Q(2741), Q(1101), Q(991), Q(2331), Q(1011), Q(1021), Q(1031), Q(1051), Q(1061), Q(1071), Q(4181), Q(2891), Q(2631), Q(1171), Q(1191), Q(2981), Q(1291), Q(4121), Q(1371))
 .clearAnswer(Q(961), Q(971), Q(2911), Q(3161), Q(3171), Q(3201), Q(2611), Q(2861), Q(1111), Q(2741), Q(1101), Q(991), Q(2331), Q(1011), Q(1021), Q(1031), Q(1051), Q(1061), Q(1071), Q(4181), Q(2891), Q(2631), Q(1171), Q(1191), Q(2981), Q(1291), Q(4121), Q(1371));
 
-//
+// If QID 2741 is answered Option [0,1,2,3, OR 4], then disappear and clear answer to QID 3291.
 ifQ(2741)
 .answered(0,1,2,3,4)
 .disappear(Q(3291))
@@ -103,49 +108,49 @@ ifQ(2741)
 // SOCIAL MEDIA - Begin
 //*******************************
 
-//
+// If QID 1391 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1391)
 .answered(2)
 .disappear(Q(4071), Q(1901))
 .clearAnswer(Q(4071), Q(1901));
 
-//
+// If QID 4071 is not answered Option 1, then disappear and clear answer to QIDs.
 ifQ(4071)
 .notAnswered(1)
 .disappear(Q(4191), Q(4291), Q(4301))
 .clearAnswer(Q(4191), Q(4291), Q(4301));
 
-//
+// If QID 4301 is answered Option [0 OR 2], then disappear and clear answer to QID 4331.
 ifQ(4301)
 .answered(0,2)
 .disappear(Q(4331))
 .clearAnswer(Q(4331));
 
-//
+// If QID 4071 is not answered Option 2, then disappear and clear answer to QIDs.
 ifQ(4071)
 .notAnswered(2)
 .disappear(Q(4201), Q(4271), Q(4311))
 .clearAnswer(Q(4201), Q(4271), Q(4311));
 
-//
+// If QID 4311 is answered Option [0 OR 2], then disappear and clear answer to QID 4341.
 ifQ(4311)
 .answered(0,2)
 .disappear(Q(4341))
 .clearAnswer(Q(4341));
 
-//
+// If QID 4071 is not answered Option 3, then disappear and clear answer to QIDs.
 ifQ(4071)
 .notAnswered(3)
 .disappear(Q(4211), Q(4281), Q(4321))
 .clearAnswer(Q(4211), Q(4281), Q(4321));
 
-//
+// If QID 4321 is answered Option [0 OR 2], then disappear and clear answer to QID 4351.
 ifQ(4321)
 .answered(0,2)
 .disappear(Q(4351))
 .clearAnswer(Q(4351));
 
-//
+// If QID 4071 is not answered Option 4, then disappear and clear answer to QIDs.
 ifQ(4071)
 .notAnswered(4)
 .disappear(Q(4141), Q(4221))
