@@ -7,57 +7,57 @@
 
 
 
-//
+// If QID 61 is answered Option 1, then set value to 1 to QID 261.
 ifQ(61)
 .answered(1)
 .setValue(Q(261), 1);
 
-//
+// If QID 61 is answered Option 2, then set value to 2 to QID 261.
 ifQ(61)
 .answered(2)
 .setValue(Q(261), 2);
 
-//
+// If QID 61 is answered Option 3, then set value to 3 to QID 261.
 ifQ(61)
 .answered(3)
 .setValue(Q(261), 3);
 
-//
+// If QID 61 is answered Option 4, then set value to 4 to QID 261.
 ifQ(61)
 .answered(4)
 .setValue(Q(261), 4);
 
-//
+// If QID 61 is answered Option 5, then set value to 5 to QID 261.
 ifQ(61)
 .answered(5)
 .setValue(Q(261), 5);
 
-//
+// If QID 61 is answered Option 6, then set value to 6 to QID 261.
 ifQ(61)
 .answered(6)
 .setValue(Q(261), 6);
 
-//
+// If QID 61 is answered Option 7, then set value to 7 to QID 261.
 ifQ(61)
 .answered(7)
 .setValue(Q(261), 7);
 
-//
+// If QID 61 is answered Option 8, then set value to 8 to QID 261.
 ifQ(61)
 .answered(8)
 .setValue(Q(261), 8);
 
-//
+// If QID 61 is answered Option 9, then set value to 9 to QID 261.
 ifQ(61)
 .answered(9)
 .setValue(Q(261), 9);
 
-//
+// If QID 61 is answered Option [0 OR 10], then clear answer to QID 261.
 ifQ(61)
 .answered(0,10)
 .clearAnswer(Q(261));
 
-//
+// If QID [261 AND 221] are answered, then divide QID 221 by 261.  Store value in QID 241 and multiply by 100 to receive a percentage.
 ifQ(261)
 .answered()
 .andQ(221)
@@ -67,11 +67,9 @@ ifQ(261)
 .multiply(Q(241), 100)
 .store(Q(241));
 
-//
+// If QID 211 is answered Option 1, then disappear and clear answer to QID 221.  Set value to 0 to QID 241.
 ifQ(211)
 .answered(1)
 .disappear(Q(221))
 .clearAnswer(Q(221))
 .setValue(Q(241), '0');
-
-
