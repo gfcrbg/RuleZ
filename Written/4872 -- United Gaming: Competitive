@@ -1,0 +1,77 @@
+//*******************************	
+// CID: 842	
+// SID: 4872	
+// Last Updated: 11/9/2022	
+//*******************************	
+
+4872 -- United Gaming: Competitive
+
+
+//
+ifQ(61)
+.answered(1)
+.setValue(Q(261), 1);
+
+//
+ifQ(61)
+.answered(2)
+.setValue(Q(261), 2);
+
+//
+ifQ(61)
+.answered(3)
+.setValue(Q(261), 3);
+
+//
+ifQ(61)
+.answered(4)
+.setValue(Q(261), 4);
+
+//
+ifQ(61)
+.answered(5)
+.setValue(Q(261), 5);
+
+//
+ifQ(61)
+.answered(6)
+.setValue(Q(261), 6);
+
+//
+ifQ(61)
+.answered(7)
+.setValue(Q(261), 7);
+
+//
+ifQ(61)
+.answered(8)
+.setValue(Q(261), 8);
+
+//
+ifQ(61)
+.answered(9)
+.setValue(Q(261), 9);
+
+//
+ifQ(61)
+.answered(0,10)
+.clearAnswer(Q(261));
+
+//
+ifQ(261)
+.answered()
+.andQ(221)
+.answered()
+.divide(Q(221), Q(261))
+.store(Q(241))
+.multiply(Q(241), 100)
+.store(Q(241));
+
+//
+ifQ(211)
+.answered(1)
+.disappear(Q(221))
+.clearAnswer(Q(221))
+.setValue(Q(241), '0');
+
+
