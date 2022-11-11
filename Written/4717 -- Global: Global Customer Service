@@ -1,0 +1,75 @@
+//*******************************	
+// CID: 784
+// SID: 4717	
+// Last Updated: 11/11/2022	
+//*******************************	
+
+
+
+
+//***********************************
+// I. INITIAL GREET & ENGAGEMENT - Begin
+//***********************************
+
+// If QID 31 is answered Option 1, then disappear and clear answer to QID 61.
+ifQ(31)
+.answered(1)
+.disappear(Q(61))
+.clearAnswer(Q(61));
+
+//***********************************
+// I. INITIAL GREET & ENGAGEMENT - End
+//***********************************
+
+
+
+
+//***********************************
+// III. CHECK OUT - Begin
+//***********************************
+
+// If QID 321 is answered Option 2, then disappear and clear answer to QID 331.
+ifQ(321)
+.answered(2)
+.disappear(Q(331))
+.clearAnswer(Q(331)); 
+
+//***********************************
+// III. CHECK OUT - End
+//***********************************
+
+
+
+
+//***********************************
+// IV. RESTROOM - Begin
+//***********************************
+
+// If QID 381 is answered Option 4, then disappear and clear answer to QID 391.
+ifQ(381)
+.answered(4)
+.disappear(Q(391))
+.clearAnswer(Q(391));
+
+//***********************************
+// IV. RESTROOM - End
+//***********************************
+
+
+
+
+//***********************************
+// V. PARKING - Begin
+//***********************************
+
+// If ULG is "No Parking", then set value to Option 3 to QIDs.
+ifQ()
+.ulgIs("No Parking")
+.setValue(Q(461), 3)
+.setValue(Q(471), 3)
+.setValue(Q(481), 3)
+.setValue(Q(491), 3);
+
+//***********************************
+// V. PARKING - End
+//***********************************
