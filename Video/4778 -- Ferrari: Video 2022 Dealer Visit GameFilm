@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 351	
+// SID: 4778	
+// Last Updated: 11/17/2022	
+//*******************************	
+
+
+
+
+//*******************************
+// CUSTOMER FOLLOW-UP - Begin
+//*******************************
+
+// If QID 941 is answered Option [2 OR 3], then disappear and clear answer to QID 1311.
+ifQ(941)
+.answered(2,3)
+.disappear(Q(1311))
+.clearAnswer(Q(1311));
+
+// If QID 941 is answered Option [1 OR 2], then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(1,2)
+.disappear(Q(1321), Q(1331))
+.clearAnswer(Q(1321), Q(1331));
+
+//*******************************
+// CUSTOMER FOLLOW-UP - End
+//*******************************
