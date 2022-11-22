@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 848	
+// SID: 4882	
+// Last Updated: 11/22/2022	
+//*******************************	
+
+
+4882 -- Focus Brands - Global Channels: SUBWAY: Auntie Anne's Mini Pretzel Bites
+
+//*******************************
+// SUBWAY EXPERIENCE - Begin
+//*******************************
+
+// If QID 221 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(221)
+.answered(2)
+.disappear(Q(211), Q(271))
+.clearAnswer(Q(211), Q(271));
+
+//*******************************
+// SUBWAY EXPERIENCE - End
+//*******************************
