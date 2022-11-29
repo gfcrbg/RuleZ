@@ -1,0 +1,62 @@
+//*******************************	
+// CID: 478	
+// SID: 4885	
+// Last Updated: 11/28/2022
+//*******************************	
+
+
+
+
+//*******************************
+// III. FITTING ROOM - Begin
+//*******************************
+
+// If QID 271 is answered Option 2, then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(2)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+//*******************************
+// III. FITTING ROOM - End
+//*******************************
+
+
+
+
+//*******************************
+// IV. LASTING IMPRESSIONS - Begin
+//*******************************
+
+// If QID 651 is answered Option 2, then disappear and clear answer to QID 661.
+ifQ(651)
+.answered(2)
+.disappear(Q(661))
+.clearAnswer(Q(661));
+
+//*******************************
+// IV. LASTING IMPRESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// V. OVERALL EXPERIENCE - Begin
+//*******************************
+
+// If QID 481 is answered Option 1, then disappear and clear answer to QID 491.
+ifQ(481)
+.answered(1)
+.disappear(Q(491))
+.clearAnswer(Q(491));
+
+// If QID 531 is answered Option 2, then disappear and clear answer to QID 541.
+ifQ(531)
+.answered(2)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+//*******************************
+// V. OVERALL EXPERIENCE - End
+//*******************************
