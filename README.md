@@ -1,5 +1,8 @@
 ### Announcements  
 
+## November 2022
+Tested and discovered that a Presto import will trigger RuleZ.
+
 ## October 2022
 RuleZ code-block to calculate date duration:  
 __NOTE__:  Initially stored as milliseconds.  Must convert from initial format.  
