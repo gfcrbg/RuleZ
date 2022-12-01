@@ -1,17 +1,17 @@
 //*******************************	
 // CID: 815
 // SID: 4793	
-// Last Updated: 4/26/2022	
+// Last Updated: 12/1/2022	
 //*******************************	
 
 
 
 
-// If QID 891 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(891)
-.answered(2)
-.disappear(Q(881), Q(901))
-.clearAnswer(Q(881), Q(901));
+// If Location ID is 5915-B, then set value to QIDs.
+ifQ()
+.locIDIs('5915-B')
+.setValue(Q(181), 3)
+.setValue(Q(411), 3);
 
 
 
