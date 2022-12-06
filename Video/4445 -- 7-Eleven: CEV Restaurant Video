@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 6/22/2022	
+// Last Updated: 12/2/2022	
 //*******************************	
 
 
@@ -53,63 +53,71 @@ ifQ(11)
 // Section 6: Parlor Pizza
 // Section 7: Roost
 // Section 8: Tedeschi Deli
+// Section 9: Speedy Cafe
 //-------------------------------------------
 
 // LTC
 ifQ()
 .ulgIs('LTC')
-.disappear(Section(5), Section(6), Section(7), Section(8))
-.clearAnswer(Section(5), Section(6), Section(7), Section(8))
-.makeNotRequired(Section(5), Section(6), Section(7), Section(8));
+.disappear(Section(5), Section(6), Section(7), Section(8), Section(9))
+.clearAnswer(Section(5), Section(6), Section(7), Section(8), Section(9))
+.makeNotRequired(Section(5), Section(6), Section(7), Section(8), Section(9));
 
 // Ladson Grill
 ifQ()
 .ulgIs('Ladson Grill')
-.disappear(Section(4), Section(6), Section(7), Section(8))
-.clearAnswer(Section(4), Section(6), Section(7), Section(8))
-.makeNotRequired(Section(4), Section(6), Section(7), Section(8));
+.disappear(Section(4), Section(6), Section(7), Section(8), Section(9))
+.clearAnswer(Section(4), Section(6), Section(7), Section(8), Section(9))
+.makeNotRequired(Section(4), Section(6), Section(7), Section(8), Section(9));
 
 // Parlor Pizza
 ifQ()
 .ulgIs('Parlor Pizza')
-.disappear(Section(4), Section(5), Section(7), Section(8))
-.clearAnswer(Section(4), Section(5), Section(7), Section(8))
-.makeNotRequired(Section(4), Section(5), Section(7), Section(8));
+.disappear(Section(4), Section(5), Section(7), Section(8), Section(9))
+.clearAnswer(Section(4), Section(5), Section(7), Section(8), Section(9))
+.makeNotRequired(Section(4), Section(5), Section(7), Section(8), Section(9));
 
 // Roost
 ifQ()
 .ulgIs('Roost')
-.disappear(Section(4), Section(5), Section(6), Section(8))
-.clearAnswer(Section(4), Section(5), Section(6), Section(8))
-.makeNotRequired(Section(4), Section(5), Section(6), Section(8));
+.disappear(Section(4), Section(5), Section(6), Section(8), Section(9))
+.clearAnswer(Section(4), Section(5), Section(6), Section(8), Section(9))
+.makeNotRequired(Section(4), Section(5), Section(6), Section(8), Section(9));
 
 // LTC and Ladson Grill
 ifQ()
 .ulgIs('LTC and Ladson Grill')
-.disappear(Section(6), Section(7), Section(8))
-.clearAnswer(Section(6), Section(7), Section(8))
-.makeNotRequired(Section(6), Section(7), Section(8));
+.disappear(Section(6), Section(7), Section(8), Section(9))
+.clearAnswer(Section(6), Section(7), Section(8), Section(9))
+.makeNotRequired(Section(6), Section(7), Section(8), Section(9));
 
 // Roost and Parlor Pizza
 ifQ()
 .ulgIs('Roost and Parlor Pizza')
-.disappear(Section(4), Section(5), Section(8))
-.clearAnswer(Section(4), Section(5), Section(8))
-.makeNotRequired(Section(4), Section(5), Section(8));
+.disappear(Section(4), Section(5), Section(8), Section(9))
+.clearAnswer(Section(4), Section(5), Section(8), Section(9))
+.makeNotRequired(Section(4), Section(5), Section(8), Section(9));
 
 // LTC and Roost
 ifQ()
 .ulgIs('LTC and Roost')
-.disappear(Section(5), Section(6), Section(8))
-.clearAnswer(Section(5), Section(6), Section(8))
-.makeNotRequired(Section(5), Section(6), Section(8));
+.disappear(Section(5), Section(6), Section(8), Section(9))
+.clearAnswer(Section(5), Section(6), Section(8), Section(9))
+.makeNotRequired(Section(5), Section(6), Section(8), Section(9));
 
 // Tedeschi Deli  
 ifQ()
 .ulgIs('Tedeschi Deli')
-.disappear(Section(4), Section(5), Section(6), Section(7))
-.clearAnswer(Section(4), Section(5), Section(6), Section(7))
-.makeNotRequired(Section(4), Section(5), Section(6), Section(7));
+.disappear(Section(4), Section(5), Section(6), Section(7), Section(9))
+.clearAnswer(Section(4), Section(5), Section(6), Section(7), Section(9))
+.makeNotRequired(Section(4), Section(5), Section(6), Section(7), Section(9));
+
+// Speedy Cafe  
+ifQ()
+.ulgIs('Speedy Cafe')
+.disappear(Section(4), Section(5), Section(6), Section(7), Section(8))
+.clearAnswer(Section(4), Section(5), Section(6), Section(7), Section(8))
+.makeNotRequired(Section(4), Section(5), Section(6), Section(7), Section(8));
 
 //-------------------------------------------
 // ULG Switch - End
@@ -121,12 +129,12 @@ ifQ()
 //  LTC - Begin
 //*******************************
 
-// If QID 1151 is answered Option [0, 2, OR 3], then disappear, clear answer, and make not required to QOrder [15800, 21100].
+// If QID 1151 is answered Option [0, 2, OR 3], then disappear, clear answer, and make not required to QOrder [2400, 7600].
 ifQ(1151)
 .answered(0,2,3)
-.disappear(QOrder(2400,7500))
-.clearAnswer(QOrder(2400,7500))
-.makeNotRequired(QOrder(2400,7500));
+.disappear(QOrder(2400,7600))
+.clearAnswer(QOrder(2400,7600))
+.makeNotRequired(QOrder(2400,7600));
 
 // If QID 1151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9291.
 ifQ(1151)
@@ -363,12 +371,12 @@ ifQ(6641)
 //  LADSON GRILL - Begin
 //*******************************
 
-// If QID 4161 is answered Option [0 OR 2], then disappear, clear answer, and make not required QOrder [30600, 35200].
+// If QID 4161 is answered Option [0 OR 2], then disappear, clear answer, and make not required QOrder [8200, 12800].
 ifQ(4161)
 .answered(0,2)
-.disappear(QOrder(8100,12600))
-.clearAnswer(QOrder(8100,12600))
-.makeNotRequired(QOrder(8100,12600));
+.disappear(QOrder(8200, 12800))
+.clearAnswer(QOrder(8200, 12800))
+.makeNotRequired(QOrder(8200, 12800));
 
 // If QID 4161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9301.
 ifQ(4161)
@@ -536,12 +544,12 @@ ifQ(7311)
 //  PARLOR PIZZA - Begin
 //*******************************
 
-// If QID 4521 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [35500, 39005].
+// If QID 4521 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [13400, 17700].
 ifQ(4521)
 .answered(0,2)
-.disappear(QOrder(13200,17400))
-.clearAnswer(QOrder(13200,17400))
-.makeNotRequired(QOrder(13200,17400));
+.disappear(QOrder(13400, 17700))
+.clearAnswer(QOrder(13400, 17700))
+.makeNotRequired(QOrder(13400, 17700));
 
 // If QID 4521 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9311.
 ifQ(4521)
@@ -700,12 +708,12 @@ ifQ(7181)
 //  ROOST - Begin
 //*******************************
 
-// If QID 6051 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [39300, 42205].
+// If QID 6051 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [18300, 22700].
 ifQ(6051)
 .answered(0,2)
-.disappear(QOrder(18000,22300))
-.clearAnswer(QOrder(18000,22300))
-.makeNotRequired(QOrder(18000,22300));
+.disappear(QOrder(18300, 22700))
+.clearAnswer(QOrder(18300, 22700))
+.makeNotRequired(QOrder(18300, 22700));
 
 // If QID 6051 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9321.
 ifQ(6051)
@@ -900,12 +908,12 @@ ifQ(7441)
 //  TEDESCHI DELI - Begin
 //*******************************
 
-// If QID 9391 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [22700,27200].
+// If QID 9391 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [23100, 27800].
 ifQ(9391)
 .answered(0,2)
-.disappear(QOrder(22700,27200))
-.clearAnswer(QOrder(22700,27200))
-.makeNotRequired(QOrder(22700,27200));
+.disappear(QOrder(23100, 27800))
+.clearAnswer(QOrder(23100, 27800))
+.makeNotRequired(QOrder(23100, 27800));
 
 // If QID 9391 is answered Option [0 OR 1], then disappear and clear answer to QID 9401.
 ifQ(9391)
@@ -1048,4 +1056,156 @@ ifQ(9861)
 
 //*******************************
 //  TEDESCHI DELI - End
+//*******************************
+
+
+
+
+//*******************************
+//  SPEEDY CAFE - Begin
+//*******************************
+
+// If QID 10031 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [28400, 32900].
+ifQ(10031)
+.answered(0,2)
+.disappear(QOrder(28400, 32900))
+.clearAnswer(QOrder(28400, 32900))
+.makeNotRequired(QOrder(28400, 32900));
+
+// If QID 10031 is answered Option [0 OR 1], then disappear and clear answer to QID 100141.
+ifQ(10031)
+.answered(0,1)
+.disappear(Q(10041))
+.clearAnswer(Q(10041));
+
+// If QIDs 10151 AND 10161 are answered, then trigger math operation: [10161] - [10151] = [10171]
+ifQ(10151)
+.answered()
+.andifQ(10161)
+.answered()
+.sub(Q(10161), Q(10151))
+.store(Q(10171));
+
+// If QID 10171 is > 0 AND < 5 minutes, then set value to Option 1 to QID 10181.
+ifQ(10171)
+.greaterThan(0)
+.andifQ(10171)
+.lessThan(300)
+.setValue( Q(10181), 1);
+
+//If QID 10171 is >= 5 minutes, then set value to Option 2 to QID 10181.
+ifQ(10171)
+.greaterThanOrEqual(300)
+.setValue( Q(10181), 2);
+
+// If QID 10441 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10451.
+ifQ(10441)
+.answered(0,1,3)
+.disappear(Q(10451))
+.clearAnswer(Q(10451));
+
+// If QID 10451 is not answered Option 4, then disappear and clear answer to QID 10461.
+ifQ(10451)
+.notAnswered(4)
+.disappear(Q(10461))
+.clearAnswer(Q(10461));
+
+//-------------------------------------------
+// Speedy Cafe Timestamps - Begin
+//-------------------------------------------
+
+// If QID 10081 is answered Option [1 AND 2, OR 4] OR QID 10031 is answered Option [0 OR 2], then disappear and clear answer to QID 10091.
+ifQ(10081)
+.answered([1,2], 4)
+.orQ(10031)
+.answered(0,2)
+.disappear(Q(10091))
+.clearAnswer(Q(10091));
+
+// If QID 10191 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10201.
+ifQ(10191)
+.answered(0,1,3)
+.disappear(Q(10201))
+.clearAnswer(Q(10201));
+
+// If QID 10211 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10221.
+ifQ(10211)
+.answered(0,1,3)
+.disappear(Q(10221))
+.clearAnswer(Q(10221));
+
+// If QID 10231 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10241.
+ifQ(10231)
+.answered(0,1,3)
+.disappear(Q(10241))
+.clearAnswer(Q(10241));
+
+// If QID 10251 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10261.
+ifQ(10251)
+.answered(0,1,3)
+.disappear(Q(10261))
+.clearAnswer(Q(10261));
+
+// If QID 10271 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10281.
+ifQ(10271)
+.answered(0,1,3)
+.disappear(Q(10281))
+.clearAnswer(Q(10281));
+
+// If QID 10531 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10541.
+ifQ(10531)
+.answered(0,1,3)
+.disappear(Q(10541))
+.clearAnswer(Q(10541));
+
+// If QID 10341 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10351.
+ifQ(10341)
+.answered(0,1,3)
+.disappear(Q(10351))
+.clearAnswer(Q(10351));
+
+// If QID 10361 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10371.
+ifQ(10361)
+.answered(0,1,3)
+.disappear(Q(10371))
+.clearAnswer(Q(10371));
+
+// If QID 10381 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10391.
+ifQ(10381)
+.answered(0,1,3)
+.disappear(Q(10391))
+.clearAnswer(Q(10391));
+
+// If QID 10371 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10411.
+ifQ(10401)
+.answered(0,1,3)
+.disappear(Q(10411))
+.clearAnswer(Q(10411));
+
+// If QID 10421 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10431.
+ifQ(10421)
+.answered(0,1,3)
+.disappear(Q(10431))
+.clearAnswer(Q(10431));
+
+// If QID 10491 is answered Option [0 OR 1], then disappear and clear answer to QID 10501.
+ifQ(10491)
+.answered(0,1)
+.disappear(Q(10501))
+.clearAnswer(Q(10501));
+
+// If QID 10511 is answered Option [4 OR 6] or QID 10031 is answered Option [0 OR 2], then disappear and clear answer to QID 10521.
+ifQ(10511)
+.answered(4,6)
+.orQ(10031)
+.answered(0,2)
+.disappear(Q(10521))
+.clearAnswer(Q(10521));
+
+//-------------------------------------------
+// Speedy Cafe Timestamps - End
+//-------------------------------------------
+
+//*******************************
+//  SPEEDY CAFE - End
 //*******************************
