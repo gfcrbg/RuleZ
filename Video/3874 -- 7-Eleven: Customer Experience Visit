@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 8/4/2022
+// Last Updated: 12/9/2022
 //*******************************
 
 
@@ -40,7 +40,7 @@ ifQ()
 .setValue(Q(51), 4)
 .setValue(Q(6871), 3);
 
-// If ulg is 'Confirmed No Gas', disappear and set value to 'N/A' to QIDs.
+// If ulg is 'Confirmed No Gas', disappear and set value to 'N/A' to QID 2991.
 ifQ()
 .ulgIs('Confirmed No Gas')
 .disappear(Q(2991))
@@ -477,9 +477,11 @@ ifQ()
 // STORE INTERIOR - Begin
 //********************************
 
-// Shop Date Trigger [AFTER July 2021], if country is US, then set value to Option 3 to QIDs.
+// Shop Date Trigger [AFTER July 2021 AND BEFORE January 2023], if country is US, then set value to Option 3 to QIDs.
 ifQ()
 .dateAfter("2021-07-31")
+.andifQ()
+.dateBefore("2023-01-01")
 .andifQ()
 .countryIs('US')
 .setValue(Q(5131), 3);
@@ -508,9 +510,11 @@ ifQ()
 // [Time Calc] Freshness Date - Begin
 //---------------------------------------------
 
-// Shop Date Trigger [AFTER July 2021] if country is US, then set value to Option 3 to QID 2361.
+// Shop Date Trigger [AFTER July 2021 AND BEFORE January 2023] if country is US, then set value to Option 3 to QID 2361.
 ifQ()
 .dateAfter("2021-07-31")
+.andifQ()
+.dateBefore("2023-01-01")
 .andifQ()
 .countryIs('US')
 .setValue(Q(2361), 3);
@@ -544,7 +548,7 @@ ifQ(5271)
 .clearAnswer(Q(5951));
 
 
-// Shop Date Trigger [after February 2020 AND before December 2020], set value to Option 3 to QID 5251.
+// Shop Date Trigger [AFTER February 2020 AND BEFORE December 2020], set value to Option 3 to QID 5251.
 ifQ()
 .countryIs("US")
 .andifQ()
@@ -553,7 +557,7 @@ ifQ()
 .dateBefore("2020-12-01")
 .setValue(Q(5251), 3);
 
-// Shop Date Trigger [after February 2020 AND before June 2021], if country is "Canada", then set value to Option 3 to QID 5251.
+// Shop Date Trigger [AFTER February 2020 AND BEFORE June 2021], if country is "Canada", then set value to Option 3 to QID 5251.
 ifQ()
 .dateAfter("2020-02-29")
 .andifQ()
@@ -562,9 +566,11 @@ ifQ()
 .countryIs("Canada")
 .setValue(Q(5251), 3);
 
-// Shop Date Trigger [after November 2020], if country is "US" AND ULG is "No Self-Serve", then set value to Option 3 to QID 5251. 
+// Shop Date Trigger [AFTER November 2020 AND BEFORE January 2023], if country is "US" AND ULG is "No Self-Serve", then set value to Option 3 to QID 5251. 
 ifQ()
 .dateAfter("2020-11-30")
+.andifQ()
+.dateBefore("2023-01-01")
 .andifQ()
 .ulgIs("No Self-Serve")
 .andifQ()
@@ -603,14 +609,14 @@ ifQ()
 // PROPRIETARY BEVERAGE - Begin
 //********************************
 
-// Shop Date Trigger [after March 2020], if country is 'Canada', then set value to QIDs.
+// Shop Date Trigger [AFTER March 2020], if country is 'Canada', then set value to Option 3 QID 5291.
 ifQ()
 .countryIs('Canada')
 .andifQ()
 .dateAfter('2020-03-31')
 .setValue(Q(5291), 3);
 
-// Shop Date Trigger [after May 2021 AND before March 2022], if country is 'Canada' and ULG is not 'BC', then set value to Option 3 to QID 5251.
+// Shop Date Trigger [AFTER May 2021 AND BEFORE March 2022], if country is 'Canada' and ULG is not 'BC', then set value to Option 3 to QID 5251.
 ifQ()
 .countryIs('Canada')
 .andifQ()
@@ -621,14 +627,14 @@ ifQ()
 .dateBefore('2022-03-01')
 .setValue(Q(5251), 3);
 
-// Shop Date Trigger [after July 2022], if country is 'Canada', then set value to Option 3 to QID 2161.
+// Shop Date Trigger [AFTER July 2022], if ULG is 'Canada', then set value to Option 3 to QID 2161.
 ifQ()
 .dateAfter('2022-07-31')
 .andifQ()
 .countryIs('Canada')
 .setValue(Q(2161), 3);
 
-// Shop Date Trigger [after February 2020 AND before August 2022], if ULG is 'No Self-Serve', then set value to QIDs.
+// Shop Date Trigger [AFTER February 2020 AND BEFORE August 2022], if ULG is 'No Self-Serve', then set value to QIDs.
 ifQ()
 .dateAfter('2020-02-29')
 .andifQ()
@@ -796,11 +802,13 @@ ifQ()
 .dateBefore("2021-08-01")
 .setValue(Q(2421), 3);
 
-// Shop Date Trigger [AFTER July 2021] if country is US, then set value to Option 3 to QIDs.
+// Shop Date Trigger [AFTER July 2021 AND BEFORE January 2023] if country is US, then set value to Option 3 to QIDs.
 ifQ()
 .countryIs('US')
 .andifQ()
 .dateAfter("2021-07-31")
+.andifQ()
+.dateBefore("2023-01-01")
 .setValue(Q(2421), 3)
 .setValue(Q(6311), 3);
 
