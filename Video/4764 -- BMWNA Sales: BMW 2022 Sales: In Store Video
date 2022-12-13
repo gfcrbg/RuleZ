@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 5/13/2022	
+// Last Updated: 12/13/2022	
 //*******************************	
 
 
@@ -87,8 +87,8 @@ ifQ(671)
 .disappear(Q(471), Q(481))
 .clearAnswer(Q(471), Q(481));
 
-// If QID 671 is answered Option [1 OR 2], then disappear and clear answer to QID 681.
-ifQ(671)
+// If QID 961 is answered Option [1 OR 2], then disappear and clear answer to QID 681.
+ifQ(961)
 .answered(1,2)
 .disappear(Q(681))
 .clearAnswer(Q(681));
