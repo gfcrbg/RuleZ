@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 12/2/2022	
+// Last Updated: 12/21/2022	
 //*******************************	
 
 
@@ -114,7 +114,7 @@ ifQ()
 
 // Speedy Cafe  
 ifQ()
-.ulgIs('Speedy Cafe')
+.ulgIs('Speedy Café')
 .disappear(Section(4), Section(5), Section(6), Section(7), Section(8))
 .clearAnswer(Section(4), Section(5), Section(6), Section(7), Section(8))
 .makeNotRequired(Section(4), Section(5), Section(6), Section(7), Section(8));
@@ -147,6 +147,12 @@ ifQ(2381)
 .answered(0,1,2)
 .disappear(Q(5041))
 .clearAnswer(Q(5041));
+
+// If QID 10571 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10581.
+ifQ(10571)
+.answered(0,1,3)
+.disappear(Q(10581))
+.clearAnswer(Q(10581));
 
 // If QID 6621 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7451.
 ifQ(6621)
@@ -720,6 +726,12 @@ ifQ(6051)
 .answered(0,1,3)
 .disappear(Q(9321))
 .clearAnswer(Q(9321));
+
+// If QID 10551 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 10561.
+ifQ(10551)
+.answered(0,1,3)
+.disappear(Q(10561))
+.clearAnswer(Q(10561));
 
 // If QID 7421 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 7511.
 ifQ(7421)
