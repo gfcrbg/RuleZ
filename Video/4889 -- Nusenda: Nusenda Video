@@ -1,0 +1,167 @@
+//**************************************	
+// CID: 847	
+// SID: 4889
+// Last Updated: 12/5/2022	
+//**************************************	
+
+
+
+
+//**************************************
+// TRANSITION / HANDOFF - Begin
+//**************************************
+
+// If QID 321 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(321)
+.answered(2)
+.disappear(Q(331), Q(341))
+.clearAnswer(Q(331), Q(341));
+
+//**************************************
+// TRANSITION / HANDOFF - End
+//**************************************
+
+
+
+
+//**************************************
+// TELLER INTERACTION - Begin
+//**************************************
+
+// If QID 941 is answered Option 2, then disappear and clear answers to QIDs.  Set values to QIDs to 'N/A'.
+ifQ(941)
+.answered(2)
+.disappear(Q(961), Q(971), Q(981), Q(391), Q(371), Q(401), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461), Q(471), Q(501), Q(511), Q(871), Q(521), Q(921))
+.clearAnswer(Q(961), Q(971), Q(981), Q(391), Q(371), Q(441))
+.setValue(Q(401), 3)
+.setValue(Q(411), 3)
+.setValue(Q(421), 3)
+.setValue(Q(431), 3)
+.setValue(Q(451), 3)
+.setValue(Q(461), 3)
+.setValue(Q(471), 3)
+.setValue(Q(501), 3)
+.setValue(Q(511), 3)
+.setValue(Q(871), 3)
+.setValue(Q(521), 6)
+.setValue(Q(921), 3);
+
+// If QID 471 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(0,2,3)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 481 is not answered Option 7, then disappear and clear answer to QID 491.
+ifQ(481)
+.notAnswered(7)
+.disappear(Q(491))
+.clearAnswer(Q(491));
+
+// If QID [961 AND 971] is answered, then trigger math operation: [971] - [961] = [981].
+ifQ(961)
+.answered()
+.andQ(971)
+.answered()
+.sub(Q(971), Q(961))
+.store(Q(981));
+
+// If QID 981 is >= 0 AND < 3 minutes, then set value to Option 1 to QID 371.
+ifQ(981)
+.greaterThanOrEqual(0)
+.andifQ(981)
+.lessThan(360)
+.setValue(Q(371), 1);
+
+// If QID 981 is >= 3 minutes AND <= 10 minutes, then set value to Option 2 to QID 371.
+ifQ(981)
+.greaterThanOrEqual(360)
+.andifQ(981)
+.lessThanOrEqual(600)
+.setValue(Q(371), 2);
+
+// If QID 981 is > 10 minutes, then set value to Option 3 to QID 371.
+ifQ(981)
+.greaterThan(600)
+.setValue(Q(371), 3);
+
+//**************************************
+// TELLER INTERACTION - End
+//**************************************
+
+
+
+
+//**************************************
+// FINANCIAL CONSULTANT INTERACTION - Begin
+//**************************************
+
+// If QID 951 is answered Option 2, then disappear and clear answer to QIDs.  Set values to QIDs to 'N/A'.
+ifQ(951)
+.answered(2)
+.disappear(Q(991), Q(1001), Q(1011), Q(541), Q(931), Q(551), Q(561), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621), Q(651), Q(661), Q(891), Q(671), Q(681), Q(691), Q(881), Q(701), Q(721), Q(731), Q(741), Q(751), Q(761), Q(771))
+.clearAnswer(Q(991), Q(1001), Q(1011), Q(541), Q(931), Q(591))
+.setValue(Q(551), 3)
+.setValue(Q(561), 3)
+.setValue(Q(571), 3)
+.setValue(Q(581), 3)
+.setValue(Q(601), 3)
+.setValue(Q(611), 3)
+.setValue(Q(621), 3)
+.setValue(Q(651), 3)
+.setValue(Q(661), 3)
+.setValue(Q(891), 3)
+.setValue(Q(671), 6)
+.setValue(Q(681), 3)
+.setValue(Q(691), 3)
+.setValue(Q(881), 3)
+.setValue(Q(701), 6)
+.setValue(Q(721), 3)
+.setValue(Q(731), 3)
+.setValue(Q(741), 3)
+.setValue(Q(751), 3)
+.setValue(Q(761), 3)
+.setValue(Q(771), 3);
+
+// If QID 621 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 631.
+ifQ(621)
+.answered(0,2,3)
+.disappear(Q(631))
+.clearAnswer(Q(631));
+
+// If QID 631 is not answered Option 7, then disappear and clear answer to QID 641.
+ifQ(631)
+.notAnswered(7)
+.disappear(Q(641))
+.clearAnswer(Q(641));
+
+// If QID [991 AND 1001] is answered, then trigger math operation: [1001] - [991] = [1011]
+ifQ(991)
+.answered()
+.andQ(1001)
+.answered()
+.sub(Q(1001), Q(991))
+.store(Q(1011));
+
+// If QID 1011 is >= 0 AND < 3 minutes, then set value to Option 1 to QID 931.
+ifQ(1011)
+.greaterThanOrEqual(0)
+.andifQ(1011)
+.lessThan(360)
+.setValue(Q(931), 1);
+
+// If QID 1011 is >= 3 minutes AND <= 10 minutes, then set value to Option 2 to QID 931.
+ifQ(1011)
+.greaterThanOrEqual(360)
+.andifQ(1011)
+.lessThanOrEqual(600)
+.setValue(Q(931), 2);
+
+// If QID 1011 is > 10 minutes, then set value to Option 3 to QID 931.
+ifQ(1011)
+.greaterThan(600)
+.setValue(Q(931), 3);
+
+//**************************************
+// FINANCIAL CONSULTANT INTERACTION - End
+//**************************************
