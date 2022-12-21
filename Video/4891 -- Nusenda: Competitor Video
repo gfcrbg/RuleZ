@@ -1,0 +1,155 @@
+//**************************************	
+// CID: 847	
+// SID: 4891
+// Last Updated: 12/5/2022	
+//**************************************	
+
+
+
+
+//**************************************
+// TRANSITION / HANDOFF - Begin
+//**************************************
+
+// If QID 321 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(321)
+.answered(2)
+.disappear(Q(331), Q(341))
+.clearAnswer(Q(331), Q(341));
+
+//**************************************
+// TRANSITION / HANDOFF - End
+//**************************************
+
+
+
+
+//**************************************
+// TELLER INTERACTION - Begin
+//**************************************
+
+// If QID 951 is answered Option 2, then disappear, clear answer, and set N/A values to QIDs.
+ifQ(951)
+.answered(2)
+.disappear(Q(971), Q(981), Q(991), Q(391), Q(371), Q(401), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461), Q(471), Q(501), Q(511), Q(891), Q(521))
+.clearAnswer(Q(971), Q(981), Q(991), Q(391), Q(371), Q(441))
+.setValue(Q(401), 3)
+.setValue(Q(411), 3)
+.setValue(Q(421), 3)
+.setValue(Q(431), 3)
+.setValue(Q(451), 3)
+.setValue(Q(461), 3)
+.setValue(Q(471), 3)
+.setValue(Q(501), 3)
+.setValue(Q(511), 3)
+.setValue(Q(891), 3)
+.setValue(Q(521), 6);
+
+// If QID 471 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 831.
+ifQ(471)
+.answered(0,2,3)
+.disappear(Q(831))
+.clearAnswer(Q(831));
+
+// If QIDs 971 and 981 are answered, then trigger math operation: [981] - [971] = [991]
+ifQ(971)
+.answered()
+.andQ(981)
+.answered()
+.sub(Q(981), Q(971))
+.store(Q(991));
+
+// If QID 991 is >= 0 and <= 5 min, 59 sec., then set value to Option 1 to QID 371. 
+ifQ(991)
+.greaterThanOrEqual(0)
+.andQ(991)
+.lessThanOrEqual(359)
+.setValue(Q(371), 1);
+
+// If QID 991 is >= 6 min. and <= 10 min., then set value to Option 2 to QID 371.
+ifQ(991)
+.greaterThanOrEqual(360)
+.andQ(991)
+.lessThanOrEqual(600)
+.setValue(Q(371), 2);
+
+// If QID 991 is > 10 min., then set value to Option 3 to QID 371.
+ifQ(991)
+.greaterThan(600)
+.setValue(Q(371), 3);
+
+
+//**************************************
+// TELLER INTERACTION - End
+//**************************************
+
+
+
+
+//**************************************
+// FINANCIAL CONSULTANT INTERACTION - Begin
+//**************************************
+
+// If QID 961 is answered Option 2, then disappear, clear answer, and set N/A values to QIDs. 
+ifQ(961)
+.answered(2)
+.disappear(Q(1001), Q(1011), Q(1021), Q(541), Q(941), Q(551), Q(561), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621), Q(651), Q(661), Q(901), Q(671), Q(681), Q(691), Q(911), Q(701), Q(721), Q(731), Q(741), Q(751), Q(761), Q(771))
+.clearAnswer(Q(1001), Q(1011), Q(1021), Q(541), Q(941), Q(591))
+.setValue(Q(551), 3)
+.setValue(Q(561), 3)
+.setValue(Q(571), 3)
+.setValue(Q(581), 3)
+.setValue(Q(601), 3)
+.setValue(Q(611), 3)
+.setValue(Q(621), 3)
+.setValue(Q(651), 3)
+.setValue(Q(661), 3)
+.setValue(Q(901), 3)
+.setValue(Q(671), 6)
+.setValue(Q(681), 3)
+.setValue(Q(691), 3)
+.setValue(Q(911), 3)
+.setValue(Q(701), 6)
+.setValue(Q(721), 3)
+.setValue(Q(731), 3)
+.setValue(Q(741), 3)
+.setValue(Q(751), 3)
+.setValue(Q(761), 3)
+.setValue(Q(771), 3);
+
+// If QID 621 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 841. 
+ifQ(621)
+.answered(0,2,3)
+.disappear(Q(841))
+.clearAnswer(Q(841));
+
+// If QIDs 1001 and 1011 are answered, then trigger math operation: [1011] - [1001] = [1021]
+ifQ(1001)
+.answered()
+.andQ(1011)
+.answered()
+.sub(Q(1011), Q(1001))
+.store(Q(1021));
+
+// If QID 1021 is >= 0 and <= 5 min, 59 sec., then set value to Option 1 to QID 941. 
+ifQ(1021)
+.greaterThanOrEqual(0)
+.andQ(1021)
+.lessThanOrEqual(359)
+.setValue(Q(941), 1);
+
+// If QID 1021 is >= 6 min. and <= 10 min., then set value to Option 2 to QID 941.
+ifQ(1021)
+.greaterThanOrEqual(360)
+.andQ(1021)
+.lessThanOrEqual(600)
+.setValue(Q(941), 2);
+
+// If QID 1021 is > 10 min., then set value to Option 3 to QID 941.
+ifQ(1021)
+.greaterThan(600)
+.setValue(Q(941), 3);
+
+//**************************************
+// FINANCIAL CONSULTANT INTERACTION - End
+//**************************************
