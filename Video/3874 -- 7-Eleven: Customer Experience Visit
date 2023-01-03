@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 12/21/2022
+// Last Updated: 1/1/2023
 //*******************************
 
 
@@ -696,11 +696,13 @@ ifQ()
 .setValue(Q(5371), 3)
 .setValue(Q(6741), 5); // N/A to 5731
 
-// Shop Date Trigger [after May 2020], if country is 'US' and ULG is 'No Self-Serve', then set value to Option 3 to QIDs.
+// Shop Date Trigger [AFTER May 2020 AND BEFORE January 2023], if country is 'US' and ULG is 'No Self-Serve', then set value to Option 3 to QIDs.
 ifQ()
 .countryIs('US')
 .andifQ()
 .dateAfter('2020-05-31')
+.andifQ()
+.dateBefore('2023-01-01')
 .andifQ()
 .ulgIs('No Self-Serve')
 .setValue(Q(5301), 3)
