@@ -1,0 +1,42 @@
+//*******************************	
+// CID: 850	
+// SID: 4894
+// Last Updated: 1/5/2023	
+//*******************************	
+
+
+
+
+// If QID [21 AND 31] are answered, then trigger math operation: [31] - [21] = [41]
+ifQ(21)
+.answered()
+.andQ(31)
+.answered()
+.sub(Q(31), Q(21))
+.store(Q(41));
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QID [692 AND 702] are answered, then trigger math operation: [702] - [692] = [712]
+ifQ(692)
+.answered()
+.andQ(702)
+.answered()
+.sub(Q(702), Q(692))
+.store(Q(712));
+
+// If QID 712 is > 0 and < 2 minutes, then set value to Option 1 to QID 181.
+ifQ(712)
+.greaterThan(0)
+.andQ(712)
+.lessThan(120)
+.setValue(Q(181), 1);
+
+//*******************************
+// SERVICE - End
+//*******************************
