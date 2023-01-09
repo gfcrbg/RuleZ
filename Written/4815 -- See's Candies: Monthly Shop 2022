@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 464
 // SID: 4815	
-// Last Updated: 10/18/2022	
+// Last Updated: 1/9/2023	
 //*******************************	
 
 
@@ -44,9 +44,18 @@ ifQ(521)
 .disappear(Q(561), Q(581))
 .clearAnswer(Q(561), Q(581));
 
-// Set answer to bulk candy counter to "N/A" if No until November 2022.
-ifQ(211)
+// [Trigger Date: BEFORE November 2022] If QID 211 is answered Option 2, then set value to Option 3 to QID 211.
+ifQ()
 .dateBefore('2022-11-01')
+.andifQ(211)
+.answered(2)
+.setValue(Q(211), 3);
+
+// [Trigger Date: January 2023 - October 2023] If QID 211 is answered Option 2, then set value to Option 3 to QID 211.
+ifQ()
+.dateAfter('2022-12-31')
+.andifQ()
+.dateBefore('2023-11-01')
 .andifQ(211)
 .answered(2)
 .setValue(Q(211), 3);
