@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/1/2023
+// Last Updated: 1/10/2023
 //*******************************
 
 
@@ -757,6 +757,13 @@ ifQ(2181)
 .answered(1,3)
 .disappear(Q(6161))
 .clearAnswer(Q(6161));
+
+// Shop Date Trigger [AFTER December 2022], if ULG is 'IN Locations', then set value to Option 3 to QID 8541.
+ifQ()
+.ulgIs('IN Locations')
+.andifQ()
+.dateAfter('2022-12-31')
+.setValue(Q(8541), 3);
 
 // Shop Date Trigger [January 28, 2022], AND if ULG is "Speedway Banner", then set value to Option 3 to QIDs.
 ifQ()
