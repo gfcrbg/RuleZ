@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 850	
 // SID: 4894
-// Last Updated: 1/5/2023	
+// Last Updated: 1/10/2023	
 //*******************************	
 
 
@@ -29,13 +29,6 @@ ifQ(692)
 .answered()
 .sub(Q(702), Q(692))
 .store(Q(712));
-
-// If QID 712 is > 0 and < 2 minutes, then set value to Option 1 to QID 181.
-ifQ(712)
-.greaterThan(0)
-.andQ(712)
-.lessThan(120)
-.setValue(Q(181), 1);
 
 //*******************************
 // SERVICE - End
