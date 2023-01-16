@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 1/10/2023	
+// Last Updated: 1/16/2023	
 //*******************************	
 
 
@@ -81,8 +81,8 @@ ifQ(671)
 // TEST DRIVE - Begin
 //*******************************************
 
-// If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
-ifQ(671)
+// If QID 961 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(961)
 .answered(3)
 .disappear(Q(471), Q(481))
 .clearAnswer(Q(471), Q(481));
@@ -123,8 +123,8 @@ ifQ(481)
 // If QID 671 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(671)
 .answered(3)
-.disappear(Q(531), Q(631), Q(561))
-.clearAnswer(Q(531), Q(631), Q(561));
+.disappear(Q(531), Q(631), Q(561), Q(1061))
+.clearAnswer(Q(531), Q(631), Q(561), Q(1061));
 
 // If QID 631 is answered Option (1,2, AND 3), then set value to Option [1,2,3,4] to QID 631.
 ifQ(631)
