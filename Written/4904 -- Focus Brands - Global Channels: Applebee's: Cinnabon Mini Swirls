@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 848	
+// SID: 4904	
+// Last Updated: 1/19/2023
+//*******************************	
+
+
+
+
+//*******************************
+// CINNABON MINI SWIRLS - Begin
+//*******************************
+
+// If QID 101 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(101)
+.answered(2)
+.disappear(Q(111), Q(121), Q(131), Q(141), Q(151), Q(161), Q(171))
+.clearAnswer(Q(111), Q(121), Q(131), Q(141), Q(151), Q(161), Q(171));
+
+//*******************************
+// CINNABON MINI SWIRLS - End
+//*******************************
+
+
+
+
+//*******************************
+// APPLEBEE'S EXPERIENCE - Begin
+//*******************************
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(2)
+.disappear(Q(211), Q(221))
+.clearAnswer(Q(211), Q(221));
+
+//*******************************
+// APPLEBEE'S EXPERIENCE - End
+//*******************************
