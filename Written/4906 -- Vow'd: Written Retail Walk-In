@@ -1,0 +1,48 @@
+//*******************************	
+// CID: 746	
+// SID: 4906	
+// Last Updated: 1/20/2023	
+//*******************************	
+
+
+
+
+// If QID 81 is answered Option 2, then disappear QIDs clear answer to QID 101.
+ifQ(81)
+.answered(2)
+.disappear(Q(91))  // red remark
+.disappear(Q(101))
+.clearAnswer(Q(101));
+
+
+
+//**************************************
+// SERVICE IN APPT AND FITTING ROOM - Begin
+//**************************************
+
+// If QID 411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(2)
+.disappear(Q(421), Q(391), Q(401), Q(431), Q(441))
+.clearAnswer(Q(421), Q(391), Q(401), Q(431), Q(441));
+
+//**************************************
+// SERVICE IN APPT AND FITTING ROOM - End
+//**************************************
+
+
+
+
+//**************************************
+// CHECKOUT/WRAP UP - Begin
+//**************************************
+
+// If QID 411 is answered Option 2, then disappear and clear answer to QID 471.
+ifQ(411)
+.answered(2)
+.disappear(Q(471))
+.clearAnswer(Q(471)); 
+
+//**************************************
+// CHECKOUT/WRAP UP - End
+//**************************************
