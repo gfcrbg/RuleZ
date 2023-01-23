@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 815
 // SID: 4793	
-// Last Updated: 12/13/2022	
+// Last Updated: 1/23/2023	
 //*******************************	
 
 
@@ -114,14 +114,23 @@ ifQ(441)
 // RESTROOMS - Begin
 //*******************************
 
-// Shop date trigger [AFTER December 2, 2022]  If QID 511 is not answered, then disappear and clear answer to QIDs.
-ifQ()
-.dateAfter('2022-12-01')
-.andifQ(511)
-.notAnswered()
-.disappear(Q(971), Q(571))  // red remark(s)
-.disappear(Q(521), Q(531), Q(961), Q(551))
-.clearAnswer(Q(521), Q(531), Q(961), Q(551));
+// If QID 511 is answered Option 5, then set value to Option 2 to QIDs.
+ifQ(511)
+.answered(5)
+.setValue(Q(521), 2)
+.setValue(Q(531), 2)
+.setValue(Q(961), 2)
+.setValue(Q(541), 2)
+.setValue(Q(551), 2)
+
+// If QID 511 is answered Option 6, then set value to Option 3 to QIDs.
+ifQ(511)
+.answered(6)
+.setValue(Q(521), 3)
+.setValue(Q(531), 3)
+.setValue(Q(961), 3)
+.setValue(Q(541), 3)
+.setValue(Q(551), 3)
 
 //*******************************
 // RESTROOMS - End
