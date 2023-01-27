@@ -1,0 +1,2520 @@
+
+<html>
+<head>
+<title>Question List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="../helpers/main.css">
+<link rel="stylesheet" href="../helpers/form10.css">
+<link rel="stylesheet" href="../../sassiehelpers/common/css/FormAdmin.css">
+<link rel='stylesheet' type='text/css' href='/sassiehelpers/lib/jquery/jquery-ui/jquery-ui.css' />
+<link rel='stylesheet' type='text/css' href='/sassiehelpers/lib/jquery/jquery-ui/jquery-ui.structure.css' />
+<link rel='stylesheet' type='text/css' href='/sassiehelpers/lib/jquery/jquery-ui/jquery-ui.theme.css' />
+
+			<script type='text/javascript' language='javascript' src='/sassiehelpers/lib/jquery/jquery.js'></script>
+			<script type='text/javascript' language='javascript' src='/sassiehelpers/lib/jquery/jquery-ui/jquery-ui.js'></script>
+
+			<script type='text/javascript' language='javascript'>
+				document.domain='sassieshop.com';
+				function addQuestion(SurveyID)
+				{
+					var QFmt = window.document.AddQuestion.QFmt.options[window.document.AddQuestion.QFmt.selectedIndex].value;
+					var QID = window.document.AddQuestion.QOrder.options[window.document.AddQuestion.QOrder.selectedIndex].value;
+
+					if(QFmt != 0)
+					{
+						var newWindow = window.open('QuestionAdmin.php?QFmt='+QFmt+'&QID='+QID+'&SurveyID='+SurveyID+'&mode=add','MiniWindow','width=730,height=650,menubar=0,scrollbars=yes,resizable=yes');
+						newWindow.focus();
+					}
+					else
+						alert ("You must choose a question format");
+				}
+
+				function editQuestion(QID,SurveyID)
+				{
+					var newWindow = window.open('QuestionAdmin.php?SurveyID='+SurveyID+'&mode=view&Qno='+QID,'MiniWindow','width=740,height=650,menubar=0,scrollbars=yes,resizable=yes');
+					newWindow.focus();
+				}
+
+				function viewQuestionVisibility(QID,SurveyID)
+				{
+					var newWindow = window.open('QuestionAdmin.php?SurveyID='+SurveyID+'&mode=showhideEdit&Qno='+QID+'&showhideLevel=6','MiniWindow','width=740,height=650,menubar=0,scrollbars=yes,resizable=yes');
+					newWindow.focus();
+				}
+
+				function viewLocationVisibility(SurveyID)
+				{
+					var levelFilter = window.document.locVisible.levelFilter.options[window.document.locVisible.levelFilter.selectedIndex].value;
+					if (levelFilter.split('^')[1] == '6')
+					{
+						alert('Please choose a level');
+						return;
+					}
+
+					var newWindow = window.open('QuestionAdmin.php?SurveyID='+SurveyID+'&mode=showhideLevel&levelFilter='+levelFilter,'MiniWindow','width=740,height=650,menubar=0,scrollbars=yes,resizable=yes');
+					newWindow.focus();
+				}
+
+				function makeGrid(SurveyID)
+				{
+					var gridStart = '';
+					var gridPos = '';
+					var resume = '';
+
+					if(window.document.gridMaker.mode.value == "edit")
+						gridStart = window.document.gridMaker.gridStart.options[window.document.gridMaker.gridStart.selectedIndex].value;
+					else
+					{
+						if(window.document.gridMaker.mode.value == "add")
+							gridPos = window.document.gridMaker.QOrder.options[window.document.gridMaker.QOrder.selectedIndex].value;
+						else
+						{
+							if(window.document.gridMaker.mode.value == "resume")
+							{
+								gridPos = 1;
+								var resume = 1;
+							}
+						}
+					}
+					var gridWindow = window.open('QuestionAdmin.php?SurveyID='+SurveyID+'&mode=makeGrid&startQno='+gridStart+'&startPos='+gridPos+'&resume='+resume,'MiniWindow','width=600,height=500,menubar=0,scrollbars=yes,resizable=yes');
+					gridWindow.focus();
+				}
+
+				function makeNewGrid(SurveyID)
+				{
+					var gridStart = '';
+					var gridPos = '';
+					var resume = '';
+
+					if(window.document.gridMaker.mode.value == "edit")
+						gridStart = window.document.gridMaker.gridStart.options[window.document.gridMaker.gridStart.selectedIndex].value;
+					else
+					{
+						if(window.document.gridMaker.mode.value == "add")
+							gridPos = window.document.gridMaker.QOrder.options[window.document.gridMaker.QOrder.selectedIndex].value;
+						else
+						{
+							if(window.document.gridMaker.mode.value == "resume")
+							{
+								gridPos = 1;
+								var resume = 1;
+							}
+						}
+					}
+
+					var gridWindow = window.open('QuestionAdmin.php?newGrid=1&SurveyID='+SurveyID+'&mode=makeGrid&startQno='+gridStart+'&startPos='+gridPos+'&resume='+resume,'MiniWindow','width=900,height=700,left=85,top=10,menubar=0,scrollbars=yes,resizable=yes');
+					gridWindow.focus();
+				}
+
+				function previewQuestion(QID, SurveyID)
+				{
+					var newWindow = window.open('QuestionPreview.php?Qno='+QID+'&SurveyID='+SurveyID,'MiniWindow','width=700,height=650,menubar=0,scrollbars=yes,resizable=yes');
+					newWindow.focus();
+				}
+
+				function verifyDelete(QID, isActive)
+				{
+					var del = 0;
+
+					if(!isActive)
+					{
+						del = confirm ("Are you sure you want to delete question ID "+QID+"?");
+					}
+					else
+					{
+						del = confirm ("WARNING: This form has active shops.\nDeleting will cause all data for this question to be permanently lost.\nAre you sure you want to delete question ID "+QID+"?");
+					}
+					return (del);
+				}
+
+				function verifyNormativeDelete(QID, isActive)
+				{
+					return confirm ("WARNING: Deleting this question will permanently delete it and its responses from all surveys.\nAre you sure you want to delete question ID "+QID+"?");
+				}
+
+				// Code copied from SurveyAdmin
+				var request = {
+					table:false,
+
+					/***
+					create/init the wonderfully magical iframe
+					//*/
+					startFrame:function(surveyID, customizationID)
+					{
+						srcpage = 'https://www.sassieshop.com/2mysteryshopinc/admin/getSurveysByCustomizationID.php?customizationID='+customizationID+'&surveyID='+surveyID+'&domain=sassieshop.com';
+
+						// set up a new frame if we don't have one.
+						if(request.table == false)
+						{
+							var iframe;
+							iframe = document.createElement('IFRAME');
+
+							with(iframe)
+							{
+								width = '45%';
+								height = '300px';
+								src = 'about:blank';
+								frameborder='no';
+								border='0';
+							}
+
+							document.body.appendChild(iframe);
+
+							$(iframe).css(
+							{
+								position:'absolute',
+								top:'10px',
+								right:'15px'
+							});
+
+							//get page scroll offset
+							iframe.getPageY=function()
+							{
+								//we dont know what the best function is yet
+								//so when we find out, override this function for next use.
+								if(typeof window.pageYOffset != 'undefined' && !isNaN(parseInt(window.pageYOffset,10)))
+								{
+									this.getPageY = function()
+									{
+										return parseInt(window.pageYOffset,10);
+									}
+								}
+								else if(!isNaN(parseInt(document.body.scrollTop,10)))
+								{
+									this.getPageY = function()
+									{
+										return parseInt(document.body.scrollTop,10);
+									}
+								}
+								else
+								{
+									this.getPageY = function()
+									{
+										return false;
+									}
+								}
+
+								return this.getPageY();
+							}
+
+							iframe.fixed = function()
+							{
+								this.style.top= (this.getPageY()+50)+'px';
+							}
+
+							request.table = iframe;
+							request.startFrame(surveyID, customizationID);
+						}
+						else
+						{
+							//rethreading help IE? <- YES
+							setTimeout("$(request.table).css({display:''})",255);
+							setTimeout("request.table.src = '"+srcpage+"';",250);
+						}
+
+						request.table.interval = setInterval('if(typeof request.table.fixed == \'function\') { request.table.fixed() } else { clearInterval(request.table.interval) }',500);
+					},
+
+					closeFrame:function()
+					{
+						$('iframe').hide();
+					}
+				};
+		
+				$(document).ready(function()
+				{
+					var langPref = (typeof(DATE_PICKER_LANG_PREF) == 'undefined' ? 'en' : DATE_PICKER_LANG_PREF);
+					var dateFormat = (0 ? "d/m/yy" : "m/d/yy");
+
+					var defaults = {
+									changeMonth: true,
+									changeYear: true,
+									dateFormat: dateFormat,
+									// need to update both alt fields, posted input & client side input (used by rulez etc)
+									altFormat: "yy-m-d",
+									showOn: "both",
+									buttonImage: "/sassiehelpers/common/images/icon-calendar_20j.png",
+									buttonImageOnly: true
+							};
+					var opts = $.extend({}, $.datepicker.regional[langPref], defaults);
+
+					$( "#date1" ).datepicker(opts);
+					$( "#date2" ).datepicker(opts);
+
+					dimDates = function() {
+						if (this.value == 'm/d/yyyy' || this.value == 'd/m/yyyy')
+							this.style.color = '#C0C0C0';
+						else
+							this.style.color = '#000000';
+					}
+
+					$('#date1').change(dimDates);
+					$('#date2').change(dimDates);
+					$('#date1').change();
+					$('#date2').change();
+				});
+			</script></head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width=701 border=0 cellpadding=2 cellspacing=0 align = 'center'>
+	<tr valign="middle" align="center" height="52">
+		<td width="100" height="52">
+			<font color="#663333"><span class="s16"><b><i><a href='http://www.realitybasedgroup.com' target="_new"><img src="../custom/MSP/MSPlogo-sm.png"</img></a><br>
+			<img src='https://www.sassieshop.com/2mysteryshopinc/images/bigspacer.gif' width="100" height="1" border="0"></i></b></span></font></td>
+		<td align="center" width="486" height="52">
+			<img src='https://www.sassieshop.com/2mysteryshopinc/custom/MSP/tpl/en/images/adminnavbar.gif' width="376" height="53" border="0" usemap="#adminnavbarb8bed8de"><br>
+			<img src='https://www.sassieshop.com/2mysteryshopinc/images/bigspacer.gif' width="490" height="1" border="0"></td>
+	</tr>
+	<tr height="22">
+		<td height="22" colspan="3">
+			<table width=100% border=0 cellpadding=2 cellspacing=0>
+				<tr bgcolor="#000000" height="17">
+					<td height="17" width="367">&nbsp;
+						<span class='white12bold'>
+						QUESTION LIST: Test Environment
+						<br>
+						<img src='https://www.sassieshop.com/2mysteryshopinc/images/bigspacer.gif' width="367" height="1" border="0"></td>
+					<td align="right" valign="middle" width="264" height="17">
+						<span class="white10bold">user: Greg Steelman<br>
+						</span><img src='https://www.sassieshop.com/2mysteryshopinc/images/bigspacer.gif' width="238" height="1" border="0"></td>
+					<td align="center">
+						<a href='https://www.sassieshop.com/2mysteryshopinc/logout.php' target="_top"><img src="https://www.sassieshop.com/2mysteryshopinc/sassiehelpers/common/tpl/en/images/logout.gif" border="0"></a></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>		
+
+<map name="adminnavbarb8bed8de">
+	<area shape="rect" coords="323,20,357,35" alt="Help" href="#" onClick="var newWindow=window.open('https://www.sassieshop.com/2mysteryshopinc/sassiehelpers/sassiedocs/index.php?pageURL=admin/QuestionList.php&defaultHelpPage=&uvdl=ca1d3153a1cf0ed998d4879fbb50d9ab','sassiedocwindow','width=900,height=550,menubar=yes,resizable=yes,scrollbars=yes,toolbar=no,directories=no,location=no,status=no'); newWindow.focus();" title="Help">
+	<area shape="rect" coords="228,20,302,35" href='https://www.sassieshop.com/2mysteryshopinc/scheduler/SchedulerMaster.php' alt="Scheduler" target="_top">
+	<area shape="rect" coords="154,20,208,35" href='https://www.sassieshop.com/2mysteryshopinc/admin/ShopReview-Main.php' alt="Shop Review" target="_top">
+	<area shape="rect" coords="96,20,132,35" href='https://www.sassieshop.com/2mysteryshopinc/admin/AdminShopLog.php' alt="Admin Shop Log" target="_top">
+	<area shape="rect" coords="29,20,74,35" href='https://www.sassieshop.com/2mysteryshopinc/admin/AdminMaster.php' alt="Main Admin page" target="_top">
+</map>
+<p><div align='center'>
+						<table width='700' border='0' cellspacing='0' cellpadding='4'>
+						  
+						  <tr>
+							<td colspan = '6'><hr></td>
+						  </tr>
+						  <tr>
+							<td align = 'center'><a href = 'ClientAdmin.php?mode=view&ViewClientID=587'><img src='admin_images/returntoformsettings.gif' border = '0'></a></td>
+							<td align = 'center'><a href = 'QuestionImporter.php?SurveyID=3993'><img src='admin_images/questionimport.gif' border = '0'></a></td>
+							<td align = 'center'><a href = 'MassEdit.php?mode=view&SurveyID=3993'><img src='admin_images/masseditor.gif' border = '0'></a></td>
+							<td align = 'center'><a href = 'SurveyAdmin.php?mode=view&SurveyID=3993&ClientID=587'><img src='admin_images/surveysettings.gif' border = '0'></a></td>
+							<td align = 'center'><a href = 'https://www.sassieshop.com/2mysteryshopinc/shoppers/ShopperShopReview.php?JobID=Demo&changeSurveyID=3993&Access=bcee092176'><img src='admin_images/viewform.gif' border = '0'></a></td>
+							<td align = 'center'><a href = '/2mysteryshopinc/admin/QuestionList.php?SurveyID=3993&filterOnDateVersioning=1&date1=&date2='><img src='admin_images/refreshthispage.gif' border = '0'></a></td>
+						  </tr>
+						  <tr>
+							<td colspan = '6'><hr></td>
+						  </tr>
+						</table></div><div align = 'center'><span class = 'blue16bold'>QUESTION LIST - Test Environment: Sandbox (3993)</span><div align = 'center'><form name='AddQuestion' method='post' action='javascript: addQuestion(3993)'><p>
+				 			 <span class='blue14bold'> Add question using this format</span>
+				 				 <select name = 'QFmt'>
+									<option value = '0'></option>
+<option value = '10'>Yes - No</option>
+<option value = '14'>Yes - No - N/A</option>
+<option value = '11'>Checkbox</option>
+<option value = '9'>Multi-Checkbox (Mult Choice)</option>
+<option value = '12'>Radio Button (Mult Choice)</option>
+<option value = '13'>Pull Down Menu (Mult Choice)</option>
+<option value = '15'>Scored Number</option>
+<option value = '20'>Number</option>
+<option value = '21'>Currency</option>
+<option value = '22'>Measurement</option>
+<option value = '23'>Time Length</option>
+<option value = '24'>Time of Day</option>
+<option value = '25'>Date</option>
+<option value = '30'>Link</option>
+<option value = '31'>Text</option>
+<option value = '32'>Narrative</option>
+<option value = '33'>Picture Upload</option>
+<option value = '34'>Audio Upload</option>
+<option value = '39'>Recorded Phonecall</option>
+<option value = '41'>Big Header</option>
+<option value = '42'>Medium Header</option>
+<option value = '43'>Small Header</option>
+<option value = '45'>Red Remarks</option>
+<option value = '46'>Black Remarks</option>
+<option value = '62'>Page Break (Placeholder)</option>
+<option value = '63'>Normative Question (Placeholder)</option>
+</select>
+						  <span class='blue14bold'>at this position </span><select name = 'QOrder'>
+								<option value = '0'>End of Form</option>
+
+								<option value='-1'>Beginning of Form</option><option value = '11'>After #1000: QA Notes:
+
+The purpose </option>
+<option value = '961'>After #1100: 
+
+
+.testy {
+border: 5</option>
+<option value = '691'>After #1200: RuleZ is enabled on this </option>
+<option value = '881'>After #1300: Is RuleZ enabled on this </option>
+<option value = '651'>After #1400: HTML Testing</option>
+<option value = '661'>After #1500: HTML Sandbox</option>
+<option value = '561'>After #1600: JavaScript Testing</option>
+<option value = '751'>After #1700: Go To Narrative
+
+Go To </option>
+<option value = '641'>After #1800: Feature #1 -- Week # Calc</option>
+<option value = '551'>After #1900: 
+
+Date.prototype.getWee</option>
+<option value = '611'>After #2000: Feature #2 -- Scroll Into</option>
+<option value = '721'>After #2100: Test scrollIntoView
+
+NO</option>
+<option value = '621'>After #2200: Feature #3 -- Shop / Repo</option>
+<option value = '631'>After #2300: 
+                       </option>
+<option value = '671'>After #2400: Feature #4 -- Collapsible</option>
+<option value = '681'>After #2500: Collapsible Inline Frames</option>
+<option value = '731'>After #2600: Feature #5 -- Question Ma</option>
+<option value = '741'>After #2700: 
+Question Mark Converter</option>
+<option value = '811'>After #2800: Feature #6 -- Tooltips </option>
+<option value = '821'>After #2900: 
+
+
+.tooltip {
+  posit</option>
+<option value = '831'>After #3000: Feature #7 -- Modal Windo</option>
+<option value = '841'>After #3100: 
+body {font-family: Aria</option>
+<option value = '851'>After #3200: Feature #8 -- Popup  </option>
+<option value = '861'>After #3300: 
+
+
+
+
+/* Popup contai</option>
+<option value = '871'>After #3400: </option>
+<option value = '571'>After #3500: Multicheck</option>
+<option value = '581'>After #3600: (Fast &amp; Friendly) The fue</option>
+<option value = '591'>After #3700: Clear Answer to QID 581</option>
+<option value = '971'>After #3800: Option 1</option>
+<option value = '1021'>After #3900: Option 1 score:</option>
+<option value = '981'>After #4000: Option 2</option>
+<option value = '1031'>After #4100: Option 2 score:</option>
+<option value = '991'>After #4200: Option 3</option>
+<option value = '1041'>After #4300: Option 3 score:</option>
+<option value = '1001'>After #4400: Option 4</option>
+<option value = '1051'>After #4500: Option 4 score:</option>
+<option value = '1011'>After #4600: Option 5</option>
+<option value = '1061'>After #4700: Option 5 score:</option>
+<option value = '1071'>After #4750: Scored Number</option>
+<option value = '1081'>After #4850: Option 1</option>
+<option value = '1091'>After #4875: Option 2</option>
+<option value = '1111'>After #4882: Option 3</option>
+<option value = '1101'>After #4888: Multi-check score:</option>
+<option value = '41'>After #4900: Narrative / Text</option>
+<option value = '421'>After #5000: A) Test Control
+
+Narrat</option>
+<option value = '241'>After #5100: Text Format
+
+To clear a</option>
+<option value = '251'>After #5200: Narrative Format
+
+To cl</option>
+<option value = '261'>After #5300: Checkbox</option>
+<option value = '431'>After #5400: B) Test Control
+
+Checkb</option>
+<option value = '271'>After #5500: Multi-Checkbox (Multi Cho</option>
+<option value = '281'>After #5600: Radio Buttons</option>
+<option value = '441'>After #5700: C) Test Control
+
+Radio </option>
+<option value = '201'>After #5800: Yes - No Format
+
+To cle</option>
+<option value = '121'>After #5900: Radio Button (Multi Choic</option>
+<option value = '71'>After #6000: Yes - No - N/A Format
+
+</option>
+<option value = '491'>After #6100: Clear answers and show lo</option>
+<option value = '501'>After #6200: .clearAnswer applied</option>
+<option value = '511'>After #6300: .makeVoidRequired applied</option>
+<option value = '291'>After #6400: Date</option>
+<option value = '451'>After #6500: D) Test Control
+
+Date S</option>
+<option value = '1'>After #6600: Date Format
+
+Popup cale</option>
+<option value = '301'>After #6700: Date Format
+
+Pull down </option>
+<option value = '521'>After #6800: (Testing Theory) RuleZ &quot;V</option>
+<option value = '531'>After #6900: Text Format</option>
+<option value = '541'>After #7000: Question Visibility</option>
+<option value = '311'>After #7100: Timestamps</option>
+<option value = '461'>After #7200: E) Test Control
+
+Timest</option>
+<option value = '21'>After #7300: Time of Day Format
+
+am </option>
+<option value = '391'>After #7400: Time of Day Format
+
+am </option>
+<option value = '401'>After #7500: Time of Day Format
+
+24 </option>
+<option value = '411'>After #7600: Time of Day Format
+
+24 </option>
+<option value = '321'>After #7700: Picture Upload</option>
+<option value = '471'>After #7800: F) Test Control
+
+Pictur</option>
+<option value = '331'>After #7900: Picture Upload Format
+
+</option>
+<option value = '341'>After #8000: Various Input Formats</option>
+<option value = '481'>After #8100: G) Test Control
+
+Variou</option>
+<option value = '351'>After #8200: Currency Format
+
+To cle</option>
+<option value = '361'>After #8300: Measurement Format
+
+To </option>
+<option value = '371'>After #8400: Time Length Format
+
+To </option>
+<option value = '381'>After #8500: Number Format
+
+To clear</option>
+<option value = '891'>After #8600: Boolean Check</option>
+<option value = '901'>After #8700: Radio Button (Mult Choice</option>
+<option value = '911'>After #8800: Radio Button (Yes - No):</option>
+<option value = '921'>After #8900: Radio Button (Yes - No - </option>
+<option value = '931'>After #9000: Checkbox:</option>
+<option value = '941'>After #9100: Multi-Checkbox (Mult Choi</option>
+<option value = '761'>After #9200: Autocorrect Test</option>
+<option value = '771'>After #9300: Narrative A</option>
+<option value = '781'>After #9400: Narrative B</option>
+<option value = '791'>After #9500: Narrative C</option>
+<option value = '1121'>After #9510: A</option>
+<option value = '1131'>After #9515: B</option>
+<option value = '1151'>After #9525: D</option>
+<option value = '1161'>After #9563: Date A</option>
+<option value = '1171'>After #9582: Date B</option>
+<option value = '1191'>After #9596: B - A =</option>
+<option value = '1201'>After #9598: test 1</option>
+<option value = '1211'>After #9599: test 2</option>
+<option value = '141'>After #9600: GamePlan</option>
+<option value = '151'>After #9700:                          </option>
+<option value = '161'>After #9800: Please provide an overvie</option>
+<option value = '171'>After #9900: //www.realitybasedgroup.c</option>
+<option value = '181'>After #10000: Please enter the date of </option>
+<option value = '191'>After #10100: Please describe the succe</option>
+</select> <input type='submit' name='Submit' value='Add'></div></p></form><p><span class='blue12bold'>Note: online's performance may suffer with forms in the range of 6000 questions or more. Please contact our support department for forms that approach or exceed 6000 questions.</span></p><table border = '0' cellspacing = '0' cellpadding = '1' width = '100%'>
+				<tr valign = 'top'>
+					<td align = 'right' width='50%' style='padding-right: 20px;'><form name = 'gridMaker' action = 'javascript: makeNewGrid(3993);' method = 'post'>
+						<input type = 'hidden' name = 'mode'>
+						<span class = 'blue12bold'>Add grid at position <select name = 'QOrder'>
+								<option value = '0'>End of Form</option>
+
+								<option value='-1'>Beginning of Form</option><option value = '11'>After #1000: QA Notes:
+
+The purpose </option>
+<option value = '961'>After #1100: 
+
+
+.testy {
+border: 5</option>
+<option value = '691'>After #1200: RuleZ is enabled on this </option>
+<option value = '881'>After #1300: Is RuleZ enabled on this </option>
+<option value = '651'>After #1400: HTML Testing</option>
+<option value = '661'>After #1500: HTML Sandbox</option>
+<option value = '561'>After #1600: JavaScript Testing</option>
+<option value = '751'>After #1700: Go To Narrative
+
+Go To </option>
+<option value = '641'>After #1800: Feature #1 -- Week # Calc</option>
+<option value = '551'>After #1900: 
+
+Date.prototype.getWee</option>
+<option value = '611'>After #2000: Feature #2 -- Scroll Into</option>
+<option value = '721'>After #2100: Test scrollIntoView
+
+NO</option>
+<option value = '621'>After #2200: Feature #3 -- Shop / Repo</option>
+<option value = '631'>After #2300: 
+                       </option>
+<option value = '671'>After #2400: Feature #4 -- Collapsible</option>
+<option value = '681'>After #2500: Collapsible Inline Frames</option>
+<option value = '731'>After #2600: Feature #5 -- Question Ma</option>
+<option value = '741'>After #2700: 
+Question Mark Converter</option>
+<option value = '811'>After #2800: Feature #6 -- Tooltips </option>
+<option value = '821'>After #2900: 
+
+
+.tooltip {
+  posit</option>
+<option value = '831'>After #3000: Feature #7 -- Modal Windo</option>
+<option value = '841'>After #3100: 
+body {font-family: Aria</option>
+<option value = '851'>After #3200: Feature #8 -- Popup  </option>
+<option value = '861'>After #3300: 
+
+
+
+
+/* Popup contai</option>
+<option value = '871'>After #3400: </option>
+<option value = '571'>After #3500: Multicheck</option>
+<option value = '581'>After #3600: (Fast &amp; Friendly) The fue</option>
+<option value = '591'>After #3700: Clear Answer to QID 581</option>
+<option value = '971'>After #3800: Option 1</option>
+<option value = '1021'>After #3900: Option 1 score:</option>
+<option value = '981'>After #4000: Option 2</option>
+<option value = '1031'>After #4100: Option 2 score:</option>
+<option value = '991'>After #4200: Option 3</option>
+<option value = '1041'>After #4300: Option 3 score:</option>
+<option value = '1001'>After #4400: Option 4</option>
+<option value = '1051'>After #4500: Option 4 score:</option>
+<option value = '1011'>After #4600: Option 5</option>
+<option value = '1061'>After #4700: Option 5 score:</option>
+<option value = '1071'>After #4750: Scored Number</option>
+<option value = '1081'>After #4850: Option 1</option>
+<option value = '1091'>After #4875: Option 2</option>
+<option value = '1111'>After #4882: Option 3</option>
+<option value = '1101'>After #4888: Multi-check score:</option>
+<option value = '41'>After #4900: Narrative / Text</option>
+<option value = '421'>After #5000: A) Test Control
+
+Narrat</option>
+<option value = '241'>After #5100: Text Format
+
+To clear a</option>
+<option value = '251'>After #5200: Narrative Format
+
+To cl</option>
+<option value = '261'>After #5300: Checkbox</option>
+<option value = '431'>After #5400: B) Test Control
+
+Checkb</option>
+<option value = '271'>After #5500: Multi-Checkbox (Multi Cho</option>
+<option value = '281'>After #5600: Radio Buttons</option>
+<option value = '441'>After #5700: C) Test Control
+
+Radio </option>
+<option value = '201'>After #5800: Yes - No Format
+
+To cle</option>
+<option value = '121'>After #5900: Radio Button (Multi Choic</option>
+<option value = '71'>After #6000: Yes - No - N/A Format
+
+</option>
+<option value = '491'>After #6100: Clear answers and show lo</option>
+<option value = '501'>After #6200: .clearAnswer applied</option>
+<option value = '511'>After #6300: .makeVoidRequired applied</option>
+<option value = '291'>After #6400: Date</option>
+<option value = '451'>After #6500: D) Test Control
+
+Date S</option>
+<option value = '1'>After #6600: Date Format
+
+Popup cale</option>
+<option value = '301'>After #6700: Date Format
+
+Pull down </option>
+<option value = '521'>After #6800: (Testing Theory) RuleZ &quot;V</option>
+<option value = '531'>After #6900: Text Format</option>
+<option value = '541'>After #7000: Question Visibility</option>
+<option value = '311'>After #7100: Timestamps</option>
+<option value = '461'>After #7200: E) Test Control
+
+Timest</option>
+<option value = '21'>After #7300: Time of Day Format
+
+am </option>
+<option value = '391'>After #7400: Time of Day Format
+
+am </option>
+<option value = '401'>After #7500: Time of Day Format
+
+24 </option>
+<option value = '411'>After #7600: Time of Day Format
+
+24 </option>
+<option value = '321'>After #7700: Picture Upload</option>
+<option value = '471'>After #7800: F) Test Control
+
+Pictur</option>
+<option value = '331'>After #7900: Picture Upload Format
+
+</option>
+<option value = '341'>After #8000: Various Input Formats</option>
+<option value = '481'>After #8100: G) Test Control
+
+Variou</option>
+<option value = '351'>After #8200: Currency Format
+
+To cle</option>
+<option value = '361'>After #8300: Measurement Format
+
+To </option>
+<option value = '371'>After #8400: Time Length Format
+
+To </option>
+<option value = '381'>After #8500: Number Format
+
+To clear</option>
+<option value = '891'>After #8600: Boolean Check</option>
+<option value = '901'>After #8700: Radio Button (Mult Choice</option>
+<option value = '911'>After #8800: Radio Button (Yes - No):</option>
+<option value = '921'>After #8900: Radio Button (Yes - No - </option>
+<option value = '931'>After #9000: Checkbox:</option>
+<option value = '941'>After #9100: Multi-Checkbox (Mult Choi</option>
+<option value = '761'>After #9200: Autocorrect Test</option>
+<option value = '771'>After #9300: Narrative A</option>
+<option value = '781'>After #9400: Narrative B</option>
+<option value = '791'>After #9500: Narrative C</option>
+<option value = '1121'>After #9510: A</option>
+<option value = '1131'>After #9515: B</option>
+<option value = '1151'>After #9525: D</option>
+<option value = '1161'>After #9563: Date A</option>
+<option value = '1171'>After #9582: Date B</option>
+<option value = '1191'>After #9596: B - A =</option>
+<option value = '1201'>After #9598: test 1</option>
+<option value = '1211'>After #9599: test 2</option>
+<option value = '141'>After #9600: GamePlan</option>
+<option value = '151'>After #9700:                          </option>
+<option value = '161'>After #9800: Please provide an overvie</option>
+<option value = '171'>After #9900: //www.realitybasedgroup.c</option>
+<option value = '181'>After #10000: Please enter the date of </option>
+<option value = '191'>After #10100: Please describe the succe</option>
+</select> </span><input type = 'submit' name = 'submit' onclick = 'window.document.gridMaker.action = "javascript: makeNewGrid(3993)"; window.document.gridMaker.mode.value = "add"' value = 'Go'><p></p></td></form><td align = 'left' style='padding-left: 20px;'><form name = 'locVisible' action = 'javascript: viewLocationVisibility(3993);' method = 'post'>
+								<span class = 'blue12bold'>Edit question visibility for</span>
+								 <select name = 'levelFilter'>
+<option value = '587^6'>-- Location --</option>
+<option value = '325573^1' >Ladson Grill-Ladson Grill</option>
+<option value = '325576^1' >LTC and Ladson Grill-LTC and Ladson Grill</option>
+<option value = '325572^1' >LTC-LTC</option>
+<option value = '325574^1' >Parlor Pizza-Parlor Pizza</option>
+<option value = '325575^1' >Roost-Roost</option>
+<option value = '274957^1' >Test-Test</option>
+<option value = '323310^1' >3321-Canada</option>
+<option value = '313480^1' >11496-2709</option>
+<option value = '323311^1' >22234-Just Canada</option>
+<option value = '319730^1' >424242-testy</option>
+<option value = '326676^1' >443322-No Self-Serve</option>
+<option value = '326674^1' >505050-United States</option>
+<option value = ''>-- Group -- </option>
+<option value = '0^0' >Confirmed No Gas &lpar;test&rpar;</option>
+</select>
+
+								<input type = 'submit' name = 'submit' value = 'Go'></td></form></tr></table>
+						<table border = '1' cellspacing = '0' cellpadding = '2' align = 'center' width = '100%'>
+							<tr bgcolor = '#000000' align = 'center'>
+								<td><span class = 'white10bold'>ID #</span></td>
+								<td><span class = 'white10bold'>Order #</span></td>
+								<td><span class = 'white10bold'>Admin</span></td>
+								<td><span class = 'white10bold'>Text</span></td>
+								<td><span class = 'white10bold'>Format</span></td>
+								<td><span class = 'white10bold'>Answer Requirements</span></td>
+								<td><span class = 'white10bold'>Answers (Scores)</span></td>
+								<td><span class = 'white10bold'>Sections</span></td>
+									<td><span class = 'white10bold'>Hidden From</span></td>
+								<td><span class = 'white10bold'>Misc</span></td>
+							</tr><tr bgcolor = 'white'>
+									<td align = 'center'>11</td>
+									<td>1000</td>
+									<form name = 'Form11' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=11&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(11,3993)'>Edit</a><br><a href='javascript: previewQuestion(11, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('11', '1')) window.document.forms.Form11.submit();">Delete</a></td></form>
+									<td bgcolor = 'Teal'><span class ='s14'><font color = 'White'><b> QA Notes:<br>
+<ul>
+The purpose of this Sandbox is to test various scorecard functions, HTML, RuleZ, and JS.
+
+
+ </b></font></span>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>961</td>
+									<td>1100</td>
+									<form name = 'Form961' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=961&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(961,3993)'>Edit</a><br><a href='javascript: previewQuestion(961, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('961', '1')) window.document.forms.Form961.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><div class="testy">
+
+<style>
+.testy {
+border: 5px solid orange;
+padding: 10px;
+margin: 0px;
+}
+</style>
+
+
+
+Constant
+
+</div>&nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>691</td>
+									<td>1200</td>
+									<form name = 'Form691' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=691&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(691,3993)'>Edit</a><br><a href='javascript: previewQuestion(691, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('691', '1')) window.document.forms.Form691.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><span class ='s24'><font color = 'White'><b> <p style="text-align:left;">RuleZ is enabled on this scorecard. Any changes made to QIDs on this scorecard has the potential to break RuleZ.</p>   </b></font></span>&nbsp;</td>
+									<td align = 'center'>Big Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>881</td>
+									<td>1300</td>
+									<form name = 'Form881' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=881&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(881,3993)'>Edit</a><br><a href='javascript: previewQuestion(881, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('881', '1')) window.document.forms.Form881.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><span class ='s16'><b> Is RuleZ enabled on this scorecard? </b></span>&nbsp;</td>
+									<td align = 'center'>Yes - No</td>
+									<td>Not required<br></td>
+									<td>Yes(0)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>651</td>
+									<td>1400</td>
+									<form name = 'Form651' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=651&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(651,3993)'>Edit</a><br><a href='javascript: previewQuestion(651, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('651', '1')) window.document.forms.Form651.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> HTML Testing </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>661</td>
+									<td>1500</td>
+									<form name = 'Form661' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=661&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(661,3993)'>Edit</a><br><a href='javascript: previewQuestion(661, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('661', '1')) window.document.forms.Form661.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCCCFF'> <h3><b>HTML Sandbox</b></h3> &nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>561</td>
+									<td>1600</td>
+									<form name = 'Form561' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=561&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(561,3993)'>Edit</a><br><a href='javascript: previewQuestion(561, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('561', '1')) window.document.forms.Form561.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> JavaScript Testing </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>751</td>
+									<td>1700</td>
+									<form name = 'Form751' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=751&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(751,3993)'>Edit</a><br><a href='javascript: previewQuestion(751, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('751', '1')) window.document.forms.Form751.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><span class ='s16'><b> <button type="button" onclick="wootC()">Go To Narrative</button>
+<br><br>
+<button type="button" onclick="wootD()">Go To Autocorrect Test</button>
+
+<script>
+function wootC() {
+  var meh = document.getElementById("bleh");
+  meh.scrollIntoView();
+}
+function wootD() {
+  var meh = document.getElementById("yarr");
+  meh.scrollIntoView();
+}
+</script> </b></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>641</td>
+									<td>1800</td>
+									<form name = 'Form641' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=641&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(641,3993)'>Edit</a><br><a href='javascript: previewQuestion(641, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('641', '1')) window.document.forms.Form641.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #1 -- Week # Calculator </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>551</td>
+									<td>1900</td>
+									<form name = 'Form551' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=551&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(551,3993)'>Edit</a><br><a href='javascript: previewQuestion(551, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('551', '1')) window.document.forms.Form551.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><span class ='s14'><b> <script>
+
+Date.prototype.getWeekNumber = function(){
+  
+var d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+  
+var dayNum = d.getUTCDay() || 7;
+  
+d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+
+};
+function checkWeek() {
+  
+var s = document.getElementById('dString').value;
+  
+var m = moment(s, 'MM-DD-YYYY');
+  
+document.getElementById('momentWeek').value = m.format('W');
+  
+document.getElementById('answerWeek').value = m.toDate().getWeekNumber();      
+
+}    
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+Enter Shop date MM-DD-YYYY:
+<br> 
+<input id="dString" value="" onchange= "checkWeek(this)"><br>
+<hidden Moment:></hidden> 
+<br>
+<hidden input id="momentWeek" readonly>
+Week #: 
+<br>
+<input id="answerWeek" readonly> </b></span>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>Client and Client Master&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>611</td>
+									<td>2000</td>
+									<form name = 'Form611' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=611&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(611,3993)'>Edit</a><br><a href='javascript: previewQuestion(611, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('611', '1')) window.document.forms.Form611.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #2 -- Scroll Into View </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>721</td>
+									<td>2100</td>
+									<form name = 'Form721' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=721&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(721,3993)'>Edit</a><br><a href='javascript: previewQuestion(721, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('721', '1')) window.document.forms.Form721.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><span class ='s14'><b> Test scrollIntoView
+<br>
+NOTE:  set scroll-behavior to auto or smooth
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
+<br>
+<br>
+<button type="button" onclick="wootA()">Narrative / Text</button>
+<br>
+<br>
+<button type="button" onclick="wootB()">Mulitcheck</button>
+<br>
+<br>
+
+<script>
+function wootA() {
+  var meh = document.getElementById("bleh");
+  meh.scrollIntoView();
+}
+function wootB() {
+  var meh = document.getElementById("boo");
+  meh.scrollIntoView();
+}
+</script>
+
+
+
+ </b></span>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>621</td>
+									<td>2200</td>
+									<form name = 'Form621' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=621&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(621,3993)'>Edit</a><br><a href='javascript: previewQuestion(621, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('621', '1')) window.document.forms.Form621.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #3 -- Shop / Report Dates Match </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>631</td>
+									<td>2300</td>
+									<form name = 'Form631' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=631&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(631,3993)'>Edit</a><br><a href='javascript: previewQuestion(631, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('631', '1')) window.document.forms.Form631.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><b> <left>
+                        <h1>Shop / Report Dates</h1>
+                        <h3>Determines if the the shop and report dates are in the same month.</h3>
+                        <left>
+                        <br>
+                        <body>
+                        Enter MONTH of Report Date:
+                        <br>
+                        <input type= "number" id= "report" >
+                        <br><br><br>
+                        Enter MONTH of Shop Date:
+                        <br>
+                        <input type= "number" id= "shop" >
+                        <br><br><br>
+                        <input type= "button" value= "Compare" onclick= "comparison()">
+                        <br><br><br>
+                        Are the months the same?
+                        <br>
+                        <input type= "text" id= "resultB">
+                        </left>
+                    
+                        
+                <script>
+                function comparison() {
+                    var date1 = parseInt(document.getElementById("report").value);
+                    var date2 = parseInt(document.getElementById("shop").value);
+                    var msg;
+                    if (date2 != date1) {
+                        alert("Months do NOT match!");
+                        msg = "No";
+                    } else {
+                        msg = "Yes";
+                    }
+                    document.getElementById("resultB").value = msg;
+
+                }
+                </script> </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>671</td>
+									<td>2400</td>
+									<form name = 'Form671' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=671&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(671,3993)'>Edit</a><br><a href='javascript: previewQuestion(671, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('671', '1')) window.document.forms.Form671.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #4 -- Collapsible Inline Frames </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>681</td>
+									<td>2500</td>
+									<form name = 'Form681' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=681&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(681,3993)'>Edit</a><br><a href='javascript: previewQuestion(681, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('681', '1')) window.document.forms.Form681.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><b> <h2>Collapsible Inline Frames</h2>
+
+
+<style>
+#formA {
+display: none;
+}
+#formB {
+display: none;
+}
+</style>
+
+<button type="button" onclick="showIssueTrackerA();">QA Issue Tracker A</button>
+<br>
+<br>
+<iframe id="formA" src="https://docs.google.com/forms/d/e/1FAIpQLSf6mngBFYbMv1H5bbMmZUHtZMX6gZQjLjGaAcU7i71LNB37mQ/viewform?embedded=true" width="640" height="964" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<br>
+<button type="button" onclick="showIssueTrackerB();">QA Scoring Mailer Form</button>
+<br>
+<br>
+<iframe id="formB" src="https://docs.google.com/forms/d/e/1FAIpQLScuShvq-etj7a_snl8IYcWRxfaFUE30CsG7jJ0OxxIxnHmOsQ/viewform?embedded=true" width="640" height="2200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+
+
+<script type="text/javascript">
+function showIssueTrackerA() {
+var x = document.getElementById('formA');
+if (x.style.display === "none"){
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function showIssueTrackerB() {
+var y = document.getElementById('formB');
+if (y.style.display === "none"){
+    y.style.display = "block";
+  } else {
+    y.style.display = "none";
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+ </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>731</td>
+									<td>2600</td>
+									<form name = 'Form731' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=731&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(731,3993)'>Edit</a><br><a href='javascript: previewQuestion(731, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('731', '1')) window.document.forms.Form731.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #5 -- Question Mark Converter </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>741</td>
+									<td>2700</td>
+									<form name = 'Form741' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=741&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(741,3993)'>Edit</a><br><a href='javascript: previewQuestion(741, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('741', '1')) window.document.forms.Form741.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'> <left>
+<h1>Question Mark Converter</h1>
+<br>                            
+<b>1.</b> PASTE affected text into textbox.
+<br>
+<b>2.</b> CLICK "Convert" button.
+<br>
+<b>3.</b> Converted text appears in textbox. 
+<br><br>
+<b>NOTE:</b> This will turn ALL question marks into quotations.
+<br>
+<left>
+<br>
+Paste text:
+<br>
+<textarea rows= "7" cols= "50" id= "original"></textarea>
+<br><br><br>
+<button type="button" onclick="Pegasus()">Convert</button>
+<br><br>
+</left>
+<br><br>
+<script>
+function Pegasus() {
+var text1 = document.getElementById("original").value;
+var text2 = text1.replace(/\?/g, '"');
+document.getElementById("original").value= text2;
+}
+</script> &nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>811</td>
+									<td>2800</td>
+									<form name = 'Form811' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=811&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(811,3993)'>Edit</a><br><a href='javascript: previewQuestion(811, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('811', '1')) window.document.forms.Form811.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #6 -- Tooltips  </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>821</td>
+									<td>2900</td>
+									<form name = 'Form821' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=821&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(821,3993)'>Edit</a><br><a href='javascript: previewQuestion(821, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('821', '1')) window.document.forms.Form821.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><b> <!DOCTYPE html>
+<html>
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+<body style="text-align:center;">
+
+<h2>Tooltip</h2>
+<p>Move the mouse over the text below:</p>
+
+<div class="tooltip">Hover over me
+  <span class="tooltiptext">tooltip text</span>
+</div>
+
+</body>
+</html> </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>831</td>
+									<td>3000</td>
+									<form name = 'Form831' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=831&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(831,3993)'>Edit</a><br><a href='javascript: previewQuestion(831, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('831', '1')) window.document.forms.Form831.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #7 -- Modal Window  </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>841</td>
+									<td>3100</td>
+									<form name = 'Form841' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=841&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(841,3993)'>Edit</a><br><a href='javascript: previewQuestion(841, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('841', '1')) window.document.forms.Form841.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><b> <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #9FA1A4;
+  margin: auto;
+  padding: 20px;
+  border: 5px solid #16A0DB;
+  width: 40%;
+}
+
+/* The Close Button */
+.close {
+  color: #58595B;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Modal Example</h2>
+
+<!-- Trigger/Open The Modal -->
+<input type= "button" id="myBtn" value= "QA Scoring Mailer Form" onclick= "function()">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">×</span>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScuShvq-etj7a_snl8IYcWRxfaFUE30CsG7jJ0OxxIxnHmOsQ/viewform?embedded=true" width="640" height="2200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script> </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>851</td>
+									<td>3200</td>
+									<form name = 'Form851' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=851&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(851,3993)'>Edit</a><br><a href='javascript: previewQuestion(851, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('851', '1')) window.document.forms.Form851.submit();">Delete</a></td></form>
+									<td bgcolor = 'Gray'><span class ='s14'><font color = 'White'><b> Feature #8 -- Popup   </b></font></span>&nbsp;</td>
+									<td align = 'center'>Small Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>861</td>
+									<td>3300</td>
+									<form name = 'Form861' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=861&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(861,3993)'>Edit</a><br><a href='javascript: previewQuestion(861, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('861', '1')) window.document.forms.Form861.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCFFCC'><b> <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 0s;
+  animation: fadeIn 0s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+</head>
+<body style="text-align:center">
+
+<h2>Popup</h2>
+
+<div class="popup" onclick="myFunction()">Click me to toggle the popup!
+  <span class="popuptext" id="myPopup"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQ1tylwMTmT9jqSWYPPcx68fHWoOUibVSiTAzpWVGOWS6ROz3myVOXY0Uh65VbNZKU6I4tkGsAbK7-R/embed?slide=id.g8664f4a1c0_0_0" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></span>
+</div>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+
+</body>
+</html> </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>871</td>
+									<td>3400</td>
+									<form name = 'Form871' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=871&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(871,3993)'>Edit</a><br><a href='javascript: previewQuestion(871, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('871', '1')) window.document.forms.Form871.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><b> <iframe src="https://player.vimeo.com/video/444350450" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>571</td>
+									<td>3500</td>
+									<form name = 'Form571' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=571&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(571,3993)'>Edit</a><br><a href='javascript: previewQuestion(571, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('571', '1')) window.document.forms.Form571.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> <a id="boo">Multicheck</a> </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>581</td>
+									<td>3600</td>
+									<form name = 'Form581' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=581&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(581,3993)'>Edit</a><br><a href='javascript: previewQuestion(581, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('581', '1')) window.document.forms.Form581.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> (Fast & Friendly) The fuel islands were stocked with the following: <br>(Note: all requirements are required for points to be awarded)
+<br>
+<br>
+<button type="button" onclick="wootA()">Go To Narrative</button>
+
+<script>
+function wootA() {
+  var meh = document.getElementById("bleh");
+  meh.scrollIntoView();
+}
+</script> &nbsp;</td>
+									<td align = 'center'>Multi-Checkbox (Mult Choice)</td>
+									<td>Not required<br>&nbsp;<br>Max score of 3<br></td>
+									<td>Clean water(1)<br>Squeegee(1)<br>Paper Towels(1)<br>All of the above(3)<br>None of the above(0)<br>N/A(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>591</td>
+									<td>3700</td>
+									<form name = 'Form591' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=591&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(591,3993)'>Edit</a><br><a href='javascript: previewQuestion(591, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('591', '1')) window.document.forms.Form591.submit();">Delete</a></td></form>
+									<td bgcolor = '#CCCCCC'> Clear Answer to QID 581 &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Not required<br></td>
+									<td>Yes(0)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>971</td>
+									<td>3800</td>
+									<form name = 'Form971' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=971&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(971,3993)'>Edit</a><br><a href='javascript: previewQuestion(971, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('971', '1')) window.document.forms.Form971.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 1 &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1021</td>
+									<td>3900</td>
+									<form name = 'Form1021' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1021&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1021,3993)'>Edit</a><br><a href='javascript: previewQuestion(1021, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1021', '1')) window.document.forms.Form1021.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 1 score: &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>981</td>
+									<td>4000</td>
+									<form name = 'Form981' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=981&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(981,3993)'>Edit</a><br><a href='javascript: previewQuestion(981, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('981', '1')) window.document.forms.Form981.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 2 &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1031</td>
+									<td>4100</td>
+									<form name = 'Form1031' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1031&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1031,3993)'>Edit</a><br><a href='javascript: previewQuestion(1031, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1031', '1')) window.document.forms.Form1031.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 2 score: &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>991</td>
+									<td>4200</td>
+									<form name = 'Form991' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=991&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(991,3993)'>Edit</a><br><a href='javascript: previewQuestion(991, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('991', '1')) window.document.forms.Form991.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 3 &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1041</td>
+									<td>4300</td>
+									<form name = 'Form1041' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1041&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1041,3993)'>Edit</a><br><a href='javascript: previewQuestion(1041, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1041', '1')) window.document.forms.Form1041.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 3 score: &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1001</td>
+									<td>4400</td>
+									<form name = 'Form1001' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1001&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1001,3993)'>Edit</a><br><a href='javascript: previewQuestion(1001, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1001', '1')) window.document.forms.Form1001.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 4 &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1051</td>
+									<td>4500</td>
+									<form name = 'Form1051' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1051&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1051,3993)'>Edit</a><br><a href='javascript: previewQuestion(1051, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1051', '1')) window.document.forms.Form1051.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 4 score: &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1011</td>
+									<td>4600</td>
+									<form name = 'Form1011' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1011&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1011,3993)'>Edit</a><br><a href='javascript: previewQuestion(1011, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1011', '1')) window.document.forms.Form1011.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 5 &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1061</td>
+									<td>4700</td>
+									<form name = 'Form1061' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1061&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1061,3993)'>Edit</a><br><a href='javascript: previewQuestion(1061, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1061', '1')) window.document.forms.Form1061.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 5 score: &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1071</td>
+									<td>4750</td>
+									<form name = 'Form1071' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1071&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1071,3993)'>Edit</a><br><a href='javascript: previewQuestion(1071, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1071', '1')) window.document.forms.Form1071.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Scored Number &nbsp;</td>
+									<td align = 'center'>Scored Number</td>
+									<td>Not required<br>&nbsp;<br>Must be between 0 and 5<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1081</td>
+									<td>4850</td>
+									<form name = 'Form1081' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1081&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1081,3993)'>Edit</a><br><a href='javascript: previewQuestion(1081, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1081', '1')) window.document.forms.Form1081.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 1 &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1091</td>
+									<td>4875</td>
+									<form name = 'Form1091' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1091&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1091,3993)'>Edit</a><br><a href='javascript: previewQuestion(1091, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1091', '1')) window.document.forms.Form1091.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 2 &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1111</td>
+									<td>4882</td>
+									<form name = 'Form1111' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1111&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1111,3993)'>Edit</a><br><a href='javascript: previewQuestion(1111, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1111', '1')) window.document.forms.Form1111.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Option 3 &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1101</td>
+									<td>4888</td>
+									<form name = 'Form1101' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1101&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1101,3993)'>Edit</a><br><a href='javascript: previewQuestion(1101, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1101', '1')) window.document.forms.Form1101.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Multi-check score: &nbsp;</td>
+									<td align = 'center'>Scored Number</td>
+									<td>Not required<br>&nbsp;<br>Must be between 0 and 5<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>41</td>
+									<td>4900</td>
+									<form name = 'Form41' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=41&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(41,3993)'>Edit</a><br><a href='javascript: previewQuestion(41, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('41', '1')) window.document.forms.Form41.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> <a id="bleh">Narrative / Text</a> </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>421</td>
+									<td>5000</td>
+									<form name = 'Form421' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=421&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(421,3993)'>Edit</a><br><a href='javascript: previewQuestion(421, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('421', '1')) window.document.forms.Form421.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>A) Test Control</b>
+<br>
+Narrative / Text Section
+ &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Populate Section(0)<br>Gray Out Section(0)<br>Clear Section (0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>241</td>
+									<td>5100</td>
+									<form name = 'Form241' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=241&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(241,3993)'>Edit</a><br><a href='javascript: previewQuestion(241, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('241', '1')) window.document.forms.Form241.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Text Format</b>
+<br>
+To clear answer: Delete text.
+ &nbsp;</td>
+									<td align = 'center'>Text</td>
+									<td>Required when QID 421 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>251</td>
+									<td>5200</td>
+									<form name = 'Form251' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=251&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(251,3993)'>Edit</a><br><a href='javascript: previewQuestion(251, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('251', '1')) window.document.forms.Form251.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Narrative Format</b>
+<br>
+To clear answer: Delete text.
+ &nbsp;</td>
+									<td align = 'center'>Narrative</td>
+									<td>Required when QID 421 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>261</td>
+									<td>5300</td>
+									<form name = 'Form261' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=261&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(261,3993)'>Edit</a><br><a href='javascript: previewQuestion(261, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('261', '1')) window.document.forms.Form261.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> Checkbox </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>431</td>
+									<td>5400</td>
+									<form name = 'Form431' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=431&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(431,3993)'>Edit</a><br><a href='javascript: previewQuestion(431, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('431', '1')) window.document.forms.Form431.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>B) Test Control</b>
+<br>
+Checkbox Section &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Populate Section(0)<br>Gray Out Section(0)<br>Clear Section(0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>271</td>
+									<td>5500</td>
+									<form name = 'Form271' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=271&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(271,3993)'>Edit</a><br><a href='javascript: previewQuestion(271, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('271', '1')) window.document.forms.Form271.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Multi-Checkbox (Multi Choice) Format</b>
+<br>
+To clear answers: Uncheck boxes. &nbsp;</td>
+									<td align = 'center'>Multi-Checkbox (Mult Choice)</td>
+									<td>Required when QID 431 answered 'Appear Section'&nbsp;<br>Max score of 2<br></td>
+									<td>Yes(1)<br>No(0)<br>Other(1)<br>N/A(0)<br></td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>281</td>
+									<td>5600</td>
+									<form name = 'Form281' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=281&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(281,3993)'>Edit</a><br><a href='javascript: previewQuestion(281, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('281', '1')) window.document.forms.Form281.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> Radio Buttons </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>441</td>
+									<td>5700</td>
+									<form name = 'Form441' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=441&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(441,3993)'>Edit</a><br><a href='javascript: previewQuestion(441, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('441', '1')) window.document.forms.Form441.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>C) Test Control</b>
+<br>
+Radio Buttons Section &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Populate Section(0)<br>Gray Out Section(0)<br>Clear Section(0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>201</td>
+									<td>5800</td>
+									<form name = 'Form201' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=201&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(201,3993)'>Edit</a><br><a href='javascript: previewQuestion(201, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('201', '1')) window.document.forms.Form201.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Yes - No Format</b>
+<br>
+To clear answer: If available, select Clear Answer.  If not available, notify QA Lead.
+<br>
+<br>
+<div class="tooltip">Hover over me
+  <span class="tooltiptext"><iframe src="https://docs.google.com/presentation/d/1YDvwUEJHLs1QOsQWbDwc_azBLt3IVOl-k09kBCtXazo/embed?#slide=id.p5" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" usp="sharing"></iframe></span>
+</div>
+
+
+
+
+
+
+
+
+ &nbsp;</td>
+									<td align = 'center'>Yes - No</td>
+									<td>Required when QID 441 answered 'Appear Section'</td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>121</td>
+									<td>5900</td>
+									<form name = 'Form121' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=121&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(121,3993)'>Edit</a><br><a href='javascript: previewQuestion(121, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('121', '1')) window.document.forms.Form121.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Radio Button (Multi Choice)</b>
+<br>
+To clear answer: If available, select N/A or Clear Answer.
+<br>
+<br>
+<div class="popup" onclick="myFunction2()">Click me to toggle the popup!
+  <span class="popuptext" id="test"><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQ1tylwMTmT9jqSWYPPcx68fHWoOUibVSiTAzpWVGOWS6ROz3myVOXY0Uh65VbNZKU6I4tkGsAbK7-R/embed?slide=id.g8664f4a1c0_0_0" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></span>
+</div>
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction2() {
+  var popup = document.getElementById("test");
+  popup.classList.toggle("show");
+}
+</script> &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Required when QID 441 answered 'Appear Section'</td>
+									<td>1-3(0)<br>4-5(0)<br>6-7(0)<br>More than 7(0)<br></td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>71</td>
+									<td>6000</td>
+									<form name = 'Form71' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=71&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(71,3993)'>Edit</a><br><a href='javascript: previewQuestion(71, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('71', '1')) window.document.forms.Form71.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Yes - No - N/A Format</b>
+<br>
+To clear answer: Select N/A or Clear Answer. &nbsp;</td>
+									<td align = 'center'>Yes - No - N/A</td>
+									<td>Required when QID 441 answered 'Appear Section'</td>
+									<td>Yes(1)<br>No(0)<br>N/A(0)<br></td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>491</td>
+									<td>6100</td>
+									<form name = 'Form491' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=491&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(491,3993)'>Edit</a><br><a href='javascript: previewQuestion(491, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('491', '1')) window.document.forms.Form491.submit();">Delete</a></td></form>
+									<td bgcolor = 'Teal'><span class ='s14'><font color = 'White'><b> Clear answers and show loss of points. 0/X
+<br>
+(where X >= 1)
+<br>
+Need to make the question independent (non-conditional).  
+<br>
+.clearAnswer
+<br>
+.makeVoidRequired
+<br> </b></font></span>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>501</td>
+									<td>6200</td>
+									<form name = 'Form501' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=501&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(501,3993)'>Edit</a><br><a href='javascript: previewQuestion(501, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('501', '1')) window.document.forms.Form501.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> .clearAnswer applied &nbsp;</td>
+									<td align = 'center'>Yes - No</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>511</td>
+									<td>6300</td>
+									<form name = 'Form511' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=511&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(511,3993)'>Edit</a><br><a href='javascript: previewQuestion(511, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('511', '1')) window.document.forms.Form511.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> .makeVoidRequired applied &nbsp;</td>
+									<td align = 'center'>Yes - No</td>
+									<td>Not required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>291</td>
+									<td>6400</td>
+									<form name = 'Form291' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=291&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(291,3993)'>Edit</a><br><a href='javascript: previewQuestion(291, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('291', '1')) window.document.forms.Form291.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> Date </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>451</td>
+									<td>6500</td>
+									<form name = 'Form451' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=451&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(451,3993)'>Edit</a><br><a href='javascript: previewQuestion(451, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('451', '1')) window.document.forms.Form451.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>D) Test Control</b>
+<br>
+Date Section &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Gray Out Section(0)<br>Clear Section(0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1</td>
+									<td>6600</td>
+									<form name = 'Form1' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1,3993)'>Edit</a><br><a href='javascript: previewQuestion(1, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1', '1')) window.document.forms.Form1.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Date Format</b>
+<br>
+Popup calendar
+<br>
+To clear answer: Click "Clear Answer". &nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Always required<br></td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>Is official shop date question<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>301</td>
+									<td>6700</td>
+									<form name = 'Form301' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=301&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(301,3993)'>Edit</a><br><a href='javascript: previewQuestion(301, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('301', '1')) window.document.forms.Form301.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Date Format</b>
+<br>
+Pull down menus
+<br>
+To clear answer: Set as [Mon][Day][Year] &nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Required when QID 451 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'mm/dd/yyyy' printed after answer on client view<br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>521</td>
+									<td>6800</td>
+									<form name = 'Form521' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=521&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(521,3993)'>Edit</a><br><a href='javascript: previewQuestion(521, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('521', '1')) window.document.forms.Form521.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s14'><font color = 'White'><b> (Testing Theory) RuleZ "Versioning" </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>531</td>
+									<td>6900</td>
+									<form name = 'Form531' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=531&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(531,3993)'>Edit</a><br><a href='javascript: previewQuestion(531, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('531', '1')) window.document.forms.Form531.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Text Format</b> &nbsp;</td>
+									<td align = 'center'>Text</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>541</td>
+									<td>7000</td>
+									<form name = 'Form541' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=541&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(541,3993)'>Edit</a><br><a href='javascript: previewQuestion(541, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('541', '1')) window.document.forms.Form541.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Question Visibility</b> &nbsp;</td>
+									<td align = 'center'>Yes - No - N/A</td>
+									<td>Not required<br></td>
+									<td>Yes(0)<br>No(0)<br>N/A(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>311</td>
+									<td>7100</td>
+									<form name = 'Form311' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=311&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(311,3993)'>Edit</a><br><a href='javascript: previewQuestion(311, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('311', '1')) window.document.forms.Form311.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> Timestamps </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>461</td>
+									<td>7200</td>
+									<form name = 'Form461' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=461&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(461,3993)'>Edit</a><br><a href='javascript: previewQuestion(461, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('461', '1')) window.document.forms.Form461.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>E) Test Control</b>
+<br>
+Timestamps Section &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Gray Out Section(0)<br>Clear Section(0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>21</td>
+									<td>7300</td>
+									<form name = 'Form21' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=21&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(21,3993)'>Edit</a><br><a href='javascript: previewQuestion(21, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('21', '1')) window.document.forms.Form21.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Time of Day Format</b>
+<br>
+am pm
+<br>
+To clear answer: Set as [__]:[00] AM
+ &nbsp;</td>
+									<td align = 'center'>Time of Day</td>
+									<td>Required when QID 461 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>391</td>
+									<td>7400</td>
+									<form name = 'Form391' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=391&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(391,3993)'>Edit</a><br><a href='javascript: previewQuestion(391, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('391', '1')) window.document.forms.Form391.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Time of Day Format</b>
+<br>
+am pm, with seconds
+<br>
+To clear answer: Set as [__]:[00]:[00] AM &nbsp;</td>
+									<td align = 'center'>Time of Day</td>
+									<td>Required when QID 461 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>401</td>
+									<td>7500</td>
+									<form name = 'Form401' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=401&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(401,3993)'>Edit</a><br><a href='javascript: previewQuestion(401, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('401', '1')) window.document.forms.Form401.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Time of Day Format</b>
+<br>
+24 hr
+<br>
+To clear answer: Set as [__]:[00] &nbsp;</td>
+									<td align = 'center'>Time of Day</td>
+									<td>Required when QID 461 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>411</td>
+									<td>7600</td>
+									<form name = 'Form411' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=411&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(411,3993)'>Edit</a><br><a href='javascript: previewQuestion(411, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('411', '1')) window.document.forms.Form411.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Time of Day Format</b>
+<br>
+24 hr, with seconds
+<br>
+To clear answer: Set as [__]:[00]:[00] &nbsp;</td>
+									<td align = 'center'>Time of Day</td>
+									<td>Required when QID 461 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>321</td>
+									<td>7700</td>
+									<form name = 'Form321' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=321&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(321,3993)'>Edit</a><br><a href='javascript: previewQuestion(321, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('321', '1')) window.document.forms.Form321.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> Picture Upload </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>471</td>
+									<td>7800</td>
+									<form name = 'Form471' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=471&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(471,3993)'>Edit</a><br><a href='javascript: previewQuestion(471, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('471', '1')) window.document.forms.Form471.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>F) Test Control</b>
+<br>
+Picture Upload Section &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Gray Out Section(0)<br>Clear Section(0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>331</td>
+									<td>7900</td>
+									<form name = 'Form331' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=331&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(331,3993)'>Edit</a><br><a href='javascript: previewQuestion(331, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('331', '1')) window.document.forms.Form331.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Picture Upload Format</b>
+<br>
+To clear answer: Select "Delete picture". &nbsp;</td>
+									<td align = 'center'>Picture Upload</td>
+									<td>Required when QID 471 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>341</td>
+									<td>8000</td>
+									<form name = 'Form341' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=341&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(341,3993)'>Edit</a><br><a href='javascript: previewQuestion(341, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('341', '1')) window.document.forms.Form341.submit();">Delete</a></td></form>
+									<td bgcolor = '#003366'><span class ='s16'><font color = 'White'><b> Various Input Formats </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>481</td>
+									<td>8100</td>
+									<form name = 'Form481' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=481&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(481,3993)'>Edit</a><br><a href='javascript: previewQuestion(481, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('481', '1')) window.document.forms.Form481.submit();">Delete</a></td></form>
+									<td bgcolor = '#FFFFCC'> <b>G) Test Control</b>
+<br>
+Various "Open Box" Formats Section &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Appear Section(0)<br>Populate Section(0)<br>Gray Out Section(0)<br>Clear Section(0)<br>Force Clear Section(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>All but MSP&nbsp;</td>
+									<td>Not included in overall score<Br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>351</td>
+									<td>8200</td>
+									<form name = 'Form351' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=351&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(351,3993)'>Edit</a><br><a href='javascript: previewQuestion(351, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('351', '1')) window.document.forms.Form351.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Currency Format</b>
+<br>
+To clear answer: Delete text. &nbsp;</td>
+									<td align = 'center'>Currency</td>
+									<td>Required when QID 481 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'$' printed before answer on both form and client view<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>361</td>
+									<td>8300</td>
+									<form name = 'Form361' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=361&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(361,3993)'>Edit</a><br><a href='javascript: previewQuestion(361, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('361', '1')) window.document.forms.Form361.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Measurement Format</b>
+<br>
+To clear answer: Delete text. &nbsp;</td>
+									<td align = 'center'>Measurement</td>
+									<td>Required when QID 481 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>371</td>
+									<td>8400</td>
+									<form name = 'Form371' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=371&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(371,3993)'>Edit</a><br><a href='javascript: previewQuestion(371, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('371', '1')) window.document.forms.Form371.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Time Length Format</b>
+<br>
+To clear answer: Delete text. &nbsp;</td>
+									<td align = 'center'>Time Length</td>
+									<td>Required when QID 481 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'min:sec' printed after answer on client view<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>381</td>
+									<td>8500</td>
+									<form name = 'Form381' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=381&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(381,3993)'>Edit</a><br><a href='javascript: previewQuestion(381, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('381', '1')) window.document.forms.Form381.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> <b>Number Format</b>
+<br>
+To clear answer: Delete text. &nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Required when QID 481 answered 'Appear Section'</td>
+									<td>&nbsp;</td>
+									<td>- Section&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>891</td>
+									<td>8600</td>
+									<form name = 'Form891' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=891&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(891,3993)'>Edit</a><br><a href='javascript: previewQuestion(891, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('891', '1')) window.document.forms.Form891.submit();">Delete</a></td></form>
+									<td bgcolor = '#663366'><span class ='s16'><font color = 'White'><b> Boolean Check </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>901</td>
+									<td>8700</td>
+									<form name = 'Form901' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=901&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(901,3993)'>Edit</a><br><a href='javascript: previewQuestion(901, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('901', '1')) window.document.forms.Form901.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Radio Button (Mult Choice): &nbsp;</td>
+									<td align = 'center'>Radio Button (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Option 1(1)<br>Option 2(2)<br>Option 3(3)<br>Option 4(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>911</td>
+									<td>8800</td>
+									<form name = 'Form911' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=911&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(911,3993)'>Edit</a><br><a href='javascript: previewQuestion(911, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('911', '1')) window.document.forms.Form911.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Radio Button (Yes - No): &nbsp;</td>
+									<td align = 'center'>Yes - No</td>
+									<td>Always required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>921</td>
+									<td>8900</td>
+									<form name = 'Form921' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=921&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(921,3993)'>Edit</a><br><a href='javascript: previewQuestion(921, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('921', '1')) window.document.forms.Form921.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Radio Button (Yes - No - N/A): &nbsp;</td>
+									<td align = 'center'>Yes - No - N/A</td>
+									<td>Always required<br></td>
+									<td>Yes(1)<br>No(0)<br>N/A(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>931</td>
+									<td>9000</td>
+									<form name = 'Form931' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=931&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(931,3993)'>Edit</a><br><a href='javascript: previewQuestion(931, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('931', '1')) window.document.forms.Form931.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Checkbox: &nbsp;</td>
+									<td align = 'center'>Checkbox</td>
+									<td>Always required<br></td>
+									<td>Yes(1)<br>No(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>941</td>
+									<td>9100</td>
+									<form name = 'Form941' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=941&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(941,3993)'>Edit</a><br><a href='javascript: previewQuestion(941, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('941', '1')) window.document.forms.Form941.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Multi-Checkbox (Mult Choice): &nbsp;</td>
+									<td align = 'center'>Multi-Checkbox (Mult Choice)</td>
+									<td>Always required<br></td>
+									<td>Option 1(1)<br>Option 2(2)<br>Option 3(3)<br>Option 4(0)<br></td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>761</td>
+									<td>9200</td>
+									<form name = 'Form761' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=761&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(761,3993)'>Edit</a><br><a href='javascript: previewQuestion(761, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('761', '1')) window.document.forms.Form761.submit();">Delete</a></td></form>
+									<td bgcolor = '#663366'><span class ='s16'><font color = 'White'><b> <a id="yarr">Autocorrect Test</a> </b></font></span>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>771</td>
+									<td>9300</td>
+									<form name = 'Form771' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=771&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(771,3993)'>Edit</a><br><a href='javascript: previewQuestion(771, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('771', '1')) window.document.forms.Form771.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Narrative A &nbsp;</td>
+									<td align = 'center'>Narrative</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>781</td>
+									<td>9400</td>
+									<form name = 'Form781' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=781&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(781,3993)'>Edit</a><br><a href='javascript: previewQuestion(781, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('781', '1')) window.document.forms.Form781.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Narrative B &nbsp;</td>
+									<td align = 'center'>Narrative</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>791</td>
+									<td>9500</td>
+									<form name = 'Form791' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=791&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(791,3993)'>Edit</a><br><a href='javascript: previewQuestion(791, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('791', '1')) window.document.forms.Form791.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'> Narrative C &nbsp;</td>
+									<td align = 'center'>Narrative</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1121</td>
+									<td>9510</td>
+									<form name = 'Form1121' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1121&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1121,3993)'>Edit</a><br><a href='javascript: previewQuestion(1121, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1121', '1')) window.document.forms.Form1121.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>A&nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'mm/dd/yyyy' printed after answer on client view<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1131</td>
+									<td>9515</td>
+									<form name = 'Form1131' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1131&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1131,3993)'>Edit</a><br><a href='javascript: previewQuestion(1131, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1131', '1')) window.document.forms.Form1131.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>B&nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'mm/dd/yyyy' printed after answer on client view<br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1151</td>
+									<td>9525</td>
+									<form name = 'Form1151' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1151&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1151,3993)'>Edit</a><br><a href='javascript: previewQuestion(1151, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1151', '1')) window.document.forms.Form1151.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>D&nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br>&nbsp;<br>Must be between 0 and 100000<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1161</td>
+									<td>9563</td>
+									<form name = 'Form1161' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1161&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1161,3993)'>Edit</a><br><a href='javascript: previewQuestion(1161, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1161', '1')) window.document.forms.Form1161.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>Date A&nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'mm/dd/yyyy' printed after answer on client view<br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1171</td>
+									<td>9582</td>
+									<form name = 'Form1171' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1171&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1171,3993)'>Edit</a><br><a href='javascript: previewQuestion(1171, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1171', '1')) window.document.forms.Form1171.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>Date B&nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'mm/dd/yyyy' printed after answer on client view<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1191</td>
+									<td>9596</td>
+									<form name = 'Form1191' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1191&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1191,3993)'>Edit</a><br><a href='javascript: previewQuestion(1191, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1191', '1')) window.document.forms.Form1191.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>B - A =&nbsp;</td>
+									<td align = 'center'>Number</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>1201</td>
+									<td>9598</td>
+									<form name = 'Form1201' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1201&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1201,3993)'>Edit</a><br><a href='javascript: previewQuestion(1201, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1201', '1')) window.document.forms.Form1201.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>test 1&nbsp;</td>
+									<td align = 'center'>Time Length</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'min:sec' printed after answer on client view<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>1211</td>
+									<td>9599</td>
+									<form name = 'Form1211' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=1211&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(1211,3993)'>Edit</a><br><a href='javascript: previewQuestion(1211, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('1211', '1')) window.document.forms.Form1211.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>test 2&nbsp;</td>
+									<td align = 'center'>Time Length</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td><td align = 'center'>&nbsp;</td>
+									<td>'min:sec' printed after answer on client view<br></td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>141</td>
+									<td>9600</td>
+									<form name = 'Form141' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=141&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(141,3993)'>Edit</a><br><a href='javascript: previewQuestion(141, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('141', '1')) window.document.forms.Form141.submit();">Delete</a></td></form>
+									<td bgcolor = 'Black'><span class ='s16'><font color = 'White'><b> GamePlan </span></font></b>&nbsp;</td>
+									<td align = 'center'>Medium Header</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>- GamePlan&nbsp;</td><td align = 'center'>Shopper&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>151</td>
+									<td>9700</td>
+									<form name = 'Form151' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=151&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(151,3993)'>Edit</a><br><a href='javascript: previewQuestion(151, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('151', '1')) window.document.forms.Form151.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><b> <HTML><BODY><CENTER><TABLE border=0 cellPadding=0 cellSpacing=0 height="50%" valign="top">  <TBODY>  <TR>    <TD valign="top">                      <p>                <img src='//cdn.sassiex.com/71e6f0c6-6997-46f9-b427-a7a12ecfb337'/></p>              </TD></TR></TBODY></TABLE></CENTER>  </BODY></HTML> </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>- GamePlan&nbsp;</td><td align = 'center'>Shopper&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>161</td>
+									<td>9800</td>
+									<form name = 'Form161' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=161&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(161,3993)'>Edit</a><br><a href='javascript: previewQuestion(161, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('161', '1')) window.document.forms.Form161.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><b> Please provide an overview of the shop to the employees attending this session. It is recommended that the shop is printed out or posted two days prior to the shop review session. The employees names should be blacked out if the shop score is low. <br><br>To view the <a href="//www.realitybasedgroup.com/gameplan/coachsguide.pdf">Coach's Guide,</a> click here or paste the link below </b>&nbsp;</td>
+									<td align = 'center'>Black Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>- GamePlan&nbsp;</td><td align = 'center'>Shopper&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>171</td>
+									<td>9900</td>
+									<form name = 'Form171' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=171&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(171,3993)'>Edit</a><br><a href='javascript: previewQuestion(171, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('171', '1')) window.document.forms.Form171.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'><font color = 'Red'><b> //www.realitybasedgroup.com/gameplan/coachsguide.pdf </b></font>&nbsp;</td>
+									<td align = 'center'>Red Remarks</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>- GamePlan&nbsp;</td><td align = 'center'>Shopper&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr><tr bgcolor = 'white'>
+									<td align = 'center'>181</td>
+									<td>10000</td>
+									<form name = 'Form181' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=181&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(181,3993)'>Edit</a><br><a href='javascript: previewQuestion(181, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('181', '1')) window.document.forms.Form181.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>Please enter the date of this Manager Game Plan&nbsp;</td>
+									<td align = 'center'>Date</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>- GamePlan&nbsp;</td><td align = 'center'>Shopper&nbsp;</td>
+									<td>'mm/dd/yyyy' printed after answer on client view<br></td>
+								</tr><tr bgcolor = '#FFFFCC'>
+									<td align = 'center'>191</td>
+									<td>10100</td>
+									<form name = 'Form191' method = 'post' action = '/2mysteryshopinc/admin/QuestionList.php?mode=delete&Qno=191&SurveyID=3993'>
+										<input type = 'hidden' name = 'blah' value = '1'>
+										<td><a href='javascript: editQuestion(191,3993)'>Edit</a><br><a href='javascript: previewQuestion(191, 3993)'>Preview</a><br><a href = "javascript: if(verifyDelete('191', '1')) window.document.forms.Form191.submit();">Delete</a></td></form>
+									<td bgcolor = 'White'>Please describe the successes and future opportunities from this shop:&nbsp;</td>
+									<td align = 'center'>Narrative</td>
+									<td>Not required<br></td>
+									<td>&nbsp;</td>
+									<td>- GamePlan&nbsp;</td><td align = 'center'>Shopper&nbsp;</td>
+									<td>&nbsp;</td>
+								</tr></table></body>
+</html>
