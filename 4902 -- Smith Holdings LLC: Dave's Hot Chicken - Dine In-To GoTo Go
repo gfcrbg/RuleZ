@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 826
+// SID: 4902	
+// Last Updated: 1/30/2023	
+//*******************************	
+
+
+
+
+//*********************************
+// ATMOSPHERE AND APPEARANCE - Begin
+//*********************************
+
+// If QID 391 is answered Option 1, then disappear and clear answer to QID 401.
+ifQ(391)
+.answered(1)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+//*********************************
+// ATMOSPHERE AND APPEARANCE - End
+//*********************************
