@@ -1,0 +1,113 @@
+//*******************************	
+// CID: 826	
+// SID: 4903	
+// Last Updated: 2/1/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// ATMOSPHERE AND APPEARANCE - Begin
+//*******************************
+
+// If QID 692 is not answered Option 4, then disappear and clear answer to QID 702.
+ifQ(692)
+.notAnswered(4)
+.disappear(Q(702))
+.clearAnswer(Q(702));
+
+//*******************************
+// ATMOSPHERE AND APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER EXPERIENCE - Begin
+//*******************************
+
+// If QID [221 AND 211] is answered, then trigger math operation: [221] - [211] = [241]
+ifQ(211)
+.answered()
+.andifQ(221)
+.answered()
+.sub(Q(221), Q(211))
+.store(Q(241));
+
+// If QID 241 is <= 5 seconds, then set value to Option 1 to QID 561.
+ifQ(241)
+.lessThanOrEqual(5)
+.setValue(Q(561), 1);
+
+// If QID 241 is > 5 seconds, then set value to Option 2 to QID 561.
+ifQ(241)
+.greaterThan(5)
+.setValue(Q(561), 2);
+
+//*******************************
+// ORDER EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER PICK-UP - Begin
+//*******************************
+
+// If QID [581 AND 551] is answered, then trigger math operation: [551] - [581] = [251]
+ifQ(581)
+.answered()
+.andifQ(551)
+.answered()
+.sub(Q(551), Q(581))
+.store(Q(251));
+
+// If QID 251 is > 0 AND <= 10 minutes, then set value to Option 1 to QID 732.
+ifQ(251)
+.greaterThan(0)
+.andifQ(251)
+.lessThanOrEqual(600)
+.setValue(Q(732), 1);
+
+// If QID 251 is > 10 minutes AND <= 12 minutes, then set value to Option 2 to QID 732.
+ifQ(251)
+.greaterThan(600)
+.andifQ(251)
+.lessThanOrEqual(720)
+.setValue(Q(732), 2);
+
+// If QID 251 is > 12 minutes AND <= 15 minutes, then set value to Option 3 to QID 732.
+ifQ(251)
+.greaterThan(720)
+.andifQ(251)
+.lessThanOrEqual(900)
+.setValue(Q(732), 3);
+
+// If QID 251 is > 15 minutes, then set value to Option 4 to QID 732.
+ifQ(251)
+.greaterThan(900)
+.setValue(Q(732), 4);
+
+//*******************************
+// ORDER PICK-UP - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER QUALITY - Begin
+//*******************************
+
+// If QID 361 is answered Option 2, then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(2)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//*******************************
+// ORDER QUALITY - End
+//*******************************
