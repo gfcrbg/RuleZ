@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 827	
 // SID: 4846	
-// Last Updated: 8/25/2022	
+// Last Updated: 2/13/2023	
 //*******************************	
 
 
@@ -18,6 +18,16 @@ ifQ(631)
 .answered()
 .sub(Q(641), Q(631))
 .store(Q(651));
+
+// If QID 651 is <= 5 minutes, then set value to Option 1 to QID 141.
+ifQ(651)
+.lessThanOrEqual(300)
+.setValue(Q(141), 1);
+
+// If QID 651 is > 5 minutes, then set value to Option 2 to QID 141.
+ifQ(651)
+.greaterThan(300)
+.setValue(Q(141), 2);
 
 //********************************
 // SALESPERSON INTRODUCTION - End
