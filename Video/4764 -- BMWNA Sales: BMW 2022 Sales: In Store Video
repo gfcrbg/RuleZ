@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 1/16/2023	
+// Last Updated: 2/14/2023	
 //*******************************	
 
 
@@ -109,6 +109,90 @@ ifQ(481)
 .disappear(Q(491))
 .clearAnswer(Q(491));
 
+//-------------------------------
+// Custom Scoring - Begin
+//-------------------------------
+
+// 471 Scoring
+
+// If QID 471 answered Option [1, 2, 3, 4, OR 5], then make required and set value to QIDs.
+ifQ(471)
+.answered(1,2,3,4,5)
+.makeRequired(Q(1281), Q(1291), Q(1301))
+.setValue(Q(1281), "2")
+.setValue(Q(1291), "2")
+.setValue(Q(1301), "1");
+
+// If QID 471 answered Option 6, then make required and set value to QIDs.
+ifQ(471)
+.answered(6)
+.makeRequired(Q(1281), Q(1291), Q(1301))
+.setValue(Q(1281), "0")
+.setValue(Q(1291), "0")
+.setValue(Q(1301), "0");
+
+// If QID 471 not answered, then disappear and clear answer to QIDs.
+ifQ(471)
+.notAnswered()
+.disappear(Q(1281), Q(1291), Q(1301))
+.clearAnswer(Q(1281), Q(1291), Q(1301));
+
+
+// 681 Scoring
+
+// If QID 681 answered Option [1, 2, 3, OR 4], then make required and set value to QIDs.
+ifQ(681)
+.answered(1,2,3,4)
+.makeRequired(Q(1311), Q(1321), Q(1331))
+.setValue(Q(1311), "2")
+.setValue(Q(1321), "2")
+.setValue(Q(1331), "1");
+
+// If QID 681 answered Option 5, then make required and set value to QIDs.
+ifQ(681)
+.answered(5)
+.makeRequired(Q(1311), Q(1321), Q(1331))
+.setValue(Q(1311), "0")
+.setValue(Q(1321), "0")
+.setValue(Q(1331), "0");
+
+// If QID 681 is not answered, then disappear and clear answer to QIDs.
+ifQ(681)
+.notAnswered()
+.disappear(Q(1311), Q(1321), Q(1331))
+.clearAnswer(Q(1311), Q(1321), Q(1331));
+
+
+// 481 Scoring
+
+// If QID 481 answered Option [1, 2, 3, 4, 5, OR 7], then make required and set value to QIDs.
+ifQ(481)
+.answered(1,2,3,4,5,7)
+.makeRequired(Q(1341), Q(1351), Q(1361), Q(1371))
+.setValue(Q(1341), "2")
+.setValue(Q(1351), "1")
+.setValue(Q(1361), "2")
+.setValue(Q(1371), "1");
+
+// If QID 481 answered Option 6, then make required and set value to QIDs.
+ifQ(481)
+.answered(6)
+.makeRequired(Q(1341), Q(1351), Q(1361), Q(1371))
+.setValue(Q(1341), "0")
+.setValue(Q(1351), "0")
+.setValue(Q(1361), "0")
+.setValue(Q(1371), "0");
+
+// If QID 481 is not answered, then disappear and clear answer to QIDs.
+ifQ(481)
+.notAnswered()
+.disappear(Q(1341), Q(1351), Q(1361), Q(1371))
+.clearAnswer(Q(1341), Q(1351), Q(1361), Q(1371));
+
+//-------------------------------
+// Custom Scoring - End
+//-------------------------------
+
 //*******************************************
 // TEST DRIVE - End
 //*******************************************
@@ -130,6 +214,38 @@ ifQ(671)
 ifQ(631)
 .answered([1,2,3])
 .setValue(Q(631), 1,2,3,4);
+
+//-------------------------------
+// Custom Scoring - Begin
+//-------------------------------
+
+// 1101 Scoring
+
+// If QID 1101 answered Option [1, 2, 3, 4, 6, OR 7], then make required and set value to QIDs.
+ifQ(1101)
+.answered(1,2,3,4,6,7)
+.makeRequired(Q(1381), Q(1391), Q(1401))
+.setValue(Q(1381), "2")
+.setValue(Q(1391), "2")
+.setValue(Q(1401), "1");
+
+// If QID 1101 answered Option 5, then make required and set value to QIDs.
+ifQ(1101)
+.answered(5)
+.makeRequired(Q(1381), Q(1391), Q(1401))
+.setValue(Q(1381), "0")
+.setValue(Q(1391), "0")
+.setValue(Q(1401), "0");
+
+// If QID 1101 is not answered, then disappear and clear answer to QIDs.
+ifQ(1101)
+.notAnswered()
+.disappear(Q(1381), Q(1391), Q(1401))
+.clearAnswer(Q(1381), Q(1391), Q(1401));
+
+//-------------------------------
+// Custom Scoring - End
+//-------------------------------
 
 //*******************************************
 // INTEGRATED OFFER - End
