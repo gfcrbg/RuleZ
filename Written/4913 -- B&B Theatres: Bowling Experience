@@ -1,0 +1,45 @@
+//*******************************	
+// CID: 853	
+// SID: 4913	
+// Last Updated: 2/15/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// BOWLING - Begin
+//*******************************
+
+// If QID 311 is answered Option 1, then disappear and clear answer to QID 321.
+ifQ(311)
+.answered(1)
+.disappear(Q(321))
+.clearAnswer(Q(321)); 
+
+//*******************************
+// BOWLING - End
+//*******************************
+
+
+
+
+//*******************************
+// BOWLING FOOD SERVICE - Begin
+//*******************************
+
+// If QID 361 is answered Option 2, then disappear and clear answer to QID 461.
+ifQ(361)
+.answered(2)
+.disappear(Q(461))
+.clearAnswer(Q(461));
+
+// If QID 361 is answered Option 1, then disappear and clear answer to QID 471.
+ifQ(361)
+.answered(1)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+//*******************************
+// BOWLING FOOD SERVICE - End
+//*******************************
