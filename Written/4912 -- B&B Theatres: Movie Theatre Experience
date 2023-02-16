@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 853	
+// SID: 4912	
+// Last Updated: 2/15/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// CONCESSIONS - Begin
+//*******************************
+
+// If QID 371 is answered Option 2, then disappear and clear answer to QID 381.
+ifQ(371)
+.answered(2)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+//*******************************
+// CONCESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// THEATRE MANAGER - Begin
+//*******************************
+
+// If QID 711 is answered Option 2, then disappear and clear answer to QID 721.
+ifQ(711)
+.answered(2)
+.disappear(Q(721))
+.clearAnswer(Q(721));
+
+//*******************************
+// THEATRE MANAGER - End
+//*******************************
