@@ -1,0 +1,36 @@
+//*******************************	
+// CID: 849	
+// SID: 4884	
+// Last Updated: 2/20/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// TELEPHONE EVALUATION - Begin
+//*******************************
+
+// If QID 91 is not answered Option [2, 3, OR 4], then disappear and clear answer to QID 101.
+ifQ(91)
+.notAnswered(2,3,4)
+.disappear(Q(101))
+.clearAnswer(Q(101));
+
+// If QID 91 answered Option 4, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(4)
+.disappear(Q(151), Q(441))  // red remarks
+.disappear(Q(171))  // black remarks
+.disappear(Q(111), Q(121), Q(131), Q(141), Q(161), Q(181), Q(191), Q(461), Q(201), Q(431), Q(211), Q(221), Q(451), Q(241), Q(251), Q(261), Q(271))
+.clearAnswer(Q(111), Q(121), Q(131), Q(141), Q(161), Q(181), Q(191), Q(461), Q(201), Q(431), Q(211), Q(221), Q(451), Q(241), Q(251), Q(261), Q(271));
+
+// If QID 251 is not answered Option 1, then disappear and clear answer to QID 501.
+ifQ(251)
+.notAnswered(1)
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+//*******************************
+// TELEPHONE EVALUATION - End
+//*******************************
