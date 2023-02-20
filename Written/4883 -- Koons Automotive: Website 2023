@@ -1,0 +1,63 @@
+//*******************************	
+// CID: 849	
+// SID: 4883	
+// Last Updated: 2/20/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// EMAIL INQUIRY SPECIFICS - Begin
+//*******************************
+
+// 
+ifQ(81)
+.answered(1)
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+// 
+ifQ(81)
+.answered(2)
+.disappear(Q(91), Q(281))
+.clearAnswer(Q(91), Q(281));
+
+//
+ifQ(91)
+.answered(0,1,2)
+.disappear(Q(101))
+.clearAnswer(Q(101));
+
+//
+ifQ(91)
+.answered(0,2,3)
+.disappear(Q(231))
+.clearAnswer(Q(231));
+
+//
+ifQ(281)
+.answered(0,2)
+.disappear(Q(291), Q(311), Q(321), Q(341), Q(351), Q(651), Q(381), Q(391), Q(401))
+.clearAnswer(Q(291), Q(311), Q(321), Q(341), Q(351), Q(651), Q(381), Q(391), Q(401));
+
+//*******************************
+// EMAIL INQUIRY SPECIFICS - End
+//*******************************
+
+
+
+
+//*******************************
+// WEBSITE EVALUATION - Begin
+//*******************************
+
+// If QID 461 is answered Option 1, then disappear and clear answer to QID 471.
+ifQ(461)
+.answered(1)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+//*******************************
+// WEBSITE EVALUATION - End
+//*******************************
