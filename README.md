@@ -1,5 +1,11 @@
 ### Announcements  
 
+## February 2023
+Using ```.makeNotRequired``` will not affect points.  
+Meaning, a 0/1 =! 0/0.  
+It only makes a QID not require an answer.  
+To circumvent point valuation, a QID must have its condition manually set in form settings.
+
 ## November 2022
 Tested and discovered that a Presto import will trigger RuleZ.
 
