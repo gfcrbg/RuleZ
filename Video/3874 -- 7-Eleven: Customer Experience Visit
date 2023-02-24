@@ -765,7 +765,6 @@ ifQ()
 .dateAfter('2022-12-31')
 .setValue(Q(8541), 3);
 
-// this
 // Shop Date Trigger [January 28, 2022 AND BEFORE March 2023], AND if ULG is "Speedway Banner", then set value to Option 3 to QIDs.
 ifQ()
 .ulgIs("Speedway Banner")
