@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 807	
 // SID: 4911
-// Last Updated: 2/21/2023	
+// Last Updated: 2/24/2023	
 //*******************************
 
 
@@ -17,11 +17,7 @@ ifQ()
 .waveIs("The Big New Yorker")
 .setValue(Q(2731), 1);
 
-ifQ()
-.waveNot("The Big New Yorker")
-.setValue(Q(2731), 2);
-
-// If QID 2751 is not answered Option 1, then make not required, disppear, and clear answer to QIDs.
+// If QID 2751 is not answered Option 1, then make not required, disappear, and clear answer to QIDs.
 ifQ(2751)
 .notAnswered(1)
 .makeNotRequired(Q(1891), Q(1911)) 
@@ -71,14 +67,20 @@ ifQ(991)
 // QUALITY - Begin
 //*******************************
 
+// If QID 2731 is answered Option 2, then disappear and clear answer to QID 2831.
+ifQ(2731)
+.answered(2)
+.disappear(Q(2831))
+.clearAnswer(Q(2831));
+
 // If QID 2751 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
 ifQ(2751)
 .answered(2)
 .makeNotRequired(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)) 
 .disappear(Q(351))  // header
 .disappear(Q(2711))  // red remark
-.disappear(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)) 
-.clearAnswer(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)); 
+.disappear(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2831), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)) 
+.clearAnswer(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2831), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)); 
 
 //*******************************
 // QUALITY - End
