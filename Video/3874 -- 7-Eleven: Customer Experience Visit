@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/10/2023
+// Last Updated: 2/23/2023
 //*******************************
 
 
@@ -765,11 +765,14 @@ ifQ()
 .dateAfter('2022-12-31')
 .setValue(Q(8541), 3);
 
-// Shop Date Trigger [January 28, 2022], AND if ULG is "Speedway Banner", then set value to Option 3 to QIDs.
+// this
+// Shop Date Trigger [January 28, 2022 AND BEFORE March 2023], AND if ULG is "Speedway Banner", then set value to Option 3 to QIDs.
 ifQ()
 .ulgIs("Speedway Banner")
 .andifQ()
 .dateAfter("2022-01-27")
+.andifQ()
+.dateBefore("2023-03-01")
 .setValue(Q(8611), 3)
 .setValue(Q(6781), 3);
 
