@@ -1,0 +1,62 @@
+//*******************************	
+// CID: 784
+// SID: 4718	
+// Last Updated: 3/10/2022	
+//*******************************	
+
+
+
+
+//***********************************
+// I. INITIAL GREET & ENGAGEMENT - Begin
+//***********************************
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 81.
+ifQ(71)
+.answered(1)
+.disappear(Q(81))
+.clearAnswer(Q(81));
+
+//***********************************
+// I. INITIAL GREET & ENGAGEMENT - End
+//***********************************
+
+
+
+
+//***********************************
+// III. CHECK OUT - Begin
+//***********************************
+
+// If QID 311 is answered Option 2, then disappear and clear answer to QID 321.
+ifQ(311)
+.answered(2)
+.disappear(Q(321))
+.clearAnswer(Q(321)); 
+
+//***********************************
+// III. CHECK OUT - End
+//***********************************
+
+
+
+
+//***********************************
+// IV. RESTROOM - Begin
+//***********************************
+
+// If QID 371 is answered Option 4, then disappear and clear answer to QID 381.
+ifQ(371)
+.answered(4)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+// If QID 371 is answered Option 4, then disappear and clear answer to QID 721.
+ifQ(371)
+.answered(4)
+.disappear(Q(721))
+.clearAnswer(Q(721));
+
+//***********************************
+// IV. RESTROOM - End
+//***********************************
