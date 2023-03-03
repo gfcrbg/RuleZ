@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 784
 // SID: 4717	
-// Last Updated: 11/11/2022	
+// Last Updated: 3/3/2023	
 //*******************************	
 
 
@@ -51,6 +51,12 @@ ifQ(381)
 .disappear(Q(391))
 .clearAnswer(Q(391));
 
+// If QID 381 is answered Option 4, then disappear and clear answer to QID 721.
+ifQ(381)
+.answered(4)
+.disappear(Q(721))
+.clearAnswer(Q(721));
+
 //***********************************
 // IV. RESTROOM - End
 //***********************************
@@ -59,7 +65,7 @@ ifQ(381)
 
 
 //***********************************
-// V. PARKING - Begin
+// V. OUTSIDE - Begin
 //***********************************
 
 // If ULG is "No Parking", then set value to Option 3 to QIDs.
@@ -71,5 +77,5 @@ ifQ()
 .setValue(Q(491), 3);
 
 //***********************************
-// V. PARKING - End
+// V. OUTSIDE - End
 //***********************************
