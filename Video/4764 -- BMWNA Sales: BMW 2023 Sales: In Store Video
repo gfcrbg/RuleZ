@@ -214,28 +214,28 @@ ifQ(1301)
 .sum(Q(1301), Q(1311), Q(1331))
 .store(Q(1341)); 
 
-// If QID 581 is answered Option [1 OR 2], and if QID 1341 is > 1, then set value to Option 1 to QID 1351.
+// If QID 581 is answered Option [1 OR 2], and if QID 1341 is > 1, then set value to '1' to QID 1351.
 ifQ(581)
 .answered(1,2)
 .andifQ(1341)
 .greaterThan(1)
 .setValue(Q(1351), '1');
 
-// If QID 581 is answered Option [1 OR 2], and if QID 1341 is < 2, then set value to Option 0 to QID 1351.
+// If QID 581 is answered Option [1 OR 2], and if QID 1341 is < 2, then set value to '0' to QID 1351.
 ifQ(581)
 .answered(1,2)
 .andifQ(1341)
 .lessThan(2)
 .setValue(Q(1351), '0');
 
-// If QID 581 is answered Option 3, and if QID 1341 is > 1, then set value to Option 1 to QID 1351.
+// If QID 581 is answered Option 3, and if QID 1341 is > 1, then set value to '1' to QID 1351.
 ifQ(581)
 .answered(3)
 .andifQ(1341)
 .greaterThan(1)
 .setValue(Q(1351), '1');
 
-// If QID 581 is answered Option 3, and if QID 1341 is < 2, then set value to Option 0 to QID 1351.
+// If QID 581 is answered Option 3, and if QID 1341 is < 2, then set value to '0' to QID 1351.
 ifQ(581)
 .answered(3)
 .andifQ(1341)
@@ -266,4 +266,4 @@ ifQ(651)
 
 //*******************************	
 // APPOINTMENT FOLLOW UP - End
-//*******************************	
+//*******************************
