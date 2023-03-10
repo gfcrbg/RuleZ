@@ -1,0 +1,74 @@
+//*******************************	
+// CID: 855	
+// SID: 4924	
+// Last Updated: 3/10/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// CURBSIDE EXPERIENCE - Begin
+//*******************************
+
+// If QID 661 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(661)
+.answered(2)
+.disappear(Q(761), Q(781), Q(791))
+.clearAnswer(Q(761), Q(781), Q(791));
+
+// If QID 761 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 771.
+ifQ(761)
+.answered(0,1,3)
+.disappear(Q(771))
+.clearAnswer(Q(771));
+
+//*******************************
+// CURBSIDE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// WALK-IN EXPERIENCE - Begin
+//*******************************
+
+// If QID 661 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(661)
+.answered(1)
+.disappear(Q(281), Q(291), Q(301), Q(311), Q(321), Q(331), Q(341), Q(351))
+.clearAnswer(Q(281), Q(291), Q(301), Q(311), Q(321), Q(331), Q(341), Q(351));
+
+//*******************************
+// WALK-IN EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER ACCURACY - Begin
+//*******************************
+
+// If QID 411 is answered Option [1 OR 3], then disappear and clear answer to QID 421.
+ifQ(411)
+.answered(1,3)
+.disappear(Q(421))
+.clearAnswer(Q(421));
+
+// If QID 431 is answered Option 2, then disappear and clear answer to QID 441.
+ifQ(431)
+.answered(2)
+.disappear(Q(441))
+.clearAnswer(Q(441));
+
+// If QID 431 is answered Option 1, then disappear and clear answer to QID 451.
+ifQ(431)
+.answered(1)
+.disappear(Q(451))
+.clearAnswer(Q(451));
+
+//*******************************
+// ORDER ACCURACY - End
+//*******************************
