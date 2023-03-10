@@ -1,0 +1,45 @@
+//*******************************	
+// CID: 855	
+// SID: 4922	
+// Last Updated: 3/10/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE - Begin
+//*******************************
+
+// If QID 241 is answered Option 2, then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(2)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+// If QID 241 is answered Option 1, then disappear and clear answer to QID 261.
+ifQ(241)
+.answered(1)
+.disappear(Q(261))
+.clearAnswer(Q(261));
+
+//*******************************
+// CUSTOMER SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// QUALITY - Begin
+//*******************************
+
+// If QID 411 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(1)
+.disappear(Q(421), Q(431))
+.clearAnswer(Q(421), Q(431));
+
+//*******************************
+// QUALITY  - End
+//*******************************
