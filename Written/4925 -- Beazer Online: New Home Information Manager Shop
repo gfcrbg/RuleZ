@@ -1,0 +1,68 @@
+//*******************************	
+// CID: 856	
+// SID: 4925	
+// Last Updated: 3/21/2023
+//*******************************	
+
+
+
+
+//*****************************************
+// INTRODUCTORY EMAIL/FOLLOW-UP DAY 1 - Begin
+//*****************************************
+
+// If QID 61 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(61)
+.answered(2)
+.disappear(Q(91), Q(71))
+.clearAnswer(Q(91), Q(71));
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(111), Q(121))
+.clearAnswer(Q(111), Q(121));
+
+// If QID 201 is not answered Option [1 OR 2], then disappear and clear answer to QID 181.
+ifQ(201)
+.notAnswered(1,2)
+.disappear(Q(181))
+.clearAnswer(Q(181));
+
+//*****************************************
+// INTRODUCTORY EMAIL/FOLLOW-UP DAY 1 - End
+//*****************************************
+
+
+
+
+//*****************************************
+// FOLLOW-UP DAY 3 - Begin
+//*****************************************
+
+// If QID 241 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(241)
+.answered(2)
+.disappear(Q(261), Q(271))
+.clearAnswer(Q(261), Q(271));
+
+//*****************************************
+// FOLLOW-UP DAY 3 - End
+//*****************************************
+
+
+
+
+//*****************************************
+// FOLLOW-UP DAY 7 - Begin
+//*****************************************
+
+// If QID 341 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(341)
+.answered(2)
+.disappear(Q(351), Q(361))
+.clearAnswer(Q(351), Q(361)); 
+
+//*****************************************
+// FOLLOW-UP DAY 7 - End
+//*****************************************
