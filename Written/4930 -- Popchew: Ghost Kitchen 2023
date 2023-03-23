@@ -1,0 +1,65 @@
+//*******************************	
+// CID: 857 	
+// SID: 4930	
+// Last Updated: 3/23/2023	
+//*******************************	
+
+
+
+
+//**********************************
+// DELIVERY - Begin
+//**********************************
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(1)
+.disappear(Q(201))  // big header
+.disappear(Q(221), Q(231), Q(291))
+.clearAnswer(Q(221), Q(231), Q(291));
+
+//**********************************
+// DELIVERY - End
+//**********************************
+
+
+
+
+//**********************************
+// PICK UP - Begin
+//**********************************
+
+// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(2)
+.disappear(Q(301))  // big header
+.disappear(Q(211))  // medium header
+.disappear(Q(311), Q(321), Q(331), Q(391))
+.clearAnswer(Q(311), Q(321), Q(331), Q(391));
+
+//**********************************
+// PICK UP - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER ACCURACY AND QUALITY - Begin
+//**********************************
+
+// If QID 411 is answered Option 1, then disappear and clear answer to QID 421.
+ifQ(411)
+.answered(1)
+.disappear(Q(421))
+.clearAnswer(Q(421));
+
+// If QID 461 is answered Option 2, then disappear and clear answer to QID 471.
+ifQ(461)
+.answered(2)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+//**********************************
+// ORDER ACCURACY AND QUALITY - End
+//**********************************
