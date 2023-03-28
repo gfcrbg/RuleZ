@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 8/17/2022	
+// Last Updated: 3/27/2023	
 //*******************************	
 
 
@@ -207,7 +207,7 @@ ifQ(161)
 
 // Q161 not visible
 ifQ()
-.locIDIs('269')
+.locIDIs('269','104')
 .setValue(Q(1081), ' ')
 .sub(Q(1441), 2)
 .store(Q(1441));
@@ -235,7 +235,7 @@ ifQ(1651)
 
 // Q1651 not visible
 ifQ()
-.locIDNot('269')
+.locIDNot('269','104')
 .setValue(Q(1681), ' ')
 .sub(Q(1441), 2)
 .store(Q(1441));
@@ -260,7 +260,7 @@ ifQ(171)
 
 // Q171 not visible
 ifQ()
-.locIDIs('001','269')
+.locIDIs('001','269','104')
 .setValue(Q(1091), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -367,7 +367,7 @@ ifQ(211)
 
 // Q211 not visible
 ifQ()
-.locIDIs('269')
+.locIDIs('269','104')
 .setValue(Q(1151), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -460,7 +460,7 @@ ifQ(251)
 
 // Q251 not visible
 ifQ()
-.locIDIs('001', '269')
+.locIDIs('001','269','104')
 .setValue(Q(1191), '')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -571,7 +571,7 @@ ifQ(331)
 
 // Q331 not visible
 ifQ()
-.locIDIs('269')
+.locIDIs('001','269','104')
 .setValue(Q(1231), ' ')
 .sub(Q(1461), 1)
 .store(Q(1461));
@@ -683,7 +683,7 @@ ifQ(981)
 ifQ(981)
 .notAnswered()
 .orifQ()
-.locIDIs('269')
+.locIDIs('269','104')
 .setValue(Q(1281), ' ')
 .sub(Q(1491), 2)
 .store(Q(1491));
@@ -703,7 +703,7 @@ ifQ(1661)
 ifQ(1661)
 .notAnswered()
 .orifQ()
-.locIDNot('269')
+.locIDNot('269','104')
 .setValue(Q(1691), ' ')
 .sub(Q(1491), 2)
 .store(Q(1491));
@@ -723,7 +723,7 @@ ifQ(971)
 ifQ(971)
 .notAnswered()
 .orifQ()
-.locIDIs('269')
+.locIDIs('269','104')
 .setValue(Q(1291), ' ')
 .sub(Q(1491), 2)
 .store(Q(1491));
@@ -743,7 +743,7 @@ ifQ(1671)
 ifQ(1671)
 .notAnswered()
 .orifQ()
-.locIDNot('269')
+.locIDNot('269','104')
 .setValue(Q(1701), ' ')
 .sub(Q(1491), 2)
 .store(Q(1491));
@@ -865,7 +865,7 @@ ifQ(451)
 
 // Q451 not visible
 ifQ()
-.locIDIs('001', '269')
+.locIDIs('001','269','104')
 .setValue(Q(1341), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -890,7 +890,7 @@ ifQ(461)
 
 // Q461 not visible
 ifQ()
-.locIDIs('001', '269')
+.locIDIs('001','269','104')
 .setValue(Q(1351), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -915,7 +915,7 @@ ifQ(481)
 
 // Q481 not visible
 ifQ()
-.locIDIs('001', '269')
+.locIDIs('001','269','104')
 .setValue(Q(1361), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -940,7 +940,7 @@ ifQ(501)
 
 // Q501 not visible
 ifQ()
-.locIDIs('001', '269')
+.locIDIs('001','269','104')
 .setValue(Q(1371), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -965,7 +965,7 @@ ifQ(511)
 
 // Q511 not visible
 ifQ()
-.locIDIs('001', '269')
+.locIDIs('001','269','104')
 .setValue(Q(1381), ' ')
 .sub(Q(1521), 2)
 .store(Q(1521));
