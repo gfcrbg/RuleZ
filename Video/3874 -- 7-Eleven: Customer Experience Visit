@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 2/23/2023
+// Last Updated: 3/29/2023
 //*******************************
 
 
@@ -234,6 +234,36 @@ ifQ(1461)
 
 //********************************
 // CUSTOMER SERVICE - End
+//********************************
+
+
+
+
+//********************************
+// GPS - Begin
+//********************************
+
+// If QID 9001 is answered, set value to QIDs to equal QID 9001.
+ifQ(9001)
+.answered()
+.setValue(Q(1451), Q(9001))
+.setValue(Q(9011), Q(9001));
+
+// If QID 9031 is answered, set value to QIDs to equal QID 9031.
+ifQ(9031)
+.answered()
+.setValue(Q(5091), Q(9031))
+.setValue(Q(9021), Q(9031));
+
+// If QID 5091 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(5091)
+.answered(2)
+.disappear(Q(9041), Q(9051), Q(9061), Q(8221))
+.clearAnswer(Q(9041), Q(9051), Q(9061), Q(8221));
+
+
+//********************************
+// GPS - End
 //********************************
 
 
