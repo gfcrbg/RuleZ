@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 3/27/2023	
+// Last Updated: 3/30/2023	
 //*******************************	
 
 
@@ -367,7 +367,7 @@ ifQ(211)
 
 // Q211 not visible
 ifQ()
-.locIDIs('269','104')
+.locIDIs('269')
 .setValue(Q(1151), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -571,7 +571,7 @@ ifQ(331)
 
 // Q331 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269')
 .setValue(Q(1231), ' ')
 .sub(Q(1461), 1)
 .store(Q(1461));
@@ -838,12 +838,12 @@ ifQ(1481)
 // Hides the Q scores in section
 ifQ(1)
 .answered()
-.disappear(Q(1341), Q(1351), Q(1361), Q(1371), Q(1381), Q(1511), Q(1521), Q(1531)); 
+.disappear(Q(1341), Q(1351), Q(1361), Q(1371), Q(1381), Q(1741), Q(1511), Q(1521), Q(1531)); 
 
 // Cleanliness total points possible
 ifQ(1511)
 .greaterThanOrEqual(0)
-.setValue(Q(1521), 6);
+.setValue(Q(1521), 7);
 
 
 // Q451 score 1/1
@@ -971,10 +971,28 @@ ifQ()
 .store(Q(1521));
 
 
+// Q1731 score 1/1
+ifQ(1731)
+.answered(1)
+.setValue(Q(1741), '1');
+
+// Q1731 score 0/1
+ifQ(1731)
+.answered(2)
+.setValue(Q(1741), '0');
+
+// Q1731 not visible
+ifQ()
+.locIDNot('104')
+.setValue(Q(1741), ' ')
+.sub(Q(1521), 1)
+.store(Q(1521));
+
+
 // Cleanliness actual points
 ifQ(1)
 .answered()
-.sum(Q(1341), Q(1351), Q(1361), Q(1371), Q(1381))
+.sum(Q(1341), Q(1351), Q(1361), Q(1371), Q(1381), Q(1741))
 .store(Q(1511));
 
 // Cleanliness total points possible
