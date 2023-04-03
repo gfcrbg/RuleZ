@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 856	
 // SID: 4925	
-// Last Updated: 3/21/2023
+// Last Updated: 4/3/2023
 //*******************************	
 
 
@@ -46,6 +46,27 @@ ifQ(241)
 .disappear(Q(261), Q(271))
 .clearAnswer(Q(261), Q(271));
 
+// If QID 541 answered Option 1 and QID 611 answered Option 2, then set value to Option 3 to QID 611.
+ifQ(541)
+.answered(1)
+.andQ(611)
+.answered(2)
+.setValue(Q(611), 3);
+
+// If QID 581 answered Option 1 and QID 621 answered Option 2, then set value to Option 3 to QID 621.
+ifQ(581)
+.answered(1)
+.andQ(621)
+.answered(2)
+.setValue(Q(621), 3);
+
+// If QID 561 answered Option 1 and QID 641 answered Option 2, then set value to Option 3 to QID 641.
+ifQ(561)
+.answered(1)
+.andQ(641)
+.answered(2)
+.setValue(Q(641), 3);
+
 //*****************************************
 // FOLLOW-UP DAY 3 - End
 //*****************************************
@@ -62,6 +83,27 @@ ifQ(341)
 .answered(2)
 .disappear(Q(351), Q(361))
 .clearAnswer(Q(351), Q(361)); 
+
+// If QID 541 answered Option 1 and QID 661 answered Option 2, then set value to Option 3 to QID 661.
+ifQ(541)
+.answered(1)
+.andQ(661)
+.answered(2)
+.setValue(Q(661), 3);
+
+// If QID 581 answered Option 1 and QID 671 answered Option 2, then set value to Option 3 to QID 671.
+ifQ(581)
+.answered(1)
+.andQ(671)
+.answered(2)
+.setValue(Q(671), 3);
+
+// If QID 561 answered Option 1 and QID 691 answered Option 2, then set value to Option 3 to QID 691.
+ifQ(561)
+.answered(1)
+.andQ(691)
+.answered(2)
+.setValue(Q(691), 3);
 
 //*****************************************
 // FOLLOW-UP DAY 7 - End
