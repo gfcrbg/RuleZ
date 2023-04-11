@@ -1,0 +1,541 @@
+//*******************************	
+// CID: 852	
+// SID: 4910	
+// Last Updated: 4/11/2023	
+//*******************************	
+
+// Percentage Change Calculator -- to confirm math operations
+// https://www.calculatorsoup.com/calculators/algebra/percent-change-calculator.php
+
+//========================
+// Average Market Price Index - Begin
+//========================
+
+// LEVELS as entered in Sassie:
+// Allen 	 	
+// Flower Mound 	 	
+// Frisco 	 	
+// Lakewood 	 	
+// Mckinney 	 	
+// North Plano 	 	
+// South Plano
+
+//-------------------------------
+// Allen - Begin
+//-------------------------------
+
+// Allen -- market selector
+ifQ()
+.levelIs('Allen')
+.setValue(Q(741), 1);
+
+// Allen -- [SF A]
+ifQ(741)
+.answered(1)
+.setValue(Q(751), '577.86');
+
+// Allen -- [SF B]
+ifQ(741)
+.answered(1)
+.setValue(Q(761), '832.11');
+
+// Allen -- [SF C]
+ifQ(741)
+.answered(1)
+.setValue(Q(771), '995.42');
+
+// Allen -- [SF D]
+ifQ(741)
+.answered(1)
+.setValue(Q(781), '1062.33');
+
+// Allen -- [SF E]
+ifQ(741)
+.answered(1)
+.setValue(Q(791), '1413.29');
+
+//-------------------------------
+// Allen - End
+//-------------------------------
+
+
+//-------------------------------
+// Plano North - Begin
+//-------------------------------
+
+// Plano North -- market selector
+ifQ()
+.levelIs('North Plano')
+.setValue(Q(741), 2);
+
+// Plano North -- [SF A]
+ifQ(741)
+.answered(2)
+.setValue(Q(751), '670.76');
+
+// Plano North -- [SF B]
+ifQ(741)
+.answered(2)
+.setValue(Q(761), '948.17');
+
+// Plano North -- [SF C]
+ifQ(741)
+.answered(2)
+.setValue(Q(771), '1077.26');
+
+// Plano North -- [SF D]
+ifQ(741)
+.answered(2)
+.setValue(Q(781), '1465.67');
+
+// Plano North -- [SF E]
+ifQ(741)
+.answered(2)
+.setValue(Q(791), '1760.11');
+
+//-------------------------------
+// Plano North - End
+//-------------------------------
+
+
+//-------------------------------
+// Plano South - Begin
+//-------------------------------
+
+// Plano South -- market selector
+ifQ()
+.levelIs('South Plano')
+.setValue(Q(741), 3);
+
+// Plano South -- [SF A]
+ifQ(741)
+.answered(3)
+.setValue(Q(751), '559.00');
+
+// Plano South -- [SF B]
+ifQ(741)
+.answered(3)
+.setValue(Q(761), '797.39');
+
+// Plano South -- [SF C]
+ifQ(741)
+.answered(3)
+.setValue(Q(771), '887.28');
+
+// Plano South -- [SF D]
+ifQ(741)
+.answered(3)
+.setValue(Q(781), '1645.43');
+
+// Plano South -- [SF E]
+ifQ(741)
+.answered(3)
+.setValue(Q(791), '1757.33');
+
+//-------------------------------
+// Plano South - End
+//-------------------------------
+
+
+//-------------------------------
+// McKinney - Begin
+//-------------------------------
+
+// McKinney -- market selector
+ifQ()
+.levelIs('Mckinney')
+.setValue(Q(741), 4);
+
+// McKinney -- [SF A]
+ifQ(741)
+.answered(4)
+.setValue(Q(751), '614.00');
+
+// McKinney -- [SF B]
+ifQ(741)
+.answered(4)
+.setValue(Q(761), '979.00');
+
+// McKinney -- [SF C]
+ifQ(741)
+.answered(4)
+.setValue(Q(771), '');
+
+// McKinney -- [SF D]
+ifQ(741)
+.answered(4)
+.setValue(Q(781), '1063.52');
+
+// McKinney -- [SF E]
+ifQ(741)
+.answered(4)
+.setValue(Q(791), '1329.04');
+
+//-------------------------------
+// McKinney - End
+//-------------------------------
+
+
+//-------------------------------
+// Lakewood - Begin
+//-------------------------------
+
+// Lakewood -- market selector
+ifQ()
+.levelIs('Lakewood')
+.setValue(Q(741), 5);
+
+// Lakewood -- [SF A]
+ifQ(741)
+.answered(5)
+.setValue(Q(751), '849.74');
+
+// Lakewood -- [SF B]
+ifQ(741)
+.answered(5)
+.setValue(Q(761), '1008.02');
+
+// Lakewood -- [SF C]
+ifQ(741)
+.answered(5)
+.setValue(Q(771), '1516.80');
+
+// Lakewood -- [SF D]
+ifQ(741)
+.answered(5)
+.setValue(Q(781), '1599.00');
+
+// Lakewood -- [SF E]
+ifQ(741)
+.answered(5)
+.setValue(Q(791), '2424.63');
+
+//-------------------------------
+// Lakewood - End
+//-------------------------------
+
+
+//-------------------------------
+// Flower Mound - Begin
+//-------------------------------
+
+// Flower Mound -- market selector
+ifQ()
+.levelIs('Flower Mound')
+.setValue(Q(741), 6);
+
+// Flower Mound -- [SF A]
+ifQ(741)
+.answered(6)
+.setValue(Q(751), '560.38');
+
+// Flower Mound -- [SF B]
+ifQ(741)
+.answered(6)
+.setValue(Q(761), '756.75');
+
+// Flower Mound -- [SF C]
+ifQ(741)
+.answered(6)
+.setValue(Q(771), '915.18');
+
+// Flower Mound -- [SF D]
+ifQ(741)
+.answered(6)
+.setValue(Q(781), '1314.00');
+
+// Flower Mound -- [SF E]
+ifQ(741)
+.answered(6)
+.setValue(Q(791), '1674.00');
+
+//-------------------------------
+// Flower Mound - End
+//-------------------------------
+
+
+//-------------------------------
+// Frisco - Begin
+//-------------------------------
+
+// Frisco -- market selector
+ifQ()
+.levelIs('Frisco')
+.setValue(Q(741), 7);
+
+// Frisco -- [SF A]
+ifQ(741)
+.answered(7)
+.setValue(Q(751), '535.84');
+
+// Frisco -- [SF B]
+ifQ(741)
+.answered(7)
+.setValue(Q(761), '792.85');
+
+// Frisco -- [SF C]
+ifQ(741)
+.answered(7)
+.setValue(Q(771), '996.86');
+
+// Frisco -- [SF D]
+ifQ(741)
+.answered(7)
+.setValue(Q(781), '1031.00');
+
+// Frisco -- [SF E]
+ifQ(741)
+.answered(7)
+.setValue(Q(791), '1175.78');
+
+//-------------------------------
+// Frisco - End
+//-------------------------------
+
+
+//-------------------------------
+// Prosper - Begin
+//-------------------------------
+
+// Prosper -- market selector
+ifQ()
+.levelIs('Prosper')
+.setValue(Q(741), 8);
+
+// Prosper  -- [SF A]
+ifQ(741)
+.answered(8)
+.setValue(Q(751), '786.50');
+
+// Prosper  -- [SF B]
+ifQ(741)
+.answered(8)
+.setValue(Q(761), '957.26');
+
+// Prosper  -- [SF C]
+ifQ(741)
+.answered(8)
+.setValue(Q(771), '1236.57');
+
+// Prosper  -- [SF D]
+ifQ(741)
+.answered(8)
+.setValue(Q(781), '1299.00');
+
+// Prosper  -- [SF E]
+ifQ(741)
+.answered(8)
+.setValue(Q(791), '1766.20');
+
+//-------------------------------
+// Prosper - End
+//-------------------------------
+
+
+
+
+//========================
+// Average Market Price Index - End
+//========================
+
+
+
+
+//*******************************
+// INTERIOR OFFICES - Begin
+//*******************************
+
+// [SF A] -- Change %
+ifQ(51)
+.answered()
+.sub(Q(51), Q(751))
+.store(Q(541))
+.divide(Q(541), Q(751))
+.store(Q(541))
+.multiply(Q(541), 100)
+.store(Q(541));
+
+// [SF A] Yearly -- Change %
+ifQ(311)
+.answered()
+.sub(Q(311), Q(751))
+.store(Q(551))
+.divide(Q(551), Q(751))
+.store(Q(551))
+.multiply(Q(551), 100)
+.store(Q(551));
+
+// [SF A] 2-Year -- Change %
+ifQ(351)
+.answered()
+.sub(Q(351), Q(751))
+.store(Q(561))
+.divide(Q(561), Q(751))
+.store(Q(561))
+.multiply(Q(561), 100)
+.store(Q(561));
+
+// [SF B] -- Change %
+ifQ(71)
+.answered()
+.sub(Q(71), Q(761))
+.store(Q(571))
+.divide(Q(571), Q(761))
+.store(Q(571))
+.multiply(Q(571), 100)
+.store(Q(571));
+
+// [SF B] Yearly -- Change %
+ifQ(331)
+.answered()
+.sub(Q(331), Q(761))
+.store(Q(581))
+.divide(Q(581), Q(761))
+.store(Q(581))
+.multiply(Q(581), 100)
+.store(Q(581));
+
+// [SF B] 2-Year -- Change %
+ifQ(361)
+.answered()
+.sub(Q(361), Q(761))
+.store(Q(591))
+.divide(Q(591), Q(761))
+.store(Q(591))
+.multiply(Q(591), 100)
+.store(Q(591));
+
+// [SF D] -- Change %
+ifQ(91)
+.answered()
+.sub(Q(91), Q(781))
+.store(Q(601))
+.divide(Q(601), Q(781))
+.store(Q(601))
+.multiply(Q(601), 100)
+.store(Q(601));
+
+// [SF D] Yearly -- Change %
+ifQ(341)
+.answered()
+.sub(Q(341), Q(781))
+.store(Q(611))
+.divide(Q(611), Q(781))
+.store(Q(611))
+.multiply(Q(611), 100)
+.store(Q(611));
+
+// [SF D] 2-Year -- Change %
+ifQ(371)
+.answered()
+.sub(Q(371), Q(781))
+.store(Q(621))
+.divide(Q(621), Q(781))
+.store(Q(621))
+.multiply(Q(621), 100)
+.store(Q(621));
+
+//*******************************
+// INTERIOR OFFICES - End
+//*******************************
+
+
+
+
+//*******************************
+// EXTERIOR OFFICES - Begin
+//*******************************
+
+// [SF A] -- Change %
+ifQ(451)
+.answered()
+.sub(Q(451), Q(751))
+.store(Q(631))
+.divide(Q(631), Q(751))
+.store(Q(631))
+.multiply(Q(631), 100)
+.store(Q(631));
+
+// [SF A] Yearly -- Change %
+ifQ(461)
+.answered()
+.sub(Q(461), Q(751))
+.store(Q(641))
+.divide(Q(641), Q(751))
+.store(Q(641))
+.multiply(Q(641), 100)
+.store(Q(641));
+
+// [SF A] 2-Year -- Change %
+ifQ(471)
+.answered()
+.sub(Q(471), Q(751))
+.store(Q(651))
+.divide(Q(651), Q(751))
+.store(Q(651))
+.multiply(Q(651), 100)
+.store(Q(651));
+
+// [SF C] -- Change %
+ifQ(481)
+.answered()
+.sub(Q(481), Q(771))
+.store(Q(661))
+.divide(Q(661), Q(771))
+.store(Q(661))
+.multiply(Q(661), 100)
+.store(Q(661));
+
+// [SF C] Yearly -- Change %
+ifQ(491)
+.answered()
+.sub(Q(491), Q(771))
+.store(Q(671))
+.divide(Q(671), Q(771))
+.store(Q(671))
+.multiply(Q(671), 100)
+.store(Q(671));
+
+// [SF C] 2-Year -- Change %
+ifQ(501)
+.answered()
+.sub(Q(501), Q(771))
+.store(Q(681))
+.divide(Q(681), Q(771))
+.store(Q(681))
+.multiply(Q(681), 100)
+.store(Q(681));
+
+// [SF E] -- Change %
+ifQ(511)
+.answered()
+.sub(Q(511), Q(791))
+.store(Q(691))
+.divide(Q(691), Q(791))
+.store(Q(691))
+.multiply(Q(691), 100)
+.store(Q(691));
+
+// [SF E] Yearly -- Change %
+ifQ(521)
+.answered()
+.sub(Q(521), Q(791))
+.store(Q(701))
+.divide(Q(701), Q(791))
+.store(Q(701))
+.multiply(Q(701), 100)
+.store(Q(701));
+
+// [SF E] 2-Year -- Change %
+ifQ(531)
+.answered()
+.sub(Q(531), Q(791))
+.store(Q(711))
+.divide(Q(711), Q(791))
+.store(Q(711))
+.multiply(Q(711), 100)
+.store(Q(711));
+
+//*******************************
+// EXTERIOR OFFICES - End
+//*******************************
