@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 4/3/2023
+// Last Updated: 4/13/2023
 //*******************************
 
 
@@ -261,12 +261,12 @@ ifQ(5091)
 .disappear(Q(9041), Q(9051), Q(9061), Q(8221))
 .clearAnswer(Q(9041), Q(9051), Q(9061), Q(8221));
 
-// If QID 51 answered Option [1 AND 2], QID 1451 answered Option 1, and QID 5091 answered Option 1, then set value to Option 1 to QID 9071.
+// If QID 51 answered Option [1 AND 2], QID 9001 answered Option 1, and QID 9031 answered Option 1, then set value to Option 1 to QID 9071.
 ifQ(51)
 .answered([1,2])
-.andQ(1451)
+.andQ(9001)
 .answered(1)
-.andQ(5091)
+.andQ(9031)
 .answered(1)
 .setValue(Q(9071), 1);
 
