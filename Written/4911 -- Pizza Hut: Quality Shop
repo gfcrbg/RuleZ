@@ -1,29 +1,113 @@
 //*******************************	
 // CID: 807	
 // SID: 4911
-// Last Updated: 2/24/2023	
+// Last Updated: 4/21/2023	
 //*******************************
 
-
+// Quality
+// test:  3263535
 
 	
 //*******************************
 // ORDER DETAILS - Begin
 //*******************************
 
-// The following rules have been set so that if a location is scheduled within a certain wave they will be assigned an answer to a question either being The Big New Yorker or "Other" which indicates the product being tested.
+// Disappear QID [2731 AND 2921].
+ifQ()
+.disappear(Q(2731))
+.disappear(Q(2921));
 
+
+// WAVE SELECTOR
+
+// Wave Selector
+// If wave is "The Big New Yorker", set value to Option 1 to QID 2731.
 ifQ()
 .waveIs("The Big New Yorker")
 .setValue(Q(2731), 1);
 
-// If QID 2751 is not answered Option 1, then make not required, disappear, and clear answer to QIDs.
-ifQ(2751)
-.notAnswered(1)
-.makeNotRequired(Q(1891), Q(1911)) 
-.disappear(Q(1891), Q(1911)) 
-.clearAnswer(Q(1891), Q(1911));
+// Wave Selector
+// If wave is "12 inch Pepperoni", set value to Option 2 to QID 2731.
+ifQ()
+.waveIs("12 inch Pepperoni")
+.setValue(Q(2731), 2);
 
+// Wave Selector
+// If wave is "Cheesesteak Pizza", set value to Option 3 to QID 2731.
+ifQ()
+.waveIs("Cheesesteak Pizza")
+.setValue(Q(2731), 3);
+
+
+
+// PRODUCT AVAILABILITY
+
+// Product Availability -- The Big New Yorker
+// If QID 2731 is answered Option 1, then appear QID 2751.
+ifQ(2731)
+.answered(1)
+.appear(Q(2751));
+
+// Product Availability -- 12 inch Pepperoni
+// If QID 2731 is answered Option 2, then appear QID 2881.
+ifQ(2731)
+.answered(2)
+.appear(Q(2881));
+
+// Product Availability -- Cheesesteak Pizza
+// If QID 2731 is answered Option 3, then appear QID 2901.
+ifQ(2731)
+.answered(3)
+.appear(Q(2901));
+
+
+
+// MASTER QID
+
+// Master QID -- The Big New Yorker -- YES
+// If QID 2751 is answered Option 1, then set value to Option 1 to QID 2921.
+ifQ(2751)
+.answered(1)
+.setValue(Q(2921), 1);
+
+// Master QID -- The Big New Yorker -- NO
+// If QID 2751 is answered Option 2, then clear answer to QID 2921.
+ifQ(2751)
+.answered(2)
+.clearAnswer(Q(2921));
+
+// Master QID -- 12 inch Pepperoni -- YES
+// If QID 28821 is answered Option 1, then set value to Option 2 to QID 2921.
+ifQ(2881)
+.answered(1)
+.setValue(Q(2921), 2);
+
+// Master QID -- 12 inch Pepperoni -- NO
+// If QID 2881 is answered Option 2, then clear answer to QID 2921.
+ifQ(2881)
+.answered(2)
+.clearAnswer(Q(2921));
+
+// Master QID -- Cheesesteak Pizza -- YES
+// If QID 2901 is answered Option 1, then set value to Option 3 to QID 2921.
+ifQ(2901)
+.answered(1)
+.setValue(Q(2921), 3);
+
+// Master QID -- Cheesesteak Pizza -- NO
+// If QID 2901 is answered Option 2, then clear answer to QID 2921.
+ifQ(2901)
+.answered(2)
+.clearAnswer(Q(2921));
+
+
+
+// If QID 2921 is not answered, then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered()
+.disappear(Q(1891), Q(1911), Q(2761))
+.clearAnswer(Q(1891), Q(1911), Q(2761));
+ 
 // If QID 2761 is answered Option 1, then disappear and clear answer to QID 2771.
 ifQ(2761)
 .answered(1)
@@ -41,10 +125,9 @@ ifQ(2761)
 // ACCURACY - Begin
 //*******************************
 
-// If QID 2751 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(2751)
-.answered(2)
-.makeNotRequired(Q(1731), Q(991))
+// If QID 2921 is not answered, then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered()
 .disappear(Q(961))  // header
 .disappear(Q(1731), Q(991))
 .clearAnswer(Q(1731), Q(991));
@@ -67,20 +150,49 @@ ifQ(991)
 // QUALITY - Begin
 //*******************************
 
-// If QID 2731 is answered Option 2, then disappear and clear answer to QID 2831.
-ifQ(2731)
-.answered(2)
+// If QID 2921 is not answered, then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered()
+.disappear(Q(351))  // header
+.disappear(Q(2711))  // red remark(s)
+.disappear(Q(361), Q(2361), Q(371), Q(1351), Q(2441))  // picture upload
+.disappear(Q(2271), Q(2041), Q(2161), Q(2261))
+.clearAnswer(Q(2271), Q(2041), Q(2161), Q(2261), Q(361), Q(2361), Q(371), Q(1351), Q(2441));
+
+// The Big New Yorker
+// If QID 2921 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered(1)
+.disappear(Q(2851))  // red remark
 .disappear(Q(2831))
 .clearAnswer(Q(2831));
 
-// If QID 2751 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(2751)
-.answered(2)
-.makeNotRequired(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)) 
-.disappear(Q(351))  // header
-.disappear(Q(2711))  // red remark
-.disappear(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2831), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)) 
-.clearAnswer(Q(361), Q(2271), Q(2041), Q(2691), Q(2471), Q(2831), Q(2161), Q(2661), Q(2261), Q(2361), Q(371), Q(2671), Q(1351), Q(2441)); 
+// 12 inch Pepperoni
+// If QID 2921 is not answered Option 2, then disappear QID 2861.
+ifQ(2921)
+.notAnswered(2)
+.disappear(Q(2861))  // red remark;
+
+// The Big New Yorker AND 12 inch Pepperoni
+// If QID 2921 not answered Option [1 OR 2], then disappear and clear answer to QID 2811.
+ifQ(2921)
+.notAnswered(1,2)
+.disappear(Q(2811))
+.clearAnswer(Q(2811));
+
+// The Big New Yorker AND Cheesesteak Pizza
+// If QID 2921 is not answered Option [1 OR 3], then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered(1,3)
+.disappear(Q(2671))  // picture upload
+.disappear(Q(2691), Q(2471))
+.clearAnswer(Q(2691), Q(2471));
+
+// If QID 2261 is answered Option [0 OR 1], then disappear and clear answer to QID 2821.
+ifQ(2261)
+.answered(0,1)
+.disappear(Q(2821))
+.clearAnswer(Q(2821));
 
 //*******************************
 // QUALITY - End
@@ -93,10 +205,9 @@ ifQ(2751)
 // PRESENTATION & PACKAGING - Begin
 //*******************************
 
-// If QID 2751 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(2751)
-.answered(2)
-.makeNotRequired(Q(2331), Q(1031), Q(2171), Q(1991), Q(2001), Q(2371))
+// If QID 2921 is not answered, then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered()
 .disappear(Q(2141))  // header
 .disappear(Q(2331), Q(1031), Q(2171), Q(1991), Q(2001), Q(2371))
 .clearAnswer(Q(2331), Q(1031), Q(2171), Q(1991), Q(2001), Q(2371));
@@ -128,9 +239,7 @@ ifQ(1031)
 // Auto Set Gold Standard - Begin
 //--------------------------------------------
 
-ifQ(991)
-.setValue(Q(2061), 2);
-
+// If QIDs are answered Option 1, then set value to Option 1 to QID 2061.
 ifQ(991)
 .answered (1)
 .andQ(2271)
@@ -147,14 +256,30 @@ ifQ(991)
 .answered(1)
 .setValue(Q(2061), 1);
 
+// If QIDs are answered Option 2, then set value to Option 2 to QID 2061.
+ifQ(991)
+.answered (2)
+.andQ(2271)
+.answered(2)
+.andQ(2041)
+.answered(2)
+.andQ(2161)
+.answered(2)
+.andQ(2331)
+.answered(2)
+.andQ(1031)
+.answered(2)
+.andQ(2171)
+.answered(2)
+.setValue(Q(2061), 2);
+
 //--------------------------------------------
 // Auto Set Gold Standard - End
 //--------------------------------------------
 
-// If QID 2751 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(2751)
-.answered(2)
-.makeNotRequired(Q(2311), Q(2321), Q(2061), Q(2491), Q(2561), Q(2701), Q(2651))
+// If QID 2921 is not answered, then disappear and clear answer to QIDs.
+ifQ(2921)
+.notAnswered()
 .disappear(Q(2301)) // header
 .disappear(Q(2311), Q(2321), Q(2061), Q(2491), Q(2561), Q(2701), Q(2651))
 .clearAnswer(Q(2311), Q(2321), Q(2061), Q(2491), Q(2561), Q(2701), Q(2651));
