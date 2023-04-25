@@ -1,0 +1,41 @@
+//*******************************	
+// CID: 848	
+// SID: 4947	
+// Last Updated: 4/25/2023
+//*******************************	
+
+
+
+
+//************************************
+// CINNABON DELIGHTS EXPERIENCE - Begin
+//************************************
+
+// If QID 101 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(101)
+.answered(2)
+.disappear(Q(421), Q(431))  // black remarks
+.disappear(Q(91), Q(291), Q(301), Q(321), Q(331), Q(351), Q(361), Q(371), Q(381), Q(391))
+.clearAnswer(Q(91), Q(291), Q(301), Q(321), Q(331), Q(351), Q(361), Q(371), Q(381), Q(391));
+
+// If QID 301 is answered Option [0 OR 1], then disappear and clear answer to QID 311.
+ifQ(301)
+.answered(0,1)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+// If QID 331 is answered Option [0 OR 1], then disappear and clear answer to QID 341.
+ifQ(331)
+.answered(0,1)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+// If QID 391 is answered Option [0 OR 1], then disappear and clear answer to QID 401.
+ifQ(391)
+.answered(0,1)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+//************************************
+// CINNABON DELIGHTS EXPERIENCE - End
+//************************************
