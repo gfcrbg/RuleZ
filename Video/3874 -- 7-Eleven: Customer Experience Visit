@@ -1,11 +1,13 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 4/13/2023
+// Last Updated: 4/26/2023
 //*******************************
 
 
 
+
+// test shop:  3253047
 
 // If shop date is before June, 2020, then set answer to reimbursement currency value to "5.00".
 ifQ()
@@ -242,6 +244,11 @@ ifQ(1461)
 //********************************
 // GPS - Begin
 //********************************
+
+// If ULG is "No Rewards Program", then set value to Option 3 to QID 9031.
+ifQ()
+.ulgIs('No Rewards Program')
+.setValue(Q(9031), 3);
 
 // If QID 9001 is answered, set value to QIDs to equal QID 9001.
 ifQ(9001)
