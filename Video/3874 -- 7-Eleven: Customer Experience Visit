@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 4/26/2023
+// Last Updated: 4/27/2023
 //*******************************
 
 
@@ -883,6 +883,12 @@ ifQ()
 .dateBefore("2022-06-01")
 .setValue(Q(2421), 3)
 .setValue(Q(6311), 3);
+
+// If QID 2421 is answered Option [1 OR 3], then disappear and clear answer to QID 9081.
+ifQ(2421)
+.answered(1,3)
+.disappear(Q(9081))
+.clearAnswer(Q(9081));
 
 // If QID 2421 is answered Option [1 OR 3], then disappear and clear answer to QID 6081.
 ifQ(2421)
