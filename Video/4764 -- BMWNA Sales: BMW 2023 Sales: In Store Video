@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 3/2/2023	
+// Last Updated: 5/3/2023	
 //*******************************	
 
 
@@ -246,6 +246,11 @@ ifQ(581)
 // Custom Scoring - End
 //-------------------------------
 
+// If shop date [AFTER May 2nd, 2023], then set value to Option 1 to QID 581.
+ifQ()
+.dateAfter('2023-05-02')
+.setValue(Q(581), 1);
+
 // If QID 581 is answered Option 3, then disappear and clear answer to QID 591.
 ifQ(581)
 .answered(3)
@@ -257,6 +262,11 @@ ifQ(581)
 .answered(3)
 .disappear(Q(1191))
 .clearAnswer(Q(1191));
+
+// If shop date [AFTER May 2nd, 2023], then set value to Option 1 to QID 1281.
+ifQ()
+.dateAfter('2023-05-02')
+.setValue(Q(1281), 1);
 
 // If QID 651 is answered Option [9, 10, OR 11], then disappear and clear answer to QID 661.
 ifQ(651)
