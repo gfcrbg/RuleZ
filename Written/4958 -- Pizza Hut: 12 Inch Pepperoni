@@ -1,0 +1,178 @@
+//*******************************	
+// CID: 807	
+// SID: 4958	
+// Last Updated: 5/3/2023	
+//*******************************
+
+// test: 3275334  -- product available
+// test: 3277184  -- product not available
+
+
+//*******************************
+// ORDER DETAILS - Begin
+//*******************************
+
+// If QID 2751 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(811), Q(821), Q(1891), Q(1911))
+.clearAnswer(Q(811), Q(821), Q(1891), Q(1911));
+
+// If QID 2761 is answered Option 1, then disappear and clear answer to QID 2771.
+ifQ(2761)
+.answered(1)
+.disappear(Q(2771))
+.clearAnswer(Q(2771));
+
+//*******************************
+// ORDER DETAILS - End
+//*******************************
+
+
+
+
+//*******************************
+// ACCURACY - Begin
+//*******************************
+
+// Headers.
+// If QID 2751 is answered Option 2, then disappear QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(961));
+
+// If QID 2751 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(1731), Q(991))
+.clearAnswer(Q(1731), Q(991));
+
+// If QID 991 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(991)
+.answered(0,1)
+.disappear(Q(1961), Q(2791))
+.clearAnswer(Q(1961), Q(2791));
+
+//*******************************
+// ACCURACY - End
+//*******************************
+
+
+
+
+//*******************************
+// QUALITY - Begin
+//*******************************
+
+// If QID 2751 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(361), Q(2361), Q(2271), Q(2041), Q(2161), Q(2831), Q(2361), Q(371), Q(1351))
+.clearAnswer(Q(361), Q(2361), Q(2271), Q(2041), Q(2161), Q(2831), Q(2361), Q(371), Q(1351));
+
+// Remarks and headers.
+// If QID 2751 is answered Option 2, then disappear QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(351))  // header
+.disappear(Q(2711))  // red remark;
+
+// If QID 2831 is answered Option [0 OR 1], then disappear and clear answer to QID 2821.
+ifQ(2831)
+.answered(0,1)
+.disappear(Q(2821))
+.clearAnswer(Q(2821));
+
+//*******************************
+// QUALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// PRESENTATION & PACKAGING - Begin
+//*******************************
+
+// Headers.
+// If QID 2751 is answered Option 2, then disappear QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(2141));
+
+// If QID 2751 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(2331), Q(1991), Q(1031), Q(2001), Q(2371), Q(2171))
+.clearAnswer(Q(2331), Q(1991), Q(1031), Q(2001), Q(2371), Q(2171));
+
+// If QID 2331 is answered Option [0 OR 1], then disappear and clear answer to QID 2801.
+ifQ(2331)
+.answered(0,1)
+.disappear(Q(2801))
+.clearAnswer(Q(2801));
+
+//*******************************
+// PRESENTATION & PACKAGING - End
+//*******************************
+
+
+
+
+//*******************************
+// SUMMARY - Begin
+//*******************************
+
+// Headers.
+// If QID 2751 is answered Option 2, then disappear QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(2301));
+
+// If QID 2751 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2751)
+.answered(2)
+.disappear(Q(2311), Q(2321), Q(2061), Q(2701))
+.clearAnswer(Q(2311), Q(2321), Q(2061), Q(2701));
+
+// If QIDs are answered Option 1, then set value to Option 1 to QID 2061.
+ifQ(991)
+.answered(1)
+.orifQ(2271)
+.answered(1)
+.orifQ(2041)
+.answered(1)
+.orifQ(2161)
+.answered(1)
+.orifQ(2831)
+.answered(1)
+.orifQ(2331)
+.answered(1)
+.orifQ(1031)
+.answered(1)
+.orifQ(2171)
+.answered(1)
+.setValue(Q(2061), 1)
+
+// If QIDs are answered Option 2, then set value to Option 2 to QID 2061.
+ifQ(991)
+.answered(2)
+.orifQ(2271)
+.answered(2)
+.orifQ(2041)
+.answered(2)
+.orifQ(2161)
+.answered(2)
+.orifQ(2831)
+.answered(2)
+.orifQ(2331)
+.answered(2)
+.orifQ(1031)
+.answered(2)
+.orifQ(2171)
+.answered(2)
+.setValue(Q(2061), 2)
+
+//*******************************
+// SUMMARY - End
+//*******************************
