@@ -263,10 +263,13 @@ ifQ(581)
 .disappear(Q(1191))
 .clearAnswer(Q(1191));
 
-// If shop date [AFTER May 2nd, 2023], then set value to Option 1 to QID 1281.
+// If shop date [AFTER May 2nd, 2023], then set value to Option 1 and hide Option [2 AND 3] to QID 1281.
 ifQ()
 .dateAfter('2023-05-02')
-.setValue(Q(1281), 1);
+.setValue(Q(1281), 1)
+.andifQ()
+.dateAfter('2023-05-02')
+.hideOptions(Q(1281), 2,3);
 
 // If QID 651 is answered Option [9, 10, OR 11], then disappear and clear answer to QID 661.
 ifQ(651)
