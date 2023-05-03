@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 8/22/2022	
+// Last Updated: 10/12/2022	
 //*******************************	
 
 
@@ -223,7 +223,7 @@ ifQ(901)
 .clearAnswer(Q(1341), Q(1331), Q(311), Q(1251), Q(341));
 
 //------------------------------------
-// (CS) Line Time Calc - Begin
+// (CS) Delivery Time Calc - Begin
 //------------------------------------
 
 // If QID 901 is answered Option 2 AND QID 1551 and QID 1241 is answered anything, then trigger math operation: [1241] - [1551] = [2011]
@@ -251,15 +251,23 @@ ifQ(2011)
 .answered(2)
 .setValue(Q(2021), 2);
 
-// If QID 2011 is > 1 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2021.
+// If QID 2011 is > 1 min. 51 sec. AND <= 2 min. 31 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2021.
 ifQ(2011)
 .greaterThan(111)
+.lessThanOrEqual(151)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 3);
 
+// If QID 2011 is > 2 min. 31 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2021.
+ifQ(2011)
+.greaterThan(151)
+.andQ(901)
+.answered(2)
+.setValue(Q(2021), 4);
+
 //------------------------------------
-// (CS) Line Time Calc - End
+// (CS) Delivery Time Calc - End
 //------------------------------------   
 
 //------------------------------------
@@ -283,7 +291,8 @@ ifQ(1331)
 .answered(1)
 .setValue(Q(311), 1);
 
-// If QID 1331 is > 1 min. 30 sec. AND <= 1 min. 51 sec., AND QID 901 is answered Option 1 then set value to Option 2 to QID 311.
+
+// If QID 1331 is > 1 min. 51 sec. AND <= 1 min. 51 sec., AND QID 901 is answered Option 1 then set value to Option 2 to QID 311.
 ifQ(1331)
 .greaterThan(90)
 .lessThanOrEqual(111)
@@ -291,12 +300,20 @@ ifQ(1331)
 .answered(1)
 .setValue(Q(311), 2);
 
-// If QID 1331 is > 1 min. 51 sec. AND QID 901 is answered Option 1, then set value to Option 3 to QID 311.
+// If QID 1331 is > 1 min. 30 sec. AND <= 2 min. 30 sec., AND QID 901 is answered Option 1 then set value to Option 2 to QID 311.
 ifQ(1331)
 .greaterThan(111)
+.lessThanOrEqual(151)
 .andQ(901)
 .answered(1)
 .setValue(Q(311), 3);
+
+// If QID 1331 is > 1 min. 51 sec. AND QID 901 is answered Option 1, then set value to Option 3 to QID 311.
+ifQ(1331)
+.greaterThan(151)
+.andQ(901)
+.answered(1)
+.setValue(Q(311), 4);
 
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
@@ -431,3 +448,11 @@ ifQ(1611)
 //*******************************
 // SHIFT MANAGEMENT  - End
 //*******************************
+
+//*******************************
+// Set Sec 30 answer to NA
+//*******************************
+
+ifQ(2071)
+.notAnswered (1, 2)
+.setValue(Q(2071), 3);
