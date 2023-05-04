@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 5/2/2023
+// Last Updated: 4/27/2023
 //*******************************
 
 
@@ -245,10 +245,22 @@ ifQ(1461)
 // GPS - Begin
 //********************************
 
-// If ULG is "No Rewards Program", then set value to Option 3 to QID 9021.
+// If ULG is "No Rewards Program", then set value to Option 3 to QID 9031.
 ifQ()
 .ulgIs('No Rewards Program')
-.setValue(Q(9021), 3);
+.setValue(Q(9031), 3);
+
+// If QID 9001 is answered, set value to QIDs to equal QID 9001.
+ifQ(9001)
+.answered()
+.setValue(Q(1451), Q(9001))
+.setValue(Q(9011), Q(9001));
+
+// If QID 9031 is answered, set value to QIDs to equal QID 9031.
+ifQ(9031)
+.answered()
+.setValue(Q(5091), Q(9031))
+.setValue(Q(9021), Q(9031));
 
 // If QID 5091 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(5091)
@@ -256,12 +268,12 @@ ifQ(5091)
 .disappear(Q(9041), Q(9051), Q(9061), Q(8221))
 .clearAnswer(Q(9041), Q(9051), Q(9061), Q(8221));
 
-// If QID 51 answered Option [1 AND 2], QID 9011 answered Option 1, and QID 9021 answered Option 1, then set value to Option 1 to QID 9071.
+// If QID 51 answered Option [1 AND 2], QID 9001 answered Option 1, and QID 9031 answered Option 1, then set value to Option 1 to QID 9071.
 ifQ(51)
 .answered([1,2])
-.andQ(9011)
+.andQ(9001)
 .answered(1)
-.andQ(9021)
+.andQ(9031)
 .answered(1)
 .setValue(Q(9071), 1);
 
