@@ -1,0 +1,100 @@
+//*******************************	
+// CID: 796	
+// SID: 4956	
+// Last Updated: 5/15/2023	
+//*******************************	
+
+
+// This scorecard is primarily written, with a video component.  In conclusion, this scorecard will be classified as written.
+
+
+//*******************************
+// POLICY DETAILS - Begin
+//*******************************
+
+// If QID 501 is answered Option [2 OR 3], then disappear and clear answer to QID 511.
+ifQ(501)
+.answered(2,3)
+.disappear(Q(511))
+.clearAnswer(Q(511));
+
+// If QID 351 is answered Option [2 OR 3], then disappear and clear answer to QID 361.
+ifQ(351)
+.answered(2,3)
+.disappear(Q(361))
+.clearAnswer(Q(361));
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QID 111.
+ifQ(41)
+.answered(2)
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+// If QID 421 is answered Option [2 OR 3], disappear and clear answer to QID 431.
+ifQ(421)
+.answered(2,3)
+.disappear(Q(431))
+.clearAnswer(Q(431));
+
+// If QID 41 is answered Option 1, then disappear and clear answer to QID 171.
+ifQ(41)
+.answered(1)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+// If QID 461 is answered Option 2, then disappear and clear answer to QID 471.
+ifQ(461)
+.answered(2)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+//*******************************
+// POLICY DETAILS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(2)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+// If QID 241 is not answered Option 6, then disappear and clear answer to QID 251.
+ifQ(241)
+.notAnswered(6)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+// If QID 241 is not answered Option 2, then disappear and clear answer to QIDs.
+ifQ(241)
+.notAnswered(2)
+.disappear(Q(261), Q(641))
+.clearAnswer(Q(261), Q(641));
+
+// If QID 241 is not answered Option 4, then disappear and clear answer to QIDs.
+ifQ(241)
+.notAnswered(4)
+.disappear(Q(271), Q(651))
+.clearAnswer(Q(271), Q(651));
+
+// If QID 241 is not answered Option 3, then disappear and clear answer to QIDs.
+ifQ(241)
+.notAnswered(3)
+.disappear(Q(281), Q(661))
+.clearAnswer(Q(281), Q(661));
+
+// If QID 241 is not answered Option 5, then disappear and clear answer to QIDs.
+ifQ(241)
+.notAnswered(5)
+.disappear(Q(531), Q(671))
+.clearAnswer(Q(531), Q(671));
+
+//*******************************
+// FOLLOW UP  - End
+//*******************************
