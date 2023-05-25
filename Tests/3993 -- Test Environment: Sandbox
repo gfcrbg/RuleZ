@@ -1,0 +1,435 @@
+// Last Updated: 1/27/2023
+
+
+// Constant value
+ifQ()
+.setValue(Q(961), '0');
+
+//
+ifQ(1)
+.answered()
+.setValue(Q(881), 1);
+
+
+
+//*********************************
+//NARRATIVE / TEXT - Begin
+//*********************************
+//TEST CONTROL Narrative / Text Section
+//Populate section
+ifQ(421)
+.answered(2)
+.setValue(Q(241), "test test test")
+.setValue(Q(251), "test test test test test test");
+
+//Gray Out section
+ifQ(421)
+.answered(3)
+.disappear(Q(241), Q(251));
+
+//Clear section
+ifQ(421)
+.answered(4)
+.clearAnswer(Q(241), Q(251));
+
+//Force Clear section
+ifQ(421)
+.answered(5)
+.makeVoidRequired(Q(241), Q(251));
+//*********************************
+//NARRATIVE / TEXT - End
+//*********************************
+
+
+
+
+//*********************************
+//MULTICHECK - Begin
+//*********************************
+
+//Sets All of the Above if all options are selected for the Fuel Island Stock levels
+ifQ(581)
+.answered([1,2,3])
+.setValue(Q(581),1,2,3,4);
+
+ifQ(591)
+.answered(1)
+.clearAnswer(Q(581), Q(591));
+
+
+
+
+// meh
+ifQ(971)
+.answered(1)
+.setValue(Q(1021), '1');
+
+ifQ(971)
+.answered(2)
+.setValue(Q(1021), '0');
+
+// meh
+ifQ(981)
+.answered(1)
+.setValue(Q(1031), '1');
+
+ifQ(981)
+.answered(2)
+.setValue(Q(1031), '0');
+
+// meh
+ifQ(991)
+.answered(1)
+.setValue(Q(1041), '1');
+
+ifQ(991)
+.answered(2)
+.setValue(Q(1041), '0');
+
+// meh
+ifQ(1001)
+.answered(1)
+.setValue(Q(1051), '1');
+
+ifQ(1001)
+.answered(2)
+.setValue(Q(1051), '0');
+
+// meh
+ifQ(1011)
+.answered(1)
+.setValue(Q(1061), '1');
+
+ifQ(1011)
+.answered(2)
+.setValue(Q(1061), '0');
+
+//
+ifQ()
+.sum(Q(1021), Q(1031), Q(1041), Q(1051), Q(1061))
+.store(Q(1071));
+
+//
+ifQ(1071)
+.greaterThanOrEqual(3)
+.setValue(Q(1071), '5');
+
+//-----------------
+
+// meh
+ifQ(581)
+.answered(1)
+.setValue(Q(1081), '1');
+
+ifQ(581)
+.notAnswered(1)
+.setValue(Q(1081), '0');
+
+
+// meh
+ifQ(581)
+.answered(2)
+.setValue(Q(1091), '1');
+
+ifQ(581)
+.notAnswered(2)
+.setValue(Q(1091), '0');
+
+
+// meh
+ifQ(581)
+.answered(3)
+.setValue(Q(1111), '1');
+
+ifQ(581)
+.notAnswered(3)
+.setValue(Q(1111), '0');
+
+
+//
+ifQ()
+.sum(Q(1081), Q(1091), Q(1111))
+.store(Q(1101));
+
+//
+ifQ(1101)
+.greaterThanOrEqual(3)
+.setValue(Q(1101), '5');
+
+
+//*********************************
+//MULTICHECK - End
+//*********************************
+
+
+
+//*********************************
+//CHECKBOX - Begin
+//*********************************
+//TEST CONTROL Checkbox Section
+//Populate section
+ifQ(431)
+.answered(2)
+.setValue(Q(271), 1,2,3,4);
+
+//Gray Out section
+ifQ(431)
+.answered(3)
+.disappear(Q(271));
+
+//Clear section
+ifQ(431)
+.answered(4)
+.clearAnswer(Q(271));
+
+//Force Clear section
+ifQ(431)
+.answered(5)
+.makeVoidRequired(Q(271));
+//*********************************
+//CHECKBOX - End
+//*********************************
+
+
+
+
+
+//*********************************
+//RADIO BUTTONS - Begin
+//*********************************
+//TEST CONTROL Radio Buttons Section
+//Populate section
+ifQ(441)
+.answered(2)
+.setValue(Q(201), 1)
+.setValue(Q(121), 2)
+.setValue(Q(71), 2);
+
+//Gray Out section
+ifQ(441)
+.answered(3)
+.disappear(Q(201), Q(121), Q(71));
+
+//Clear section
+ifQ(441)
+.answered(4)
+.clearAnswer(Q(201), Q(121), Q(71));
+
+//Force Clear section
+ifQ(441)
+.answered(5)
+.makeVoidRequired(Q(201), Q(121), Q(71));
+
+//special test cases
+ifQ(441)
+.answered(4)
+.clearAnswer(Q(501));
+
+ifQ(441)
+.answered(5)
+.makeVoidRequired(Q(511));
+//*********************************
+//RADIO BUTTONS - End
+//*********************************
+
+
+
+
+
+
+//*********************************
+//DATE - Begin
+//*********************************
+//TEST CONTROL Date Section
+//Gray Out section
+ifQ(451)
+.answered(2)
+.disappear(Q(1), Q(301));
+
+//Clear section
+ifQ(451)
+.answered(3)
+.clearAnswer(Q(1), Q(301));
+
+//Force Clear section
+ifQ(451)
+.answered(4)
+.makeVoidRequired(Q(1), Q(301));
+//*********************************
+//DATE - End
+//*********************************
+
+
+
+
+
+
+//*********************************
+//TIMESTAMPS - Begin
+//*********************************
+//TEST CONTROL Timestamps Section
+//Gray Out section
+ifQ(461)
+.answered(2)
+.disappear(Q(21), Q(391), Q(401), Q(411));
+
+//triggers error message if the date is set after 12/31/2020.
+//ifQ()
+//.dateAfter("2020-12-31")
+//.setError("Shop conducted after due date.  Contact scheduler.");
+
+//
+ifQ()
+.dateBefore("2020-03-01")
+.setValue(Q(531), "woot");
+
+//
+ifQ()
+.dateAfter("2020-02-29")
+.setValue(Q(531), "meh");
+
+//Clear section
+ifQ(461)
+.answered(3)
+.clearAnswer(Q(21), Q(391), Q(401), Q(411));
+
+//Force Clear section
+ifQ(461)
+.answered(4)
+.makeVoidRequired(Q(21), Q(391), Q(401), Q(411));
+//*********************************
+//TIMESTAMPS - End
+//*********************************
+
+
+
+
+
+//*********************************
+//PICTURE UPLOAD - Begin
+//*********************************
+//TEST CONTROL Picture Upload Section
+//Gray Out section
+ifQ(471)
+.answered(2)
+.disappear(Q(331));
+
+//Clear section
+ifQ(471)
+.answered(3)
+.clearAnswer(Q(331));
+
+//Force Clear section
+ifQ(471)
+.answered(4)
+.makeVoidRequired(Q(331));
+//*********************************
+//PICTURE UPLOAD - End
+//*********************************
+
+
+
+
+
+
+//*********************************
+// INPUT - Begin
+//*********************************
+//TEST CONTROL Various "Open Box" Formats Section
+//Populate section
+ifQ(481)
+.answered(2)
+.setValue(Q(351), "5.36")
+.setValue(Q(381), "542");
+
+//Gray Out section
+ifQ(481)
+.answered(3)
+.disappear(Q(351), Q(361), Q(371), Q(381));
+
+//Clear section
+ifQ(481)
+.answered(4)
+.clearAnswer(Q(351), Q(361), Q(371), Q(381));
+
+//Force Clear section
+ifQ(481)
+.answered(5)
+.makeVoidRequired(Q(351), Q(361), Q(371), Q(381));
+//*********************************
+// INPUT - End
+//*********************************
+
+
+
+
+//*********************************
+// BOOLEAN CHECK - Begin
+//*********************************
+
+//
+ifQ(901)
+.notAnswered()
+.setValue(Q(911), 1);
+
+//
+ifQ(901)
+.answered()
+.setValue(Q(911), 2);
+
+//
+ifQ(931)
+.answered(1)
+.setValue(Q(901), 0);
+
+//*********************************
+// BOOLEAN CHECK - End
+//*********************************
+
+
+// TESTING THEORY - RuleZ "Versioning"
+
+ifQ()
+.dateBefore('2019-02-28')
+.setValue(Q(531), "Test");
+
+
+//
+ifQ(1121)
+.answered()
+.andQ(1131)
+.answered()
+.sub(Q(1131), Q(1121))
+.store(Q(1151))
+.divide(Q(1151), 86400000)
+.store(Q(1151));
+
+
+
+
+//
+ifQ(1161)
+.answered()
+.andifQ(1171)
+.answered()
+.sub(Q(1171), Q(1161))
+.store(Q(1191))
+.divide(Q(1191), 1000)
+.store(Q(1191))
+.divide(Q(1191), 24)
+.store(Q(1191))
+.divide(Q(1191), 60)
+.store(Q(1191))
+.divide(Q(1191), 60)
+.store(Q(1191));
+
+//
+ifQ()
+.setValue(Q(1211), Q(1201));
+
+// HH:MM:SS Test 
+
+//
+ifQ(1261)
+.answered()
+.setValue(Q(1271), Q(1261));
