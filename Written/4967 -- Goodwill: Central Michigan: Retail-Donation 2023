@@ -1,0 +1,41 @@
+//*******************************	
+// CID: 172	
+// SID: 4967	
+// Last Updated: 6/13/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// CONDITION OF STORE - Begin
+//*******************************
+
+//
+ifQ(6561)
+.answered()
+.andifQ(6571)
+.answered()
+.divide(Q(6571), Q(6561))
+.store(Q(6581))
+.multiply(Q(6581), 100)
+.store(Q(6581));
+
+//
+ifQ(6581)
+.greaterThanOrEqual(90)
+.setValue(Q(6591), 1);
+
+//
+ifQ(6581)
+.lessThan(90)
+.setValue(Q(6591), 2);
+
+//
+ifQ(6581)
+.notAnswered()
+.clearAnswer(Q(6591));
+
+//*******************************
+// CONDITION OF STORE - End
+//*******************************
