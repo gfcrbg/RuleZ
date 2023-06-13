@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 10/12/2022	
+// Last Updated: 6/13/2023	
 //*******************************	
 
 
@@ -37,7 +37,6 @@ ifQ(901)
 ifQ(901)
 .answered(3)
 .disappear(Q(1911), Q(21), Q(1511), Q(1921), Q(101), Q(211), Q(941), Q(961), Q(351), Q(1151))  // headers
-.disappear(Q(1941), Q(1931))  // black remarks
 .disappear(Q(241));  // red remarks
 
 //*******************************
@@ -107,8 +106,8 @@ ifQ(1591)
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(3)
-.disappear(Q(1211), Q(1221), Q(1621), Q(1321), Q(1641), Q(161), Q(1561))
-.clearAnswer(Q(1211), Q(1221), Q(1621), Q(1321), Q(1641), Q(161), Q(1561));
+.disappear(Q(1211), Q(1221), Q(1621), Q(1321), Q(1641), Q(161), Q(1561), Q(2121))
+.clearAnswer(Q(1211), Q(1221), Q(1621), Q(1321), Q(1641), Q(161), Q(1561), Q(2121));
 
 //------------------------------------
 // Greeting Time Calc - Begin
