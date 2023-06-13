@@ -11,7 +11,7 @@
 // VALET/BELLMAN - Begin
 //*******************************
 
-//
+// If QID 351 is answered Option [2 OR 3], then disappear and clear answer to QID 361.
 ifQ(351)
 .answered(2,3)
 .disappear(Q(361))
@@ -28,7 +28,7 @@ ifQ(351)
 // CHECK IN/FRONT DESK - Begin
 //*******************************
 
-//
+// If QID 651 is answered Option 3, then disappear and clear answer to QID 661.
 ifQ(651)
 .answered(3)
 .disappear(Q(661))
@@ -45,7 +45,7 @@ ifQ(651)
 // RESTAURANT VISIT I - Begin
 //*******************************
 
-//
+// If QID 3541 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(3541)
 .answered(1)
 .disappear(Q(1461), Q(1581), Q(1591), Q(1601))
@@ -62,7 +62,7 @@ ifQ(3541)
 // RESTAURANT VISIT II  - Begin
 //*******************************
 
-//
+// If QID 3551 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(3551)
 .answered(1)
 .disappear(Q(3041), Q(3161), Q(3171), Q(3181))
