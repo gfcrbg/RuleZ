@@ -11,7 +11,7 @@
 // CONDITION OF STORE - Begin
 //*******************************
 
-//
+// Triggers math operation to establish a percentage: [6571] / [6561] = [6581] * 100
 ifQ(6561)
 .answered()
 .andifQ(6571)
@@ -21,17 +21,17 @@ ifQ(6561)
 .multiply(Q(6581), 100)
 .store(Q(6581));
 
-//
+// If QID 6581 is >= 90, then set value to Option 1 to QID 6591.
 ifQ(6581)
 .greaterThanOrEqual(90)
 .setValue(Q(6591), 1);
 
-//
+// If QID 6581 is < 90, then set value to Option 2 to QID 6591.
 ifQ(6581)
 .lessThan(90)
 .setValue(Q(6591), 2);
 
-//
+// If QID 6581 is not answered, then clear answer to QID 6591.
 ifQ(6581)
 .notAnswered()
 .clearAnswer(Q(6591));
