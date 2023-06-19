@@ -1,0 +1,96 @@
+//*******************************	
+// CID: 591	
+// SID: 4961	
+// Last Updated: 6/19/2023	
+//*******************************	
+
+
+
+
+//***********************************
+// GREETING & NEEDS ASSESSMENT - Begin
+//***********************************
+
+//
+ifQ(2341)
+.answered(2)
+.setValue(Q(2121), 2)
+.setValue(Q(281), 2)
+.setValue(Q(291), 2)
+.setValue(Q(301), 2)
+.setValue(Q(321), 2)
+.setValue(Q(1961), 4)
+.setValue(Q(1971), 7)
+.setValue(Q(461), 2)
+.setValue(Q(1911), 2)
+.setValue(Q(471), 3);
+
+//***********************************
+// GREETING & NEEDS ASSESSMENT - End
+//***********************************
+
+
+
+
+//***********************************
+// PRESENTATION & TOUR - Begin
+//***********************************
+
+//
+ifQ(2341)
+.answered(2)
+.setValue(Q(2071), 2) 
+.setValue(Q(511), 3)
+.setValue(Q(1921), 11)
+.makeVoidRequired(Q(601))
+.setValue(Q(631), 2)
+.setValue(Q(651), 2)
+.setValue(Q(671), 3)
+.setValue(Q(701), 3)
+.setValue(Q(1941), 2)
+.setValue(Q(2091), 8)
+.setValue(Q(721), 3)
+.setValue(Q(761), 2);
+
+//***********************************
+// PRESENTATION & TOUR - End
+//***********************************
+
+
+
+
+//***********************************
+// CLOSING - Begin
+//***********************************
+
+//
+ifQ(2341)
+.answered(2)
+.setValue(Q(1261), 5)
+.setValue(Q(801), 2)
+.setValue(Q(831), 2)
+.setValue(Q(841), 2)
+.setValue(Q(851), 2)
+.makeVoidRequired(Q(1281));
+
+//***********************************
+// CLOSING - End
+//***********************************
+
+
+
+
+//***********************************
+// PROPERTY EVALUATION - Begin
+//***********************************
+
+//
+ifQ(2341)
+.answered(2)
+.setValue(Q(1011), 2)
+.setValue(Q(1021), 2)
+.setValue(Q(1031), 2);
+
+//***********************************
+// PROPERTY EVALUATION - End
+//***********************************
