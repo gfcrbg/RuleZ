@@ -11,7 +11,7 @@
 // GREETING & NEEDS ASSESSMENT - Begin
 //***********************************
 
-//
+// If QID 2341 is answered Option 2, then set value to QIDs.
 ifQ(2341)
 .answered(2)
 .setValue(Q(2121), 2)
@@ -36,13 +36,13 @@ ifQ(2341)
 // PRESENTATION & TOUR - Begin
 //***********************************
 
-//
+// If QID 2341 is answered Option 2, then set value and make void required to QIDs.
 ifQ(2341)
 .answered(2)
 .setValue(Q(2071), 2) 
 .setValue(Q(511), 3)
 .setValue(Q(1921), 11)
-.makeVoidRequired(Q(601))
+.makeVoidRequired(Q(601))  // text
 .setValue(Q(631), 2)
 .setValue(Q(651), 2)
 .setValue(Q(671), 3)
@@ -63,7 +63,7 @@ ifQ(2341)
 // CLOSING - Begin
 //***********************************
 
-//
+// If QID 2341 is answered Option 2, then set value and make void required to QIDs.
 ifQ(2341)
 .answered(2)
 .setValue(Q(1261), 5)
@@ -71,7 +71,7 @@ ifQ(2341)
 .setValue(Q(831), 2)
 .setValue(Q(841), 2)
 .setValue(Q(851), 2)
-.makeVoidRequired(Q(1281));
+.makeVoidRequired(Q(1281));  // text
 
 //***********************************
 // CLOSING - End
@@ -84,7 +84,7 @@ ifQ(2341)
 // PROPERTY EVALUATION - Begin
 //***********************************
 
-//
+// If QID 2341 is answered Option 2, then set value to QIDs.
 ifQ(2341)
 .answered(2)
 .setValue(Q(1011), 2)
