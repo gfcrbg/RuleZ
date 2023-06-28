@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 821	
+// SID: 4994	
+// Last Updated: 6/28/2023
+//*******************************	
+
+
+
+
+//*******************************
+// SERVICE/SPECS COMMENTS - Begin
+//*******************************
+
+// If QID 1831 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1831)
+.answered(1)
+.disappear(Q(1801), Q(1811), Q(1821))
+.clearAnswer(Q(1801), Q(1811), Q(1821));
+
+// If QID 1831 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1831)
+.answered(2)
+.disappear(Q(1281), Q(1291), Q(1301))
+.clearAnswer(Q(1281), Q(1291), Q(1301));
+
+//*******************************
+// SERVICE/SPECS COMMENTS - End
+//*******************************
