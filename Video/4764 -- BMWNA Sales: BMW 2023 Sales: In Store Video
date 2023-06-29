@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 6/7/2023	
+// Last Updated: 6/29/2023	
 //*******************************	
 
 
@@ -9,7 +9,12 @@
 
 //*******************************	
 // CONTACT - Begin
-//*******************************	
+//*******************************
+
+// If QID 981 is answered Option 1, then set value to Option 1 to QID 991.
+ifQ(981)
+.answered(1)
+.setValue(Q(991), 1);	
 
 // If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(201)
