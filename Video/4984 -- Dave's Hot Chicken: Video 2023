@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 4984	
-// Last Updated: 6/22/2023	
+// Last Updated: 7/14/2023	
 //**********************************	
 
 
@@ -11,12 +11,12 @@
 // ORDER EXPERIENCE - Begin
 //**********************************
 
-// If QID 211 and QID 221 are answered, then trigger math operation: [221] - [211] = [241] 
+// If QID 211 and QID 221 are answered, then trigger math operation: [231] - [211] = [241] 
 ifQ(211)
 .answered()
-.andifQ(221)
+.andifQ(231)
 .answered()
-.sub(Q(221), Q(211))
+.sub(Q(231), Q(211))
 .store(Q(241));
 
 // If QID 241 is < 6 seconds, then set value to Option 1 to QID 561.
