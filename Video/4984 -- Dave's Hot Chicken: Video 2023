@@ -11,7 +11,7 @@
 // ORDER EXPERIENCE - Begin
 //**********************************
 
-// If QID 211 and QID 221 are answered, then trigger math operation: [231] - [211] = [241] 
+// If QID 211 and QID 231 are answered, then trigger math operation: [231] - [211] = [241] 
 ifQ(211)
 .answered()
 .andifQ(231)
