@@ -1,0 +1,27 @@
+//Last Updated:
+
+
+
+
+//--------------------------
+//Age Calculator - Begin
+//--------------------------
+
+ifQ(1101)
+.answered()
+.andQ(1)
+.answered()
+.sub(Q(1101),Q(1))
+.store(Q(1111))
+
+ifQ(1111)
+.greaterThan(345600000)
+.setValue(Q(1121),1)
+
+ifQ(1111)
+.lessThan(345600001)
+.setValue(Q(1121),2)
+
+//--------------------------
+//Age Calculator - End
+//--------------------------
