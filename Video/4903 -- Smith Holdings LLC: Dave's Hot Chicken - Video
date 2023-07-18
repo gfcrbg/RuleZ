@@ -1,25 +1,8 @@
 //**********************************	
 // CID: 826	
 // SID: 4903	
-// Last Updated: 2/1/2023	
+// Last Updated: 7/18/2023	
 //**********************************	
-
-
-
-
-//**********************************
-// ATMOSPHERE AND APPEARANCE - Begin
-//**********************************
-
-// If QID 692 is not answered Option 4, then disappear and clear answer to QID 702.
-ifQ(692)
-.notAnswered(4)
-.disappear(Q(702))
-.clearAnswer(Q(702));
-
-//**********************************
-// ATMOSPHERE AND APPEARANCE - End
-//**********************************
 
 
 
