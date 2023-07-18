@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 846	
+// SID: 4892	
+// Last Updated: 	
+//*******************************	
+
+
+
+
+//*******************************
+// DEPARTURE - Begin
+//*******************************
+
+// If QID 131 is answered Option 2, then disappear and clear answer to QID 261.
+ifQ(131)
+.answered(2)
+.disappear(Q(261))
+.clearAnswer(Q(261));
+
+//*******************************
+// DEPARTURE - End
+//*******************************
