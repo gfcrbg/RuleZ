@@ -1,0 +1,13 @@
+//*******************************	
+// CID: 464
+// SID: 4711	
+// Last Updated: 	
+//*******************************
+
+
+
+
+//Set answer to bulk candy counter to "N/A" if No until otherwise noted.
+ifQ(211)
+.answered(2)
+.setValue(Q(211), 3);
