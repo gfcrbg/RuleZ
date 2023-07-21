@@ -1,0 +1,18 @@
+//*******************************	
+// CID: 639
+// SID: 4116	
+// Last Updated: 5/22/2019	
+//*******************************
+
+
+
+
+//If QID 1551 answered Option 2, then appear QID 1531.
+ifQ(1551)
+.answered(2)
+.appear(Q(1531))
+
+//If QID 1891 answered Option 1, then appear QID 1901.
+ifQ(1891)
+.answered(1)
+.appear(Q(1901))
