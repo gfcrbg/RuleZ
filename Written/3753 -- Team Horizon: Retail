@@ -1,0 +1,18 @@
+//*******************************	
+// CID: 539	
+// SID: 3753	
+// Last Updated: 	
+//*******************************
+
+
+
+
+ifQ(1151)
+.answered(2)
+.disappear(QOrder(6900,7550))
+.makeNotRequired(QOrder(6900,7550));
+
+ifQ(1151)
+.answered(2)
+.disappear(QOrder(7700,7900))
+.makeNotRequired(QOrder(7700,7900));
