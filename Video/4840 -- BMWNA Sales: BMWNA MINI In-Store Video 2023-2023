@@ -1,8 +1,26 @@
 //*******************************	
 // CID: 757	
 // SID: 4840
-// Last Updated: 5/3/2022	
+// Last Updated: 7/26/2023
 //*******************************	
+
+
+
+
+//*******************************
+// CONTACT - Begin
+//*******************************
+
+// If QID 1342 is answered AND < QID 1302, then trigger error message.
+ifQ(1342)
+.answered()
+.andifQ(1342)
+.lessThan(Q(1302))
+.setError('Attention Scoring: The date on question 6a. cannot be earlier than the date on question 3a. Please make the necessary changes. If you are unsure what date to enter, please send a mailer.');
+
+//*******************************
+// CONTACT - End
+//*******************************
 
 
 
