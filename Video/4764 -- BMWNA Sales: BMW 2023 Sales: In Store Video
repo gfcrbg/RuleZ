@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 6/29/2023	
+// Last Updated: 7/26/2023	
 //*******************************	
 
 
@@ -21,6 +21,13 @@ ifQ(201)
 .answered(4)
 .disappear(Q(211), Q(221), Q(231))
 .clearAnswer(Q(211), Q(221), Q(231));
+
+// If QID 211 is answered AND < QID 171, then trigger error message.
+ifQ(211)
+.answered()
+.andifQ(211)
+.lessThan(Q(171))
+.setError('Attention Scoring: The date on question 6a. cannot be earlier than the date on question 3a. Please make the necessary changes. If you are unsure what date to enter, please send a mailer.');
 
 // If QID 231 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(231)
