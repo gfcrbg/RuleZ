@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 682	
+// SID: 4283	
+// Last Updated: 12/23/2019	
+//*******************************
+
+
+
+
+//*******************************
+// VII. OVERALL EXPERIENCE - Begin
+//*******************************
+
+// If QID 431 is answered Option 2, then disappear and clear answer to QID 441.
+ifQ(431)
+.answered(2)
+.disappear(Q(441))
+.clearAnswer(Q(441))
+
+//*******************************
+// VII. OVERALL EXPERIENCE - End
+//*******************************
