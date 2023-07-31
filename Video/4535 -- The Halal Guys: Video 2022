@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 3/30/2023	
+// Last Updated: 7/31/2023	
 //*******************************	
 
 
@@ -100,6 +100,16 @@ ifQ(911)
 .greaterThan(240)
 .setValue(Q(981),2);
 
+// If QID 911 is <= 5 minutes, then set value to Option 1 to QID 1761.
+ifQ(911)
+.lessThanOrEqual(300)
+.setValue(Q(1761),1);
+
+// If QID 911 is 5 4 minutes, then set value to Option 2 to QID 1761.
+ifQ(911)
+.greaterThan(300)
+.setValue(Q(1761),2);
+
 // If QID 911 is <= 8 minutes, then set value to Option 1 to QID 1661.
 ifQ(911)
 .lessThanOrEqual(480)
@@ -133,8 +143,8 @@ ifQ(911)
 // If QID 961 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(961)
 .answered(1)
-.disappear(Q(981), Q(1661))
-.clearAnswer(Q(981), Q(1661));
+.disappear(Q(981), Q(1761), Q(1661))
+.clearAnswer(Q(981), Q(1761), Q(1661));
 
 // If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(961)
@@ -661,7 +671,7 @@ ifQ(1451)
 // Hides the Q scores in section
 ifQ(1)
 .answered()
-.disappear(Q(1281), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331), Q(1481), Q(1491), Q(1501)); 
+.disappear(Q(1281), Q(1771), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331), Q(1481), Q(1491), Q(1501)); 
 
 // Service total points possible
 ifQ(1481)
@@ -685,6 +695,26 @@ ifQ(981)
 .orifQ()
 .locIDIs('269','104')
 .setValue(Q(1281), ' ')
+.sub(Q(1491), 2)
+.store(Q(1491));
+
+
+// Q1761 score 2/2
+ifQ(1761)
+.answered(1)
+.setValue(Q(1771), '2');
+
+// Q1761 score 0/2
+ifQ(1761)
+.answered(2)
+.setValue(Q(1771), '0');
+
+// Q1761 No Answer OR Not visible
+ifQ(1761)
+.notAnswered()
+.orifQ()
+.locIDIs('269','104')
+.setValue(Q(1771), ' ')
 .sub(Q(1491), 2)
 .store(Q(1491));
 
@@ -810,7 +840,7 @@ ifQ(431)
 // Service actual points
 ifQ(1)
 .answered()
-.sum(Q(1281), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
+.sum(Q(1281), Q(1771), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
 .store(Q(1481));
 
 // Service total points possible
