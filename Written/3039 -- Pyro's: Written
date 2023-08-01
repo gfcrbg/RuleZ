@@ -1,0 +1,13 @@
+//*******************************	
+// CID: 299	
+// SID: 3039	
+// Last Updated:
+//*******************************
+
+
+
+
+// If QID 1331 is answered Option [2 OR 3], then appear QID 1671.
+ifQ(1331)
+.answered(2,3)
+.appear(Q(1671));
