@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 870	
+// SID: 4981	
+// Last Updated: 8/2/2023	
+//*******************************	
+
+
+
+
+//**********************************
+// VISITOR AUDIT QUESTIONNAIRE - Begin
+//**********************************
+
+// If QID 311 is answered Option [1 OR 2], then disappear and clear answer to QID 321.
+ifQ(311)
+.answered(1,2)
+.disappear(Q(321))
+.clearAnswer(Q(321));
+
+//**********************************
+// VISITOR AUDIT QUESTIONNAIRE - End
+//**********************************
