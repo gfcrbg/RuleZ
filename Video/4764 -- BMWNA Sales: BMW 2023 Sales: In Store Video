@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 757	
 // SID: 4764	
-// Last Updated: 7/26/2023	
+// Last Updated: 8/14/2023	
 //*******************************	
 
 
@@ -289,9 +289,9 @@ ifQ()
 .dateAfter('2023-05-02')
 .hideOptions(Q(1281), 2,3);
 
-// If QID 651 is answered Option [9, 10, OR 11], then disappear and clear answer to QID 661.
+// If QID 651 is answered Option [10 OR 11], then disappear and clear answer to QID 661.
 ifQ(651)
-.answered(9,10,11)
+.answered(10,11)
 .disappear(Q(661))
 .clearAnswer(Q(661));
 
