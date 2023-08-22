@@ -1,0 +1,143 @@
+//*******************************	
+// CID: 876	
+// SID: 5014	
+// Last Updated: 8/22/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// ORDER TAKING - Begin
+//*******************************
+
+// If QID 1191 is not answered Option [1 OR 2], then disappear and clear answer to QID 2031.
+ifQ(1191)
+.notAnswered(1,2)
+.disappear(Q(2031))
+.clearAnswer(Q(2031));
+
+//*******************************
+// ORDER TAKING - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER DELIVERY - Begin
+//*******************************
+
+// If QID 2101 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2101)
+.answered(2)
+.disappear(Q(2091), Q(2111), Q(1901), Q(2131))
+.clearAnswer(Q(2091), Q(2111), Q(1901), Q(2131));
+
+//
+ifQ(2071)
+.answered()
+.andifQ(1741)
+.answered()
+.sub(Q(1741), Q(2071))
+.store(Q(1201));
+
+//
+ifQ(1201)
+.lessThanOrEqual(300)
+.setValue(Q(2121), 1);
+
+//
+ifQ(1201)
+.greaterThan(300)
+.setValue(Q(2121), 2);
+
+//
+ifQ(2071)
+.answered()
+.andifQ(2091)
+.answered()
+.sub(Q(2091), Q(2071))
+.store(Q(2111));
+
+//
+ifQ(2101)
+.answered(1)
+.andifQ(2111)
+.lessThanOrEqual(1800)
+.setValue(Q(1901), 1);
+
+//
+ifQ(2101)
+.answered(1)
+.andifQ(2111)
+.greaterThan(1800)
+.setValue(Q(1901), 2);
+
+// DC
+ifQ(2101)
+.answered(1)
+.andifQ(2111)
+.lessThanOrEqual(1800)
+.setValue(Q(2131), 1);
+
+// DC
+ifQ(2101)
+.answered(1)
+.andifQ(2111)
+.greaterThan(1800)
+.setValue(Q(2131), 2);
+
+//*******************************
+// ORDER DELIVERY - End
+//*******************************
+
+
+
+
+//*******************************
+// TABLE TOUCH 
+// AND
+// MANAGER PRESENCE - Begin
+//*******************************
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QID 2061.
+ifQ(2051)
+.answered(2)
+.disappear(Q(2061))
+.clearAnswer(Q(2061));
+
+// If QID 1701 is answered Option 3, then disappear and clear answer to QID 1711.
+ifQ(1701)
+.answered(3)
+.disappear(Q(1711))
+.clearAnswer(Q(1711));
+
+//*******************************
+// TABLE TOUCH 
+// AND
+// MANAGER PRESENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// FINAL IMPRESSIONS - Begin
+//*******************************
+
+// If QID 1051 is answered Option 1, then disappear and clear answer to QID 1781.
+ifQ(1051)
+.answered(1)
+.disappear(Q(1781))
+.clearAnswer(Q(1781));
+
+// If QID 971 is answered Option 1, then disappear and clear answer to QID 1771.
+ifQ(971)
+.answered(1)
+.disappear(Q(1771))
+.clearAnswer(Q(1771));
+
+//*******************************
+// FINAL IMPRESSIONS - End
+//*******************************
