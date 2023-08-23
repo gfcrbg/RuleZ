@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 6/13/2023	
+// Last Updated: 8/23/2023	
 //*******************************	
 
 
@@ -443,6 +443,12 @@ ifQ(901)
 ifQ(1611)
 .answered([1,2,3,4])
 .setValue(Q(1611), 1,2,3,4,5);
+
+// If QID 1171 is answered Option [0 OR 1], then disappear and clear answer to QID 2221.
+ifQ(1171)
+.answered(0,1)
+.disappear(Q(2221))
+.clearAnswer(Q(2221));
 
 //*******************************
 // SHIFT MANAGEMENT  - End
