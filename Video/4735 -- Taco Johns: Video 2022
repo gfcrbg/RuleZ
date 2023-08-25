@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 8/23/2023	
+// Last Updated: 8/25/2023	
 //*******************************	
 
 
@@ -102,6 +102,11 @@ ifQ(1591)
 //*******************************
 // GUEST ORDER - Begin
 //*******************************
+
+// If QID 901 is answered Option 3, then disappear QIDs.
+ifQ(901)
+.answered(3)
+.disappear(Q(2231), Q(2241));
 
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
