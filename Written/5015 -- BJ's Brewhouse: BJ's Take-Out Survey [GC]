@@ -1,0 +1,50 @@
+//*******************************	
+// CID: 875	
+// SID: 5015
+// Last Updated: 8/28/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// ORDER READY TIME - Begin
+//*******************************
+
+// If QID [391 AND 561] is answered, then trigger math operation: [561] - [391] = [611]
+ifQ(391)
+.answered()
+.andifQ(561)
+.answered()
+.sub(Q(561), Q(391))
+.store(Q(611));
+
+// If QID [391 AND 401] is answered, then trigger math operation: [401] - [391] = [621]
+ifQ(391)
+.answered()
+.andifQ(401)
+.answered()
+.sub(Q(401), Q(391))
+.store(Q(621));
+
+// If QID [611 AND 621] is answered, then trigger math operation: [621] - [611] = [631]
+ifQ(611)
+.answered()
+.andifQ(621)
+.answered()
+.sub(Q(621), Q(611))
+.store(Q(631));
+
+// If QID 631 is <= 15 minutes, then set value to Option 1 to QID 411.
+ifQ(631)
+.lessThanOrEqual(900)
+.setValue(Q(411), 1);
+
+// If QID 631 is > 15 minutes, then set value to Option 2 to QID 411.
+ifQ(631)
+.greaterThan(900)
+.setValue(Q(411), 2);
+
+//*******************************
+// ORDER READY TIME - End
+//*******************************
