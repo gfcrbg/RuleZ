@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 875	
 // SID: 5013
-// Last Updated: 8/28/2023	
+// Last Updated: 8/29/2023	
 //*******************************	
 
 
@@ -11,11 +11,11 @@
 // SERVICE - Begin
 //*******************************
 
-// If QID 741 is answered Option 1, then disappear and clear answer to QID 751.
+// If QID 741 is answered Option 1, then disappear and clear answer to QID 821.
 ifQ(741)
 .answered(1)
-.disappear(Q(751))
-.clearAnswer(Q(751));
+.disappear(Q(821))
+.clearAnswer(Q(821));
 
 // If QID 371 is answered Option 1, then disappear and clear answer to QID 671.
 ifQ(371)
