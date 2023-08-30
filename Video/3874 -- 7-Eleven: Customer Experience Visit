@@ -1,13 +1,13 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 5/18/2023
+// Last Updated: 8/30/2023
 //*******************************
 
 
 
 
-// test shop:  3253047
+// test shop:  3253047 (prod.)
 
 // If shop date is before June, 2020, then set answer to reimbursement currency value to "5.00".
 ifQ()
@@ -58,6 +58,14 @@ ifQ()
 ifQ()
 .ulgIs("Restaurants")
 .appear(Q(8801));
+
+// Shop Date Trigger [AFTER August 2023], if ULG is "Vault Stock N/A", then set value to Option 3 to QIDs.
+ifQ()
+.ulgIs("Vault Stock N/A")
+.andifQ()
+.dateAfter("2023-08-31")
+.setValue(Q(2421), 3)
+.setValue(Q(6311), 3);
 
 //---------------------------------------------
 // ULG Settings - End
