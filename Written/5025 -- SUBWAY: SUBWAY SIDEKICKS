@@ -1,0 +1,93 @@
+//*******************************	
+// CID: 878 	
+// SID: 5025	
+// Last Updated: 8/31/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// IN-STORE EXPERIENCE - Begin
+//*******************************
+
+// If QID 61 not answered Option 5, then disappear and clear answer to QID 381.
+ifQ(61)
+.notAnswered(5)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+// If QID 61 not answered Option [1,2,3, OR 4], then disappear and clear answer to QID 71.
+ifQ(61)
+.notAnswered(1,2,3,4)
+.disappear(Q(71))
+.clearAnswer(Q(71));
+
+//*******************************
+// IN-STORE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// CULINARY EXPERIENCE - Begin
+//*******************************
+
+// If QID 311 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(311)
+.notAnswered(1)
+.disappear(Q(391), Q(331), Q(341), Q(371))
+.clearAnswer(Q(391), Q(331), Q(341), Q(371));
+
+// If QID 311 is not answered Option 2, then disappear and clear answer to QIDs.
+ifQ(311)
+.notAnswered(2)
+.disappear(Q(401), Q(501), Q(481))
+.clearAnswer(Q(401), Q(501), Q(481));
+
+// If QID 311 is not answered Option 3, then disappear and clear answer to QIDs.
+ifQ(311)
+.notAnswered(3)
+.disappear(Q(221), Q(511), Q(491))
+.clearAnswer(Q(221), Q(511), Q(491));
+
+// If QID 91 is not answered Option [1,2, OR 3], then disappear and clear answer to QID 221.
+ifQ(91)
+.notAnswered(1,2,3)
+.disappear(Q(221))
+.clearAnswer(Q(221));
+
+// If QID 221 is answered Option [0 OR 2], then disappear and clear answer to QID 321. 
+ifQ(221)
+.answered(0,2)
+.disappear(Q(321))
+.clearAnswer(Q(321));
+
+// If QID 341 is answered Option [0,1, OR 3], then disappear and clear answer to QID 351.
+ifQ(341)
+.answered(0,1,3)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+// If QID 501 is answered Option [0,1, OR 3], then disappear and clear answer to QID 531.
+ifQ(501)
+.answered(0,1,3)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 511 is answered Option [0,1, OR 3], then disappear and clear answer to QID 541.
+ifQ(511)
+.answered(0,1,3)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+// If QID 311 is not answered Option [1,2, OR 3], then disappear and clear answer to QID 361.
+ifQ(311)
+.notAnswered(1,2,3)
+.disappear(Q(361))
+.clearAnswer(Q(361));
+
+//*******************************
+// CULINARY EXPERIENCE - End
+//*******************************
