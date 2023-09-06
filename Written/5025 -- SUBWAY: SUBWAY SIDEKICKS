@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 878 	
 // SID: 5025	
-// Last Updated: 8/31/2023	
+// Last Updated: 9/6/2023	
 //*******************************	
 
 
@@ -49,8 +49,8 @@ ifQ(311)
 // If QID 311 is not answered Option 3, then disappear and clear answer to QIDs.
 ifQ(311)
 .notAnswered(3)
-.disappear(Q(221), Q(511), Q(491))
-.clearAnswer(Q(221), Q(511), Q(491));
+.disappear(Q(411), Q(511), Q(491))
+.clearAnswer(Q(411), Q(511), Q(491));
 
 // If QID 91 is not answered Option [1,2, OR 3], then disappear and clear answer to QID 221.
 ifQ(91)
