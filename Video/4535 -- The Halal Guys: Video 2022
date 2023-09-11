@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 8/2/2023	
+// Last Updated: 9/11/2023	
 //*******************************	
 
 
@@ -842,8 +842,13 @@ ifQ(431)
 
 // Service actual points
 ifQ(1)
-.answered()
+.dateBefore('2023-08-01')
 .sum(Q(1281), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
+.store(Q(1481));
+
+ifQ(1)
+.dateAfter('2023-07-31')
+.sum(Q(1771), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
 .store(Q(1481));
 
 // Service total points possible
