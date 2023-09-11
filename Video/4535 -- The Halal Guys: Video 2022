@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 7/31/2023	
+// Last Updated: 8/2/2023	
 //*******************************	
 
 
@@ -690,7 +690,9 @@ ifQ(981)
 .setValue(Q(1281), '0');
 
 // Q981 No Answer OR Not visible
-ifQ(981)
+ifQ(1)
+.dateBefore('2023-08-01')
+.andifQ(981)
 .notAnswered()
 .orifQ()
 .locIDIs('269','104')
@@ -710,7 +712,9 @@ ifQ(1761)
 .setValue(Q(1771), '0');
 
 // Q1761 No Answer OR Not visible
-ifQ(1761)
+ifQ(1)
+.dateAfter('2023-07-31')
+.andifQ(1761)
 .notAnswered()
 .orifQ()
 .locIDIs('269','104')
@@ -836,11 +840,10 @@ ifQ(431)
 .answered(2)
 .setValue(Q(1331), '0');
 
-
 // Service actual points
 ifQ(1)
 .answered()
-.sum(Q(1281), Q(1771), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
+.sum(Q(1281), Q(1691), Q(1291), Q(1701), Q(1301), Q(1311), Q(1321), Q(1331))
 .store(Q(1481));
 
 // Service total points possible
