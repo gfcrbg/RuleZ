@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 8/25/2023	
+// Last Updated: 9/13/2023	
 //*******************************	
 
 
@@ -114,6 +114,31 @@ ifQ(901)
 .disappear(Q(1211), Q(1221), Q(1621), Q(1321), Q(1641), Q(161), Q(1561), Q(2121))
 .clearAnswer(Q(1211), Q(1221), Q(1621), Q(1321), Q(1641), Q(161), Q(1561), Q(2121));
 
+// If QID 901 is answered Option [1 OR 3], then disappear and clear answer to QIDs. 
+ifQ(901)
+.answered(1,3)
+.disappear(Q(2341))  // black remarks
+.disappear(Q(2321), Q(2351), Q(2261))
+.clearAnswer(Q(2321), Q(2351), Q(2261));
+
+// If QID 2321 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 2331.
+ifQ(2321)
+.answered(0,2,3)
+.disappear(Q(2331))
+.clearAnswer(Q(2331));
+
+// If QID 901 is answered Option [2 OR 3], then disappear and clear answer to QID 2311.
+ifQ(901)
+.answered(2,3)
+.disappear(Q(2311))
+.clearAnswer(Q(2311));
+
+// If QID 2261 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 2301.
+ifQ(2261)
+.answered(0,1,3)
+.disappear(Q(2301))
+.clearAnswer(Q(2301));
+
 //------------------------------------
 // Greeting Time Calc - Begin
 //------------------------------------
@@ -200,8 +225,14 @@ ifQ(901)
 // If QID 901 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2,3)
-.disappear(Q(281))
-.clearAnswer(Q(281));
+.disappear(Q(281), Q(2271), Q(2281))
+.clearAnswer(Q(281), Q(2271), Q(2281));
+
+// If QID 2281 is answered Option [0 OR 1], then disappear and clear answer to QID 2291.
+ifQ(2281)
+.answered(0,1)
+.disappear(Q(2291))
+.clearAnswer(Q(2291));
 
 //*******************************
 // SERVING OUR GUEST - End
