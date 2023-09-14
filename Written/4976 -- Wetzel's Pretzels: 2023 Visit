@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 280	
+// SID: 4976	
+// Last Updated: 9/14/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// MASTER CASHIERING - Begin
+//*******************************
+
+// If QID 141 is answered Option 2, then disappear and clear answer to QID 151.
+ifQ(141)
+.answered(2)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+// If QID 151 is not answered Option 4, then disappear and clear answer to QID 161.
+ifQ(151)
+.notAnswered(4)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+//*******************************
+// MASTER CASHIERING - End
+//*******************************
