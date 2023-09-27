@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 490
+// SID: 3592	
+// Last Updated: 9/27/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// PRESENTATION & TOUR - Begin
+//*******************************
+
+// If QID 581 is answered Option 1, then disappear and clear answer to QID 591.
+ifQ(581)
+.answered(1)
+.disappear(Q(591))
+.clearAnswer(Q(591));
+
+//*******************************
+// PRESENTATION & TOUR - End
+//*******************************
