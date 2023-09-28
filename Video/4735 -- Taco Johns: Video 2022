@@ -106,7 +106,7 @@ ifQ(1591)
 // If QID 901 is answered Option 3, then disappear QIDs.
 ifQ(901)
 .answered(3)
-.disappear(Q(2231), Q(2241));
+.disappear(Q(2231));
 
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
@@ -117,7 +117,7 @@ ifQ(901)
 // If QID 901 is answered Option [1 OR 3], then disappear and clear answer to QIDs. 
 ifQ(901)
 .answered(1,3)
-.disappear(Q(2341), Q(2361))  // black remarks
+.disappear(Q(2361))  // black remarks
 .disappear(Q(2321), Q(2351), Q(2261))
 .clearAnswer(Q(2321), Q(2351), Q(2261));
 
@@ -353,7 +353,6 @@ ifQ(1331)
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(3)
-.disappear(Q(2251))  // black remark
 .disappear(Q(1551), Q(1241), Q(2011))
 .clearAnswer(Q(1551), Q(1241), Q(2011));
 
