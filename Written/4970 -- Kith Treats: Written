@@ -1,0 +1,22 @@
+//*******************************
+// CID: 866
+// SID: 4970
+// Last Updated: 10/2/2023
+//*******************************
+
+
+
+
+//*******************************
+// CLEANLINESS/MAINTENANCE - Begin
+//*******************************
+
+// If QID 1212 is answered Option [2 OR 3], then clear answer and disappear QID 1242.
+ifQ(1212)
+.answered(2,3)
+.disappear(Q(1242))
+.clearAnswer(Q(1242));
+
+//*******************************
+// CLEANLINESS/MAINTENANCE - End
+//*******************************
