@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 791	
+// SID: 4878	
+// Last Updated: 10/9/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// BEEF SHOPPE - Begin
+//*******************************
+
+// If QID 1421 is answered Option 2, then disappear and clear answer to QID 1431.
+ifQ(1421)
+.answered(2)
+.disappear(Q(1431))
+.clearAnswer(Q(1431));
+
+//*******************************
+// BEEF SHOPPE - End
+//*******************************
+
+
+
+
+//*******************************
+// BAKERY/CAKERY - Begin
+//*******************************
+
+// If QID 1451 is answered Option 2, then disappear and clear answer to QID 1461.
+ifQ(1451)
+.answered(2)
+.disappear(Q(1461))
+.clearAnswer(Q(1461));
+
+//*******************************
+// BAKERY/CAKERY - End
+//*******************************
