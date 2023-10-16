@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 874
+// SID: 5007	
+// Last Updated: 10/16/2023	
+//*******************************	
+
+
+
+
+//*******************************
+// SALES FLOOR - Begin
+//*******************************
+
+// If QID 501 is answered Option 2, then disappear and clear answer to QID 511.
+ifQ(501)
+.answered(2)
+.disappear(Q(511))
+.clearAnswer(Q(511));
+
+//*******************************
+// SALES FLOOR - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 731 is answered Option 1, then disappear and clear answer to QID 741.
+ifQ(731)
+.answered(1) 
+.disappear(Q(741))
+.clearAnswer(Q(741));
+
+//*******************************
+// RESTROOMS  - End
+//*******************************
