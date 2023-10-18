@@ -1,8 +1,64 @@
 //*******************************	
 // CID: 874
 // SID: 5007	
-// Last Updated: 10/16/2023	
+// Last Updated: 10/18/2023	
 //*******************************	
+
+
+
+
+//*******************************
+//  DELI / BAKERY DEPARTMENT- Begin
+//*******************************
+
+// If QID 871 is answered Option 2, then set value to Option 3 to QIDs.
+ifQ(871)
+.answered(2)
+.setValue(Q(261), 3)
+.setValue(Q(281), 3)
+.setValue(Q(321), 3)
+.setValue(Q(331), 3);
+
+//*******************************
+//  DELI / BAKERY DEPARTMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCE - Begin
+//*******************************
+
+// If QID 881 is answered Option 2, then set value to Option 3 to QIDs.
+ifQ(881)
+.answered(2)
+.setValue(Q(371), 3)
+.setValue(Q(381), 3)
+.setValue(Q(391), 3);
+
+//*******************************
+// PRODUCE - End
+//*******************************
+
+
+
+
+//*******************************
+// MEAT & SEAFOOD - Begin
+//*******************************
+
+// If QID 891 is answered Option 2, then set value to Option 3 to QIDs.
+ifQ(891)
+.answered(2)
+.setValue(Q(451), 3)
+.setValue(Q(441), 3)
+.setValue(Q(491), 3)
+.setValue(Q(461), 3);
+
+//*******************************
+// MEAT & SEAFOOD - End
+//*******************************
 
 
 
