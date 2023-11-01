@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 9/29/2023	
+// Last Updated: 11/1/2023	
 //*******************************	
 
 
@@ -232,6 +232,12 @@ ifQ(2281)
 .answered(0,1)
 .disappear(Q(2291))
 .clearAnswer(Q(2291));
+
+// If QID 2381 is answered Option 1, then disappear and clear answer to QID 2401.
+ifQ(2381)
+.answered(1)
+.disappear(Q(2401))
+.clearAnswer(Q(2401));
 
 //*******************************
 // SERVING OUR GUEST - End
