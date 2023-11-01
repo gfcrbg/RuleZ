@@ -233,9 +233,15 @@ ifQ(2281)
 .disappear(Q(2291))
 .clearAnswer(Q(2291));
 
-// If QID 2381 is answered Option 1, then disappear and clear answer to QID 2401.
+// If QID 901 is answered Option 3, then disappear and clear answer to QID 2381.
+ifQ(901)
+.answered(3)
+.disappear(Q(2381))
+.clearAnswer(Q(2381));
+
+// If QID 2381 is answered Option [0 OR 1], then disappear and clear answer to QID 2401.
 ifQ(2381)
-.answered(1)
+.answered(0,1)
 .disappear(Q(2401))
 .clearAnswer(Q(2401));
 
