@@ -1,8 +1,21 @@
 //*******************************	
 // CID: 850	
 // SID: 4894
-// Last Updated: 3/7/2023	
+// Last Updated: 11/7/2023	
 //*******************************	
+
+
+
+
+// If QID 1102 is answered Option 2, then disappear, clear answer, and make not required QIDs. (If location is closed, hide all relevant QIDs.)
+ifQ(1102)
+.answered(2)
+.disappear(Q(21), Q(31), Q(41), Q(51), Q(61), Q(872), Q(672))
+.disappear(Section(1), Section(2), Section(3))
+.clearAnswer(Q(21), Q(31), Q(41), Q(51), Q(61), Q(872), Q(672))
+.clearAnswer(Section(1), Section(2), Section(3))
+.makeNotRequired(Q(21), Q(31), Q(41), Q(51), Q(61), Q(872), Q(672))
+.makeNotRequired(Section(1), Section(2), Section(3));
 
 
 
