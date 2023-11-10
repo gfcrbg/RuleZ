@@ -1,0 +1,163 @@
+//*******************************	
+// CID: 858	
+// SID: 4928	
+// Last Updated: 11/10/2023
+//*******************************
+
+
+
+
+// The following set of RuleZ will automatically set the answer to question 101 based on the wave assigned to the shop. Therefore, it is important that the scheduler knows which location goes into each wave and set up the sessions correctly.
+
+ifQ()
+.waveIs("Lunch Buffet")
+.setValue(Q(101), 1);
+
+ifQ()
+.waveIs("Lunch Buffet with Salad Bar")
+.setValue(Q(101), 2);
+
+ifQ()
+.waveIs("Lunch with No Buffet")
+.setValue(Q(101), 3);
+
+ifQ()
+.waveIs("Dinner")
+.setValue(Q(101), 4);
+
+// The following set of RuleZ will make questions appear based on the answer to question 101 (the answer to 101 is automatically set by the RuleZ in the set above).
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(651));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(181));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(591));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(671));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(831));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(841));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(851));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(241));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(471));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(521));
+
+ifQ(101)
+.answered(1,2)
+.appear(Q(531));
+
+ifQ(101)
+.answered(2)
+.appear(Q(601));
+
+ifQ(101)
+.answered(2)
+.appear(Q(441));
+
+ifQ(101)
+.answered(1)
+.appear(Q(481));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(711));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(251));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(371));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(541));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(511));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(491));
+
+ifQ(101)
+.answered(3,4)
+.appear(Q(401));
+
+
+
+
+//**********************************
+// CLEANLINESS AND ATMOSPHERE - Begin
+//**********************************
+
+// The following set of RuleZ will make questions appear based on the answer to question to 811 - whether the men's or women's restroom was used. 
+
+ifQ(811)
+.answered(1)
+.appear(Q(881));
+
+ifQ(811)
+.answered(2)
+.appear(Q(871));
+
+//**********************************
+// CLEANLINESS AND ATMOSPHERE - End
+//**********************************
+
+
+
+
+//**********************************
+// SERVICE - Begin
+//**********************************
+
+// If QID 931 is answered Option 2, then set value to Option 3 to QIDs.
+ifQ(931)
+.answered(2)
+.setValue(Q(381), 3)
+.setValue(Q(411), 3)
+.setValue(Q(191), 3);
+
+// If QID 101 is answered Option [1 OR 2] and if QID 931 is answered Option 2, then set value to Option 3 to QID 591.
+ifQ(101)
+.answered(1,2)
+.andifQ(931)
+.answered(2)
+.setValue(Q(591), 3);
+
+// If QID 101 is answered Option [3 OR 4], then clear answer to QID 591.
+ifQ(101)
+.answered(3,4)
+.clearAnswer(Q(591));
+
+//**********************************
+// SERVICE - End
+//**********************************
