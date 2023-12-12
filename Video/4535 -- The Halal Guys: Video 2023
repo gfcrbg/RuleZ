@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 680	
 // SID: 4535	
-// Last Updated: 9/11/2023	
+// Last Updated: 12/12/2023	
 //*******************************	
 
 
@@ -270,7 +270,7 @@ ifQ(171)
 
 // Q171 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1091), ' ')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -420,7 +420,7 @@ ifQ(231)
 
 // Q231 not visible
 ifQ()
-.locIDIs('001')
+.locIDIs('001','103')
 .setValue(Q(1171), '')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -445,7 +445,7 @@ ifQ(241)
 
 // Q241 not visible
 ifQ()
-.locIDIs('001')
+.locIDIs('001','103')
 .setValue(Q(1181), '')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -470,7 +470,7 @@ ifQ(251)
 
 // Q251 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1191), '')
 .sub(Q(1441), 1)
 .store(Q(1441));
@@ -581,7 +581,7 @@ ifQ(331)
 
 // Q331 not visible
 ifQ()
-.locIDIs('001','269')
+.locIDIs('001','269','103')
 .setValue(Q(1231), ' ')
 .sub(Q(1461), 1)
 .store(Q(1461));
@@ -903,7 +903,7 @@ ifQ(451)
 
 // Q451 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1341), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -928,7 +928,7 @@ ifQ(461)
 
 // Q461 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1351), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -953,7 +953,7 @@ ifQ(481)
 
 // Q481 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1361), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -978,7 +978,7 @@ ifQ(501)
 
 // Q501 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1371), ' ')
 .sub(Q(1521), 1)
 .store(Q(1521));
@@ -1003,7 +1003,7 @@ ifQ(511)
 
 // Q511 not visible
 ifQ()
-.locIDIs('001','269','104')
+.locIDIs('001','269','104','103')
 .setValue(Q(1381), ' ')
 .sub(Q(1521), 2)
 .store(Q(1521));
