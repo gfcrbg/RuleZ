@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 8/30/2023
+// Last Updated: 1/3/2024
 //*******************************
 
 
@@ -173,7 +173,7 @@ ifQ()
 .lessThan(180)
 .setValue(Q(2211),1);
 
-// Shop Date Trigger [after July 2020 and before January 2022], if country is 'US' AND QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
+// Shop Date Trigger [AFTER July 2020 and before January 2022], if country is 'US' AND QID 3091 is >= 3 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .dateAfter("2020-07-31")
 .andifQ()
@@ -183,7 +183,7 @@ ifQ()
 .greaterThanOrEqual(180)
 .setValue(Q(2211),2);
 
-// Shop Date Trigger [after December 2021], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
+// Shop Date Trigger [AFTER December 2021], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
 .andifQ()
@@ -253,36 +253,61 @@ ifQ(1461)
 // GPS - Begin
 //********************************
 
-// If ULG is "No Rewards Program", then set value to Option 3 to QID 9031.
+// Shop Date Trigger [BEFORE January 2024], if ULG is "No Rewards Program", then set value to Option 3 to QID 9031.
 ifQ()
 .ulgIs('No Rewards Program')
+.andifQ()
+.dateBefore('2024-01-01')
 .setValue(Q(9031), 3);
 
-// If QID 9001 is answered, set value to QIDs to equal QID 9001.
-ifQ(9001)
+// Shop Date Trigger [BEFORE January 2024], if QID 9001 is answered, set value to QIDs to equal QID 9001.
+ifQ()
+.dateBefore('2024-01-01')
+.andifQ(9001)
 .answered()
 .setValue(Q(1451), Q(9001))
 .setValue(Q(9011), Q(9001));
 
-// If QID 9031 is answered, set value to QIDs to equal QID 9031.
-ifQ(9031)
+// Shop Date Trigger [BEFORE January 2024], if QID 9031 is answered, set value to QIDs to equal QID 9031.
+ifQ()
+.dateBefore('2024-01-01')
+.andifQ(9031)
 .answered()
 .setValue(Q(5091), Q(9031))
 .setValue(Q(9021), Q(9031));
 
-// If QID 5091 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(5091)
+// Shop Date Trigger [BEFORE January 2024], if QID 5091 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ()
+.dateBefore('2024-01-01')
+.andifQ(5091)
 .answered(2)
 .disappear(Q(9041), Q(9051), Q(9061), Q(8221))
 .clearAnswer(Q(9041), Q(9051), Q(9061), Q(8221));
 
-// If QID 51 answered Option [1 AND 2], QID 9001 answered Option 1, and QID 9031 answered Option 1, then set value to Option 1 to QID 9071.
-ifQ(51)
+// Shop Date Trigger [AFTER December 2023], if QID 9161 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ()
+.dateAfter('2023-12-31')
+.andifQ(9161)
+.answered(2)
+.disappear(Q(9041), Q(9051), Q(9061), Q(8221))
+.clearAnswer(Q(9041), Q(9051), Q(9061), Q(8221));
+
+// Shop Date Trigger [BEFORE January 2024], if QID 51 answered Option [1 AND 2], QID 9001 answered Option 1, and QID 9031 answered Option 1, then set value to Option 1 to QID 9071.
+ifQ()
+.dateBefore('2024-01-01')
+.andifQ(51)
 .answered([1,2])
 .andQ(9001)
 .answered(1)
 .andQ(9031)
 .answered(1)
+.setValue(Q(9071), 1);
+
+// Shop Date Trigger [AFTER December 2023], if QID 51 answered Option [1 AND 2], then set value to Option 1 to QID 9071.
+ifQ()
+.dateAfter('2023-12-31')
+.andifQ(51)
+.answered([1,2])
 .setValue(Q(9071), 1);
 
 //********************************
@@ -548,8 +573,10 @@ ifQ()
 .countryIs('Canada')
 .setValue(Q(5131), 3);
 
-// If QID 8931 is answered Option [1 OR 3], then disappear and clear answer to QID 8941.
-ifQ(8931)
+// Shop Date Trigger [BEFORE January 2024], if QID 8931 is answered Option [1 OR 3], then disappear and clear answer to QID 8941.
+ifQ()
+.dateBefore('2024-01-01')
+.andifQ(8931)
 .answered(1,3)
 .disappear(Q(8941))
 .clearAnswer(Q(8941));
@@ -656,6 +683,12 @@ ifQ()
 .andifQ(3051)
 .answered(2)
 .setValue(Q(3051), 3);
+
+// If QID 8761 is answered Option [1 OR 3], then disappear and clear answer to QID 9171.
+ifQ(8761)
+.answered(1,3)
+.disappear(Q(9171))
+.clearAnswer(Q(9171));
 
 //********************************
 // FRESH FOOD - End
