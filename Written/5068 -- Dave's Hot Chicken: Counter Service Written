@@ -1,0 +1,96 @@
+//**********************************	
+// CID: 869	
+// SID: 5068	
+// Last Updated: 1/4/2024	
+//**********************************	
+
+
+
+
+//------------------------------------------------
+// Closed Location Control - Begin
+//------------------------------------------------
+
+// If QID 1092 is answered Option 1, then disappear and clear answer to QID 1102.
+ifQ(1092)
+.answered(1)
+.disappear(Q(1102))
+.clearAnswer(Q(1102));
+
+// If location is closed, nullify QIDs in the prologue.
+ifQ(1092)
+.answered(2)
+.disappear(Q(61), Q(71), Q(1112), Q(1122), Q(81)) 
+.makeNotRequired(Q(61), Q(71), Q(1112), Q(1122), Q(81)) 
+.clearAnswer(Q(61), Q(71), Q(1112), Q(1122), Q(81));
+
+// If QID 1112 is answered Option 1, then disappear and clear answer to QID 1122.
+ifQ(1112)
+.answered(0,1)
+.disappear(Q(1122))
+.clearAnswer(Q(1122));
+
+// If location is closed, nullify QIDs in all scored sections.
+ifQ(1092)
+.answered(2)
+.disappear(Section(1), Section(2), Section(3), Section(4), Section(5))
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5));
+
+//------------------------------------------------
+// Closed Location Control - End
+//------------------------------------------------
+
+
+
+
+//**********************************
+// ATMOSPHERE AND APPEARANCE - Begin
+//**********************************
+
+// If QID 982 is answered Option 1, then disappear and clear answer to QID 992.
+ifQ(982)
+.answered(0,1)
+.disappear(Q(992))
+.clearAnswer(Q(992));
+
+// If QID 992 is not answered Option 4 OR if QID 1092 is answered Option 2, then disappear and clear answer to QID 1002.
+ifQ(992)
+.notAnswered(4)
+.orifQ(1092)
+.answered(2)
+.disappear(Q(1002))
+.clearAnswer(Q(1002));
+
+// If QID 982 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(982)
+.answered(0,2)
+.disappear(Q(1012), Q(141))
+.clearAnswer(Q(1012), Q(141));
+
+// If QID 1012 is answered Option [0 OR 2], then disappear and clear answer to QID 1022.
+ifQ(1012)
+.answered(0,2)
+.disappear(Q(1022))
+.clearAnswer(Q(1022));
+
+//**********************************
+// ATMOSPHERE AND APPEARANCE - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER QUALITY - Begin
+//**********************************
+
+// If QID 361 is answered Option 1, then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,1)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//**********************************
+// ORDER QUALITY - End
+//**********************************
