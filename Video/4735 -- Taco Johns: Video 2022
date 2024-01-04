@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 11/1/2023	
+// Last Updated: 1/4/2024	
 //*******************************	
 
 
@@ -282,32 +282,34 @@ ifQ(901)
 .sub(Q(1241), Q(1551))
 .store(Q(2011));
 
-// If QID 2011 is <= 1 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 1 to QID 2021.
+// If QID 2011 is <= 2 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 1 to QID 2021.
 ifQ(2011)
-.lessThanOrEqual(90)
+.lessThanOrEqual(150)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 1);
 
-// If QID 2011 is > 1 min. 30 sec. AND <= 1 min. 51 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2021.
+// If QID 2011 is > 2 min. 30 sec. AND <= 2 min. 50 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2021.
 ifQ(2011)
-.greaterThan(90)
-.lessThanOrEqual(111)
+.greaterThan(150)
+.andifQ(2011)
+.lessThanOrEqual(170)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 2);
 
-// If QID 2011 is > 1 min. 51 sec. AND <= 2 min. 31 sec. AND QID 901 is answered Option 2, then set value to Option 2 to QID 2021.
+// If QID 2011 is > 2 min. 50 sec. AND <= 3 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2021.
 ifQ(2011)
-.greaterThan(111)
-.lessThanOrEqual(151)
+.greaterThan(170)
+.andifQ(2011)
+.lessThanOrEqual(210)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 3);
 
-// If QID 2011 is > 2 min. 31 sec. AND QID 901 is answered Option 2, then set value to Option 3 to QID 2021.
+// If QID 2011 is > 3 min. 30 sec. AND QID 901 is answered Option 2, then set value to Option 4 to QID 2021.
 ifQ(2011)
-.greaterThan(151)
+.greaterThan(210)
 .andQ(901)
 .answered(2)
 .setValue(Q(2021), 4);
