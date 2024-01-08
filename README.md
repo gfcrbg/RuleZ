@@ -1,5 +1,8 @@
 ### Announcements  
 
+## January 2024
+Closed Location Guidelines  
+
 ## February 2023
 Using ```.makeNotRequired``` will not affect points.  
 Meaning, a 0/1 =! 0/0.  
