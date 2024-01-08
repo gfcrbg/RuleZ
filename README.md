@@ -1,7 +1,7 @@
 ### Announcements  
 
 ## January 2024
-Closed Location Guidelines  
+Added [Closed Location Guidelines](https://github.com/gfcrbg/RuleZ/wiki#closed-location-guidelines) to GitHub wiki.
 
 ## February 2023
 Using ```.makeNotRequired``` will not affect points.  
