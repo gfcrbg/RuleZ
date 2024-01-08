@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/3/2024
+// Last Updated: 1/8/2024
 //*******************************
 
 
@@ -183,22 +183,44 @@ ifQ()
 .greaterThanOrEqual(180)
 .setValue(Q(2211),2);
 
-// Shop Date Trigger [AFTER December 2021], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
+// Shop Date Trigger [AFTER December 2021 AND BEFORE January 2024], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
+.andifQ()
+.dateBefore("2024-01-01")
 .andifQ()
 .countryIs('US')
 .andQ(3091)
 .lessThanOrEqual(120)
 .setValue(Q(2211),1);
 
-// Shop Date Trigger [after December 2021], if country is 'US' AND QID 3091 is > 2 minutes, then set value to Option 2 to QID 2211.
+// Shop Date Trigger [AFTER December 2021 AND BEFORE January 2024], if country is 'US' AND QID 3091 is > 2 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
+.andifQ()
+.dateBefore("2024-01-01")
 .andifQ()
 .countryIs('US')
 .andQ(3091)
 .greaterThan(120)
+.setValue(Q(2211),2);
+
+// Shop Date Trigger [AFTER December 2023], if country is 'US' AND QID 3091 is <= 1 minute, then set value to Option 1 to QID 2211.
+ifQ()
+.dateAfter("2023-12-31")
+.andifQ()
+.countryIs('US')
+.andQ(3091)
+.lessThanOrEqual(60)
+.setValue(Q(2211),1);
+
+// Shop Date Trigger [AFTER December 2023], if country is 'US' AND QID 3091 is > 1 minute, then set value to Option 2 to QID 2211.
+ifQ()
+.dateAfter("2023-12-31")
+.andifQ()
+.countryIs('US')
+.andQ(3091)
+.greaterThan(60)
 .setValue(Q(2211),2);
 
 // If country is 'Canada' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
