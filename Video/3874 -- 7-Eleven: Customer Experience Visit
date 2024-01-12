@@ -325,7 +325,6 @@ ifQ()
 .answered(1)
 .setValue(Q(9071), 1);
 
-// beta
 // Shop Date Trigger [AFTER December 2023], if QID 51 answered Option [1 AND 2], QID 9161 answered Option 1, and QID 9151 answered Option 1, then set value to Option 1 to QID 9071.
 ifQ()
 .dateAfter('2023-12-31')
