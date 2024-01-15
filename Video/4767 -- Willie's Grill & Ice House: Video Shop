@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 812	
 // SID: 4767	
-// Last Updated: 5/25/2022	
+// Last Updated: 1/2/2022	
 //*******************************	
 
 
@@ -11,6 +11,7 @@
 // TABLE SERVICE - Begin
 //*******************************
 
+// QID 651 versioned out 12/23/2023.
 // If QID 931 is answered Option [2 OR 3], then make not required, disappear, and clear answer to QIDs.  Set value to Option 3 to QID 651. 
 ifQ(931)
 .answered(2,3)
@@ -18,6 +19,14 @@ ifQ(931)
 .disappear(Q(651), Q(991), Q(1111))
 .clearAnswer(Q(991), Q(1111))
 .setValue(Q(651), 3);
+
+// If QID 931 is answered Option [2 OR 3], then make not required, disappear, and clear answer to QIDs.  Set value to Option 4 to QID 1361. 
+ifQ(931)
+.answered(2,3)
+.makeNotRequired(Q(991), Q(1111))
+.disappear(Q(1361), Q(991), Q(1111))
+.clearAnswer(Q(991), Q(1111))
+.setValue(Q(1361), 4);
 
 // If QID 941 AND 961 are answered, trigger math operation: [961] - [941] = [1091]
 ifQ(941)
@@ -27,32 +36,65 @@ ifQ(941)
 .sub(Q(961), Q(941))
 .store(Q(1091));
 
+// QID 271 versioned out 12/31/2023.
 // If QID 1091 is <= 1 minute, then set value to Option 1, to QID 271.
 ifQ(1091)
 .lessThanOrEqual(60)
 .setValue(Q(271), 1);
 
+// QID 271 versioned out 12/31/2023
 // If QID 1091 is > 1 minute, then set value to Option 2 to QID 271.
 ifQ(1091)
 .greaterThan(60)
 .setValue(Q(271), 2);
+
+// If QID 1091 is <= 1 minute, then set value to Option 1 to QID 1331.
+ifQ(1091)
+.lessThanOrEqual(60)
+.setValue(Q(1331), 1);
+
+// If QID 1091 is > 1 minute AND < 1.5 minutes, then set value to Option 2 to QID 1331.
+ifQ(1091)
+.greaterThan(60)
+.andifQ(1091)
+.lessThan(91)
+.setValue(Q(1331), 2);
+
+// If QID 1091 is > 1.5 minutes, then set value to Option 3 to QID 1331.
+ifQ(1091)
+.greaterThan(90)
+.setValue(Q(1331), 3);
 
 // If QID 1181 is answered Option 2, then set value to Option 3 to QID 301.
 ifQ(1181)
 .answered(2)
 .setValue(Q(301), 3);
 
+// QID 311 versioned out 12/31/2023.
 // If QID 1181 is answered Option 1, then set value to Option 3 to QID 311.
 ifQ(1181)
 .answered(1)
 .setValue(Q(311), 3);
 
+// If QID 1181 is answered Option 1, then set value to Option 3 to QID 1341.
+ifQ(1181)
+.answered(1)
+.setValue(Q(1341), 3);
+
+// QID 641 versioned out 12/31/2023.
 // If QID 1141 is answered Option [2 OR 3], then disappear and clear answer to QIDs.  Set value to Option 3 to QID 641.
 ifQ(1141)
 .answered(2,3)
 .disappear(Q(981), Q(1101), Q(641))
 .clearAnswer(Q(981), Q(1101))
 .setValue(Q(641), 3);
+
+// If QID 1141 is answered Option [2 OR 3], then disappear and clear answer to QIDs.  Set value to Option 3 to QID 1351.
+ifQ(1141)
+.answered(2,3)
+.disappear(Q(981), Q(1101), Q(1351))
+.clearAnswer(Q(981), Q(1101))
+.setValue(Q(1351), 3);
 
 // If QID 1141 is answered Option 1 AND if QID 941 AND 981 are answered, trigger math operation: [981] - [941] = [1101]
 ifQ(1141)
@@ -64,20 +106,38 @@ ifQ(1141)
 .sub(Q(981), Q(941))
 .store(Q(1101));
 
+// QID 641 versioned out 12/31/2023.
 // If QID 1101 is <= 3 minutes, then set value to Option 1, to QID 641.
 ifQ(1101)
 .lessThanOrEqual(180)
 .setValue(Q(641), 1);
 
+// QID 641 versioned out 12/31/2023.
 // If QID 1101 is > 3 minutes, then set value to Option 2 to QID 641.
 ifQ(1101)
 .greaterThan(180)
 .setValue(Q(641), 2);
 
+// QID 641 versioned out 12/31/2023.
 // If QID 1141 is answered Option [2 OR 3], then set value to Option 3, to QID 641.
 ifQ(1141)
 .answered(2,3)
 .setValue(Q(641), 3);
+
+// If QID 1101 is <= 3 minutes, then set value to Option 1, to QID 1351.
+ifQ(1101)
+.lessThanOrEqual(180)
+.setValue(Q(1351), 1);
+
+// If QID 1101 is > 3 minutes, then set value to Option 2 to QID 1351.
+ifQ(1101)
+.greaterThan(180)
+.setValue(Q(1351), 2);
+
+// If QID 1141 is answered Option [2 OR 3], then set value to Option 3, to QID 1351.
+ifQ(1141)
+.answered(2,3)
+.setValue(Q(1351), 3);
 
 // If QID 931 is answered Option 1 AND if QID 941 AND 991 are answered, trigger math operation: [991] - [941] = [1111]
 ifQ(931)
@@ -89,20 +149,45 @@ ifQ(931)
 .sub(Q(991), Q(941))
 .store(Q(1111));
 
+// QID 651 versioned out 12/23/2023.
 // If QID 1111 is <= 6 minutes, then set value to Option 1, to QID 651.
 ifQ(1111)
 .lessThanOrEqual(360)
 .setValue(Q(651), 1);
 
+// QID 651 versioned out 12/23/2023.
 // If QID 1111 is > 6 minutes, then set value to Option 2 to QID 651.
 ifQ(1111)
 .greaterThan(360)
 .setValue(Q(651), 2);
 
+// QID 651 versioned out 12/23/2023.
 // If QID 931 is answered Option [2 OR 3], then set value to Option 3 to QID 651.
 ifQ(931)
 .answered(2,3)
 .setValue(Q(651), 3);
+
+// If QID 1111 is < 6 minutes, then set value to Option 1, to QID 1361.
+ifQ(1111)
+.lessThan(361)
+.setValue(Q(1361), 1);
+
+// If QID 1111 is >= 6 minutes AND < 7 minutes, then set value to Option 2, to QID 1361.
+ifQ(1111)
+.greaterThanOrEqual(360)
+.andifQ(1111)
+.lessThan(421)
+.setValue(Q(1361), 2);
+
+// If QID 1111 is > 7 minutes, then set value to Option 3, to QID 1361.
+ifQ(1111)
+.greaterThan(420)
+.setValue(Q(1361), 3);
+
+// If QID 931 is answered Option [2 OR 3], then set value to Option 4 to QID 1361.
+ifQ(931)
+.answered(2,3)
+.setValue(Q(1361), 4);
 
 // If QID 941 AND 1011 are answered, trigger math operation: [1011] - [941] = [1121]
 ifQ(941)
@@ -112,6 +197,7 @@ ifQ(941)
 .sub(Q(1011), Q(941))
 .store(Q(1121));
 
+// QID 661 versioned out 12/31/2023.
 // If QID 101 is answered Option 1 AND QID 1121 is <= 10 minutes, then set value to Option 1 to QID 661.
 ifQ(101)
 .answered(1)
@@ -119,6 +205,7 @@ ifQ(101)
 .lessThanOrEqual(600)
 .setValue(Q(661), 1);
 
+// QID 661 versioned out 12/31/2023.
 // If QID 101 is answered Option 1 AND QID 1121 is > 10 minutes, then set value to Option 2 to QID 661.
 ifQ(101)
 .answered(1)
@@ -126,6 +213,7 @@ ifQ(101)
 .greaterThan(600)
 .setValue(Q(661), 2);
 
+// QID 661 versioned out 12/31/2023.
 // If QID 101 is answered Option 2 AND QID 1121 is <= 12 minutes, then set value to Option 1 to QID 661.
 ifQ(101)
 .answered(2)
@@ -133,6 +221,7 @@ ifQ(101)
 .lessThanOrEqual(720)
 .setValue(Q(661), 1);
 
+// QID 661 versioned out 12/31/2023.
 // If QID 101 is answered Option 2 AND QID 1121 is > 12 minutes, then set value to Option 2 to QID 661.
 ifQ(101)
 .answered(2)
@@ -140,6 +229,7 @@ ifQ(101)
 .greaterThan(720)
 .setValue(Q(661), 2);
 
+// QID 661 versioned out 12/31/2023.
 // If QID 101 is answered Option 3 AND QID 1121 is <= 10 minutes, then set value to Option 1 to QID 661.
 ifQ(101)
 .answered(3)
@@ -147,12 +237,59 @@ ifQ(101)
 .lessThanOrEqual(600)
 .setValue(Q(661), 1);
 
+// QID 661 versioned out 12/31/2023.
 // If QID 101 is answered Option 3 AND QID 1121 is > 10 minutes, then set value to Option 2 to QID 661.
 ifQ(101)
 .answered(3)
 .andQ(1121)
 .greaterThan(600)
 .setValue(Q(661), 2);
+
+// If QID 101 is answered Option 1 AND QID 1121 is <= 10 minutes, then set value to Option 1 to QID 1371.
+ifQ(101)
+.answered(1)
+.andQ(1121)
+.lessThanOrEqual(600)
+.setValue(Q(1371), 1);
+
+// If QID 101 is answered Option 2 AND QID 1121 is <= 12 minutes, then set value to Option 1 to QID 1371.
+ifQ(101)
+.answered(2)
+.andQ(1121)
+.lessThanOrEqual(720)
+.setValue(Q(1371), 1);
+
+// If QID 101 is answered Option 1 AND QID 1121 is > 10 minutes AND <= 11 minutes, then set value to Option 2 to QID 1371.
+ifQ(101)
+.answered(1)
+.andQ(1121)
+.greaterThan(600)
+.andifQ(1121)
+.lessThanOrEqual(660)
+.setValue(Q(1371), 2);
+
+// If QID 101 is answered Option 2 AND QID 1121 is > 12 minutes AND <= 13 minutes, then set value to Option 2 to QID 1371.
+ifQ(101)
+.answered(2)
+.andQ(1121)
+.greaterThan(720)
+.andifQ(1121)
+.lessThanOrEqual(780)
+.setValue(Q(1371), 2);
+
+// If QID 101 is answered Option 1 AND QID 1121 is > 11 minutes, then set value to Option 3 to QID 1371.
+ifQ(101)
+.answered(1)
+.andQ(1121)
+.greaterThan(660)
+.setValue(Q(1371), 3);
+
+// If QID 101 is answered Option 2 AND QID 1121 is > 13 minutes, then set value to Option 4 to QID 1371.
+ifQ(101)
+.answered(2)
+.andQ(1121)
+.greaterThan(780)
+.setValue(Q(1371), 4);
 
 // If QID 1011 AND 1031 are answered, trigger math operation: [1031] - [1011] = [1081]
 ifQ(1011)
