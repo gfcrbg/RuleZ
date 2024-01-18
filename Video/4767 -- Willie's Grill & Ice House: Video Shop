@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 812	
 // SID: 4767	
-// Last Updated: 1/2/2022	
+// Last Updated: 1/18/2022	
 //*******************************	
 
 
@@ -252,9 +252,9 @@ ifQ(101)
 .lessThanOrEqual(600)
 .setValue(Q(1371), 1);
 
-// If QID 101 is answered Option 2 AND QID 1121 is <= 12 minutes, then set value to Option 1 to QID 1371.
+// If QID 101 is answered Option [2 OR 3] AND QID 1121 is <= 12 minutes, then set value to Option 1 to QID 1371.
 ifQ(101)
-.answered(2)
+.answered(2,3)
 .andQ(1121)
 .lessThanOrEqual(720)
 .setValue(Q(1371), 1);
@@ -268,9 +268,9 @@ ifQ(101)
 .lessThanOrEqual(660)
 .setValue(Q(1371), 2);
 
-// If QID 101 is answered Option 2 AND QID 1121 is > 12 minutes AND <= 13 minutes, then set value to Option 2 to QID 1371.
+// If QID 101 is answered Option [2 OR 3] AND QID 1121 is > 12 minutes AND <= 13 minutes, then set value to Option 2 to QID 1371.
 ifQ(101)
-.answered(2)
+.answered(2,3)
 .andQ(1121)
 .greaterThan(720)
 .andifQ(1121)
@@ -284,9 +284,9 @@ ifQ(101)
 .greaterThan(660)
 .setValue(Q(1371), 3);
 
-// If QID 101 is answered Option 2 AND QID 1121 is > 13 minutes, then set value to Option 4 to QID 1371.
+// If QID 101 is answered Option [2 OR 3] AND QID 1121 is > 13 minutes, then set value to Option 4 to QID 1371.
 ifQ(101)
-.answered(2)
+.answered(2,3)
 .andQ(1121)
 .greaterThan(780)
 .setValue(Q(1371), 4);
