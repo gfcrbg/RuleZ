@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/19/2024
+// Last Updated: 1/24/2024
 //*******************************
 
 
@@ -300,6 +300,13 @@ ifQ()
 .andifQ()
 .dateBefore('2024-01-01')
 .setValue(Q(9031), 3);
+
+// Shop Date Trigger [AFTER December 2023], if ULG is "No Rewards Program", then set value to Option 3 to QID 9161.
+ifQ()
+.ulgIs('No Rewards Program')
+.andifQ()
+.dateAfter('2023-12-31')
+.setValue(Q(9161), 3);
 
 // Shop Date Trigger [BEFORE January 2024], if QID 9001 is answered, set value to QIDs to equal QID 9001.
 ifQ()
