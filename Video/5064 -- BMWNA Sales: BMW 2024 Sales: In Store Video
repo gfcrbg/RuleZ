@@ -1,0 +1,493 @@
+ifQ()//auto set requested parent brand and hide
+.setValue(Q(41), 1)
+.disappear(Q(41))
+
+ifQ()//auto set scenario checked and hide
+.setValue(Q(81), 2)
+.disappear(Q(81))
+
+ifQ()//hide options 13 and 14 on why 0-8
+.hideOptions(Q(171), 13, 14)
+
+ifQ()//auto set book appointment and hide
+.setValue(Q(181), 1)
+.disappear(Q(181))
+
+ifQ()//hide hide contact everything except contact form and test drive request
+.hideOptions(Q(191), 1, 3, 5, 6, 7, 8)
+
+ifQ()//auto set request type and hide
+.setValue(Q(201), 2)
+.disappear(Q(201))
+
+ifQ(1)//week of the shop calculations 
+.dateAfter("2023-12-31")
+.andifQ(1)
+.dateBefore("2024-1-8")
+.setValue(Q(651), 1)
+
+ifQ(1)
+.dateAfter("2024-1-7")
+.andifQ(1)
+.dateBefore("2024-1-15")
+.setValue(Q(651), 2)
+
+ifQ(1)
+.dateAfter("2024-1-14")
+.andifQ(1)
+.dateBefore("2024-1-22")
+.setValue(Q(651), 3)
+
+ifQ(1)
+.dateAfter("2024-1-21")
+.andifQ(1)
+.dateBefore("2024-1-29")
+.setValue(Q(651), 4)
+
+ifQ(1)
+.dateAfter("2024-1-28")
+.andifQ(1)
+.dateBefore("2024-2-5")
+.setValue(Q(651), 5)
+
+ifQ(1)
+.dateAfter("2024-2-4")
+.andifQ(1)
+.dateBefore("2024-2-12")
+.setValue(Q(651), 6)
+
+ifQ(1)
+.dateAfter("2024-2-11")
+.andifQ(1)
+.dateBefore("2024-2-19")
+.setValue(Q(651), 7)
+
+ifQ(1)
+.dateAfter("2024-2-18")
+.andifQ(1)
+.dateBefore("2024-2-26")
+.setValue(Q(651), 8)
+
+ifQ(1)
+.dateAfter("2024-2-25")
+.andifQ(1)
+.dateBefore("2024-3-4")
+.setValue(Q(651), 9)
+
+ifQ(1)
+.dateAfter("2024-3-3")
+.andifQ(1)
+.dateBefore("2024-3-11")
+.setValue(Q(651), 10)
+
+ifQ(1)
+.dateAfter("2024-3-10")
+.andifQ(1)
+.dateBefore("2024-3-18")
+.setValue(Q(651), 11)
+
+ifQ(1)
+.dateAfter("2024-3-17")
+.andifQ(1)
+.dateBefore("2024-3-25")
+.setValue(Q(651), 12)
+
+ifQ(1)
+.dateAfter("2024-3-24")
+.andifQ(1)
+.dateBefore("2024-4-1")
+.setValue(Q(651), 13)
+
+ifQ(1)
+.dateAfter("2024-3-31")
+.andifQ(1)
+.dateBefore("2024-4-8")
+.setValue(Q(651), 14)
+
+ifQ(1)
+.dateAfter("2024-4-7")
+.andifQ(1)
+.dateBefore("2024-4-15")
+.setValue(Q(651), 15)
+
+ifQ(1)
+.dateAfter("2024-4-14")
+.andifQ(1)
+.dateBefore("2024-4-22")
+.setValue(Q(651), 16)
+
+ifQ(1)
+.dateAfter("2024-4-21")
+.andifQ(1)
+.dateBefore("2024-4-29")
+.setValue(Q(651), 17)
+
+ifQ(1)
+.dateAfter("2024-4-28")
+.andifQ(1)
+.dateBefore("2024-5-6")
+.setValue(Q(651), 18)
+
+ifQ(1)
+.dateAfter("2024-5-5")
+.andifQ(1)
+.dateBefore("2024-5-13")
+.setValue(Q(651), 19)
+
+ifQ(1)
+.dateAfter("2024-5-12")
+.andifQ(1)
+.dateBefore("2024-5-20")
+.setValue(Q(651), 20)
+
+ifQ(1)
+.dateAfter("2024-5-19")
+.andifQ(1)
+.dateBefore("2024-5-27")
+.setValue(Q(651), 21)
+
+ifQ(1)
+.dateAfter("2024-5-26")
+.andifQ(1)
+.dateBefore("2024-6-3")
+.setValue(Q(651), 22)
+
+ifQ(1)
+.dateAfter("2024-6-2")
+.andifQ(1)
+.dateBefore("2024-6-10")
+.setValue(Q(651), 23)
+
+ifQ(1)
+.dateAfter("2024-6-9")
+.andifQ(1)
+.dateBefore("2024-6-17")
+.setValue(Q(651), 24)
+
+ifQ(1)
+.dateAfter("2024-6-16")
+.andifQ(1)
+.dateBefore("2024-6-24")
+.setValue(Q(651), 25)
+
+ifQ(1)
+.dateAfter("2024-6-23")
+.andifQ(1)
+.dateBefore("2024-7-1")
+.setValue(Q(651), 26)
+
+ifQ(1)
+.dateAfter("2024-6-30")
+.andifQ(1)
+.dateBefore("2024-7-8")
+.setValue(Q(651), 27)
+
+ifQ(1)
+.dateAfter("2024-7-7")
+.andifQ(1)
+.dateBefore("2024-7-15")
+.setValue(Q(651), 28)
+
+ifQ(1)
+.dateAfter("2024-7-14")
+.andifQ(1)
+.dateBefore("2024-7-22")
+.setValue(Q(651), 29)
+
+ifQ(1)
+.dateAfter("2024-7-21")
+.andifQ(1)
+.dateBefore("2024-7-29")
+.setValue(Q(651), 30)
+
+ifQ(1)
+.dateAfter("2024-7-28")
+.andifQ(1)
+.dateBefore("2024-8-5")
+.setValue(Q(651), 31)
+
+ifQ(1)
+.dateAfter("2024-8-4")
+.andifQ(1)
+.dateBefore("2024-8-12")
+.setValue(Q(651), 32)
+
+ifQ(1)
+.dateAfter("2024-8-11")
+.andifQ(1)
+.dateBefore("2024-8-19")
+.setValue(Q(651), 33)
+
+ifQ(1)
+.dateAfter("2024-8-18")
+.andifQ(1)
+.dateBefore("2024-8-26")
+.setValue(Q(651), 34)
+
+ifQ(1)
+.dateAfter("2024-8-25")
+.andifQ(1)
+.dateBefore("2024-9-2")
+.setValue(Q(651), 35)
+
+ifQ(1)
+.dateAfter("2024-9-1")
+.andifQ(1)
+.dateBefore("2024-9-9")
+.setValue(Q(651), 36)
+
+ifQ(1)
+.dateAfter("2024-9-8")
+.andifQ(1)
+.dateBefore("2024-9-16")
+.setValue(Q(651), 37)
+
+ifQ(1)
+.dateAfter("2024-9-15")
+.andifQ(1)
+.dateBefore("2024-9-23")
+.setValue(Q(651), 38)
+
+ifQ(1)
+.dateAfter("2024-9-22")
+.andifQ(1)
+.dateBefore("2024-9-30")
+.setValue(Q(651), 39)
+
+ifQ(1)
+.dateAfter("2024-9-29")
+.andifQ(1)
+.dateBefore("2024-10-7")
+.setValue(Q(651), 40)
+
+ifQ(1)
+.dateAfter("2024-10-6")
+.andifQ(1)
+.dateBefore("2024-10-14")
+.setValue(Q(651), 41)
+
+ifQ(1)
+.dateAfter("2024-10-13")
+.andifQ(1)
+.dateBefore("2024-10-21")
+.setValue(Q(651), 42)
+
+ifQ(1)
+.dateAfter("2024-10-20")
+.andifQ(1)
+.dateBefore("2024-10-28")
+.setValue(Q(651), 43)
+
+ifQ(1)
+.dateAfter("2024-10-27")
+.andifQ(1)
+.dateBefore("2024-11-4")
+.setValue(Q(651), 44)
+
+ifQ(1)
+.dateAfter("2024-11-3")
+.andifQ(1)
+.dateBefore("2024-11-11")
+.setValue(Q(651), 45)
+
+ifQ(1)
+.dateAfter("2024-11-10")
+.andifQ(1)
+.dateBefore("2024-11-18")
+.setValue(Q(651), 46)
+
+ifQ(1)
+.dateAfter("2024-11-17")
+.andifQ(1)
+.dateBefore("2024-11-25")
+.setValue(Q(651), 47)
+
+ifQ(1)
+.dateAfter("2024-11-24")
+.andifQ(1)
+.dateBefore("2024-12-2")
+.setValue(Q(651), 48)
+
+ifQ(1)
+.dateAfter("2024-12-1")
+.andifQ(1)
+.dateBefore("2024-12-9")
+.setValue(Q(651), 49)
+
+ifQ(1)
+.dateAfter("2024-12-8")
+.andifQ(1)
+.dateBefore("2024-12-16")
+.setValue(Q(651), 50)
+
+ifQ(1)
+.dateAfter("2024-12-15")
+.andifQ(1)
+.dateBefore("2024-12-23")
+.setValue(Q(651), 51)
+
+ifQ(1)
+.dateAfter("2024-12-22")
+.andifQ(1)
+.dateBefore("2024-12-30")
+.setValue(Q(651), 52)
+
+ifQ(1)
+.dateAfter("2024-12-29")
+.andifQ(1)
+.dateBefore("2025-1-1")
+.setValue(Q(651), 53)
+
+ifQ(241)//if Q8 1/2/3 set Q25 4
+.answered(1, 2, 3)
+.setValue(Q(441), 4)
+
+ifQ(241)//if Q8 4 hide related questions 
+.answered(4)
+.disappear(Q(251), Q(261), Q(271), Q(281), Q(671), Q(1421), Q(331))
+
+ifQ(271)//if contacted by email show email field
+.answered(1,5)
+.appear(Q(281), Q(991))
+
+ifQ(271)
+.answered(2,3,4)
+.andifQ(671)
+.answered([1,2,3])
+.setValue(Q(671), 1, 2, 3, 6)
+
+ifQ(271)
+.answered(1, 5)
+.andifQ(671)
+.answered([1,2,3,4])
+.setValue(Q(671), 1, 2, 3, 4, 6)
+
+ifQ(341)//if after sale not available hide options 
+.answered(2)
+.disappear(Q(1431))
+
+ifQ(1271)
+.lessThanOrEqual(120)
+.setValue(Q(351), 1)
+
+ifQ(1271)
+.greaterThanOrEqual(121)
+.setValue(Q(351), 2)
+
+ifQ(1271)
+.lessThanOrEqual(300)
+.setValue(Q(361), 1)
+
+ifQ(1271)
+.greaterThanOrEqual(301)
+.andifQ(1271)
+.lessThanOrEqual(600)
+.setValue(Q(361), 2)
+
+ifQ(1271)
+.greaterThanOrEqual(601)
+.andifQ(1271)
+.lessThanOrEqual(1800)
+.setValue(Q(361), 3)
+
+ifQ(1271)
+.greaterThanOrEqual(1801)
+.setValue(Q(361), 4)
+
+ifQ(681)
+.answered([1,2,3])
+.setValue(Q(681), 1,2,3,6)
+
+ifQ(691)
+.answered([1,2,3])
+.setValue(Q(691), 1,2,3,5)
+
+ifQ(701)
+.answered([1,2])
+.setValue(Q(701), 1,2,4)
+
+ifQ(711)
+.answered([1])
+.setValue(Q(711), 1,5)
+
+ifQ(711)
+.answered([2])
+.setValue(Q(711), 2,5)
+
+ifQ(721)
+.answered([1])
+.setValue(Q(721), 1,5)
+
+ifQ(721)
+.answered([2])
+.setValue(Q(721), 2,5)
+
+ifQ(721)
+.answered([3])
+.setValue(Q(721), 3,5)
+
+ifQ(731)
+.answered([1,2,3])
+.setValue(Q(731), 1,2,3,5)
+
+ifQ(461)//if no xEV driven hide xEV questions
+.answered(2)
+.disappear(Q(741), Q(481))
+
+ifQ()//hide C on test drive requirements 
+.hideOptions(Q(741), 3)
+
+ifQ()//hide option H
+.hideOptions(Q(771), 8)
+
+ifQ(771)
+.answered([1,2])
+.setValue(Q(771), 1,2,7)
+
+ifQ(571)//if no follow up hide follow up date and time 
+.answered(2)
+.disappear(Q(611), Q(621))
+
+ifQ(571)//if yes date show follow up
+.answered(1)
+.appear(Q(581), Q(591))
+
+ifQ(571)//if no date show follow up
+.answered(2)
+.appear(Q(601))
+
+ifQ(1081)
+.answered(2)
+.appear(Q(1091), Q(1131))
+
+ifQ(91)
+.answered()
+.andQ(101)
+.answered()
+.sub(Q(101) , Q(91))
+.store(Q(1221))
+
+ifQ(1251)
+.answered()
+.andQ(1261)
+.answered()
+.sub(Q(1261) , Q(1251))
+.store(Q(1271));
+
+ifQ()
+.setValue(Q(571), 1)
+
+ifQ()
+.setValue(Q(581), Q(1))
+
+ifQ()
+.setValue(Q(591), 1)
+
+ifQ()
+.setValue(Q(611), Q(1))
+
+ifQ()
+.setValue(Q(621), "20:00:00")
+
+ifQ()
+.disappear(Q(1051), Q(1151), Q(571), Q(581), Q(591), Q(601), Q(611), Q(621));
