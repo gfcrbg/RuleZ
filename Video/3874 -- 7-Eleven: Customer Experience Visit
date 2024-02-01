@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 1/24/2024
+// Last Updated: 2/1/2024
 //*******************************
 
 
@@ -72,7 +72,6 @@ ifQ()
 .ulgIs("RDC Store List")
 .andifQ()
 .dateAfter("2023-12-31")
-.setValue(Q(9121), 1,2,3,6)
 .setValue(Q(6271), 1,2,3,4)
 .setValue(Q(5271), 1)
 .setValue(Q(2361), 1)
@@ -85,6 +84,14 @@ ifQ()
 .setValue(Q(8541), 1)
 .setValue(Q(8611), 1)
 .setValue(Q(2421), 1);
+
+// Shop Date Trigger [AFTER December 2023 AND BEFORE March 2024], then set value to max point options to QIDs.
+ifQ()
+.dateAfter("2023-12-31")
+.andifQ()
+.dateBefore('2024-03-01')
+.setValue(Q(9111), 1)
+.setValue(Q(9121), 1,2,3,6);
 
 //---------------------------------------------
 // ULG Settings - End
@@ -202,45 +209,45 @@ ifQ()
 .greaterThanOrEqual(180)
 .setValue(Q(2211),2);
 
-// Shop Date Trigger [AFTER December 2021 AND BEFORE January 2024], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
+// Shop Date Trigger [AFTER December 2021 AND BEFORE March 2024], if country is 'US' AND QID 3091 is <= 2 minutes, then set value to Option 1 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
 .andifQ()
-.dateBefore("2024-01-01")
+.dateBefore("2024-03-01")
 .andifQ()
 .countryIs('US')
 .andQ(3091)
 .lessThanOrEqual(120)
-.setValue(Q(2211),1);
+.setValue(Q(2211), 1);
 
-// Shop Date Trigger [AFTER December 2021 AND BEFORE January 2024], if country is 'US' AND QID 3091 is > 2 minutes, then set value to Option 2 to QID 2211.
+// Shop Date Trigger [AFTER December 2021 AND BEFORE March 2024], if country is 'US' AND QID 3091 is > 2 minutes, then set value to Option 2 to QID 2211.
 ifQ()
 .dateAfter("2021-12-31")
 .andifQ()
-.dateBefore("2024-01-01")
+.dateBefore("2024-03-01")
 .andifQ()
 .countryIs('US')
 .andQ(3091)
 .greaterThan(120)
-.setValue(Q(2211),2);
+.setValue(Q(2211), 2);
 
-// Shop Date Trigger [AFTER December 2023], if country is 'US' AND QID 3091 is <= 1 minute, then set value to Option 1 to QID 2211.
+// Shop Date Trigger [AFTER February 2024], if country is 'US' AND QID 3091 is <= 1 minute, then set value to Option 1 to QID 2211.
 ifQ()
-.dateAfter("2023-12-31")
+.dateAfter("2024-02-29")
 .andifQ()
 .countryIs('US')
 .andQ(3091)
 .lessThanOrEqual(60)
-.setValue(Q(2211),1);
+.setValue(Q(2211), 1);
 
-// Shop Date Trigger [AFTER December 2023], if country is 'US' AND QID 3091 is > 1 minute, then set value to Option 2 to QID 2211.
+// Shop Date Trigger [AFTER February 2024], if country is 'US' AND QID 3091 is > 1 minute, then set value to Option 2 to QID 2211.
 ifQ()
-.dateAfter("2023-12-31")
+.dateAfter("2024-02-29")
 .andifQ()
 .countryIs('US')
 .andQ(3091)
 .greaterThan(60)
-.setValue(Q(2211),2);
+.setValue(Q(2211), 2);
 
 // If country is 'Canada' AND QID 3091 is < 3 minutes, then set value to Option 1 to QID 2211.
 ifQ()
