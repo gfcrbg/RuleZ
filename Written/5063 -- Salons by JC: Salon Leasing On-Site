@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 886	
 // SID: 5063	
-// Last Updated: 1/15/2024	
+// Last Updated: 2/8/2024	(by Greg S.)
 //*******************************	
 
 
@@ -11,11 +11,17 @@
 // APPOINTMENT SETTING PHONE CALL - Begin
 //*************************************
 
-// If QID 481 is answered Option 2, then disappear, make not required, and clear answer to QIDs.
-ifQ(481)
-.answered(2)
-.disappear(Q(91), Q(31), Q(41), Q(61), Q(71), Q(101), Q(121), Q(141), Q(151), Q(541))
-.clearAnswer(Q(91), Q(31), Q(41), Q(61), Q(71), Q(101), Q(121), Q(141), Q(151), Q(541));
+// If QID 591 is answered Option [1 OR 4], then disappear and clear answer to QID 611.
+ifQ(591)
+.answered(1,4)
+.disappear(Q(611))
+.clearAnswer(Q(611))
+
+// If QID 601 is answered Option 2 or Option 3, then disappear and clear answer to QIDs.
+ifQ(601)
+.answered(2,3)
+.disappear(Q(31), Q(91), Q(41), Q(61), Q(71), Q(101), Q(121), Q(141), Q(151), Q(541))
+.clearAnswer(Q(31), Q(91), Q(41), Q(61), Q(71), Q(101), Q(121), Q(141), Q(151), Q(541));
 
 // If QID 101 is answered Option [0 OR 1], then disappear and clear answer to QID 111.
 ifQ(101)
@@ -34,9 +40,9 @@ ifQ(101)
 // GREETING - Begin
 //*************************************
 
-// If QID 481 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(481)
-.answered(2)
+// If QID 601 is answered Option 2 or Option 3, then disappear and clear answer to QIDs.
+ifQ(601)
+.answered(2,3)
 .disappear(Q(161)) // medium header
 .disappear(Q(1), Q(551), Q(171), Q(561), Q(181), Q(201))
 .clearAnswer(Q(1), Q(551), Q(171), Q(561), Q(181), Q(201));
@@ -52,9 +58,9 @@ ifQ(481)
 // QUALIFYING - Begin
 //*************************************
 
-// If QID 481 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(481)
-.answered(2)
+// If QID 601 is answered Option 2 or Option 3, then disappear and clear answer to QIDs.
+ifQ(601)
+.answered(2,3)
 .disappear(Q(221)) // medium header
 .disappear(Q(231), Q(241), Q(251))
 .clearAnswer(Q(231), Q(241), Q(251));
@@ -70,9 +76,9 @@ ifQ(481)
 // PRESENTATION - Begin
 //*************************************
 
-// If QID 481 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(481)
-.answered(2)
+// If QID 601 is answered Option 2 or Option 3, then disappear and clear answer to QIDs.
+ifQ(601)
+.answered(2,3)
 .disappear(Q(261)) // medium header
 .disappear(Q(271), Q(281), Q(291), Q(301), Q(311), Q(321), Q(491), Q(501), Q(331))
 .clearAnswer(Q(271), Q(281), Q(291), Q(301), Q(311), Q(321), Q(491), Q(501), Q(331));
@@ -88,9 +94,9 @@ ifQ(481)
 // CLOSING - Begin
 //*************************************
 
-// If QID 481 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(481)
-.answered(2)
+// If QID 601 is answered Option 2 or Option 3, then disappear and clear answer to QIDs.
+ifQ(601)
+.answered(2,3)
 .disappear(Q(341)) // medium header
 .disappear(Q(351), Q(361), Q(371), Q(381), Q(511), Q(521))
 .clearAnswer(Q(351), Q(361), Q(371), Q(381), Q(511), Q(521));
@@ -106,9 +112,9 @@ ifQ(481)
 // CONCIERGE MANAGER - Begin
 //*************************************
 
-// If QID 481 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(481)
-.answered(2)
+// If QID 601 is answered Option 2 or Option 3, then disappear and clear answer to QIDs.
+ifQ(601)
+.answered(2,3)
 .disappear(Q(391)) // medium header
 .disappear(Q(411), Q(431), Q(441), Q(461))
 .clearAnswer(Q(411), Q(431), Q(441), Q(461));
