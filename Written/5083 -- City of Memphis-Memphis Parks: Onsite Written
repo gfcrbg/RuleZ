@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 888
+// SID: 5083	
+// Last Updated: 2/13/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// INTERACTION - Begin
+//*******************************
+
+// If QID 541 answered Option 1, then disappear and clear answer to QID 731. 
+ifQ(541)
+.answered(1)
+.disappear(Q(731))
+.clearAnswer(Q(731));
+
+//*******************************
+// INTERACTION - End
+//*******************************
