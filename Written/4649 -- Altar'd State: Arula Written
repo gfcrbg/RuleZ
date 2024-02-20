@@ -1,0 +1,67 @@
+//*******************************	
+// CID: 478	
+// SID: 4649	
+// Last Updated: 2/20/2024	
+//*******************************	
+
+
+
+
+//-------------------------------------------
+// Prologue - Begin
+//-------------------------------------------
+
+// If group is "Altar'd State", then disappear QID 711.
+ifQ()
+.groupIs("Altar'd State")
+.disappear (Q(711));
+
+//-------------------------------------------
+// Prologue - End
+//-------------------------------------------
+
+
+
+
+//*******************************
+// LASTING IMPRESSIONS - Begin
+//*******************************
+
+// If QID 361 is answered Option [2 OR 3], then disappear and clear answer to QID 1211.
+ifQ(361)
+.answered(2,3)
+.disappear(Q(1211))
+.clearAnswer(Q(1211));
+
+// If QID 361 is answered Option [1 OR 3], then disappear and clear answer to QID 1221.
+ifQ(361)
+.answered(1,3)
+.disappear(Q(1221))
+.clearAnswer(Q(1221));
+
+//*******************************
+// LASTING IMPRESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL EXPERIENCE - Begin
+//*******************************
+
+// If QID 1241 is answered Option 1, then disappear and clear answer to QID 1251.
+ifQ(1241)
+.answered(1)
+.disappear(Q(1251))
+.clearAnswer(Q(1251));
+
+// If QID 891 is answered Option 2, then disappear and clear answer to QID 901.
+ifQ(891)
+.answered(2)
+.disappear(Q(901))
+.clearAnswer(Q(901));
+
+//*******************************
+// OVERALL EXPERIENCE - End
+//*******************************
