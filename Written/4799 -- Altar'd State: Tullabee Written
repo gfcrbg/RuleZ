@@ -1,0 +1,51 @@
+//*******************************	
+// CID: 478	
+// SID: 4799	
+// Last Updated: 2/20/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// LASTING IMPRESSIONS - Begin
+//*******************************
+
+// If QID 561 is answered Option 2, then disappear and clear answer to QID 1071.
+ifQ(561)
+.answered(2)
+.disappear(Q(1071))
+.clearAnswer(Q(1071));
+
+// If QID 561 is answered Option 1, then disappear and clear answer to QID 1081.
+ifQ(561)
+.answered(1)
+.disappear(Q(1081))
+.clearAnswer(Q(1081));
+
+//*******************************
+// LASTING IMPRESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL EXPERIENCE - Begin
+//*******************************
+
+// If QID 1101 is answered Option 1, then disappear and clear answer to QID 1111.
+ifQ(1101)
+.answered(1)
+.disappear(Q(1111))
+.clearAnswer(Q(1111));
+
+// If QID 881 is answered Option 2, then disappear and clear answer to QID 891.
+ifQ(881)
+.answered(2)
+.disappear(Q(891))
+.clearAnswer(Q(891));
+
+//*******************************
+// OVERALL EXPERIENCE - End
+//*******************************
