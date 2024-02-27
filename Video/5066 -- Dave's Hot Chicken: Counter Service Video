@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 5066	
-// Last Updated: 1/17/2024	
+// Last Updated: 2/26/2024	
 //**********************************	
 
 
@@ -16,6 +16,12 @@ ifQ(1092)
 .answered(1)
 .disappear(Q(1102))
 .clearAnswer(Q(1102));
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QID 1412.
+ifQ(1092)
+.answered(2)
+.disappear(Q(1412))
+.clearAnswer(Q(1412));
 
 // If location is closed, nullify QIDs in the prologue.
 ifQ(1092)
@@ -84,6 +90,7 @@ ifQ(992)
 // If QID 982 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(982)
 .answered(0,2)
+.disappear(Q(802))  // red remark
 .disappear(Q(1012), Q(141))
 .clearAnswer(Q(1012), Q(141));
 
