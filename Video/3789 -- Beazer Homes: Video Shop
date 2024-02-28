@@ -1,21 +1,149 @@
 //*******************************	
 // CID: 544	
 // SID: 3789	
-// Last Updated: 8/22/2022	
+// Last Updated: 2/28/2024	
 //*******************************	
 
 
 
 
-//*******************************
+// If QID 1791 is answered Option 1, then disappear and clear answer to QID 1801.
+ifQ(1791)
+.answered(1)
+.disappear(Q(1801))
+.clearAnswer(Q(1801));
+
+// If QID 1791 is answered Option [2 OR 3], then set value to QID 1801 to copy QID 1811.
+ifQ(1791)
+.answered(2,3)
+.setValue(Q(1801), Q(1811));
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(1241), Q(1251), Q(1261))
+.clearAnswer(Q(1241), Q(1251), Q(1261));
+
+
+
+
+//***********************************
+//  SITE/ENVIRONMENT - Begin
+//***********************************
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(1351))  // header
+.disappear(Q(1361), Q(1371), Q(1381))
+.clearAnswer(Q(1361), Q(1371), Q(1381));
+
+//***********************************
+//  SITE/ENVIRONMENT - End
+//***********************************
+
+
+
+
+//***********************************
 // GREETING - Begin
-//*******************************
+//***********************************
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(131))  // header
+.disappear(Q(141), Q(1021), Q(1031), Q(191), Q(211), Q(1471), Q(241), Q(1411))
+.clearAnswer(Q(141), Q(1021), Q(1031), Q(191), Q(211), Q(1471), Q(241), Q(1411));
+
+// If QID 141 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(141)
+.answered(0,1)
+.disappear(Q(1461), Q(151))
+.clearAnswer(Q(1461), Q(151));
 
 // If QID 1661 is answered Option 1, then set value to Option 3 to QID 1411.
 ifQ(1661)
 .answered(1)
+.andifQ(1791)
+.answered(1,2)
 .setValue(Q(1411), 3); 
 
-//*******************************
+//***********************************
 // GREETING - End
-//*******************************
+//***********************************
+
+
+
+
+//***********************************
+//  DISCOVERY/NEEDS ASSESSMENT - Begin
+//***********************************
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(251))  // header
+.disappear(Q(261))  // remark
+.disappear(Q(271), Q(1091), Q(281), Q(291), Q(321), Q(341), Q(351), Q(381), Q(411), Q(445))
+.clearAnswer(Q(271), Q(1091), Q(281), Q(291), Q(321), Q(341), Q(351), Q(381), Q(411), Q(445));
+
+//***********************************
+//  DISCOVERY/NEEDS ASSESSMENT - End
+//***********************************
+
+
+
+
+//***********************************
+//  DEMONSTRATION - Begin
+//***********************************
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(451))  // header
+.disappear(Q(461), Q(1421), Q(1621))  // remarks
+.disappear(Q(471), Q(511), Q(581), Q(591), Q(1211), Q(611), Q(1481), Q(1491), Q(1501), Q(1511), Q(1521), Q(1201), Q(1071))
+.clearAnswer(Q(471), Q(511), Q(581), Q(591), Q(1211), Q(611), Q(1481), Q(1491), Q(1501), Q(1511), Q(1521), Q(1201), Q(1071));
+
+//***********************************
+//  DEMONSTRATION - End
+//***********************************
+
+
+
+
+//***********************************
+//  CLOSING - Begin
+//***********************************
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(1181), Q(1761), Q(681), Q(1431), Q(1531), Q(711), Q(841))  // remarks
+.disappear(Q(631), Q(641), Q(661), Q(671), Q(691), Q(1391), Q(1541), Q(721), Q(731), Q(751), Q(761), Q(771), Q(781), Q(821), Q(831), Q(1231), Q(1401))
+.clearAnswer(Q(631), Q(641), Q(661), Q(671), Q(691), Q(1391), Q(1541), Q(721), Q(731), Q(751), Q(761), Q(771), Q(781), Q(821), Q(831), Q(1231), Q(1401));
+
+//***********************************
+//  CLOSING - End
+//***********************************
+
+
+
+
+//***********************************
+//  SATISFACTION SURVEY - Begin
+//***********************************
+
+// If QID 1791 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(1791)
+.answered(3)
+.disappear(Q(1271))  // header
+.disappear(Q(1291))  // remark
+.disappear(Q(1281), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1551), Q(1561))
+.clearAnswer(Q(1281), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1551), Q(1561));
+
+//***********************************
+//  SATISFACTION SURVEY - End
+//***********************************
