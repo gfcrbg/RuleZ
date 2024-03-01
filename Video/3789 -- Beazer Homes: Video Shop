@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 544	
 // SID: 3789	
-// Last Updated: 2/28/2024	
+// Last Updated: 3/1/2024	
 //*******************************	
 
 
@@ -56,11 +56,17 @@ ifQ(1791)
 .disappear(Q(141), Q(1021), Q(1031), Q(191), Q(211), Q(1471), Q(241), Q(1411))
 .clearAnswer(Q(141), Q(1021), Q(1031), Q(191), Q(211), Q(1471), Q(241), Q(1411));
 
-// If QID 141 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+// If QID 141 is answered Option [0 OR 1], then disappear and clear answer to QID 1461.
 ifQ(141)
 .answered(0,1)
-.disappear(Q(1461), Q(151))
-.clearAnswer(Q(1461), Q(151));
+.disappear(Q(1461))
+.clearAnswer(Q(1461));
+
+// If QID 141 is answered Option [0 OR 1], then disappear and clear answer to QID 151.
+ifQ(141)
+.notAnswered(2)
+.disappear(Q(151))
+.clearAnswer(Q(151));
 
 // If QID 1661 is answered Option 1, then set value to Option 3 to QID 1411.
 ifQ(1661)
