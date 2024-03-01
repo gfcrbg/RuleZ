@@ -1158,15 +1158,20 @@ ifQ(1591)
 
 
 
-// location closed set-up
+//------------------------------------------------
+// Closed Location Control - Begin
+//------------------------------------------------
 
-// Trigger date [AFTER February 2024], if QID 1781 is answered Option 2, then make not required, disappear, and clear answer to QOrder [1500, 6700].
+// Trigger date [AFTER February 2024], if QID 1781 is answered Option 2, then make not required, disappear, and clear answer to QID 391 and QOrder [1500, 6700].
 ifQ()
 .dateAfter('2024-02-29')
 .andifQ(1781)
 .answered(2)
+.makeNotRequired(Q(391))
 .makeNotRequired(QOrder(1500, 6700))
+.disappear(Q(391))
 .disappear(QOrder(1500, 6700))
+.clearAnswer(Q(391))
 .clearAnswer(QOrder(1500, 6700));
 
 // Trigger date [AFTER February 2024], if QID 1781  is answered Option 2, then set value to Option 0 to QIDs.
@@ -1177,3 +1182,7 @@ ifQ()
 .setValue(Q(1571), 0)
 .setValue(Q(1581), 0)
 .setValue(Q(1591), 0);
+
+//------------------------------------------------
+// Closed Location Control - End
+//------------------------------------------------
