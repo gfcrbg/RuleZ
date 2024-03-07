@@ -1,0 +1,14 @@
+//*******************************	
+// CID: 889
+// SID: 5094	
+// Last Updated: 3/7/2024	
+//*******************************	
+
+
+
+
+// If QID 1201 is answered Option 2, then disappear and clear answer to QID 1181.
+ifQ(1201) 
+.answered(2)
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
