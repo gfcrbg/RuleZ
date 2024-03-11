@@ -1,0 +1,76 @@
+//*******************************	
+// CID: 878 	
+// SID: 5108	
+// Last Updated: 3/11/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// IN-STORE EXPERIENCE - Begin
+//*******************************
+
+// If QID 61 not answered Option 5, then disappear and clear answer to QID 381.
+ifQ(61)
+.notAnswered(5)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+//*******************************
+// IN-STORE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// CULINARY EXPERIENCE - Begin
+//*******************************
+
+// If QID 311 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(311)
+.notAnswered(1)
+.disappear(Q(361), Q(341), Q(371), Q(571), Q(601), Q(621), Q(651))
+.clearAnswer(Q(361), Q(341), Q(371), Q(571), Q(601), Q(621), Q(651));
+
+// If QID 311 is not answered Option 2, then disappear and clear answer to QIDs.
+ifQ(311)
+.notAnswered(2)
+.disappear(Q(461), Q(501), Q(481), Q(631), Q(641))
+.clearAnswer(Q(461), Q(501), Q(481), Q(631), Q(641));
+
+// If QID 311 is not answered Option [1 OR 2], then disappear and clear answer to QIDs.
+ifQ(311)
+.notAnswered(1,2)
+.disappear(Q(611))
+.clearAnswer(Q(611));
+
+// pass
+// If QID 91 is not answered Option [1 OR 2], then disappear and clear answer to QID 221.
+ifQ(91)
+.notAnswered(1,2)
+.disappear(Q(221))
+.clearAnswer(Q(221));
+
+// If QID 341 is answered Option [0,1, OR 3], then disappear and clear answer to QID 351.
+ifQ(341)
+.answered(0,1,3)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+// If QID 501 is answered Option [0,1, OR 3], then disappear and clear answer to QID 531.
+ifQ(501)
+.answered(0,1,3)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+// If QID 571 is answered Option [0 OR 1], then disappear and clear answer to QID 581.
+ifQ(571)
+.answered(0,1)
+.disappear(Q(581))
+.clearAnswer(Q(581));
+
+//*******************************
+// CULINARY EXPERIENCE - End
+//*******************************
