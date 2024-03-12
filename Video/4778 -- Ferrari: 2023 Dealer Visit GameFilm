@@ -1,15 +1,313 @@
 //*******************************	
 // CID: 351	
 // SID: 4778	
-// Last Updated: 11/17/2022	
+// Last Updated: 3/12/2024	
 //*******************************	
 
 
 
 
-//*******************************
+// If QID 1631 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 1641.
+ifQ(1631)
+.answered(1,2,3,4)
+.disappear(Q(1641))
+.clearAnswer(Q(1641));
+
+
+
+
+//*************************************
+// CONTACT WITH RSA - Begin
+//*************************************
+
+//---------------------------------------------------
+// Phone Call - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(81))  // small header
+.disappear(Q(91), Q(101), Q(111), Q(141), Q(151), Q(161), Q(171), Q(1821), Q(181), Q(1831), Q(1061), Q(201), Q(221), Q(231), Q(1111))
+.clearAnswer(Q(91), Q(101), Q(111), Q(141), Q(151), Q(161), Q(171), Q(1821), Q(181), Q(1831), Q(1061), Q(201), Q(221), Q(231), Q(1111));
+
+// If QID 201 is answered Option [0 OR 2], then disappear and clear answer to QID 1101.
+ifQ(201)
+.answered(0,2)
+.disappear(Q(1101))
+.clearAnswer(Q(1101));
+
+//---------------------------------------------------
+// Phone Call - End
+//---------------------------------------------------
+
+
+
+
+//---------------------------------------------------
+// During the Wait For the Tow Truck - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(251))  // small header
+.disappear(Q(261), Q(1021))
+.clearAnswer(Q(261), Q(1021));
+
+// If QID 261 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 271.
+ifQ(261)
+.answered(0,2,3)
+.disappear(Q(271))
+.clearAnswer(Q(271));
+
+// If QID 261 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 281.
+ifQ(261)
+.answered(0,1,3)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+// If QID 1021 is answered Option [0 OR 2], then disappear and clear answer to QID 1031.
+ifQ(1021)
+.answered(0,2)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+//---------------------------------------------------
+// During the Wait For the Tow Truck - End
+//---------------------------------------------------
+
+
+
+
+//---------------------------------------------------
+// Tow Truck Arrival - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(291))  // small header
+.disappear(Q(311), Q(321), Q(361), Q(371), Q(381))
+.clearAnswer(Q(311), Q(321), Q(361), Q(371), Q(381));
+
+// If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(321)
+.answered(0,2)
+.disappear(Q(331), Q(341))
+.clearAnswer(Q(331), Q(341));
+
+// If QID 341 is answered Option [0 OR 1], then disappear and clear answer to QID 351.
+ifQ(341)
+.answered(0,1)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+// If QID 381 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1081.
+ifQ(381)
+.answered(0,2,3)
+.disappear(Q(1081))
+.clearAnswer(Q(1081));
+
+//---------------------------------------------------
+// Tow Truck Arrival - End
+//---------------------------------------------------
+
+//*************************************
+// CONTACT WITH RSA - End
+//*************************************
+
+
+
+
+//*************************************
+// RSA PROVIDER - Begin
+//*************************************
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(391))  // medium header
+.disappear(Q(401), Q(411), Q(1131), Q(431))
+.clearAnswer(Q(401), Q(411), Q(1131), Q(431));
+
+
+
+
+//---------------------------------------------------
+// Appearance of Driver And Equipment - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(441))  // small header
+.disappear(Q(451), Q(461), Q(471), Q(481), Q(491))
+.clearAnswer(Q(451), Q(461), Q(471), Q(481), Q(491));
+
+//---------------------------------------------------
+// Appearance of Driver And Equipment - End
+//---------------------------------------------------
+
+
+
+
+//---------------------------------------------------
+// During The Rescue - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(501))  // small header
+.disappear(Q(511), Q(521), Q(1141))
+.clearAnswer(Q(511), Q(521), Q(1141));
+
+//---------------------------------------------------
+// During The Rescue - End
+//---------------------------------------------------
+
+
+
+
+//---------------------------------------------------
+// Driver Evaluation - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(541))  // small header
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+//---------------------------------------------------
+// Driver Evaluation - End
+//---------------------------------------------------
+
+
+
+
+//---------------------------------------------------
+// Transportation To The Dealership - Begin
+//---------------------------------------------------
+
+// If QID 961 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(961)
+.answered(2)
+.disappear(Q(561))  // small header
+.disappear(Q(571), Q(581), Q(591), Q(1151), Q(1171))
+.clearAnswer(Q(571), Q(581), Q(591), Q(1151), Q(1171))
+
+// If QID 591 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1091.
+ifQ(591)
+.answered(0,2,3)
+.disappear(Q(1091))
+.clearAnswer(Q(1091));
+
+//---------------------------------------------------
+// Transportation To The Dealership - End
+//---------------------------------------------------
+
+//*************************************
+// RSA PROVIDER - End
+//*************************************
+
+
+
+
+//*************************************
+// CUSTOMER CARE - Begin
+//*************************************
+
+// If QID 1381 is answered Option 2, then disappear and clear answer to QID 1651.
+ifQ(1381)
+.answered(2)
+.disappear(Q(1651))
+.clearAnswer(Q(1651));
+
+// If QID 1651 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 1681.
+ifQ(1651)
+.answered(0,1,2)
+.disappear(Q(1681))
+.clearAnswer(Q(1681));
+
+// If QID 1271 is answered Option 1, then disappear and clear answer to QID 1761.
+ifQ(1271)
+.answered(1)
+.disappear(Q(1761))
+.clearAnswer(Q(1761));
+
+// If QID 971 is answered Option 2, then disappear and clear answer to QID 1051.
+ifQ(971)
+.answered(2)
+.disappear(Q(1051))
+.clearAnswer(Q(1051));
+
+//*************************************
+// CUSTOMER CARE - End
+//*************************************
+
+
+
+
+//*************************************
+// REPAIR - Begin
+//*************************************
+// Section's full title
+// Repair: Technical Knowledge, Procedure & Time
+
+// If QID 1391 is answered Option 2, then disappear and clear answer to QID 1401.
+ifQ(1391)
+.answered(2)
+.disappear(Q(1401))
+.clearAnswer(Q(1401));
+
+// If QID 831 is answered Option 1, then disappear and clear answer to QID 1161.
+ifQ(831)
+.answered(1)
+.disappear(Q(1161))
+.clearAnswer(Q(1161));
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(1781), Q(1661))
+.clearAnswer(Q(1781), Q(1661));
+
+// If QID 1661 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 1671.
+ifQ(1661)
+.answered(0,1,2,3)
+.disappear(Q(1671))
+.clearAnswer(Q(1671));
+
+//*************************************
+// REPAIR - End
+//*************************************
+
+
+
+
+//*************************************
+// CAR PICK-UP - Begin
+//*************************************
+
+// If QID 851 is answered Option 1, then disappear and clear answer to QID 1121.
+ifQ(851)
+.answered(1)
+.disappear(Q(1121))
+.clearAnswer(Q(1121));
+
+//*************************************
+// CAR PICK-UP - End
+//*************************************
+
+
+
+
+//*************************************
 // CUSTOMER FOLLOW-UP - Begin
-//*******************************
+//*************************************
 
 // If QID 941 is answered Option [2 OR 3], then disappear and clear answer to QID 1311.
 ifQ(941)
@@ -23,6 +321,41 @@ ifQ(941)
 .disappear(Q(1321), Q(1331))
 .clearAnswer(Q(1321), Q(1331));
 
-//*******************************
+//*************************************
 // CUSTOMER FOLLOW-UP - End
-//*******************************
+//*************************************
+
+
+
+
+//*************************************
+// "ADVOCACY" SCORE - Begin
+//*************************************
+
+// If QID 1491 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 1561.
+ifQ(1491)
+.answered(3,4,5)
+.disappear(Q(1561))
+.clearAnswer(Q(1561));
+
+// If QID 1561 is not answered Option 8, then disappear and clear Answer to QID 1571.
+ifQ(1561)
+.notAnswered(8)
+.disappear(Q(1571))
+.clearAnswer(Q(1571));
+
+// If QID 1491 is answered Option [1, 2, OR 3], then disappear and clear answer to QID 1581.
+ifQ(1491)
+.answered(1,2,3)
+.disappear(Q(1581))
+.clearAnswer(Q(1581));
+
+// If QID 1581 is not answered Option 8, then disappear and clear answer to QID 1591.
+ifQ(1581)
+.notAnswered(8)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+//*************************************
+// "ADVOCACY" SCORE - End
+//*************************************
