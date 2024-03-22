@@ -62,114 +62,87 @@ ifQ(151)
 .disappear(Q(181))
 .clearAnswer(Q(181));
 
-// If QID 181 is answered Option [1, 2, 3, OR 4]
-// OR if QID 151 is answered Option [1 OR 4], then disappear and clear answer to QID 831.
+// If QID 181 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 831.
 ifQ(181)
-.answered(1,2,3,4)
-.orifQ(151)
-.answered(1,4)
+.answered(0,1,2,3,4)
 .disappear(Q(831))
 .clearAnswer(Q(831));
 
-//
+// If QID 151 is answered Option [1, 3, OR 4], then disappear and clear answer to QID 201.
 ifQ(151)
 .answered(1,3,4)
 .disappear(Q(201))
 .clearAnswer(Q(201));
 
-//
+// If QID 151 is answered Option 1, then disappear and clear answer to QID 211.
 ifQ(151)
 .answered(1)
 .disappear(Q(211))
 .clearAnswer(Q(211));
 
-//
+// If QID 151 is answered Option [1, 2, OR 4], then disappear and clear answer to QID 221.
 ifQ(151)
 .answered(1,2,4)
 .disappear(Q(221))
 .clearAnswer(Q(221));
 
-//
+// If QID 221 is answered Option [0, 1, 2, 3, 4, OR 5], then disappear and clear answer to QID 231. 
 ifQ(221)
-.answered(1,2,3,4,5)
-.orifQ(151)
-.answered(1,2,4)
+.answered(0,1,2,3,4,5)
 .disappear(Q(231))
 .clearAnswer(Q(231));
 
-//
+// If QID 151 is answered Option [1, 2, OR 3], then disappear and clear answer to QIDs.
 ifQ(151)
 .answered(1,2,3)
 .disappear(Q(241), Q(251), Q(261))
 .clearAnswer(Q(241), Q(251), Q(261));
 
-//
+// If QID 261 is answered Option [0, 1, 2, 3, 4, OR 5], then disappear and clear answer to QID 271.
 ifQ(261)
-.answered(1,2,3,4,5)
-.orifQ(151)
-.answered(1,2,3)
+.answered(0,1,2,3,4,5)
 .disappear(Q(271))
 .clearAnswer(Q(271));
 
-//
+// If QID 151 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(151)
 .answered(4)
 .disappear(Q(291), Q(301), Q(341))
 .clearAnswer(Q(291), Q(301), Q(341));
 
-//
+// If QID 301 is not answered Option 6, then disappear and clear answer to QID 311.
 ifQ(301)
 .notAnswered(6)
-.orifQ(151)
-.answered(4)
 .disappear(Q(311))
 .clearAnswer(Q(311));
 
-//
+// If QID 341 is answered Option [0, 1, 2, 3, 4, OR 5], then disappear and clear answer to QID 351. 
 ifQ(341)
-.answered(1,2,3,4,5)
-.orifQ(151)
-.answered(4)
+.answered(0,1,2,3,4,5)
 .disappear(Q(351))
 .clearAnswer(Q(351));
 
-//
+// If QID 341 is answered Option [0, 1, 2, 3, 5, OR 6], then disappear and clear answer to QID 361. 
 ifQ(341)
-.answered(1,2,3,5,6)
-.orifQ(151)
-.answered(4)
+.answered(0,1,2,3,5,6)
 .disappear(Q(361))
 .clearAnswer(Q(361));
 
-//
+// If QID 361 is answered Option [0, 1, 2, 3, 4, OR 5], then disappear and clear answer to QID 371.
 ifQ(361)
-.answered(1,2,3,4,5)
-.orifQ(341)
-.answered(1,2,3,5,6)
-.orifQ(151)
-.answered(4)
+.answered(0,1,2,3,4,5)
 .disappear(Q(371))
 .clearAnswer(Q(371));
 
-//
+// If QID 361 is answered Option [0, 1, 2, 3, 4, OR 6], then disappear and clear answer to QIDs.
 ifQ(361)
-.answered(1,2,3,4,6)
-.orifQ(341)
-.answered(1,2,3,5,6)
-.orifQ(151)
-.answered(4)
+.answered(0,1,2,3,4,6)
 .disappear(Q(381), Q(391), Q(401))
 .clearAnswer(Q(381), Q(391), Q(401));
 
-//
+// If QID 401 is answered Option [0, 1, 2, 3, 4, OR 5], then disappear and clear answer to QID 411.
 ifQ(401)
-.answered(1,2,3,4,5)
-.orifQ(361)
-.answered(1,2,3,4,6)
-.orifQ(341)
-.answered(1,2,3,5,6)
-.orifQ(151)
-.answered(4)
+.answered(0,1,2,3,4,5)
 .disappear(Q(411))
 .clearAnswer(Q(411));
 
@@ -184,31 +157,27 @@ ifQ(401)
 // BE A HOST - Begin
 //*******************************
 
-//
+// If QID 431 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 441.
 ifQ(431)
 .answered(3,4,5)
 .disappear(Q(441))
 .clearAnswer(Q(441));
 
-//
+// If QID 441 is not answered Option 8, then disappear and clear answer to QID 451.
 ifQ(441)
 .notAnswered(8)
-.orifQ(431)
-.answered(3,4,5)
 .disappear(Q(451))
 .clearAnswer(Q(451));
 
-//
+// If QID 431 is answered Option [1 OR 2], then disappear and clear answer to QID 461.
 ifQ(431)
 .answered(1,2)
 .disappear(Q(461))
 .clearAnswer(Q(461));
 
-//
+// If QID 461 is not answered Option 8, then disappear and clear answer to QID 471.
 ifQ(461)
 .notAnswered(8)
-.orifQ(431)
-.answered(1,2)
 .disappear(Q(471))
 .clearAnswer(Q(471));
 
@@ -223,115 +192,93 @@ ifQ(461)
 // QUALITY MANAGEMENT - Begin
 //*******************************
 
-//
+// If QID 511 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 521.
 ifQ(511)
 .answered(3,4,5)
 .disappear(Q(521))
 .clearAnswer(Q(521));
 
-//
+// If QID 521 is not answered Option 8, then disappear and clear answer to QID 531.
 ifQ(521)
 .notAnswered(8)
-.orifQ(511)
-.answered(3,4,5)
 .disappear(Q(531))
 .clearAnswer(Q(531));
 
-//
+// If QID 511 is answered Option [1 OR 2], then disappear and clear answer to QID 541.
 ifQ(511)
 .answered(1,2)
 .disappear(Q(541))
 .clearAnswer(Q(541));
 
-//
+// If QID 541 is not answered Option 8, then disappear and clear answer to QID 551.
 ifQ(541)
 .notAnswered(8)
-.orifQ(511)
-.answered(1,2)
 .disappear(Q(551))
 .clearAnswer(Q(551));
 
-//
+// If QID 561 is not answered Option 8, then disappear and clear answer to QID 571.
 ifQ(561)
 .notAnswered(8)
 .disappear(Q(571))
 .clearAnswer(Q(571));
 
-//
+// If QID 51 is answered Option [2, 3, OR 4], then disappear and clear answer to QIDs.
 ifQ(51)
 .answered(2,3,4)
 .disappear(Q(601), Q(851), Q(1061))
 .clearAnswer(Q(601), Q(851), Q(1061));
 
-//
+// If QID 1061 is not answered Option 5, then disappear and clear answer to QID 631.
 ifQ(1061)
 .notAnswered(5)
-.orifQ(51)
-.answered(2,3,4)
 .disappear(Q(631))
 .clearAnswer(Q(631));
 
-//
+// If QID 1061 is not answered Option 1, then disappear and clear answer to QID 871.
 ifQ(1061)
 .notAnswered(1)
-.orifQ(51)
-.answered(2,3,4)
 .disappear(Q(871))
 .clearAnswer(Q(871));
 
-//
+// If QID 871 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 881.
 ifQ(871)
-.answered(1,2,3,4)
-.orifQ(1061)
-.answered(2,3,4,5,6)
-.orifQ(51)
-.answered(2,3,4)
+.answered(0,1,2,3,4)
 .disappear(Q(881))
 .clearAnswer(Q(881));
 
-//
+// If QID 1061 is not answered Option 2, then disappear and clear answer to QID 891.
 ifQ(1061)
 .notAnswered(2)
-.orifQ(51)
-.answered(2,3,4)
 .disappear(Q(891))
 .clearAnswer(Q(891));
 
-//
+// If QID 891 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 901.
 ifQ(891)
-.answered(1,2,3,4)
-.orifQ(1061)
-.answered(1,3,4,5,6)
-.orifQ(51)
-.answered(2,3,4)
+.answered(0,1,2,3,4)
 .disappear(Q(901))
 .clearAnswer(Q(901));
 
-//
+// If QID 51 is answered Option [1, 2, OR 4], then disappear and clear answer to QID 921.
 ifQ(51)
 .answered(1,2,4)
 .disappear(Q(921))
 .clearAnswer(Q(921));
 
-//
+// If QID 921 is not answered Option 3, then disappear and clear answer to QID 931.
 ifQ(921)
 .notAnswered(3)
-.orifQ(51)
-.answered(1,2,4)
 .disappear(Q(931))
 .clearAnswer(Q(931));
 
-//
+// If QID 51 is answered Option [1, 2, OR 3], then disappear and clear answer to QIDs.
 ifQ(51)
 .answered(1,2,3)
 .disappear(Q(941), Q(951))
 .clearAnswer(Q(941), Q(951));
 
-//
+// If QID 1061 is not answered Option [1, 3, OR 4], then disappear and clear answer to QID 971.
 ifQ(1061)
 .notAnswered(1,3,4)
-.orifQ(51)
-.answered(2,3,4)
 .disappear(Q(971))
 .clearAnswer(Q(971));
 
