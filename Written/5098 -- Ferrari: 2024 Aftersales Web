@@ -1,0 +1,216 @@
+//*******************************	
+// CID: 351	
+// SID: 5098	
+// Last Updated: 3/22/2024
+//*******************************
+
+
+
+
+//*******************************
+// BACKGROUND INFORMATION - Begin
+//*******************************
+
+// If QID 51 is answered any Option, then copy value to QID 601.
+ifQ(51)
+.answered()
+.setValue(Q(601), Q(51));
+
+//*******************************
+// BACKGROUND INFORMATION - End
+//*******************************
+
+
+
+
+//*******************************
+// ADVOCACY INDEX - Begin
+//*******************************
+
+// If QID 121 is answered Option [2, 3, 4, OR 5], then disappear and clear answer to QID 131.
+ifQ(121)
+.answered(2,3,4,5)
+.disappear(Q(131))
+.clearAnswer(Q(131));
+
+// If QID 121 is answered Option [1, 3, 4, OR 5], then disappear and clear answer to QID 141.
+ifQ(121)
+.answered(1,3,4,5)
+.disappear(Q(141))
+.clearAnswer(Q(141));
+
+// If QID 121 is answered Option [1 OR 2], then disappear and clear answer to QID 151.
+ifQ(121)
+.answered(1,2)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+//*******************************
+// ADVOCACY INDEX - End
+//*******************************
+
+
+
+
+//*******************************
+// CONNECTING WITH SERVICE - Begin
+//*******************************
+
+// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(4)
+.disappear(Q(211), Q(221), Q(241), Q(251), Q(261), Q(591), Q(281))
+.clearAnswer(Q(211), Q(221), Q(241), Q(251), Q(261), Q(591), Q(281));
+
+// If QID 221 is not answered Option 2, then disappear and clear answer to QID 231.
+ifQ(221)
+.notAnswered(2)
+.disappear(Q(231))
+.clearAnswer(Q(231));
+
+//*******************************
+// CONNECTING WITH SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// BE A HOST - Begin
+//*******************************
+
+// If QID 201 is answered Option 4, then disappear and clear answer to QID 301.
+ifQ(201)
+.answered(4)
+.disappear(Q(291))  // header
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+// If QID 301 is answered Option [0, 3, 4, OR 5], then disappear and clear answer to QID 311.
+ifQ(301)
+.answered(0,3,4,5)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+// If QID 311 is not answered Option 8, then disappear and clear answer to QID 321.
+ifQ(311)
+.notAnswered(8)
+.disappear(Q(321))
+.clearAnswer(Q(321));
+
+// If QID 301 is answered Option [0, 1, OR 2] then disappear and clear answer to QID 331.
+ifQ(301)
+.answered(0,1,2)
+.disappear(Q(331))
+.clearAnswer(Q(331));
+
+// If QID 331 is not answered Option 8, then disappear and clear answer to QID 341.
+ifQ(331)
+.notAnswered(8)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+//*******************************
+// BE A HOST - End
+//*******************************
+
+
+
+
+//*******************************
+// QUALITY MANAGEMENT - Begin
+//*******************************
+
+// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(4)
+.disappear(Q(361), Q(411), Q(451), Q(461), Q(491), Q(501), Q(511), Q(521), Q(541))
+.clearAnswer(Q(361), Q(411), Q(451), Q(461), Q(491), Q(501), Q(511), Q(521), Q(541));
+
+// If QID 361 is answered Option [0, 3, 4, OR 5], then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,3,4,5)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+// If QID 371 is answered Option 8, then disappear and clear answer to QID 381.
+ifQ(371)
+.notAnswered(8)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+// If QID 361 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 391.
+ifQ(361)
+.answered(0,1,2)
+.disappear(Q(391))
+.clearAnswer(Q(391));
+
+// If QID 391 is not answered Option 8, then disappear and clear answer to QID 401.
+ifQ(391)
+.notAnswered(8)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+// If QID 51 is answered Option [1 OR 6], then disappear and clear answer to QID 421.
+ifQ(51)
+.answered(1,6)
+.disappear(Q(421))
+.clearAnswer(Q(421));
+
+// If QID 51 is answered Option [4 OR 6], then disappear and clear answer to QID 431.
+ifQ(51)
+.answered(4,6)
+.disappear(Q(431))
+.clearAnswer(Q(431));
+
+// If QID 51 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QID 441.
+ifQ(51)
+.answered(1,2,3,5,6)
+.disappear(Q(441))
+.clearAnswer(Q(441));
+
+// If QID 461 is answered Option [0 OR 2], then disappear and clear answer to QID 471.
+ifQ(461)
+.answered(0,2)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+// If QID 471 is answered Option [0 OR 2], then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(0,2)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 51 is answered Option [1 OR 6], then disappear and clear answer to QID 521.
+ifQ(51)
+.answered(1,6)
+.disappear(Q(521))
+.clearAnswer(Q(521));
+
+// If QID 521 is answered Option [0 OR 2], then disappear and clear answer to QID 531.
+ifQ(521)
+.answered(0,2)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+//*******************************
+// QUALITY MANAGEMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW-UP - Begin
+//*******************************
+
+// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(4)
+.disappear(Q(551))  // header
+.disappear(Q(561), Q(571), Q(581))
+.clearAnswer(Q(561), Q(571), Q(581));
+
+//*******************************
+// FOLLOW-UP - End
+//*******************************
