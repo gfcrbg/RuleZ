@@ -56,12 +56,18 @@ ifQ(121)
 // CONNECTING WITH SERVICE - Begin
 //*******************************
 
-// If QID 201 is answered Option 4, then make not required, disappear, and clear answer to QIDs.
+// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(201)
 .answered(4)
+.disappear(Q(211), Q(221), Q(241))
+.clearAnswer(Q(211), Q(221), Q(241));
+
+// If QID 251 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(251)
+.answered(2)
 .makeNotRequired(Q(261), Q(591))  // date and time fields
-.disappear(Q(211), Q(221), Q(241), Q(251), Q(261), Q(591), Q(281))
-.clearAnswer(Q(211), Q(221), Q(241), Q(251), Q(261), Q(591), Q(281));
+.disappear(Q(261), Q(591), Q(281))
+.clearAnswer(Q(261), Q(591), Q(281));
 
 // If QID 221 is not answered Option 2, then disappear and clear answer to QID 231.
 ifQ(221)
