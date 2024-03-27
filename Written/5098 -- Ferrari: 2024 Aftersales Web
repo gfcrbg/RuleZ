@@ -164,9 +164,9 @@ ifQ(51)
 .disappear(Q(421))
 .clearAnswer(Q(421));
 
-// If QID 51 is answered Option [4 OR 6], then disappear and clear answer to QID 431.
+// If QID 51 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QID 431.
 ifQ(51)
-.answered(4,6)
+.answered(1,2,3,5,6)
 .disappear(Q(431))
 .clearAnswer(Q(431));
 
