@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 4778	
-// Last Updated: 3/12/2024	
+// Last Updated: 4/1/2024	
 //*******************************	
 
 
@@ -28,14 +28,14 @@ ifQ(1631)
 ifQ(961)
 .answered(2)
 .disappear(Q(81))  // small header
-.disappear(Q(91), Q(101), Q(111), Q(141), Q(151), Q(161), Q(171), Q(1821), Q(181), Q(1831), Q(1061), Q(201), Q(221), Q(231), Q(1111))
-.clearAnswer(Q(91), Q(101), Q(111), Q(141), Q(151), Q(161), Q(171), Q(1821), Q(181), Q(1831), Q(1061), Q(201), Q(221), Q(231), Q(1111));
+.disappear(Q(91), Q(101), Q(111), Q(141), Q(151), Q(161), Q(171), Q(1821), Q(181), Q(1831), Q(1891), Q(201), Q(221), Q(231), Q(1911))
+.clearAnswer(Q(91), Q(101), Q(111), Q(141), Q(151), Q(161), Q(171), Q(1821), Q(181), Q(1831), Q(1891), Q(201), Q(221), Q(231), Q(1911));
 
-// If QID 201 is answered Option [0 OR 2], then disappear and clear answer to QID 1101.
+// If QID 201 is answered Option [0 OR 2], then disappear and clear answer to QID 1901.
 ifQ(201)
 .answered(0,2)
-.disappear(Q(1101))
-.clearAnswer(Q(1101));
+.disappear(Q(1901))
+.clearAnswer(Q(1901));
 
 //---------------------------------------------------
 // Phone Call - End
@@ -88,6 +88,7 @@ ifQ(1021)
 ifQ(961)
 .answered(2)
 .disappear(Q(291))  // small header
+.disappear(Q(1871))  // red remark
 .disappear(Q(311), Q(321), Q(361), Q(371), Q(381))
 .clearAnswer(Q(311), Q(321), Q(361), Q(371), Q(381));
 
@@ -128,8 +129,8 @@ ifQ(381)
 ifQ(961)
 .answered(2)
 .disappear(Q(391))  // medium header
-.disappear(Q(401), Q(411), Q(1131), Q(431))
-.clearAnswer(Q(401), Q(411), Q(1131), Q(431));
+.disappear(Q(401), Q(411), Q(1921), Q(431))
+.clearAnswer(Q(401), Q(411), Q(1921), Q(431));
 
 
 
@@ -160,8 +161,8 @@ ifQ(961)
 ifQ(961)
 .answered(2)
 .disappear(Q(501))  // small header
-.disappear(Q(511), Q(521), Q(1141))
-.clearAnswer(Q(511), Q(521), Q(1141));
+.disappear(Q(511), Q(1881), Q(1931))
+.clearAnswer(Q(511), Q(1881), Q(1931));
 
 //---------------------------------------------------
 // During The Rescue - End
