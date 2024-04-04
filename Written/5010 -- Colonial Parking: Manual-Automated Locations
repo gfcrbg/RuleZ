@@ -152,6 +152,12 @@ ifQ(401)
 .disappear(Q(1621), Q(1661), Q(1691), Q(1711), Q(1721), Q(1751), Q(1761))
 .clearAnswer(Q(1621), Q(1661), Q(1691), Q(1711), Q(1721), Q(1751), Q(1761));
 
+// If QID 1661 is answered Option [0 OR 2], then disappear and clear answer to QID 1671.
+ifQ(1661)
+.answered(0,2)
+.disappear(Q(1671))
+.clearAnswer(Q(1671));
+
 // If QID 1621 is answered Option [0, 2, OR 3], then disappear and clear answer to QIDs.
 ifQ(1621)
 .answered(0,2,3)
@@ -280,6 +286,12 @@ ifQ(1091)
 .answered(0,2)
 .disappear(Q(1081), Q(1101))
 .clearAnswer(Q(1081), Q(1101));
+
+// If QID 1041 is answered Option [0, 3, OR 4], then disappear and clear answer to QID 1121.
+ifQ(1041)
+.answered(0,3,4)
+.disappear(Q(1121))
+.clearAnswer(Q(1121));
 
 // If QID 1121 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1131.
 ifQ(1121)
