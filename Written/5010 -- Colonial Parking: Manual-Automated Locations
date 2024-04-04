@@ -45,9 +45,9 @@ ifQ(401)
 .disappear(Q(211), Q(1791), Q(231), Q(271), Q(281), Q(291), Q(241), Q(251), Q(261), Q(301), Q(311), Q(321), Q(1781), Q(331), Q(341), Q(351), Q(361), Q(391), Q(1481))
 .clearAnswer(Q(211), Q(1791), Q(231), Q(271), Q(281), Q(291), Q(241), Q(251), Q(261), Q(301), Q(311), Q(321), Q(1781), Q(331), Q(341), Q(351), Q(361), Q(391), Q(1481));
 
-// If QID 211 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 221.
+// If QID 211 is answered Option [0 OR 1], then disappear and clear answer to QID 221.
 ifQ(211)
-.answered(0,2,3)
+.answered(0,1)
 .disappear(Q(221))
 .clearAnswer(Q(221));
 
@@ -120,14 +120,20 @@ ifQ(401)
 // If QID 401 is answered Option [3, 4, 5, OR 6], then disappear QIDs.
 ifQ(401)
 .answered(3,4,5,6)
-.disappear(Q(641), Q(651), Q(661), Q(671), Q(681), Q(691), Q(1831), Q(711), Q(721), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791))
-.clearAnswer(Q(641), Q(651), Q(661), Q(671), Q(681), Q(691), Q(1831), Q(711), Q(721), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791));
+.disappear(Q(641), Q(651), Q(671), Q(681), Q(691), Q(1831), Q(711), Q(721), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791))
+.clearAnswer(Q(641), Q(651), Q(671), Q(681), Q(691), Q(1831), Q(711), Q(721), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791));
 
 // If QID 691 is answered Option [0 OR 2], then disappear and clear answer to QID 701.
 ifQ(691)
 .answered(0,2)
 .disappear(Q(701))
 .clearAnswer(Q(701));
+
+// Time Length -- If QID 401 is not answered Option [1 OR 2], then disappear and clear answer to QID 661.
+ifQ(401)
+.notAnswered(1,2)
+.disappear(Q(661))
+.clearAnswer(Q(661));
 
 //*******************************
 // VALET PARKING DEPARTURE - End
@@ -161,8 +167,14 @@ ifQ(1661)
 // If QID 1621 is answered Option [0, 2, OR 3], then disappear and clear answer to QIDs.
 ifQ(1621)
 .answered(0,2,3)
-.disappear(Q(1611), Q(1631), Q(1641), Q(1651), Q(1681), Q(1731), Q(1741))
-.clearAnswer(Q(1611), Q(1631), Q(1641), Q(1651), Q(1681), Q(1731), Q(1741));
+.disappear(Q(1611), Q(1641), Q(1651), Q(1681), Q(1731), Q(1741))
+.clearAnswer(Q(1611), Q(1641), Q(1651), Q(1681), Q(1731), Q(1741));
+
+// Time Length -- If QID 1621 is not answered Option 1, then disappear and clear answer to QID 1631.
+ifQ(1621)
+.notAnswered(1)
+.disappear(Q(1631))
+.clearAnswer(Q(1631));
 
 //*******************************
 // GARAGE EXIT - End
@@ -398,8 +410,14 @@ ifQ(1371)
 // If QID 1381 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1381)
 .answered(0,2)
-.disappear(Q(1391), Q(1471), Q(1451))
-.clearAnswer(Q(1391), Q(1471), Q(1451));
+.disappear(Q(1471), Q(1451))
+.clearAnswer(Q(1471), Q(1451));
+
+// Time Length -- If QID 1381 is not answered Option 1, then disappear and clear answer to QID 1391.
+ifQ(1381)
+.notAnswered(1)
+.disappear(Q(1391))
+.clearAnswer(Q(1391));
 
 //*******************************
 // REMOTE MANAGEMENT CENTER - End
