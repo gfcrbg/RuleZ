@@ -61,8 +61,15 @@ Created a [RuleZ Wiki](https://github.com/gfcrbg/RuleZ/wiki).
 
 For numerical input, ```.clearAnswer``` will set the value to '0'.  
 This doesn't fully clear the answer, as '0' is still considered a value.  The user must manually delete the '0' for the QID to be considered clear.  
-If the QID is conditional, use ```.notAnswered```.
+If the QID is conditional, use ```.notAnswered```.  
 
+```
+// Time Length -- If QID X is not answered Option Y, then disappear and clear answer to QID Z.
+ifQ(X)
+.notAnswered(Y)
+.disappear(Q(Z)
+.clearAnswer(Q(Z));
+```
 
 ## October 2019
 
