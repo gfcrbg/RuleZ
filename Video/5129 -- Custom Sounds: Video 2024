@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 356
+// SID: 5129	
+// Last Updated: 4/9/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// CUSTOM SOUNDS VISIT - Begin
+//*******************************
+
+// If QID 171 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(171)
+.answered(2)
+.disappear(Q(111), Q(121), Q(131))
+.clearAnswer(Q(111), Q(121), Q(131));
+
+// If QID 171 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(171)
+.answered(1)
+.disappear(Q(181), Q(191))
+.clearAnswer(Q(181), Q(191));
+
+//*******************************
+// CUSTOM SOUNDS VISIT - End
+//*******************************
