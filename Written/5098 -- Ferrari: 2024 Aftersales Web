@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5098	
-// Last Updated: 3/27/2024
+// Last Updated: 4/15/2024
 //*******************************
 
 
@@ -59,8 +59,8 @@ ifQ(121)
 // If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(201)
 .answered(4)
-.disappear(Q(211), Q(221), Q(241))
-.clearAnswer(Q(211), Q(221), Q(241));
+.disappear(Q(211), Q(241))
+.clearAnswer(Q(211), Q(241));
 
 // If QID 251 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
 ifQ(251)
@@ -68,12 +68,6 @@ ifQ(251)
 .makeNotRequired(Q(261), Q(591))  // date and time fields
 .disappear(Q(261), Q(591), Q(281))
 .clearAnswer(Q(261), Q(591), Q(281));
-
-// If QID 221 is not answered Option 2, then disappear and clear answer to QID 231.
-ifQ(221)
-.notAnswered(2)
-.disappear(Q(231))
-.clearAnswer(Q(231));
 
 //*******************************
 // CONNECTING WITH SERVICE - End
