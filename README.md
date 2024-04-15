@@ -64,7 +64,7 @@ This doesn't fully clear the answer, as '0' is still considered a value.  The us
 If the QID is conditional, use ```.notAnswered```.  
 
 ```
-// Time Length -- If QID X is not answered Option Y, then disappear and clear answer to QID Z.
+// Time Field -- If QID X is not answered Option Y, then disappear and clear answer to QID Z.
 ifQ(X)
 .notAnswered(Y)
 .disappear(Q(Z)
