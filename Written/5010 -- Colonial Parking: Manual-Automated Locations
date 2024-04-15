@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 538
 // SID: 5010	
-// Last Updated: 4/4/2024	
+// Last Updated: 4/15/2024	
 //*******************************	
 
 
@@ -45,9 +45,9 @@ ifQ(401)
 .disappear(Q(211), Q(1791), Q(231), Q(271), Q(281), Q(291), Q(241), Q(251), Q(261), Q(301), Q(311), Q(321), Q(1781), Q(331), Q(341), Q(351), Q(361), Q(391), Q(1481))
 .clearAnswer(Q(211), Q(1791), Q(231), Q(271), Q(281), Q(291), Q(241), Q(251), Q(261), Q(301), Q(311), Q(321), Q(1781), Q(331), Q(341), Q(351), Q(361), Q(391), Q(1481));
 
-// If QID 211 is answered Option [0 OR 1], then disappear and clear answer to QID 221.
+// Time Length -- If QID 211 is not answered Option [2 OR 3], then disappear and clear answer to QID 221.
 ifQ(211)
-.answered(0,1)
+.notAnswered(2,3)
 .disappear(Q(221))
 .clearAnswer(Q(221));
 
@@ -91,8 +91,8 @@ ifQ(401)
 ifQ(401)
 .answered(1,2,3,5)
 .disappear(Q(1541))  // red remark
-.disappear(Q(421), Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531))
-.clearAnswer(Q(421), Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531));
+.disappear(Q(421), Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531), Q(1861))
+.clearAnswer(Q(421), Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531), Q(1861));
 
 // If QID 401 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QID 541.
 ifQ(401)
@@ -278,12 +278,12 @@ ifQ(401)
 // If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QIDs.
 ifQ(401)
 .answered(1,2,3,5)
-.disappear(Q(1041), Q(1071), Q(1091), Q(1111), Q(1151), Q(1161), Q(1221))
-.clearAnswer(Q(1041), Q(1071), Q(1091), Q(1111), Q(1151), Q(1161), Q(1221));
+.disappear(Q(1041), Q(1071), Q(1091), Q(1111), Q(1151), Q(1161), Q(1221), Q(1871))
+.clearAnswer(Q(1041), Q(1071), Q(1091), Q(1111), Q(1151), Q(1161), Q(1221), Q(1871));
 
-// If QID 1041 is answered Option [0, 1, 2, OR 4], then disappear and clear answer to QIDs.
+// If QID 1041 is answered Option [0, 1, 2, 4, OR 5], then disappear and clear answer to QIDs.
 ifQ(1041)
-.answered(0,1,2,4)
+.answered(0,1,2,4,5)
 .disappear(Q(1051), Q(1061))
 .clearAnswer(Q(1051), Q(1061));
 
@@ -299,9 +299,9 @@ ifQ(1091)
 .disappear(Q(1081), Q(1101))
 .clearAnswer(Q(1081), Q(1101));
 
-// If QID 1041 is answered Option [0, 3, OR 4], then disappear and clear answer to QID 1121.
+// If QID 1041 is answered Option [0, 3, 4, OR 5], then disappear and clear answer to QID 1121.
 ifQ(1041)
-.answered(0,3,4)
+.answered(0,3,4,5)
 .disappear(Q(1121))
 .clearAnswer(Q(1121));
 
@@ -338,8 +338,8 @@ ifQ(401)
 // If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QIDs.
 ifQ(401)
 .answered(1,2,3,5)
-.disappear(Q(1181), Q(1191), Q(1211))
-.clearAnswer(Q(1181), Q(1191), Q(1211));
+.disappear(Q(1181), Q(1191), Q(1211), Q(1881))
+.clearAnswer(Q(1181), Q(1191), Q(1211), Q(1881));
 
 // If QID 1191 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1201.
 ifQ(1191)
@@ -374,8 +374,8 @@ ifQ(401)
 // If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QIDs.
 ifQ(401)
 .answered(1,2,3,5)
-.disappear(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821))
-.clearAnswer(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821));
+.disappear(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821), Q(1891))
+.clearAnswer(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821), Q(1891));
 
 //*******************************
 // OVERALL GARAGE APPEARANCE - End
