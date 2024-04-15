@@ -56,18 +56,23 @@ ifQ(121)
 // CONNECTING WITH SERVICE - Begin
 //*******************************
 
-// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+// If QID 201 is answered Option 8, then disappear and clear answer to QIDs.
 ifQ(201)
-.answered(4)
-.disappear(Q(211), Q(241))
-.clearAnswer(Q(211), Q(241));
+.answered(8)
+.disappear(Q(211), Q(231), Q(241), Q(251))
+.clearAnswer(Q(211), Q(231), Q(241), Q(251));
 
-// If QID 251 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+// Time Field --  If QID 251 is not answered Option [1], then disappear and clear answer to QIDs.
 ifQ(251)
-.answered(2)
-.makeNotRequired(Q(261), Q(591))  // date and time fields
-.disappear(Q(261), Q(591), Q(281))
-.clearAnswer(Q(261), Q(591), Q(281));
+.notAnswered(1)
+.disappear(Q(261), Q(591))
+.clearAnswer(Q(261), Q(591));
+
+// If QID 251 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
+ifQ(251)
+.answered(0,2)
+.disappear(Q(281))
+.clearAnswer(Q(281));
 
 //*******************************
 // CONNECTING WITH SERVICE - End
@@ -80,9 +85,9 @@ ifQ(251)
 // BE A HOST - Begin
 //*******************************
 
-// If QID 201 is answered Option 4, then disappear and clear answer to QID 301.
+// If QID 201 is answered Option 8, then disappear and clear answer to QID 301.
 ifQ(201)
-.answered(4)
+.answered(8)
 .disappear(Q(291))  // header
 .disappear(Q(301))
 .clearAnswer(Q(301));
@@ -122,9 +127,10 @@ ifQ(331)
 // QUALITY MANAGEMENT - Begin
 //*******************************
 
-// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+// If QID 201 is answered Option 8, then disappear and clear answer to QIDs.
 ifQ(201)
-.answered(4)
+.answered(8)
+.disappear(Q(351)) // medium header
 .disappear(Q(361), Q(411), Q(451), Q(461), Q(491), Q(501), Q(511), Q(541))
 .clearAnswer(Q(361), Q(411), Q(451), Q(461), Q(491), Q(501), Q(511), Q(541));
 
@@ -161,6 +167,7 @@ ifQ(51)
 // If QID 51 is answered Option 4, then disappear and clear answer to QID 431.
 ifQ(51)
 .answered(4)
+.disappear(Q(641)) // red remark
 .disappear(Q(431))
 .clearAnswer(Q(431));
 
@@ -205,9 +212,9 @@ ifQ(521)
 // FOLLOW-UP - Begin
 //*******************************
 
-// If QID 201 is answered Option 4, then disappear and clear answer to QIDs.
+// If QID 201 is answered Option 8, then disappear and clear answer to QIDs.
 ifQ(201)
-.answered(4)
+.answered(8)
 .disappear(Q(551))  // header
 .disappear(Q(561), Q(571), Q(581))
 .clearAnswer(Q(561), Q(571), Q(581));
