@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 544	
 // SID: 3789	
-// Last Updated: 3/1/2024	
+// Last Updated: 4/15/2024	
 //*******************************	
 
 
@@ -23,6 +23,11 @@ ifQ(1791)
 .answered(3)
 .disappear(Q(1241), Q(1251), Q(1261))
 .clearAnswer(Q(1241), Q(1251), Q(1261));
+
+// If QID 672 is answered, then set value of QID 1831 to QID 672.
+ifQ(672)
+.answered()
+.setValue(Q(1831), Q(672));
 
 
 
