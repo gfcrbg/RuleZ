@@ -377,6 +377,12 @@ ifQ(401)
 .disappear(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821), Q(1891))
 .clearAnswer(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821), Q(1891));
 
+// If QID 1321 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1321)
+.answered(0,2)
+.disappear(Q(1801), Q(1811), Q(1821))
+.clearAnswer(Q(1801), Q(1811), Q(1821));
+
 //*******************************
 // OVERALL GARAGE APPEARANCE - End
 // (AUTOMATED LOCATIONS)
