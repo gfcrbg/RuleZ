@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5098	
-// Last Updated: 4/15/2024
+// Last Updated: 4/16/2024
 //*******************************
 
 
@@ -158,24 +158,120 @@ ifQ(391)
 .disappear(Q(401))
 .clearAnswer(Q(401));
 
-// If QID 51 is answered Option [1 OR 6], then disappear and clear answer to QID 421.
+
+//-------------------------------
+// Control A - Begin
+//-------------------------------
+
+// Disappear QID 651.
+ifQ()
+.disappear(Q(651));
+
+// If QID 51 is answered Option [2, 3, 4, OR 5], AND if QID 201 is answered Option [1, 2, 3, 4, 5, 6, OR 7], then set value to Option 1 to QID 51.
+ifQ(51)
+.answered(2,3,4,5)
+.andifQ(201)
+.answered(1,2,3,4,5,6,7)
+.setValue(Q(651), 1);
+
+// If QID 51 is answered Option [1 OR 6], OR if QID 201 is answered Option 8, then set value to Option 2 to QID 651.
 ifQ(51)
 .answered(1,6)
-.disappear(Q(421))
-.clearAnswer(Q(421));
+.orifQ(201)
+.answered(8)
+.setValue(Q(651), 2);
 
-// If QID 51 is answered Option 4, then disappear and clear answer to QID 431.
+// If QID 651 is answered Option 1, then appear QIDs.
+ifQ(651)
+.answered(1)
+.appear(Q(421), Q(521));
+
+// If QID 651 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(651)
+.answered(2)
+.disappear(Q(421), Q(521))
+.clearAnswer(Q(421), Q(521));
+
+//-------------------------------
+// Control A - End
+//-------------------------------
+
+
+//-------------------------------
+// Control B - Begin
+//-------------------------------
+
+// Disappear QID 671.
+ifQ()
+.disappear(Q(671));
+
+// If QID 51 is answered Option [1, 2, 3, 5, OR 6], AND if QID 201 is answered Option [1, 2, 3, 4, 5, 6, OR 7], then set value to Option 1 to QID 671.
+ifQ(51)
+.answered(1,2,3,5,6)
+.andifQ(201)
+.answered(1,2,3,4,5,6,7)
+.setValue(Q(671), 1);
+
+// If QID 51 is answered Option 4, OR if QID 201 is answered Option 8, then set value to Option 2 to QID 671.
 ifQ(51)
 .answered(4)
-.disappear(Q(641)) // red remark
+.orifQ(201)
+.answered(8)
+.setValue(Q(671), 2);
+
+// If QID 671 is answered Option 1, then appear QID 431.
+ifQ(671)
+.answered(1)
+.appear(Q(431));
+
+// If QID 671 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(671)
+.answered(2)
+.disappear(Q(641))  // red remark
 .disappear(Q(431))
 .clearAnswer(Q(431));
 
-// If QID 51 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QID 441.
+//-------------------------------
+// Control B - End
+//-------------------------------
+
+
+//-------------------------------
+// Control C - Begin
+//-------------------------------
+
+// Disappear QID 661.
+ifQ()
+.disappear(Q(661));
+
+// If QID 51 is answered Option 4, AND if QID 201 is answered Option [1, 2, 3, 4, 5, 6, OR 7], then set value to Option 1 to QID 661.
+ifQ(51)
+.answered(4)
+.andifQ(201)
+.answered(1,2,3,4,5,6,7)
+.setValue(Q(661), 1);
+
+// If QID 51 is answered Option [1, 2, 3, 5, OR 6], OR if QID 201 is answered Option 8, then set value to Option 2 to QID 661.
 ifQ(51)
 .answered(1,2,3,5,6)
+.orifQ(201)
+.answered(8)
+.setValue(Q(661), 2);
+
+// If QID 661 is answered Option 1, then appear QID 441.
+ifQ(661)
+.answered(1)
+.appear(Q(441));
+
+// If QID 661 is answered Option 2, then disappear and clear answer to QID 441.
+ifQ(661)
+.answered(2)
 .disappear(Q(441))
 .clearAnswer(Q(441));
+
+//-------------------------------
+// Control C - End
+//-------------------------------
 
 // If QID 461 is answered Option [0 OR 2], then disappear and clear answer to QID 471.
 ifQ(461)
@@ -188,12 +284,6 @@ ifQ(471)
 .answered(0,2)
 .disappear(Q(481))
 .clearAnswer(Q(481));
-
-// If QID 51 is answered Option [1 OR 6], then disappear and clear answer to QID 521.
-ifQ(51)
-.answered(1,6)
-.disappear(Q(521))
-.clearAnswer(Q(521));
 
 // If QID 521 is answered Option [0 OR 2], then disappear and clear answer to QID 531.
 ifQ(521)
