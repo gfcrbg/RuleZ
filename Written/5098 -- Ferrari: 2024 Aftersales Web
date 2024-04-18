@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5098	
-// Last Updated: 4/16/2024
+// Last Updated: 4/18/2024
 //*******************************
 
 
@@ -167,16 +167,16 @@ ifQ(391)
 ifQ()
 .disappear(Q(651));
 
-// If QID 51 is answered Option [2, 3, 4, OR 5], AND if QID 201 is answered Option [1, 2, 3, 4, 5, 6, OR 7], then set value to Option 1 to QID 51.
+// If QID 51 is answered Option [2, 3, 4, 5, OR 6], AND if QID 201 is answered Option [1, 2, 3, 4, 5, 6, OR 7], then set value to Option 1 to QID 51.
 ifQ(51)
-.answered(2,3,4,5)
+.answered(2,3,4,5,6)
 .andifQ(201)
 .answered(1,2,3,4,5,6,7)
 .setValue(Q(651), 1);
 
-// If QID 51 is answered Option [1 OR 6], OR if QID 201 is answered Option 8, then set value to Option 2 to QID 651.
+// If QID 51 is answered Option 1, OR if QID 201 is answered Option 8, then set value to Option 2 to QID 651.
 ifQ(51)
-.answered(1,6)
+.answered(1)
 .orifQ(201)
 .answered(8)
 .setValue(Q(651), 2);
