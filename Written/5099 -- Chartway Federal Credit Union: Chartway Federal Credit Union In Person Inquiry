@@ -1,0 +1,14 @@
+//*******************************	
+// CID: 891
+// SID: 5099	
+// Last Updated: 4/19/2024	
+//*******************************	
+
+
+
+
+// If QID 421 is answered Option [2 OR 3], then disappear and clear answer to QID 431.
+ifQ(421)
+.answered(2,3)
+.disappear(Q(431))
+.clearAnswer(Q(431));
