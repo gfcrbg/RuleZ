@@ -1,7 +1,7 @@
 //*******************************
 // CID: 559
 // SID: 3874
-// Last Updated: 2/29/2024
+// Last Updated: 4/26/2024
 //*******************************
 
 
@@ -511,6 +511,12 @@ ifQ(6271)
 //---------------------------
 // 2021 iteration
 //---------------------------
+
+// If QID 9201 is answered Option [1, 2, 3, 4, 5, 6, 7, 8, 9, OR 10], then disappear and clear answer to QID 9211.
+ifQ(9201)
+.answered(1,2,3,4,5,6,7,8,9,10)
+.disappear(Q(9211))
+.clearAnswer(Q(9211));
 
 // If QID 6221 is answered Option [0 OR 1], then disappear and clear answer to QID 8081.
 ifQ(6221)
