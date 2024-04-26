@@ -1,0 +1,34 @@
+//*******************************	
+// CID: 899
+// SID: 5139	
+// Last Updated: 4/26/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// COURTESY - Begin
+//*******************************
+
+// If QID 161 is answered Option 1, then disappear and clear answer to QID 171.
+ifQ(161)
+.answered(1)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+// If QID 191 is answered Option 2, then disappear and clear answer to QID 461.
+ifQ(191)
+.answered(2)
+.disappear(Q(461))
+.clearAnswer(Q(461));
+
+// If QID 271 is answered Option 2, then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(2)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+//*******************************
+// COURTESY  - End
+//*******************************
