@@ -1,11 +1,19 @@
 //*******************************	
 // CID: 538
 // SID: 5010	
-// Last Updated: 4/15/2024	
+// Last Updated: 5/2/2024	
 //*******************************	
 
 
 
+
+// If QID [21 AND 31] are answered, then trigger math operation: [31] - [21] = [41]
+ifQ(21)
+.answered()
+.andifQ(31)
+.answered()
+.sub(Q(31), Q(21))
+.store(Q(41));
 
 // If QID 61 is answered Option 1, then disappear and clear answer to QID 71
 ifQ(61)
@@ -34,14 +42,20 @@ ifQ(81)
 // (MANUAL LOCATION) 
 //*******************************
 
-// If QID 401 is answered Option [4 OR 6], then disappear QID 201.
+// If QID 61 is answered Option [2, 3, 4, OR 5], then disappear and clear answer to QID 401.
+ifQ(61)
+.answered(2,3,4,5)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+// If QID 401 is answered Option [0, 4, OR 6], then disappear QID 201.
 ifQ(401)
-.answered(4,6)
+.answered(0,4,6)
 .disappear(Q(201))  // medium header;
 
-// If QID 401 is answered Option [4 OR 6], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 4, OR 6], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(4,6)
+.answered(0,4,6)
 .disappear(Q(211), Q(1791), Q(231), Q(271), Q(281), Q(291), Q(241), Q(251), Q(261), Q(301), Q(311), Q(321), Q(1781), Q(331), Q(341), Q(351), Q(361), Q(391), Q(1481))
 .clearAnswer(Q(211), Q(1791), Q(231), Q(271), Q(281), Q(291), Q(241), Q(251), Q(261), Q(301), Q(311), Q(321), Q(1781), Q(331), Q(341), Q(351), Q(361), Q(391), Q(1481));
 
@@ -51,21 +65,21 @@ ifQ(211)
 .disappear(Q(221))
 .clearAnswer(Q(221));
 
-// If QID 401 is answered Option [3, 4, 5, OR 6], then disappear and clear answer to QID 1771.
+// If QID 401 is answered Option [0, 3, 4, 5, OR 6], then disappear and clear answer to QID 1771.
 ifQ(401)
-.answered(3,4,5,6)
+.answered(0,3,4,5,6)
 .disappear(Q(1771))
 .clearAnswer(Q(1771));
 
-// If QID 401 is answered Option [2, 4, OR 6], then disappear and clear answer to QID 371.
+// If QID 401 is answered Option [0, 2, 4, OR 6], then disappear and clear answer to QID 371.
 ifQ(401)
-.answered(2,4,6)
+.answered(0,2,4,6)
 .disappear(Q(371))
 .clearAnswer(Q(371));
 
-// If QID 401 is answered Option [4, 5, OR 6], then disappear and clear answer to QID 381.
+// If QID 401 is answered Option [0, 4, 5, OR 6], then disappear and clear answer to QID 381.
 ifQ(401)
-.answered(4,5,6)
+.answered(0,4,5,6)
 .disappear(Q(381))
 .clearAnswer(Q(381));
 
@@ -82,21 +96,21 @@ ifQ(401)
 // (AUTOMATED LOCATION) 
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QID 401.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QID 401.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(411))  // medium header;
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1541))  // red remark
 .disappear(Q(421), Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531), Q(1861))
 .clearAnswer(Q(421), Q(441), Q(451), Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531), Q(1861));
 
-// If QID 401 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QID 541.
+// If QID 401 is answered Option [0, 1, 2, 3, 5, OR 6], then disappear and clear answer to QID 541.
 ifQ(401)
-.answered(1,2,3,5,6)
+.answered(0,1,2,3,5,6)
 .disappear(Q(541))
 .clearAnswer(Q(541));
 
@@ -112,14 +126,14 @@ ifQ(401)
 // VALET PARKING DEPARTURE - Begin
 //*******************************
 
-// If QID 401 is answered Option [3, 4, 5, OR 6], then disappear QID 631.
+// If QID 401 is answered Option [0, 3, 4, 5, OR 6], then disappear QID 631.
 ifQ(401)
-.answered(3,4,5,6)
+.answered(0,3,4,5,6)
 .disappear(Q(631))  // medium header;
 
-// If QID 401 is answered Option [3, 4, 5, OR 6], then disappear QIDs.
+// If QID 401 is answered Option [0, 3, 4, 5, OR 6], then disappear QIDs.
 ifQ(401)
-.answered(3,4,5,6)
+.answered(0,3,4,5,6)
 .disappear(Q(641), Q(651), Q(671), Q(681), Q(691), Q(1831), Q(711), Q(721), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791))
 .clearAnswer(Q(641), Q(651), Q(671), Q(681), Q(691), Q(1831), Q(711), Q(721), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791));
 
@@ -147,14 +161,14 @@ ifQ(401)
 // (MANUAL LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 4, OR 6], then disappear QID 1601.
+// If QID 401 is answered Option [0, 1, 2, 4, OR 6], then disappear QID 1601.
 ifQ(401)
-.answered(1,2,4,6)
+.answered(0,1,2,4,6)
 .disappear(Q(1601)) // medium header;
 
-// If QID 401 is answered Option [1, 2, 4, OR 6], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 1, 2, 4, OR 6], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(1,2,4,6)
+.answered(0,1,2,4,6)
 .disappear(Q(1621), Q(1661), Q(1691), Q(1711), Q(1721), Q(1751), Q(1761))
 .clearAnswer(Q(1621), Q(1661), Q(1691), Q(1711), Q(1721), Q(1751), Q(1761));
 
@@ -189,14 +203,14 @@ ifQ(1621)
 // (MANUAL LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [4 OR 6], then disappear QID 1581.
+// If QID 401 is answered Option [0, 4 OR 6], then disappear QID 1581.
 ifQ(401)
-.answered(4,6)
+.answered(0,4,6)
 .disappear(Q(1581)) // medium header;
 
-// If QID 401 is answered Option [4 OR 6], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 4 OR 6], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(4,6)
+.answered(0,4,6)
 .disappear(Q(811), Q(851), Q(881))
 .clearAnswer(Q(811), Q(851), Q(881));
 
@@ -206,9 +220,9 @@ ifQ(811)
 .disappear(Q(821), Q(831), Q(841))
 .clearAnswer(Q(821), Q(831), Q(841));
 
-// If QID 401 is answered Option [1, 2, 4, 5, OR 6], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 1, 2, 4, 5, OR 6], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(1,2,4,5,6)
+.answered(0,1,2,4,5,6)
 .disappear(Q(871), Q(1491), Q(1511), Q(1521), Q(1531))
 .clearAnswer(Q(871), Q(1491), Q(1511), Q(1521), Q(1531));
 
@@ -226,15 +240,15 @@ ifQ(401)
 // (AUTOMATED LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QIDs.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QIDs.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(891)) // medium header
 .disappear(Q(1551)) // red remark;
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QID 901.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear and clear answer to QID 901.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(901))
 .clearAnswer(Q(901));
 
@@ -270,14 +284,14 @@ ifQ(941)
 // (AUTOMATED LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QID 1031.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QID 1031.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1031)) // medium header;
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QIDs.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QIDs.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1041), Q(1071), Q(1091), Q(1111), Q(1151), Q(1161), Q(1221), Q(1871))
 .clearAnswer(Q(1041), Q(1071), Q(1091), Q(1111), Q(1151), Q(1161), Q(1221), Q(1871));
 
@@ -330,14 +344,14 @@ ifQ(1131)
 // (AUTOMATED LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QID 1171.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QID 1171.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1171)) // medium header;
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1181), Q(1191), Q(1211), Q(1881))
 .clearAnswer(Q(1181), Q(1191), Q(1211), Q(1881));
 
@@ -360,20 +374,20 @@ ifQ(1191)
 // (AUTOMATED LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QID 1231.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QID 1231.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1231)) // medium header;
 
-// If QID 401 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 1, 2, 3, 5, OR 6], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(1,2,3,5,6)
+.answered(0,1,2,3,5,6)
 .disappear(Q(1241), Q(1261), Q(1271), Q(1281), Q(1291), Q(1301), Q(1311), Q(1341))
 .clearAnswer(Q(1241), Q(1261), Q(1271), Q(1281), Q(1291), Q(1301), Q(1311), Q(1341));
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QIDs.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear and clear answer to QIDs.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821), Q(1891))
 .clearAnswer(Q(1251), Q(1321), Q(1801), Q(1811), Q(1821), Q(1891));
 
@@ -396,14 +410,14 @@ ifQ(1321)
 // (AUTOMATED LOCATIONS)
 //*******************************
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear QID 1361.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear QID 1361.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1361)) // medium header;
 
-// If QID 401 is answered Option [1, 2, 3, OR 5], then disappear and clear answer to QID 1371.
+// If QID 401 is answered Option [0, 1, 2, 3, OR 5], then disappear and clear answer to QID 1371.
 ifQ(401)
-.answered(1,2,3,5)
+.answered(0,1,2,3,5)
 .disappear(Q(1371))
 .clearAnswer(Q(1371));
 
