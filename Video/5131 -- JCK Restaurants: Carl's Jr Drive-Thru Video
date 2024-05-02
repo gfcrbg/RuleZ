@@ -1,0 +1,169 @@
+//**********************************	
+// CID: 898
+// SID: 5131	
+// Last Updated: 5/2/2024	
+//**********************************	
+
+
+
+
+//------------------------------------------------
+// Closed Location Control - Begin
+//------------------------------------------------
+
+// If QID 1192 answered Option 1, then disappear and clear answer to QID 1202.
+ifQ(1192)
+.answered(1)
+.disappear(Q(1202))
+.clearAnswer(Q(1202));
+
+// If location is closed, nullify QIDs in the prologue.
+ifQ(1192)
+.answered(2)
+.disappear(Q(61), Q(1482), Q(1212), Q(81)) 
+.makeNotRequired(Q(61), Q(1482), Q(1212), Q(81)) 
+.clearAnswer(Q(61), Q(1482), Q(1212), Q(81));
+
+// If QID 1212 answered Option 1, then disappear and clear answer to QID 1222.
+ifQ(1212)
+.answered(0,1)
+.disappear(Q(1222))
+.clearAnswer(Q(1222));
+
+// If location is closed, nullify QIDs in all scored sections.
+ifQ(1192)
+.answered(2)
+.disappear(Section(1), Section(2), Section(3), Section(4), Section(5))
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5));
+
+//------------------------------------------------
+// Closed Location Control - End
+//------------------------------------------------
+
+
+
+
+//**********************************
+// ORDER EXPERIENCE - Begin
+//**********************************
+
+// If QID 1312 and QID 1322 are answered, then trigger math operation: [1322] - [1312] = [1132]
+ifQ(1312)
+.answered()
+.andifQ(1322)
+.answered()
+.sub(Q(1322), Q(1312))
+.store(Q(1132));
+
+// If QID 1132 is <= 5 seconds, then set value to Option 1 to QID 561.
+ifQ(1132)
+.answered()
+.andifQ(1132)
+.lessThanOrEqual(5)
+.setValue(Q(561), 1);
+
+// If QID is > 5 seconds, then set value to Option 2 to QID 561.
+ifQ(1132)
+.answered()
+.andifQ(1132)
+.greaterThan(5)
+.setValue(Q(561), 2);
+
+// If QID 281 is answered Option [0 OR 2], then disappear and clear answer to QID 1502.
+ifQ(281)
+.answered(0,2)
+.disappear(Q(1502))
+.clearAnswer(Q(1502));
+
+// If QID 1502 is not answered Option 5, then disappear and clear answer to QID 1572.
+ifQ(1502)
+.notAnswered(5)
+.disappear(Q(1572))
+.clearAnswer(Q(1572));
+
+// If QID 1192 is answered Option 2, then disappear, make not required, clear answer to QID 561.
+ifQ(1192)
+.answered(2)
+.disappear(Q(561))
+.makeNotRequired(Q(561))
+.clearAnswer(Q(561));
+
+//**********************************
+// ORDER EXPERIENCE - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER PICK-UP - Begin
+//**********************************
+
+// If QID 581 and QID 551 are answered, then trigger math operation: [551] - [581] = [251]
+ifQ(581)
+.answered()
+.andifQ(551)
+.answered()
+.sub(Q(551), Q(581))
+.store(Q(251));
+
+// If QID 251 is <= 4 minutes, then set value to Option 1 to QID 732.
+ifQ(251)
+.answered()
+.andifQ(251)
+.lessThanOrEqual(240)
+.setValue(Q(732), 1);
+
+// If QID 251 is > 4 minutes AND <= 5 minutes, then set Value to Option 2 to QID 732.
+ifQ(251)
+.answered()
+.andifQ(251)
+.greaterThan(240)
+.andifQ(251)
+.lessThanOrEqual(300)
+.setValue(Q(732), 2);
+
+// If QID 251 is > 5 minutes AND <= 6 minutes, then set value to Option 3 to QID 732.
+ifQ(251)
+.answered()
+.andifQ(251)
+.greaterThan(300)
+.andifQ(251)
+.lessThanOrEqual(360)
+.setValue(Q(732), 3);
+
+// If QID 251 is > 6 minutes, then set value to Option 4 to QID 732.
+ifQ(251)
+.answered()
+.andifQ(251)
+.greaterThan(360)
+.setValue(Q(732), 4);
+
+// If QID 1192 is answered Option 2, then disappear, make not required, clear answer to QID 732.
+ifQ(1192)
+.answered(2)
+.disappear(Q(732))
+.makeNotRequired(Q(732))
+.clearAnswer(Q(732));
+
+//**********************************
+// ORDER PICK-UP - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER QUALITY - Begin
+//**********************************
+
+// If QID 361 is answered Option 1, then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,1)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//**********************************
+// ORDER QUALITY - End
+//**********************************
