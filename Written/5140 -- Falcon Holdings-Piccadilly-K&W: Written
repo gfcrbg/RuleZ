@@ -1,8 +1,71 @@
 //*******************************	
 // CID: 900	
 // SID: 5140	
-// Last Updated: 4/29/2024	
+// Last Updated: 5/14/2024	
 //*******************************	
+
+
+
+
+//*******************************
+// COUNTERS - Begin
+//*******************************
+
+// If QID 101 is answered Option 5, then set value to Option [1, 2, 3, 4, AND 5] to QID 101.
+ifQ(101)
+.answered(5)
+.setValue(Q(101), [1,2,3,4,5]);
+
+// If QID 121 is answered Option 5, then set value to Option [1, 2, 3, 4, AND 5] to QID 121.
+ifQ(121)
+.answered(5)
+.setValue(Q(121), [1,2,3,4,5]);
+
+// If QID 151 is answered Option 5, then set value to Option [1, 2, 3, 4, AND 5] to QID 151.
+ifQ(151)
+.answered(5)
+.setValue(Q(151), [1,2,3,4,5]);
+
+// If QID 181 is answered Option 5, then set value to Option [1, 2, 3, 4, AND 5] to QID 181.
+ifQ(181)
+.answered(5)
+.setValue(Q(181), [1,2,3,4,5]);
+
+//*******************************
+// COUNTERS  - End
+//*******************************
+
+
+
+
+//*******************************
+// CASHIER - Begin
+//*******************************
+
+// If QID 211 is answered Option 5, then set value to Option [1, 2, 3, 4, AND 5] to QID 211.
+ifQ(211)
+.answered(5)
+.setValue(Q(211), [1,2,3,4,5]);
+
+//*******************************
+// CASHIER  - End
+//*******************************
+
+
+
+
+//*******************************
+// DINING ROOM - Begin
+//*******************************
+
+// If QID 271 is answered Option 4, then set value to Option [1, 2, 3, AND 4] to QID 271.
+ifQ(271)
+.answered(4)
+.setValue(Q(271), [1,2,3,4]);
+
+//*******************************
+// DINING ROOM  - End
+//*******************************
 
 
 
