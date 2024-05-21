@@ -1,0 +1,462 @@
+//*******************************	
+// CID: 256	
+// SID: 5150	
+// Last Updated: 5/20/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// PROPERTY MAINTENANCE - Begin
+//*******************************
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(851), '0');
+
+// Yes Count value +1 if QID 231 is Option 1.
+ifQ(231)
+.answered(1)
+.sum(Q(851), 1)
+.store(Q(851));
+
+// Yes Count value +1 if QID 241 is Option 1.
+ifQ(241)
+.answered(1)
+.sum(Q(851), 1)
+.store(Q(851));
+
+// Yes Count value +1 if QID 251 is Option 1.
+ifQ(251)
+.answered(1)
+.sum(Q(851), 1)
+.store(Q(851));
+
+// Yes Count value +1 if QID 261 is Option 1.
+ifQ(261)
+.answered(1)
+.sum(Q(851), 1)
+.store(Q(851));
+
+// Yes Count value +1 if QID 271 is Option 1.
+ifQ(271)
+.answered(1)
+.sum(Q(851), 1)
+.store(Q(851));
+
+// If QID 851 is answered '4' or '5', then set value to Option 1 to QID 281.
+ifQ(851)
+.answered('4','5')
+.setValue(Q(281), 1);
+
+// If QID 851 is answered '3', then set value to Option 2 to QID 281.
+ifQ(851)
+.answered('3')
+.setValue(Q(281), 2);
+
+// If QID 851 is answered '1' or '2', then set value to Option 3 to QID 281.
+ifQ(851)
+.answered('1', '2')
+.setValue(Q(281), 3);
+
+// If QID 851 is not answered, then set value to Option 4 to QID 281.
+ifQ(851)
+.answered('0')
+.setValue(Q(281), 4);
+
+//*******************************
+// PROPERTY MAINTENANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// POLICY COMPLIANCE - Begin
+//*******************************
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(861), '0');
+
+ // Yes Count value +1 if QID 301 is Option 1.
+ifQ(301)
+.answered(1)
+.sum(Q(861), 1)
+.store(Q(861));
+
+// Yes Count value +1 if QID 311 is Option 1.
+ifQ(311)
+.answered(1)
+.sum(Q(861), 1)
+.store(Q(861));
+
+// Yes Count value +1 if QID 331 is Option [1 OR 3].
+ifQ(331)
+.answered(1,3)
+.sum(Q(861), 1)
+.store(Q(861));
+
+// If QID 861 is answered '3', then set value to Option 1 to QID 341.
+ifQ(861)
+.answered('3')
+.setValue(Q(341), 1);
+
+// If QID 861 is not answered '3', then set value to Option 2 to QID 341.
+ifQ(861)
+.notAnswered('3')
+.setValue(Q(341), 2);
+
+//*******************************
+// POLICY COMPLIANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE - Begin
+//*******************************
+
+
+//-------------------------------
+// Greeting - Begin
+//-------------------------------
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(871), '0');
+
+// Yes Count value +1 if QID 371 is Option 1.
+ifQ(371)
+.answered(1)
+.sum(Q(871), 1)
+.store(Q(871));
+
+// Yes Count value +1 if QID 381 is Option 1.
+ifQ(381)
+.answered(1)
+.sum(Q(871), 1)
+.store(Q(871));
+
+// Yes Count value +1 if QID 391 is Option 1.
+ifQ(391)
+.answered(1)
+.sum(Q(871), 1)
+.store(Q(871));
+
+// Yes Count value +1 if QID 401 is Option 1.
+ifQ(401)
+.answered(1)
+.sum(Q(871), 1)
+.store(Q(871));
+
+// Yes Count value +1 if QID 411 is Option 1.
+ifQ(411)
+.answered(1)
+.sum(Q(871), 1)
+.store(Q(871));
+
+// Yes Count value +1 if QID 421 is Option 1.
+ifQ(421)
+.answered(1)
+.sum(Q(871), 1)
+.store(Q(871));
+
+// If QID 871 is answered '5' or '6', then set value to Option 1 to QID 431.
+ifQ(871)
+.answered('5','6')
+.setValue(Q(431), 1);
+
+// If QID 871 is answered '3' or '4', then set value to Option 2 to QID 431.
+ifQ(871)
+.answered('3','4')
+.setValue(Q(431), 2);
+
+// If QID 871 is answered '1' or '2', then set value to Option 3 to QID 431.
+ifQ(871)
+.answered('1','2')
+.setValue(Q(431), 3);
+
+// If QID 871 is answered '0', then set value to Option 4 to QID 431.
+ifQ(871)
+.answered('0')
+.setValue(Q(431), 4);
+
+//-------------------------------
+// Greeting - End
+//-------------------------------
+
+
+//-------------------------------
+// General - Begin
+//-------------------------------
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(881), '0');
+
+// Yes Count value +1 if QID 451 is Option 1.
+ifQ(451)
+.answered(1)
+.sum(Q(881), 1)
+.store(Q(881));
+
+// Yes Count value +1 if QID 461 is Option 1.
+ifQ(461)
+.answered(1)
+.sum(Q(881), 1)
+.store(Q(881));
+
+// Yes Count value +1 if QID 471 is Option 1.
+ifQ(471)
+.answered(1)
+.sum(Q(881), 1)
+.store(Q(881));
+
+// Yes Count value +1 if QID 501 is Option 1.
+ifQ(501)
+.answered(1)
+.sum(Q(881), 1)
+.store(Q(881));
+
+// Yes Count value +1 if QID 481 is Option [1 OR 3].
+ifQ(481)
+.answered(1,3)
+.sum(Q(881), 1)
+.store(Q(881));
+
+// Yes Count value +1 if QID 491 is Option 1.
+ifQ(491)
+.answered(1)
+.sum(Q(881), 1)
+.store(Q(881));
+
+// If QID 881 is answered '5' or '6', then set value to Option 1 to QID 511.
+ifQ(881)
+.answered('5','6')
+.setValue(Q(511), 1);
+
+// If QID 881 is answered '3' or '4', then set value to Option 2 to QID 511.
+ifQ(881)
+.answered('3','4')
+.setValue(Q(511), 2);
+
+// If QID 881 is answered '1' or '2', then set value to Option 3 to QID 511.
+ifQ(881)
+.answered('1','2')
+.setValue(Q(511), 3);
+
+// If QID 881 is answered '0', then set value to Option 4 to QID 511.
+ifQ(881)
+.answered('0')
+.setValue(Q(511), 4);
+
+//-------------------------------
+// General - End
+//-------------------------------
+
+
+//-------------------------------
+// Closing - Begin
+//-------------------------------
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(891), '0');
+
+// Yes Count value +1 if QID 531 is Option 1.
+ifQ(531)
+.answered(1)
+.sum(Q(891), 1)
+.store(Q(891));
+
+// Yes Count value +1 if QID 541 is Option 1.
+ifQ(541)
+.answered(1)
+.sum(Q(891), 1)
+.store(Q(891));
+
+// Yes Count value +1 if QID 551 is Option 1.
+ifQ(551)
+.answered(1)
+.sum(Q(891), 1)
+.store(Q(891));
+
+// Yes Count value +1 if QID 561 is Option 1.
+ifQ(561)
+.answered(1)
+.sum(Q(891), 1)
+.store(Q(891));
+
+// If QID 891 is answered '4', then set value to Option 1 to QID 571.
+ifQ(891)
+.answered('4')
+.setValue(Q(571), 1);
+
+// If QID 891 is answered '3', then set value to Option 2 to QID 571.
+ifQ(891)
+.answered('3')
+.setValue(Q(571), 2);
+
+// If QID 891 is answered '1' or '2', then set value to Option 3 to QID 571.
+ifQ(891)
+.answered('1','2')
+.setValue(Q(571), 3);
+
+// If QID 891 is answered '0', then set value to Option 4 to QID 571.
+ifQ(891)
+.answered('0')
+.setValue(Q(571), 4);
+
+//-------------------------------
+// Closing - End
+//-------------------------------
+
+
+//*******************************
+// CUSTOMER SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// PROFESSIONALISM - Begin
+//*******************************
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(901), '0');
+
+// Yes Count value +1 if QID 591 is Option 1.
+ifQ(591)
+.answered(1)
+.sum(Q(901), 1)
+.store(Q(901));
+
+// Yes Count value +1 if QID 601 is Option 1.
+ifQ(601)
+.answered(1)
+.sum(Q(901), 1)
+.store(Q(901));
+
+// Yes Count value +1 if QID 611 is Option 1.
+ifQ(611)
+.answered(1)
+.sum(Q(901), 1)
+.store(Q(901));
+
+// Yes Count value +1 if QID 621 is Option 1.
+ifQ(621)
+.answered(1)
+.sum(Q(901), 1)
+.store(Q(901));
+
+// If QID 901 is answered '4', then set value to Option 1 to QID 631.
+ifQ(901)
+.answered('4')
+.setValue(Q(631), 1);
+
+// If QID 901 is answered '3', then set value to Option 2 to QID 631.
+ifQ(901)
+.answered('3')
+.setValue(Q(631), 2);
+
+// If QID 901 is answered '1' or '2', then set value to Option 3 to QID 631.
+ifQ(901)
+.answered('1','2')
+.setValue(Q(631), 3);
+
+// If QID 901 is answered '0', then set value to Option 4 to QID 631.
+ifQ(901)
+.answered('0')
+.setValue(Q(631), 4);
+
+//*******************************
+// PROFESSIONALISM  - End
+//*******************************
+
+
+
+
+//*******************************
+// NEEDS ASSESSMENT - Begin
+//*******************************
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(911), '0');
+
+// Yes Count value +1 if QID 651 is Option 1.
+ifQ(651)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 661 is Option 1.
+ifQ(661)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 671 is Option 1.
+ifQ(671)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 681 is Option 1.
+ifQ(681)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 691 is Option 1.
+ifQ(691)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 701 is Option 1.
+ifQ(701)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 711 is Option 1.
+ifQ(711)
+.answered(1)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// Yes Count value +1 if QID 721 is Option 1.
+ifQ(721)
+.answered(1,3)
+.sum(Q(911), 1)
+.store(Q(911));
+
+// If QID 911 is answered '7' or '8', then set value to Option 1 to QID 731.
+ifQ(911)
+.answered('7','8')
+.setValue(Q(731), 1);
+
+// If QID 911 is answered '5' or '6', then set value to Option 2 to QID 731.
+ifQ(911)
+.answered('5','6')
+.setValue(Q(731), 2);
+
+// If QID 911 is answered '1', '2', '3', or '4' then set value to Option 3 to QID 731.
+ifQ(911)
+.answered('1','2','3','4')
+.setValue(Q(731), 3);
+
+// If QID 911 is answered '0', then set value to Option 4 to QID 731.
+ifQ(911)
+.answered('0')
+.setValue(Q(731), 4);
+
+//*******************************
+// NEEDS ASSESSMENT - End
+//*******************************
