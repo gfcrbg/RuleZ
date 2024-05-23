@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 898
 // SID: 5131	
-// Last Updated: 5/2/2024	
+// Last Updated: 5/23/2024	
 //**********************************	
 
 
@@ -45,6 +45,23 @@ ifQ(1192)
 
 
 //**********************************
+// ATMOSPHERE AND APPEARANCE - Begin
+//**********************************
+
+// If QID 171 is answered Option [0 OR 1], then disappear and clear answer to QID 1582.
+ifQ(171)
+.answered(0,1)
+.disappear(Q(1582))
+.clearAnswer(Q(1582));
+
+//**********************************
+// ATMOSPHERE AND APPEARANCE - End
+//**********************************
+
+
+
+
+//**********************************
 // ORDER EXPERIENCE - Begin
 //**********************************
 
@@ -56,19 +73,31 @@ ifQ(1312)
 .sub(Q(1322), Q(1312))
 .store(Q(1132));
 
-// If QID 1132 is <= 5 seconds, then set value to Option 1 to QID 561.
+// If QID 1132 is <= 10 seconds, then set value to Option 1 to QID 561.
 ifQ(1132)
 .answered()
 .andifQ(1132)
-.lessThanOrEqual(5)
+.lessThanOrEqual(10)
 .setValue(Q(561), 1);
 
-// If QID is > 5 seconds, then set value to Option 2 to QID 561.
+// If QID is > 10 seconds, then set value to Option 2 to QID 561.
 ifQ(1132)
 .answered()
 .andifQ(1132)
-.greaterThan(5)
+.greaterThan(10)
 .setValue(Q(561), 2);
+
+// If QID 561 is answered Option [0 OR 1], then disappear and clear answer to QID 1592.
+ifQ(561)
+.answered(0,1)
+.disappear(Q(1592))
+.clearAnswer(Q(1592));
+
+// If QID 281 is answered Option [0 OR 1], then disappear and clear answer to QID 1602.
+ifQ(281)
+.answered(0,1)
+.disappear(Q(1602))
+.clearAnswer(Q(1602));
 
 // If QID 281 is answered Option [0 OR 2], then disappear and clear answer to QID 1502.
 ifQ(281)
