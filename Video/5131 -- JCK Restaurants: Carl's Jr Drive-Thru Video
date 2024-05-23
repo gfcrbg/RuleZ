@@ -93,9 +93,9 @@ ifQ(561)
 .disappear(Q(1592))
 .clearAnswer(Q(1592));
 
-// If QID 281 is answered Option [0 OR 1], then disappear and clear answer to QID 1602.
+// If QID 281 is answered Option [0 OR 2], then disappear and clear answer to QID 1602.
 ifQ(281)
-.answered(0,1)
+.answered(0,2)
 .disappear(Q(1602))
 .clearAnswer(Q(1602));
 
