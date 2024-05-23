@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 901	
 // SID: 5141	
-// Last Updated: 5/10/2024	
+// Last Updated: 5/23/2024	
 //*******************************	
 
 
@@ -12,3 +12,20 @@ ifQ(281)
 .answered(2)
 .disappear(Q(401))
 .clearAnswer (Q(401));
+
+
+
+
+//*******************************
+// ASSOCIATE INTERACTION - Begin
+//*******************************
+
+// If QID 451 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(451)
+.answered(2)
+.disappear(Q(201), Q(441), Q(221), Q(231))
+.clearAnswer(Q(201), Q(441), Q(221), Q(231))
+
+//*******************************
+// ASSOCIATE INTERACTION  - End
+//*******************************
