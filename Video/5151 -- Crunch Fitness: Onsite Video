@@ -1,0 +1,95 @@
+//*******************************	
+// CID: 904
+// SID: 5151	
+// Last Updated: 5/24/2024	
+//*******************************	
+
+
+
+
+// If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
+ifQ(41)
+.answered(1)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+// If QID 41 is answered Option 2, then disappear, make not required, and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(361), Q(371), Q(381))
+.makeNotRequired(Q(361), Q(371), Q(381))
+.clearAnswer(Q(361), Q(371), Q(381));
+
+// If location is closed, nullify QIDs in all scored sections.
+ifQ(41)
+.answered(2)
+.disappear(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7))
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7));
+
+
+
+
+//*******************************
+// TOUR - Begin
+//*******************************
+
+//-------------------------------------------
+// Make a Great First Impression - Begin
+//-------------------------------------------
+
+// If QID 81 is not answered Option 2, then disappear and clear answer to QID 91.
+ifQ(81)
+.notAnswered(2)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+//-------------------------------------------
+// Make a Great First Impression - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Sales Tour - Begin
+//-------------------------------------------
+
+// If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
+ifQ(141)
+.answered(0,2)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+//-------------------------------------------
+// Sales Tour - End
+//-------------------------------------------
+
+//*******************************
+// TOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// BRAND EXCELLENCE - Begin
+//*******************************
+
+//-------------------------------------------
+// Cleanliness & 
+// Condition of Equipment - Begin
+//-------------------------------------------
+
+// If QID 722 is answered Option [0 OR 1], then disappear and clear answer to QID 732.
+ifQ(722)
+.answered(0,1)
+.disappear(Q(732))
+.clearAnswer(Q(732));
+
+//-------------------------------------------
+// Cleanliness & 
+// Condition of Equipment - End
+//-------------------------------------------
+
+//*******************************
+// BRAND EXCELLENCE - End
+//*******************************
