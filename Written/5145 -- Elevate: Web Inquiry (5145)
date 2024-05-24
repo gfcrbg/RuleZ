@@ -1,0 +1,87 @@
+//*******************************	
+// CID: 903
+// SID: 5145	
+// Last Updated: 5/24/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// WEB INQUIRY - Begin
+//*******************************
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(51), Q(61))
+.clearAnswer(Q(51), Q(61));
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(91), Q(101))
+.clearAnswer(Q(91), Q(101));
+
+//*******************************
+// WEB INQUIRY - End
+//*******************************
+
+
+
+
+//*******************************
+// LEASING AGENT RESPONSE - Begin
+//*******************************
+
+// If QID 91 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(91)
+.notAnswered(1)
+.disappear(Q(131), Q(171), Q(181))
+.clearAnswer(Q(131), Q(171), Q(181));
+
+// If QID 91 is not answered Option 2, then disappear and clear answer to QID 141.
+ifQ(91)
+.notAnswered(2)
+.disappear(Q(141))
+.clearAnswer(Q(141));
+
+// If QID 91 is not answered Option 3, then disappear and clear answer to QID 151.
+ifQ(91)
+.notAnswered(3)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(2)
+.disappear(Q(161), Q(191), Q(201), Q(211), Q(221), Q(241), Q(251))
+.clearAnswer(Q(161), Q(191), Q(201), Q(211), Q(221), Q(241), Q(251));
+
+// If QID 221 is answered Option [0 OR 1], then disappear and clear answer to QID 231.
+ifQ(221)
+.answered(0,1)
+.disappear(Q(231))
+.clearAnswer(Q(231));
+
+//*******************************
+// LEASING AGENT RESPONSE - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL - Begin
+//*******************************
+
+// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(2)
+.disappear(Q(261)) // medium header
+.disappear(Q(271), Q(281))
+.clearAnswer(Q(271), Q(281));
+
+//*******************************
+// OVERALL  - End
+//*******************************
