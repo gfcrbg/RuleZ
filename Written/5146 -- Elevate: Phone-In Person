@@ -1,0 +1,40 @@
+//*******************************	
+// CID: 903	
+// SID: 5146
+// Last Updated: 5/28/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// TELEPHONE PRESENTATION - Begin
+//*******************************
+
+// If QID 41 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(3)
+.disappear(Q(51), Q(71), Q(81), Q(91), Q(111), Q(131))
+.clearAnswer(Q(51), Q(71), Q(81), Q(91), Q(111), Q(131));
+
+// If QID 91 is answered Option [0 OR 1], then disappear and clear answer to QID 101.
+ifQ(91)
+.answered(0,1)
+.disappear(Q(101))
+.clearAnswer(Q(101));
+
+// If QID 111 is answered Option [0 OR 1], then disappear and clear answer to QID 121.
+ifQ(111)
+.answered(0,1)
+.disappear(Q(121))
+.clearAnswer(Q(121));
+
+// If QID 131 is answered Option [0 OR 2], then disappear and clear answer to QID 141.
+ifQ(131)
+.answered(0,2)
+.disappear(Q(141))
+.clearAnswer(Q(141));
+
+//*******************************
+// TELEPHONE PRESENTATION - End
+//*******************************
