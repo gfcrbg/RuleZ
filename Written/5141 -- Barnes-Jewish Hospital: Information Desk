@@ -1,17 +1,17 @@
 //*******************************	
 // CID: 901	
 // SID: 5141	
-// Last Updated: 5/23/2024	
+// Last Updated: 5/29/2024	
 //*******************************	
 
 
 
 
-// If QID 281 is answered Option 2, then disappear and clear answer to QID 401.
+// If QID 281 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(281)
 .answered(2)
-.disappear(Q(401))
-.clearAnswer (Q(401));
+.disappear(Q(401), Q(461))
+.clearAnswer (Q(401), Q(461));
 
 
 
