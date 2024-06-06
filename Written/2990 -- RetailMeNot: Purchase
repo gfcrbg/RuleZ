@@ -1,0 +1,55 @@
+//*******************************
+// CID: 287
+// SID: 2990
+// Last Updated: 6/6/2024
+//*******************************
+
+
+
+
+//*******************************
+// CASHIER EXPERIENCE - Begin
+//*******************************
+
+// If QID 491 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(491)
+.answered(1)
+.disappear(Q(811), Q(761), Q(881), Q(821)) // black remarks
+.disappear(Q(721), Q(551))
+.clearAnswer(Q(721), Q(551));
+
+// If QID 491 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(491)
+.answered(2)
+.disappear(Q(281)) // red remark
+.disappear(Q(871), Q(841)) // black remarks
+.disappear(Q(221), Q(691))
+.clearAnswer(Q(221), Q(691));
+
+// If QID 691 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(691)
+.answered(0,1)
+.disappear(Q(861)) // black remarks
+.disappear(Q(701), Q(521))
+.clearAnswer(Q(701), Q(521));
+
+//*******************************
+// CASHIER EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// RETAILMENOT FAMILIARITY - Begin
+//*******************************
+
+// If QID 581 is answered Option 2, then disappear and clear answer to QID 591.
+ifQ(581)
+.answered(2)
+.disappear(Q(591))
+.clearAnswer(Q(591));
+
+//*******************************
+// RETAILMENOT FAMILIARITY - End
+//*******************************
