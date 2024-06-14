@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 901	
 // SID: 5141	
-// Last Updated: 5/29/2024	
+// Last Updated: 6/14/2024	
 //*******************************	
 
 
@@ -13,6 +13,35 @@ ifQ(281)
 .disappear(Q(401), Q(461))
 .clearAnswer (Q(401), Q(461));
 
+// If QID 471 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(471)
+.answered(2)
+.disappear(Q(51), Q(61))
+.clearAnswer(Q(51), Q(61))
+
+// If QID 471 is answered Option 2, then disappear and clear answer to sections.
+ifQ(471)
+.answered(2)
+.disappear(Section(2), Section(3), Section(4))
+.clearAnswer(Section(2), Section(3), Section(4));
+
+
+
+
+//*******************************
+// GENERAL INFORMATION - Begin
+//*******************************
+
+// If QID 471 is answered Option 1, then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(1)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+//*******************************
+// GENERAL INFORMATION - End
+//*******************************
+
 
 
 
@@ -20,9 +49,9 @@ ifQ(281)
 // ASSOCIATE INTERACTION - Begin
 //*******************************
 
-// If QID 451 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID 451 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(451)
-.answered(2)
+.answered(0,2)
 .disappear(Q(201), Q(441), Q(221), Q(231))
 .clearAnswer(Q(201), Q(441), Q(221), Q(231))
 
