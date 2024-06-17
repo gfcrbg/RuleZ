@@ -1,0 +1,80 @@
+//*******************************	
+// CID: 904
+// SID: 5154	
+// Last Updated: 6/17/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// TELEPHONE INQUIRY - Begin
+//*******************************
+
+// If QID 71 is answered Option 3, then disappear and clear answer to QID 81.
+ifQ(71)
+.answered(3)
+.disappear(Q(81))
+.clearAnswer(Q(81));
+
+//*******************************
+// TELEPHONE INQUIRY - End
+//*******************************
+
+
+
+
+//*******************************
+// INTRODUCTION/
+// FIRST IMPRESSSION - Begin
+//*******************************
+
+// If QID 71 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(3)
+.disappear(Q(91)) // medium header
+.disappear(Q(101), Q(111), Q(131), Q(121), Q(141))
+.clearAnswer(Q(101), Q(111), Q(131), Q(121), Q(141));
+
+//*******************************
+// INTRODUCTION/
+// FIRST IMPRESSION - End
+//*******************************
+
+
+
+
+//*******************************
+// MEMBERSHIP PRICING
+// AND NEXT STEPS - Begin
+//*******************************
+
+// If QID 71 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(3)
+.disappear(Q(151)) // medium header
+.disappear(Q(161), Q(171), Q(181), Q(191), Q(201), Q(261))
+.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(201), Q(261));
+
+//*******************************
+// MEMBERSHIP PRICING
+// AND NEXT STEPS - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL - Begin
+//*******************************
+
+// If QID 71 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(3)
+.disappear(Q(211)) // medium header
+.disappear(Q(221), Q(231), Q(241), Q(251))
+.clearAnswer(Q(221), Q(231), Q(241), Q(251));
+
+//*******************************
+// OVERALL - End
+//*******************************
