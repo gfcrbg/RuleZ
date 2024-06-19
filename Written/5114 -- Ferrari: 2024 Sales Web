@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 3/19/2024
+// Last Updated: 6/19/2024
 //*******************************	
 
 
@@ -55,8 +55,8 @@ ifQ(291)
 // If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(71)
 .answered(2)
-.disappear(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191))
-.clearAnswer(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191));
+.disappear(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321))
+.clearAnswer(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321));
 
 // If QID 291 is not answered Option [1 OR 3], then disappear and clear answer to QID 261.
 ifQ(291)
@@ -64,8 +64,44 @@ ifQ(291)
 .disappear(Q(261))
 .clearAnswer(Q(261));
 
+// If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(321)
+.answered(0,2)
+.disappear(Q(331), Q(341))
+.clearAnswer(Q(331), Q(341));
+
 //*******************************
 // ADVISOR RESPONSE - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(2)
+.disappear(Q(351)) // medium header
+.disappear(Q(361), Q(391), Q(401))
+.clearAnswer(Q(361), Q(391), Q(401));
+
+// If QID 361 is answered Option [0 OR 2], then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,2)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+// If QID 371 is not answered Option 7, then disappear and clear answer to QID 381.
+ifQ(371)
+.notAnswered(7)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+//*******************************
+// FOLLOW UP - End
 //*******************************
 
 
@@ -84,4 +120,22 @@ ifQ(71)
 
 //*******************************
 // OVERALL - End
+//*******************************
+
+
+
+
+//*******************************
+// ADVOCACY - Begin
+//*******************************
+
+// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(71)
+.answered(2)
+.disappear(Q(411)) // medium header
+.disappear(Q(421))
+.clearAnswer(Q(421));
+
+//*******************************
+// ADVOCACY - End
 //*******************************
