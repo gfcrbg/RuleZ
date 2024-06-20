@@ -1,14 +1,21 @@
 //*******************************	
 // CID: 351	
 // SID: 5116	
-// Last Updated: 4/22/2024	
+// Last Updated: 6/20/2024	
 //*******************************	
 
 
 
 
+// End 6/12/2024
 // If QID 81 is answered Option 1, then disappear and clear answer to QID 91.
 ifQ(81)
+.answered(1)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+// If QID 411 is answered Option 1, then disappear and clear answer to QID 91.
+ifQ(411)
 .answered(1)
 .disappear(Q(91))
 .clearAnswer(Q(91));
@@ -26,12 +33,20 @@ ifQ(111)
 .disappear(Q(121), Q(141))
 .clearAnswer(Q(121), Q(141));
 
+// If QID 421 is not answered Option 6, then disappear and clear answer to QID 431.
+ifQ(421)
+.notAnswered(6)
+.disappear(Q(431))
+.clearAnswer(Q(431));
+
+// End 6/12/2024
 // If QID 121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 131.
 ifQ(121)
 .answered(0,1,3)
 .disappear(Q(131))
 .clearAnswer(Q(131));
 
+// End 6/12/2024
 // If QID 131 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 341.
 ifQ(131)
 .answered(0,1,2,3)
@@ -55,11 +70,19 @@ ifQ(141)
 // SALES SKILLS - Begin
 //*******************************
 
+// End 6/12/2024
 // If QID 81 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(81)
 .answered(4)
 .disappear(Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(291), Q(301), Q(311), Q(321), Q(331), Q(351))
 .clearAnswer(Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(291), Q(301), Q(311), Q(321), Q(331), Q(351));
+
+// If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(4)
+.disappear(Q(391)) // black remark
+.disappear(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471))
+.clearAnswer(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471));
 
 // If QID 271 is not answered Option 1, then disappear and clear answer to QID 281.
 ifQ(271)
@@ -67,6 +90,67 @@ ifQ(271)
 .disappear(Q(281))
 .clearAnswer(Q(281));
 
+// If QID 471 is answered Option [0 OR 2], then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(0,2)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 481 is not answered, then disappear and clear answer to QID 491.
+ifQ(481)
+.notAnswered()
+.disappear(Q(491))
+.clearAnswer(Q(491));
+
 //*******************************
 // SALES SKILLS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(4)
+.disappear(Q(501)) // medium header
+.disappear(Q(581)) // red remark
+.disappear(Q(511), Q(521))
+.clearAnswer(Q(511), Q(521));
+
+// If QID 521 is answered Option [0 OR 4], then disappear and clear answer to QIDs.
+ifQ(521)
+.answered(0,4)
+.disappear(Q(531), Q(551))
+.clearAnswer(Q(531), Q(551));
+
+// If QID 531 is answered Option [3], then disappear and clear answer to QID 541.
+ifQ(531)
+.answered(3)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+//*******************************
+// FOLLOW UP - End
+//*******************************
+
+
+
+
+//*******************************
+// ADVOCACY - Begin
+//*******************************
+
+// If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(4)
+.disappear(Q(561)) // medium header
+.disappear(Q(571))
+.clearAnswer(Q(571));
+
+//*******************************
+// ADVOCACY - End
 //*******************************
