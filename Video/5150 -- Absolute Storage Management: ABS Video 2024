@@ -45,15 +45,6 @@ ifQ(271)
 .sum(Q(851), 1)
 .store(Q(851));
 
-// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
-ifQ(181)
-.answered(2)
-.setValue(Q(231), 2)
-.setValue(Q(241), 2)
-.setValue(Q(251), 2)
-.setValue(Q(261), 2)
-.setValue(Q(271), 2);
-
 // If QID 851 is answered '4' or '5', then set value to Option 1 to QID 281.
 ifQ(851)
 .answered('4','5')
