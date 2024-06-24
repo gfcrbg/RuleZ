@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 256	
 // SID: 5150	
-// Last Updated: 5/20/2024	
+// Last Updated: 6/24/2024	
 //*******************************	
 
 
@@ -44,6 +44,15 @@ ifQ(271)
 .answered(1)
 .sum(Q(851), 1)
 .store(Q(851));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(231), 2)
+.setValue(Q(241), 2)
+.setValue(Q(251), 2)
+.setValue(Q(261), 2)
+.setValue(Q(271), 2);
 
 // If QID 851 is answered '4' or '5', then set value to Option 1 to QID 281.
 ifQ(851)
@@ -97,6 +106,13 @@ ifQ(331)
 .answered(1,3)
 .sum(Q(861), 1)
 .store(Q(861));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(301), 2)
+.setValue(Q(311), 2)
+.setValue(Q(331), 2);
 
 // If QID 861 is answered '3', then set value to Option 1 to QID 341.
 ifQ(861)
@@ -163,6 +179,16 @@ ifQ(421)
 .answered(1)
 .sum(Q(871), 1)
 .store(Q(871));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(371), 2)
+.setValue(Q(381), 2)
+.setValue(Q(391), 2)
+.setValue(Q(401), 2)
+.setValue(Q(411), 2)
+.setValue(Q(421), 2);
 
 // If QID 871 is answered '5' or '6', then set value to Option 1 to QID 431.
 ifQ(871)
@@ -233,6 +259,16 @@ ifQ(491)
 .sum(Q(881), 1)
 .store(Q(881));
 
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(451), 2)
+.setValue(Q(461), 2)
+.setValue(Q(471), 2)
+.setValue(Q(501), 2)
+.setValue(Q(481), 2)
+.setValue(Q(491), 2);
+
 // If QID 881 is answered '5' or '6', then set value to Option 1 to QID 511.
 ifQ(881)
 .answered('5','6')
@@ -289,6 +325,14 @@ ifQ(561)
 .answered(1)
 .sum(Q(891), 1)
 .store(Q(891));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(531), 2)
+.setValue(Q(541), 2)
+.setValue(Q(551), 2)
+.setValue(Q(561), 2);
 
 // If QID 891 is answered '4', then set value to Option 1 to QID 571.
 ifQ(891)
@@ -353,6 +397,14 @@ ifQ(621)
 .answered(1)
 .sum(Q(901), 1)
 .store(Q(901));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(591), 2)
+.setValue(Q(601), 2)
+.setValue(Q(611), 2)
+.setValue(Q(621), 2);
 
 // If QID 901 is answered '4', then set value to Option 1 to QID 631.
 ifQ(901)
@@ -436,6 +488,18 @@ ifQ(721)
 .answered(1,3)
 .sum(Q(911), 1)
 .store(Q(911));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(651), 2)
+.setValue(Q(661), 2)
+.setValue(Q(671), 2)
+.setValue(Q(681), 2)
+.setValue(Q(691), 2)
+.setValue(Q(701), 2)
+.setValue(Q(711), 2)
+.setValue(Q(721), 2);
 
 // If QID 911 is answered '7' or '8', then set value to Option 1 to QID 731.
 ifQ(911)
