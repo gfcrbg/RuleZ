@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 6/19/2024
+// Last Updated: 6/25/2024
 //*******************************	
 
 
@@ -64,11 +64,17 @@ ifQ(291)
 .disappear(Q(261))
 .clearAnswer(Q(261));
 
-// If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+// If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QID 331.
 ifQ(321)
 .answered(0,2)
-.disappear(Q(331), Q(341))
-.clearAnswer(Q(331), Q(341));
+.disappear(Q(331))
+.clearAnswer(Q(331));
+
+// If QID 331 is not answered, then disappear and clear answer to QID 341.
+ifQ(331)
+.notAnswered()
+.disappear(Q(341))
+.clearAnswer(Q(341));
 
 //*******************************
 // ADVISOR RESPONSE - End
