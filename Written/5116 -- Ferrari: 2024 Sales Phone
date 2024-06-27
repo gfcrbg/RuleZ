@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5116	
-// Last Updated: 6/20/2024	
+// Last Updated: 6/27/2024	
 //*******************************	
 
 
@@ -117,15 +117,14 @@ ifQ(481)
 ifQ(411)
 .answered(4)
 .disappear(Q(501)) // medium header
-.disappear(Q(581)) // red remark
 .disappear(Q(511), Q(521))
 .clearAnswer(Q(511), Q(521));
 
 // If QID 521 is answered Option [0 OR 4], then disappear and clear answer to QIDs.
 ifQ(521)
 .answered(0,4)
-.disappear(Q(531), Q(551))
-.clearAnswer(Q(531), Q(551));
+.disappear(Q(531), Q(581), Q(551))
+.clearAnswer(Q(531), Q(581), Q(551));
 
 // If QID 531 is answered Option [3], then disappear and clear answer to QID 541.
 ifQ(531)
