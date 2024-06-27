@@ -21,7 +21,7 @@ ifQ(41)
 ifQ(71)
 .answered(2)
 .disappear(Q(431))
-.clearAnswer(Q(291));
+.clearAnswer(Q(431));
 
 //*******************************
 // WEB INQUIRY - End
