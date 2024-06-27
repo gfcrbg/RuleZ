@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 6/25/2024
+// Last Updated: 6/27/2024
 //*******************************	
 
 
@@ -17,11 +17,11 @@ ifQ(41)
 .disappear(Q(51), Q(61))
 .clearAnswer(Q(51), Q(61));
 
-// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID 71 is answered Option 2, then disappear and clear answer to QID 431.
 ifQ(71)
 .answered(2)
-.disappear(Q(291), Q(91), Q(101))
-.clearAnswer(Q(291), Q(91), Q(101));
+.disappear(Q(431))
+.clearAnswer(Q(291));
 
 //*******************************
 // WEB INQUIRY - End
@@ -34,39 +34,9 @@ ifQ(71)
 // ADVISOR RESPONSE - Begin
 //*******************************
 
-// If QID 291 is not answered Option 1, then disappear and clear answer to QIDs.
-ifQ(291)
-.notAnswered(1)
-.disappear(Q(131), Q(141))
-.clearAnswer(Q(131), Q(141));
-
-// If QID 291 is not answered Option 2, then disappear and clear answer to QIDs.
-ifQ(291)
-.notAnswered(2)
-.disappear(Q(271), Q(201))
-.clearAnswer(Q(271), Q(201));
-
-// If QID 291 is not answered Option 3, then disappear and clear answer to QID 281.
-ifQ(291)
-.notAnswered(3)
-.disappear(Q(281))
-.clearAnswer(Q(281));
-
-// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(71)
-.answered(2)
-.disappear(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321))
-.clearAnswer(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321));
-
-// If QID 291 is not answered Option [1 OR 3], then disappear and clear answer to QID 261.
-ifQ(291)
-.notAnswered(1,3)
-.disappear(Q(261))
-.clearAnswer(Q(261));
-
-// If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QID 331.
+// If QID 321 is answered Option 2, then disappear and clear answer to QID 331.
 ifQ(321)
-.answered(0,2)
+.answered(2)
 .disappear(Q(331))
 .clearAnswer(Q(331));
 
@@ -87,16 +57,9 @@ ifQ(331)
 // FOLLOW UP - Begin
 //*******************************
 
-// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(71)
-.answered(2)
-.disappear(Q(351)) // medium header
-.disappear(Q(361), Q(391), Q(401))
-.clearAnswer(Q(361), Q(391), Q(401));
-
-// If QID 361 is answered Option [0 OR 2], then disappear and clear answer to QID 371.
+// If QID 361 is answered Option 2, then disappear and clear answer to QID 371.
 ifQ(361)
-.answered(0,2)
+.answered(2)
 .disappear(Q(371))
 .clearAnswer(Q(371));
 
@@ -108,40 +71,4 @@ ifQ(371)
 
 //*******************************
 // FOLLOW UP - End
-//*******************************
-
-
-
-
-//*******************************
-// OVERALL - Begin
-//*******************************
-
-// If QID 71 is answered Option 2, then disappear QIDs and clear answer to QID 231.
-ifQ(71)
-.answered(2)
-.disappear(Q(221)) // medium header
-.disappear(Q(231))
-.clearAnswer(Q(231));
-
-//*******************************
-// OVERALL - End
-//*******************************
-
-
-
-
-//*******************************
-// ADVOCACY - Begin
-//*******************************
-
-// If QID 71 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(71)
-.answered(2)
-.disappear(Q(411)) // medium header
-.disappear(Q(421))
-.clearAnswer(Q(421));
-
-//*******************************
-// ADVOCACY - End
 //*******************************
