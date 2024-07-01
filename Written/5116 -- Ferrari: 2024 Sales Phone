@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5116	
-// Last Updated: 6/27/2024	
+// Last Updated: 7/1/2024	
 //*******************************	
 
 
@@ -126,11 +126,11 @@ ifQ(521)
 .disappear(Q(531), Q(581), Q(551))
 .clearAnswer(Q(531), Q(581), Q(551));
 
-// If QID 531 is answered Option [3], then disappear and clear answer to QID 541.
+// If QID 531 is answered Option 3, then disappear and clear answer to QID 591.
 ifQ(531)
 .answered(3)
-.disappear(Q(541))
-.clearAnswer(Q(541));
+.disappear(Q(591))
+.clearAnswer(Q(591));
 
 //*******************************
 // FOLLOW UP - End
