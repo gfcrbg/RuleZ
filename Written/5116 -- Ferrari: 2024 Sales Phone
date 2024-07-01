@@ -126,9 +126,9 @@ ifQ(521)
 .disappear(Q(531), Q(581), Q(551))
 .clearAnswer(Q(531), Q(581), Q(551));
 
-// If QID 531 is answered Option 3, then disappear and clear answer to QID 591.
+// If QID 531 is answered Option [0 OR 3], then disappear and clear answer to QID 591.
 ifQ(531)
-.answered(3)
+.answered(0,3)
 .disappear(Q(591))
 .clearAnswer(Q(591));
 
