@@ -52,17 +52,23 @@ ifQ(291)
 .disappear(Q(271), Q(201))
 .clearAnswer(Q(271), Q(201));
 
-// If QID 291 is not answered Option 3, then disappear and clear answer to QIDs.
+// If QID 291 is not answered Option 3, then disappear and clear answer to QID 281.
 ifQ(291)
 .notAnswered(3)
-.disappear(Q(281), Q(261))
-.clearAnswer(Q(281), Q(261));
+.disappear(Q(281))
+.clearAnswer(Q(281));
 
 // If QID 451 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(451)
 .answered(3)
 .disappear(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321))
 .clearAnswer(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321));
+
+// If QID 291 is not answered Option [1 OR 3], then disappear and clear answer to QID 261.
+ifQ(291)
+.notAnswered(1,3)
+.disappear(Q(261))
+.clearAnswer(Q(261));
 
 // If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QID 331.
 ifQ(321)
