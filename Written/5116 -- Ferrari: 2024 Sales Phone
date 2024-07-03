@@ -1,18 +1,11 @@
 //*******************************	
 // CID: 351	
 // SID: 5116	
-// Last Updated: 7/1/2024	
+// Last Updated: 7/3/2024	
 //*******************************	
 
 
 
-
-// End 6/12/2024
-// If QID 81 is answered Option 1, then disappear and clear answer to QID 91.
-ifQ(81)
-.answered(1)
-.disappear(Q(91))
-.clearAnswer(Q(91));
 
 // If QID 411 is answered Option 1, then disappear and clear answer to QID 91.
 ifQ(411)
@@ -39,20 +32,6 @@ ifQ(421)
 .disappear(Q(431))
 .clearAnswer(Q(431));
 
-// End 6/12/2024
-// If QID 121 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 131.
-ifQ(121)
-.answered(0,1,3)
-.disappear(Q(131))
-.clearAnswer(Q(131));
-
-// End 6/12/2024
-// If QID 131 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 341.
-ifQ(131)
-.answered(0,1,2,3)
-.disappear(Q(341))
-.clearAnswer(Q(341));
-
 // If QID 141 is answered Option [0, 1, OR 3], then disappear and clear answer to QIDs.
 ifQ(141)
 .answered(0,1,3)
@@ -70,12 +49,10 @@ ifQ(141)
 // SALES SKILLS - Begin
 //*******************************
 
-// End 6/12/2024
-// If QID 81 is answered Option 4, then disappear and clear answer to QIDs.
-ifQ(81)
-.answered(4)
-.disappear(Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(291), Q(301), Q(311), Q(321), Q(331), Q(351))
-.clearAnswer(Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(291), Q(301), Q(311), Q(321), Q(331), Q(351));
+// If QID 61 is answered Option 1, then set value to Option 3 to QID 231.
+ifQ(61)
+.answered(1)
+.setValue(Q(231), 3);
 
 // If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
 ifQ(411)
