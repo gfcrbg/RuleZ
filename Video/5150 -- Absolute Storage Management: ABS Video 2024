@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 256	
 // SID: 5150	
-// Last Updated: 6/24/2024	
+// Last Updated: 7/9/2024	
 //*******************************	
 
 
@@ -44,15 +44,6 @@ ifQ(271)
 .answered(1)
 .sum(Q(851), 1)
 .store(Q(851));
-
-// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
-ifQ(181)
-.answered(2)
-.setValue(Q(231), 2)
-.setValue(Q(241), 2)
-.setValue(Q(251), 2)
-.setValue(Q(261), 2)
-.setValue(Q(271), 2);
 
 // If QID 851 is answered '4' or '5', then set value to Option 1 to QID 281.
 ifQ(851)
@@ -428,6 +419,87 @@ ifQ(901)
 
 //*******************************
 // PROFESSIONALISM  - End
+//*******************************
+
+
+
+
+//*******************************
+// NEEDS ASSESSMENT - Begin
+//*******************************
+
+// Yes Count set to default value: 0.
+ifQ()
+.setValue(Q(941), '0');
+
+// Yes Count value +1 if QID 961 is Option 1.
+ifQ(961)
+.answered(1)
+.sum(Q(941), 1)
+.store(Q(941));
+
+// Yes Count value +1 if QID 971 is Option 1.
+ifQ(971)
+.answered(1)
+.sum(Q(941), 1)
+.store(Q(941));
+
+// Yes Count value +1 if QID 981 is Option 1.
+ifQ(981)
+.answered(1)
+.sum(Q(941), 1)
+.store(Q(941));
+
+// Yes Count value +1 if QID 991 is Option 1.
+ifQ(991)
+.answered(1)
+.sum(Q(941), 1)
+.store(Q(941));
+
+// Yes Count value +1 if QID 1001 is Option 1.
+ifQ(1001)
+.answered(1)
+.sum(Q(941), 1)
+.store(Q(941));
+
+// Yes Count value +1 if QID 1011 is Option 1.
+ifQ(1011)
+.answered(1)
+.sum(Q(941), 1)
+.store(Q(941));
+
+// If QID 181 is answered Option 2, then set value to Option 2 to QIDs.
+ifQ(181)
+.answered(2)
+.setValue(Q(961), 2)
+.setValue(Q(971), 2)
+.setValue(Q(981), 2)
+.setValue(Q(991), 2)
+.setValue(Q(1001), 2)
+.setValue(Q(1011), 2);
+
+// If QID 941 is answered '5' or '6', then set value to Option 1 to QID 951.
+ifQ(941)
+.answered('5','6')
+.setValue(Q(951), 1);
+
+// If QID 941 is answered '3' or '4', then set value to Option 2 to QID 951.
+ifQ(941)
+.answered('3','4')
+.setValue(Q(951), 2);
+
+// If QID 941 is answered '1' or '2', then set value to Option 3 to QID 951.
+ifQ(941)
+.answered('1','2')
+.setValue(Q(951), 3);
+
+// If QID 941 is answered '0', then set value to Option 4 to QID 951.
+ifQ(941)
+.answered('0')
+.setValue(Q(951), 4);
+
+//*******************************
+// NEEDS ASSESSMENT - End
 //*******************************
 
 
