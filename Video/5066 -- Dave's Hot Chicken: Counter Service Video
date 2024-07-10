@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 5066	
-// Last Updated: 7/5/2024	
+// Last Updated: 7/10/2024	
 //**********************************	
 
 
@@ -125,15 +125,6 @@ ifQ(211)
 .sub(Q(231), Q(211))
 .store(Q(241));
 
-// Chapter Selection -- Order Process
-ifQ()
-.disappear(Q(1562), Q(1582), Q(1592));
-
-// Chapter Selection -- Order Process
-ifQ(201)
-.answered()
-.setValue(Q(1562), Q(201));
-
 //**********************************
 // ORDER EXPERIENCE - End
 //**********************************
@@ -152,15 +143,6 @@ ifQ(581)
 .answered()
 .sub(Q(551), Q(581))
 .store(Q(251));
-
-// Chapter Selection -- Order Pick-Up
-ifQ()
-.disappear(Q(1602), Q(1612));
-
-// Chapter Selection -- Order Pick-Up
-ifQ(551)
-.answered()
-.setValue(Q(1602), Q(551));
 
 //**********************************
 // ORDER PICK-UP - End
