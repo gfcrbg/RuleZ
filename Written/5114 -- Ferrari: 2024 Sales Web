@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 7/3/2024
+// Last Updated: 7/10/2024
 //*******************************	
 
 
@@ -17,17 +17,11 @@ ifQ(41)
 .disappear(Q(51), Q(61))
 .clearAnswer(Q(51), Q(61));
 
-// If QID 451 is answered Option 3, then disappear and clear answer to QIDs.
+// If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
 ifQ(451)
-.answered(3)
+.answered(5)
 .disappear(Q(291), Q(101))
 .clearAnswer(Q(291), Q(101));
-
-// If QID 451 is answered Option [1 OR 3], then disappear and clear answer to QID 431.
-ifQ(451)
-.answered(1,3)
-.disappear(Q(431))
-.clearAnswer(Q(431));
 
 //*******************************
 // WEB INQUIRY - End
@@ -58,11 +52,16 @@ ifQ(291)
 .disappear(Q(281))
 .clearAnswer(Q(281));
 
-// If QID 451 is answered Option 3, then disappear and clear answer to QIDs.
+// If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
 ifQ(451)
-.answered(3)
+.answered(5)
 .disappear(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321))
 .clearAnswer(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321));
+
+// If QID 91 is answered Option 2, then set value to Option 3 to QID 151.
+ifQ(91)
+.answered(2)
+.setValue(Q(151), 3)
 
 // If QID 291 is not answered Option [1 OR 3], then disappear and clear answer to QID 261.
 ifQ(291)
@@ -93,9 +92,9 @@ ifQ(331)
 // FOLLOW UP - Begin
 //*******************************
 
-// If QID 451 is answered Option 3, then disappear and clear answer to QID 361.
+// If QID 451 is answered Option 5, then disappear and clear answer to QID 361.
 ifQ(451)
-.answered(3)
+.answered(5)
 .disappear(Q(361))
 .clearAnswer(Q(361));
 
@@ -122,9 +121,9 @@ ifQ(441)
 // OVERALL - Begin
 //*******************************
 
-// If QID 451 is answered Option 3, then disappear and clear answer to QIDs.
+// If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
 ifQ(451)
-.answered(3)
+.answered(5)
 .disappear(Q(221)) // medium header
 .disappear(Q(231))
 .clearAnswer(Q(231));
