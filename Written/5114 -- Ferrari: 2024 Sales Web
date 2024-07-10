@@ -61,7 +61,7 @@ ifQ(451)
 // If QID 91 is answered Option 2, then set value to Option 3 to QID 151.
 ifQ(91)
 .answered(2)
-.setValue(Q(151), 3)
+.setValue(Q(151), 3);
 
 // If QID 291 is not answered Option [1 OR 3], then disappear and clear answer to QID 261.
 ifQ(291)
