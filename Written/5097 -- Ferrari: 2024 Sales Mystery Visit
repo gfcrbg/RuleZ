@@ -1,0 +1,118 @@
+//*******************************	
+// CID: 351	
+// SID: 5097	
+// Last Updated: 7/10/2024	
+//*******************************	
+
+
+
+
+// If QID 1631 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 1641.
+ifQ(1631)
+.answered(1,2,3,4)
+.disappear(Q(1641))
+.clearAnswer(Q(1641));
+
+
+
+
+//*******************************
+// CLIENT CARE - Begin
+//*******************************
+
+// 
+ifQ(1841)
+.answered(1)
+.disappear(Q(2101))
+.clearAnswer(Q(2101));
+
+// If QID 1851 is answered Option [2 OR 3], then disappear and clear answer to QID 1871.
+ifQ(1851)
+.answered(2,3)
+.disappear(Q(1871))
+.clearAnswer(Q(1871));
+
+// If QID 1881 is answered Option 2, then disappear and clear answer to QID 1891.
+ifQ(1881)
+.answered(2)
+.disappear(Q(1891))
+.clearAnswer(Q(1891));
+
+//*******************************
+// CLIENT CARE - End
+//*******************************
+
+
+
+
+//*******************************
+// PURCHASE INTENTION - Begin
+//*******************************
+
+// If QID 2001 is answered Option [1 OR 5], then disappear and clear answer to QID 2111.
+ifQ(2001)
+.answered(1,5)
+.disappear(Q(2111))
+.clearAnswer(Q(2111));
+
+// If QID 2001 is answered Option [4 OR 5], then disappear and clear answer to QID 2011.
+ifQ(2001)
+.answered(4,5)
+.disappear(Q(2011))
+.clearAnswer(Q(2011));
+
+//*******************************
+// PURCHASE INTENTION - End
+//*******************************
+
+
+
+
+//*******************************
+// TEST DRIVE - Begin
+//*******************************
+
+// If QID 2021 is answered Option 1, then disappear and clear answer to QID 2031.
+ifQ(2021)
+.answered(1)
+.disappear(Q(2031))
+.clearAnswer(Q(2031));
+
+//*******************************
+// TEST DRIVE - End
+//*******************************
+
+
+
+
+//*******************************
+// "ADVOCACY" SCORE - Begin
+//*******************************
+
+// If QID 1491 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 1561.
+ifQ(1491)
+.answered(3,4,5)
+.disappear(Q(1561))
+.clearAnswer(Q(1561));
+
+// If QID 1561 is not answered Option 8, then disappear and clear answer to QID 1571.
+ifQ(1561)
+.notAnswered(8)
+.disappear(Q(1571))
+.clearAnswer(Q(1571));
+
+// If QID 1491 is answered Option [1, 2, OR 3], then disappear and clear answer to QID 1581.
+ifQ(1491)
+.answered(1,2,3)
+.disappear(Q(1581))
+.clearAnswer(Q(1581));
+
+// If QID 1581 is not answered Option 8, then disappear and clear answer to QID 1591.
+ifQ(1581)
+.notAnswered(8)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+//*******************************
+// "ADVOCACY" SCORE - End
+//*******************************
