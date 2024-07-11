@@ -1,11 +1,16 @@
 //*******************************	
 // CID: 351	
 // SID: 5116	
-// Last Updated: 7/3/2024	
+// Last Updated: 7/11/2024	
 //*******************************	
 
 
 
+
+// If QID 61 is answered, then set value of QID 61 to value of QID 601.
+ifQ(61)
+.answered()
+.setValue(Q(601), Q(61));
 
 // If QID 411 is answered Option 1, then disappear and clear answer to QID 91.
 ifQ(411)
@@ -49,9 +54,11 @@ ifQ(141)
 // SALES SKILLS - Begin
 //*******************************
 
-// If QID 61 is answered Option 1, then set value to Option 3 to QID 231.
+// If QID 61 is answered Option 1 AND QID 231 is answered Option 2, then set value to Option 3 to QID 231.
 ifQ(61)
 .answered(1)
+.andQ(231)
+.answered(2)
 .setValue(Q(231), 3);
 
 // If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
@@ -60,6 +67,12 @@ ifQ(411)
 .disappear(Q(391)) // black remark
 .disappear(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471))
 .clearAnswer(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471));
+
+// If QID 231 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 611.
+ifQ(231)
+.answered(0,2,3)
+.disappear(Q(611))
+.clearAnswer(Q(611));
 
 // If QID 271 is not answered Option 1, then disappear and clear answer to QID 281.
 ifQ(271)
@@ -120,12 +133,10 @@ ifQ(531)
 // ADVOCACY - Begin
 //*******************************
 
-// If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
+// If QID 411 is answered Option 4, then set value to Option 5 to QID 571.
 ifQ(411)
 .answered(4)
-.disappear(Q(561)) // medium header
-.disappear(Q(571))
-.clearAnswer(Q(571));
+.setValue(Q(571), 5);
 
 //*******************************
 // ADVOCACY - End
