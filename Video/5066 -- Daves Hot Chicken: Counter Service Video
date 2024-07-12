@@ -1,8 +1,25 @@
 //**********************************	
 // CID: 869	
 // SID: 5066	
-// Last Updated: 7/10/2024	
-//**********************************
+// Last Updated: 7/12/2024	
+//**********************************	
+
+
+
+
+// Chapter Selection -- Hides Time Length QIDs from scorer.
+ifQ()
+.disappear(Q(1622), Q(1632));
+
+// Chapter Selection -- Order Process
+ifQ(1562)
+.answered()
+.setValue(Q(1622), Q(1562));
+
+// Chapter Selection -- Order Pick-Up
+ifQ(1572)
+.answered()
+.setValue(Q(1632), Q(1572));
 
 
 
