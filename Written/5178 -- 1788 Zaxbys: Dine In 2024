@@ -1,0 +1,32 @@
+//*******************************	
+// CID: 486	
+// SID: 5178	
+// Last Updated: 7/15/2024
+//*******************************	
+
+
+
+
+//*******************************
+// GREETING - Begin
+//*******************************
+
+// If QIDs [1101 AND 1111] are answered, then trigger math operation: [1111] - [1101] = [1091]
+ifQ(1101)
+.answered()
+.andQ(1111)
+.answered()
+.sub(Q(1111), Q(1101))
+.store(Q(1091));
+
+// If QIDs [1111 AND 1151] are answered, then trigger math operation: [1151] - [1111] = [1141]
+ifQ(1111)
+.answered()
+.andQ(1151)
+.answered()
+.sub(Q(1151), Q(1111))
+.store(Q(1141));
+
+//*******************************
+// GREETING - End
+//*******************************
