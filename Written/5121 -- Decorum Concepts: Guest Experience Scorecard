@@ -1,0 +1,123 @@
+//*******************************	
+// CID: 896
+// SID: 5121	
+// Last Updated: 7/22/2024	
+//*******************************	
+
+
+
+
+// If QID 1201 is answered Option 2, then disappear and clear answer to QID 1181.
+ifQ(1201)
+.answered(2)
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
+
+
+
+
+//*******************************
+// PARKING - Begin
+//*******************************
+
+// If QID 1251 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1251)
+.answered(2)
+.disappear(Q(1021), Q(1091))
+.clearAnswer(Q(1021), Q(1091));
+
+// If QID 1251 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1251)
+.answered(1)
+.disappear(Q(1031), Q(1101))
+.clearAnswer(Q(1031), Q(1101));
+
+//*******************************
+// PARKING - End
+//*******************************
+
+
+
+
+//*******************************
+// ENVIRONMENT - Begin
+//*******************************
+
+// If QID 1251 is answered Option 2, then disappear and clear answer to QID 91.
+ifQ(1251)
+.answered(2)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+// If QID 1251 is answered Option 1, then disappear and clear answer to QID 1261.
+ifQ(1251)
+.answered(1)
+.disappear(Q(1261))
+.clearAnswer(Q(1261));
+
+//*******************************
+// ENVIRONMENT  - End
+//*******************************
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QID 1251 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1251)
+.answered(2)
+.disappear(Q(181), Q(1501))
+.clearAnswer(Q(181), Q(1501));
+
+// If QID 1251 is answered Option 1, then disappear and clear answer to QIDs. 
+ifQ(1251)
+.answered(1)
+.disappear(Q(1281), Q(1511))
+.clearAnswer(Q(1281), Q(1511));
+
+//*******************************
+// SERVICE  - End
+//*******************************
+
+
+
+
+//*******************************
+// TEAM - Begin
+//*******************************
+
+// If QID 1251 is answered Option 2, then disappear and clear answer to QID 1411.
+ifQ(1251)
+.answered(2)
+.disappear(Q(1411))
+.clearAnswer(Q(1411));
+
+// If QID 1251 is answered Option 1, then disappear and clear answer to QID 1421.
+ifQ(1251)
+.answered(1)
+.disappear(Q(1421))
+.clearAnswer(Q(1421)); 
+
+//*******************************
+// TEAM  - End
+//*******************************
+
+
+
+
+//*******************************
+// LEADERSHIP - Begin
+//*******************************
+
+// If QID 1471 is answered Option 1, then disappear and clear answer to QID 1481.
+ifQ(1471)
+.answered(1)
+.disappear(Q(1481))
+.clearAnswer(Q(1481));
+
+//*******************************
+// LEADERSHIP - End
+//*******************************
