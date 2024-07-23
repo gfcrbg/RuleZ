@@ -1,0 +1,50 @@
+//*******************************	
+// CID: 911
+// SID: 5187	
+// Last Updated: 7/23/2024	
+//*******************************	
+
+
+
+
+// If QID 21 is answered Option 1, then disappear and clear answer to QID 31.
+ifQ(21)
+.answered(1)
+.disappear(Q(31))
+.clearAnswer(Q(31));
+
+// If QID 61 is answered Option 5, then disappear and clear answer to QIDs.
+ifQ(61)
+.answered(5)
+.disappear(Q(71), Q(81), Q(91), Q(151), Q(161), Q(171))
+.clearAnswer(Q(71), Q(81), Q(91), Q(151), Q(161), Q(171));
+
+// If QID 61 is answered Option [4 OR 5], then disappear and clear answer to QID 101.
+ifQ(61)
+.answered(4,5)
+.disappear(Q(101))
+.clearAnswer(Q(101));
+
+// If QID 61 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 111.
+ifQ(61)
+.answered(3,4,5)
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+// If QID 61 is answered Option [2, 3, 4, OR 5], then disappear and clear answer to QID 121.
+ifQ(61)
+.answered(2,3,4,5)
+.disappear(Q(121))
+.clearAnswer(Q(121));
+
+// If QID 71 is answered Option 5, then disappear and clear answer to QID 131.
+ifQ(71)
+.answered(5)
+.disappear(Q(131))
+.clearAnswer(Q(131));
+
+// If QID 81 is answered Option 5, then disappear and clear answer to QID 141.
+ifQ(81)
+.answered(5)
+.disappear(Q(141))
+.clearAnswer(Q(141));
