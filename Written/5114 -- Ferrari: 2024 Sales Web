@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 7/11/2024
+// Last Updated: 7/23/2024
 //*******************************	
 
 
@@ -63,10 +63,8 @@ ifQ(451)
 .disappear(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321))
 .clearAnswer(Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321));
 
-// If QID 91 is answered Option 2 AND QID 151 is answered Option 2, then set value to Option 3 to QID 151.
+// If QID 91 is answered Option 2, then set value to Option 3 to QID 151.
 ifQ(91)
-.answered(2)
-.andQ(151)
 .answered(2)
 .setValue(Q(151), 3);
 
