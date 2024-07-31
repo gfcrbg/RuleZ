@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 850	
 // SID: 4894
-// Last Updated: 11/22/2023	
+// Last Updated: 7/31/2024	
 //*******************************	
 
 
@@ -11,11 +11,11 @@
 ifQ(1102)
 .answered(2)
 .disappear(Q(21), Q(31), Q(41), Q(51), Q(61), Q(872))
-.disappear(Section(1), Section(2), Section(3))
+.disappear(Section(1), Section(2), Section(3), Section(4), Section(5))
 .clearAnswer(Q(21), Q(31), Q(41), Q(51), Q(61), Q(872))
-.clearAnswer(Section(1), Section(2), Section(3))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5))
 .makeNotRequired(Q(21), Q(31), Q(41), Q(51), Q(61), Q(872))
-.makeNotRequired(Section(1), Section(2), Section(3));
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5));
 
 
 
@@ -71,4 +71,3 @@ ifQ(792)
 //*******************************
 // OVERALL EXPERIENCE - End
 //*******************************
-
