@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 5067	
-// Last Updated: 1/4/2024	
+// Last Updated: 7/30/24
 //**********************************	
 
 
@@ -33,13 +33,15 @@ ifQ(1212)
 // If location is closed, nullify QIDs in all scored sections.
 ifQ(1192)
 .answered(2)
-.disappear(Section(1), Section(2), Section(3), Section(4), Section(5))
-.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5))
-.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5));
+.disappear(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6))
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6));
 
 //------------------------------------------------
 // Closed Location Control - End
 //------------------------------------------------
+
+
 
 
 
@@ -137,6 +139,24 @@ ifQ(1192)
 
 //**********************************
 // ORDER PICK-UP - End
+//**********************************
+
+
+
+
+//**********************************
+// LIMITED TIME OFFER - Begin
+//**********************************
+
+// If QID 1542 is answered Option [2], then disappear and clear answer to LTO section.
+ifQ(1542)
+.answered(2)
+.disappear(Q(1502)) // medium header
+.disappear(Q(1512), Q(1522), Q(1532))
+.clearAnswer(Q(1512), Q(1522), Q(1532));
+
+//**********************************
+// LIMITED TIME OFFER - End
 //**********************************
 
 
