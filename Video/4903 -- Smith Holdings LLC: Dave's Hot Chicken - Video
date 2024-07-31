@@ -1,8 +1,8 @@
 //**********************************	
 // CID: 826	
 // SID: 4903	
-// Last Updated: 7/18/2023	
-//**********************************	
+// Last Updated: 7/31/2024	
+//**********************************
 
 
 
@@ -37,6 +37,24 @@ ifQ(241)
 
 
 //**********************************
+// LIMITED TIME OFFER - Begin
+//**********************************
+
+// If QID 1062 is answered Option [2], then disappear and clear answer to LTO section.
+ifQ(1062)
+.answered(2)
+.disappear(Q(832)) // medium header
+.disappear(Q(842), Q(852), Q(862))
+.clearAnswer(Q(842), Q(852), Q(862));
+
+//**********************************
+// LIMITED TIME OFFER - End
+//**********************************
+
+
+
+
+//**********************************
 // ORDER PICK-UP - Begin
 //**********************************
 
@@ -48,16 +66,16 @@ ifQ(581)
 .sub(Q(551), Q(581))
 .store(Q(251));
 
-// If QID 251 is > 0 AND <= 10 minutes, then set value to Option 1 to QID 732.
+// If QID 251 is > 0 AND <= 7 minutes, then set value to Option 1 to QID 732.
 ifQ(251)
 .greaterThan(0)
 .andifQ(251)
-.lessThanOrEqual(600)
+.lessThanOrEqual(420)
 .setValue(Q(732), 1);
 
-// If QID 251 is > 10 minutes AND <= 12 minutes, then set value to Option 2 to QID 732.
+// If QID 251 is > 7 minutes AND <= 12 minutes, then set value to Option 2 to QID 732.
 ifQ(251)
-.greaterThan(600)
+.greaterThan(420)
 .andifQ(251)
 .lessThanOrEqual(720)
 .setValue(Q(732), 2);
@@ -85,9 +103,9 @@ ifQ(251)
 // ORDER QUALITY - Begin
 //**********************************
 
-// If QID 361 is answered Option 2, then disappear and clear answer to QID 371.
+// If QID 361 is answered Option 1, then disappear and clear answer to QID 371.
 ifQ(361)
-.answered(2)
+.answered(1)
 .disappear(Q(371))
 .clearAnswer(Q(371));
 
