@@ -1,5 +1,8 @@
 ### Announcements  
 
+## August 2024  
+Avoid using slashes ( / ) or apostrophes ( ' ) in file names.  
+
 ## January 2024
 Added [Closed Location Guidelines](https://github.com/gfcrbg/RuleZ/wiki#closed-location-guidelines) to GitHub wiki.
 
