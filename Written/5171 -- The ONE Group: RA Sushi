@@ -1,0 +1,13 @@
+//*******************************
+// CID: 643
+// SID: 5171
+// Last Updated: 8/2/2024
+//*******************************
+
+
+
+
+// If QID 2811 is not answered Option [1 OR 2], then set value to Option 3 to QID 2071.
+ifQ(2811)
+.notAnswered (1, 2)
+.setValue(Q(2071), 3);
