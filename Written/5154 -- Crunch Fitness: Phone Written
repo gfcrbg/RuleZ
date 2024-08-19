@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5154	
-// Last Updated: 6/17/2024	
+// Last Updated: 6/19/2024	
 //*******************************	
 
 
@@ -33,8 +33,9 @@ ifQ(71)
 ifQ(71)
 .answered(3)
 .disappear(Q(91)) // medium header
-.disappear(Q(101), Q(111), Q(131), Q(121), Q(141))
-.clearAnswer(Q(101), Q(111), Q(131), Q(121), Q(141));
+.disappear(Q(301)) // red remark
+.disappear(Q(101), Q(111), Q(311))
+.clearAnswer(Q(101), Q(111), Q(311));
 
 //*******************************
 // INTRODUCTION/
@@ -53,8 +54,8 @@ ifQ(71)
 ifQ(71)
 .answered(3)
 .disappear(Q(151)) // medium header
-.disappear(Q(161), Q(171), Q(181), Q(191), Q(201), Q(261))
-.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(201), Q(261));
+.disappear(Q(161), Q(171), Q(181), Q(321), Q(331))
+.clearAnswer(Q(161), Q(171), Q(181), Q(321), Q(331));
 
 //*******************************
 // MEMBERSHIP PRICING
