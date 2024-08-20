@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 5/24/2024	
+// Last Updated: 8/20/2024	
 //*******************************	
 
 
@@ -88,6 +88,27 @@ ifQ(722)
 //-------------------------------------------
 // Cleanliness & 
 // Condition of Equipment - End
+//-------------------------------------------
+
+
+//------------------------------------------- 
+// Brand Marketing - Begin
+//-------------------------------------------
+
+// If QID 551 is answered Option [0 OR 1], then disappear and clear answer to QID 982.
+ifQ(551)
+.answered(0,1)
+.disappear(Q(982))
+.clearAnswer(Q(982));
+
+// If QID 922 is answered Option [0 OR 1], then disappear and clear answer to QID 932.
+ifQ(922)
+.answered(0,1)
+.disappear(Q(932))
+.clearAnswer(Q(932));
+
+//------------------------------------------- 
+// Brand Marketing - End
 //-------------------------------------------
 
 //*******************************
