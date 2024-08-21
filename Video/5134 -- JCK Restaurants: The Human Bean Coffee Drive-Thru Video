@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 898	
 // SID: 5134	
-// Last Updated: 5/1/2024	
+// Last Updated: 8/21/2024	
 //**********************************	
 
 
@@ -33,9 +33,9 @@ ifQ(1212)
 // If location is closed, nullify QIDs in all scored sections.
 ifQ(1192)
 .answered(2)
-.disappear(Section(1), Section(2), Section(3), Section(4), Section(5))
-.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5))
-.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5));
+.disappear(Section(1), Section(2), Section(3), Section(4))
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4));
 
 //------------------------------------------------
 // Closed Location Control - End
@@ -134,6 +134,12 @@ ifQ(1192)
 .disappear(Q(732))
 .makeNotRequired(Q(732))
 .clearAnswer(Q(732));
+
+// If QID 732 is answered Option [0 OR 1], then disappear and clear answer to QID 1632.
+ifQ(732)
+.answered(0,1)
+.disappear(Q(1632))
+.clearAnswer(Q(1632));
 
 //**********************************
 // ORDER PICK-UP - End
