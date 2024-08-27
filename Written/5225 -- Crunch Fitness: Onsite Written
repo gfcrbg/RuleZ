@@ -196,8 +196,12 @@ ifQ(922)
 .disappear(Q(932))
 .clearAnswer(Q(932));
 
-// If QID [551, 912, 401, OR 331] is answered Option 2, then appear and make required to QID 1102.
-ifQ(551)
+// If QID [942, 952, 551, 912, 401, OR 331] is answered Option 2, then appear and make required to QID 1102.
+ifQ(942)
+.answered(2)
+.orQ(952)
+.answered(2)
+.orQ(551)
 .answered(2)
 .orQ(912)
 .answered(2)
