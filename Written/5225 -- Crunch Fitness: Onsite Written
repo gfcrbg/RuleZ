@@ -1,0 +1,236 @@
+//*******************************	
+// CID: 904
+// SID: 5225	
+// Last Updated: 8/27/2024	
+//*******************************	
+
+
+
+
+// If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
+ifQ(41)
+.answered(1)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+
+
+
+//*******************************
+// SALES TOUR - Begin
+//*******************************
+
+//-------------------------------
+// Gym & Registration - Begin
+//-------------------------------
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(51)) // big header
+.disappear(Q(682)) // medium header
+.disappear(Q(862)) // red remark
+.disappear(Q(391), Q(541), Q(1022), Q(1032), Q(712), Q(101), Q(1042))
+.clearAnswer(Q(391), Q(541), Q(1022), Q(1032), Q(712), Q(101), Q(1042));
+
+// If QID 1032 is answered Option [0 OR 2], then disappear and clear answer to QID 91.
+ifQ(1032)
+.answered(0,2)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+// If QID [541, 1022, 1032, OR 91] is answered Option 2, then appear and make required QID 1042.
+ifQ(541)
+.answered(2)
+.orQ(1022)
+.answered(2)
+.orQ(1032)
+.answered(2)
+.orQ(91)
+.answered(2)
+.appear(Q(1042))
+.makeRequired(Q(1042));
+
+//-------------------------------
+// Gym & Registration - End
+//-------------------------------
+
+
+//-------------------------------
+// Tour - Begin
+//-------------------------------
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(742)) // medium header
+.disappear(Q(1062), Q(852))  // red remark
+.disappear(Q(351), Q(882), Q(121), Q(131), Q(141), Q(822), Q(171), Q(832), Q(1082))
+.clearAnswer(Q(351), Q(882), Q(121), Q(131), Q(141), Q(822), Q(171), Q(832), Q(1082));
+
+// If QID 351 is answered Option [0 OR 1], then disappear and clear answer to QID 872.
+ifQ(351)
+.answered(0,1)
+.disappear(Q(872))
+.clearAnswer(Q(872));
+
+// If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(141)
+.answered(0,2)
+.disappear(Q(1072)) // red remark
+.disappear(Q(151)) 
+.clearAnswer(Q(151));
+
+// If QID [351, 872, 121, 131, 141, 151, 171, 822, OR 832] is answered Option 2, then appear and make required QID 1082.
+ifQ(351)
+.answered(2)
+.orQ(872)
+.answered(2)
+.orQ(121)
+.answered(2)
+.orQ(131)
+.answered(2)
+.orQ(141)
+.answered(2)
+.orQ(151)
+.answered(2)
+.orQ(171)
+.answered(2)
+.orQ(822)
+.answered(2)
+.orQ(832)
+.answered(2)
+.appear(Q(1082))
+.makeRequired(Q(1082));
+
+//-------------------------------
+// Tour - End
+//-------------------------------
+
+
+//-------------------------------
+// Membership Option 
+// & Pricing - Begin
+//-------------------------------
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(191)) // medium header
+.disappear(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261), Q(1092))
+.clearAnswer (Q(201), Q(211), Q(221), Q(231), Q(962), Q(261), Q(1092));
+
+// If QID [201, 211, 221, 231, 962, OR 261] is answered Option 2, then appear and make required to QID 1092.
+ifQ(201)
+.answered(2)
+.orQ(211)
+.answered(2)
+.orQ(221)
+.answered(2)
+.orQ(231)
+.answered(2)
+.orQ(962)
+.answered(2)
+.orQ(261)
+.answered(2)
+.appear(Q(1092))
+.makeRequired(Q(1092));
+
+//-------------------------------
+// Membership Option 
+// & Pricing - End
+//-------------------------------
+
+
+//*******************************
+// SALES TOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// BRAND EXCELLENCE - Begin
+//*******************************
+
+
+//-------------------------------
+// Cleanliness & Condition 
+// of Equipment - Begin
+//-------------------------------
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(271)) // big header
+.disappear(Q(692)) // medium header
+.disappear(Q(722), Q(942), Q(952))
+.clearAnswer(Q(722), Q(942), Q(952));
+
+// If QID 722 is answered Option [0 OR 1], then disappear and clear answer to QID 732.
+ifQ(722)
+.answered(0,1)
+.disappear(Q(732))
+.clearAnswer(Q(732));
+
+//-------------------------------
+// Cleanliness & Condition 
+// of Equipment - End
+//-------------------------------
+
+
+//-------------------------------
+// Brand Marketing - Begin
+//-------------------------------
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(842)) // medium header
+.disappear(Q(551), Q(922), Q(912), Q(401), Q(331), Q(1102))
+.clearAnswer(Q(551), Q(922), Q(912), Q(401), Q(331), Q(1102));
+
+// If QID 922 is answered Option [0 OR 1], then disappear and clear answer to QID 932.
+ifQ(922)
+.answered(0,1)
+.disappear(Q(932))
+.clearAnswer(Q(932));
+
+// If QID [551, 912, 401, OR 331] is answered Option 2, then appear and make required to QID 1102.
+ifQ(551)
+.answered(2)
+.orQ(912)
+.answered(2)
+.orQ(401)
+.answered(2)
+.orQ(331)
+.answered(2)
+.appear(Q(1102))
+.makeRequired(Q(1102));
+
+//-------------------------------
+// Brand Marketing - End
+//-------------------------------
+
+
+//-------------------------------
+// Experience - Begin
+//-------------------------------
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(702)) // medium header
+.disappear(Q(1112)) // black remark
+.disappear(Q(1152)) // red remark
+.disappear(Q(1132))
+.clearAnswer(Q(1132));
+
+//-------------------------------
+// Experience - End
+//-------------------------------
+
+
+//*******************************
+// BRAND EXCELLENCE - End
+//*******************************
