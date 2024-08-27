@@ -1,0 +1,77 @@
+//*******************************	
+// CID: 706
+// SID: 5172
+// Last Updated: 8/22/2024
+//*******************************	
+
+
+
+
+//*******************************
+// EXPERIENCE - Begin
+//*******************************
+
+// If QID 111 is answered Option 1, then disappear and clear answer to QID 2111.
+ifQ(111)
+.answered(1)
+.disappear(Q(2111))
+.clearAnswer(Q(2111));
+
+
+//-------------------------------
+// Time Calc - Begin
+//-------------------------------
+
+// If QID [1781 AND 1791] is answered, then trigger math operation: [1791] - [1781] = [121]
+ifQ(1781)
+.answered()
+.andifQ(1791)
+.answered()
+.sub(Q(1791), Q(1781))
+.store(Q(121));
+
+//-------------------------------
+// Time Calc - End
+//-------------------------------
+
+// If QID 121 is < 5 minutes, then set value to Option 1 to QID 1291.
+ifQ(121)
+.lessThan(300)
+.setValue(Q(1291), 1);
+
+// If QID 121 is >= 5 minutes, then set value to Option 2 to QID 1291.
+ifQ(121)
+.greaterThanOrEqual(300)
+.setValue(Q(1291), 2);
+
+// If QID 2211 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2211)
+.answered(2)
+.disappear(Q(2221), Q(2231))
+.clearAnswer(Q(2221), Q(2231));
+
+// If QID 1401 is answered Option 2, then disappear and clear answer to QID 1921.
+ifQ(1401)
+.answered(2)
+.disappear(Q(1921))
+.clearAnswer(Q(1921));
+
+//*******************************
+// EXPERIENCE - End
+//*******************************
+
+
+
+//*******************************
+// PRODUCT - Begin
+//*******************************
+
+// If QID 181 is answered Option 1, then disappear and clear answer to QID 1241.
+ifQ(181)
+.answered(1)
+.disappear(Q(1241))
+.clearAnswer(Q(1241));
+
+//*******************************
+// PRODUCT - End
+//*******************************
