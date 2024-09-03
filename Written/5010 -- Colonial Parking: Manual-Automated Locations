@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 538
 // SID: 5010	
-// Last Updated: 6/18/2024	
+// Last Updated: 9/3/2024	
 //*******************************	
 
 
@@ -166,11 +166,25 @@ ifQ(401)
 .answered(0,1,2,4,6)
 .disappear(Q(1601)) // medium header;
 
+// If shopper did not pay upon arrival , nullify QID related to paying upon arrival.
+ifQ(1951)
+.answered(2)
+.disappear(Q(1961), Q(1971))
+.makeNotRequired(Q(1961), Q(1971))
+.clearAnswer(Q(1961), Q(1971));
+
+// If shopper paid upon arrival, nullify QIDs related to paying upon exit.
+ifQ(1951)
+.answered(1)
+.disappear(Q(1621), Q(1611), Q(1631), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681), Q(1731), Q(1741))
+.makeNotRequired(Q(1621), Q(1611), Q(1631), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681), Q(1731), Q(1741))
+.clearAnswer(Q(1621), Q(1611), Q(1631), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681), Q(1731), Q(1741));
+
 // If QID 401 is answered Option [0, 1, 2, 4, OR 6], then disappear and clear answer to QIDs.
 ifQ(401)
 .answered(0,1,2,4,6)
-.disappear(Q(1621), Q(1661), Q(1691), Q(1711), Q(1721), Q(1751), Q(1761))
-.clearAnswer(Q(1621), Q(1661), Q(1691), Q(1711), Q(1721), Q(1751), Q(1761));
+.disappear(Q(1691), Q(1711), Q(1721), Q(1751), Q(1761))
+.clearAnswer(Q(1691), Q(1711), Q(1721), Q(1751), Q(1761));
 
 // If QID 1661 is answered Option [0 OR 2], then disappear and clear answer to QID 1671.
 ifQ(1661)
