@@ -1,0 +1,45 @@
+//*******************************	
+// CID: 927	
+// SID: 5221	
+// Last Updated: 9/9/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QID 1681 is answered Option 1, then disappear and clear answer to QID 1401.
+ifQ(1681)
+.answered(1)
+.disappear(Q(1401))
+.clearAnswer(Q(1401));
+
+// If QID 1561 is answered Option 1, then disappear and clear answer to QID 1721.
+ifQ(1561)
+.answered(1)
+.disappear(Q(1721))
+.clearAnswer(Q(1721));
+
+//*******************************
+// SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// TEAM - Begin
+//*******************************
+
+// If QID 641 is answered Option 2, then disappear and clear answer to QID 1761
+ifQ(641)
+.answered(2)
+.disappear(Q(1761))
+.clearAnswer(Q(1761));
+
+//*******************************
+// TEAM - End
+//*******************************
