@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 8/20/2024	
+// Last Updated: 9/12/2024	
 //*******************************	
 
 
@@ -31,7 +31,7 @@ ifQ(41)
 
 
 //*******************************
-// TOUR - Begin
+// SALES TOUR - Begin
 //*******************************
 
 //-------------------------------------------
@@ -50,8 +50,14 @@ ifQ(81)
 
 
 //-------------------------------------------
-// Sales Tour - Begin
+// Gym Tour - Begin
 //-------------------------------------------
+
+// If QID 351 is answered Option [0 OR 1], then disappear and clear answer to QID 872.
+ifQ(351)
+.answered(0,1)
+.disappear(Q(872))
+.clearAnswer(Q(872));
 
 // If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
 ifQ(141)
@@ -60,11 +66,11 @@ ifQ(141)
 .clearAnswer(Q(151));
 
 //-------------------------------------------
-// Sales Tour - End
+// Gym Tour - End
 //-------------------------------------------
 
 //*******************************
-// TOUR - End
+// SALES TOUR - End
 //*******************************
 
 
