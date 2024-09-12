@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5154	
-// Last Updated: 6/19/2024	
+// Last Updated: 9/12/2024	
 //*******************************	
 
 
@@ -10,6 +10,12 @@
 //*******************************
 // TELEPHONE INQUIRY - Begin
 //*******************************
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 361.
+ifQ(71)
+.answered(1)
+.disappear(Q(361))
+.clearAnswer(Q(361));
 
 // If QID 71 is answered Option 3, then disappear and clear answer to QID 81.
 ifQ(71)
