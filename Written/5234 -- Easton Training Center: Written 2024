@@ -1,0 +1,67 @@
+//*******************************	
+// CID: 931	
+// SID: 5234	
+// Last Updated: 9/23/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// INITIAL PHONE CALL - Begin
+//*******************************
+
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(2)
+.disappear(Q(31)) // medium header
+.disappear(Q(21), Q(801), Q(61), Q(41), Q(51), Q(141), Q(71), Q(81), Q(91), Q(151), Q(101), Q(111), Q(121), Q(131))
+.clearAnswer(Q(21), Q(801), Q(61), Q(41), Q(51), Q(141), Q(71), Q(81), Q(91), Q(151), Q(101), Q(111), Q(121), Q(131));
+
+//*******************************
+// INITIAL PHONE CALL - End
+//*******************************
+
+
+
+
+//*******************************
+// INITIAL LEAD FORM - Begin
+//*******************************
+
+// If QID 11 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(1)
+.disappear(Q(161)) // medium header
+.disappear(Q(171), Q(411), Q(181), Q(761), Q(191))
+.clearAnswer(Q(171), Q(411), Q(181), Q(761), Q(191));
+
+
+//*******************************
+// INITIAL LEAD FORM - End
+//*******************************
+
+
+
+
+//*******************************
+// CLEANLINESS OF 
+// THE ACADEMY - Begin
+//*******************************
+
+// If QID 551 is answered Option 1, then disappear and clear answer to QID 561.
+ifQ(551)
+.answered(1)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+// If QID 551 is answered Option 2, then disappear and clear answer to QID 571.
+ifQ(551)
+.answered(2)
+.disappear(Q(571))
+.clearAnswer(Q(571));
+
+//*******************************
+// CLEANLINESS OF
+// THE ACADEMY - End
+//*******************************
