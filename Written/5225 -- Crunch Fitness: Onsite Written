@@ -1,11 +1,16 @@
 //*******************************	
 // CID: 904
 // SID: 5225	
-// Last Updated: 8/27/2024	
+// Last Updated: 9/24/2024	
 //*******************************	
 
 
 
+
+// Set value to Option 1 to QID 902 AND disappear QID 902.
+ifQ()
+.setValue(Q(902), 1)
+.disappear(Q(902));
 
 // If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
 ifQ(41)
