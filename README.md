@@ -1,5 +1,8 @@
 ### Announcements  
 
+## September 2024  
+If the error message [object Object] appears, fix by clearing the browser's cache.  
+
 ## August 2024  
 Avoid using slashes ( / ) or apostrophes ( ' ) in file names.  
 
