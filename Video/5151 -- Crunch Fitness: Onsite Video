@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 9/12/2024	
+// Last Updated: 9/25/2024	
 //*******************************	
 
 
@@ -58,6 +58,13 @@ ifQ(351)
 .answered(0,1)
 .disappear(Q(872))
 .clearAnswer(Q(872));
+
+// If QDI 882 is answered Option [0 OR 5], then disappear, make not required, AND clear answer to QIDs.
+ifQ(882)
+.answered(0,5)
+.disappear(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
+.makeNotRequired(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
+.clearAnswer(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401));
 
 // If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
 ifQ(141)
