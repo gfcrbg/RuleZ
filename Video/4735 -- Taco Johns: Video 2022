@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 5/29/2024	
+// Last Updated: 9/25/2024	
 //*******************************	
 
 
@@ -117,8 +117,14 @@ ifQ(901)
 // If QID 901 is answered Option [1 OR 3], then disappear and clear answer to QIDs. 
 ifQ(901)
 .answered(1,3)
-.disappear(Q(2321), Q(2351), Q(2261))
-.clearAnswer(Q(2321), Q(2351), Q(2261));
+.disappear(Q(2581), Q(2321), Q(2351), Q(2261))
+.clearAnswer(Q(2581), Q(2321), Q(2351), Q(2261));
+
+// If QID 901 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2,3)
+.disappear(Q(2551))
+.clearAnswer(Q(2551));
 
 // If QID 2321 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 2331.
 ifQ(2321)
@@ -152,19 +158,50 @@ ifQ(901)
 .sub(Q(1221), Q(1211))
 .store(Q(1621));
 
-// If QID 901 is answered Option [1 OR 2] and QID 1621 is <= 4 seconds, then set value to Option 1 to QID 1321.
+// If QID 901 is answered Option [1 OR 2] and QID 1621 is <= 3 seconds, then set value to Option 1 to QID 1321.
 ifQ(901)
 .answered(1,2)
 .andifQ(1621)
-.lessThanOrEqual(4)
+.lessThanOrEqual(3)
 .setValue(Q(1321), 1);
 
-// If QID 901 is answered Option [1 OR 2] and QID 1621 is > 4 seconds, then set value to Option 2 to QID 1321.
+// If QID 901 is answered Option [1 OR 2] and QID 1621 is > 3 seconds, then set value to Option 2 to QID 1321.
 ifQ(901)
 .answered(1,2)
 .andifQ(1621)
-.greaterThan(4)
+.greaterThan(3)
 .setValue(Q(1321), 2);
+
+// If QID 1621 is > 3 seconds AND < 6 seconds AND QID 1321 is answered Option 2, then set value to Option 1 to QID 2521.
+ifQ(1621)
+.greaterThan(3)
+.andQ(1621)
+.lessThan(6)
+.andQ(1321)
+.answered(2)
+.setValue(Q(2521), 1);
+
+// If QID 1621 is > 5 seconds AND < 11 seconds AND QID 1321 is answered Option 2, then set value to Option 2 to QID 2521.
+ifQ(1621)
+.greaterThan(5)
+.andQ(1621)
+.lessThan(11)
+.andQ(1321)
+.answered(2)
+.setValue(Q(2521), 2);
+
+// If QID 1621 is > 10 seconds AND QID 1321 is answered Option 2, then set value to Option 3 to QID 2521.
+ifQ(1621)
+.greaterThan(10)
+.andQ(1321)
+.answered(2)
+.setValue(Q(2521), 3);
+
+// If QID 1321 is answered Option [0 OR 1], then disappear and clear answer to QID 2521.
+ifQ(1321)
+.answered(0,1)
+.disappear(Q(2521))
+.clearAnswer(Q(2521));
 
 //------------------------------------
 // Greeting Time Calc - End
@@ -224,8 +261,8 @@ ifQ(901)
 // If QID 901 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2,3)
-.disappear(Q(281), Q(2271), Q(2281))
-.clearAnswer(Q(281), Q(2271), Q(2281));
+.disappear(Q(281), Q(2561), Q(2271), Q(2281))
+.clearAnswer(Q(281), Q(2561), Q(2271), Q(2281));
 
 // If QID 2281 is answered Option [0 OR 1], then disappear and clear answer to QID 2291.
 ifQ(2281)
