@@ -120,8 +120,8 @@ ifQ(81)
 ifQ(81)
 .answered(2)
 .disappear(Q(341)) // medium header
-.disappear(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461))
-.clearAnswer(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461));
+.disappear(Q(621), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461))
+.clearAnswer(Q(621), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461));
 
 //*******************************
 // SECTION 5 - End
