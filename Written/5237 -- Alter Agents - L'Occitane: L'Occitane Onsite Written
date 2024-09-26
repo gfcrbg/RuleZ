@@ -1,0 +1,146 @@
+//*******************************	
+// CID: 929	
+// SID: 5237	
+// Last Updated: 9/26/2024	
+//*******************************	
+
+
+
+
+// If wave is "Weekday-AG1-New", then set value to Option 1 to QIDs.
+ifQ()
+.waveIs("Weekday-AG1-New")
+.setValue(Q(601), 1)
+.setValue(Q(611), 1)
+
+// If wave is "Weekend-AG2-Returning", then set value to Option 2 to QIDs.
+ifQ()
+.waveIs("Weekend-AG2-Returning")
+.setValue(Q(601), 2)
+.setValue(Q(611), 2)
+
+// If QID 81 is answered Option 1, then disappear and clear answer to QID 91.
+ifQ(81)
+.answered(1)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+// If QID 81 is not answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(571), Q(581), Q(561))
+.clearAnswer(Q(571), Q(581), Q(561));
+
+
+
+
+//*******************************
+// SECTION 1 - Begin
+//*******************************
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(161)) // medium header
+.disappear(Q(121), Q(131), Q(141), Q(151), Q(171), Q(271))
+.clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(171), Q(271));
+
+//*******************************
+// SECTION 1 - End
+//*******************************
+
+
+
+
+//*******************************
+// SECTION 2 - Begin
+//*******************************
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(191)) // medium header
+.disappear(Q(201), Q(211), Q(221), Q(231), Q(241), Q(261))
+.clearAnswer(Q(201), Q(211), Q(221), Q(231), Q(241), Q(261));
+
+// If QID 241 answered Option [0 OR 2], then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(0,2)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+//*******************************
+// SECTION 2 - End
+//*******************************
+
+
+
+
+//*******************************
+// SECTION 3 - Begin
+//*******************************
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(291)) // medium header
+.disappear(Q(281), Q(301), Q(311), Q(321), Q(331))
+.clearAnswer(Q(281), Q(301), Q(311), Q(321), Q(331));
+
+//*******************************
+// SECTION 3 - End
+//*******************************
+
+
+
+
+//*******************************
+// SECTION 4 - Begin
+//*******************************
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(401)) // medium header
+.disappear(Q(351), Q(361), Q(371), Q(381), Q(391))
+.clearAnswer(Q(351), Q(361), Q(371), Q(381), Q(391));
+
+//*******************************
+// SECTION 4 - End
+//*******************************
+
+
+
+
+//*******************************
+// SECTION 5 - Begin
+//*******************************
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(341)) // medium header
+.disappear(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461))
+.clearAnswer(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461));
+
+//*******************************
+// SECTION 5 - End
+//*******************************
+
+
+
+
+//*******************************
+// SECTION 6 - Begin
+//*******************************
+
+// If QID 81 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(81)
+.answered(2)
+.disappear(Q(471)) // medium header
+.disappear(Q(481), Q(511), Q(501), Q(521), Q(531), Q(541), Q(551))
+.clearAnswer(Q(481), Q(511), Q(501), Q(521), Q(531), Q(541), Q(551));
+
+//*******************************
+// SECTION 6 - End
+//*******************************
