@@ -1,11 +1,36 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 9/25/2024	
+// Last Updated: 9/27/2024	
 //*******************************	
 
 
 
+
+//*******************************
+// TELEPHONE INQUIRY - Begin
+//*******************************
+
+// If QID 1022 answered Option 3, then disappear, make not required, and clear answer to QIDs.
+ifQ(1022)
+.answered(3)
+.disappear(Q(1122), Q(1182)) // medium header
+.disappear(Q(1102)) // red remark
+.disappear(Q(1192), Q(1232)) // black remarks
+.disappear(Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242))
+.makeNotRequired(Q(1012))
+.clearAnswer(Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242));
+
+//*******************************
+// TELEPHONE INQUIRY - End
+//*******************************
+
+
+
+
+//*******************************
+// ONSITE VIDEO - Begin
+//*******************************
 
 // If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
 ifQ(41)
@@ -26,6 +51,10 @@ ifQ(41)
 .disappear(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7))
 .makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7))
 .clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7));
+
+//*******************************
+// ONSITE VIDEO - End
+//*******************************
 
 
 
