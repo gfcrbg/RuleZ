@@ -1,0 +1,192 @@
+//*******************************	
+// CID: 928	
+// SID: 5223	
+// Last Updated: 9/27/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// ONLINE EXPERIENCE - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(71)) // medium header
+.disappear(Q(871), Q(971), Q(981)) // small headers
+.disappear(Q(841), Q(851), Q(861), Q(881), Q(961), Q(1091))
+.clearAnswer(Q(841), Q(851), Q(861), Q(881), Q(961), Q(1091));
+
+// If QID 881 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(881)
+.answered(0,2)
+.disappear(Q(891), Q(931), Q(941), Q(1071), Q(1081))
+.clearAnswer(Q(891), Q(931), Q(941), Q(1071), Q(1081));
+
+// If QID 881 not answered Option 1, then disappear and clear answer to QID 951.
+ifQ(881)
+.notAnswered(1)
+.disappear(Q(951)) // time length
+.clearAnswer(Q(951)) // time length;
+
+// If QID 891 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(891)
+.notAnswered(1)
+.disappear(Q(901), Q(991), Q(1001), Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1061))
+.clearAnswer(Q(901), Q(991), Q(1001), Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1061));
+
+// If QID 891 is not answered Option 2, then disappear and clear answer to QID 911.
+ifQ(891)
+.notAnswered(2)
+.disappear(Q(911))
+.clearAnswer(Q(911));
+
+// If QID 891 is not answered Option 3, then disappear and clear answer to QID 921.
+ifQ(891)
+.notAnswered(3)
+.disappear(Q(921))
+.clearAnswer(Q(921));
+
+//*******************************
+// ONLINE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// PHONE EXPERIENCE - Begin
+//*******************************
+
+// If QID 31 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(1)
+.disappear(Q(1101)) // last call length drop-down
+.disappear(Q(151), Q(291), Q(281))
+.clearAnswer(Q(151), Q(291), Q(281));
+
+// If QID 291 is answered Option [0 OR 3], then disappear and clear answer to QIDs.
+ifQ(291)
+.answered(0,3)
+.disappear(Q(181)) // black remark
+.disappear(Q(811), Q(171), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(321), Q(331), Q(341))
+.clearAnswer(Q(811), Q(171), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(271), Q(321), Q(331), Q(341));
+
+// If QID 291 is answered Option [0 OR 1], then disappear and clear answer to QID 301.
+ifQ(291)
+.answered(0,1)
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+//*******************************
+// PHONE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// DISCOVERY - Begin
+//*******************************
+
+// If QID 371 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(781), Q(831), Q(391), Q(401), Q(411), Q(421), Q(431))
+.clearAnswer(Q(781), Q(831), Q(391), Q(401), Q(411), Q(421), Q(431));
+
+// If QID 371 is answered Option 1, then disappear and clear answer to QID 381.
+ifQ(371)
+.answered(1)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+//*******************************
+// DISCOVERY - End
+//*******************************
+
+
+
+
+//*******************************
+// INQUIRY - Begin
+//*******************************
+
+// If QID 371 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(371)
+.answered(2) 
+.disappear(Q(441)) // medium header
+.disappear(Q(451), Q(461))
+.clearAnswer(Q(451), Q(461));
+
+//*******************************
+// INQUIRY - End
+//*******************************
+
+
+
+
+//*******************************
+// ADVOCACY - Begin
+//*******************************
+
+// If QID 371 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(371)
+.answered(2) 
+.disappear(Q(471)) // medium header
+.disappear(Q(641)) // black remark
+.disappear(Q(671), Q(691), Q(701), Q(711), Q(721), Q(501), Q(731), Q(741))
+.clearAnswer(Q(671), Q(691), Q(701), Q(711), Q(721), Q(501), Q(731), Q(741));
+
+// If QID 671 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 681.
+ifQ(671)
+.answered(0,1,2)
+.disappear(Q(681))
+.clearAnswer(Q(681));
+
+//*******************************
+// ADVOCACY - End
+//*******************************
+
+
+
+
+//*******************************
+// IMPLEMENTATION - Begin
+//*******************************
+
+// If QID 371 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(511)) // medium header
+.disappear(Q(521), Q(761), Q(551), Q(561), Q(581))
+.clearAnswer(Q(521), Q(761), Q(551), Q(561), Q(581));
+
+// If QID 561 is answered Option [0 OR 1], then disappear and clear answer to QID 571.
+ifQ(561)
+.answered(0,1)
+.disappear(Q(571))
+.clearAnswer(Q(571));
+
+//*******************************
+// IMPLEMENTATION - End
+//*******************************
+
+
+
+
+//*******************************
+// THANK YOU - Begin
+//*******************************
+
+// If QID 371 is answered Option 2, then disappear and clear answer to QID 621.
+ifQ(371)
+.answered(2)
+.disappear(Q(621))
+.clearAnswer(Q(621));
+
+//*******************************
+// THANK YOU - End
+//*******************************
