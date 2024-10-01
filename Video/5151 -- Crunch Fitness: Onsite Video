@@ -17,7 +17,7 @@ ifQ(1022)
 .disappear(Q(1122), Q(1182)) // medium header
 .disappear(Q(1102)) // red remark
 .disappear(Q(1192), Q(1232)) // black remarks
-.disappear(Q(1282), Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242))
+.disappear(Q(1282), Q(1052), Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242))
 .makeNotRequired(Q(1012))
 .clearAnswer(Q(1282), Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242));
 
@@ -45,13 +45,6 @@ ifQ(41)
 .makeNotRequired(Q(361), Q(371), Q(381))
 .clearAnswer(Q(361), Q(371), Q(381));
 
-// If location is closed, nullify QIDs in all scored sections.
-ifQ(41)
-.answered(2)
-.disappear(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7))
-.makeNotRequired(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7))
-.clearAnswer(Section(1), Section(2), Section(3), Section(4), Section(5), Section(6), Section(7));
-
 //*******************************
 // ONSITE VIDEO - End
 //*******************************
@@ -62,6 +55,14 @@ ifQ(41)
 //*******************************
 // SALES TOUR - Begin
 //*******************************
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(682), Q(742), Q(191)) // medium headers
+.disappear(Q(862), Q(892)) // red remark
+.disappear(Q(391), Q(541), Q(81), Q(712), Q(101), Q(351), Q(882), Q(121), Q(131), Q(141), Q(171), Q(201), Q(211), Q(221), Q(231), Q(962), Q(261))
+.clearAnswer(Q(391), Q(541), Q(81), Q(712), Q(101), Q(351), Q(882), Q(121), Q(131), Q(141), Q(171), Q(201), Q(211), Q(221), Q(231), Q(962), Q(261));
 
 //-------------------------------------------
 // Make a Great First Impression - Begin
@@ -88,7 +89,7 @@ ifQ(351)
 .disappear(Q(872))
 .clearAnswer(Q(872));
 
-// If QDI 882 is answered Option [0 OR 5], then disappear, make not required, AND clear answer to QIDs.
+// If QID 882 is answered Option [0 OR 5], then disappear, make not required, AND clear answer to QIDs.
 ifQ(882)
 .answered(0,5)
 .disappear(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
@@ -115,6 +116,14 @@ ifQ(141)
 //*******************************
 // BRAND EXCELLENCE - Begin
 //*******************************
+
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(41)
+.answered(2)
+.disappear(Q(271)) // big header
+.disappear(Q(692), Q(842), Q(702)) // medium headers
+.disappear(Q(942), Q(551), Q(331))
+.clearAnswer(Q(942), Q(551), Q(331));
 
 //-------------------------------------------
 // Cleanliness & 
