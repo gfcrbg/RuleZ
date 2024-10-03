@@ -1,0 +1,37 @@
+//*******************************
+// CID: 317
+// SID: 5243
+// Last Updated: 10/3/2024
+//*******************************
+
+
+
+
+// If QID 21 and QID 11 are answered, then trigger math operation: [21] - [11] = [1131]
+ifQ(21)
+.answered()
+.andQ(11)
+.answered()
+.sub(Q(21) , Q(11))
+.store(Q(1131));
+
+
+
+
+//*******************************
+// PICK UP - Begin
+//*******************************
+
+// If QID 1131 is <= 9 minutes, then set value to Option 1 to QID 1321.
+ifQ(1131)
+.lessThanOrEqual(540)
+.setValue(Q(1321), 1);
+
+// If QID 1131 is > 9 minutes, then set value to Option 2 to QID 1321.
+ifQ(1131)
+.greaterThan(540)
+.setValue(Q(1321), 2);
+
+//*******************************
+// PICK UP - End
+//*******************************
