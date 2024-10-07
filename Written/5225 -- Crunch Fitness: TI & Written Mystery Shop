@@ -1,8 +1,37 @@
 //*******************************	
 // CID: 904
 // SID: 5225	
-// Last Updated: 9/24/2024	
+// Last Updated: 10/7/2024	
 //*******************************	
+
+
+
+
+// TELEPHONE INQUIRY
+
+
+
+
+//*******************************
+// MEMBERSHIP PRICING
+// & NEXT STEPS - Begin
+//*******************************
+
+// If QID 1362 is not answered Option 1, then disappear and clear answer to QID 1372.
+ifQ(1362)
+.notAnswered(1)
+.disappear(Q(1372))
+.clearAnswer(Q(1372));
+
+//*******************************
+// MEMBERSHIP PRICING
+// & NEXT STEPS - End
+//*******************************
+
+
+
+
+// ONSITE WRITTEN
 
 
 
