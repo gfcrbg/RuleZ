@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 10/1/2024	
+// Last Updated: 10/8/2024	
 //*******************************	
 
 
@@ -20,6 +20,12 @@ ifQ(1022)
 .disappear(Q(1282), Q(1052), Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242))
 .makeNotRequired(Q(1012))
 .clearAnswer(Q(1282), Q(1062), Q(1072), Q(1082), Q(1092), Q(1012), Q(1112), Q(1132), Q(1142), Q(1152), Q(1162), Q(1172), Q(1202), Q(1212), Q(1222), Q(1242));
+
+// If QID 1162 is not answered Option 1, then disappear and clear answer to QID 1172.
+ifQ(1162)
+.notAnswered(1)
+.disappear(Q(1172))
+.clearAnswer(Q(1172));
 
 //*******************************
 // TELEPHONE INQUIRY - End
