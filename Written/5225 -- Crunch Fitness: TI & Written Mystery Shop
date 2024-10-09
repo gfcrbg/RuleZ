@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5225	
-// Last Updated: 10/7/2024	
+// Last Updated: 10/9/2024	
 //*******************************	
 
 
@@ -17,9 +17,10 @@
 // & NEXT STEPS - Begin
 //*******************************
 
-// If QID 1362 is not answered Option 1, then disappear and clear answer to QID 1372.
+// If QID 1362 is not answered Option 1, then make not required, disappear, and clear answer to QID 1372.
 ifQ(1362)
 .notAnswered(1)
+.makeNotRequired(Q(1372))
 .disappear(Q(1372))
 .clearAnswer(Q(1372));
 
