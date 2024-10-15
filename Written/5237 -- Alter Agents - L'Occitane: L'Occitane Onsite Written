@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 929	
 // SID: 5237	
-// Last Updated: 9/26/2024	
+// Last Updated: 10/15/2024	
 //*******************************	
 
 
@@ -9,11 +9,11 @@
 
 // If wave is "Weekday-AG1-New", then set value to Option 1 to QIDs.
 ifQ()
-.waveIs("Weekday-AG1-New")
+.waveIs("AG1")
 .setValue(Q(601), 1)
 .setValue(Q(611), 1)
 
-// If wave is "Weekend-AG2-Returning", then set value to Option 2 to QIDs.
+// If wave is "AG2", then set value to Option 2 to QIDs.
 ifQ()
 .waveIs("Weekend-AG2-Returning")
 .setValue(Q(601), 2)
@@ -84,8 +84,8 @@ ifQ(241)
 ifQ(81)
 .answered(2)
 .disappear(Q(291)) // medium header
-.disappear(Q(281), Q(301), Q(311), Q(321), Q(331))
-.clearAnswer(Q(281), Q(301), Q(311), Q(321), Q(331));
+.disappear(Q(281), Q(301), Q(321), Q(331))
+.clearAnswer(Q(281), Q(301), Q(321), Q(331));
 
 //*******************************
 // SECTION 3 - End
@@ -120,8 +120,8 @@ ifQ(81)
 ifQ(81)
 .answered(2)
 .disappear(Q(341)) // medium header
-.disappear(Q(621), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461))
-.clearAnswer(Q(621), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461));
+.disappear(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461))
+.clearAnswer(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461));
 
 //*******************************
 // SECTION 5 - End
