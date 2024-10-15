@@ -28,8 +28,9 @@ ifQ(81)
 // If QID 81 is not answered Option 2, then disappear and clear answer to QIDs.
 ifQ(81)
 .answered(2)
-.disappear(Q(571), Q(581), Q(561))
-.clearAnswer(Q(571), Q(581), Q(561));
+.disappear(Q(101)) // red remark
+.disappear(Q(571), Q(581), Q(631), Q(561))
+.clearAnswer(Q(571), Q(581), Q(631), Q(561));
 
 
 
@@ -42,8 +43,8 @@ ifQ(81)
 ifQ(81)
 .answered(2)
 .disappear(Q(161)) // medium header
-.disappear(Q(121), Q(131), Q(141), Q(151), Q(171), Q(271))
-.clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(171), Q(271));
+.disappear(Q(121), Q(131), Q(141), Q(651), Q(151), Q(171), Q(271))
+.clearAnswer(Q(121), Q(131), Q(141), Q(651), Q(151), Q(171), Q(271));
 
 //*******************************
 // SECTION 1 - End
@@ -60,8 +61,8 @@ ifQ(81)
 ifQ(81)
 .answered(2)
 .disappear(Q(191)) // medium header
-.disappear(Q(201), Q(211), Q(221), Q(231), Q(241), Q(261))
-.clearAnswer(Q(201), Q(211), Q(221), Q(231), Q(241), Q(261));
+.disappear(Q(201), Q(211), Q(641), Q(221), Q(231), Q(241), Q(261))
+.clearAnswer(Q(201), Q(211), Q(641), Q(221), Q(231), Q(241), Q(261));
 
 // If QID 241 answered Option [0 OR 2], then disappear and clear answer to QID 251.
 ifQ(241)
@@ -84,8 +85,8 @@ ifQ(241)
 ifQ(81)
 .answered(2)
 .disappear(Q(291)) // medium header
-.disappear(Q(281), Q(301), Q(321), Q(331))
-.clearAnswer(Q(281), Q(301), Q(321), Q(331));
+.disappear(Q(281), Q(301), Q(661), Q(321), Q(331))
+.clearAnswer(Q(281), Q(301), Q(661), Q(321), Q(331));
 
 //*******************************
 // SECTION 3 - End
@@ -120,8 +121,8 @@ ifQ(81)
 ifQ(81)
 .answered(2)
 .disappear(Q(341)) // medium header
-.disappear(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461))
-.clearAnswer(Q(411), Q(421), Q(431), Q(441), Q(451), Q(461));
+.disappear(Q(691), Q(411), Q(421), Q(431), Q(441), Q(671), Q(451), Q(461))
+.clearAnswer(Q(691), Q(411), Q(421), Q(431), Q(441), Q(671), Q(451), Q(461));
 
 //*******************************
 // SECTION 5 - End
@@ -138,6 +139,7 @@ ifQ(81)
 ifQ(81)
 .answered(2)
 .disappear(Q(471)) // medium header
+.disappear(Q(681)) // red remark
 .disappear(Q(481), Q(511), Q(501), Q(521), Q(531), Q(541), Q(551))
 .clearAnswer(Q(481), Q(511), Q(501), Q(521), Q(531), Q(541), Q(551));
 
