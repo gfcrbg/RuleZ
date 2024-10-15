@@ -28,7 +28,6 @@ ifQ(81)
 // If QID 81 is not answered Option 2, then disappear and clear answer to QIDs.
 ifQ(81)
 .answered(2)
-.disappear(Q(101)) // red remark
 .disappear(Q(571), Q(581), Q(631), Q(561))
 .clearAnswer(Q(571), Q(581), Q(631), Q(561));
 
