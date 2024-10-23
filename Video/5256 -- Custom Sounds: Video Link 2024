@@ -1,0 +1,38 @@
+//*******************************	
+// CID: 356
+// SID: 5256
+// Last Updated: 10/23/2024	
+//*******************************	
+
+
+
+
+// If QID 892 is answered Option 2, trigger error message.
+ifQ(892)
+.answered(2)
+.setError("WARNING DNE OFFENSE");
+
+// If QID 882 is answered Option 1, trigger error message.
+ifQ(882)
+.answered(1)
+.setError("WARNING DNE OFFENSE");
+
+// If QID 902 is > 0, trigger error message.
+ifQ(902)
+.greaterThan(0)
+.setError("WARNING DNE OFFENSE");
+
+
+
+
+//-------------------------------
+// Scorer Info - Begin
+//-------------------------------
+
+// Set value to Option 1 to QID 862.
+ifQ()
+.setValue(Q(862), 1);
+
+//-------------------------------
+// Scorer Info - End
+//-------------------------------
