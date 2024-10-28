@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 10/9/2024	
+// Last Updated: 10/28/2024	
 //*******************************	
 
 
@@ -10,6 +10,12 @@
 //*******************************
 // TELEPHONE INQUIRY - Begin
 //*******************************
+
+// If QID 1022 is answered Option 1, then disappear and clear answer to QID 1032.
+ifQ(1022)
+.answered(1)
+.disappear(Q(1032))
+.clearAnswer(Q(1032));
 
 // If QID 1022 answered Option 3, then disappear, make not required, and clear answer to QIDs.
 ifQ(1022)
