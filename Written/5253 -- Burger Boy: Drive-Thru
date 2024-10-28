@@ -1,0 +1,201 @@
+//*******************************	
+// CID: 932
+// SID: 5253	
+// Last Updated: 10/25/2024
+//*******************************	
+
+
+
+
+//*******************************
+// FOOD QUALITY - Begin
+//*******************************
+
+// If QID 1021 is answered Option 1, then disappear and clear answer to QID 1031.
+ifQ(1021)
+.answered(1)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(2)
+.disappear(Q(801), Q(341))
+.clearAnswer(Q(801), Q(341));
+
+//*******************************
+// FOOD QUALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// SPEED OF SERVICE - Begin
+//*******************************
+
+// If QID 621 is answered Option 1 AND if QID 1151 <= 4 minutes, then set value to Option 1 to QID 1061.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.lessThanOrEqual(240)
+.setValue(Q(1061), 1);
+
+// If QID 621 is answered Option 1 AND if QID 1151 is > 4 minutes AND <= 5 minutes, then set value to Option 2 to QID 1061.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.greaterThan(240)
+.andifQ(1151)
+.lessThanOrEqual(300)
+.setValue(Q(1061), 2);
+
+// If QID 621 is answered Option 1 AND if QID 1151 is > 5 minutes AND <= 6 minutes, then set value to Option 3 to QID 1061.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.greaterThan(300)
+.andifQ(1151)
+.lessThanOrEqual(360)
+.setValue(Q(1061), 3);
+
+// If QID 621 is answered Option 1, AND if QID 1151 is > 6 minutes AND <= 7 minutes, then set value to Option 4 to QID 1061.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.greaterThan(360)
+.andifQ(1151)
+.lessThanOrEqual(420)
+.setValue(Q(1061), 4);
+
+// If QID 621 is answered Option 1 AND if QID 1151 is > 7 minutes, then set value to Option 5 to QID 1061.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.greaterThan(420)
+.setValue(Q(1061), 5);
+
+// If QID 621 is answered Option [2 OR 3], AND if QID 1151 is <= 5 minutes, then set value to Option 1 to QID 1141.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.lessThanOrEqual(300)
+.setValue(Q(1141), 1);
+
+// If QID 621 is answered Option [2 OR 3], AND if QID 1151 is > 5 minutes AND <= 6 minutes, then set value to Option 2 to QID 1141.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.greaterThan(300)
+.andifQ(1151)
+.lessThanOrEqual(360)
+.setValue(Q(1141), 2);
+
+// If QID 621 is answered Option [2 OR 3], AND if QID 1151 is > 6 minutes AND <= 7 minutes, then set value to Option 3 to QID 1141.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.greaterThan(360)
+.andifQ(1151)
+.lessThanOrEqual(420)
+.setValue(Q(1141), 3);
+
+// If QID 621 is answered Option [2 OR 3], AND if QID 1151 is > 7 minutes AND <= 8 minutes, then set value to Option 4 to QID 1141.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.greaterThan(420)
+.andifQ(1151)
+.lessThanOrEqual(480)
+.setValue(Q(1141), 4);
+
+// If QID 621 is answered Option [2 OR 3], AND if QID 1151 is > 8 minutes, then set value to Option 5 to QID 1141.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.greaterThan(480)
+.setValue(Q(1141), 5);
+
+// If QID 621 is answered Option 1, then disappear and clear answer to QID 1141.
+ifQ(621)
+.answered(1)
+.disappear(Q(1141))
+.clearAnswer(Q(1141))
+
+// If QID 621 is answered Option [2 OR 3], then disappear and clear answer to QID 1061.
+ifQ(621)
+.answered(2,3)
+.disappear(Q(1061))
+.clearAnswer(Q(1061))
+
+// If QID 1051 is answered Option 2, then disappear and clear answer to QID 981.
+ifQ(1051)
+.answered(2)
+.disappear(Q(981))
+.clearAnswer(Q(981));
+
+// If QID 621 is answered Option 1, AND if QID 1151 is <= 4 minutes, then set value to Option 1 to QID 1161.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.lessThanOrEqual(240)
+.setValue(Q(1161), 1);
+
+// If QID 621 is answered Option 1 AND if QID 1151 is > 4 minutes, then set value to Option 2 to QID 1161.
+ifQ(621)
+.answered(1)
+.andifQ(1151)
+.greaterThan(240)
+.setValue(Q(1161), 2);
+
+// If QID 621 is answered Option [2 OR 3], AND if QID 1151 is <= 5 minutes, then set value to Option 1 to QID 1161.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.lessThanOrEqual(300)
+.setValue(Q(1161), 1);
+
+// If QID 621 is answered Option [2 OR 3] AND if QID 1151 is > 5 minutes, then set value to Option 2 to QID 1161.
+ifQ(621)
+.answered(2,3)
+.andifQ(1151)
+.greaterThan(300)
+.setValue(Q(1161), 2);
+
+//*******************************
+// SPEED OF SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER TAKER - Begin
+//*******************************
+
+// If QID 1051 is answered Option 2, then disappear and clear answer to QID 931.
+ifQ(1051)
+.answered(2)
+.disappear(Q(931))
+.clearAnswer(Q(931));
+
+//*******************************
+// ORDER TAKER - End
+//*******************************
+
+
+
+
+//*******************************
+// APPEARANCE - Begin
+//*******************************
+
+// If QID 621 is answered Option [1 OR 2], then disappear and clear answer to QID 1171.
+ifQ(621)
+.answered(1,2)
+.disappear(Q(1171))
+.clearAnswer(Q(1171));
+
+//*******************************
+// APPEARANCE - End
+//*******************************
