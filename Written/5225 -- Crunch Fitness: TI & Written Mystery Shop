@@ -1,13 +1,32 @@
 //*******************************	
 // CID: 904
 // SID: 5225	
-// Last Updated: 10/9/2024	
+// Last Updated: 10/28/2024	
 //*******************************	
 
 
 
 
 // TELEPHONE INQUIRY
+
+
+
+
+//*******************************
+// INTRODUCTION
+// & FIRST IMPRESSION - Begin
+//*******************************
+
+// If QID 1202 is answered Option 1, then disappear and clear answer to QID 1212.
+ifQ(1202)
+.answered(1)
+.disappear(Q(1212))
+.clearAnswer(Q(1212));
+
+//*******************************
+// INTRODUCTION
+// & FIRST IMPRESSION - End
+//*******************************
 
 
 
