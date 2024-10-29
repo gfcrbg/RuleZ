@@ -1,0 +1,173 @@
+//*******************************	
+// CID: 935	
+// SID: 5257	
+// Last Updated: 10/29/2024	
+//*******************************	
+
+
+
+
+// If QID 231 is answered Option 1, then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(1)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(381), Q(391))
+.clearAnswer(Q(381), Q(391));
+
+// If QID [381 OR 391] is answered Option 2, then trigger error message.
+ifQ(381)
+.answered(2)
+.orifQ(391)
+.answered(2)
+.setError("This qualifies as DNE.");
+
+
+
+
+//*******************************
+// STORE ENVIRONMENT - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(461)) // medium header
+.disappear(Q(471), Q(481))
+.clearAnswer(Q(471), Q(481));
+
+// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.orifQ(391)
+.answered(2)
+.makeNotRequired(Q(471), Q(481))
+.disappear(Q(461)) // medium header
+.disappear(Q(471), Q(481))
+.clearAnswer(Q(471), Q(481));
+
+//*******************************
+// STORE ENVIRONMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// INITIAL RECOMMENDATION - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(491)) // medium header
+.disappear(Q(401), Q(271), Q(411))
+.clearAnswer(Q(401), Q(271), Q(411));
+
+// If QID 271 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(271)
+.answered(0,1)
+.disappear(Q(361), Q(431))
+.clearAnswer(Q(361), Q(431));
+
+// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.orifQ(391)
+.answered(2)
+.makeNotRequired(Q(401), Q(271), Q(411), Q(361), Q(431))
+.disappear(Q(491)) // medium header
+.disappear(Q(401), Q(271), Q(411), Q(361), Q(431))
+.clearAnswer(Q(401), Q(271), Q(411), Q(361), Q(431));
+
+//*******************************
+// INITIAL RECOMMENDATION - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCT KNOWLEDGE - Begin
+//*******************************
+
+// If QID 271 is answered Option [0 OR 3], then disappear and clear answer to QIDs.
+ifQ(271)
+.answered(0,3)
+.disappear(Q(501)) // medium header
+.disappear(Q(281), Q(321))
+.clearAnswer(Q(281), Q(321)); 
+
+// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.orifQ(391)
+.answered(2)
+.makeNotRequired(Q(281), Q(321))
+.disappear(Q(501)) // medium header
+.disappear(Q(281), Q(321))
+.clearAnswer(Q(281), Q(321));
+
+//*******************************
+// PRODUCT KNOWLEDGE - End
+//*******************************
+
+
+
+
+//*******************************
+// ADDITIONAL RECOMMENDATION - Begin
+//*******************************
+
+// If QID 271 is answered Option [0 OR 3], then disappear and clear answer to QIDs.
+ifQ(271)
+.answered(0,3)
+.disappear(Q(511)) // medium header
+.disappear(Q(291), Q(441))
+.clearAnswer(Q(291), Q(441));  
+
+// If QID 291 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(291)
+.answered(0,2)
+.disappear(Q(351), Q(451))
+.clearAnswer(Q(351), Q(451));
+
+// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.orifQ(391)
+.answered(2)
+.makeNotRequired(Q(291), Q(441), Q(351), Q(451))
+.disappear(Q(511)) // medium header
+.disappear(Q(291), Q(441), Q(351), Q(451))
+.clearAnswer(Q(291), Q(441), Q(351), Q(451));
+
+//*******************************
+// ADDITIONAL RECOMMENDATION - End
+//*******************************
+
+
+
+
+//*******************************
+// CLIENT SUMMARY - Begin
+//*******************************
+
+// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.orifQ(391)
+.answered(2)
+.makeNotRequired(Q(541), Q(551), Q(561))
+.disappear(Q(531)) // medium header
+.disappear(Q(541), Q(551), Q(561))
+.clearAnswer(Q(541), Q(551), Q(561));
+
+//*******************************
+// CLIENT SUMMARY - End
+//*******************************
+
