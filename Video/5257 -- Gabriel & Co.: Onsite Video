@@ -33,17 +33,12 @@ ifQ(381)
 // STORE ENVIRONMENT - Begin
 //*******************************
 
-// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID [231, 381, OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
 ifQ(231)
 .answered(2)
-.disappear(Q(461)) // medium header
-.disappear(Q(471), Q(481))
-.clearAnswer(Q(471), Q(481));
-
-// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(381)
+.orQ(381)
 .answered(2)
-.orifQ(391)
+.orQ(391)
 .answered(2)
 .makeNotRequired(Q(471), Q(481))
 .disappear(Q(461)) // medium header
@@ -61,9 +56,14 @@ ifQ(381)
 // INITIAL RECOMMENDATION - Begin
 //*******************************
 
-// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+// If QID [231, 381, OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
 ifQ(231)
 .answered(2)
+.orQ(381)
+.answered(2)
+.orQ(391)
+.answered(2)
+.makeNotRequired(Q(401), Q(271), Q(411))
 .disappear(Q(491)) // medium header
 .disappear(Q(401), Q(271), Q(411))
 .clearAnswer(Q(401), Q(271), Q(411));
@@ -73,16 +73,6 @@ ifQ(271)
 .answered(0,1)
 .disappear(Q(361), Q(431))
 .clearAnswer(Q(361), Q(431));
-
-// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(381)
-.answered(2)
-.orifQ(391)
-.answered(2)
-.makeNotRequired(Q(401), Q(271), Q(411), Q(361), Q(431))
-.disappear(Q(491)) // medium header
-.disappear(Q(401), Q(271), Q(411), Q(361), Q(431))
-.clearAnswer(Q(401), Q(271), Q(411), Q(361), Q(431));
 
 //*******************************
 // INITIAL RECOMMENDATION - End
@@ -102,10 +92,12 @@ ifQ(271)
 .disappear(Q(281), Q(321))
 .clearAnswer(Q(281), Q(321)); 
 
-// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(381)
+// If QID [231, 381, OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(231)
 .answered(2)
-.orifQ(391)
+.orQ(381)
+.answered(2)
+.orQ(391)
 .answered(2)
 .makeNotRequired(Q(281), Q(321))
 .disappear(Q(501)) // medium header
@@ -136,10 +128,12 @@ ifQ(291)
 .disappear(Q(351), Q(451))
 .clearAnswer(Q(351), Q(451));
 
-// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(381)
+// If QID [231, 381, OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+ifQ(231)
 .answered(2)
-.orifQ(391)
+.orQ(381)
+.answered(2)
+.orQ(391)
 .answered(2)
 .makeNotRequired(Q(291), Q(441), Q(351), Q(451))
 .disappear(Q(511)) // medium header
@@ -157,7 +151,7 @@ ifQ(381)
 // CLIENT SUMMARY - Begin
 //*******************************
 
-// If QID [381 OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
+// If QID [231, 381, OR 391] is answered Option 2, then make not required, disappear, and clear answer to QIDs.
 ifQ(381)
 .answered(2)
 .orifQ(391)
