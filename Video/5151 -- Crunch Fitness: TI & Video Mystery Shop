@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 10/28/2024	
+// Last Updated: 11/1/2024	
 //*******************************	
 
 
@@ -102,6 +102,19 @@ ifQ(351)
 .disappear(Q(872))
 .clearAnswer(Q(872));
 
+// If QID 882 is answered Option 4, then trigger error message.
+ifQ(882)
+.answered(4)
+.setError("This qualifies as DNE.");
+
+// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+ifQ(882)
+.answered(0,4)
+.disappear(Q(892), Q(852)) // red remarks
+.disappear(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832))
+.makeNotRequired(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832))
+.clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832));
+
 // If QID 882 is answered Option [0 OR 5], then disappear, make not required, AND clear answer to QIDs.
 ifQ(882)
 .answered(0,5)
@@ -117,6 +130,23 @@ ifQ(141)
 
 //-------------------------------------------
 // Gym Tour - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Pricing Presentation - Begin
+//-------------------------------------------
+
+// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+ifQ(882)
+.answered(0,4)
+.disappear(Q(191)) // medium header
+.disappear(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261)) 
+.makeNotRequired(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261)) 
+.clearAnswer(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261));
+
+//-------------------------------------------
+// Pricing Presentation - End
 //-------------------------------------------
 
 //*******************************
@@ -138,10 +168,23 @@ ifQ(41)
 .disappear(Q(942), Q(551), Q(331))
 .clearAnswer(Q(942), Q(551), Q(331));
 
+// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QID 271 (medium header).
+ifQ(882)
+.answered(0,4)
+.disappear(Q(271));  
+
 //-------------------------------------------
 // Cleanliness & 
 // Condition of Equipment - Begin
 //-------------------------------------------
+
+// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+ifQ(882)
+.answered(0,4)
+.disappear(Q(692)) // medium header
+.disappear(Q(722), Q(732), Q(912), Q(942), Q(952))
+.makeNotRequired(Q(722), Q(732), Q(912), Q(942), Q(952))
+.clearAnswer(Q(722), Q(732), Q(912), Q(942), Q(952));
 
 // If QID 722 is answered Option [0 OR 1], then disappear and clear answer to QID 732.
 ifQ(722)
@@ -159,6 +202,14 @@ ifQ(722)
 // Brand Marketing - Begin
 //-------------------------------------------
 
+// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+ifQ(882)
+.answered(0,4)
+.disappear(Q(842)) // medium header
+.disappear(Q(551), Q(982), Q(922), Q(932), Q(401))
+.makeNotRequired(Q(551), Q(982), Q(922), Q(932), Q(401))
+.clearAnswer(Q(551), Q(982), Q(922), Q(932), Q(401));
+
 // If QID 551 is answered Option [0 OR 1], then disappear and clear answer to QID 982.
 ifQ(551)
 .answered(0,1)
@@ -173,6 +224,22 @@ ifQ(922)
 
 //------------------------------------------- 
 // Brand Marketing - End
+//-------------------------------------------
+
+
+//------------------------------------------- 
+// Experience - Begin
+//-------------------------------------------
+// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+ifQ(882)
+.answered(0,4)
+.disappear(Q(702)) // medium header
+.disappear(Q(331))
+.makeNotRequired(Q(331))
+.clearAnswer(Q(331));
+
+//------------------------------------------- 
+// Experience - End
 //-------------------------------------------
 
 //*******************************
