@@ -1,0 +1,238 @@
+//*******************************	
+// CID: 938	
+// SID: 5265	
+// Last Updated: 11/8/2024	
+//*******************************	
+
+
+
+
+// test:  3676822
+// test:  3677866  (not answered)
+
+
+
+
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(2)
+.disappear(Q(61), Q(71), Q(81), Q(91), Q(101))
+.clearAnswer(Q(61), Q(71), Q(81), Q(91), Q(101));
+
+// If QID 81 is answered Option 1, then force disappear and clear answer to QID 91.
+ifQ(81)
+.answered(1)
+.forceDisappear(Q(91))
+.clearAnswer(Q(91));
+
+
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(2)
+.disappear(Q(111)) // medium header
+.disappear(Q(121), Q(171), Q(211)) // small headers
+.disappear(Q(131), Q(551), Q(141), Q(561), Q(151), Q(571), Q(161), Q(581), Q(591), Q(181), Q(601), Q(191), Q(611), Q(201), Q(621), Q(221), Q(231), Q(241), Q(251), Q(261), Q(631), Q(271), Q(641), Q(731))
+.clearAnswer(Q(131), Q(551), Q(141), Q(561), Q(151), Q(571), Q(161), Q(581), Q(591), Q(181), Q(601), Q(191), Q(611), Q(201), Q(621), Q(221), Q(231), Q(241), Q(251), Q(261), Q(631), Q(271), Q(641), Q(731));
+
+// If QID 131 is answered Option 2, then force disappear and clear answer to QID 551.
+ifQ(131)
+.answered(2)
+.forceDisappear(Q(551))
+.clearAnswer(Q(551));
+
+// If QID 141 is answered Option 1, then force disappear and clear answer to QID 561.
+ifQ(141)
+.answered(1)
+.forceDisappear(Q(561))
+.clearAnswer(Q(561));
+
+// If QID 161 is answered Option 2, then force disappear and clear answer to QIDs.
+ifQ(161)
+.answered(2)
+.forceDisappear(Q(581), Q(591))
+.clearAnswer(Q(581), Q(591));
+
+// If QID 581 is answered Option 1, then force disappear and clear answer to QID 591.
+ifQ(581)
+.answered(1)
+.forceDisappear(Q(591))
+.clearAnswer(Q(591));
+
+// If QID 181 is answered Option 1, then force disappear and clear answer to QID 601.
+ifQ(181)
+.answered(1)
+.forceDisappear(Q(601))
+.clearAnswer(Q(601));
+
+// If QID 191 is answered Option 1, then force disappear and clear answer to QID 611.
+ifQ(191)
+.answered(1)
+.forceDisappear(Q(611))
+.clearAnswer(Q(611));
+
+// If QID 201 is answered Option 1, then force disappear and clear answer to QID 621.
+ifQ(201)
+.answered(1)
+.forceDisappear(Q(621))
+.clearAnswer(Q(621));
+
+// If QID 231 is answered Option 1, then force disappear and clear answer to QIDs.
+ifQ(231)
+.answered(1)
+.forceDisappear(Q(241), Q(251))
+.clearAnswer(Q(241), Q(251));
+
+// If QID 231 is answered Option [1, 2, 3, OR 4], then force disappear and clear answer to QID 251.
+ifQ(241)
+.answered(1,2,3,4)
+.forceDisappear(Q(251))
+.clearAnswer(Q(251));
+
+// If QID 231 is answered Option 2, then force disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.forceDisappear(Q(261), Q(631), Q(271), Q(641))
+.clearAnswer(Q(261), Q(631), Q(271), Q(641));
+
+// If QID 261 is answered Option 1, then force disappear and clear answer to QID 631.
+ifQ(261)
+.answered(1)
+.forceDisappear(Q(631))
+.clearAnswer(Q(631));
+
+// If QID 271 is answered Option 1, then force disappear and clear answer to QID 641.
+ifQ(271)
+.answered(1)
+.forceDisappear(Q(641))
+.clearAnswer(Q(641));
+
+//*******************************
+// CLEANLINESS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD QUALITY - Begin
+//*******************************
+
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(2)
+.disappear(Q(281)) // medium header 
+.disappear(Q(801), Q(811), Q(291), Q(651), Q(301), Q(661), Q(311), Q(321), Q(671), Q(331), Q(681), Q(341), Q(691), Q(741))
+.clearAnswer(Q(801), Q(811), Q(291), Q(651), Q(301), Q(661), Q(311), Q(321), Q(671), Q(331), Q(681), Q(341), Q(691), Q(741));
+
+// If QID 291 is answered Option 1, then force disappear and clear answer to QID 651. 
+ifQ(291)
+.answered(1)
+.forceDisappear(Q(651))
+.clearAnswer(Q(651));
+
+// If QID 301 is answered Option 1, then force disappear and clear answer to QID 661.
+ifQ(301)
+.answered(1)
+.forceDisappear(Q(661))
+.clearAnswer(Q(661));
+
+// If QID 311 is answered Option [2 OR 3], then force disappear and clear answer to QID 321.
+ifQ(311)
+.answered(2,3)
+.forceDisappear(Q(321))
+.clearAnswer(Q(321));
+
+// If QID 321 is answered Option 1, then force disappear and clear answer to QID 671.
+ifQ(321)
+.answered(1)
+.forceDisappear(Q(671))
+.clearAnswer(Q(671));
+
+// If QID 311 is answered Option [1 OR 3], then force disappear and clear answer to QID 331.
+ifQ(311)
+.answered(1,3)
+.forceDisappear(Q(331))
+.clearAnswer(Q(331));
+
+// If QID 331 is answered Option 1, then force disappear and clear answer to QID 681.
+ifQ(331)
+.answered(1)
+.forceDisappear(Q(681))
+.clearAnswer(Q(681));
+
+// If QID 311 is answered Option [1 OR 2], then force disappear and clear answer to QID 341.
+ifQ(311)
+.answered(1,2)
+.forceDisappear(Q(341))
+.clearAnswer(Q(341));
+
+// If QID 341 is answered Option 1, then force disappear and clear answer to QID 691.
+ifQ(341)
+.answered(1)
+.forceDisappear(Q(691))
+.clearAnswer(Q(691));
+
+//*******************************
+// FOOD QUALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// HOSPITALITY - Begin
+//*******************************
+
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(2)
+.disappear(Q(351)) // medium header 
+.disappear(Q(361), Q(421), Q(481), Q(521)) // small headers
+.disappear(Q(371), Q(381), Q(701), Q(391), Q(711), Q(401), Q(411), Q(431), Q(441), Q(451), Q(461), Q(471), Q(491), Q(501), Q(721), Q(511), Q(531), Q(541), Q(751))
+.clearAnswer(Q(371), Q(381), Q(701), Q(391), Q(711), Q(401), Q(411), Q(431), Q(441), Q(451), Q(461), Q(471), Q(491), Q(501), Q(721), Q(511), Q(531), Q(541), Q(751));
+
+// If QID 381 is answered Option 1, then force disappear and clear answer to QID 701.
+ifQ(381)
+.answered(1)
+.forceDisappear(Q(701))
+.clearAnswer(Q(701));
+
+// If QID 391 is answered Option 1, then force disappear and clear answer to QID 711.
+ifQ(391)
+.answered(1)
+.forceDisappear(Q(711))
+.clearAnswer(Q(711));
+
+// If QID 501 is answered Option 1, then force disappear and clear answer to QID 721.
+ifQ(501)
+.answered(1)
+.forceDisappear(Q(721))
+.clearAnswer(Q(721));
+
+//*******************************
+// HOSPITALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// FIRST IMPRESSIONS - Begin
+//*******************************
+
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(11)
+.answered(2)
+.disappear(Q(761)) // medium header 
+.disappear(Q(771), Q(781), Q(791), Q(821))
+.clearAnswer(Q(771), Q(781), Q(791), Q(821));
+
+//*******************************
+// FIRST IMPRESSIONS - End
+//*******************************
