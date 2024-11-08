@@ -13,6 +13,12 @@
 
 
 
+// If QID 11 is answered Option 1, then disappear and clear answer to QID 31.
+ifQ(11)
+.answered(1)
+.disappear(Q(31))
+.clearAnswer(Q(31));
+
 // If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(2)
