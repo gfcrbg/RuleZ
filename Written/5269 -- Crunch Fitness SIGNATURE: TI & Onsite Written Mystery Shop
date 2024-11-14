@@ -1,0 +1,382 @@
+//*******************************	
+// CID: 940	
+// SID: 5269	
+// Last Updated: 11/14/2024	
+//*******************************	
+
+
+
+
+// TELEPHONE INQUIRY
+// Primary QID: 71
+
+//
+ifQ(71)
+.answered(1)
+.disappear(Q(81))
+.clearAnswer(Q(81));
+
+//
+ifQ(71)
+.answered(3)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+
+
+
+//*******************************
+// FRONT DESK RECEPTION
+// & TRANSFER PROCESS - Begin
+//*******************************
+
+//
+ifQ(71)
+.answered(3)
+.disappear(Q(61)) // medium header
+.disappear(Q(1491)) // red remark
+.disappear(Q(141), Q(111), Q(121), Q(131), Q(491))
+.clearAnswer(Q(141), Q(111), Q(121), Q(131), Q(491));
+
+//
+ifQ(71)
+.answered(2,3)
+.disappear(Q(591))
+.clearAnswer(Q(591));
+
+//
+ifQ(71)
+.answered(3)
+.orifQ(111)
+.answered(1)
+.andQ(121)
+.answered(1)
+.andQ(591)
+.notAnswered(4)
+.andQ(131)
+.answered(1)
+.andQ(491)
+.answered(1)
+.makeNotRequired(Q(501))
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+//*******************************
+// FRONT DESK RECEPTION
+// & TRANSFER PROCESS - End
+//*******************************
+
+
+
+
+//*******************************
+// MEMBERSHIP ADVISOR
+// GREETING & INQUIRY - Begin
+//*******************************
+
+// 
+ifQ(71)
+.answered(3)
+.disappear(Q(171)) // medium header
+.disappear(Q(1481)) // red remark
+.disappear(Q(471), Q(461), Q(511), Q(521), Q(531), Q(561))
+.clearAnswer(Q(471), Q(461), Q(511), Q(521), Q(531), Q(561));
+
+//
+ifQ(71)
+.answered(3)
+.orifQ(461)
+.notAnswered(3)
+.andQ(511)
+.answered(1)
+.andQ(521)
+.answered(1)
+.andQ(531)
+.answered(1)
+.andQ(561)
+.answered(1)
+.makeNotRequired(Q(541))
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+//*******************************
+// MEMBERSHIP ADVISOR
+// GREETING & INQUIRY - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES & SERVICE SKILLS - Begin
+//*******************************
+
+//
+ifQ(71)
+.answered(3)
+.disappear(Q(231)) // medium header
+.disappear(Q(151)) // red remark
+.disappear(Q(161), Q(211), Q(271), Q(291))
+.clearAnswer(Q(161), Q(211), Q(271), Q(291));
+
+//
+ifQ(71)
+.answered(2,3)
+.disappear(Q(571), Q(581))
+.clearAnswer(Q(571), Q(581));
+
+//
+ifQ(71)
+.answered(3)
+.orifQ(161)
+.answered(1)
+.andQ(571)
+.answered(1)
+.andQ(211)
+.notAnswered(3)
+.andQ(581)
+.notAnswered(4)
+.andQ(271)
+.answered(1)
+.makeNotRequired(Q(551))
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+//
+ifQ(71)
+.answered(3)
+.orifQ(161)
+.answered(1)
+.andQ(211)
+.notAnswered(3)
+.andQ(581)
+.notAnswered(4)
+.andQ(271)
+.answered(1)
+.makeNotRequired(Q(551))
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+//*******************************
+// SALES & SERVICE SKILLS - End
+//*******************************
+
+
+
+
+// TOUR
+// Primary QID: 381
+
+//
+ifQ(381)
+.answered(1)
+.disappear(Q(391))
+.clearAnswer(Q(391));
+
+//
+ifQ(381)
+.answered(2)
+.disappear(Q(611), Q(601), Q(401), Q(411), Q(421))
+.clearAnswer(Q(611), Q(601), Q(401), Q(411), Q(421));
+
+
+
+
+//*******************************
+// STORE FRONT & EXTERIOR - Begin
+//*******************************
+
+//
+ifQ(381)
+.answered(2)
+.disappear(Q(621)) // medium header
+.disappear(Q(631), Q(641), Q(651), Q(661), Q(671))
+.clearAnswer(Q(631), Q(641), Q(651), Q(661), Q(671));
+
+//*******************************
+// STORE FRONT & EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// RETAIL - Begin
+//*******************************
+
+//
+ifQ(381)
+.answered(2)
+.disappear(Q(681)) // medium header
+.disappear(Q(701), Q(711), Q(691))
+.clearAnswer(Q(701), Q(711), Q(691));
+
+//*******************************
+// RETAIL - End
+//*******************************
+
+
+
+
+//*******************************
+// FRONT DESK FIRST
+// IMPRESSION & RAPPORT - Begin
+//*******************************
+
+//
+ifQ(381)
+.answered(2)
+.disappear(Q(721)) // medium header
+.disappear(Q(811)) // red remark
+.disappear(Q(731), Q(741), Q(751), Q(761), Q(771), Q(801), Q(821), Q(831), Q(851), Q(861), Q(791), Q(781))
+.clearAnswer(Q(731), Q(741), Q(751), Q(761), Q(771), Q(801), Q(821), Q(831), Q(851), Q(861), Q(791), Q(781));
+
+//
+ifQ(821)
+.answered(1)
+.forceDisappear(Q(831))
+.clearAnswer(Q(831));
+
+//
+ifQ(851)
+.answered(1)
+.forceDisappear(Q(861))
+.clearAnswer(Q(861));
+
+//*******************************
+// FRONT DESK FIRST
+// IMPRESSION & RAPPORT - End
+//*******************************
+
+
+
+
+//*******************************
+// MEMBERSHIP NEEDS
+// & RAPPORT - Begin
+//*******************************
+
+//
+ifQ(851)
+.answered(2)
+.forceDisappear(Q(841)) // medium header
+.forceDisappear(Q(871), Q(881), Q(891), Q(901), Q(911), Q(921), Q(931), Q(941), Q(951), Q(961), Q(971), Q(981), Q(991))
+.clearAnswer(Q(871), Q(881), Q(891), Q(901), Q(911), Q(921), Q(931), Q(941), Q(951), Q(961), Q(971), Q(981), Q(991));
+ 
+//*******************************
+// MEMBERSHIP NEEDS
+// & RAPPORT - End
+//*******************************
+
+
+
+
+//*******************************
+// MAIN FLOOR - Begin
+//*******************************
+
+//
+ifQ(851)
+.answered(2)
+.forceDisappear(Q(1001)) // medium header
+.forceDisappear(Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081), Q(1091))
+.clearAnswer(Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081), Q(1091));
+
+//*******************************
+// MAIN FLOOR - End
+//*******************************
+
+
+
+
+//*******************************
+// GROUP FITNESS STUDIOS - Begin
+//*******************************
+
+//
+ifQ(851)
+.answered(2)
+.forceDisappear(Q(1101)) // medium header
+.forceDisappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1181), Q(1171))
+.clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1181), Q(1171));
+
+//
+ifQ(1151)
+.answered(2)
+.forceDisappear(Q(1161))
+.clearAnswer(Q(1161));
+
+//*******************************
+// GROUP FITNESS STUDIOS - End
+//*******************************
+
+
+
+
+//*******************************
+// LOCKER ROOM - Begin
+//*******************************
+
+//
+ifQ(851)
+.answered(2)
+.forceDisappear(Q(1191)) // medium header
+.forceDisappear(Q(1201), Q(1211), Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271))
+.clearAnswer(Q(1201), Q(1211), Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271));
+
+//*******************************
+// LOCKER ROOM - End
+//*******************************
+
+
+
+
+//*******************************
+// PRICING PRESENTATION
+// & CLOSING SKILLS - Begin
+//*******************************
+
+//
+ifQ(851)
+.answered(2)
+.forceDisappear(Q(1281)) // medium header
+.forceDisappear(Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1371))
+.clearAnswer(Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1371));
+
+//
+ifQ(1331)
+.answered(2)
+.forceDisappear(Q(1341))
+.clearAnswer(Q(1341));
+
+//*******************************
+// PRICING PRESENTATION
+// & CLOSING SKILLS - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL SHOPPING 
+// EXPERIENCE - Begin
+//*******************************
+
+//
+ifQ(381)
+.answered(2)
+.disappear(Q(1381)) // medium header
+.disappear(Q(1391)) // red remark
+.disappear(Q(1401), Q(1411), Q(1431), Q(1421))
+.clearAnswer(Q(1401), Q(1411), Q(1431), Q(1421));
+
+//
+ifQ(851)
+.answered(2)
+.forceDisappear(Q(1411))
+.clearAnswer(Q(1411));
+
+//*******************************
+// OVERALL SHOPPING 
+// EXPERIENCE - End
+//*******************************
