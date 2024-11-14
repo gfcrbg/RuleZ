@@ -1,0 +1,34 @@
+//*******************************	
+// CID: 936
+// SID: 5262	
+// Last Updated: 11/14/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// INQUIRY - Begin
+//*******************************
+
+// If QID 81 is not answered Option 2, then disappear and clear answer to QID 251.
+ifQ(81)
+.notAnswered(2)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+// If QID 281 is answered Option 1, then disappear and clear answer to QID 291.
+ifQ(281)
+.answered(1)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+// If QID 351 is answered Option 2, then disappear and clear answer to QID 341.
+ifQ(351)
+.answered(2)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+//*******************************
+// INQUIRY - End
+//*******************************
