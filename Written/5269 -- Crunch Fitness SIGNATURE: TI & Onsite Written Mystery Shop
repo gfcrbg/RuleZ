@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 940	
 // SID: 5269	
-// Last Updated: 11/14/2024	
+// Last Updated: 11/15/2024	
 //*******************************	
 
 
@@ -176,6 +176,7 @@ ifQ(381)
 // If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(381)
 .answered(2)
+.disappear(Q(1461)) // black remark
 .disappear(Q(611), Q(601), Q(401), Q(411), Q(421))
 .clearAnswer(Q(611), Q(601), Q(401), Q(411), Q(421));
 
@@ -256,6 +257,13 @@ ifQ(851)
 // & RAPPORT - Begin
 //*******************************
 
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.disappear(Q(841)) // medium header
+.disappear(Q(871), Q(881), Q(891), Q(901), Q(911), Q(921), Q(931), Q(941), Q(951), Q(961), Q(971), Q(981), Q(991))
+.clearAnswer(Q(871), Q(881), Q(891), Q(901), Q(911), Q(921), Q(931), Q(941), Q(951), Q(961), Q(971), Q(981), Q(991));
+
 // If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
@@ -275,6 +283,13 @@ ifQ(851)
 // MAIN FLOOR - Begin
 //*******************************
 
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.disappear(Q(1001)) // medium header
+.disappear(Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081), Q(1091))
+.clearAnswer(Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081), Q(1091));
+
 // If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
@@ -292,6 +307,13 @@ ifQ(851)
 //*******************************
 // GROUP FITNESS STUDIOS - Begin
 //*******************************
+
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.disappear(Q(1101)) // medium header
+.disappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1181), Q(1171))
+.clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1181), Q(1171));
 
 // If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
@@ -317,6 +339,13 @@ ifQ(1151)
 // LOCKER ROOM - Begin
 //*******************************
 
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.disappear(Q(1191)) // medium header
+.disappear(Q(1201), Q(1211), Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271))
+.clearAnswer(Q(1201), Q(1211), Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271));
+
 // If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
@@ -335,6 +364,13 @@ ifQ(851)
 // PRICING PRESENTATION
 // & CLOSING SKILLS - Begin
 //*******************************
+
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.disappear(Q(1281)) // medium header
+.disappear(Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1371))
+.clearAnswer(Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1371));
 
 // If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
