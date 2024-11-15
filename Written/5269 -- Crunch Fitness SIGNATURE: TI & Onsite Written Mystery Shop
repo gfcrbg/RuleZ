@@ -10,13 +10,13 @@
 // TELEPHONE INQUIRY
 // Primary QID: 71
 
-//
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 81.
 ifQ(71)
 .answered(1)
 .disappear(Q(81))
 .clearAnswer(Q(81));
 
-//
+// If QID 71 is answered Option 3, then disappear and clear answer to QID 91.
 ifQ(71)
 .answered(3)
 .disappear(Q(91))
@@ -30,7 +30,7 @@ ifQ(71)
 // & TRANSFER PROCESS - Begin
 //*******************************
 
-//
+// If QID 71 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(71)
 .answered(3)
 .disappear(Q(61)) // medium header
@@ -38,13 +38,13 @@ ifQ(71)
 .disappear(Q(141), Q(111), Q(121), Q(131), Q(491))
 .clearAnswer(Q(141), Q(111), Q(121), Q(131), Q(491));
 
-//
+// If QID 71 is answered Option [2 OR 3], then disappear and clear answer to QID 591.
 ifQ(71)
 .answered(2,3)
 .disappear(Q(591))
 .clearAnswer(Q(591));
 
-//
+// If QID 71 answered Option 3, OR if QIDs [111, 121, 131, AND 491] answered Option 1, AND QID 591 not answered Option 4, then make not required, disappear, and clear answer to QID 501.
 ifQ(71)
 .answered(3)
 .orifQ(111)
@@ -74,7 +74,7 @@ ifQ(71)
 // GREETING & INQUIRY - Begin
 //*******************************
 
-// 
+// If QID 71 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(71)
 .answered(3)
 .disappear(Q(171)) // medium header
@@ -82,7 +82,7 @@ ifQ(71)
 .disappear(Q(471), Q(461), Q(511), Q(521), Q(531), Q(561))
 .clearAnswer(Q(471), Q(461), Q(511), Q(521), Q(531), Q(561));
 
-//
+// if QID 71 is answered Option 3, OR if QID 461 not answered Option 3, AND QIDs [511, 521, 531, AND 561] answered Option 1, then make not required, disappear, and clear answer to QID 541.
 ifQ(71)
 .answered(3)
 .orifQ(461)
@@ -111,7 +111,7 @@ ifQ(71)
 // SALES & SERVICE SKILLS - Begin
 //*******************************
 
-//
+// If QID 71 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(71)
 .answered(3)
 .disappear(Q(231)) // medium header
@@ -119,13 +119,13 @@ ifQ(71)
 .disappear(Q(161), Q(211), Q(271), Q(291))
 .clearAnswer(Q(161), Q(211), Q(271), Q(291));
 
-//
+// If QID 71 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(71)
 .answered(2,3)
 .disappear(Q(571), Q(581))
 .clearAnswer(Q(571), Q(581));
 
-//
+// If QID 71 is answered Option 3, OR if QIDs [161, 571, AND 271] answered Option 1, AND QID 211 not answered Option 3, AND QID 581 not answered Option 4, then make not required, disappear, and clear answer to QID 551.
 ifQ(71)
 .answered(3)
 .orifQ(161)
@@ -142,7 +142,7 @@ ifQ(71)
 .disappear(Q(551))
 .clearAnswer(Q(551));
 
-//
+// If QID 71 is answered Option 3, OR if QIDs [161 AND 271] answered Option 1, AND QID 211 not answered Option 3, AND QID 581 not answered Option 4, then make not required, disappear, and clear answer to QID 551.
 ifQ(71)
 .answered(3)
 .orifQ(161)
@@ -167,13 +167,13 @@ ifQ(71)
 // TOUR
 // Primary QID: 381
 
-//
+// If QID 381 is answered Option 1, then disappear and clear answer to QID 391.
 ifQ(381)
 .answered(1)
 .disappear(Q(391))
 .clearAnswer(Q(391));
 
-//
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(381)
 .answered(2)
 .disappear(Q(611), Q(601), Q(401), Q(411), Q(421))
@@ -186,7 +186,7 @@ ifQ(381)
 // STORE FRONT & EXTERIOR - Begin
 //*******************************
 
-//
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(381)
 .answered(2)
 .disappear(Q(621)) // medium header
@@ -204,7 +204,7 @@ ifQ(381)
 // RETAIL - Begin
 //*******************************
 
-//
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(381)
 .answered(2)
 .disappear(Q(681)) // medium header
@@ -223,7 +223,7 @@ ifQ(381)
 // IMPRESSION & RAPPORT - Begin
 //*******************************
 
-//
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(381)
 .answered(2)
 .disappear(Q(721)) // medium header
@@ -231,13 +231,13 @@ ifQ(381)
 .disappear(Q(731), Q(741), Q(751), Q(761), Q(771), Q(801), Q(821), Q(831), Q(851), Q(861), Q(791), Q(781))
 .clearAnswer(Q(731), Q(741), Q(751), Q(761), Q(771), Q(801), Q(821), Q(831), Q(851), Q(861), Q(791), Q(781));
 
-//
+// If QID 821 is answered Option 1, then force disappear and clear answer to QID 831.
 ifQ(821)
 .answered(1)
 .forceDisappear(Q(831))
 .clearAnswer(Q(831));
 
-//
+// If QID 851 is answered Option 1, then force disappear and clear answer to QID 861.
 ifQ(851)
 .answered(1)
 .forceDisappear(Q(861))
@@ -256,7 +256,7 @@ ifQ(851)
 // & RAPPORT - Begin
 //*******************************
 
-//
+// If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
 .forceDisappear(Q(841)) // medium header
@@ -275,7 +275,7 @@ ifQ(851)
 // MAIN FLOOR - Begin
 //*******************************
 
-//
+// If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
 .forceDisappear(Q(1001)) // medium header
@@ -293,14 +293,14 @@ ifQ(851)
 // GROUP FITNESS STUDIOS - Begin
 //*******************************
 
-//
+// If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
 .forceDisappear(Q(1101)) // medium header
 .forceDisappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1181), Q(1171))
 .clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161), Q(1181), Q(1171));
 
-//
+// If QID 1151 is answered Option 2, then force disappear and clear answer to QID 1161.
 ifQ(1151)
 .answered(2)
 .forceDisappear(Q(1161))
@@ -317,7 +317,7 @@ ifQ(1151)
 // LOCKER ROOM - Begin
 //*******************************
 
-//
+// If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
 .forceDisappear(Q(1191)) // medium header
@@ -336,14 +336,14 @@ ifQ(851)
 // & CLOSING SKILLS - Begin
 //*******************************
 
-//
+// If QID 851 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(851)
 .answered(2)
 .forceDisappear(Q(1281)) // medium header
 .forceDisappear(Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1371))
 .clearAnswer(Q(1291), Q(1301), Q(1311), Q(1321), Q(1331), Q(1341), Q(1351), Q(1361), Q(1371));
 
-//
+// If QID 1331 is answered Option 2, then force disappear and clear answer to QID 1341.
 ifQ(1331)
 .answered(2)
 .forceDisappear(Q(1341))
@@ -362,7 +362,7 @@ ifQ(1331)
 // EXPERIENCE - Begin
 //*******************************
 
-//
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(381)
 .answered(2)
 .disappear(Q(1381)) // medium header
@@ -370,7 +370,7 @@ ifQ(381)
 .disappear(Q(1401), Q(1411), Q(1431), Q(1421))
 .clearAnswer(Q(1401), Q(1411), Q(1431), Q(1421));
 
-//
+// If QID 851 is answered Option 2, then force disappear and clear answer to QID 1411.
 ifQ(851)
 .answered(2)
 .forceDisappear(Q(1411))
