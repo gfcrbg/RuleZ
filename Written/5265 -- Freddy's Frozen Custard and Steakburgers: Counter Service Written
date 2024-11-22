@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 938	
 // SID: 5265	
-// Last Updated: 11/8/2024	
+// Last Updated: 11/22/2024	
 //*******************************	
 
 
@@ -46,9 +46,9 @@ ifQ(11)
 .disappear(Q(131), Q(551), Q(141), Q(561), Q(151), Q(571), Q(161), Q(581), Q(591), Q(181), Q(601), Q(191), Q(611), Q(201), Q(621), Q(221), Q(231), Q(241), Q(251), Q(261), Q(631), Q(271), Q(641), Q(731))
 .clearAnswer(Q(131), Q(551), Q(141), Q(561), Q(151), Q(571), Q(161), Q(581), Q(591), Q(181), Q(601), Q(191), Q(611), Q(201), Q(621), Q(221), Q(231), Q(241), Q(251), Q(261), Q(631), Q(271), Q(641), Q(731));
 
-// If QID 131 is answered Option 2, then force disappear and clear answer to QID 551.
+// If QID 131 is answered Option 1, then force disappear and clear answer to QID 551.
 ifQ(131)
-.answered(2)
+.answered(1)
 .forceDisappear(Q(551))
 .clearAnswer(Q(551));
 
@@ -57,6 +57,12 @@ ifQ(141)
 .answered(1)
 .forceDisappear(Q(561))
 .clearAnswer(Q(561));
+
+// If QID 151 is answered Option 1, then force disappear and clear answer to QID 571.
+ifQ(151)
+.answered(1)
+.forceDisappear(Q(571))
+.clearAnswer(Q(571));
 
 // If QID 161 is answered Option 2, then force disappear and clear answer to QIDs.
 ifQ(161)
@@ -133,8 +139,8 @@ ifQ(271)
 ifQ(11)
 .answered(2)
 .disappear(Q(281)) // medium header 
-.disappear(Q(801), Q(811), Q(291), Q(651), Q(301), Q(661), Q(311), Q(321), Q(671), Q(331), Q(681), Q(341), Q(691), Q(741))
-.clearAnswer(Q(801), Q(811), Q(291), Q(651), Q(301), Q(661), Q(311), Q(321), Q(671), Q(331), Q(681), Q(341), Q(691), Q(741));
+.disappear(Q(801), Q(811), Q(841), Q(291), Q(651), Q(301), Q(661), Q(311), Q(321), Q(671), Q(331), Q(681), Q(341), Q(691), Q(741))
+.clearAnswer(Q(801), Q(811), Q(841), Q(291), Q(651), Q(301), Q(661), Q(311), Q(321), Q(671), Q(331), Q(681), Q(341), Q(691), Q(741));
 
 // If QID 291 is answered Option 1, then force disappear and clear answer to QID 651. 
 ifQ(291)
@@ -154,6 +160,12 @@ ifQ(311)
 .forceDisappear(Q(321))
 .clearAnswer(Q(321));
 
+// If QID 311 is answered Option [2 OR 3], then force disappear and clear answer to QID 671.
+ifQ(311)
+.answered(2,3)
+.forceDisappear(Q(671))
+.clearAnswer(Q(671));
+
 // If QID 321 is answered Option 1, then force disappear and clear answer to QID 671.
 ifQ(321)
 .answered(1)
@@ -166,6 +178,12 @@ ifQ(311)
 .forceDisappear(Q(331))
 .clearAnswer(Q(331));
 
+// If QID 311 is answered Option [1 OR 3], then force disappear and clear answer to QID 681.
+ifQ(311)
+.answered(1,3)
+.forceDisappear(Q(681))
+.clearAnswer(Q(681));
+
 // If QID 331 is answered Option 1, then force disappear and clear answer to QID 681.
 ifQ(331)
 .answered(1)
@@ -177,6 +195,12 @@ ifQ(311)
 .answered(1,2)
 .forceDisappear(Q(341))
 .clearAnswer(Q(341));
+
+// If QID 311 is answered Option [1 OR 2], then force disappear and clear answer to QID 691.
+ifQ(311)
+.answered(1,2)
+.forceDisappear(Q(691))
+.clearAnswer(Q(691));
 
 // If QID 341 is answered Option 1, then force disappear and clear answer to QID 691.
 ifQ(341)
