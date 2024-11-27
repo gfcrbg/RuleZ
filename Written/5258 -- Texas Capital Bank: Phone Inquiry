@@ -1,0 +1,47 @@
+//*******************************	
+// CID: 893	
+// SID: 5258	
+// Last Updated: 11/27/2024
+//*******************************	
+
+
+
+
+//*******************************
+// GREETING BANKER - Begin
+//*******************************
+
+// If QID 421 is not answered Option [1 OR 2], then disappear and clear answer to QID 521.
+ifQ(421)
+.notAnswered(1,2)
+.disappear(Q(521))
+.clearAnswer(Q(521));
+
+//*******************************
+// GREETING BANKER - End
+//*******************************
+
+
+
+
+//*******************************
+// HELPING BANKER 
+// CONVERSATION - Begin
+//*******************************
+
+// If QID 241 is answered Option [2 OR 3], then disappear and clear answer to QID 261.
+ifQ(241)
+.answered(2,3)
+.disappear(Q(261))
+.clearAnswer(Q(261));
+
+// If QID 261 is not answered Option 13, then disappear and clear answer to QID 501.
+ifQ(261)
+.notAnswered(13)
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+//*******************************
+// HELPING BANKER 
+// CONVERSATION - End
+//*******************************
