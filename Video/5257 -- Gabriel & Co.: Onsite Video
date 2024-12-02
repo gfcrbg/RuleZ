@@ -118,12 +118,6 @@ ifQ(231)
 .disappear(Q(281), Q(631), Q(321))
 .clearAnswer(Q(281), Q(631), Q(321));
 
-// If QID 631 is answered Option 2, then disappear and set value to Option 6 to QID 321.
-ifQ(631)
-.answered(2)
-.forceDisappear(Q(321))
-.setValue(Q(321), 6);
-
 //*******************************
 // PRODUCT KNOWLEDGE - End
 //*******************************
