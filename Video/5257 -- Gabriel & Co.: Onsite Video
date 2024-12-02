@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 935	
 // SID: 5257	
-// Last Updated: 11/18/2024	
+// Last Updated: 12/2/2024	
 //*******************************	
 
 
@@ -16,13 +16,15 @@ ifQ(231)
 // If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(231)
 .answered(2)
-.disappear(Q(621), Q(611), Q(702), Q(381), Q(391))
-.clearAnswer(Q(621), Q(611), Q(702), Q(381), Q(391));
+.disappear(Q(621), Q(611), Q(702), Q(381), Q(391), Q(712))
+.clearAnswer(Q(621), Q(611), Q(702), Q(381), Q(391), Q(712));
 
 // If QID [381 OR 391] is answered Option 2, then trigger error message.
 ifQ(381)
 .answered(2)
 .orifQ(391)
+.answered(2)
+.orifQ(712)
 .answered(2)
 .setError("This qualifies as DNE.");
 
@@ -68,17 +70,25 @@ ifQ(231)
 .disappear(Q(401), Q(271), Q(591), Q(601))
 .clearAnswer(Q(401), Q(271), Q(591), Q(601));
 
-// If QID 271 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+// If QID 271 is answered Option [0 OR 1], then disappear and clear answer to QID 361.
 ifQ(271)
 .answered(0,1)
-.disappear(Q(361), Q(431))
-.clearAnswer(Q(361), Q(431));
+.disappear(Q(361))
+.clearAnswer(Q(361));
 
-// If QID 591 is answered Option [0 OR 1], disappear and clear answer to QIDs.
+// If QID 591 is answered Option [0 OR 1], disappear and clear answer to QID 411.
 ifQ(591)
 .answered(0,1)
-.disappear(Q(411), Q(431))
-.clearAnswer(Q(411), Q(431));
+.disappear(Q(411))
+.clearAnswer(Q(411));
+
+// If QID [271 OR 591] is answered Option [0 OR 1], then disappear and clear answer to QID 431.
+ifQ(271)
+.answered(0,1)
+.orifQ(591)
+.answered(0,1)
+.disappear(Q(431))
+.clearAnswer(Q(431));
 
 // If QID 591 is answered Option 1, then set value to Option 2 to QID 601.
 ifQ(591)
@@ -132,20 +142,34 @@ ifQ(231)
 .answered(2)
 .orQ(391)
 .answered(2)
-.makeNotRequired(Q(291), Q(441), Q(351), Q(451))
+.makeNotRequired(Q(291), Q(441))
 .disappear(Q(511)) // medium header
-.disappear(Q(291), Q(441), Q(351), Q(451))
-.clearAnswer(Q(291), Q(441), Q(351), Q(451));
+.disappear(Q(291), Q(441))
+.clearAnswer(Q(291), Q(441));
 
-// If QID 291 is answered Option [0 OR 2], then disappear and clear answer to QID 351.
-ifQ(291)
+// If QID [231, 381, OR 391] is answered Option 2 OR QID 291 is answered Option [0 OR 2], then make not required, disappear, and clear answer to QID 351.
+ifQ(231)
+.answered(2)
+.orQ(381)
+.answered(2)
+.orQ(391)
+.answered(2)
+.orQ(291)
 .answered(0,2)
+.makeNotRequired(Q(351))
 .disappear(Q(351))
 .clearAnswer(Q(351));
 
-// if QID 441 is answered Option [0 OR 2], then disappear and clear answer to QID 451.
-ifQ(441)
+// If QID [231, 381, OR 391] is answered Option 2 OR QID 441 is answered Option [0 OR 2], then make not required, disappear, and clear answer to QID 451.
+ifQ(231)
+.answered(2)
+.orQ(381)
+.answered(2)
+.orQ(391)
+.answered(2)
+.orQ(441)
 .answered(0,2)
+.makeNotRequired(Q(451))
 .disappear(Q(451))
 .clearAnswer(Q(451));
 
