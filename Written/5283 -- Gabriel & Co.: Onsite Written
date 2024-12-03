@@ -1,0 +1,122 @@
+//*******************************	
+// CID: 935	
+// SID: 5283
+// Last Updated: 12/3/2024	
+//*******************************	
+
+
+
+
+// If QID 231 is answered Option 1, then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(1)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(782), Q(621), Q(611), Q(702), Q(381), Q(391), Q(712))
+.clearAnswer(Q(782), Q(621), Q(611), Q(702), Q(381), Q(391), Q(712));
+
+
+//*******************************
+// STORE ENVIRONMENT - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(461)) // medium header
+.disappear(Q(471), Q(481), Q(772))
+.clearAnswer(Q(471), Q(481), Q(772));
+
+//*******************************
+// STORE ENVIRONMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// INITIAL RECOMMENDATION - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(491)) // medium header
+.disappear(Q(722)) // black remark
+.disappear(Q(401), Q(271), Q(591), Q(601), Q(762))
+.clearAnswer(Q(401), Q(271), Q(591), Q(601), Q(762));
+
+// If QID 591 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(591)
+.answered(0,1)
+.disappear(Q(411), Q(431))
+.clearAnswer(Q(411), Q(431));
+
+//*******************************
+// INITIAL RECOMMENDATION - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCT KNOWLEDGE - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(501)) // medium header
+.disappear(Q(732)) // black remark
+.disappear(Q(281), Q(631), Q(321), Q(742))
+.clearAnswer(Q(281), Q(631), Q(321), Q(742));
+
+//*******************************
+// PRODUCT KNOWLEDGE - End
+//*******************************
+
+
+
+
+//*******************************
+// ADDITIONAL RECOMMENDATION - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(511)) // medium header
+.disappear(Q(441))
+.clearAnswer(Q(441));
+
+// If QID 441 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(0,2)
+.disappear(Q(451), Q(752))
+.clearAnswer(Q(451), Q(752));
+
+//*******************************
+// ADDITIONAL RECOMMENDATION - End
+//*******************************
+
+
+
+
+//*******************************
+// CLIENT SUMMARY - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(531)) // medium header
+.disappear(Q(682), Q(692), Q(551), Q(561))
+.clearAnswer(Q(682), Q(692), Q(551), Q(561));
+
+//*******************************
+// CLIENT SUMMARY - End
+//*******************************
