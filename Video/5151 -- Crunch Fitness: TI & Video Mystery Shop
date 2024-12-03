@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 11/1/2024	
+// Last Updated: 12/2/2024	
 //*******************************	
 
 
@@ -72,7 +72,7 @@ ifQ(41)
 // If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
-.disappear(Q(682), Q(742), Q(191)) // medium headers
+.disappear(Q(51), Q(682), Q(742), Q(191)) // medium headers
 .disappear(Q(862), Q(892)) // red remark
 .disappear(Q(391), Q(541), Q(81), Q(712), Q(101), Q(351), Q(882), Q(121), Q(131), Q(141), Q(171), Q(201), Q(211), Q(221), Q(231), Q(962), Q(261))
 .clearAnswer(Q(391), Q(541), Q(81), Q(712), Q(101), Q(351), Q(882), Q(121), Q(131), Q(141), Q(171), Q(201), Q(211), Q(221), Q(231), Q(962), Q(261));
@@ -114,13 +114,6 @@ ifQ(882)
 .disappear(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832))
 .makeNotRequired(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832))
 .clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832));
-
-// If QID 882 is answered Option [0 OR 5], then disappear, make not required, AND clear answer to QIDs.
-ifQ(882)
-.answered(0,5)
-.disappear(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
-.makeNotRequired(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
-.clearAnswer(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401));
 
 // If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
 ifQ(141)
@@ -178,13 +171,20 @@ ifQ(882)
 // Condition of Equipment - Begin
 //-------------------------------------------
 
+// If QID 882 is answered Option [0, 4, OR 5], then disappear, make not required, AND clear answer to QIDs.
+ifQ(882)
+.answered(0,4,5)
+.disappear(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
+.makeNotRequired(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
+.clearAnswer(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401));
+
 // If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
 ifQ(882)
 .answered(0,4)
 .disappear(Q(692)) // medium header
-.disappear(Q(722), Q(732), Q(912), Q(942), Q(952))
-.makeNotRequired(Q(722), Q(732), Q(912), Q(942), Q(952))
-.clearAnswer(Q(722), Q(732), Q(912), Q(942), Q(952));
+.disappear(Q(942))
+.makeNotRequired(Q(942))
+.clearAnswer(Q(942));
 
 // If QID 722 is answered Option [0 OR 1], then disappear and clear answer to QID 732.
 ifQ(722)
@@ -206,9 +206,9 @@ ifQ(722)
 ifQ(882)
 .answered(0,4)
 .disappear(Q(842)) // medium header
-.disappear(Q(551), Q(982), Q(922), Q(932), Q(401))
-.makeNotRequired(Q(551), Q(982), Q(922), Q(932), Q(401))
-.clearAnswer(Q(551), Q(982), Q(922), Q(932), Q(401));
+.disappear(Q(551), Q(982))
+.makeNotRequired(Q(551), Q(982))
+.clearAnswer(Q(551), Q(982));
 
 // If QID 551 is answered Option [0 OR 1], then disappear and clear answer to QID 982.
 ifQ(551)
