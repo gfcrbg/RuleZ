@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 935	
 // SID: 5257	
-// Last Updated: 12/2/2024	
+// Last Updated: 12/16/2024	
 //*******************************	
 
 
@@ -16,8 +16,14 @@ ifQ(231)
 // If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(231)
 .answered(2)
-.disappear(Q(621), Q(611), Q(702), Q(381), Q(391), Q(712))
-.clearAnswer(Q(621), Q(611), Q(702), Q(381), Q(391), Q(712));
+.disappear(Q(621), Q(722), Q(611), Q(702), Q(381), Q(391), Q(712))
+.clearAnswer(Q(621), Q(722), Q(611), Q(702), Q(381), Q(391), Q(712));
+
+// If QID 722 is answered Option [0 OR 1], then disappear and clear answer to QID 732.
+ifQ(722)
+.answered(0,1)
+.disappear(Q(732))
+.clearAnswer(Q(732));
 
 // If QID [381 OR 391] is answered Option 2, then trigger error message.
 ifQ(381)
