@@ -1,0 +1,147 @@
+//*******************************	
+// CID: 317
+// SID: 5261
+// Last Updated: 12/17/2024
+//*******************************	
+
+
+
+
+// If QID [71 AND 81] is answered, then trigger math operation: [81] - [71] = [621]
+ifQ(71)
+.answered()
+.andifQ(81)
+.answered()
+.sub(Q(81), Q(71))
+.store(Q(621));
+
+
+
+
+//*******************************
+// TABLE STAND - Begin
+//*******************************
+
+// If QID [631 AND 641] is answered, then trigger math operation: [641] - [631] = [651]
+ifQ(631)
+.answered()
+.andifQ(641)
+.answered()
+.sub(Q(641), Q(631))
+.store(Q(651));
+
+//*******************************
+// TABLE STAND - End
+//*******************************
+
+
+
+
+//*******************************
+// HOST STAND - Begin
+//*******************************
+
+// If QID 221 is answered Option [1 OR 2], then disappear and clear answer to QID 231.
+ifQ(221)
+.answered(1,2)
+.disappear(Q(231))
+.clearAnswer(Q(231));
+
+//*******************************
+// HOST STAND - End
+//*******************************
+
+
+
+
+//*******************************
+// TABLE SERVICE - Begin
+//*******************************
+
+// If QID 341 is answered Option [1 OR 2], then disappear and clear answer to QID 591.
+ifQ(341)
+.answered(1,2)
+.disappear(Q(591))
+.clearAnswer(Q(591));
+
+//*******************************
+// TABLE SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD AND BEVERAGES - Begin
+//*******************************
+
+// If QID [661 AND 671] is answered, then trigger math operation: [671] - [661] = [701]
+ifQ(661)
+.answered()
+.andifQ(671)
+.answered()
+.sub(Q(671), Q(661))
+.store(Q(701));
+
+// If QID 701 is < 5 minutes, then set value to Option 1 to QID 371.
+ifQ(701)
+.lessThan(300)
+.setValue(Q(371), 1);
+
+// If QID 701 is >= 5 minutes AND <= 7 minutes, then set value to Option 2 to QID 371.
+ifQ(701)
+.greaterThanOrEqual(300)
+.andifQ(701)
+.lessThanOrEqual(420)
+.setValue(Q(371), 2);
+
+// If QID 701 is > 7 minutes, then set value to Option 3 to QID 371.
+ifQ(701)
+.greaterThan(420)
+.setValue(Q(371), 3);
+
+// If QID [681 AND 691] is answered, then trigger math operation: [691] - [681] = [711]
+ifQ(681)
+.answered()
+.andifQ(691)
+.answered()
+.sub(Q(691), Q(681))
+.store(Q(711));
+
+// If QID 711 is < 10 minutes, then set value to Option 1 to QID 381.
+ifQ(711)
+.lessThan(600)
+.setValue(Q(381), 1);
+
+// If QID 711 is >= 10 minutes AND <= 15 minutes , then set value to Option 2 to QID 381.
+ifQ(711)
+.greaterThanOrEqual(600)
+.andifQ(711)
+.lessThanOrEqual(900)
+.setValue(Q(381), 2);
+
+// If QID 711 is > 15 minutes, then set value to Option 3 to QID 381.
+ifQ(711)
+.greaterThan(900)
+.setValue(Q(381), 3);
+
+//*******************************
+// FOOD AND BEVERAGES - End
+//*******************************
+
+
+
+
+//*******************************
+// FINAL IMPRESSIONS - Begin
+//*******************************
+
+// If QID 501 is answered Option [1 OR 2], then disappear and clear answer to QID 601.
+ifQ(501)
+.answered(1,2)
+.disappear(Q(601))
+.clearAnswer(Q(601));
+
+//*******************************
+// FINAL IMPRESSIONS - End
+//*******************************
