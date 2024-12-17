@@ -1,0 +1,58 @@
+//*******************************	
+// CID: 317	
+// SID: 5260	
+// Last Updated: 12/17/2024	
+//*******************************	
+
+
+
+
+//*******************************
+// PATRON - DINE-IN - Begin
+//*******************************
+
+// If QID [611 AND 621] is answered, then trigger math operation: [621] - [611] = [631]
+ifQ(611)
+.answered()
+.andifQ(621)
+.answered()
+.sub(Q(621), Q(611))
+.store(Q(631));
+
+//*******************************
+// PATRON - DINE-IN - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCT - Begin
+//*******************************
+
+// If QID 291 is answered Option [1 OR 3], then disappear and clear answer to QID 481.
+ifQ(291)
+.answered(1,3)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+//*******************************
+// PRODUCT - End
+//*******************************
+
+
+
+
+//*******************************
+// FINAL IMPRESSIONS - Begin
+//*******************************
+
+// If QID 521 is answered Option [1 OR 2], then disappear and clear answer to QID 531.
+ifQ(521)
+.answered(1,2)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+//*******************************
+// FINAL IMPRESSIONS - End
+//*******************************
