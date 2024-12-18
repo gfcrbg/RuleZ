@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 4445	
-// Last Updated: 12/21/2022	
+// Last Updated: 12/18/2024
 //*******************************	
 
 
@@ -129,12 +129,18 @@ ifQ()
 //  LTC - Begin
 //*******************************
 
-// If QID 1151 is answered Option [0, 2, OR 3], then disappear, clear answer, and make not required to QOrder [2400, 7600].
+// If QID 1151 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 10621.
 ifQ(1151)
 .answered(0,2,3)
-.disappear(QOrder(2400,7600))
-.clearAnswer(QOrder(2400,7600))
-.makeNotRequired(QOrder(2400,7600));
+.disappear(Q(10621))
+.clearAnswer(Q(10621));
+
+// If QID 1151 is answered Option [0, 2, OR 3], then disappear, clear answer, and make not required to QOrder [2350, 7600].
+ifQ(1151)
+.answered(0,2,3)
+.disappear(QOrder(2350,7600))
+.clearAnswer(QOrder(2350,7600))
+.makeNotRequired(QOrder(2350,7600));
 
 // If QID 1151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9291.
 ifQ(1151)
@@ -377,12 +383,18 @@ ifQ(6641)
 //  LADSON GRILL - Begin
 //*******************************
 
-// If QID 4161 is answered Option [0 OR 2], then disappear, clear answer, and make not required QOrder [8200, 12800].
+// If QID 4161 is answered Option [0 OR 2], then disappear and clear answer to QID 10671.
 ifQ(4161)
 .answered(0,2)
-.disappear(QOrder(8200, 12800))
-.clearAnswer(QOrder(8200, 12800))
-.makeNotRequired(QOrder(8200, 12800));
+.disappear(Q(10671))
+.clearAnswer(Q(10671));
+
+// If QID 4161 is answered Option [0 OR 2], then disappear, clear answer, and make not required QOrder [7950, 12800].
+ifQ(4161)
+.answered(0,2)
+.disappear(QOrder(7950, 12800))
+.clearAnswer(QOrder(7950, 12800))
+.makeNotRequired(QOrder(7950, 12800));
 
 // If QID 4161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9301.
 ifQ(4161)
@@ -550,12 +562,18 @@ ifQ(7311)
 //  PARLOR PIZZA - Begin
 //*******************************
 
-// If QID 4521 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [13400, 17700].
+// If QID 4521 is answered Option [0 OR 2], then disappear and clear answer to QID 10721.
 ifQ(4521)
 .answered(0,2)
-.disappear(QOrder(13400, 17700))
-.clearAnswer(QOrder(13400, 17700))
-.makeNotRequired(QOrder(13400, 17700));
+.disappear(Q(10721))
+.clearAnswer(Q(10721));
+
+// If QID 4521 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [13150, 17700].
+ifQ(4521)
+.answered(0,2)
+.disappear(QOrder(13150, 17700))
+.clearAnswer(QOrder(13150, 17700))
+.makeNotRequired(QOrder(13150, 17700));
 
 // If QID 4521 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9311.
 ifQ(4521)
@@ -714,12 +732,18 @@ ifQ(7181)
 //  ROOST - Begin
 //*******************************
 
-// If QID 6051 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [18300, 22700].
+// If QID 6051 is answered Option [0 OR 2], then disappear and clear answer to QID 10771.
 ifQ(6051)
 .answered(0,2)
-.disappear(QOrder(18300, 22700))
-.clearAnswer(QOrder(18300, 22700))
-.makeNotRequired(QOrder(18300, 22700));
+.disappear(Q(10771))
+.clearAnswer(Q(10771));
+
+// If QID 6051 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [18050, 22700].
+ifQ(6051)
+.answered(0,2)
+.disappear(QOrder(18050, 22700))
+.clearAnswer(QOrder(18050, 22700))
+.makeNotRequired(QOrder(18050, 22700));
 
 // If QID 6051 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 9321.
 ifQ(6051)
@@ -920,12 +944,18 @@ ifQ(7441)
 //  TEDESCHI DELI - Begin
 //*******************************
 
-// If QID 9391 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [23100, 27800].
+// If QID 9391 is answered Option [0 OR 2], then disappear and clear answer to QID 10821.
 ifQ(9391)
 .answered(0,2)
-.disappear(QOrder(23100, 27800))
-.clearAnswer(QOrder(23100, 27800))
-.makeNotRequired(QOrder(23100, 27800));
+.disappear(Q(10821))
+.clearAnswer(Q(10821));
+
+// If QID 9391 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [23050, 27800].
+ifQ(9391)
+.answered(0,2)
+.disappear(QOrder(23050, 27800))
+.clearAnswer(QOrder(23050, 27800))
+.makeNotRequired(QOrder(23050, 27800));
 
 // If QID 9391 is answered Option [0 OR 1], then disappear and clear answer to QID 9401.
 ifQ(9391)
@@ -1077,12 +1107,18 @@ ifQ(9861)
 //  SPEEDY CAFE - Begin
 //*******************************
 
-// If QID 10031 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [28400, 32900].
+// If QID 10031 is answered Option [0 OR 2], then disappear and clear answer to QID 10871
 ifQ(10031)
 .answered(0,2)
-.disappear(QOrder(28400, 32900))
-.clearAnswer(QOrder(28400, 32900))
-.makeNotRequired(QOrder(28400, 32900));
+.disappear(Q(10871))
+.clearAnswer(Q(10871));
+
+// If QID 10031 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QOrder [28250, 32900].
+ifQ(10031)
+.answered(0,2)
+.disappear(QOrder(28250, 32900))
+.clearAnswer(QOrder(28250, 32900))
+.makeNotRequired(QOrder(28250, 32900));
 
 // If QID 10031 is answered Option [0 OR 1], then disappear and clear answer to QID 100141.
 ifQ(10031)
