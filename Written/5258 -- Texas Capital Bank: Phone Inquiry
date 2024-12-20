@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 893	
 // SID: 5258	
-// Last Updated: 11/27/2024
+// Last Updated: 12/19/2024
 //*******************************	
 
 
@@ -35,9 +35,9 @@ ifQ(241)
 .disappear(Q(261))
 .clearAnswer(Q(261));
 
-// If QID 261 is not answered Option 13, then disappear and clear answer to QID 501.
+// If QID 261 is not answered Option 12, then disappear and clear answer to QID 501.
 ifQ(261)
-.notAnswered(13)
+.notAnswered(12)
 .disappear(Q(501))
 .clearAnswer(Q(501));
 
