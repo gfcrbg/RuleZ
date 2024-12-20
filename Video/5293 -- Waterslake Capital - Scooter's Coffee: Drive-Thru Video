@@ -56,8 +56,8 @@ ifQ(1192)
 .answered(2)
 .disappear(Q(191)) // medium header
 .disappear(Q(1142)) // black remark
-.disappear(Q(1312), Q(1322), Q(1132), Q(1602), Q(1302), Q(1532), Q(171), Q(1652), Q(291), Q(1042), Q(581))
-.clearAnswer(Q(1312), Q(1322), Q(1132), Q(1602), Q(1302), Q(1532), Q(171), Q(1652), Q(291), Q(1042), Q(581));
+.disappear(Q(1312), Q(1322), Q(1132), Q(1602), Q(1302), Q(1532), Q(171), Q(1652), Q(291), Q(1752), Q(1042), Q(1742), Q(1712), Q(581))
+.clearAnswer(Q(1312), Q(1322), Q(1132), Q(1602), Q(1302), Q(1532), Q(171), Q(1652), Q(291), Q(1752), Q(1042), Q(1742), Q(1712), Q(581));
 
 // If QID 1312 and QID 1322 are answered, then trigger math operation: [1322] - [1312] = [1132]
 ifQ(1192)
@@ -103,8 +103,8 @@ ifQ(1192)
 .answered(2)
 .disappear(Q(531)) // medium header
 .disappear(Q(1622)) // red remark
-.disappear(Q(551), Q(251), Q(732), Q(1642), Q(1612))
-.clearAnswer(Q(551), Q(251), Q(732), Q(1642), Q(1612));
+.disappear(Q(551), Q(251), Q(732), Q(1732), Q(1642), Q(1612))
+.clearAnswer(Q(551), Q(251), Q(732), Q(1732), Q(1642), Q(1612));
 
 // If QID 581 and QID 551 are answered, then trigger math operation: [551] - [581] = [251]
 ifQ(1192)
@@ -116,16 +116,27 @@ ifQ(1192)
 .sub(Q(551), Q(581))
 .store(Q(251));
 
-// If QID 251 is <= 4 minutes, then set value to Option 1 to QID 732.
+// If QID 251 is <= 3 minutes, then set value to Option 1 to QID 732.
 ifQ(1192)
 .answered(1)
 .andifQ(251)
 .answered()
 .andifQ(251)
-.lessThanOrEqual(240)
+.lessThanOrEqual(180)
 .setValue(Q(732), 1);
 
-// If QID 251 is > 4 minutes AND <= 5 minutes, then set Value to Option 2 to QID 732.
+// If QID 251 is > 3 minutes AND <= 4 minutes, then set Value to Option 2 to QID 732.
+ifQ(1192)
+.answered(1)
+.andifQ(251)
+.answered()
+.andifQ(251)
+.greaterThan(180)
+.andifQ(251)
+.lessThanOrEqual(240)
+.setValue(Q(732), 2);
+
+// If QID 251 is > 4 minutes AND <= 5 minutes, then set value to Option 3 to QID 732.
 ifQ(1192)
 .answered(1)
 .andifQ(251)
@@ -134,26 +145,15 @@ ifQ(1192)
 .greaterThan(240)
 .andifQ(251)
 .lessThanOrEqual(300)
-.setValue(Q(732), 2);
+.setValue(Q(732), 3);
 
-// If QID 251 is > 5 minutes AND <= 6 minutes, then set value to Option 3 to QID 732.
+// If QID 251 is > 5 minutes, then set value to Option 4 to QID 732.
 ifQ(1192)
 .answered(1)
 .andifQ(251)
 .answered()
 .andifQ(251)
 .greaterThan(300)
-.andifQ(251)
-.lessThanOrEqual(360)
-.setValue(Q(732), 3);
-
-// If QID 251 is > 6 minutes, then set value to Option 4 to QID 732.
-ifQ(1192)
-.answered(1)
-.andifQ(251)
-.answered()
-.andifQ(251)
-.greaterThan(360)
 .setValue(Q(732), 4);
 
 // If QID 1192 is answered Option 2, then disappear and clear answer to QID 732.
@@ -183,8 +183,8 @@ ifQ(732)
 ifQ(1192)
 .answered(2)
 .disappear(Q(351)) // medium header
-.disappear(Q(361), Q(341), Q(1702), Q(1722), Q(401), Q(391), Q(1742), Q(1732), Q(1242))
-.clearAnswer(Q(361), Q(341), Q(1702), Q(1722), Q(401), Q(391), Q(1742), Q(1732), Q(1242));
+.disappear(Q(361), Q(341), Q(1702), Q(1762), Q(401), Q(391), Q(1242), Q(1722))
+.clearAnswer(Q(361), Q(341), Q(1702), Q(1762), Q(401), Q(391), Q(1242), Q(1722));
 
 // If QID 361 is answered Option [0 OR 1], then disappear and clear answer to QID 371.
 ifQ(361)
