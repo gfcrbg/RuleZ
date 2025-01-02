@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 911
 // SID: 5187	
-// Last Updated: 7/23/2024	
+// Last Updated: 12/31/2024	
 //*******************************	
 
 
@@ -13,38 +13,123 @@ ifQ(21)
 .disappear(Q(31))
 .clearAnswer(Q(31));
 
-// If QID 61 is answered Option 5, then disappear and clear answer to QIDs.
-ifQ(61)
-.answered(5)
-.disappear(Q(71), Q(81), Q(91), Q(151), Q(161), Q(171))
-.clearAnswer(Q(71), Q(81), Q(91), Q(151), Q(161), Q(171));
+// If QID 61 is answered Option 5/16, then disappear and clear answer to QIDs.
+//prior values - bruce
+//ifQ(61)
+//.answered(5)
+//.disappear(Q(71), Q(81), Q(91), Q(151), Q(161), Q(171))
+//.clearAnswer(Q(71), Q(81), Q(91), Q(151), Q(161), Q(171));
 
-// If QID 61 is answered Option [4 OR 5], then disappear and clear answer to QID 101.
-ifQ(61)
-.answered(4,5)
-.disappear(Q(101))
-.clearAnswer(Q(101));
 
-// If QID 61 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 111.
+//61 is answer option 16
 ifQ(61)
-.answered(3,4,5)
-.disappear(Q(111))
-.clearAnswer(Q(111));
+.answered(2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+.disappear(Q(371))
+.clearAnswer(Q(371));
 
-// If QID 61 is answered Option [2, 3, 4, OR 5], then disappear and clear answer to QID 121.
+//61 is answer option 15
 ifQ(61)
-.answered(2,3,4,5)
+.answered(3,4,5,6,7,8,9,10,11,12,13,14,15,16)
+.disappear(Q(361))
+.clearAnswer(Q(361));
+
+//61 is answer option 14
+ifQ(61)
+.answered(4,5,6,7,8,9,10,11,12,13,14,15,16)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+//61 is answer option 13
+ifQ(61)
+.answered(5,6,7,8,9,10,11,12,13,14,15,16)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+//61 is answer option 12
+ifQ(61)
+.answered(6,7,8,9,10,11,12,13,14,15,16)
+.disappear(Q(331))
+.clearAnswer(Q(331));
+
+//61 is answer option 11
+ifQ(61)
+.answered(7,8,9,10,11,12,13,14,15,16)
+.disappear(Q(321))
+.clearAnswer(Q(321));
+
+//61 is answer option 10
+ifQ(61)
+.answered(8,9,10,11,12,13,14,15,16)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+//61 is answer option 9
+ifQ(61)
+.answered(9,10,11,12,13,14,15,16)
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+//61 is answer option 8
+ifQ(61)
+.answered(10,11,12,13,14,15,16)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+//61 is answer option 7
+ifQ(61)
+.answered(11,12,13,14,15,16)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+//61 is answer option 6
+ifQ(61)
+.answered(12,13,14,15,16)
+.disappear(Q(271))
+.clearAnswer(Q(271));
+
+//61 is answer option 5
+ifQ(61)
+.answered(13,14,15,16)
 .disappear(Q(121))
 .clearAnswer(Q(121));
 
-// If QID 71 is answered Option 5, then disappear and clear answer to QID 131.
-ifQ(71)
-.answered(5)
+//61 is answer option 4
+ifQ(61)
+.answered(14,15,16)
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+//61 is answer option 3
+ifQ(61)
+.answered(15,16)
+.disappear(Q(101))
+.clearAnswer(Q(101));
+
+//61 is answer option 2
+ifQ(61)
+.answered(16)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+//61 is answer option 1, set 251 & 261 to option 16
+ifQ(61)
+.answered(16)
+.setValue(Q(251), 16)
+.setValue(Q(261), 16);
+
+
+//ok
+// If QID 71/251 is answered Option 5/16, then disappear and clear answer to QID 131.
+//ifQ(71)
+ifQ(251)
+.answered(16)
 .disappear(Q(131))
 .clearAnswer(Q(131));
 
-// If QID 81 is answered Option 5, then disappear and clear answer to QID 141.
-ifQ(81)
-.answered(5)
+//ok
+// If QID 81/261 is answered Option 5/16, then disappear and clear answer to QID 141.
+//ifQ(81)
+ifQ(261)
+.answered(16)
 .disappear(Q(141))
 .clearAnswer(Q(141));
