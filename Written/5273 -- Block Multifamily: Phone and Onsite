@@ -1,0 +1,96 @@
+//*******************************	
+// CID: 941
+// SID: 5273	
+// Last Updated: 1/2/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// PHONE EXPERIENCE - Begin
+//*******************************
+
+// If QID 81 is answered Option 1, then disappear and clear answer to QID 91.
+ifQ(81)
+.answered(1)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+//*******************************
+// PHONE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// PHONE - BUILDING VALUE - Begin
+//*******************************
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QID 981.
+ifQ(201)
+.answered(2)
+.disappear(Q(981))
+.clearAnswer (Q(981));
+
+//*******************************
+// PHONE - BUILDING VALUE - End
+//*******************************
+
+
+
+
+//*******************************
+// PHONE - FOLLOW UP - Begin
+//*******************************
+
+// If QID 1131 is answered Option 2, then disappear and clear answer to QID 1141.
+ifQ(1131)
+.answered(2)
+.disappear(Q(1141))
+.clearAnswer (Q(1141));
+
+//*******************************
+// PHONE - FOLLOW UP - End
+//*******************************
+
+
+
+
+//*******************************
+// ONSITE EXPERIENCE - Begin
+//*******************************
+
+// If QID 381 is answered Option 1, then disappear and clear answer to QID 391.
+ifQ(381)
+.answered(1)
+.disappear(Q(391))
+.clearAnswer(Q(391));
+
+// If QID 381 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(381)
+.answered(2)
+.disappear(Q(401), Q(431))
+.clearAnswer(Q(401), Q(431));
+
+//*******************************
+// ONSITE EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// ONSITE - DEMONSTRATION - Begin
+//*******************************
+
+// If QID 1151 not answered Option [1 OR 2], then disappear and clear answer to QID 651.
+ifQ(1151)
+.notAnswered(1,2)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+//*******************************
+// ONSITE - DEMONSTRATION - End
+//*******************************
