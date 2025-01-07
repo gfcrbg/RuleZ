@@ -1,0 +1,306 @@
+//*******************************	
+// CID: 946
+// SID: 5295	
+// Last Updated: 1/7/2025
+//*******************************	
+
+
+
+
+//*******************************
+// PHONE EVALUATION DETAILS - Begin
+//*******************************
+
+// If QID 4381 is answered Option 2, then disappear and clear answer to QID 4391.
+ifQ(4381)
+.answered(2)
+.disappear(Q(4391))
+.clearAnswer(Q(4391));
+
+// If QID 381 is answered Option 1, then disappear and clear answer to QID 391.
+ifQ(381)
+.answered(1)
+.disappear(Q(391))
+.clearAnswer(Q(391));
+
+//*******************************
+// PHONE EVALUATION DETAILS - End
+//*******************************
+
+
+
+
+//*******************************
+// PHONE EVALUATION - Begin
+//*******************************
+
+// If QID 2031 is answered Option 2, then disappear and clear answer to QID 2301.
+ifQ(2031)
+.answered(2)
+.disappear(Q(2301))
+.clearAnswer(Q(2301));
+
+//*******************************
+// PHONE EVALUATION - End
+//*******************************
+
+
+
+
+//*******************************
+// ADVERTISING /
+// COMMUNITY APPEARANCE - Begin
+//*******************************
+
+// If QID 261 is answered Option [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, OR 20], then disappear and clear answer to QID 3201.
+ifQ(261)
+.answered(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+.disappear(Q(3201))
+.clearAnswer(Q(3201));
+
+//*******************************
+// ADVERTISING /
+// COMMUNITY APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// PROBING / 
+// INFORMATION GATHERING - Begin
+//*******************************
+
+// If QID 631 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(631)
+.answered(2)
+.disappear(Q(4351), Q(4361))
+.clearAnswer(Q(4351), Q(4361));
+
+// If QID 4361 is answered Option [0 OR 2], then disappear and clear answer to QID 4371.
+ifQ(4361)
+.answered(0,2)
+.disappear(Q(4371))
+.clearAnswer(Q(4371));
+
+// If QID 661 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(661)
+.answered(2)
+.disappear(Q(3561), Q(671))
+.clearAnswer(Q(3561), Q(671));
+
+//*******************************
+// PROBING / 
+// INFORMATION GATHERING - End
+//*******************************
+
+
+
+
+//*******************************
+// THE SALE - Begin
+//*******************************
+
+// If QID 3921 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(3921)
+.answered(2)
+.disappear(Q(701), Q(721), Q(731), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791), Q(801), Q(811), Q(821))
+.clearAnswer(Q(701), Q(721), Q(731), Q(741), Q(751), Q(761), Q(771), Q(781), Q(791), Q(801), Q(811), Q(821));
+
+// If QID 701 is answered Option [0, 1, 4, 5, 6, OR 8], then disappear and clear answer to QID 711.
+ifQ(701)
+.answered(0,1,4,5,6,8)
+.disappear(Q(711))
+.clearAnswer(Q(711));
+
+// If QID 821 answered Option [0 OR 2], then disappear and clear answer to QID 861.
+ifQ(821)
+.answered(0,2)
+.disappear(Q(861))
+.clearAnswer(Q(861));
+
+//*******************************
+// THE SALE - End
+//*******************************
+
+
+
+
+//*******************************
+// COMMON AREA AMENITIES - Begin
+//*******************************
+
+// If QID 2261 is answered Option [2 OR 3], then disappear and clear answer to QID 4521.
+ifQ(2261)
+.answered(2,3)
+.disappear(Q(4521))
+.clearAnswer(Q(4521));
+
+// If QID 2791 is answered Option 2, then disappear and clear answer to QID 2281.
+ifQ(2791)
+.answered(2)
+.disappear(Q(2281))
+.clearAnswer(Q(2281));
+
+// If QID 911 is answered Option 2, then disappear and clear answer to QID 921.
+ifQ(911)
+.answered(2)
+.disappear(Q(921))
+.clearAnswer(Q(921));
+
+// If QID 931 is answered Option [1 OR 3], then disappear and clear answer to QID 941.
+ifQ(931)
+.answered(1,3)
+.disappear(Q(941))
+.clearAnswer(Q(941));
+
+//*******************************
+// COMMON AREA AMENITIES - End
+//*******************************
+
+
+
+
+//*******************************
+// RENTAL RATES & DETAILS - Begin
+//*******************************
+
+// If QID 3941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(3941)
+.answered(2)
+.disappear(Q(961), Q(971), Q(981), Q(991), Q(1001), Q(1011), Q(1021), Q(1041), Q(1051), Q(1061))
+.clearAnswer(Q(961), Q(971), Q(981), Q(991), Q(1001), Q(1011), Q(1021), Q(1041), Q(1051), Q(1061));
+
+//*******************************
+// RENTAL RATES & DETAILS - End
+//*******************************
+
+
+
+
+//*******************************
+// THE CLOSE - Begin
+//*******************************
+
+// 
+ifQ(3961)
+.answered(2)
+.disappear(Q(1091), Q(1101), Q(1111), Q(3771), Q(1121), Q(1131), Q(1141), Q(1161), Q(4561))
+.clearAnswer(Q(1091), Q(1101), Q(1111), Q(3771), Q(1121), Q(1131), Q(1141), Q(1161), Q(4561));
+
+// If QID 1101 is not answered, then disappear and clear answer to QID 1171.
+ifQ(1101)
+.notAnswered()
+.disappear(Q(1171))
+.clearAnswer(Q(1171));
+
+// If QID 1111 is not answered, then disappear and clear answer to QID 1181.
+ifQ(1111)
+.notAnswered()
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
+
+// If QID 3771 is answered Option [0 OR 2], then disappear and clear answer to QID 3781.
+ifQ(3771)
+.answered(0,2)
+.disappear(Q(3781))
+.clearAnswer(Q(3781));
+
+// If QID 3771 is answered Option [0 OR 1], then disappear and clear answer to QID 3791.
+ifQ(3771)
+.answered(0,1)
+.disappear(Q(3791))
+.clearAnswer(Q(3791));
+
+// If QID 1131 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1131)
+.answered(0,2)
+.disappear(Q(2801), Q(4541))
+.clearAnswer(Q(2801), Q(4541));
+
+// If QID 1141 is answered Option [0 OR 2], then disappear and clear answer to QID 4551.
+ifQ(1141)
+.answered(0,2)
+.disappear(Q(4551))
+.clearAnswer(Q(4551));
+
+//*******************************
+// THE CLOSE - End
+//*******************************
+
+
+
+
+//*******************************
+// NO VACANCY -
+// 100% OCCUPIED - Begin
+//*******************************
+
+// If QID 3991 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(3991)
+.answered(1)
+.disappear(Q(4011), Q(4021), Q(4031), Q(4041), Q(4051), Q(4061), Q(4071))
+.clearAnswer(Q(4011), Q(4021), Q(4031), Q(4041), Q(4051), Q(4061), Q(4071));
+
+//*******************************
+// NO VACANCY -
+// 100% OCCUPIED - End
+//*******************************
+
+
+
+
+//*******************************
+// GENERAL OBSERVATIONS - Begin
+//*******************************
+
+// If QID 3801 is answered Option 2, then disappear and clear answer to QID 3811.
+ifQ(3801)
+.answered(2)
+.disappear(Q(3811))
+.clearAnswer(Q(3811));
+
+// If QID 3821 is answered Option 2, then disappear and clear answer to QID 3831.
+ifQ(3821)
+.answered(2)
+.disappear(Q(3831))
+.clearAnswer(Q(3831));
+
+//*******************************
+// GENERAL OBSERVATIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP AFTER THE VISIT - Begin
+//*******************************
+
+// If QID 2841 is answered Option 2, then disappear and clear answer to QID 2851.
+ifQ(2841)
+.answered(2)
+.disappear(Q(2851))
+.clearAnswer(Q(2851));
+
+// If QID 2861 is answered Option 2, then disappear and clear answer to QID 2871.
+ifQ(2861)
+.answered(2)
+.disappear(Q(2871))
+.clearAnswer(Q(2871));
+
+// If QID 2881 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2881)
+.answered(2)
+.disappear(Q(2901), Q(2911))
+.clearAnswer(Q(2901), Q(2911));
+
+// If QID 2891 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2891)
+.answered(2)
+.disappear(Q(2921), Q(4601))
+.clearAnswer(Q(2921), Q(4601));
+
+//*******************************
+// FOLLOW UP AFTER THE VISIT - End
+//*******************************
