@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 317	
 // SID: 5260	
-// Last Updated: 12/17/2024	
+// Last Updated: 1/8/2025	
 //*******************************	
 
 
@@ -35,6 +35,12 @@ ifQ(291)
 .answered(1,3)
 .disappear(Q(481))
 .clearAnswer(Q(481));
+
+// If QID is not answered Option 4, then disappear and clear answer to QID 711.
+ifQ(481)
+.notAnswered(4)
+.disappear(Q(711))
+.clearAnswer(Q(711));
 
 //*******************************
 // PRODUCT - End
