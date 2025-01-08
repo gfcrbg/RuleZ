@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 317
 // SID: 5261
-// Last Updated: 12/17/2024
+// Last Updated: 1/8/2025
 //*******************************	
 
 
@@ -124,6 +124,45 @@ ifQ(711)
 ifQ(711)
 .greaterThan(900)
 .setValue(Q(381), 3);
+
+// If QID 791 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(791)
+.answered(2)
+.disappear(Q(801), Q(811), Q(821), Q(401))
+.clearAnswer(Q(801), Q(811), Q(821), Q(401))
+
+// If QID [801 AND 811] is answered, then trigger math operation: [811] - [801] = [821]
+ifQ(791)
+.answered(1)
+.andifQ(801)
+.answered()
+.andifQ(811)
+.answered()
+.sub(Q(811), Q(801))
+.store(Q(821));
+
+// If QID 791 is answered Option 1AND if QID 821 is < 8 minutes, then set value to Option 1 to QID 401.
+ifQ(791)
+.answered(1)
+.andifQ(821)
+.lessThan(480)
+.setValue(Q(401), 1);
+
+// If QID 791 is answered Option 1 AND if QID 821 >= 8 minutes AND <= 12 minutes, then set value to Option 2 to QID 401.
+ifQ(791)
+.answered(1)
+.andifQ(821)
+.greaterThanOrEqual(480)
+.andifQ(821)
+.lessThanOrEqual(720)
+.setValue(Q(401), 2);
+
+// If QID 791 is answered Option 1 AND if QID 821 is > 12 minutes, then set value to Option 3 to QID 401.
+ifQ(791)
+.answered(1)
+.andifQ(821)
+.greaterThan(720)
+.setValue(Q(401), 3);
 
 //*******************************
 // FOOD AND BEVERAGES - End
