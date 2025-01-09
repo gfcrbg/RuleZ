@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 704	
 // SID: 4396	
-// Last Updated: 12/1/2020	
+// Last Updated: 1/9/2025	
 //*******************************	
 
 
@@ -87,10 +87,11 @@ ifQ(621)
 .disappear(Q(631))
 .clearAnswer(Q(631));
 
-// If QID 641 is answered Option [0 OR 2], then disappear QID 651.
+// Time Field -- If QID 641 is not answered Option 1, then disappear and clear answer to QID 651.
 ifQ(641)
-.answered(0,2)
-.disappear(Q(651));
+.notAnswered(1)
+.disappear(Q(651))
+.clearAnswer(Q(651));
 
 // If QID 661 is answered Option [0 OR 2], then disappear QID 671.
 ifQ(661)
