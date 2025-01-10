@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 935	
 // SID: 5257	
-// Last Updated: 12/16/2024	
+// Last Updated: 1/10/2025	
 //*******************************	
 
 
@@ -88,10 +88,8 @@ ifQ(591)
 .disappear(Q(411))
 .clearAnswer(Q(411));
 
-// If QID [271 OR 591] is answered Option [0 OR 1], then disappear and clear answer to QID 431.
-ifQ(271)
-.answered(0,1)
-.orifQ(591)
+// If QID 591 is answered Option [0 OR 1], then disappear and clear answer to QID 431.
+ifQ(591)
 .answered(0,1)
 .disappear(Q(431))
 .clearAnswer(Q(431));
