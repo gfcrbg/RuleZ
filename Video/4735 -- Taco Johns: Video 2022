@@ -146,14 +146,19 @@ ifQ(2581)
 .answered([1,2,3])
 .setValue(Q(2671), '3');
 
+// If QID 2581 is answered all options, then set value to '4' to QID 2671.
+ifQ(2581)
+.answered([1,2,3,4])
+.setValue(Q(2671), '4');
+
 // If QID 2671 is answered '3', then set value to Option 1 to QID 2661.
 ifQ(2671)
 .answered('3')
 .setValue(Q(2661), 1);
 
-// If QID 2671 is answered ['1' OR '2'], then set value to Option 2 to QID 2661. 
+// If QID 2671 is answered ['1', '2', OR '4'], then set value to Option 2 to QID 2661. 
 ifQ(2671)
-.answered('1','2')
+.answered('1','2','4')
 .setValue(Q(2661), 2);
 
 // If QID 2321 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 2331.
@@ -316,14 +321,19 @@ ifQ(2561)
 .answered([1,2,3])
 .setValue(Q(2681), '3');
 
+// If QID 2561 is answered all options, then set value to '4' to QID 2681.
+ifQ(2561)
+.answered([1,2,3,4])
+.setValue(Q(2681), '4');
+
 // If QID 2681 is answered '3', then set value to Option 1 to QID 281.
 ifQ(2681)
 .answered('3')
 .setValue(Q(281), 1);
 
-// If QID 2681 is answered ['1' OR '2'], then set value to Option 2 to QID 281.
+// If QID 2681 is answered ['1', '2', OR '4'], then set value to Option 2 to QID 281.
 ifQ(2681)
-.answered('1','2')
+.answered('1','2','4')
 .setValue(Q(281), 2);
 
 // If QID 2381 is answered Option [0 OR 1], then disappear and clear answer to QID 2401.
