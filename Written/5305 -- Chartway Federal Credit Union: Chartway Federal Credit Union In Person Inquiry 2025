@@ -1,0 +1,45 @@
+//*******************************	
+// CID: 891	
+// SID: 5305
+// Last Updated: 1/15/2025
+//*******************************	
+
+
+
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(2)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+
+
+
+//*******************************
+// ATTENTIVENESS
+// QUALITY OF CONVERSATION  - Begin
+//*******************************
+
+// If QID 321 is answered Option 1, then disappear and clear answer to QID 341.
+ifQ(321)
+.answered(1)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+// If QID 341 is answered Option [0 OR 1], then disappear and clear answer to QID 351.
+ifQ(341)
+.answered(0,1)
+.disappear(Q(351))
+.clearAnswer(Q(351));
+
+// If QID 351 is not answered Option 8, then disappear and clear answer to QID 361.
+ifQ(351)
+.notAnswered(8)
+.disappear(Q(361))
+.clearAnswer(Q(361));
+
+//*******************************
+// ATTENTIVENESS
+// QUALITY OF CONVERSATION  - End
+//*******************************
