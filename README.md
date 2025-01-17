@@ -1,5 +1,10 @@
 ### Announcements  
 
+## January 2025  
+To auto-select an answer option (1381) based on the count of checkboxes selected (1361), a number field (1371) should be used to capture the checkbox count.  
+
+![multi-checkbox option tally](https://github.com/user-attachments/assets/504a87ef-1fdc-47f0-ac07-539bf48308bb)  
+
 ## September 2024  
 If the error message [object Object] appears, fix by clearing the browser's cache.  
 
