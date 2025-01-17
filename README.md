@@ -2,6 +2,7 @@
 
 ## January 2025  
 To auto-select an answer option (1381) based on the count of checkboxes selected (1361), a number field (1371) should be used to capture the checkbox count.  
+As a result, 1361 triggers --> 1371 triggers --> 1381.
 
 ![multi-checkbox option tally](https://github.com/user-attachments/assets/504a87ef-1fdc-47f0-ac07-539bf48308bb)  
 
