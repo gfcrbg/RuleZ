@@ -6,6 +6,39 @@ As a result, 1361 triggers --> 1371 triggers --> 1381.
 
 ![multi-checkbox option tally](https://github.com/user-attachments/assets/504a87ef-1fdc-47f0-ac07-539bf48308bb)  
 
+```
+// (TEST) Multi-Checkbox Option Tally
+// If QID 1361 is not answered, then set value to '0' to QID 1371.
+ifQ(1361)
+.notAnswered()
+.setValue(Q(1371), '0');
+
+// If QID 1361 is answered unique Option 1 OR Option 2 OR Option 3, OR Option 4, then set value to Option '1' to QID 1371.
+ifQ(1361)
+.answered([1], [2], [3], [4])
+.setValue(Q(1371), '1');
+
+// If QID 1361 is answered Option [1 AND 2, 1 AND 3, 1 AND 4, 2 AND 3, 2 AND 4, -OR- 3 AND 4], then set value to Option '2' to QID QID 1371.
+ifQ(1361)
+.answered([1,2], [1,3], [1,4], [2,3], [2,4], [3,4])
+.setValue(Q(1371), '2');
+
+// If QID 1361 is answered Option [1, 2, AND 3], then set value to Option '3' to QID 1371.
+ifQ(1361)
+.answered([1,2,3])
+.setValue(Q(1371), '3');
+
+// If QID 1371 is answered Option '3', then set value to Option 1 to QID 1381.
+ifQ(1371)
+.answered('3')
+.setValue(Q(1381), 1);
+
+// If QID 1371 is answered Option ['1' OR '2'], then set value to Option 2 to QID 1381.
+ifQ(1371)
+.answered('1','2')
+.setValue(Q(1381), 2);
+```  
+
 ## September 2024  
 If the error message [object Object] appears, fix by clearing the browser's cache.  
 
