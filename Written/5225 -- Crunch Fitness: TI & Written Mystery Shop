@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904
 // SID: 5225	
-// Last Updated: 10/28/2024	
+// Last Updated: 1/22/2025	
 //*******************************	
 
 
@@ -54,12 +54,20 @@ ifQ(1362)
 // ONSITE WRITTEN
 
 
-
-
-// Set value to Option 1 to QID 902 AND disappear QID 902.
+// If wave is [Type 3 OR Type 2-WR], then disappear QID 902.
 ifQ()
-.setValue(Q(902), 1)
+.waveIs("Type 3", "Type 2-WR")
 .disappear(Q(902));
+
+// If wave is "Type 3", then set value to Option 1 to QID 902.
+ifQ()
+.waveIs("Type 3")
+.setValue(Q(902), 1);
+
+// If wave is "Type 2-WR", then set value to Option 2 to QID 902.
+ifQ()
+.waveIs("Type 2-WR")
+.setValue(Q(902), 2);
 
 // If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
 ifQ(41)
