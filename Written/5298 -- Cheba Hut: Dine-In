@@ -1,0 +1,58 @@
+//*******************************	
+// CID: 632	
+// SID: 5298	
+// Last Updated: 1/28/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// PEOPLE & SERVICE - Begin
+//*******************************
+
+// If QID 201 is <= 7 minutes, then set value to Option 1 to QID 531.
+ifQ(201)
+.lessThanOrEqual(420)
+.setValue(Q(531), 1);
+
+// If QID 201 is >= 7m 59s, then set value to Option 2 to QID 531.
+ifQ(201)
+.greaterThanOrEqual(479)
+.setValue(Q(531), 2);
+
+// If QID 201 is >= 8 minutes AND <= 10 minutes, then set value to Option 1 to QID 541.
+ifQ(201)
+.greaterThanOrEqual(480)
+.andifQ(201)
+.lessThanOrEqual(600)
+.setValue(Q(541), 1);
+
+// If QID 201 is > 10 minutes AND <= 12 minutes, then set value to Option 2 to QID 541.
+ifQ(201)
+.greaterThan(600)
+.andifQ(201)
+.lessThanOrEqual(720)
+.setValue(Q(541), 2);
+
+// If QID 201 is > 12 minutes AND <= 15 minutes, then set value to Option 3 to QID 541.
+ifQ(201)
+.greaterThan(720)
+.andifQ(201)
+.lessThanOrEqual(900)
+.setValue(Q(541), 3);
+
+// If QID 201 is > 15 minutes, then set value to Option 4 to QID 541.
+ifQ(201)
+.greaterThan(900)
+.setValue(Q(541), 4);
+
+// If QID 531 is answered Option 1, then disappear and clear answer to QID 541.
+ifQ(531)
+.answered(1)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+//*******************************
+// PEOPLE & SERVICE - End
+//*******************************
