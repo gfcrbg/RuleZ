@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 632
+// SID: 5299	
+// Last Updated: 1/28/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// PICK UP - Begin
+//*******************************
+
+// If QID 591 is answered Option 1, then disappear and clear answer to QID 601.
+ifQ(591)
+.answered(1)
+.disappear(Q(601))
+.clearAnswer(Q(601));
+
+// If QID 661 is answered Option 1, then disappear and clear answer to QID 671.
+ifQ(661)
+.answered(1)
+.disappear(Q(671))
+.clearAnswer(Q(671));
+
+//*******************************
+// PICK UP - End
+//*******************************
