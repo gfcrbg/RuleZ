@@ -1,0 +1,423 @@
+//*******************************	
+// CID: 942
+// SID: 5303	
+// Last Updated: 1/29/2025	
+//*******************************	
+
+
+
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(111), Q(121), Q(131))
+.clearAnswer(Q(111), Q(121), Q(131));
+
+
+
+
+//*******************************
+// ATMOSPHERE & APPEARANCE - Begin
+//*******************************
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QID 151 (Medium Header).
+ifQ(91)
+.answered(2)
+.disappear(Q(151));
+
+
+//-------------------------------------------
+// EXTERIOR & ENTRANCE - Begin
+//-------------------------------------------
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(231)) // small header
+.disappear(Q(161), Q(171), Q(441))
+.clearAnswer(Q(161), Q(171), Q(441));
+
+//-------------------------------------------
+// EXTERIOR & ENTRANCE - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// DINING AREA - Begin
+//-------------------------------------------
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(241)) // small header
+.disappear(Q(1011), Q(451), Q(211), Q(1021), Q(461), Q(481), Q(1041))
+.clearAnswer(Q(1011), Q(451), Q(211), Q(1021), Q(461), Q(481), Q(1041));
+
+// If QID 461 is answered Option [0 OR 1], then disappear and clear answer to QID 471.
+ifQ(461)
+.answered(0,1)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+// If QID 1041 is answered Option [0 OR 1], then disappear and clear answer to QID 1051.
+ifQ(1041)
+.answered(0,1)
+.disappear(Q(1051))
+.clearAnswer(Q(1051));
+
+//-------------------------------------------
+// DINING AREA - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// RESTROOMS - Begin
+//-------------------------------------------
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(251)) // small header
+.disappear(Q(181))
+.clearAnswer(Q(181));
+
+// If QID 181 is answered Option [0 OR 1], then disappear and clear answer to QID 431.
+ifQ(181)
+.answered(0,1)
+.disappear(Q(431))
+.clearAnswer(Q(431));
+
+// If QID 181 is answered Option [0 OR 2], then disappear and clear answer to QID 201.
+ifQ(181)
+.answered(0,2)
+.disappear(Q(201))
+.clearAnswer(Q(201));
+
+//-------------------------------------------
+// RESTROOMS - End
+//-------------------------------------------
+
+//*******************************
+// ATMOSPHERE & APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// HOST SERVICE - Begin
+//*******************************
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(371)) // medium header
+.disappear(Q(551), Q(561), Q(571), Q(581), Q(1031), Q(1061), Q(951))
+.clearAnswer(Q(551), Q(561), Q(571), Q(581), Q(1031), Q(1061), Q(951));
+
+// If QID 91 is answered Option 1 AND if QIDs [551 AND 561] are answered, then trigger math operation: [561] - [551] = [571]
+ifQ(91)
+.answered(1)
+.andifQ(551)
+.answered()
+.andifQ(561)
+.answered()
+.sub(Q(561), Q(551))
+.store(Q(571));
+
+// If QID 91 is answered Option 1 AND if QID 571 is <= 30 seconds, then set value to Option 1 to QID 581.
+ifQ(91)
+.answered(1)
+.andifQ(571)
+.lessThanOrEqual(30)
+.setValue(Q(581), 1);
+
+// If QID 91 is answered Option 1 AND if QID 571 is > 30 seconds, then set value to Option 2 to QID 581.
+ifQ(91)
+.answered(1)
+.andifQ(571)
+.greaterThan(30)
+.setValue(Q(581), 2);
+
+// If QID 1061 is answered Option [0 OR 1], then disappear and clear answer to QID 1071.
+ifQ(1061)
+.answered(0,1)
+.disappear(Q(1071))
+.clearAnswer(Q(1071));
+
+//*******************************
+// HOST SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// TABLE SERVICE - Begin
+//*******************************
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QID 381 (Medium Header).
+ifQ(91)
+.answered(2)
+.disappear(Q(381));
+
+
+//-------------------------------------------
+// GREETING & 
+// ORDER EXPERIENCE - Begin
+//-------------------------------------------
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(391)) // small header
+.disappear(Q(601), Q(611), Q(621), Q(631), Q(1171), Q(661), Q(981), Q(961), Q(861), Q(991), Q(681), Q(691), Q(701))
+.clearAnswer(Q(601), Q(611), Q(621), Q(631), Q(1171), Q(661), Q(981), Q(961), Q(861), Q(991), Q(681), Q(691), Q(701));
+
+// If QID 91 is answered Option 1 AND if QIDs [601 AND 611] are answered, then trigger math operation: [611] - [601] = [621]
+ifQ(91)
+.answered(1)
+.andifQ(601)
+.answered()
+.andifQ(611)
+.answered()
+.sub(Q(611), Q(601))
+.store(Q(621));
+
+// If QID 91 is answered Option 1 AND if QID 621 is <= 2 minutes, then set value to Option 1 to QID 631.
+ifQ(91)
+.answered(1)
+.andifQ(621)
+.lessThanOrEqual(120)
+.setValue(Q(631), 1);
+
+// If QID 91 is answered Option 1 AND if QID 621 is > 2 minutes, then set value to Option 2 to QID 631.
+ifQ(91)
+.answered(1)
+.andifQ(621)
+.greaterThan(120)
+.setValue(Q(631), 2);
+
+// If QID 961 is answered Option [0 OR 2], then disappear and clear answer to QID 971.
+ifQ(961)
+.answered(0,2)
+.disappear(Q(971))
+.clearAnswer(Q(971));
+
+// If QID 861 is answered Option [0 OR 2], then disappear and clear answer to QID 1001.
+ifQ(861)
+.answered(0,2)
+.disappear(Q(1001))
+.clearAnswer(Q(1001));
+
+//-------------------------------------------
+// GREETING & 
+// ORDER EXPERIENCE - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// ORDER DELIVERY - Begin
+//-------------------------------------------
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(401)) // small header
+.disappear(Q(711), Q(751), Q(741), Q(721), Q(731), Q(791), Q(801), Q(811))
+.clearAnswer(Q(711), Q(751), Q(741), Q(721), Q(731), Q(791), Q(801), Q(811)); 
+
+// If QID 91 is answered Option 1 AND if QIDs [691 AND 711] are answered, then trigger math operation: [711] - [691] = [751]
+ifQ(91)
+.answered(1)
+.andifQ(691)
+.answered()
+.andifQ(711)
+.answered()
+.sub(Q(711), Q(691))
+.store(Q(751));
+
+// If QID 91 is answered Option 1 AND if QID 751 is <= 3 minutes, then set value to Option 1 to QID 741.
+ifQ(91)
+.answered(1)
+.andifQ(751)
+.lessThanOrEqual(180)
+.setValue(Q(741), 1);
+
+// If QID 91 is answered Option 1 AND if QID 751 is > 3 minutes, then set value to Option 2 to QID 741.
+ifQ(91)
+.answered(1)
+.andifQ(751)
+.greaterThan(180)
+.setValue(Q(741), 2);
+
+// If QID 91 is answered Option 1 AND if QIDs [701 AND 721] are answered, then trigger math operation: [721] - [701] = [731]
+ifQ(91)
+.answered(1)
+.andifQ(701)
+.answered()
+.andifQ(721)
+.answered()
+.sub(Q(721), Q(701))
+.store(Q(731));
+
+// [Mimics QID 21] If QID 91 is answered Option 1 AND if QID 21 is answered Option 1, then set value to Option 1 to QID 1181.
+ifQ(91)
+.answered(1)
+.andifQ(21)
+.answered(1)
+.setValue(Q(1181), 1);
+
+// [Mimics QID 21] If QID 91 is answered Option 1 AND if QID 21 is answered Option 2, then set value to Option 2 to QID 1181.
+ifQ(91)
+.answered(1)
+.andifQ(21)
+.answered(2)
+.setValue(Q(1181), 2);
+
+// [Mimics QID 21] If QID 91 is answered Option 1 AND if QID 21 is answered Option 4, then set value to Option 4 to QID 1181.
+ifQ(91)
+.answered(1)
+.andifQ(21)
+.answered(4)
+.setValue(Q(1181), 4);
+
+// [Mimics QID 21] If QID 91 is answered Option 2 OR if QID 21 is answered Option 3, then disappear and clear answer to QID 1181.
+ifQ(91)
+.answered(2)
+.orifQ(21)
+.answered(3)
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
+
+// If QID 1181 is answered Option [0, 2, 3, OR 4], then disappear and clear answer to QID 761.
+ifQ(1181)
+.answered(0,2,3,4)
+.disappear(Q(761))
+.clearAnswer(Q(761));
+
+// If QID 1181 is answered Option [0, 1, 3, OR 4], then disappear and clear answer to QID 771.
+ifQ(1181)
+.answered(0,1,3,4)
+.disappear(Q(771))
+.clearAnswer(Q(771));
+
+// If QID 1181 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 781.
+ifQ(1181)
+.answered(0,1,2,3)
+.disappear(Q(781))
+.clearAnswer(Q(781));
+
+// If QID 1181 is answered Option 1 AND if QID 731 is <= 11 minutes, then set value to Option 1 to QID 761.
+ifQ(1181)
+.answered(1)
+.andifQ(731)
+.lessThanOrEqual(660)
+.setValue(Q(761), 1);
+
+// If QID 1181 is answered Option 1 AND if QID 731 is > 11 minutes, then set value to Option 2 to QID 761.
+ifQ(1181)
+.answered(1)
+.andifQ(731)
+.greaterThan(660)
+.setValue(Q(761), 2);
+
+// If QID 1181 is answered Option 2 AND if QID 731 is <= 12 minutes, then set value to Option 1 to QID 771.
+ifQ(1181)
+.answered(2)
+.andifQ(731)
+.lessThanOrEqual(720)
+.setValue(Q(771), 1);
+
+// If QID 1181 is answered Option 2 AND if QID 731 is > 12 minutes, then set value to Option 2 to QID 771.
+ifQ(1181)
+.answered(2)
+.andifQ(731)
+.greaterThan(720)
+.setValue(Q(771), 2);
+
+// If QID 1181 is answered Option 4 AND if QID 731 is <= 16 minutes, then set value to Option 1 to QID 781.
+ifQ(1181)
+.answered(4)
+.andifQ(731)
+.lessThanOrEqual(960)
+.setValue(Q(781), 1);
+
+// If QID 1181 is answered Option 4 AND if QID 731 is > 16 minutes, then set value to Option 2 to QID 781.
+ifQ(1181)
+.answered(4)
+.andifQ(731)
+.greaterThan(960)
+.setValue(Q(781), 2);
+
+// If QID 91 is answered Option 1 AND if QIDs [721 AND 791] are answered, then trigger math operation: [791] - [721] = [801]
+ifQ(91)
+.answered(1)
+.andifQ(721)
+.answered()
+.andifQ(791)
+.answered()
+.sub(Q(791), Q(721))
+.store(Q(801));
+
+// If QID 91 is answered Option 1 AND if QID 801 is <= 2 minutes, then set value to Option 1 to QID 811.
+ifQ(91)
+.answered(1)
+.andifQ(801)
+.lessThanOrEqual(120)
+.setValue(Q(811), 1);
+
+// If QID 91 is answered Option 1 AND if QID 801 is > 2 minutes, then set value to Option 2 to QID 811.
+ifQ(91)
+.answered(1)
+.andifQ(801)
+.greaterThan(120)
+.setValue(Q(811), 2);
+
+//-------------------------------------------
+// ORDER DELIVERY - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// CHECK & CLOSING - Begin
+//-------------------------------------------
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(421)) // small header 
+.disappear(Q(881), Q(901), Q(911))
+.clearAnswer(Q(881), Q(901), Q(911));
+
+//-------------------------------------------
+// CHECK & CLOSING - End
+//-------------------------------------------
+
+//*******************************
+// TABLE SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER QUALITY - Begin
+//*******************************
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(411)) // medium header
+.disappear(Q(821), Q(941), Q(841), Q(281), Q(1081))
+.clearAnswer(Q(821), Q(941), Q(841), Q(281), Q(1081));
+
+// If QID 821 is answered Option [0 OR 1], then disappear and clear answer to QID 831.
+ifQ(821)
+.answered(0,1)
+.disappear(Q(831))
+.clearAnswer(Q(831));
+
+//*******************************
+// ORDER QUALITY - End
+//*******************************
