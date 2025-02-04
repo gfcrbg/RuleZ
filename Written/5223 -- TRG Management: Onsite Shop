@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 928	
 // SID: 5223	
-// Last Updated: 1/22/2025	
+// Last Updated: 2/4/2025	
 //*******************************	
 
 
@@ -153,6 +153,8 @@ ifQ(371)
 .setValue(Q(1171), 2)
 .setValue(Q(1161), 2)
 .setValue(Q(1181), 2)
+.setValue(Q(711), 2)
+.setValue(Q(721), 2)
 .setValue(Q(1191), 2);
 
 // If QID 671 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 1171.
