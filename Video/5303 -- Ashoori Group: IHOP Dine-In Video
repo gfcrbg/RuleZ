@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 942
 // SID: 5303	
-// Last Updated: 1/29/2025	
+// Last Updated: 2/6/2025	
 //*******************************	
 
 
@@ -50,14 +50,20 @@ ifQ(91)
 ifQ(91)
 .answered(2)
 .disappear(Q(241)) // small header
-.disappear(Q(1011), Q(451), Q(211), Q(1021), Q(461), Q(481), Q(1041))
-.clearAnswer(Q(1011), Q(451), Q(211), Q(1021), Q(461), Q(481), Q(1041));
+.disappear(Q(1011), Q(451), Q(211), Q(1021), Q(481), Q(1041))
+.clearAnswer(Q(1011), Q(451), Q(211), Q(1021), Q(481), Q(1041));
 
-// If QID 461 is answered Option [0 OR 1], then disappear and clear answer to QID 471.
-ifQ(461)
+// If QID 211 is answered Option [0 OR 1], then disappear and clear answer to QID 1211.
+ifQ(211)
 .answered(0,1)
-.disappear(Q(471))
-.clearAnswer(Q(471));
+.disappear(Q(1211))
+.clearAnswer(Q(1211));
+
+// If QID 1021 is answered Option [0 OR 1], then disappear and clear answer to QID 1201.
+ifQ(1021)
+.answered(0,1)
+.disappear(Q(1201))
+.clearAnswer(Q(1201));
 
 // If QID 1041 is answered Option [0 OR 1], then disappear and clear answer to QID 1051.
 ifQ(1041)
