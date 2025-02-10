@@ -49,13 +49,13 @@ ifQ(121)
 // CALAMARI - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 201. 
 ifQ(11)
 .answered(2)
 .disappear(Q(201))
-.clearAnswer(Q(211))
+.clearAnswer(Q(201))
 
-//
+// If QID 201 is answered Option [0 OR 2], then disappear and clear answer to QID 211.
 ifQ(201)
 .answered(0,2)
 .disappear(Q(211))
@@ -72,13 +72,13 @@ ifQ(201)
 // SHORT RIB - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 281.
 ifQ(11)
 .answered(2)
 .disappear(Q(281))
 .clearAnswer(Q(281))
 
-//
+// If QID 281 is answered Option [0 OR 2], then disappear and clear answer to QID 291.
 ifQ(281)
 .answered(0,2)
 .disappear(Q(291))
@@ -95,13 +95,13 @@ ifQ(281)
 // RACK OF LAMB - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 361.
 ifQ(11)
 .answered(2)
 .disappear(Q(361))
 .clearAnswer(Q(361))
 
-//
+// If QID 361 is answered Option [0 OR 2], then disappear and clear answer to QID 371.
 ifQ(361)
 .answered(0,2)
 .disappear(Q(371))
@@ -118,13 +118,13 @@ ifQ(361)
 // BEARNAISE SAUCE - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 601.
 ifQ(11)
 .answered(2)
 .disappear(Q(601))
 .clearAnswer(Q(601))
 
-//
+// If QID 601 is answered Option [0 OR 2], then disappear and clear answer to QID 611.
 ifQ(601)
 .answered(0,2)
 .disappear(Q(611))
@@ -141,13 +141,13 @@ ifQ(601)
 // LOBSTER LINGUINE - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 681.
 ifQ(11)
 .answered(2)
 .disappear(Q(681))
 .clearAnswer(Q(681))
 
-//
+// If QID 681 is answered Option [0 OR 2], then disappear and clear answer to QID 691.
 ifQ(681)
 .answered(0,2)
 .disappear(Q(691))
@@ -164,13 +164,13 @@ ifQ(681)
 // MASHED POTATOES - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 761.
 ifQ(11)
 .answered(2)
 .disappear(Q(761))
 .clearAnswer(Q(761))
 
-//
+// If QID 761 is answered Option [0 OR 2], then disappear and clear answer to QID 771.
 ifQ(761)
 .answered(0,2)
 .disappear(Q(771))
@@ -187,13 +187,13 @@ ifQ(761)
 // BRUSSEL SPROUTS - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 841.
 ifQ(11)
 .answered(2)
 .disappear(Q(841))
 .clearAnswer(Q(841))
 
-//
+// If QID 841 is answered Option [0 OR 2], then disappear and clear answer to QID 851.
 ifQ(841)
 .answered(0,2)
 .disappear(Q(851))
@@ -210,13 +210,13 @@ ifQ(841)
 // CHOCOLATE CAKE - Begin
 //*******************************
 
-// 
+// If QID 11 is answered Option 2, then disappear and clear answer to QID 921.
 ifQ(11)
 .answered(2)
 .disappear(Q(921))
 .clearAnswer(Q(921))
 
-//
+// If QID 921 is answered Option [0 OR 2], then disappear and clear answer to QID 931.
 ifQ(921)
 .answered(0,2)
 .disappear(Q(931))
