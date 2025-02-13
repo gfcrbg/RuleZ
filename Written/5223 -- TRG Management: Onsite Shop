@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 928	
 // SID: 5223	
-// Last Updated: 2/4/2025	
+// Last Updated: 2/13/2025	
 //*******************************	
 
 
@@ -111,6 +111,11 @@ ifQ(371)
 .setValue(Q(411), 2)
 .setValue(Q(421), 2);
 
+// If QID 371 is answered Option 2, then disappear QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(391), Q(401), Q(411), Q(421));
+
 //*******************************
 // DISCOVERY - End
 //*******************************
@@ -128,6 +133,11 @@ ifQ(371)
 .setValue(Q(451), 3)
 .setValue(Q(1151), 2);
 
+// If QID 371 is answered Option 2, then disappear QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(451), Q(1151));
+
 //*******************************
 // INQUIRY - End
 //*******************************
@@ -143,8 +153,8 @@ ifQ(371)
 ifQ(371)
 .answered(2) 
 .disappear(Q(641)) // black remark
-.disappear(Q(711), Q(721), Q(731), Q(741))
-.clearAnswer(Q(711), Q(721), Q(731), Q(741));
+.disappear(Q(731), Q(741))
+.clearAnswer(Q(731), Q(741));
 
 // If QID 371 is answered Option 2, then set value to QIDs.
 ifQ(371)
@@ -157,11 +167,10 @@ ifQ(371)
 .setValue(Q(721), 2)
 .setValue(Q(1191), 2);
 
-// If QID 671 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 1171.
-ifQ(671)
-.answered(0,1,2)
-.disappear(Q(1171))
-.clearAnswer(Q(1171));
+// If QID 371 is answered Option 2, then disappear QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(671), Q(1171), Q(1161), Q(1181), Q(711), Q(721), Q(1191));
 
 //*******************************
 // ADVOCACY - End
@@ -185,6 +194,11 @@ ifQ(371)
 .answered(2)
 .setValue(Q(1201), 2)
 .setValue(Q(761), 3);
+
+// If QID 371 is answered Option 2, then disappear QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(1201), Q(761));
 
 // If QID 561 is answered Option [0 OR 1], then disappear and clear answer to QID 571.
 ifQ(561)
@@ -214,6 +228,11 @@ ifQ(371)
 .answered(2)
 .setValue(Q(791), 2)
 .setValue(Q(801), 3);
+
+// If QID 371 is answered Option 2, then disappear QIDs.
+ifQ(371)
+.answered(2)
+.disappear(Q(791), Q(801));
 
 //*******************************
 // THANK YOU - End
