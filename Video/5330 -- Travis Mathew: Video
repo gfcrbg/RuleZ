@@ -1,0 +1,178 @@
+//*******************************	
+// CID: 950	
+// SID: 5330	
+// Last Updated: 2/20/2025	
+//*******************************	
+
+
+
+
+// Primary QID: 31
+
+// If QID 31 is answered Option 1, then disappear and clear answer to QID 41.
+ifQ(31)
+.answered(1)
+.disappear(Q(41))
+.clearAnswer(Q(41));
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(121)) // red remark
+.disappear(Q(131), Q(141))
+.clearAnswer(Q(131), Q(141));
+
+
+
+
+//*******************************
+// STORE ENVIRONMENT - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(151)) // big header
+.disappear(Q(161), Q(171), Q(181), Q(191), Q(201), Q(211))
+.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(201), Q(211));
+
+//*******************************
+// STORE ENVIRONMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// SELLING & SERVICE - Begin
+//*******************************
+
+
+// If QID 31 is answered Option 2, then  disappear QID 221.
+ifQ(31)
+.answered(2)
+.disappear(Q(221)); // big header
+
+//-------------------------------------------
+// Engage & Connect - Begin
+//-------------------------------------------
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(231)) // small header
+.disappear(Q(241), Q(611), Q(621), Q(261), Q(271), Q(281), Q(291))
+.clearAnswer(Q(241), Q(611), Q(621), Q(261), Q(271), Q(281), Q(291));
+
+// If QID 31 answered Option 1 and if QID [611 AND 621] is answered, then trigger math operation: [621] - [611] = [251]
+ifQ(31)
+.answered(1)
+.andifQ(611)
+.answered()
+.andifQ(621)
+.answered()
+.sub(Q(621), Q(611))
+.store(Q(251));
+
+// If QID 241 is not answered Option 1, then disappear and clear answer to QID 251.
+ifQ(241)
+.notAnswered(1)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+//-------------------------------------------
+// Engage & Connect - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Target Wants & Needs - Begin
+//-------------------------------------------
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(301)) // small header
+.disappear(Q(311), Q(321), Q(331))
+.clearAnswer(Q(311), Q(321), Q(331));
+
+//-------------------------------------------
+// Target Wants & Needs - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Show & Share - Begin
+//-------------------------------------------
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(341)) // small header
+.disappear(Q(351), Q(361))
+.clearAnswer(Q(351), Q(361));
+
+//-------------------------------------------
+// Show & Share - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Offer More - Begin
+//-------------------------------------------
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(371)) // small header
+.disappear(Q(381), Q(391), Q(401), Q(421))
+.clearAnswer(Q(381), Q(391), Q(401), Q(421));
+
+// If QID 401 is answered Option [0 OR 2], then disappear and clear answer to QID 411.
+ifQ(401)
+.answered(0,2)
+.disappear(Q(411))
+.clearAnswer(Q(411));
+
+//-------------------------------------------
+// Offer More - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Build Loyalty - Begin
+//-------------------------------------------
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(431)) // small header
+.disappear(Q(441), Q(451), Q(471), Q(481), Q(491))
+.clearAnswer(Q(441), Q(451), Q(471), Q(481), Q(491));
+
+//-------------------------------------------
+// Build Loyalty - End
+//-------------------------------------------
+
+
+//*******************************
+// SELLING & SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL SATISFACTION - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(501)) // big header
+.disappear(Q(511), Q(521))
+.clearAnswer(Q(511), Q(521));
+
+//*******************************
+// OVERALL SATISFACTION - End
+//*******************************
