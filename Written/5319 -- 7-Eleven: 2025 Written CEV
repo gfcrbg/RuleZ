@@ -1,0 +1,248 @@
+//*******************************	
+// CID: 559
+// SID: 5319	
+// Last Updated: 2/27/2025
+//*******************************	
+
+
+
+
+// Primary QID: 741
+
+// If QID 741 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(1)
+.disappear(Q(751), Q(761))
+.clearAnswer(Q(751), Q(761));
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(441), Q(451))
+.clearAnswer(Q(441), Q(451));
+
+
+
+
+//*******************************
+// STORE EXTERIOR - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(461)) // medium header
+.disappear(Q(471), Q(481), Q(491), Q(651))
+.clearAnswer(Q(471), Q(481), Q(491), Q(651));
+
+// If QID 471 is answered Option [0, 2, OR 4], then disappear and clear answer to QID 571.
+ifQ(471)
+.answered(0,2,4)
+.disappear(Q(571))
+.clearAnswer(Q(571));
+
+//*******************************
+// STORE EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// FUEL - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2) 
+.disappear(Q(41)) // medium header
+.disappear(Q(421)) // black remark
+.disappear(Q(51), Q(61), Q(501))
+.clearAnswer(Q(51), Q(61), Q(501));
+
+// If QID 501 is answered Option [0 OR 1], then disappear and clear answer to QID 511.
+ifQ(501)
+.answered(0,1)
+.disappear(Q(511))
+.clearAnswer(Q(511));
+
+//*******************************
+// FUEL - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(71)) // medium header
+.disappear(Q(81), Q(91), Q(521), Q(671), Q(531))
+.clearAnswer(Q(81), Q(91), Q(521), Q(671), Q(531));
+
+//*******************************
+// CUSTOMER SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// GREETING - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(101)) // medium header
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+//*******************************
+// GREETING - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(121)) // medium header
+.disappear(Q(131))
+.clearAnswer(Q(131));
+
+//
+ifQ(131)
+.answered(0,1)
+.disappear(Q(141))
+.clearAnswer(Q(141));
+
+//
+ifQ(141)
+.answered(0,1,2,3)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+//
+ifQ(131)
+.answered(0,2)
+.disappear(Q(591), Q(161))
+.clearAnswer(Q(591), Q(161));
+
+//
+ifQ(591)
+.answered(0,1,3)
+.disappear(Q(601))
+.clearAnswer(Q(601));
+
+//
+ifQ(601)
+.notAnswered(6)
+.disappear(Q(611))
+.clearAnswer(Q(611));
+
+//
+ifQ(161)
+.answered(0,1,3)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+//*******************************
+// RESTROOMS - End
+//*******************************
+
+
+
+
+//*******************************
+// FRESH FOOD - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(191)) // medium header
+.disappear(Q(231)) // black remark
+.disappear(Q(201), Q(211), Q(221), Q(241), Q(561), Q(631))
+.clearAnswer(Q(201), Q(211), Q(221), Q(241), Q(561), Q(631));
+
+//*******************************
+// FRESH FOOD - End
+//*******************************
+
+
+
+
+//*******************************
+// PROPRIETARY BEVERAGE - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(251)) // medium header
+.disappear(Q(311)) // black remark
+.disappear(Q(661), Q(261), Q(271), Q(281), Q(291), Q(301))
+.clearAnswer(Q(661), Q(261), Q(271), Q(281), Q(291), Q(301));
+
+// If QID 261 is answered Option [0 OR 1] then disappear and clear answer to QID 691.
+ifQ(261)
+.answered(0,1)
+.disappear(Q(691))
+.clearAnswer(Q(691));
+
+// If QID 271 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 681.
+ifQ(271)
+.answered(0,1,3)
+.disappear(Q(681))
+.clearAnswer(Q(681));
+
+//*******************************
+// PROPRIETARY BEVERAGE - End
+//*******************************
+
+
+
+
+//*******************************
+// VAULT - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(321)) // medium header
+.disappear(Q(351)) // black remark
+.disappear(Q(331), Q(581), Q(641))
+.clearAnswer(Q(331), Q(581), Q(641));
+
+//*******************************
+// VAULT - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL FEEDBACK - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(701)) // medium header
+.disappear(Q(711))
+.clearAnswer(Q(711));
+
+//*******************************
+// OVERALL FEEDBACK - End
+//*******************************
