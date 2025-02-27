@@ -1,0 +1,105 @@
+//*******************************	
+// CID: 949	
+// SID: 5335	
+// Last Updated: 2/26/2025
+//*******************************	
+
+
+
+
+// If QID 1021 is answered Option 1, then disappear and clear answer to QID 1031.
+ifQ(1021)
+.answered(1)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(2)
+.disappear(Q(91), Q(111))
+.clearAnswer(Q(91), Q(111));
+
+
+
+
+//*******************************
+// FACILITY EXTERIOR - Begin
+//*******************************
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QID 1081.
+ifQ(1021)
+.answered(2)
+.disappear(Q(1081))
+.clearAnswer(Q(1081));
+
+//*******************************
+// FACILITY EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER SERVICE ADVISOR - Begin
+//*******************************
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(2)
+.disappear(Q(1091)) // medium header
+.disappear(Q(1101), Q(1171), Q(1191))
+.clearAnswer(Q(1101), Q(1171), Q(1191));
+
+// If QID 1101 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1101)
+.answered(0,2)
+.disappear(Q(1341)) // black remark
+.disappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161))
+.clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161));
+
+// If QID 1171 is answered Option [0 OR 1], then disappear and clear answer to QID 1181.
+ifQ(1171)
+.answered(0,1)
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
+
+//*******************************
+// CUSTOMER SERVICE ADVISOR - End
+//*******************************
+
+
+
+
+//*******************************
+// WASH - Begin
+//*******************************
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(2)
+.disappear(Q(1201)) // medium header
+.disappear(Q(1211), Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271), Q(1281))
+.clearAnswer(Q(1211), Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271), Q(1281));
+
+//*******************************
+// WASH - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL SATISFACTION - Begin
+//*******************************
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(2)
+.disappear(Q(1291)) // medium header
+.disappear(Q(1331)) // black remark
+.disappear(Q(1301), Q(1311), Q(1321))
+.clearAnswer(Q(1301), Q(1311), Q(1321));
+
+//*******************************
+// OVERALL SATISFACTION - End
+//*******************************
