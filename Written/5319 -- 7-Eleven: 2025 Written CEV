@@ -240,6 +240,7 @@ ifQ(741)
 ifQ(741)
 .answered(2)
 .disappear(Q(701)) // medium header
+.disappear(Q(791)) // black remark
 .disappear(Q(711))
 .clearAnswer(Q(711));
 
