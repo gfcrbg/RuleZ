@@ -1,8 +1,128 @@
 //*******************************	
 // CID: 632
 // SID: 5299	
-// Last Updated: 1/28/2025	
+// Last Updated: 2/28/2025	
 //*******************************	
+
+
+
+
+// Primary QID: 941
+
+// If QID 941 is answered Option 1, then disappear and clear answer to QID 951.
+ifQ(941)
+.answered(1)
+.disappear(Q(951))
+.clearAnswer(Q(951));
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(31), Q(41), Q(51), Q(61), Q(921), Q(71))
+.clearAnswer(Q(31), Q(41), Q(51), Q(61), Q(921), Q(71));
+
+
+
+
+//*******************************
+// TAKE OUT-APP - Begin
+//*******************************
+
+
+//-------------------------------------------
+// App Information - Begin
+//-------------------------------------------
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(161)) // small header
+.disappear(Q(91), Q(101), Q(111), Q(121), Q(131), Q(141), Q(911))
+.clearAnswer(Q(91), Q(101), Q(111), Q(121), Q(131), Q(141), Q(911)); 
+
+//-------------------------------------------
+// App Information - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// App Order - Begin
+//-------------------------------------------
+
+// If QID 181 is answered Option 1, then disappear and clear answer to QID 191.
+ifQ(181)
+.answered(1)
+.disappear(Q(191))
+.clearAnswer(Q(191));
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(201), Q(221))
+.clearAnswer(Q(201), Q(221));
+
+// If QID 201 is answered Option [0 OR 1], then disappear and clear answer to QID 211.
+ifQ(201)
+.answered(0,1)
+.disappear(Q(211))
+.clearAnswer(Q(211));
+
+//-------------------------------------------
+// App Order - End
+//-------------------------------------------
+
+//*******************************
+// TAKE OUT-APP - End
+//*******************************
+
+
+
+
+//*******************************
+// BAR - Begin
+//*******************************
+
+// If QID 941 is answered Option 2, then disappear QID 231.
+ifQ(941)
+.answered(2)
+.disappear(Q(231)); // medium header
+
+
+//-------------------------------------------
+// Bar Details - Begin
+//-------------------------------------------
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(241)) // small header
+.disappear(Q(251), Q(261))
+.clearAnswer(Q(251), Q(261));
+
+//-------------------------------------------
+// Bar Details - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Bartender & Service - Begin
+//-------------------------------------------
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(271)) // small header
+.disappear(Q(281), Q(291), Q(301), Q(311), Q(321), Q(331), Q(341), Q(351), Q(361), Q(371))
+.clearAnswer(Q(281), Q(291), Q(301), Q(311), Q(321), Q(331), Q(341), Q(351), Q(361), Q(371));
+
+//-------------------------------------------
+// Bartender & Service - End
+//-------------------------------------------
+
+
+//*******************************
+// BAR - End
+//*******************************
 
 
 
@@ -11,18 +131,111 @@
 // PICK UP - Begin
 //*******************************
 
-// If QID 591 is answered Option 1, then disappear and clear answer to QID 601.
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(571)) // medium header
+.disappear(Q(971)) // red remark
+.disappear(Q(581), Q(591), Q(611), Q(631), Q(641), Q(651), Q(661), Q(681), Q(691), Q(701), Q(731))
+.clearAnswer(Q(581), Q(591), Q(611), Q(631), Q(641), Q(651), Q(661), Q(681), Q(691), Q(701), Q(731));
+
+// If QID 591 is not answered Option 1, then disappear and clear answer to QID 601.
 ifQ(591)
-.answered(1)
+.notAnswered(1)
 .disappear(Q(601))
 .clearAnswer(Q(601));
 
-// If QID 661 is answered Option 1, then disappear and clear answer to QID 671.
+// If QID 661 is answered Option [0 OR 1], then disappear and clear answer to QID 671.
 ifQ(661)
-.answered(1)
+.answered(0,1)
 .disappear(Q(671))
 .clearAnswer(Q(671));
 
 //*******************************
 // PICK UP - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCT - Begin
+//*******************************
+
+// If QID 941 is answered Option 2, then disappear QID 381.
+ifQ(941)
+.answered(2)
+.disappear(Q(381)) // medium header;
+
+//-------------------------------------------
+// Bar Product - Begin
+//-------------------------------------------
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(391)) // small header
+.disappear(Q(401), Q(411), Q(961), Q(421), Q(431))
+.clearAnswer(Q(401), Q(411), Q(961), Q(421), Q(431));
+
+//-------------------------------------------
+// Bar Product - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Take-Out Product - Begin
+//-------------------------------------------
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(451)) // small header
+.disappear(Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531), Q(551), Q(541), Q(561))
+.clearAnswer(Q(461), Q(471), Q(481), Q(491), Q(501), Q(511), Q(521), Q(531), Q(551), Q(541), Q(561));
+
+//-------------------------------------------
+// Take-Out Product - End
+//-------------------------------------------
+
+
+//*******************************
+// PRODUCT - End
+//*******************************
+
+
+
+
+//*******************************
+// ATMOSPHERE - Begin
+//*******************************
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(741)) // medium header
+.disappear(Q(901)) // red remark
+.disappear(Q(751), Q(761), Q(771), Q(801), Q(811), Q(861), Q(821))
+.clearAnswer(Q(751), Q(761), Q(771), Q(801), Q(811), Q(861), Q(821));
+
+//*******************************
+// ATMOSPHERE - End
+//*******************************
+
+
+
+
+//*******************************
+// CHEBA HUT EXPERIENCE - Begin
+//*******************************
+
+// If QID 941 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(2)
+.disappear(Q(831)) // medium header
+.disappear(Q(871), Q(881), Q(841), Q(891))
+.clearAnswer(Q(871), Q(881), Q(841), Q(891));
+
+//*******************************
+// CHEBA HUT EXPERIENCE - End
 //*******************************
