@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 949	
 // SID: 5335	
-// Last Updated: 2/26/2025
+// Last Updated: 3/4/2025
 //*******************************	
 
 
@@ -16,8 +16,8 @@ ifQ(1021)
 // If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1021)
 .answered(2)
-.disappear(Q(91), Q(111))
-.clearAnswer(Q(91), Q(111));
+.disappear(Q(91), Q(111), Q(1351))
+.clearAnswer(Q(91), Q(111), Q(1351));
 
 
 
