@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 5066	
-// Last Updated: 7/30/2024	
+// Last Updated: 3/6/2025	
 //**********************************	
 
 
@@ -198,4 +198,64 @@ ifQ(361)
 
 //**********************************
 // ORDER QUALITY - End
+//**********************************
+
+
+
+
+//**********************************
+// BONUS - Begin
+//**********************************
+
+// Bonus A1
+ifQ(1392)
+.answered(1)
+.setValue(Q(1672), '1');
+
+// Bonus A0
+ifQ(1392)
+.answered(2)
+.setValue(Q(1672), '0');
+
+
+// Bonus B1
+ifQ(1662)
+.answered(1,2,3,4,5)
+.setValue(Q(1682), '1');
+
+// Bonus B0
+ifQ(1662)
+.answered(6)
+.setValue(Q(1682), '0');
+
+
+// Bonus C1
+ifQ(1242)
+.answered(1)
+.setValue(Q(1692), '1');
+
+// Bonus C0
+ifQ(1242)
+.answered(2,3)
+.setValue(Q(1692), '0');
+
+
+// Bonus D1
+ifQ(1262)
+.answered(1)
+.setValue(Q(1702), '1');
+
+// Bonus D0
+ifQ(1262)
+.answered(2,3)
+.setValue(Q(1702), '0');
+
+
+// Bonus -- Total Score
+ifQ()
+.sum(Q(1672), Q(1682), Q(1692), Q(1702))
+.store(Q(1712));
+
+//**********************************
+// BONUS - End
 //**********************************
