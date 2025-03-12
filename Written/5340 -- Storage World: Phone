@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 956
+// SID: 5340	
+// Last Updated: 3/12/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// SALES AND SERVICE - Begin
+//*******************************
+
+// If QID 281 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(281)
+.answered(2)
+.disappear(Q(291), Q(301))
+.clearAnswer(Q(291), Q(301));
+
+//*******************************
+// SALES AND SERVICE - End
+//*******************************
