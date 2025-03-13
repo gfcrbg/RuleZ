@@ -1,0 +1,203 @@
+//*******************************	
+// CID: 956
+// SID: 5341	
+// Last Updated: 3/13/2025	
+//*******************************	
+
+
+
+
+// Primary QID: 972
+
+// If QID 972 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(31), Q(41), Q(832))
+.clearAnswer(Q(31), Q(41), Q(832));
+
+
+
+
+//*******************************
+// PROPERTY APPEARANCE - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear and set value to QIDs.
+ifQ(972)
+.answered(2)
+.setValue(Q(932), 2)
+.setValue(Q(131), 2)
+.setValue(Q(141), 2)
+.disappear(Q(932), Q(131), Q(141));
+
+//*******************************
+// PROPERTY APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// GREETING - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear, clear answer, and set value to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(161)) // medium header
+.disappear(Q(842)) // red remark
+.setValue(Q(171), 2)
+.setValue(Q(181), 2)
+.setValue(Q(191), 2)
+.setValue(Q(201), 2)
+.disappear(Q(171), Q(181), Q(191), Q(201), Q(211))
+.clearAnswer(Q(211));
+
+//*******************************
+// GREETING - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES AND SERVICE - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear, clear answer, and set value to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(221)) // medium header
+.setValue(Q(281), 2)
+.setValue(Q(311), 2)
+.setValue(Q(321), 2)
+.setValue(Q(361), 2)
+.setValue(Q(942), 2)
+.setValue(Q(952), 2)
+.setValue(Q(962), 2)
+.setValue(Q(381), 2)
+.disappear(Q(281), Q(311), Q(321), Q(361), Q(942), Q(952), Q(962), Q(381), Q(391))
+.clearAnswer(Q(391));
+
+// If QID 281 is answered Option [2 OR 3], then disappear and clear answer to QID 291.
+ifQ(281)
+.answered(2,3)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+// If QID 321 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(321)
+.answered(2,3)
+.disappear(Q(331), Q(341), Q(351))
+.clearAnswer(Q(331), Q(341), Q(351));
+
+//*******************************
+// SALES AND SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// CLOSING - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear, clear answer, and set value to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(401)) // medium header
+.setValue(Q(411), 2)
+.setValue(Q(421), 2)
+.setValue(Q(431), 2)
+.setValue(Q(441), 2)
+.setValue(Q(451), 2)
+.disappear(Q(411), Q(421), Q(431), Q(441), Q(451), Q(491))
+.clearAnswer(Q(491));
+
+// If QID 411 is answered Option [2 OR 3], then disappear and clear answer to QID 461.
+ifQ(411)
+.answered(2,3)
+.disappear(Q(461))
+.clearAnswer(Q(461));
+
+// If QID 421 is answered Option [2 OR 3], then disappear and clear answer to QID 471.
+ifQ(421)
+.answered(2,3)
+.disappear(Q(471))
+.clearAnswer(Q(471));
+
+// If QID 972 is answered Option 1 AND if QID 431 is answered Option 1, then disappear and clear answer to QID 481.
+ifQ(972)
+.answered(1)
+.andifQ(431)
+.answered(1)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 972 is answered Option 2 AND if QID 431 is answered Option 2, then disappear and set value to 'N/A' (string) to QID 481.
+ifQ(972)
+.answered(2)
+.andifQ(431)
+.answered(2)
+.disappear(Q(481))
+.setValue(Q(481), 'N/A');
+
+//*******************************
+// CLOSING - End
+//*******************************
+
+
+
+
+//*******************************
+// BEHAVIOR - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear and set value to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(501)) // medium header
+.setValue(Q(521), 4)
+.setValue(Q(531), 4)
+.setValue(Q(541), 4)
+.disappear(Q(521), Q(531), Q(541));
+
+//*******************************
+// BEHAVIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL EXPERIENCE - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear and set value to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(561)) // medium header
+.setValue(Q(551), 4)
+.disappear(Q(551));
+
+//*******************************
+// OVERALL EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// RATES AND SPECIALS - Begin
+//*******************************
+
+// If QID 972 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(972)
+.answered(2)
+.disappear(Q(571)) // medium header
+.disappear(Q(581), Q(591), Q(601), Q(611))
+.clearAnswer(Q(581), Q(591), Q(601), Q(611));
+
+//*******************************
+// RATES AND SPECIALS - End
+//*******************************
