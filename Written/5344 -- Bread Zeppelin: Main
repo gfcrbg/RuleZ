@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 957	
+// SID: 5344	
+// Last Updated: 3/21/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// GENERAL FIRST IMPRESSIONS - Begin
+//*******************************
+
+// If QID 611 is answered Option 1, then disappear and clear answer to QID 621.
+ifQ(611)
+.answered(1)
+.disappear(Q(621))
+.clearAnswer(Q(621));
+
+//*******************************
+// GENERAL FIRST IMPRESSIONS  - End
+//*******************************
