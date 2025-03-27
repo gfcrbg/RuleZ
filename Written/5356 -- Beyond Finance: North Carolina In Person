@@ -1,0 +1,51 @@
+//*******************************	
+// CID: 702	
+// SID: 5356	
+// Last Updated: 3/27/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// IN PERSON VISIT - Begin
+//*******************************
+
+// If QID 121 is answered Option 1, then disappear and clear answer to QID 151.
+ifQ(121)
+.answered(1)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+// If QID 121 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(121)
+.answered(2)
+.disappear(Q(161), Q(171))
+.clearAnswer(Q(161), Q(171));
+
+//*******************************
+// IN PERSON VISIT - End
+//*******************************
+
+
+
+
+//*******************************
+// LOAN ASSESSMENT - Begin
+//*******************************
+
+// If QID 1541 is answered Option 2, then disappear and clear answer to QID 1551.
+ifQ(1541)
+.answered(2)
+.disappear(Q(1551))
+.clearAnswer(Q(1551));
+
+// If QID 971 is not answered Option 4, then disappear and clear answer to QID 981.
+ifQ(971)
+.notAnswered(4)
+.disappear(Q(981))
+.clearAnswer(Q(981));
+
+//*******************************
+// LOAN ASSESSMENT - End
+//*******************************
