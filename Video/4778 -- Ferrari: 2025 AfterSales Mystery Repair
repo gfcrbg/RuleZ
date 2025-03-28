@@ -1,0 +1,132 @@
+//*******************************	
+// CID: 351	
+// SID: 4778	
+// Last Updated: 3/28/2025	
+//*******************************	
+
+
+
+
+// If QID 2031 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 2031.
+ifQ(2031)
+.answered(1,2,3,4)
+.disappear(Q(2031))
+.clearAnswer(Q(2031));
+
+
+
+
+//*******************************
+// CLIENT CARE - Begin
+//*******************************
+
+// If QID 1381 is answered Option 2, then disappear and clear answer to QID 1651.
+ifQ(1381)
+.answered(2)
+.disappear(Q(1651))
+.clearAnswer(Q(1651));
+
+// If QID 1651 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 1681.
+ifQ(1651)
+.answered(0,1,2)
+.disappear(Q(1681))
+.clearAnswer(Q(1681));
+
+// If QID 1271 is answered Option 1, then disappear and clear answer to QID 1761.
+ifQ(1271)
+.answered(1)
+.disappear(Q(1761))
+.clearAnswer(Q(1761));
+
+// If QID 971 is answered Option 2, then disappear and clear answer to QID 1051.
+ifQ(971)
+.answered(2)
+.disappear(Q(1051))
+.clearAnswer(Q(1051));
+
+//*******************************
+// CLIENT CARE - End
+//*******************************
+
+
+
+
+//*******************************
+// REPAIR: TECHNICAL KNOWLEDGE,
+// PROCEDURE & TIME - Begin
+//*******************************
+
+// If QID 1391 is answered Option 2, then disappear and clear answer to QID 1401.
+ifQ(1391)
+.answered(2)
+.disappear(Q(1401))
+.clearAnswer(Q(1401));
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QID 1661.
+ifQ(1411)
+.answered(2)
+.disappear(Q(1661))
+.clearAnswer(Q(1661));
+
+// If QID 1661 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 1671.
+ifQ(1661)
+.answered(0,1,2,3)
+.disappear(Q(1671))
+.clearAnswer(Q(1671));
+
+//*******************************
+// REPAIR: TECHNICAL KNOWLEDGE,
+// PROCEDURE & TIME - End
+//*******************************
+
+
+
+
+//*******************************
+// CAR PICK-UP - Begin
+//*******************************
+
+// If QID 851 is answered Option 1, then disappear and clear answer to QID 1121.
+ifQ(851)
+.answered(1)
+.disappear(Q(1121))
+.clearAnswer(Q(1121));
+
+//*******************************
+// CAR PICK-UP - End
+//*******************************
+
+
+
+
+//*******************************
+// "ADVOCACY" SCORE - Begin
+//*******************************
+
+// If QID 1491 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 1561.
+ifQ(1491)
+.answered(3,4,5)
+.disappear(Q(1561))
+.clearAnswer(Q(1561));
+
+// If QID 1561 is not answered Option 8, then disappear and clear answer to QID 1571.
+ifQ(1561)
+.notAnswered(8)
+.disappear(Q(1571))
+.clearAnswer(Q(1571));
+
+// if QID 1491 is answered Option [1, 2, OR 3], then disappear and clear answer to QID 1581.
+ifQ(1491)
+.answered(1,2,3)
+.disappear(Q(1581))
+.clearAnswer(Q(1581));
+
+// If QID 1581 is not answered Option 8, then disappear and clear answer to QID 1591.
+ifQ(1581)
+.notAnswered(8)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+//*******************************
+// "ADVOCACY" SCORE - End
+//*******************************
