@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5065	
-// Last Updated: 3/27/2024	
+// Last Updated: 3/28/2024	
 //*******************************	
 // test: 3776359
 
@@ -137,9 +137,9 @@ ifQ(361)
 .disappear(Q(381), Q(391), Q(401))
 .clearAnswer(Q(381), Q(391), Q(401));
 
-// If QID 401 is answered Option [0, 1, 2, 3, 4, OR 6], then disappear and clear answer to QID 411.
+// If QID 401 is answered Option [0, 1, 2, 3, 4, OR 5], then disappear and clear answer to QID 411.
 ifQ(401)
-.answered(0,1,2,3,4,6)
+.answered(0,1,2,3,4,5)
 .disappear(Q(411))
 .clearAnswer(Q(411));
 
@@ -314,9 +314,9 @@ ifQ(1411)
 .answered(11)
 .setError("It is not yet the deadline, please do not submit. Your shop will not be accepted prior to the deadline.");
 
-// If QID 1321 is answered Option [1, 2, 3, 4, 5, 6, 7, OR 9], then disappear and clear answer to QID 1411.
+// If QID 1321 is answered Option [1, 2, 3, 4, 5, 6, 7, OR 8], then disappear and clear answer to QID 1411.
 ifQ(1321)
-.answered(1,2,3,4,5,6,7,9)
+.answered(1,2,3,4,5,6,7,8)
 .disappear(Q(1411))
 .clearAnswer(Q(1411));
 
