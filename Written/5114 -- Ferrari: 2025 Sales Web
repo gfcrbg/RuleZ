@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 7/23/2024
+// Last Updated: 3/28/2025
 //*******************************	
 
 
@@ -17,10 +17,10 @@ ifQ(41)
 .disappear(Q(51), Q(61))
 .clearAnswer(Q(51), Q(61));
 
-// If QID 91 is answered, set value of QID 91 to value of QID 461.
-ifQ(91)
+// If QID 521 is answered, set value of QID 521 to value of QID 511.
+ifQ(521)
 .answered()
-.setValue(Q(461), Q(91));
+.setValue(Q(511), Q(521));
 
 // If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
 ifQ(451)
@@ -36,7 +36,7 @@ ifQ(451)
 
 
 //*******************************
-// ADVISOR RESPONSE - Begin
+// SALES EXECUTIVE RESPONSE - Begin
 //*******************************
 
 // If QID 291 is not answered Option 1, then disappear and clear answer to QIDs.
@@ -87,7 +87,7 @@ ifQ(331)
 .clearAnswer(Q(341));
 
 //*******************************
-// ADVISOR RESPONSE - End
+// SALES EXECUTIVE RESPONSE - End
 //*******************************
 
 
