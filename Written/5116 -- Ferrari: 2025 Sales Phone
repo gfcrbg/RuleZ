@@ -1,16 +1,16 @@
 //*******************************	
 // CID: 351	
 // SID: 5116	
-// Last Updated: 7/11/2024	
+// Last Updated: 3/28/2025	
 //*******************************	
 
 
 
 
-// If QID 61 is answered, then set value of QID 61 to value of QID 601.
-ifQ(61)
+// If QID 651 is answered, then set value of QID 651 to value of QID 601.
+ifQ(651)
 .answered()
-.setValue(Q(601), Q(61));
+.setValue(Q(601), Q(651));
 
 // If QID 411 is answered Option 1, then disappear and clear answer to QID 91.
 ifQ(411)
@@ -25,11 +25,11 @@ ifQ(411)
 // CALL HANDLING SKILLS - Begin
 //*******************************
 
-// If QID 111 is answered Option [3, 4, OR 5], then disappear and clear answer to QIDs.
+// If QID 111 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 141.
 ifQ(111)
 .answered(3,4,5)
-.disappear(Q(121), Q(141))
-.clearAnswer(Q(121), Q(141));
+.disappear(Q(141))
+.clearAnswer(Q(141));
 
 // If QID 421 is not answered Option 6, then disappear and clear answer to QID 431.
 ifQ(421)
