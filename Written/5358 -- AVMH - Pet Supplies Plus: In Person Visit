@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 959
+// SID: 5358	
+// Last Updated: 3/31/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// GREET - Begin
+//*******************************
+
+// If QID 171 is answered Option 1, then disappear and clear answer to QID 181.
+ifQ(171)
+.answered(1)
+.disappear(Q(181))
+.clearAnswer(Q(181));
+
+//*******************************
+// GREET - End
+//*******************************
+
+
+
+
+//*******************************
+// CHECKOUT - Begin
+//*******************************
+
+// If QID 361 is answered Option 2, then disappear and clear answer to QID 381.
+ifQ(361)
+.answered(2)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+//*******************************
+// CHECKOUT - End
+//*******************************
