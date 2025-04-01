@@ -596,3 +596,14 @@ ifQ(911)
 //*******************************
 // NEEDS ASSESSMENT - End
 //*******************************
+
+
+
+
+// Scorer Info
+
+// If QID 181 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(181)
+.answered(1)
+.disappear(Q(1061), Q(1131))
+.clearAnswer(Q(1061), Q(1131));
