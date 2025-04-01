@@ -1,0 +1,133 @@
+//*******************************	
+// CID: 689
+// SID: 5352	
+// Last Updated: 4/1/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// TICKET PURCHASE - Begin
+//*******************************
+
+//-------------------------------------------
+// Online - Begin
+//-------------------------------------------
+
+// If QID 111 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(111)
+.answered(2,3)
+.disappear(Q(121)) // small header
+.disappear(Q(131))
+.clearAnswer(Q(131));
+
+//-------------------------------------------
+// Online - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Kiosk - Begin
+//-------------------------------------------
+
+// If QID 111 is answered Option [1 OR 3], then disappear and clear answer to QIDs.
+ifQ(111)
+.answered(1,3)
+.disappear(Q(141)) // small header
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+//-------------------------------------------
+// Kiosk - End
+//-------------------------------------------
+
+//*******************************
+// TICKET PURCHASE - End
+//*******************************
+
+
+
+
+//*******************************
+// CONCESSIONS - Begin
+//*******************************
+
+// If QID 111 is answered Option [1 OR 2], then disappear and clear answer to QIDs.
+ifQ(111)
+.answered(1,2)
+.disappear(Q(161)) // medium header
+.disappear(Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261))
+.clearAnswer(Q(171), Q(181), Q(191), Q(201), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261));
+
+//*******************************
+// CONCESSIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// TICKET TAKER - Begin
+//*******************************
+
+// If QID 301 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(301)
+.answered(2)
+.disappear(Q(281), Q(311), Q(321), Q(341), Q(351))
+.clearAnswer(Q(281), Q(311), Q(321), Q(341), Q(351));
+
+//*******************************
+// TICKET TAKER - End
+//*******************************
+
+
+
+
+//*******************************
+// AUDITORIUM FOOD SERVICE - Begin
+//*******************************
+
+// If QID 441 is answered Option [1 OR 3], then disappear and clear answer to QID 451.
+ifQ(441)
+.answered(1,3)
+.disappear(Q(451))
+.clearAnswer(Q(451));
+
+//*******************************
+// AUDITORIUM FOOD SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// MOVIE GOING EXPERIENCE - Begin
+//*******************************
+
+// If QID 641 is answered Option [1 OR 3], then disappear and clear answer to QID 651.
+ifQ(641)
+.answered(1,3)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+//*******************************
+// MOVIE GOING EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// REDEMPTION STORE - Begin
+//*******************************
+
+// If QID 741 is answered Option [2 OR 3], then disappear and clear answer to QID 751.
+ifQ(741)
+.answered(2,3)
+.disappear(Q(751))
+.clearAnswer(Q(751));
+
+//*******************************
+// REDEMPTION STORE - End
+//*******************************
