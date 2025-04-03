@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 945	
 // SID: 5293
-// Last Updated: 12/20/2024	
+// Last Updated: 4/3/2025	
 //**********************************	
 
 
@@ -223,3 +223,13 @@ ifQ(361)
 //**********************************
 // ORDER QUALITY - End
 //**********************************
+
+
+
+
+// Coaches Review
+
+// If QID 1892 is not answered Option [1 OR 2], then set value to Option 3 to QID 1892.
+ifQ(1892)
+.notAnswered(1, 2)
+.setValue(Q(1892), 3);
