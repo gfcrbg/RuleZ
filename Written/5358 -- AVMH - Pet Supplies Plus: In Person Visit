@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 959
 // SID: 5358	
-// Last Updated: 3/31/2025	
+// Last Updated: 4/4/2025	
 //*******************************	
 
 
@@ -28,11 +28,11 @@ ifQ(171)
 // CHECKOUT - Begin
 //*******************************
 
-// If QID 361 is answered Option 2, then disappear and clear answer to QID 381.
+// If QID 361 is answered Option 2, then disappear and clear answer to QID 371.
 ifQ(361)
 .answered(2)
-.disappear(Q(381))
-.clearAnswer(Q(381));
+.disappear(Q(371))
+.clearAnswer(Q(371));
 
 //*******************************
 // CHECKOUT - End
