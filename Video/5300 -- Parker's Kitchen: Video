@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 944	
 // SID: 5300	
-// Last Updated: 1/7/2025	
+// Last Updated: 4/7/2025	
 //*******************************	
 
 
@@ -145,6 +145,30 @@ ifQ(1531)
 
 //*******************************
 // STORE EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// STORE INTERIOR - Begin
+//*******************************
+
+// If QID 1651 is answered Option [1 OR 3], then disappear and clear answer to QID 1951.
+ifQ(1651)
+.answered(1,3)
+.disappear(Q(1951))
+.clearAnswer(Q(1951));
+
+// [Date Trigger]  If shop date is within the month of April, 2025, then set value to Option 3 to QID 1671.
+ifQ()
+.dateAfter('2025-03-31')
+.andifQ()
+.dateBefore('2025-05-01')
+.setValue(Q(1671), 3);
+
+//*******************************
+// STORE INTERIOR - End
 //*******************************
 
 
