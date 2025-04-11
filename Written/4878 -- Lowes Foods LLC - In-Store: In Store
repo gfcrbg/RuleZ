@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 791	
 // SID: 4878	
-// Last Updated: 1/2/2025	
+// Last Updated: 4/11/2025	
 //*******************************	
 
 
@@ -128,3 +128,11 @@ ifQ(921)
 //*******************************
 // EXPERIENCE - End
 //*******************************
+
+
+
+
+// If QID 1691 is not answered Option [1 OR 2], then set value to Option 3 to QID 1691.
+ifQ(1691)
+.notAnswered (1, 2)
+.setValue(Q(1691), 3);
