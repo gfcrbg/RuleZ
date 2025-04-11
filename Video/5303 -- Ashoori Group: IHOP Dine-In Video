@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 942
 // SID: 5303	
-// Last Updated: 2/6/2025	
+// Last Updated: 4/11/2025	
 //*******************************	
 
 
@@ -118,8 +118,9 @@ ifQ(181)
 ifQ(91)
 .answered(2)
 .disappear(Q(371)) // medium header
-.disappear(Q(551), Q(561), Q(571), Q(581), Q(1031), Q(1061), Q(951))
-.clearAnswer(Q(551), Q(561), Q(571), Q(581), Q(1031), Q(1061), Q(951));
+.disappear(Q(1261)) // red remarks
+.disappear(Q(551), Q(561), Q(571), Q(581), Q(1031), Q(1241), Q(1251), Q(1231), Q(1061), Q(951))
+.clearAnswer(Q(551), Q(561), Q(571), Q(581), Q(1031), Q(1241), Q(1251), Q(1231), Q(1061), Q(951));
 
 // If QID 91 is answered Option 1 AND if QIDs [551 AND 561] are answered, then trigger math operation: [561] - [551] = [571]
 ifQ(91)
@@ -144,6 +145,52 @@ ifQ(91)
 .andifQ(571)
 .greaterThan(30)
 .setValue(Q(581), 2);
+
+// If QID 91 is answered Option 1 AND if QIDs [561 AND 601] are answered, then trigger math operation: [601] - [561] = [1251]
+ifQ(91)
+.answered(1)
+.andifQ(561)
+.answered()
+.andifQ(601)
+.answered()
+.sub(Q(601), Q(561))
+.store(Q(1251));
+
+// If QID 1251 is == 0, then set value to Option 1 to QID 1231.
+ifQ(1251)
+.equalTo(0)
+.setValue(Q(1231), 1);
+
+// If QID 1251 is <= 5 minutes, then set value to Option 2 to QID 1231.
+ifQ(1251)
+.lessThanOrEqual(300)
+.setValue(Q(1231), 2);
+
+// If QID 1251 is > 5 minutes AND <= 10 minutes, then set value to Option 3 to QID 1231.
+ifQ(1251)
+.greaterThan(300)
+.andifQ(1251)
+.lessThanOrEqual(600)
+.setValue(Q(1231), 3);
+
+// If QID 1251 is > 10 minutes AND <= 15 minutes, then set value to Option 4 to QID 1231.
+ifQ(1251)
+.greaterThan(600)
+.andifQ(1251)
+.lessThanOrEqual(900)
+.setValue(Q(1231), 4);
+
+// If QID 1251 is > 15 minutes AND <= 20 minutes, then set value to Option 5 to QID 1231.
+ifQ(1251)
+.greaterThan(900)
+.andifQ(1251)
+.lessThanOrEqual(1200)
+.setValue(Q(1231), 5);
+
+// If QID 1251 is > 20 minutes, then set value to Option 6 to QID 1231.
+ifQ(1251)
+.greaterThan(1200)
+.setValue(Q(1231), 6);
 
 // If QID 1061 is answered Option [0 OR 1], then disappear and clear answer to QID 1071.
 ifQ(1061)
