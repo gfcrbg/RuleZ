@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 5319	
-// Last Updated: 2/27/2025
+// Last Updated: 4/14/2025
 //*******************************	
 
 
@@ -32,6 +32,7 @@ ifQ(741)
 ifQ(741)
 .answered(2)
 .disappear(Q(461)) // medium header
+.disappear(Q(801)) // black remark
 .disappear(Q(471), Q(481), Q(491), Q(651))
 .clearAnswer(Q(471), Q(481), Q(491), Q(651));
 
@@ -166,6 +167,17 @@ ifQ(161)
 //*******************************
 // FRESH FOOD - Begin
 //*******************************
+
+// If ULG is "No Roller Grill", then set values to QIDs.
+ifQ()
+.ulgIs("No Roller Grill")
+.setValue(Q(221), 3);
+
+// If ULG is "No Hot Food", then set values to QIDs.
+ifQ()
+.ulgIs("No Hot Food")
+.setValue(Q(561), 6)
+.setValue(Q(631), 3);
 
 // If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(741)
