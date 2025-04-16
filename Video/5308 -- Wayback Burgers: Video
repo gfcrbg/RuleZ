@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 493	
 // SID: 5308	
-// Last Updated: 2/28/2025	
+// Last Updated: 4/16/2025	
 //*******************************	
 
 
@@ -44,18 +44,18 @@ ifQ(1052)
 .sub(Q(1092), Q(1122))
 .store(Q(501));
 
-// If QID 1052 is answered Option 1 AND if QID 501 is <= 5 minutes, then set value to Option 1 to QID 712.
+// If QID 1052 is answered Option 1 AND if QID 501 is <= 5 seconds, then set value to Option 1 to QID 712.
 ifQ(1052)
 .answered(1)
 .andifQ(501)
-.lessThanOrEqual(300)
+.lessThanOrEqual(5)
 .setValue(Q(712), 1);
 
-// If QID 1052 is answered Option 1 AND if QID 501 is > 5 minutes, then set value to Option 2 to QID 712.
+// If QID 1052 is answered Option 1 AND if QID 501 is > 5 seconds, then set value to Option 2 to QID 712.
 ifQ(1052)
 .answered(1)
 .andifQ(501)
-.greaterThan(300)
+.greaterThan(5)
 .setValue(Q(712), 2);
 
 // If QID 1052 is answered Option 1 and if QID [1102 AND 1112] is answered, then trigger math operation: [1112] - [1102] = [802]
