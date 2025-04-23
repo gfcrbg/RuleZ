@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 960	
+// SID: 5362	
+// Last Updated: 4/23/2025
+//*******************************	
+
+
+
+
+//*******************************
+// FOOD QUALITY - Begin
+//*******************************
+
+// If QID 211 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(211)
+.answered(1)
+.disappear(Q(221), Q(231))
+.clearAnswer(Q(221), Q(231));
+
+//*******************************
+// FOOD QUALITY - End
+//*******************************
