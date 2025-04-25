@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 5319	
-// Last Updated: 4/14/2025
+// Last Updated: 4/25/2025
 //*******************************	
 
 
@@ -121,37 +121,37 @@ ifQ(741)
 .disappear(Q(131))
 .clearAnswer(Q(131));
 
-//
+// If QID 131 is answered Option [0 OR 1], then disappear and clear answer to QID 141.
 ifQ(131)
 .answered(0,1)
 .disappear(Q(141))
 .clearAnswer(Q(141));
 
-//
+// If QID 141 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 151.
 ifQ(141)
 .answered(0,1,2,3)
 .disappear(Q(151))
 .clearAnswer(Q(151));
 
-//
+// If QID 131 is answered Opion [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(131)
 .answered(0,2)
 .disappear(Q(591), Q(161))
 .clearAnswer(Q(591), Q(161));
 
-//
+// If QID 591 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 601.
 ifQ(591)
 .answered(0,1,3)
 .disappear(Q(601))
 .clearAnswer(Q(601));
 
-//
+// If QID 601 is not answered Option 6, then disappear and clear answer to QID 611.
 ifQ(601)
 .notAnswered(6)
 .disappear(Q(611))
 .clearAnswer(Q(611));
 
-//
+// If QID 161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 171.
 ifQ(161)
 .answered(0,1,3)
 .disappear(Q(171))
@@ -168,17 +168,6 @@ ifQ(161)
 // FRESH FOOD - Begin
 //*******************************
 
-// If ULG is "No Roller Grill", then set values to QIDs.
-ifQ()
-.ulgIs("No Roller Grill")
-.setValue(Q(221), 3);
-
-// If ULG is "No Hot Food", then set values to QIDs.
-ifQ()
-.ulgIs("No Hot Food")
-.setValue(Q(561), 6)
-.setValue(Q(631), 3);
-
 // If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(741)
 .answered(2)
@@ -186,6 +175,24 @@ ifQ(741)
 .disappear(Q(231)) // black remark
 .disappear(Q(201), Q(211), Q(221), Q(241), Q(561), Q(631))
 .clearAnswer(Q(201), Q(211), Q(221), Q(241), Q(561), Q(631));
+
+// If ULG is "No Roller Grill" AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 221.
+ifQ()
+.ulgIs("No Roller Grill")
+.andifQ(741)
+.answered(1)
+.hideOptions(Q(221), 1,2)
+.setValue(Q(221), 3);
+
+// If ULG is "No Hot Food" AND if QID 741 is answered Option 1, then hide options and set values to QIDs.
+ifQ()
+.ulgIs("No Hot Food")
+.andifQ(741)
+.answered(1)
+.hideOptions(Q(561), 1,2,3,4,5)
+.hideOptions(Q(631), 1,2)
+.setValue(Q(561), 6)
+.setValue(Q(631), 3);
 
 //*******************************
 // FRESH FOOD - End
