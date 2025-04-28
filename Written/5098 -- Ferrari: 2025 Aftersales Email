@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5098	
-// Last Updated: 3/27/2025
+// Last Updated: 4/28/2025
 //*******************************
 // test: 3776663
 
@@ -51,7 +51,7 @@ ifQ(121)
 
 
 
-// section good
+
 //*******************************
 // CONNECTING WITH SERVICE - Begin
 //*******************************
@@ -61,6 +61,12 @@ ifQ(711)
 .answered(5)
 .disappear(Q(721), Q(731), Q(741), Q(751), Q(761))
 .clearAnswer(Q(721), Q(731), Q(741), Q(751), Q(761));
+
+// If QID 711 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 1141.
+ifQ(711)
+.answered(1,2,3,4)
+.disappear(Q(1141))
+.clearAnswer(Q(1141));
 
 // Time Field --  If QID 761 is not answered Option 1, then disappear and clear answer to QIDs.
 ifQ(761)
@@ -80,7 +86,7 @@ ifQ(761)
 
 
 
-// section good
+
 //*******************************
 // BE A HOST - Begin
 //*******************************
