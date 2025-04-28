@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5114	
-// Last Updated: 3/28/2025
+// Last Updated: 4/28/2025
 //*******************************	
 
 
@@ -27,6 +27,12 @@ ifQ(451)
 .answered(5)
 .disappear(Q(291), Q(101))
 .clearAnswer(Q(291), Q(101));
+
+// If QID 451 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 551.
+ifQ(451)
+.answered(1,2,3,4)
+.disappear(Q(551))
+.clearAnswer(Q(551));
 
 //*******************************
 // WEB INQUIRY - End
