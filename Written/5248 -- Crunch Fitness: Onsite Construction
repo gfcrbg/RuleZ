@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 904	
 // SID: 5248	
-// Last Updated: 4/30/2025
+// Last Updated: 5/5/2025
 //*******************************	
 
 // Test Shop -- OPEN Location: 3798599
@@ -212,8 +212,8 @@ ifQ(4911)
 ifQ(1581)
 .answered(0,2)
 .disappear(Q(2471), Q(4441), Q(2461)) // small headers
-.disappear(Q(2481), Q(2491), Q(2501), Q(4911), Q(4921), Q(4971))
-.clearAnswer(Q(2481), Q(2491), Q(2501), Q(4911), Q(4921), Q(4971))
+.disappear(Q(2481), Q(2491), Q(2501), Q(6921), Q(6931), Q(6941), Q(4911), Q(4921), Q(4971))
+.clearAnswer(Q(2481), Q(2491), Q(2501), Q(6921), Q(6931), Q(6941), Q(4911), Q(4921), Q(4971))
 .makeNotRequired(Q(4921), Q(4971));
 
 // If QID 4921 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
