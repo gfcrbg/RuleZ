@@ -9,6 +9,16 @@
 
 // Primary QID: 11
 
+// If wave is "Drive-Thru", then set value to Option 1 to QID 1851.
+ifQ()
+.waveIs("Drive-Thru")
+.setValue(Q(1851), 1);
+
+// If wave is "Counter Service", then set value to Option 2 to QID 1851.
+ifQ()
+.waveIs("Counter Service")
+.setValue(Q(1851), 2);
+
 // If QID 41 is answered Option [1 OR 7], then set value to Option 1 to QID 1751.
 ifQ(41)
 .answered(1,7)
