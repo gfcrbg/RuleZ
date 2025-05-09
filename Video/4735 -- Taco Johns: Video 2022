@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 749	
 // SID: 4735
-// Last Updated: 1/13/2025	
+// Last Updated: 5/9/2025	
 //*******************************	
 
 
@@ -123,8 +123,8 @@ ifQ(901)
 // If QID 901 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2,3)
-.disappear(Q(2551), Q(2621), Q(2631))
-.clearAnswer(Q(2551), Q(2621), Q(2631));
+.disappear(Q(2551), Q(2621), Q(2631), Q(1641))
+.clearAnswer(Q(2551), Q(2621), Q(2631), Q(1641));
 
 // If QID 2581 is not answered, then set value to '0" to QID 2671.
 ifQ(2581)
@@ -574,8 +574,20 @@ ifQ(1001)
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(3)
-.disappear(Q(1111), Q(361), Q(371), Q(2501), Q(381), Q(2461), Q(1351), Q(2471), Q(2481), Q(1031), Q(2491), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081))
-.clearAnswer(Q(1111), Q(361), Q(371), Q(2501), Q(381), Q(2461), Q(1351), Q(2471), Q(2481), Q(1031), Q(2491), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081));
+.disappear(Q(1111), Q(361), Q(371), Q(2751), Q(2501), Q(2711), Q(381), Q(2461), Q(2721), Q(1351), Q(2471), Q(2731), Q(2481), Q(2741), Q(2761), Q(2831), Q(1031), Q(2491), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081))
+.clearAnswer(Q(1111), Q(361), Q(371), Q(2751), Q(2501), Q(2711), Q(381), Q(2461), Q(2721), Q(1351), Q(2471), Q(2731), Q(2481), Q(2741), Q(2761), Q(2831), Q(1031), Q(2491), Q(1041), Q(1051), Q(1061), Q(1071), Q(1081));
+
+// If QID 2751 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(2751)
+.answered(0,2)
+.disappear(Q(2711), Q(2721), Q(2731), Q(2741), Q(2841), Q(2831))
+.clearAnswer(Q(2711), Q(2721), Q(2731), Q(2741), Q(2841), Q(2831));
+
+// If QID 2741 is answered Option [0 OR 1], then disappear and clear answer to QID 2761.
+ifQ(2741)
+.answered(0,1)
+.disappear(Q(2761))
+.clearAnswer(Q(2761));
 
 //*******************************
 // QUALITY  - End
@@ -591,13 +603,13 @@ ifQ(901)
 // If QID 901 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(3)
-.disappear(Q(1611), Q(1951), Q(1171))
-.clearAnswer(Q(1611), Q(1951), Q(1171));
+.disappear(Q(2691), Q(1951), Q(1171))
+.clearAnswer(Q(2691), Q(1951), Q(1171));
 
-// If QID 1611 is answered Option [1, 2, 3, AND 4], then set value to Option [1, 2, 3, 4, AND 5] to QID 1611.
-ifQ(1611)
-.answered([1,2,3,4])
-.setValue(Q(1611), 1,2,3,4,5);
+// If QID 2691 is answered Option [1, 2, AND 3], then set value to Option [1, 2, 3, AND 4] to QID 2691.
+ifQ(2691)
+.answered([1,2,3])
+.setValue(Q(2691), 1,2,3,4);
 
 // If QID 1171 is answered Option [0 OR 1], then disappear and clear answer to QID 2221.
 ifQ(1171)
