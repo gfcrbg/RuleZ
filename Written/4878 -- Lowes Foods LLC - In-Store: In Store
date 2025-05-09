@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 791	
 // SID: 4878	
-// Last Updated: 5/7/2025	
+// Last Updated: 5/9/2025	
 //*******************************	
 
 
@@ -54,6 +54,16 @@ ifQ(261)
 ifQ(261)
 .answered(2)
 .setValue(Q(1601), 2);
+
+// If QID 1861 is answered Option 1, then set value to Option 1 to QID 1871.
+ifQ(1861)
+.answered(1)
+.setValue(Q(1871), 1);
+
+// If QID 1861 is answered Option 2, then set value to Option 2 to QID 1871.
+ifQ(1861)
+.answered(2)
+.setValue(Q(1871), 2);
 
 // If QID 1421 is answered Option 1, then set value to Option 1 to QID 1611.
 ifQ(1421)
