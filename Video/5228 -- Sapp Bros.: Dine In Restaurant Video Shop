@@ -52,6 +52,20 @@ ifQ(551)
 .sub(Q(701), Q(681))
 .store(Q(1031));
 
+// If QID 551 is answered Option 1 AND if QID 1031 is <= 1 minute, then set value to Option 1 to QID 851.
+ifQ(551)
+.answered(1)
+.andifQ(1031)
+.lessThanOrEqual(60)
+.setValue(Q(851), 1);
+
+// If QID 551 is answered Option 1 AND if QID 1031 is > 1 minute, then set value to Option 2 to QID 851.
+ifQ(551)
+.answered(1)
+.andifQ(1031)
+.greaterThan(60)
+.setValue(Q(851), 2);
+
 //-------------------------------------------
 // Order Ready Time - Begin
 //-------------------------------------------
