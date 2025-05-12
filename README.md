@@ -112,7 +112,7 @@ If the QID is conditional, use ```.notAnswered```.
 // Time Field -- If QID X is not answered Option Y, then disappear and clear answer to QID Z.
 ifQ(X)
 .notAnswered(Y)
-.disappear(Q(Z)
+.disappear(Q(Z))
 .clearAnswer(Q(Z));
 ```
 
