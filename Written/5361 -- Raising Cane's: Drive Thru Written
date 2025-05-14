@@ -1,0 +1,306 @@
+//**********************************	
+// CID: 954
+// SID: 5361	
+// Last Updated: 5/14/2025	
+//**********************************	
+
+
+
+
+// Primary QID: 1092
+
+
+// If QID 1092 is answered Option 1, then disappear and clear answer to QID 1102.
+ifQ(1092)
+.answered(1)
+.disappear(Q(1102))
+.clearAnswer(Q(1102));
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1092)
+.answered(2)
+.disappear(Q(61), Q(71), Q(81))
+.clearAnswer(Q(61), Q(71), Q(81));
+
+
+
+
+//**********************************
+// THE PERFECT BOX - Begin
+//**********************************
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1092)
+.answered(2)
+.disappear(Q(1132)) // medium header
+.disappear(Q(1142), Q(1162), Q(1182), Q(1982), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(1282), Q(1292), Q(2282), Q(1312), Q(1322))
+.clearAnswer(Q(1142), Q(1162), Q(1182), Q(1982), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(1282), Q(1292), Q(2282), Q(1312), Q(1322));
+
+// If QID 1162 is answered Option [0 OR 1], then disappear and clear answer to QID 1172.
+ifQ(1162)
+.answered(0,1)
+.disappear(Q(1172))
+.clearAnswer(Q(1172));
+
+//
+ifQ(1202)
+.answered([1,2,3])
+.setValue(Q(1212), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1202)
+.notAnswered([1,2,3])
+.setValue(Q(1212), 2);
+
+//
+ifQ(1222)
+.answered([1,2,3])
+.setValue(Q(1232), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1222)
+.notAnswered([1,2,3])
+.setValue(Q(1232), 2);
+
+//
+ifQ(1242)
+.answered([1,2,3])
+.setValue(Q(1252), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1242)
+.notAnswered([1,2,3])
+.setValue(Q(1252), 2);
+
+//
+ifQ(1262)
+.answered([1,2,3])
+.setValue(Q(1272), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1262)
+.notAnswered([1,2,3])
+.setValue(Q(1272), 2);
+
+//
+ifQ(1282)
+.answered([1,2,3])
+.setValue(Q(1292), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1282)
+.notAnswered([1,2,3])
+.setValue(Q(1292), 2);
+
+//
+ifQ(2282)
+.answered([1,2,3])
+.setValue(Q(1312), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(2282)
+.notAnswered([1,2,3])
+.setValue(Q(1312), 2);
+
+//**********************************
+// THE PERFECT BOX - End
+//**********************************
+
+
+
+
+//**********************************
+// FAST - Begin
+//**********************************
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1092)
+.answered(2)
+.disappear(Q(1332)) // medium header
+.disappear(Q(2112), Q(2122)) // black remarks
+.disappear(Q(1342), Q(1362), Q(2102), Q(1992), Q(1372), Q(1382), Q(1392), Q(1402), Q(1962))
+.clearAnswer(Q(1342), Q(1362), Q(2102), Q(1992), Q(1372), Q(1382), Q(1392), Q(1402), Q(1962));
+
+//**********************************
+// FAST - End
+//**********************************
+
+
+
+
+//**********************************
+// FRIENDLY - Begin
+//**********************************
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1092)
+.answered(2)
+.disappear(Q(1412)) // medium header
+.disappear(Q(1422), Q(1972), Q(1482), Q(2012), Q(1532), Q(2022), Q(2032), Q(1862), Q(1872), Q(1542), Q(1552), Q(1572))
+.clearAnswer(Q(1422), Q(1972), Q(1482), Q(2012), Q(1532), Q(2022), Q(2032), Q(1862), Q(1872), Q(1542), Q(1552), Q(1572));
+
+// If QID 1992 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(1992)
+.answered(0,1)
+.disappear(Q(2002), Q(1852))
+.clearAnswer(Q(2002), Q(1852));
+
+// If QID 1402 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 1522.
+ifQ(1402)
+.answered(0,1,2,3,4)
+.disappear(Q(1522))
+.clearAnswer(Q(1522));
+
+//
+ifQ(1972)
+.answered([1,2,3,4,5])
+.setValue(Q(1852), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1972)
+.notAnswered([1,2,3,4,5])
+.setValue(Q(1852), 2);
+
+//
+ifQ(2022)
+.answered([1,2,3,4])
+.setValue(Q(2032), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(2022)
+.notAnswered([1,2,3,4])
+.setValue(Q(2032), 2);
+
+//
+ifQ(1862)
+.answered([1,2,3,4,5])
+.setValue(Q(1872), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1862)
+.notAnswered([1,2,3,4,5])
+.setValue(Q(1872), 2);
+
+//**********************************
+// FRIENDLY - End
+//**********************************
+
+
+
+
+//**********************************
+// CLEAN - Begin
+//**********************************
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(1092)
+.answered(2)
+.disappear(Q(1582)) // medium header
+.disappear(Q(1592), Q(1612), Q(1622), Q(2052), Q(2062), Q(2072), Q(2082), Q(2092), Q(1792))
+.clearAnswer(Q(1592), Q(1612), Q(1622), Q(2052), Q(2062), Q(2072), Q(2082), Q(2092), Q(1792));
+
+//
+ifQ(1612)
+.answered([1,2])
+.setValue(Q(1622), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(1612)
+.notAnswered([1,2])
+.setValue(Q(1622), 2);
+
+//
+ifQ(2062)
+.answered([1,2,3])
+.setValue(Q(2072), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(2062)
+.notAnswered([1,2,3])
+.setValue(Q(2072), 2);
+
+//
+ifQ(2082)
+.answered([1,2])
+.setValue(Q(2092), 1);
+
+//
+ifQ(1092)
+.answered(1)
+.andifQ(2082)
+.notAnswered([1,2])
+.setValue(Q(2092), 2);
+
+//**********************************
+// CLEAN - End
+//**********************************
+
+
+
+
+//**********************************
+// HAVE FUN - Begin
+//**********************************
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1092)
+.answered(2)
+.disappear(Q(1802)) // medium header
+.disappear(Q(1902), Q(1912))
+.clearAnswer(Q(1902), Q(1912));
+
+// If QID 1902 is answered Option [0 OR 2], then disappear and clear answer to QID 2252.
+ifQ(1902)
+.answered(0,2)
+.disappear(Q(2252))
+.clearAnswer(Q(2252));
+
+// If QID 1912 is answered Option [0 OR 2], then disappear and clear answer to QID 2262.
+ifQ(1912)
+.answered(0,2)
+.disappear(Q(2262))
+.clearAnswer(Q(2262));
+
+//**********************************
+// HAVE FUN - End
+//**********************************
+
+
+
+
+//**********************************
+// OVERALL - Begin
+//**********************************
+
+// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(1092)
+.answered(2)
+.disappear(Q(1922)) // medium header
+.disappear(Q(1952), Q(2232), Q(2242))
+.clearAnswer(Q(1952), Q(2232), Q(2242));
+
+//**********************************
+// OVERALL - End
+//**********************************
