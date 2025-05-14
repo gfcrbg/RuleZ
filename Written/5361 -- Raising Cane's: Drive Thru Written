@@ -42,72 +42,72 @@ ifQ(1162)
 .disappear(Q(1172))
 .clearAnswer(Q(1172));
 
-//
+// If QID 1202 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1212.
 ifQ(1202)
 .answered([1,2,3])
 .setValue(Q(1212), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1202 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1212.
 ifQ(1092)
 .answered(1)
 .andifQ(1202)
 .notAnswered([1,2,3])
 .setValue(Q(1212), 2);
 
-//
+// If QID 1222 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1232.
 ifQ(1222)
 .answered([1,2,3])
 .setValue(Q(1232), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1222 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1232.
 ifQ(1092)
 .answered(1)
 .andifQ(1222)
 .notAnswered([1,2,3])
 .setValue(Q(1232), 2);
 
-//
+// If QID 1242 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1252.
 ifQ(1242)
 .answered([1,2,3])
 .setValue(Q(1252), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1242 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1252.
 ifQ(1092)
 .answered(1)
 .andifQ(1242)
 .notAnswered([1,2,3])
 .setValue(Q(1252), 2);
 
-//
+// If QID 1262 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1272.
 ifQ(1262)
 .answered([1,2,3])
 .setValue(Q(1272), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1262 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1272.
 ifQ(1092)
 .answered(1)
 .andifQ(1262)
 .notAnswered([1,2,3])
 .setValue(Q(1272), 2);
 
-//
+// If QID 1282 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1292.
 ifQ(1282)
 .answered([1,2,3])
 .setValue(Q(1292), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1282 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1292.
 ifQ(1092)
 .answered(1)
 .andifQ(1282)
 .notAnswered([1,2,3])
 .setValue(Q(1292), 2);
 
-//
+// If QID 2282 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1312.
 ifQ(2282)
 .answered([1,2,3])
 .setValue(Q(1312), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 2282 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1312.
 ifQ(1092)
 .answered(1)
 .andifQ(2282)
@@ -163,36 +163,36 @@ ifQ(1402)
 .disappear(Q(1522))
 .clearAnswer(Q(1522));
 
-//
+// If QID 1972 is answered Option [1, 2, 3, 4, AND 5], then set value to Option 1 to QID 1852.
 ifQ(1972)
 .answered([1,2,3,4,5])
 .setValue(Q(1852), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1972 is not answered Option [1, 2, 3, 4, AND 5], then set value to Option 2 to QID 1852.
 ifQ(1092)
 .answered(1)
 .andifQ(1972)
 .notAnswered([1,2,3,4,5])
 .setValue(Q(1852), 2);
 
-//
+// If QID 2022 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 2032.
 ifQ(2022)
 .answered([1,2,3,4])
 .setValue(Q(2032), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 2022 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 2032.
 ifQ(1092)
 .answered(1)
 .andifQ(2022)
 .notAnswered([1,2,3,4])
 .setValue(Q(2032), 2);
 
-//
+// If QID 1862 is answered Option [1, 2, 3, 4, AND 5], then set value to Option 1 to QID 1872.
 ifQ(1862)
 .answered([1,2,3,4,5])
 .setValue(Q(1872), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1862 is not answered Option [1, 2, 3, 4, AND 5], then set value to Option 2 to QID 1872.
 ifQ(1092)
 .answered(1)
 .andifQ(1862)
@@ -217,36 +217,36 @@ ifQ(1092)
 .disappear(Q(1592), Q(1612), Q(1622), Q(2052), Q(2062), Q(2072), Q(2082), Q(2092), Q(1792))
 .clearAnswer(Q(1592), Q(1612), Q(1622), Q(2052), Q(2062), Q(2072), Q(2082), Q(2092), Q(1792));
 
-//
+// If QID 1612 is answered Option [1 AND 2], then set value to Option 1 to QID 1622.
 ifQ(1612)
 .answered([1,2])
 .setValue(Q(1622), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 1612 is not answered Option [1 AND 2], then set value to Option 2 to QID 1622.
 ifQ(1092)
 .answered(1)
 .andifQ(1612)
 .notAnswered([1,2])
 .setValue(Q(1622), 2);
 
-//
+// If QID 2062 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 2072.
 ifQ(2062)
 .answered([1,2,3])
 .setValue(Q(2072), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 2062 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 2072.
 ifQ(1092)
 .answered(1)
 .andifQ(2062)
 .notAnswered([1,2,3])
 .setValue(Q(2072), 2);
 
-//
+// If QID 2082 is answered Option [1 AND 2], then set value to Option 1 to QID 2092.
 ifQ(2082)
 .answered([1,2])
 .setValue(Q(2092), 1);
 
-//
+// If QID 1092 is answered Option 1 AND if QID 2082 is not answered Option [1 AND 2], then set value to Option 2 to QID 2092.
 ifQ(1092)
 .answered(1)
 .andifQ(2082)
