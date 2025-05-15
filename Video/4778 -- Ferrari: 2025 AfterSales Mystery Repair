@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 4778	
-// Last Updated: 5/14/2025	
+// Last Updated: 5/15/2025	
 //*******************************	
 
 
@@ -12,6 +12,11 @@ ifQ(2031)
 .answered(1,2,3,4)
 .disappear(Q(1641))
 .clearAnswer(Q(1641))
+
+// If QID 2041 is answered, then set value to QID 2051 to mimic option value of QID 2041.
+ifQ(2041)
+.answered()
+.setValue(Q(2051), Q(2041));
 
 
 
