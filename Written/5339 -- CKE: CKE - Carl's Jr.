@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 5/8/2025	
+// Last Updated: 5/19/2025	
 //*******************************	
 
 
@@ -60,8 +60,8 @@ ifQ(11)
 .answered(2)
 .disappear(Q(111)) // medium header
 .disappear(Q(1721), Q(1651)) // red remarks
-.disappear(Q(1051), Q(1731), Q(1741), Q(131), Q(1041), Q(141), Q(1781))
-.clearAnswer(Q(1051), Q(1731), Q(1741), Q(131), Q(1041), Q(141), Q(1781));
+.disappear(Q(1051), Q(1731), Q(1741), Q(131), Q(1041), Q(1781))
+.clearAnswer(Q(1051), Q(1731), Q(1741), Q(131), Q(1041), Q(1781));
 
 // If QID 131 is answered Option [0 OR 1], then disappear and clear answer to QID 551.
 ifQ(131)
@@ -147,9 +147,9 @@ ifQ(821)
 .disappear(Q(831))
 .clearAnswer(Q(831));
 
-// If QID 1791 is answered Option [0 OR 2], then disappear and clear answer to QID 1581.
+// If QID 1791 is answered Option [0 OR 1], then disappear and clear answer to QID 1581.
 ifQ(1791)
-.answered(0,2)
+.answered(0,1)
 .disappear(Q(1581))
 .clearAnswer(Q(1581));
 
@@ -275,8 +275,8 @@ ifQ(11)
 .answered(2)
 .disappear(Q(1081)) // medium header
 .disappear(Q(1771)) // red remark
-.disappear(Q(1381), Q(1351), Q(931), Q(1241), Q(291), Q(1421), Q(1431), Q(331))
-.clearAnswer(Q(1381), Q(1351), Q(931), Q(1241), Q(291), Q(1421), Q(1431), Q(331)); 
+.disappear(Q(1381), Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(331))
+.clearAnswer(Q(1381), Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(331)); 
 
 // If QID 1381 is answered Option [0 OR 1], then disappear and clear answer to QID 1361.
 ifQ(1381)
@@ -290,23 +290,53 @@ ifQ(1361)
 .disappear(Q(1371))
 .clearAnswer(Q(1371));
 
-// If QID 291 is answered Option [0 OR 1], then disappear and clear answer to QID 651. 
-ifQ(291)
-.answered(0,1)
-.disappear(Q(651))
-.clearAnswer(Q(651));
+// If QID 1911 is answered Option [1, 2, 3, 4, 5, AND 6], then set value to Option 1 to QID 291.
+ifQ(1911)
+.answered([1,2,3,4,5,6])
+.setValue(Q(291), 1);
 
-// If QID 1421 is answered Option [0 OR 1], then disappear and clear answer to QID 1441.
-ifQ(1421)
-.answered(0,1)
-.disappear(Q(1441))
-.clearAnswer(Q(1441));
+// If QID 1911 is answered Option 7, then set value to Option 2 to QID 291.
+ifQ(1911)
+.answered(7)
+.setValue(Q(291), 2);
 
-// If QID 1431 is answered Option [0 OR 1], then disappear and clear answer to QID 1341.
-ifQ(1431)
-.answered(0,1)
-.disappear(Q(1341))
-.clearAnswer(Q(1341));
+// If QID 1911 is not answered, then disappear and clear answer to QID 291.
+ifQ(1911)
+.notAnswered()
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+// If QID 1921 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1421.
+ifQ(1921)
+.answered([1,2,3])
+.setValue(Q(1421), 1);
+
+// If QID 1921 is answered Option 4, then set value to Option 2 to QID 1421.
+ifQ(1921)
+.answered(4)
+.setValue(Q(1421), 2);
+
+// If QID 1921 is not answered, then disappear and clear answer to QID 1421.
+ifQ(1921)
+.notAnswered()
+.disappear(Q(1421))
+.clearAnswer(Q(1421));
+
+// If QID 1931 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 1431.
+ifQ(1931)
+.answered([1,2,3,4])
+.setValue(Q(1431), 1);
+
+// If QID 1931 is answered Option 5, then set value to Option 2 to QID 1431.
+ifQ(1931)
+.answered(5)
+.setValue(Q(1431), 2);
+
+// If QID 1931 is not answered, then disappear and clear answer to QID 1431.
+ifQ(1931)
+.notAnswered()
+.disappear(Q(1431))
+.clearAnswer(Q(1431));
 
 // If QID 331 is answered Option [0 OR 1], then disappear and clear answer to QID 681.
 ifQ(331)
