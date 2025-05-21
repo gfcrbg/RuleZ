@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 5/19/2025	
+// Last Updated: 5/21/2025	
 //*******************************	
 
 
@@ -295,48 +295,36 @@ ifQ(1911)
 .answered([1,2,3,4,5,6])
 .setValue(Q(291), 1);
 
-// If QID 1911 is answered Option 7, then set value to Option 2 to QID 291.
-ifQ(1911)
-.answered(7)
+// If QID 11 is answered Option 1 AND if QID 1911 is not answered Option [1,2,3,4,5, AND 6], then set value to Option 2 to QID 291.
+ifQ(11)
+.answered(1)
+.andifQ(1911)
+.notAnswered([1,2,3,4,5,6])
 .setValue(Q(291), 2);
-
-// If QID 1911 is not answered, then disappear and clear answer to QID 291.
-ifQ(1911)
-.notAnswered()
-.disappear(Q(291))
-.clearAnswer(Q(291));
 
 // If QID 1921 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1421.
 ifQ(1921)
 .answered([1,2,3])
 .setValue(Q(1421), 1);
 
-// If QID 1921 is answered Option 4, then set value to Option 2 to QID 1421.
-ifQ(1921)
-.answered(4)
+// If QID 11 is answered Option 1 AND if QID 1921 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1421.
+ifQ(11)
+.answered(1)
+.andifQ(1921)
+.notAnswered([1,2,3])
 .setValue(Q(1421), 2);
-
-// If QID 1921 is not answered, then disappear and clear answer to QID 1421.
-ifQ(1921)
-.notAnswered()
-.disappear(Q(1421))
-.clearAnswer(Q(1421));
 
 // If QID 1931 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 1431.
 ifQ(1931)
 .answered([1,2,3,4])
 .setValue(Q(1431), 1);
 
-// If QID 1931 is answered Option 5, then set value to Option 2 to QID 1431.
-ifQ(1931)
-.answered(5)
+// If QID 11 is answered Option 1 AND if QID 1931 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1431.
+ifQ(11)
+.answered(1)
+.andifQ(1931)
+.notAnswered([1,2,3,4])
 .setValue(Q(1431), 2);
-
-// If QID 1931 is not answered, then disappear and clear answer to QID 1431.
-ifQ(1931)
-.notAnswered()
-.disappear(Q(1431))
-.clearAnswer(Q(1431));
 
 // If QID 331 is answered Option [0 OR 1], then disappear and clear answer to QID 681.
 ifQ(331)
