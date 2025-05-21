@@ -1,0 +1,217 @@
+//*******************************	
+// CID: 786
+// SID: 5249	
+// Last Updated: 5/21/2025	
+//*******************************	
+
+
+
+
+// Primary QID: 1411
+
+// If QID 1411 is answered Option 1, then set value to Option 2 to QID 1421.
+ifQ(1411)
+.answered(1)
+.disappear(Q(1421))
+.clearAnswer(Q(1421));
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(91), Q(111))
+.clearAnswer(Q(91), Q(111));
+
+
+
+
+//*******************************
+// CASHIER - Begin
+//*******************************
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(131)) // big header
+.disappear(Q(1171)) // medium header
+.disappear(Q(201)) // black remark
+.disappear(Q(931), Q(941), Q(191), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(1141), Q(1151), Q(1161), Q(1121), Q(1111), Q(301))
+.clearAnswer(Q(931), Q(941), Q(191), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(1141), Q(1151), Q(1161), Q(1121), Q(1111), Q(301));
+
+// If QID 1411 is answered Option 1 AND if QIDs [211 AND 221] are answered, then trigger math operation: [221] - [211] = [231].
+ifQ(1411)
+.answered(1)
+.andifQ(211)
+.answered()
+.andifQ(221)
+.answered()
+.sub(Q(221), Q(211))
+.store(Q(231));
+
+// If QID 1411 is answered Option 1 AND if QID 231 is < 1 minutes, then set value to Option 1 to QID 241.
+ifQ(1411)
+.answered(1)
+.andifQ(231)
+.lessThan(60)
+.setValue(Q(241), 1);
+
+// If QID 1411 is answered Option 1 AND if QID 231 is >= 1 minute AND <= 2 minutes, then set value to Option 2 to QID 241.
+ifQ(1411)
+.answered(1)
+.andifQ(231)
+.greaterThanOrEqual(60)
+.andifQ(231)
+.lessThanOrEqual(120)
+.setValue(Q(241), 2);
+
+// If QID 1411 is answered Option 1 AND if QID 231 is > 2 minutes AND <= 3 minutes, then set value to Option 3 to QID 241.
+ifQ(1411)
+.answered(1)
+.andifQ(231)
+.greaterThan(120)
+.andifQ(231)
+.lessThanOrEqual(180)
+.setValue(Q(241), 3);
+
+// If QID 1411 is answered Option 1 AND if QID 231 is > 3 minutes, then set value to Option 4 to QID 241.
+ifQ(1411)
+.answered(1)
+.andifQ(231)
+.greaterThan(180)
+.setValue(Q(241), 4);
+
+// If QID 241 is answered Option [1 OR 2], then set value to Option 1 to QID 251.
+ifQ(241)
+.answered(1,2)
+.setValue(Q(251), 1);
+// If QID 241 is answered Option [3 OR 4], then set value to Option 2 to QID 251.
+ifQ(241)
+.answered(3,4)
+.setValue(Q(251), 2);
+
+//*******************************
+// CASHIER - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD SERVICE - Begin
+//*******************************
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(1181)) // medium header
+.disappear(Q(1191), Q(1201), Q(1221), Q(1231), Q(1241), Q(1261))
+.clearAnswer(Q(1191), Q(1201), Q(1221), Q(1231), Q(1241), Q(1261));
+
+// If QID 1191 is answered Option 2, then set value to Option 3 to QIDs.
+ifQ(1191)
+.answered(2)
+.setValue(Q(1201), 3)
+.setValue(Q(1221), 3)
+.setValue(Q(1231), 3)
+.setValue(Q(1241), 3)
+.setValue(Q(1261), 3);
+
+// If QID 1201 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 1211.
+ifQ(1201)
+.answered(0,1,3)
+.disappear(Q(1211))
+.clearAnswer(Q(1211));
+
+//*******************************
+// FOOD SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// STORE EXTERIOR - Begin
+//*******************************
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(311)) // big header
+.disappear(Q(321)) // medium header
+.disappear(Q(331), Q(1301), Q(341), Q(1321), Q(351), Q(361), Q(1311), Q(381), Q(401), Q(411), Q(1271), Q(1281), Q(1291))
+.clearAnswer(Q(331), Q(1301), Q(341), Q(1321), Q(351), Q(361), Q(1311), Q(381), Q(401), Q(411), Q(1271), Q(1281), Q(1291));
+
+// If QID 1311 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 371.
+ifQ(1311)
+.answered(0,1,3)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//*******************************
+// STORE EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(821)) // medium header
+.disappear(Q(1021), Q(1091))
+.clearAnswer(Q(1021), Q(1091));
+
+// If QID 1021 is answered Option [0 OR 1], then disappear and clear answer to QID 1031.
+ifQ(1021)
+.answered(0,1)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+// If QID 1021 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(0,2)
+.disappear(Q(1081), Q(1041), Q(1331), Q(1061))
+.clearAnswer(Q(1081), Q(1041), Q(1331), Q(1061));
+
+// If QID 1041 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 1051.
+ifQ(1041)
+.answered(0,1,3)
+.disappear(Q(1051))
+.clearAnswer(Q(1051));
+
+// If QID 1051 is not answered Option 7, then disappear and clear answer to QID 481.
+ifQ(1051)
+.notAnswered(7)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 1061 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 1071.
+ifQ(1061)
+.answered(0,1,3)
+.disappear(Q(1071))
+.clearAnswer(Q(1071));
+
+//*******************************
+// RESTROOMS - End
+//*******************************
+
+
+
+
+//*******************************
+// STORE INTERIOR - Begin
+//*******************************
+
+// If QID 1411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1411)
+.answered(2)
+.disappear(Q(431)) // medium header
+.disappear(Q(441), Q(451), Q(1131), Q(511), Q(521), Q(531), Q(541), Q(551), Q(561), Q(641), Q(651))
+.clearAnswer(Q(441), Q(451), Q(1131), Q(511), Q(521), Q(531), Q(541), Q(551), Q(561), Q(641), Q(651));
+
+//*******************************
+// STORE INTERIOR - End
+//*******************************
