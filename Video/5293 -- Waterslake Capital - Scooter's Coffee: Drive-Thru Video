@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 945	
 // SID: 5293
-// Last Updated: 4/3/2025	
+// Last Updated: 5/22/2025	
 //**********************************	
 
 
@@ -162,9 +162,9 @@ ifQ(1192)
 .disappear(Q(732))
 .clearAnswer(Q(732));
 
-// If QID 732 is answered Option [0 OR 1], then disappear and clear answer to QID 1662.
+// If QID 732 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 1662.
 ifQ(732)
-.answered(0,1)
+.answered(0,1,2)
 .disappear(Q(1662))
 .clearAnswer(Q(1662));
 
