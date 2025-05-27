@@ -1,0 +1,30 @@
+//*******************************	
+// CID: 514	
+// SID: 5364	
+// Last Updated: 5/27/2025
+//*******************************	
+
+
+
+
+//*******************************
+// FOOD - Begin
+//*******************************
+
+// If QID 691 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(691)
+.answered(2)
+.disappear(Q(771)) // red remark
+.disappear(Q(701), Q(711), Q(721), Q(731), Q(741), Q(751), Q(761), Q(781))
+.clearAnswer(Q(701), Q(711), Q(721), Q(731), Q(741), Q(751), Q(761), Q(781));
+
+// If QID 1001 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1001)
+.answered(2)
+.disappear(Q(1061)) // red remark
+.disappear(Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1461))
+.clearAnswer(Q(1011), Q(1021), Q(1031), Q(1041), Q(1051), Q(1461));
+
+//*******************************
+// FOOD - End
+//*******************************
