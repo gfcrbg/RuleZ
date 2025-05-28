@@ -1,0 +1,145 @@
+//*******************************	
+// CID: 962	
+// SID: 5365	
+// Last Updated: 5/28/2025
+//*******************************	
+
+
+// If QIDs [11 AND 71] are answered, then trigger math operation: [71] - [11] = [611]
+ifQ(11)
+.answered()
+.andifQ(71)
+.answered()
+.sub(Q(71), Q(11))
+.store(Q(611));
+
+// If QID 611 is < 5 minutes, then set value to Option 1 to QID 81.
+ifQ(611)
+.lessThan(300)
+.setValue(Q(81), 1);
+
+// If QID 611 is >= 5 minutes, then set value to Option 2 to QID 81.
+ifQ(611)
+.greaterThanOrEqual(300)
+.setValue(Q(81), 2);
+
+// If QID 91 is <= 3 seconds, then set value to Option 1 to QID 521.
+ifQ(91)
+.lessThanOrEqual(3)
+.setValue(Q(521), 1);
+
+// If QID 91 is >= 4 seconds AND <= 6 seconds, then set value to Option 2 to QID 521.
+ifQ(91)
+.greaterThanOrEqual(4)
+.andifQ(91)
+.lessThanOrEqual(6)
+.setValue(Q(521), 2);
+
+// If QID 91 is >= 7 seconds, then set value to Option 3 to QID 521.
+ifQ(91)
+.greaterThanOrEqual(7)
+.setValue(Q(521), 3);
+
+// If QID 91 is not answered then clear answer to QID 521.
+ifQ(91)
+.notAnswered()
+.clearAnswer(Q(521));
+
+// If QID 531 is <= 30 seconds, then set value to Option 1 to QID 541.
+ifQ(531)
+.lessThanOrEqual(30)
+.setValue(Q(541), 1);
+
+// If QID 531 is > 30 seconds AND <= 1 minute, then set value to Option 2 to QID 541.
+ifQ(531)
+.greaterThan(30)
+.andifQ(531)
+.lessThanOrEqual(60)
+.setValue(Q(541), 2);
+
+// If QID 531 is > 1 minute AND <= 1.5 minutes, then set value to Option 3 to QID 541.
+ifQ(531)
+.greaterThan(60)
+.andifQ(531)
+.lessThanOrEqual(90)
+.setValue(Q(541), 3);
+
+// If QID 531 is > 1.5 minutes AND <= 2 minutes, then set value to Option 4 to QID 541.
+ifQ(531)
+.greaterThan(90)
+.andifQ(531)
+.lessThanOrEqual(120)
+.setValue(Q(541), 4);
+
+// If QID 531 is > 2 minutes, then set value to Option 5 to QID 541.
+ifQ(531)
+.greaterThan(120)
+.setValue(Q(541), 5);
+
+// If QID 531 is not answered, then clear answer to QID 541.
+ifQ(531)
+.notAnswered()
+.clearAnswer(Q(541));
+
+// If QID 551 is answered Option 2, then disappear and clear answer to QID 571.
+ifQ(551)
+.answered(2)
+.disappear(Q(571))
+.clearAnswer(Q(571));
+
+
+
+
+//*******************************
+// NEEDS ASSESSMENT - Begin
+//*******************************
+
+// If QID 171 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(171)
+.answered(2)
+.disappear(Q(181), Q(191))
+.clearAnswer(Q(181), Q(191));
+
+//*******************************
+// NEEDS ASSESSMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES AND SERVICE - Begin
+//*******************************
+
+// If QID 281 not answered Option 10, then disappear and clear answer to QID 291.
+ifQ(281)
+.notAnswered(10)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+// If QID 301 is not answered Option 4, then disappear and clear answer to QID 311.
+ifQ(301)
+.notAnswered(4)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+//*******************************
+// SALES AND SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 391 is answered Option 4, then disappear and clear answer to QID 591.
+ifQ(391)
+.answered(4)
+.disappear(Q(591))
+.clearAnswer(Q(591));
+
+//*******************************
+// FOLLOW UP - End
+//*******************************
