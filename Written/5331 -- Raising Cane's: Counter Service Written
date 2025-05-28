@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954	
 // SID: 5331	
-// Last Updated: 5/12/2024	
+// Last Updated: 5/28/2024	
 //**********************************	
 
 
@@ -128,6 +128,61 @@ ifQ(1092)
 .disappear(Q(1992)) // black remark
 .disappear(Q(1342), Q(1362), Q(1982), Q(1372), Q(1382), Q(1392), Q(1402), Q(1962))
 .clearAnswer(Q(1342), Q(1362), Q(1982), Q(1372), Q(1382), Q(1392), Q(1402), Q(1962));
+
+// If QID 1092 is answered Option 1 AND if QID 1372 is <= 3 seconds, then set value to Option 1 to QID 1382.
+ifQ(1092)
+.answered(1)
+.andifQ(1372)
+.lessThanOrEqual(3)
+.setValue(Q(1382), 1);
+
+// If QID 1092 is answered Option 1 AND if QID 1372 is > 3 seconds, then set value to Option 2 to QID 1382.
+ifQ(1092)
+.answered(1)
+.andifQ(1372)
+.greaterThan(3)
+.setValue(Q(1382), 2);
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is <= 2:30 minutes, then set value to Option 1 to QID 1402.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.lessThanOrEqual(150)
+.setValue(Q(1402), 1);
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:30 minutes AND <= 2:35 minutes, then set value to Option 2 to QID 1402.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(150)
+.andifQ(1392)
+.lessThanOrEqual(155)
+.setValue(Q(1402), 2);
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:35 minutes AND <= 2:45 minutes, then set value to Option 3 to QID 1402.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(155)
+.andifQ(1392)
+.lessThanOrEqual(165)
+.setValue(Q(1402), 3);
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:45 minutes AND <= 4 minutes, then set value to Option 4 to QID 1402.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(165)
+.andifQ(1392)
+.lessThanOrEqual(240)
+.setValue(Q(1402), 4);
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 4 minutes, then set value to Option 5 to QID 1402.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(240)
+.setValue(Q(1402), 5);
 
 //*******************************
 // FAST - End
