@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954	
 // SID: 5332	
-// Last Updated: 5/13/2025	
+// Last Updated: 5/29/2025	
 //**********************************	
 
 
@@ -129,8 +129,8 @@ ifQ(1092)
 .answered(2)
 .disappear(Q(1332)) // medium header
 .disappear(Q(2372)) // black remark
-.disappear(Q(2392), Q(2052), Q(2002), Q(2012), Q(2022), Q(2032), Q(2042), Q(1362), Q(2172), Q(1372), Q(1382), Q(1392), Q(1402))
-.clearAnswer(Q(2392), Q(2052), Q(2002), Q(2012), Q(2022), Q(2032), Q(2042), Q(1362), Q(2172), Q(1372), Q(1382), Q(1392), Q(1402));
+.disappear(Q(2392), Q(2052), Q(2002), Q(2022), Q(2032), Q(2042), Q(1362), Q(2172), Q(1382), Q(2552), Q(1392), Q(1402))
+.clearAnswer(Q(2392), Q(2052), Q(2002), Q(2022), Q(2032), Q(2042), Q(1362), Q(2172), Q(1382), Q(2552), Q(1392), Q(1402));
 
 // If QID 1092 is answered Option 1 AND if QIDs [2002 AND 2022] are answered, then trigger math operation: [2022] - [2002] = [2172]
 ifQ(1092)
@@ -142,29 +142,21 @@ ifQ(1092)
 .sub(Q(2022), Q(2002))
 .store(Q(2172));
 
-// If QID 1092 is answered Option 1 AND if QIDs [2012 AND 2022] are answered, then trigger math operation: [2022] - [2012] = [1372]
-ifQ(1092)
+// If QID 1382 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1382)
+.notAnswered(1)
+.disappear(Q(2012), Q(2562), Q(1372))
+.clearAnswer(Q(2012), Q(2562), Q(1372));
+
+// If QID 1382 is answered Option 1 AND if QIDs [2012 AND 2562] are answered, then trigger math operation: [2562] - [2012] = [1372]
+ifQ(1382)
 .answered(1)
 .andifQ(2012)
 .answered()
-.andifQ(2022)
+.andifQ(2562)
 .answered()
-.sub(Q(2022), Q(2012))
+.sub(Q(2562), Q(2012))
 .store(Q(1372));
-
-// If QID 1092 is answered Option 1 AND if QID 1372 is <= 3 seconds, then set value to Option 1 to QID 1382.
-ifQ(1092)
-.answered(1)
-.andifQ(1372)
-.lessThanOrEqual(3)
-.setValue(Q(1382), 1);
-
-// If QID 1092 is answered Option 1 AND if QID 1372 is > 3 seconds, then set value to Option 2 to QID 1382.
-ifQ(1092)
-.answered(1)
-.andifQ(1372)
-.greaterThan(3)
-.setValue(Q(1382), 2);
 
 // If QID 1092 is answered Option 1 AND if QIDs [2032 AND 2042] are answered, then trigger math operation: [2042] - [2032] = [1392]
 ifQ(1092)
