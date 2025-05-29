@@ -1,0 +1,197 @@
+//*******************************	
+// CID: 949	
+// SID: 5359	
+// Last Updated: 5/29/2025
+//*******************************	
+
+
+
+
+// Primary QID: 1021
+
+// If QID 1021 is answered Option 1, then disappear and clear answer to QID 1031.
+ifQ(1021)
+.answered(1)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1021)
+.answered(2)
+.disappear(Q(91), Q(111))
+.clearAnswer(Q(91), Q(111));
+
+
+
+
+//*******************************
+// FACILITY EXTERIOR - Begin
+//*******************************
+
+//
+ifQ(1021)
+.answered(2)
+.disappear(Q(1041)) // medium header
+.disappear(Q(1051), Q(1061))
+.clearAnswer(Q(1051), Q(1061));
+
+//*******************************
+// FACILITY EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// QUICK LUBE SERVICE - Begin
+//*******************************
+
+//
+ifQ(1021)
+.answered(2)
+.disappear(Q(1091)) // medium header
+.disappear(Q(1511), Q(1521), Q(1531), Q(1101), Q(1171), Q(1191), Q(1491), Q(1501))
+.clearAnswer(Q(1511), Q(1521), Q(1531), Q(1101), Q(1171), Q(1191), Q(1491), Q(1501));
+
+//
+ifQ(1511)
+.answered()
+.andifQ(1521)
+.answered()
+.sub(Q(1521), Q(1511))
+.store(Q(1531));
+
+//
+ifQ(1021)
+.answered(1)
+.andifQ(1531)
+.lessThanOrEqual(30)
+.setValue(Q(1101), 1);
+
+//
+ifQ(1021)
+.answered(1)
+.andifQ(1531)
+.greaterThan(30)
+.setValue(Q(1101), 2);
+
+//
+ifQ(1101)
+.answered(0,2)
+.disappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161))
+.clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161));
+
+//
+ifQ(1141)
+.answered(0,1)
+.disappear(Q(1581))
+.clearAnswer(Q(1581));
+
+//*******************************
+// QUICK LUBE SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// FULL SERVICE CAR WASH - Begin
+//*******************************
+
+// 
+ifQ(1021)
+.answered(2)
+.disappear(Q(1201)) // medium header
+.disappear(Q(1591)) // medium header
+.disappear(Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271), Q(1571), Q(1281), Q(1481))
+.clearAnswer(Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271), Q(1571), Q(1281), Q(1481));
+
+//
+ifQ(1281)
+.answered(0,1)
+.disappear(Q(1561))
+.clearAnswer(Q(1561));
+
+//
+ifQ(1481)
+.answered(0,1)
+.disappear(Q(1551))
+.clearAnswer(Q(1551));
+
+//*******************************
+// FULL SERVICE CAR WASH - End
+//*******************************
+
+
+
+
+//*******************************
+// CONVENIENCE STORE - Begin
+//*******************************
+
+//
+ifQ(1021)
+.answered(2)
+.disappear(Q(1361)) // medium header
+.disappear(Q(1371), Q(1381), Q(1391), Q(1401), Q(1411), Q(1421), Q(1431), Q(1441), Q(1451))
+.clearAnswer(Q(1371), Q(1381), Q(1391), Q(1401), Q(1411), Q(1421), Q(1431), Q(1441), Q(1451));
+
+//*******************************
+// CONVENIENCE STORE - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL SATISFACTION - Begin
+//*******************************
+
+//
+ifQ(1021)
+.answered(2)
+.disappear(Q(1291)) // medium header
+.disappear(Q(1331)) // black remark
+.disappear(Q(1541), Q(1461), Q(1471), Q(1301), Q(1311), Q(1321))
+.clearAnswer(Q(1541), Q(1461), Q(1471), Q(1301), Q(1311), Q(1321));
+
+//
+ifQ(1511)
+.answered()
+.andifQ(1571)
+.answered()
+.sub(Q(1571), Q(1511))
+.store(Q(1541));
+
+//
+ifQ(1021)
+.answered(1)
+.andifQ(1541)
+.lessThanOrEqual(3600)
+.setValue(Q(1461), 1);
+
+//
+ifQ(1021)
+.answered(1)
+.andifQ(1541)
+.greaterThan(3600)
+.setValue(Q(1461), 2);
+
+//
+ifQ(1021)
+.answered(1)
+.andifQ(1541)
+.lessThanOrEqual(2700)
+.setValue(Q(1471), 1);
+
+//
+ifQ(1021)
+.answered(1)
+.andifQ(1541)
+.greaterThan(2700)
+.setValue(Q(1471), 2);
+
+
+//*******************************
+// OVERALL SATISFACTION - End
+//*******************************
