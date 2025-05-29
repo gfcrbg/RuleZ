@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954	
 // SID: 5331	
-// Last Updated: 5/28/2024	
+// Last Updated: 5/29/2025	
 //**********************************	
 
 
@@ -126,22 +126,14 @@ ifQ(1092)
 .answered(2)
 .disappear(Q(1332)) // medium header
 .disappear(Q(1992)) // black remark
-.disappear(Q(1342), Q(1362), Q(1982), Q(1372), Q(1382), Q(1392), Q(1402), Q(1962))
-.clearAnswer(Q(1342), Q(1362), Q(1982), Q(1372), Q(1382), Q(1392), Q(1402), Q(1962));
+.disappear(Q(1342), Q(1362), Q(1982), Q(2152), Q(1382), Q(1392), Q(1402), Q(1962))
+.clearAnswer(Q(1342), Q(1362), Q(1982), Q(2152), Q(1382), Q(1392), Q(1402), Q(1962));
 
-// If QID 1092 is answered Option 1 AND if QID 1372 is <= 3 seconds, then set value to Option 1 to QID 1382.
-ifQ(1092)
-.answered(1)
-.andifQ(1372)
-.lessThanOrEqual(3)
-.setValue(Q(1382), 1);
-
-// If QID 1092 is answered Option 1 AND if QID 1372 is > 3 seconds, then set value to Option 2 to QID 1382.
-ifQ(1092)
-.answered(1)
-.andifQ(1372)
-.greaterThan(3)
-.setValue(Q(1382), 2);
+// If QID 2152 is not answered Option 1, then disappear and clear answer to QID 1372.
+ifQ(2152)
+.notAnswered(1)
+.disappear(Q(1372))
+.clearAnswer(Q(1372));
 
 // If QID 1092 is answered Option 1 AND if QID 1392 is <= 2:30 minutes, then set value to Option 1 to QID 1402.
 ifQ(1092)
