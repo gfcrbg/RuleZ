@@ -28,7 +28,7 @@ ifQ(1021)
 // FACILITY EXTERIOR - Begin
 //*******************************
 
-//
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1021)
 .answered(2)
 .disappear(Q(1041)) // medium header
@@ -46,14 +46,14 @@ ifQ(1021)
 // QUICK LUBE SERVICE - Begin
 //*******************************
 
-//
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1021)
 .answered(2)
 .disappear(Q(1091)) // medium header
 .disappear(Q(1511), Q(1521), Q(1531), Q(1101), Q(1171), Q(1191), Q(1491), Q(1501))
 .clearAnswer(Q(1511), Q(1521), Q(1531), Q(1101), Q(1171), Q(1191), Q(1491), Q(1501));
 
-//
+// If QIDs [1511 AND 1521] are answered, then trigger math operation: [1521] - [1511] = [1531]
 ifQ(1511)
 .answered()
 .andifQ(1521)
@@ -61,27 +61,27 @@ ifQ(1511)
 .sub(Q(1521), Q(1511))
 .store(Q(1531));
 
-//
+// If QID 1021 is answered Option 1 AND if QID 1531 is <= 30 seconds, then set value to Option 1 to QID 1101.
 ifQ(1021)
 .answered(1)
 .andifQ(1531)
 .lessThanOrEqual(30)
 .setValue(Q(1101), 1);
 
-//
+// If QID 1021 is answered Option 1 AND if QID 1531 is > 30 seconds, then set value to Option 2 to QID 1101.
 ifQ(1021)
 .answered(1)
 .andifQ(1531)
 .greaterThan(30)
 .setValue(Q(1101), 2);
 
-//
+// If QID 1101 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1101)
 .answered(0,2)
 .disappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161))
 .clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161));
 
-//
+// If QID 1141 is answered Option [0 OR 1], then disappear and clear answer to QID 1581.
 ifQ(1141)
 .answered(0,1)
 .disappear(Q(1581))
@@ -98,7 +98,7 @@ ifQ(1141)
 // FULL SERVICE CAR WASH - Begin
 //*******************************
 
-// 
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1021)
 .answered(2)
 .disappear(Q(1201)) // medium header
@@ -106,13 +106,13 @@ ifQ(1021)
 .disappear(Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271), Q(1571), Q(1281), Q(1481))
 .clearAnswer(Q(1221), Q(1231), Q(1241), Q(1251), Q(1261), Q(1271), Q(1571), Q(1281), Q(1481));
 
-//
+// If QID 1281 is answered Option [0 OR 1], then disappear and clear answer to QID 1561.
 ifQ(1281)
 .answered(0,1)
 .disappear(Q(1561))
 .clearAnswer(Q(1561));
 
-//
+// If QID 1481 is answered Option [0 OR 1], then disappear and clear answer to QID 1551.
 ifQ(1481)
 .answered(0,1)
 .disappear(Q(1551))
@@ -129,7 +129,7 @@ ifQ(1481)
 // CONVENIENCE STORE - Begin
 //*******************************
 
-//
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1021)
 .answered(2)
 .disappear(Q(1361)) // medium header
@@ -147,7 +147,7 @@ ifQ(1021)
 // OVERALL SATISFACTION - Begin
 //*******************************
 
-//
+// If QID 1021 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1021)
 .answered(2)
 .disappear(Q(1291)) // medium header
@@ -155,7 +155,7 @@ ifQ(1021)
 .disappear(Q(1541), Q(1461), Q(1471), Q(1301), Q(1311), Q(1321))
 .clearAnswer(Q(1541), Q(1461), Q(1471), Q(1301), Q(1311), Q(1321));
 
-//
+// If QIDs [1511 AND 1571] are answered, then trigger math operation: [1571] - [1511] = [1541]
 ifQ(1511)
 .answered()
 .andifQ(1571)
@@ -163,34 +163,33 @@ ifQ(1511)
 .sub(Q(1571), Q(1511))
 .store(Q(1541));
 
-//
+// If QID 1021 is answered Option 1 AND if QID 1541 is <= 1 hour, then set value to Option 1 to QID 1461.
 ifQ(1021)
 .answered(1)
 .andifQ(1541)
 .lessThanOrEqual(3600)
 .setValue(Q(1461), 1);
 
-//
+// If QID 1021 is answered Option 1 AND if QID 1541 is > 1 hour, then set value to Option 2 to QID 1461.
 ifQ(1021)
 .answered(1)
 .andifQ(1541)
 .greaterThan(3600)
 .setValue(Q(1461), 2);
 
-//
+// If QID 1021 is answered Option 1 AND if QID 1541 is <= 45 minutes, then set value to Option 1 to QID 1471.
 ifQ(1021)
 .answered(1)
 .andifQ(1541)
 .lessThanOrEqual(2700)
 .setValue(Q(1471), 1);
 
-//
+// If QID 1021 is answered Option 1 AND if QID 1541 is > 45 minutes, then set value to Option 2 to QID 1471.
 ifQ(1021)
 .answered(1)
 .andifQ(1541)
 .greaterThan(2700)
 .setValue(Q(1471), 2);
-
 
 //*******************************
 // OVERALL SATISFACTION - End
