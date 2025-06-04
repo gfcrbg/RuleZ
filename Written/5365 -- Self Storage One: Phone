@@ -1,8 +1,10 @@
 //*******************************	
 // CID: 962	
 // SID: 5365	
-// Last Updated: 5/30/2025
+// Last Updated: 6/4/2025
 //*******************************	
+
+
 
 
 // If QIDs [11 AND 71] are answered, then trigger math operation: [71] - [11] = [611]
@@ -40,13 +42,10 @@ ifQ(91)
 .greaterThanOrEqual(7)
 .setValue(Q(521), 3);
 
-// If QID 91 is not answered then clear answer to QID 521.
-ifQ(91)
-.notAnswered()
-.clearAnswer(Q(521));
-
 // If QID 531 is <= 30 seconds, then set value to Option 1 to QID 541.
 ifQ(531)
+.answered()
+.andifQ(531)
 .lessThanOrEqual(30)
 .setValue(Q(541), 1);
 
@@ -75,11 +74,6 @@ ifQ(531)
 ifQ(531)
 .greaterThan(120)
 .setValue(Q(541), 5);
-
-// If QID 531 is not answered, then clear answer to QID 541.
-ifQ(531)
-.notAnswered()
-.clearAnswer(Q(541));
 
 // If QID 551 is answered Option 2, then disappear and clear answer to QID 571.
 ifQ(551)
