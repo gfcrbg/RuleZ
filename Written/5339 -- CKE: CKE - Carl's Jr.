@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 5/21/2025	
+// Last Updated: 6/5/2025	
 //*******************************	
 
 
@@ -29,18 +29,18 @@ ifQ(41)
 .answered(2,3,4,5,6)
 .setValue(Q(1751), 2);
 
-// If QID 11 is answered Option 1, then disappear and clear answer to QID 31.
+// If QID 11 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(1)
-.disappear(Q(31))
-.clearAnswer(Q(31));
+.disappear(Q(31), Q(1951))
+.clearAnswer(Q(31), Q(1951));
 
 // If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(2)
 .disappear(Q(1821)) // red remark
-.disappear(Q(61), Q(81), Q(101))
-.clearAnswer(Q(61), Q(81), Q(101));
+.disappear(Q(61), Q(1811), Q(81), Q(101))
+.clearAnswer(Q(61), Q(1811), Q(81), Q(101));
 
 // If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
 ifQ(81)
@@ -59,7 +59,7 @@ ifQ(81)
 ifQ(11)
 .answered(2)
 .disappear(Q(111)) // medium header
-.disappear(Q(1721), Q(1651)) // red remarks
+.disappear(Q(1721), Q(1861), Q(1651)) // red remarks
 .disappear(Q(1051), Q(1731), Q(1741), Q(131), Q(1041), Q(1781))
 .clearAnswer(Q(1051), Q(1731), Q(1741), Q(131), Q(1041), Q(1781));
 
@@ -84,6 +84,7 @@ ifQ(131)
 ifQ(11)
 .answered(2)
 .disappear(Q(281)) // medium header
+.disappear(Q(1871)) // red remark
 .disappear(Q(1061), Q(751))
 .clearAnswer(Q(1061), Q(751));
 
@@ -138,6 +139,7 @@ ifQ(1161)
 ifQ(11)
 .answered(2)
 .disappear(Q(1491)) // medium header
+.disappear(Q(1881)) // red remark
 .disappear(Q(861), Q(1511), Q(821), Q(831), Q(1561), Q(901), Q(1541), Q(1551), Q(911), Q(1791), Q(1621), Q(1101), Q(1601), Q(1641), Q(921))
 .clearAnswer(Q(861), Q(1511), Q(821), Q(831), Q(1561), Q(901), Q(1541), Q(1551), Q(911), Q(1791), Q(1621), Q(1101), Q(1601), Q(1641), Q(921));
 
@@ -274,7 +276,7 @@ ifQ(1011)
 ifQ(11)
 .answered(2)
 .disappear(Q(1081)) // medium header
-.disappear(Q(1771)) // red remark
+.disappear(Q(1891), Q(1901), Q(1771)) // red remark
 .disappear(Q(1381), Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(331))
 .clearAnswer(Q(1381), Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(331)); 
 
