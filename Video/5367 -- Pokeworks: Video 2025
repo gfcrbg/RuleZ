@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 961
 // SID: 5367	
-// Last Updated: 5/20/2025
+// Last Updated: 6/13/2025
 //*******************************	
 
 
@@ -142,18 +142,18 @@ ifQ(441)
 .sub(Q(781), Q(751))
 .store(Q(801));
 
-// If QID 441 is answered Option 1 AND if QID 791 is <= 5 minutes, then set value to Option 1 to QID 461.
+// If QID 441 is answered Option 1 AND if QID 791 is <= 5 seconds, then set value to Option 1 to QID 461.
 ifQ(441)
 .answered(1)
 .andifQ(791)
-.lessThanOrEqual(300)
+.lessThanOrEqual(5)
 .setValue(Q(461), 1);
 
-// If QID 441 is answered Option 1 AND if QID 791 is > 5 minutes, then set value to Option 2 to QID 461.
+// If QID 441 is answered Option 1 AND if QID 791 is > 5 seconds, then set value to Option 2 to QID 461.
 ifQ(441)
 .answered(1)
 .andifQ(791)
-.greaterThan(300)
+.greaterThan(5)
 .setValue(Q(461), 2);
 
 // If QID 441 is answered Option 1 AND if QIDs [781 AND 1011] are answered, then trigger math operation: [1011] - [781] = [1021].
