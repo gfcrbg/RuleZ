@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 962	
 // SID: 5365	
-// Last Updated: 6/4/2025
+// Last Updated: 6/17/2025
 //*******************************	
 
 
@@ -42,36 +42,51 @@ ifQ(91)
 .greaterThanOrEqual(7)
 .setValue(Q(521), 3);
 
-// If QID 531 is <= 30 seconds, then set value to Option 1 to QID 541.
-ifQ(531)
-.answered()
+// If QID 731 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(731)
+.answered(2)
+.disappear(Q(721)) // red remark
+.disappear(Q(531), Q(541))
+.clearAnswer(Q(531), Q(541));
+
+// If QID 731 is answered Option 1 AND if QID 531 is <= 30 seconds, then set value to Option 1 to QID 541.
+ifQ(731)
+.answered(1)
 .andifQ(531)
 .lessThanOrEqual(30)
 .setValue(Q(541), 1);
 
-// If QID 531 is > 30 seconds AND <= 1 minute, then set value to Option 2 to QID 541.
-ifQ(531)
+// If QID 731 is answered Option 1 AND if QID 531 is > 30 seconds AND <= 1 minute, then set value to Option 2 to QID 541.
+ifQ(731)
+.answered(1)
+.andifQ(531)
 .greaterThan(30)
 .andifQ(531)
 .lessThanOrEqual(60)
 .setValue(Q(541), 2);
 
-// If QID 531 is > 1 minute AND <= 1.5 minutes, then set value to Option 3 to QID 541.
-ifQ(531)
+// If QID 731 is answered Option 1 AND if QID 531 is > 1 minute AND <= 1.5 minutes, then set value to Option 3 to QID 541.
+ifQ(731)
+.answered(1)
+.andifQ(531)
 .greaterThan(60)
 .andifQ(531)
 .lessThanOrEqual(90)
 .setValue(Q(541), 3);
 
-// If QID 531 is > 1.5 minutes AND <= 2 minutes, then set value to Option 4 to QID 541.
-ifQ(531)
+// If QID 731 is answered Option 1 AND if QID 531 is > 1.5 minutes AND <= 2 minutes, then set value to Option 4 to QID 541.
+ifQ(731)
+.answered(1)
+.andifQ(531)
 .greaterThan(90)
 .andifQ(531)
 .lessThanOrEqual(120)
 .setValue(Q(541), 4);
 
-// If QID 531 is > 2 minutes, then set value to Option 5 to QID 541.
-ifQ(531)
+// If QID 731 is answered Option 1 AND if QID 531 is > 2 minutes, then set value to Option 5 to QID 541.
+ifQ(731)
+.answered(1)
+.andifQ(531)
 .greaterThan(120)
 .setValue(Q(541), 5);
 
