@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 819	
 // SID: 5228	
-// Last Updated: 5/12/2025	
+// Last Updated: 6/23/2025	
 //*******************************	
 
 
@@ -39,8 +39,8 @@ ifQ(551)
 .answered(2)
 .disappear(Q(101))  // medium header
 .disappear(Q(1051)) // black remark
-.disappear(Q(681), Q(701), Q(1031), Q(851), Q(121), Q(131), Q(171), Q(261), Q(991), Q(791), Q(721), Q(811), Q(731), Q(1001), Q(1011))
-.clearAnswer(Q(681), Q(701), Q(1031), Q(851), Q(121), Q(131), Q(171), Q(261), Q(991), Q(791), Q(721), Q(811), Q(731), Q(1001), Q(1011));
+.disappear(Q(681), Q(701), Q(1031), Q(851), Q(121), Q(131), Q(1091), Q(1101), Q(171), Q(261), Q(991), Q(791), Q(721), Q(811), Q(731), Q(1001), Q(1011))
+.clearAnswer(Q(681), Q(701), Q(1031), Q(851), Q(121), Q(131), Q(1091), Q(1101), Q(171), Q(261), Q(991), Q(791), Q(721), Q(811), Q(731), Q(1001), Q(1011));
 
 // If QID 551 is answered Option 1 AND if QIDs [681 AND 701] are answered, then trigger math operation: [701] - [681] = [1031].
 ifQ(551)
@@ -65,6 +65,16 @@ ifQ(551)
 .andifQ(1031)
 .greaterThan(60)
 .setValue(Q(851), 2);
+
+// If QID 551 is answered Option 1 AND if QIDs [681 AND 1091] are answered, then trigger math operation: [1091] - [681] = [1101].
+ifQ(551)
+.answered(1)
+.andifQ(681)
+.answered()
+.andifQ(1091)
+.answered()
+.sub(Q(1091), Q(681))
+.store(Q(1101));
 
 //-------------------------------------------
 // Order Ready Time - Begin
@@ -120,8 +130,8 @@ ifQ(551)
 ifQ(551)
 .answered(2)
 .disappear(Q(741)) // medium header
-.disappear(Q(281), Q(291), Q(831), Q(311))
-.clearAnswer(Q(281), Q(291), Q(831), Q(311));
+.disappear(Q(281), Q(291), Q(831), Q(311), Q(1071))
+.clearAnswer(Q(281), Q(291), Q(831), Q(311), Q(1071));
 
 // If QID 281 is answered Option [0 OR 1], then disappear and clear answer to QID 771.
 ifQ(281)
@@ -223,6 +233,7 @@ ifQ(931)
 ifQ(551)
 .answered(2)
 .disappear(Q(401))  // medium header
+.disappear(Q(1081)) // black remark
 .disappear(Q(411), Q(441))
 .clearAnswer(Q(411), Q(441));
 
