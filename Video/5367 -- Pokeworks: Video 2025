@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 961
 // SID: 5367	
-// Last Updated: 6/13/2025
+// Last Updated: 6/24/2025
 //*******************************	
 
 
@@ -49,8 +49,14 @@ ifQ(441)
 // If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(441)
 .answered(2)
-.disappear(Q(51), Q(61), Q(71))
-.clearAnswer(Q(51), Q(61), Q(71));
+.disappear(Q(51), Q(61), Q(71), Q(1331))
+.clearAnswer(Q(51), Q(61), Q(71), Q(1331));
+
+// If QID 1331 is answered Option [0 OR 1], then disappear and clear answer to QID 1341.
+ifQ(1331)
+.answered(0,1)
+.disappear(Q(1341))
+.clearAnswer(Q(1341));
 
 
 
