@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 791	
 // SID: 4878	
-// Last Updated: 5/9/2025	
+// Last Updated: 6/27/2025	
 //*******************************	
 
 
@@ -11,8 +11,16 @@
 // BEEF SHOPPE - Begin
 //*******************************
 
-// If QID 1421 is answered Option 2, then disappear and clear answer to QID 1431.
-ifQ(1421)
+// If QID 1881 is not answered Option [1, 2, OR 3], then disappear and clear answer to QID 1891.
+ifQ(1881)
+.notAnswered(1,2,3)
+.disappear(Q(1891))
+.clearAnswer(Q(1891));
+
+// If shop date is before July 6, 2025 AND if QID 1421 is answered Option 2, then disappear and clear answer to QID 1431.
+ifQ()
+.dateBefore('2025-07-06')
+.andifQ(1421)
 .answered(2)
 .disappear(Q(1431))
 .clearAnswer(Q(1431));
@@ -65,23 +73,51 @@ ifQ(1861)
 .answered(2)
 .setValue(Q(1871), 2);
 
-// If QID 1421 is answered Option 1, then set value to Option 1 to QID 1611.
-ifQ(1421)
+// If QID 1891 is answered Option [1, 2, OR 3], then set value to Option 1 to QID 1611.
+ifQ(1891)
+.answered(1,2,3)
+.setValue(Q(1611), 1);
+
+// If QID 1891 is not answered Option [1, 2, OR 3], then set value to Option 2 to QID 1611.
+ifQ(1891)
+.notAnswered(1,2,3)
+.setValue(Q(1611), 2);
+
+// If QID 1891 is answered Option 4, then set value to Option 1 to QID 1621.
+ifQ(1891)
+.answered(4)
+.setValue(Q(1621), 1);
+
+// If QID 1891 is not answered Option 4, then set value to Option 2 to QID 1621.
+ifQ(1891)
+.notAnswered(4)
+.setValue(Q(1621), 2);
+
+// If shop date is before July 6, 2025 AND if QID 1421 is answered Option 1, then set value to Option 1 to QID 1611.
+ifQ()
+.dateBefore('2025-07-06')
+.andifQ(1421)
 .answered(1)
 .setValue(Q(1611), 1);
 
-// If QID 1421 is answered Option 2, then set value to Option 2 to QID 1611.
-ifQ(1421)
+// If shop date is before July 6, 2025 AND if QID 1421 is answered Option 2, then set value to Option 2 to QID 1611.
+ifQ()
+.dateBefore('2025-07-06')
+.andifQ(1421)
 .answered(2)
 .setValue(Q(1611), 2);
 
-// If QID 391 is answered Option 1, then set value to Option 1 to QID 1621.
-ifQ(391)
+// If shop date is before July 6, 2025 AND if If QID 391 is answered Option 1, then set value to Option 1 to QID 1621.
+ifQ()
+.dateBefore('2025-07-06')
+.andifQ(391)
 .answered(1)
 .setValue(Q(1621), 1);
 
-// If QID 391 is answered Option 2, then set value to Option 2 to QID 1621.
-ifQ(391)
+// If shop date is before July 6, 2025 AND if QID 391 is answered Option 2, then set value to Option 2 to QID 1621.
+ifQ()
+.dateBefore('2025-07-06')
+.andifQ(391)
 .answered(2)
 .setValue(Q(1621), 2);
 
