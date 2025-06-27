@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954	
 // SID: 5331	
-// Last Updated: 5/29/2025	
+// Last Updated: 6/27/2025	
 //**********************************	
 
 
@@ -21,6 +21,9 @@ ifQ(1092)
 .disappear(Q(61), Q(71), Q(81))
 .clearAnswer(Q(61), Q(71), Q(81));
 
+
+
+
 //*******************************
 // THE PERFECT BOX - Begin
 //*******************************
@@ -29,14 +32,20 @@ ifQ(1092)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1132)) // medium header
-.disappear(Q(1142), Q(1162), Q(1182), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(1282), Q(1292), Q(2142), Q(1312), Q(1322))
-.clearAnswer(Q(1142), Q(1162), Q(1182), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(1282), Q(1292), Q(2142), Q(1312), Q(1322));
+.disappear(Q(1142), Q(2222), Q(1182), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(2202), Q(1282), Q(1292), Q(2142), Q(2212), Q(1322))
+.clearAnswer(Q(1142), Q(2222), Q(1182), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(2202), Q(1282), Q(1292), Q(2142), Q(2212), Q(1322));
 
-// If QID 1162 is answered Option [0 OR 1], then disappear and clear answer to QID 1172.
-ifQ(1162)
-.answered(0,1)
-.disappear(Q(1172))
-.clearAnswer(Q(1172));
+// If QID 2222 is answered Option [1, 2, 3, 4, 5, AND 6], then set value to Option 1 to QID 2262.
+ifQ(2222)
+.answered([1,2,3,4,5,6])
+.setValue(Q(2262), 1);
+
+// If QID 1092 is answered Option 1 AND if QID 2222 is not answered Option [1, 2, 3, 4, 5, AND 6], then set value to Option 2 to QID 2262.
+ifQ(1092)
+.answered(1)
+.andifQ(2222)
+.notAnswered([1,2,3,4,5,6])
+.setValue(Q(2262), 2);
 
 // If QID 1202 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1212.
 ifQ(1202)
@@ -98,17 +107,17 @@ ifQ(1092)
 .notAnswered([1,2,3])
 .setValue(Q(1292), 2);
 
-// If QID 2142 is answered Option [1 OR 2], then set value to Option 1 to QID 1312.
+// If QID 2142 is answered Option [1 OR 2], then set value to Option 1 to QID 2212.
 ifQ(2142)
 .answered([1,2])
-.setValue(Q(1312), 1);
+.setValue(Q(2212), 1);
 
-// If QID 1092 is answered Option 1 AND if QID 2142 is not answered Option [1 OR 2], then set value to Option 2 to QID 1312.
+// If QID 1092 is answered Option 1 AND if QID 2142 is not answered Option [1 OR 2], then set value to Option 2 to QID 2212.
 ifQ(1092)
 .answered(1)
 .andifQ(2142)
 .notAnswered([1,2])
-.setValue(Q(1312), 2);
+.setValue(Q(2212), 2);
 
 //*******************************
 // THE PERFECT BOX - End
@@ -126,8 +135,8 @@ ifQ(1092)
 .answered(2)
 .disappear(Q(1332)) // medium header
 .disappear(Q(1992)) // black remark
-.disappear(Q(1342), Q(1362), Q(1982), Q(2152), Q(1382), Q(1392), Q(1402), Q(1962))
-.clearAnswer(Q(1342), Q(1362), Q(1982), Q(2152), Q(1382), Q(1392), Q(1402), Q(1962));
+.disappear(Q(1342), Q(1362), Q(1982), Q(2152), Q(1382), Q(1392), Q(2232), Q(1962))
+.clearAnswer(Q(1342), Q(1362), Q(1982), Q(2152), Q(1382), Q(1392), Q(2232), Q(1962));
 
 // If QID 2152 is not answered Option 1, then disappear and clear answer to QID 1372.
 ifQ(2152)
@@ -135,46 +144,55 @@ ifQ(2152)
 .disappear(Q(1372))
 .clearAnswer(Q(1372));
 
-// If QID 1092 is answered Option 1 AND if QID 1392 is <= 2:30 minutes, then set value to Option 1 to QID 1402.
+// If QID 1092 is answered Option 1 AND if QID 1392 is <= 2:30 minutes, then set value to Option 1 to QID 2232.
 ifQ(1092)
 .answered(1)
 .andifQ(1392)
 .lessThanOrEqual(150)
-.setValue(Q(1402), 1);
+.setValue(Q(2232), 1);
 
-// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:30 minutes AND <= 2:35 minutes, then set value to Option 2 to QID 1402.
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:30 minutes AND <= 2:35 minutes, then set value to Option 2 to QID 2232.
 ifQ(1092)
 .answered(1)
 .andifQ(1392)
 .greaterThan(150)
 .andifQ(1392)
 .lessThanOrEqual(155)
-.setValue(Q(1402), 2);
+.setValue(Q(2232), 2);
 
-// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:35 minutes AND <= 2:45 minutes, then set value to Option 3 to QID 1402.
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:35 minutes AND <= 2:45 minutes, then set value to Option 3 to QID 2232.
 ifQ(1092)
 .answered(1)
 .andifQ(1392)
 .greaterThan(155)
 .andifQ(1392)
 .lessThanOrEqual(165)
-.setValue(Q(1402), 3);
+.setValue(Q(2232), 3);
 
-// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:45 minutes AND <= 4 minutes, then set value to Option 4 to QID 1402.
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 2:45 minutes AND <= 4 minutes, then set value to Option 4 to QID 2232.
 ifQ(1092)
 .answered(1)
 .andifQ(1392)
 .greaterThan(165)
 .andifQ(1392)
 .lessThanOrEqual(240)
-.setValue(Q(1402), 4);
+.setValue(Q(2232), 4);
 
-// If QID 1092 is answered Option 1 AND if QID 1392 is > 4 minutes, then set value to Option 5 to QID 1402.
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 4 minutes AND <= 6 minutes, then set value to Option 5 to QID 2232.
 ifQ(1092)
 .answered(1)
 .andifQ(1392)
 .greaterThan(240)
-.setValue(Q(1402), 5);
+.andifQ(1392)
+.lessThanOrEqual(360)
+.setValue(Q(2232), 5);
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 6 minutes, then set value to Option 6 to QID 2232.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(360)
+.setValue(Q(2232), 6);
 
 //*******************************
 // FAST - End
@@ -191,8 +209,8 @@ ifQ(1092)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1412)) // medium header
-.disappear(Q(1422), Q(1442), Q(1972), Q(1852), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(1862), Q(1872), Q(1542), Q(1552), Q(1562), Q(1572))
-.clearAnswer(Q(1422), Q(1442), Q(1972), Q(1852), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(1862), Q(1872), Q(1542), Q(1552), Q(1562), Q(1572));
+.disappear(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1562), Q(1572))
+.clearAnswer(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1562), Q(1572));
 
 // If QID 1402 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 1522.
 ifQ(1402)
@@ -200,29 +218,41 @@ ifQ(1402)
 .disappear(Q(1522))
 .clearAnswer(Q(1522));
 
-// If QID 1972 is answered Option [1, 2, 3, 4, AND 5], then set value to Option 1 to QID 1852.
-ifQ(1972)
-.answered([1,2,3,4,5])
+// If QID 2172 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 1852.
+ifQ(2172)
+.answered([1,2,3,4])
 .setValue(Q(1852), 1);
 
-// If QID 1092 is answered Option 1 AND if QID 1972 is not answered Option [1, 2, 3, 4, AND 5], then set value to Option 2 to QID 1852.
+// If QID 1092 is answered Option 1 AND if QID 2172 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1852.
 ifQ(1092)
 .answered(1)
-.andifQ(1972)
-.notAnswered([1,2,3,4,5])
+.andifQ(2172)
+.notAnswered([1,2,3,4])
 .setValue(Q(1852), 2);
 
-// If QID 1862 is answered Option [1, 2, 3, 4, AND 5], then set value to Option 1 to QID 1872.
-ifQ(1862)
-.answered([1,2,3,4,5])
+// If QID 2161 is answered Option [0 OR 2], then disappear and clear answer to QID 2272.
+ifQ(2162)
+.answered(0,2)
+.disappear(Q(2272))
+.clearAnswer(Q(2272));
+
+// If QID 2182 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 1872.
+ifQ(2182)
+.answered([1,2,3,4])
 .setValue(Q(1872), 1);
 
-// If QID 1092 is answered Option 1 AND if QID 1862 is not answered Option [1, 2, 3, 4, AND 5], then set value to Option 2 to QID 1872.
+// If QID 1092 is answered Option 1 AND if QID 2182 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1872.
 ifQ(1092)
 .answered(1)
-.andifQ(1862)
-.notAnswered([1,2,3,4,5])
+.andifQ(2182)
+.notAnswered([1,2,3,4])
 .setValue(Q(1872), 2);
+
+// If QID 2192 is answered Option [0 OR 2], then disappear and clear answer to QID 2282.
+ifQ(2192)
+.answered(0,2)
+.disappear(Q(2282))
+.clearAnswer(Q(2282));
 
 //*******************************
 // FRIENDLY - End
@@ -239,8 +269,8 @@ ifQ(1092)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1582)) // medium header
-.disappear(Q(1592), Q(1612), Q(1622), Q(1672), Q(1682), Q(1692), Q(1702), Q(1712), Q(1792))
-.clearAnswer(Q(1592), Q(1612), Q(1622), Q(1672), Q(1682), Q(1692), Q(1702), Q(1712), Q(1792));
+.disappear(Q(1592), Q(1612), Q(1622), Q(1672), Q(1682), Q(2242), Q(1702), Q(2252), Q(1712), Q(1792))
+.clearAnswer(Q(1592), Q(1612), Q(1622), Q(1672), Q(1682), Q(2242), Q(1702), Q(2252), Q(1712), Q(1792));
 
 // If QID 1612 is answered Option [1 AND 2], then set value to Option 1 to QID 1622.
 ifQ(1612)
@@ -266,15 +296,15 @@ ifQ(1092)
 .notAnswered([1,2,3])
 .setValue(Q(1682), 2);
 
-// If QID 1692 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1702.
-ifQ(1692)
+// If QID 2242 is answered Option [1, 2, AND 3], then set value to Option 1 to QID 1702.
+ifQ(2242)
 .answered([1,2,3])
 .setValue(Q(1702), 1);
 
-// If QID 1092 is answered Option 1 AND if QID 1692 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1702.
+// If QID 1092 is answered Option 1 AND if QID 2242 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1702.
 ifQ(1092)
 .answered(1)
-.andifQ(1692)
+.andifQ(2242)
 .notAnswered([1,2,3])
 .setValue(Q(1702), 2);
 
