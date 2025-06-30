@@ -1,0 +1,62 @@
+//*******************************	
+// CID: 927	
+// SID: 5379	
+// Last Updated: 6/30/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// ORDER BY PHONE - Begin
+//*******************************
+
+// If QID 151 is answered Option 2, then disappear and clear answer to QID 161.
+ifQ(151)
+.answered(2)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+//*******************************
+// ORDER BY PHONE - End
+//*******************************
+
+
+
+
+//*******************************
+// PICK-UP - Begin
+//*******************************
+
+// If QID 201 is answered Option 1, then disappear and clear answer to QID 211.
+ifQ(201)
+.answered(1)
+.disappear(Q(211))
+.clearAnswer(Q(211));
+
+//*******************************
+// PICK-UP - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER ACCURACY - Begin
+//*******************************
+
+// If QID 661 is answered Option 1, then disappear and clear answer to QID 401.
+ifQ(661)
+.answered(1)
+.disappear(Q(401))
+.clearAnswer(Q(401));
+
+// If QID 411 is answered Option 2, then disappear and clear answer to QID 421.
+ifQ(411)
+.answered(2)
+.disappear(Q(421))
+.clearAnswer(Q(421));
+
+//*******************************
+// ORDER ACCURACY - End
+//*******************************
