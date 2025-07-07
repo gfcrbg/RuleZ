@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 786
 // SID: 5249	
-// Last Updated: 5/21/2025	
+// Last Updated: 6/30/2025	
 //*******************************	
 
 
@@ -34,8 +34,8 @@ ifQ(1411)
 .disappear(Q(131)) // big header
 .disappear(Q(1171)) // medium header
 .disappear(Q(201)) // black remark
-.disappear(Q(931), Q(941), Q(191), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(1141), Q(1151), Q(1161), Q(1121), Q(1111), Q(301))
-.clearAnswer(Q(931), Q(941), Q(191), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(1141), Q(1151), Q(1161), Q(1121), Q(1111), Q(301));
+.disappear(Q(931), Q(941), Q(191), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(1141), Q(1431), Q(1161), Q(1121), Q(1111), Q(301))
+.clearAnswer(Q(931), Q(941), Q(191), Q(211), Q(221), Q(231), Q(241), Q(251), Q(261), Q(1141), Q(1431), Q(1161), Q(1121), Q(1111), Q(301));
 
 // If QID 1411 is answered Option 1 AND if QIDs [211 AND 221] are answered, then trigger math operation: [221] - [211] = [231].
 ifQ(1411)
