@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 930	
 // SID: 5231
-// Last Updated: 9/20/2024	
+// Last Updated: 7/7/2025	
 //**********************************	
 
 
@@ -105,6 +105,12 @@ ifQ(1192)
 .disappear(Q(1622)) // red remark
 .disappear(Q(1542), Q(1162), Q(1672), Q(551), Q(251), Q(732), Q(1642), Q(1612))
 .clearAnswer(Q(1542), Q(1162), Q(1672), Q(551), Q(251), Q(732), Q(1642), Q(1612));
+
+// If QID 1162 is answered Option [0 OR 2], then disappear and clear answer to QID 1672.
+ifQ(1162)
+.answered(0,2)
+.disappear(Q(1672))
+.clearAnswer(Q(1672));
 
 // If QID 581 and QID 551 are answered, then trigger math operation: [551] - [581] = [251]
 ifQ(1192)
