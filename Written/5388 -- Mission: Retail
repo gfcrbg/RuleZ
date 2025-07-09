@@ -1,0 +1,102 @@
+//*******************************	
+// CID: 971	
+// SID: 5388	
+// Last Updated: 7/9/2025	
+//*******************************	
+
+
+
+
+// Primary QID: 21
+
+// If QID 21 is answered Option 1, then disappear and clear answer to QID 91.
+ifQ(21)
+.answered(1)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+// If QID 21 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(21)
+.answered(2)
+.disappear(Q(331), Q(51))
+.clearAnswer(Q(331), Q(51));
+
+
+
+
+//*******************************
+// PRODUCT PLACEMENT/
+// STOCKING - Begin
+//*******************************
+
+// If QID 21 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(21)
+.answered(2)
+.disappear(Q(141)) // medium header
+.disappear(Q(151), Q(161), Q(171), Q(181), Q(191))
+.clearAnswer(Q(151), Q(161), Q(171), Q(181), Q(191));
+
+//*******************************
+// PRODUCT PLACEMENT/
+// STOCKING  - End
+//*******************************
+
+
+
+
+//*******************************
+// MERCHANDISING - Begin
+//*******************************
+
+// If QID 21 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(21)
+.answered(2)
+.disappear(Q(111)) // medium header 
+.disappear(Q(121), Q(131), Q(261))
+.clearAnswer(Q(121), Q(131), Q(261));
+
+// If QID 261 is answered Option [0 OR 1], then disappear and clear answer to QID 271.
+ifQ(261)
+.answered(0,1)
+.disappear(Q(271))
+.clearAnswer(Q(271));
+
+//*******************************
+// MERCHANDISING - End
+//*******************************
+
+
+
+
+//*******************************
+// PACKAGING - Begin
+//*******************************
+
+// If QID 21 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(21)
+.answered(2)
+.disappear(Q(201)) // medium header
+.disappear(Q(351), Q(211), Q(221), Q(231))
+.clearAnswer(Q(351), Q(211), Q(221), Q(231));
+
+//*******************************
+// PACKAGING - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL - Begin
+//*******************************
+
+// If QID 21 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(21)
+.answered(2)
+.disappear(Q(241)) // medium header
+.disappear(Q(281), Q(291), Q(301), Q(251))
+.clearAnswer(Q(281), Q(291), Q(301), Q(251));
+
+//*******************************
+// OVERALL - End
+//*******************************
