@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 888
 // SID: 5093	
-// Last Updated: 2/13/2024
+// Last Updated: 7/10/2025
 //*******************************	
 
 
@@ -14,8 +14,8 @@
 // If QID 211 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(211)
 .answered(2,3)
-.disappear(Q(221), Q(231), Q(251), Q(261))
-.clearAnswer(Q(221), Q(231), Q(251), Q(261));
+.disappear(Q(221), Q(231))
+.clearAnswer(Q(221), Q(231));
 
 //*******************************
 // TELEPHONE CONTACT - End
