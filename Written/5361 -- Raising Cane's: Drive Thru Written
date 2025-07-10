@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954
 // SID: 5361	
-// Last Updated: 6/26/2025	
+// Last Updated: 7/10/2025	
 //**********************************	
 
 
@@ -9,6 +9,9 @@
 
 // Primary QID: 1092
 
+// Set value to "2025-08-19" to QID 2442.
+ifQ()
+.setValue(Q(2442), "2025-08-19");
 
 // If QID 1092 is answered Option 1, then disappear and clear answer to QID 1102.
 ifQ(1092)
@@ -218,20 +221,29 @@ ifQ(1092)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1412)) // medium header
-.disappear(Q(1422), Q(2302), Q(2312), Q(1482), Q(2012), Q(1532), Q(2022), Q(2032), Q(2322), Q(1872), Q(2332), Q(1542), Q(1552), Q(1572))
-.clearAnswer(Q(1422), Q(2302), Q(2312), Q(1482), Q(2012), Q(1532), Q(2022), Q(2032), Q(2322), Q(1872), Q(2332), Q(1542), Q(1552), Q(1572));
+.disappear(Q(1422), Q(2302), Q(2312), Q(1482), Q(2012), Q(1532), Q(2022), Q(2032), Q(1852), Q(2322), Q(1872), Q(2332), Q(1542), Q(1552), Q(1572))
+.clearAnswer(Q(1422), Q(2302), Q(2312), Q(1482), Q(2012), Q(1532), Q(2022), Q(2032), Q(1852), Q(2322), Q(1872), Q(2332), Q(1542), Q(1552), Q(1572));
 
-// If QID 1992 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+// If QID 1992 is answered Option [0 OR 1], then disappear and clear answer to QID 2002.
 ifQ(1992)
 .answered(0,1)
-.disappear(Q(2002), Q(1852))
-.clearAnswer(Q(2002), Q(1852));
+.disappear(Q(2002))
+.clearAnswer(Q(2002));
 
-// If QID 2392is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 1522.
-ifQ(2392)
-.answered(0,1,2,3,4)
+// If QID 1092 is answered Option 1 AND if QID 1392 is <= 4 minutes, then disappear and clear answer to QID 1522.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.lessThanOrEqual(240)
 .disappear(Q(1522))
 .clearAnswer(Q(1522));
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 4 minutes, then appear QID 1522.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(240)
+.appear(Q(1522));
 
 // If QID 2302 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 1852.
 ifQ(2302)
