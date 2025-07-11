@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954	
 // SID: 5331	
-// Last Updated: 7/10/2025	
+// Last Updated: 7/11/2025	
 //**********************************	
 
 
@@ -22,8 +22,8 @@ ifQ(1092)
 // If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1092)
 .answered(2)
-.disappear(Q(2292), Q(61), Q(71), Q(81))
-.clearAnswer(Q(2292), Q(61), Q(71), Q(81));
+.disappear(Q(61), Q(71), Q(81))
+.clearAnswer(Q(61), Q(71), Q(81));
 
 
 
@@ -36,14 +36,8 @@ ifQ(1092)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1132)) // medium header
-.disappear(Q(1142), Q(2222), Q(2262), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(2202), Q(1282), Q(1292), Q(2212), Q(1322))
-.clearAnswer(Q(1142), Q(2222), Q(2262), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(2202), Q(1282), Q(1292), Q(2212), Q(1322));
-
-// If QID 2292 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(2292)
-.answered(0,2)
-.disappear(Q(1182), Q(2142))
-.clearAnswer(Q(1182), Q(2142));
+.disappear(Q(1142), Q(2222), Q(2262), Q(1182), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(2202), Q(1282), Q(1292), Q(2212), Q(1322))
+.clearAnswer(Q(1142), Q(2222), Q(2262), Q(1182), Q(1192), Q(1202), Q(1212), Q(1222), Q(1232), Q(1242), Q(1252), Q(1262), Q(1272), Q(2202), Q(1282), Q(1292), Q(2212), Q(1322));
 
 // If QID 2222 is answered Option [1, 2, 3, 4, 5, AND 6], then set value to Option 1 to QID 2262.
 ifQ(2222)
@@ -168,12 +162,6 @@ ifQ(2152)
 .greaterThan(3)
 .setValue(Q(1382), 2);
 
-//
-ifQ(2152)
-.answered(0,2)
-.disappear(Q(1382))
-.clearAnswer(Q(1382));
-
 // If QID 1092 is answered Option 1 AND if QID 1392 is <= 2:30 minutes, then set value to Option 1 to QID 2232.
 ifQ(1092)
 .answered(1)
@@ -239,17 +227,11 @@ ifQ(1092)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1412)) // medium header
-.disappear(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1572))
-.clearAnswer(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1572));
+.disappear(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1562), Q(1572))
+.clearAnswer(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1562), Q(1572));
 
-// If QID 2292 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(2292)
-.answered(0,2)
-.disappear(Q(1492), Q(1502), Q(1512), Q(1562))
-.clearAnswer(Q(1492), Q(1502), Q(1512), Q(1562));
-
-// If QID 1402 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 1522.
-ifQ(1402)
+// If QID 2232 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 1522.
+ifQ(2232)
 .answered(0,1,2,3,4)
 .disappear(Q(1522))
 .clearAnswer(Q(1522));
@@ -305,14 +287,8 @@ ifQ(2192)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1582)) // medium header
-.disappear(Q(1592), Q(1612), Q(1622), Q(1792))
-.clearAnswer(Q(1592), Q(1612), Q(1622), Q(1792));
-
-// If QID 2292 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(2292)
-.answered(0,2)
-.disappear(Q(1672), Q(1682), Q(2242), Q(1702), Q(2252), Q(1712))
-.clearAnswer(Q(1672), Q(1682), Q(2242), Q(1702), Q(2252), Q(1712));
+.disappear(Q(1592), Q(1672), Q(2242), Q(1712), Q(2252), Q(1612), Q(1622), Q(1792))
+.clearAnswer(Q(1592), Q(1672), Q(2242), Q(1712), Q(2252), Q(1612), Q(1622), Q(1792));
 
 // If QID 1612 is answered Option [1 AND 2], then set value to Option 1 to QID 1622.
 ifQ(1612)
@@ -331,8 +307,8 @@ ifQ(1672)
 .answered([1,2,3])
 .setValue(Q(1682), 1);
 
-// If QID 2292 is answered Option 1 AND if QID 1672 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1682.
-ifQ(2292)
+// If QID 1092 is answered Option 1 AND if QID 1672 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1682.
+ifQ(1092)
 .answered(1)
 .andifQ(1672)
 .notAnswered([1,2,3])
@@ -343,8 +319,8 @@ ifQ(2242)
 .answered([1,2,3])
 .setValue(Q(1702), 1);
 
-// If QID 2292 is answered Option 1 AND if QID 2242 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1702.
-ifQ(2292)
+// If QID 1092 is answered Option 1 AND if QID 2242 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1702.
+ifQ(1092)
 .answered(1)
 .andifQ(2242)
 .notAnswered([1,2,3])
@@ -373,8 +349,8 @@ ifQ(1742)
 .answered([1,2,3,4])
 .setValue(Q(1752), 1);
 
-// If QID 2292 is answered Option 1 AND if QID 1742 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1752.
-ifQ(2292)
+// If QID 1092 is answered Option 1 AND if QID 1742 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1752.
+ifQ(1092)
 .answered(1)
 .andifQ(1742)
 .notAnswered([1,2,3,4])
@@ -385,8 +361,8 @@ ifQ(1762)
 .answered([1,2,3])
 .setValue(Q(1782), 1);
 
-// If QID 2292 is answered Option 1, AND if QID 1762 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1782. 
-ifQ(2292)
+// If QID 1092 is answered Option 1, AND if QID 1762 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1782. 
+ifQ(1092)
 .answered(1)
 .andifQ(1762)
 .notAnswered([1,2,3])
@@ -407,14 +383,8 @@ ifQ(2292)
 ifQ(1092)
 .answered(2)
 .disappear(Q(1802)) // medium header
-.disappear(Q(1812), Q(1902))
-.clearAnswer(Q(1812), Q(1902));
-
-// If QID 2292 is answered Option [0 OR 2], then disappear and clear answer to QID 1912.
-ifQ(2292)
-.answered(0,2)
-.disappear(Q(1912))
-.clearAnswer(Q(1912));
+.disappear(Q(1812), Q(1902), Q(1912))
+.clearAnswer(Q(1812), Q(1902), Q(1912));
 
 // If QID 1902 is answered Option [0 OR 2], then disappear and clear answer to QID 2122.
 ifQ(1902)
