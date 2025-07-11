@@ -230,11 +230,20 @@ ifQ(1092)
 .disappear(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1562), Q(1572))
 .clearAnswer(Q(1422), Q(1442), Q(2172), Q(1852), Q(2162), Q(1482), Q(1492), Q(1502), Q(1512), Q(1532), Q(2182), Q(1872), Q(2192), Q(1542), Q(1552), Q(1562), Q(1572));
 
-// If QID 2232 is answered Option [0, 1, 2, 3, OR 4], then disappear and clear answer to QID 1522.
-ifQ(2232)
-.answered(0,1,2,3,4)
+// If QID 1092 is answered Option 1 AND if QID 1392 is <= 4 minutes, then disappear and clear answer to QID 1522.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.lessThanOrEqual(240)
 .disappear(Q(1522))
 .clearAnswer(Q(1522));
+
+// If QID 1092 is answered Option 1 AND if QID 1392 is > 4 minutes, then appear QID 1522.
+ifQ(1092)
+.answered(1)
+.andifQ(1392)
+.greaterThan(240)
+.appear(Q(1522));
 
 // If QID 2172 is answered Option [1, 2, 3, AND 4], then set value to Option 1 to QID 1852.
 ifQ(2172)
