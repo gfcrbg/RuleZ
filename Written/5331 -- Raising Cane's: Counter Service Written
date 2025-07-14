@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 954	
 // SID: 5331	
-// Last Updated: 7/11/2025	
+// Last Updated: 7/14/2025	
 //**********************************	
 
 
@@ -359,7 +359,7 @@ ifQ(1742)
 .setValue(Q(1752), 1);
 
 // If QID 1092 is answered Option 1 AND if QID 1742 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1752.
-ifQ(1092)
+ifQ(1712)
 .answered(1)
 .andifQ(1742)
 .notAnswered([1,2,3,4])
@@ -371,7 +371,7 @@ ifQ(1762)
 .setValue(Q(1782), 1);
 
 // If QID 1092 is answered Option 1, AND if QID 1762 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1782. 
-ifQ(1092)
+ifQ(1712)
 .answered(1)
 .andifQ(1762)
 .notAnswered([1,2,3])
