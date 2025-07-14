@@ -358,7 +358,7 @@ ifQ(1742)
 .answered([1,2,3,4])
 .setValue(Q(1752), 1);
 
-// If QID 1092 is answered Option 1 AND if QID 1742 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1752.
+// If QID 1712 is answered Option 1 AND if QID 1742 is not answered Option [1, 2, 3, AND 4], then set value to Option 2 to QID 1752.
 ifQ(1712)
 .answered(1)
 .andifQ(1742)
@@ -370,7 +370,7 @@ ifQ(1762)
 .answered([1,2,3])
 .setValue(Q(1782), 1);
 
-// If QID 1092 is answered Option 1, AND if QID 1762 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1782. 
+// If QID 1712 is answered Option 1, AND if QID 1762 is not answered Option [1, 2, AND 3], then set value to Option 2 to QID 1782. 
 ifQ(1712)
 .answered(1)
 .andifQ(1762)
