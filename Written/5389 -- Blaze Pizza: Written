@@ -1,0 +1,203 @@
+//*******************************	
+// CID: 967
+// SID: 5389	
+// Last Updated: 7/15/2025
+//*******************************	
+
+
+
+
+// Primary QID: 441
+
+// If QID 841 is >= 10:30 AND <= 14:00, then set value to Option 1 to QID 21.
+ifQ(841)
+.greaterThanOrEqual(37800)
+.andifQ(841)
+.lessThanOrEqual(50400)
+.setValue(Q(21), 1);
+
+// If QID 841 is >= 14:01 AND <= 17:00, then set value to Option 2 to QID 21.
+ifQ(841)
+.greaterThanOrEqual(50401)
+.andifQ(841)
+.lessThanOrEqual(61200)
+.setValue(Q(21), 2);
+
+// If QID 841 is >= 17:01 AND <= 20:00, then set value to Option 3 to QID 21.
+ifQ(841)
+.greaterThanOrEqual(61201)
+.andifQ(841)
+.lessThanOrEqual(72000)
+.setValue(Q(21), 3);
+
+// If QID 841 is > 20:00 AND < 10:30, then set value to Option 4 to QID 21.
+ifQ(841)
+.greaterThan(72000)
+.setValue(Q(21), 4);
+
+// If QID 441 is answered Option 1, then disappear and clear answer to QID 451.
+ifQ(441)
+.answered(1)
+.disappear(Q(451))
+.clearAnswer(Q(451));
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(2)
+.disappear(Q(51), Q(61), Q(71))
+.clearAnswer(Q(51), Q(61), Q(71));
+
+
+
+
+//*******************************
+// ATMOSPHERE & APPEARANCE - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(2)
+.disappear(Q(1731), Q(1191), Q(1291)) // red remarks
+.disappear(Q(1321)) // black remarks
+.disappear(Q(1261), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(1331), Q(741), Q(1601), Q(1471), Q(1141), Q(981), Q(971))
+.clearAnswer(Q(1261), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(1331), Q(741), Q(1601), Q(1471), Q(1141), Q(981), Q(971));
+
+// If QID 611 is answered Option [0 OR 1], then disappear and clear answer to QID 621.
+ifQ(611)
+.answered(0,1)
+.disappear(Q(621))
+.clearAnswer(Q(621));
+
+// If QID 621 is not answered Option 4, then disappear and clear answer to QID 631.
+ifQ(621)
+.notAnswered(4)
+.disappear(Q(631))
+.clearAnswer(Q(631));
+
+// If QID 611 is answered Option [0 OR 2], then disappear and clear answer to QID 671.
+ifQ(611)
+.answered(0,2)
+.disappear(Q(661)) // red remark
+.disappear(Q(671))
+.clearAnswer(Q(671));
+
+//*******************************
+// ATMOSPHERE & APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// HOSPITALITY - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(2)
+.disappear(Q(721)) // medium header
+.disappear(Q(1371), Q(1721)) // black remarks
+.disappear(Q(1451), Q(1461), Q(1181), Q(791), Q(461), Q(1161), Q(211), Q(471), Q(221), Q(1621), Q(1431), Q(491), Q(1521), Q(1021), Q(1581), Q(1501), Q(191), Q(1411))
+.clearAnswer(Q(1451), Q(1461), Q(1181), Q(791), Q(461), Q(1161), Q(211), Q(471), Q(221), Q(1621), Q(1431), Q(491), Q(1521), Q(1021), Q(1581), Q(1501), Q(191), Q(1411));
+
+// If QID 441 is answered Option 1 AND if QID 791 is <= 5 seconds, then set value to Option 1 to QID 461.
+ifQ(441)
+.answered(1)
+.andifQ(791)
+.lessThanOrEqual(5)
+.setValue(Q(461), 1);
+
+// If QID 441 is answered Option 1 AND if QID 791 is > 5 seconds, then set value to Option 2 to QID 461.
+ifQ(441)
+.answered(1)
+.andifQ(791)
+.greaterThan(5)
+.setValue(Q(461), 2);
+
+// If QID 471 is answered Option [0 OR 1], then disappear and clear answer to QID 1441.
+ifQ(471)
+.answered(0,1)
+.disappear(Q(1441))
+.clearAnswer(Q(1441));
+
+// If QID 1621 is answered Option [0 OR 1], then disappear and clear answer to QID 1631.
+ifQ(1621)
+.answered(0,1)
+.disappear(Q(1631))
+.clearAnswer(Q(1631));
+
+// If QID 441 is answered Option 1 AND if QID 1021 is <= 3 minutes, then set value to Option 1 to QID 1581.
+ifQ(441)
+.answered(1)
+.andifQ(1021)
+.lessThanOrEqual(180)
+.setValue(Q(1581), 1);
+
+// If QID 441 is answered Option 1 AND if QID 1021 is > 3 minutes AND <= 5 minutes, then set value to Option 2 to QID 1581.
+ifQ(441)
+.answered(1)
+.andifQ(1021)
+.greaterThan(180)
+.andifQ(1021)
+.lessThanOrEqual(300)
+.setValue(Q(1581), 2);
+
+// If QID 441 is answered Option 1 AND if QID 1021 is > 5 minutes, then set value to Option 3 to QID 1581.
+ifQ(441)
+.answered(1)
+.andifQ(1021)
+.greaterThan(300)
+.setValue(Q(1581), 3);
+
+//*******************************
+// HOSPITALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// QUALITY AND ACCURACY - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(441)
+.answered(2)
+.disappear(Q(231)) // medium header
+.disappear(Q(1351)) // black remark
+.disappear(Q(1211), Q(251), Q(1341), Q(1361), Q(271), Q(1381), Q(1391), Q(1401))
+.clearAnswer(Q(1211), Q(251), Q(1341), Q(1361), Q(271), Q(1381), Q(1391), Q(1401));
+
+// If QID 1211 is answered Option [0 OR 1], then disappear and clear answer to QID 1201.
+ifQ(1211)
+.answered(0,1)
+.disappear(Q(1201))
+.clearAnswer(Q(1201));
+
+// If QID 271 is answered Option [0 OR 1], then disappear and clear answer to QID 501.
+ifQ(271)
+.answered(0,1)
+.disappear(Q(501))
+.clearAnswer(Q(501));
+
+//*******************************
+// QUALITY AND ACCURACY - End
+//*******************************
+
+
+
+
+//*******************************
+// BONUS POINTS - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(2)
+.disappear(Q(1511)) // medium header
+.disappear(Q(1491), Q(1531), Q(1541), Q(1551), Q(1561), Q(1741), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681))
+.clearAnswer(Q(1491), Q(1531), Q(1541), Q(1551), Q(1561), Q(1741), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681));
+
+//*******************************
+// BONUS POINTS   - End
+//*******************************
