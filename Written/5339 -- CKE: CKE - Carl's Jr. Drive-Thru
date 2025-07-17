@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 7/14/2025	
+// Last Updated: 7/17/2025	
 //*******************************	
 
 
@@ -25,38 +25,67 @@ ifQ(11)
 .disappear(Q(31), Q(1951))
 .clearAnswer(Q(31), Q(1951));
 
-// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
+
+// rulez for the bright pink part
+// vvvvvvvvvvvvvvvvvvvvvvvv
+
+//
+ifQ(2041)
+.answered(1)
+.hideOptions(Q(2041), 2);
+
+//
+ifQ(2041)
+.answered(2)
+.hideOptions(Q(2041), 1);
+
+//
 ifQ(11)
 .answered(2)
-.disappear(Q(1821)) // red remark
-.disappear(Q(61), Q(2041), Q(81), Q(101))
-.clearAnswer(Q(61), Q(2041), Q(81), Q(101));
+.disappear(Q(2041), Q(101))
+.clearAnswer(Q(2041), Q(101));
 
-// If QID 2041 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+//
 ifQ(2041)
 .answered(0,2)
-.disappear(Q(2061)) // red remark
-.disappear(Q(1961), Q(2051), Q(1971), Q(1981))
-.clearAnswer(Q(1961), Q(2051), Q(1971), Q(1981));
+.disappear(Q(2051), Q(1981))
+.clearAnswer(Q(2051), Q(1981));
 
-// If QID 2051 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+//
 ifQ(2051)
 .answered(0,1)
 .disappear(Q(2061)) // red remark
-.disappear(Q(2071), Q(1811), Q(81))
-.clearAnswer(Q(2071), Q(1811), Q(81));
+.disappear(Q(2071))
+.clearAnswer(Q(2071));
 
-// If QID 1981 is answered Option [0 OR 1], then disappear and clear answer to QID 1991.
+//
+ifQ(2051)
+.answered(1)
+.setValue(Q(1811), 2);
+
+//
 ifQ(1981)
 .answered(0,1)
 .disappear(Q(1991))
 .clearAnswer(Q(1991));
 
-// If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
+//
+ifQ(2041)
+.answered(0,1)
+.andifQ(2051)
+.answered(1)
+.disappear(Q(81))
+.clearAnswer(Q(81));
+
+//
 ifQ(81)
 .answered(0,1)
 .disappear(Q(91))
 .clearAnswer(Q(91));
+
+
+// ^^^^^^^^^^^^^^^^^^
+// rulez for the bright pink part
 
 
 
@@ -290,6 +319,13 @@ ifQ(11)
 .disappear(Q(1381), Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(331), Q(1941))
 .clearAnswer(Q(1381), Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(331), Q(1941)); 
 
+// If QID 2041 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(2041)
+.answered(0,2)
+.disappear(Q(2081)) // red remark
+.disappear(Q(2001))
+.clearAnswer(Q(2001));
+
 // If QID 1381 is answered Option [0 OR 1], then disappear and clear answer to QID 1361.
 ifQ(1381)
 .answered(0,1)
@@ -338,24 +374,38 @@ ifQ(11)
 .notAnswered([1,2,3,4])
 .setValue(Q(1431), 2);
 
-// If QID 1971 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(1971)
+
+// rulez for the bright pink part
+// vvvvvvvvvvvvvvvvvvvvvvvv
+
+//
+ifQ(1981)
 .answered(0,2)
 .disappear(Q(2081)) // red remark
 .disappear(Q(2001), Q(2101), Q(2031))
 .clearAnswer(Q(2001), Q(2101), Q(2031));
 
-// If QID 2031 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+//
 ifQ(2031)
 .answered(0,1)
-.disappear(Q(2011), Q(2021))
-.clearAnswer(Q(2011), Q(2021));
+.disappear(Q(2011))
+.clearAnswer(Q(2011));
 
-// If QID 2011 is not answered Option 6, then disappear and clear answer to QID 2021.
+//
 ifQ(2011)
 .notAnswered(6)
 .disappear(Q(2021))
 .clearAnswer(Q(2021));
+
+//
+ifQ(1981)
+.answered(1)
+.disappear(Q(331))
+.clearAnswer(Q(331));
+
+// ^^^^^^^^^^^^^^^^^^
+// rulez for the bright pink part
+
 
 // If QID 331 is answered Option [0 OR 1], then disappear and clear answer to QID 681.
 ifQ(331)
@@ -368,56 +418,6 @@ ifQ(681)
 .notAnswered(5)
 .disappear(Q(1111))
 .clearAnswer(Q(1111));
-
-// If QID 1971 is answered Option 1 AND QID 1981 is answered Option 1, then make not required, disappear, and clear answer to QID 331.
-ifQ(1971)
-.answered(1)
-.andQ(1981)
-.answered(1)
-.makeNotRequired(Q(331))
-.disappear(Q(331))
-.clearAnswer(Q(331));
-
-// If QID 1971 is answered Option 2 AND QID 1981 is answered Option 1, then make not required, disappear, and clear answer to QIDs.
-ifQ(1971)
-.answered(2)
-.andQ(1981)
-.answered(1)
-.makeNotRequired(Q(2001), Q(2081), Q(2101), Q(2031))
-.disappear(Q(2001), Q(2081), Q(2101), Q(2031))
-.clearAnswer(Q(2001), Q(2081), Q(2101), Q(2031));
-
-// If QID 1971 is answered Option 2 AND QID 1981 is answered Option 2, then make not required, disappear, and clear answer to QIDs.
-ifQ(1971)
-.answered(2)
-.andQ(1981)
-.answered(2)
-.makeNotRequired(Q(2001), Q(2081), Q(2101), Q(2031))
-.disappear(Q(2001), Q(2081), Q(2101), Q(2031))
-.clearAnswer(Q(2001), Q(2081), Q(2101), Q(2031));
-
-// If QID 1961 is answered Option 2 AND QID 2051 is answered Option 2, then appear and make required QIDs.
-ifQ(1961)
-.answered(2)
-.andQ(2051)
-.answered(2)
-.appear(Q(1811), Q(81))
-.makeRequired(Q(1811), Q(81));
-
-// If QID 1961 is answered Option 2 AND QID 2051 is answered Option 1, then appear and make required QIDs.
-ifQ(1961)
-.answered(2)
-.andQ(2051)
-.answered(1)
-.appear(Q(1811), Q(81))
-.makeRequired(Q(1811), Q(81));
-
-// If QID 1961 is answered Option 1 AND QID 2051 is answered Option 1, then set value to Option 2 to QID 1811.
-ifQ(1961)
-.answered(1)
-.andQ(2051)
-.answered(1)
-.setValue(Q(1811), 2);
 
 //*******************************
 //  FOOD QUALITY - End
