@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 967
 // SID: 5389	
-// Last Updated: 7/15/2025
+// Last Updated: 7/22/2025
 //*******************************	
 
 
@@ -197,6 +197,16 @@ ifQ(441)
 .disappear(Q(1511)) // medium header
 .disappear(Q(1491), Q(1531), Q(1541), Q(1551), Q(1561), Q(1741), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681))
 .clearAnswer(Q(1491), Q(1531), Q(1541), Q(1551), Q(1561), Q(1741), Q(1641), Q(1651), Q(1661), Q(1671), Q(1681));
+
+// If QID 1581 is answered Option 1, then set value to Option 1 to QID 1491.
+ifQ(1581)
+.answered(1)
+.setValue(Q(1491), 1);
+
+// If QID 1581 is answered Option [2 OR 3], then set value to Option 2 to QID 1491.
+ifQ(1581)
+.answered(2,3)
+.setValue(Q(1491), 2);
 
 //*******************************
 // BONUS POINTS   - End
