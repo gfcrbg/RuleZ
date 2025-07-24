@@ -29,47 +29,47 @@ ifQ(11)
 // rulez for the bright pink part
 // vvvvvvvvvvvvvvvvvvvvvvvv
 
-//
+// If QID 2041 is answered Option 1, then hide Option 2 to QID 2041.
 ifQ(2041)
 .answered(1)
 .hideOptions(Q(2041), 2);
 
-//
+// If QID 2041 is answered Option 2, then hide Option 1 to QID 2041.
 ifQ(2041)
 .answered(2)
 .hideOptions(Q(2041), 1);
 
-//
+// If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(2)
 .disappear(Q(2041), Q(101))
 .clearAnswer(Q(2041), Q(101));
 
-//
+// If QID 2041 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(2041)
 .answered(0,2)
 .disappear(Q(2051), Q(1981))
 .clearAnswer(Q(2051), Q(1981));
 
-//
+// If QID 2051 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
 ifQ(2051)
 .answered(0,1)
 .disappear(Q(2061)) // red remark
 .disappear(Q(2071))
 .clearAnswer(Q(2071));
 
-//
+// If QID 2051 is answered Option 1, then set value to Option 2 to QID 1811.
 ifQ(2051)
 .answered(1)
 .setValue(Q(1811), 2);
 
-//
+// If QID 1981 is answered Option [0 OR 1], then disappear and clear answer to QID 1991.
 ifQ(1981)
 .answered(0,1)
 .disappear(Q(1991))
 .clearAnswer(Q(1991));
 
-//
+// If QID 2041 is answered Option [0 OR 1] AND if QID 2051 is answered Option 1, then disappear and clear answer to QID 81.
 ifQ(2041)
 .answered(0,1)
 .andifQ(2051)
@@ -77,7 +77,7 @@ ifQ(2041)
 .disappear(Q(81))
 .clearAnswer(Q(81));
 
-//
+// If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
 ifQ(81)
 .answered(0,1)
 .disappear(Q(91))
@@ -378,26 +378,26 @@ ifQ(11)
 // rulez for the bright pink part
 // vvvvvvvvvvvvvvvvvvvvvvvv
 
-//
+// If QID 1981 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1981)
 .answered(0,2)
 .disappear(Q(2081)) // red remark
 .disappear(Q(2001), Q(2101), Q(2031))
 .clearAnswer(Q(2001), Q(2101), Q(2031));
 
-//
+// If QID 2031 is answered Option [0 OR 1], then disappear and clear answer to QID 2011.
 ifQ(2031)
 .answered(0,1)
 .disappear(Q(2011))
 .clearAnswer(Q(2011));
 
-//
+// If QID 2011 is not answered Option 6, then disappear and clear answer to QID 2021.
 ifQ(2011)
 .notAnswered(6)
 .disappear(Q(2021))
 .clearAnswer(Q(2021));
 
-//
+// If QID 1981 is answered Option 1, then disappear and clear answer to QID 331.
 ifQ(1981)
 .answered(1)
 .disappear(Q(331))
