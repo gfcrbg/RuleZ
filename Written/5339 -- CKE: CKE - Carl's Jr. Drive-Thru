@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 7/17/2025	
+// Last Updated: 7/29/2025	
 //*******************************	
 
 
@@ -179,8 +179,8 @@ ifQ(11)
 .answered(2)
 .disappear(Q(1491)) // medium header
 .disappear(Q(1881)) // red remark
-.disappear(Q(861), Q(1511), Q(821), Q(831), Q(1561), Q(901), Q(1541), Q(1551), Q(911), Q(1791), Q(1621), Q(1101), Q(1601), Q(1641), Q(921))
-.clearAnswer(Q(861), Q(1511), Q(821), Q(831), Q(1561), Q(901), Q(1541), Q(1551), Q(911), Q(1791), Q(1621), Q(1101), Q(1601), Q(1641), Q(921));
+.disappear(Q(861), Q(1511), Q(821), Q(831), Q(1561), Q(901), Q(1541), Q(1551), Q(911), Q(1791), Q(1621), Q(1101), Q(1601), Q(1641), Q(2111), Q(921))
+.clearAnswer(Q(861), Q(1511), Q(821), Q(831), Q(1561), Q(901), Q(1541), Q(1551), Q(911), Q(1791), Q(1621), Q(1101), Q(1601), Q(1641), Q(2111), Q(921));
 
 // If QID 821 is answered Option [0 OR 1], then disappear and clear answer to QID 831.
 ifQ(821)
@@ -275,6 +275,24 @@ ifQ(1161)
 .orifQ(901)
 .answered(2)
 .setValue(Q(1641), 2);
+
+// If QIDs [1161, 1171, AND 821] are answered Option 1, then set value to Option 1 to QID 2111.
+ifQ(1161)
+.answered(1)
+.andifQ(1171)
+.answered(1)
+.andifQ(821)
+.answered(1)
+.setValue(Q(2111), 1);
+
+// If QIDs [1161, 1171, OR 821] are answered Option 2, then set value to Option 2 to QID 2111.
+ifQ(1161)
+.answered(2)
+.orifQ(1171)
+.answered(2)
+.orifQ(821)
+.answered(2)
+.setValue(Q(2111), 2);
 
 //*******************************
 //  GUEST SERVICE - End
