@@ -1,0 +1,19 @@
+//*******************************	
+// CID: 973	
+// SID: 5394	
+// Last Updated: 7/29/2025	
+//*******************************	
+
+
+
+
+// If QID 1081 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1081)
+.answered(1)
+.disappear(Q(1091), Q(1181))
+.clearAnswer(Q(1091), Q(1181));
+
+// If QID 1131 is answered Option 0, then set value to Option 3 to QID 1131.
+ifQ(1131)
+.answered(0)
+.setValue(Q(1131), 3);
