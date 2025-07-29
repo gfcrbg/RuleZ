@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5375	
-// Last Updated: 7/18/2025	
+// Last Updated: 7/29/2025	
 //*******************************	
 
 
@@ -192,8 +192,8 @@ ifQ(11)
 .answered(2)
 .disappear(Q(2051)) // medium header
 .disappear(Q(1881)) // red remark
-.disappear(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(1601), Q(1641), Q(921))
-.clearAnswer(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(1601), Q(1641), Q(921));
+.disappear(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(1601), Q(1641), Q(2321), Q(921))
+.clearAnswer(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(1601), Q(1641), Q(2321), Q(921));
 
 // If QID 11 is answered Option AND if QIDs [1451 AND 1621] are answered, then trigger math operation:  [1621] - [1451] = [1101]
 ifQ(11)
@@ -276,6 +276,24 @@ ifQ(1141)
 .orifQ(1171)
 .answered(2)
 .setValue(Q(1641), 2);
+
+// If QIDs [1141, 1161, AND 1171] are answered Option 1, then set value to Option 1 to QID 2321.
+ifQ(1141)
+.answered(1)
+.andifQ(1161)
+.answered(1)
+.andifQ(1171)
+.answered(1)
+.setValue(Q(2321), 1);
+
+// If QIDs [1141, 1161, OR 1171] are answered Option 2, then set value to Option 2 to QID 2321.
+ifQ(1141)
+.answered(2)
+.orifQ(1161)
+.answered(2)
+.orifQ(1171)
+.answered(2)
+.setValue(Q(2321), 2);
 
 //*******************************
 //  GUEST SERVICE - End
