@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 5319	
-// Last Updated: 4/25/2025
+// Last Updated: 8/1/2025
 //*******************************	
 
 
@@ -32,15 +32,8 @@ ifQ(741)
 ifQ(741)
 .answered(2)
 .disappear(Q(461)) // medium header
-.disappear(Q(801)) // black remark
-.disappear(Q(471), Q(481), Q(491), Q(651))
-.clearAnswer(Q(471), Q(481), Q(491), Q(651));
-
-// If QID 471 is answered Option [0, 2, OR 4], then disappear and clear answer to QID 571.
-ifQ(471)
-.answered(0,2,4)
-.disappear(Q(571))
-.clearAnswer(Q(571));
+.disappear(Q(481), Q(491), Q(651), Q(1011))
+.clearAnswer(Q(481), Q(491), Q(651), Q(1011));
 
 //*******************************
 // STORE EXTERIOR - End
@@ -58,17 +51,53 @@ ifQ(741)
 .answered(2) 
 .disappear(Q(41)) // medium header
 .disappear(Q(421)) // black remark
-.disappear(Q(51), Q(61), Q(501))
-.clearAnswer(Q(51), Q(61), Q(501));
+.disappear(Q(51), Q(501), Q(861))
+.clearAnswer(Q(51), Q(501), Q(861));
+
+// If QID 861 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 871.
+ifQ(861)
+.answered(0,1,3)
+.disappear(Q(871))
+.clearAnswer(Q(871));
 
 // If QID 501 is answered Option [0 OR 1], then disappear and clear answer to QID 511.
 ifQ(501)
-.answered(0,1)
+.answered(0,1,3)
 .disappear(Q(511))
 .clearAnswer(Q(511));
 
 //*******************************
 // FUEL - End
+//*******************************
+
+
+
+
+//*******************************
+// STORE INTERIOR - Begin
+//*******************************
+
+// If QID 741 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(741)
+.answered(2)
+.disappear(Q(1001)) // medium header
+.disappear(Q(1021))
+.clearAnswer(Q(1021));
+
+// If QID 1021 is answered Option [0 OR 1], then disappear and clear answer to QID 1041.
+ifQ(1021)
+.answered(0,1)
+.disappear(Q(1041))
+.clearAnswer(Q(1041));
+
+// If QID 1041 is not answered Option 7, then disappear and clear answer to QID 1051.
+ifQ(1041)
+.notAnswered(7)
+.disappear(Q(1051))
+.clearAnswer(Q(1051));
+
+//*******************************
+// STORE INTERIOR - End
 //*******************************
 
 
@@ -82,8 +111,8 @@ ifQ(501)
 ifQ(741)
 .answered(2)
 .disappear(Q(71)) // medium header
-.disappear(Q(81), Q(91), Q(521), Q(671), Q(531))
-.clearAnswer(Q(81), Q(91), Q(521), Q(671), Q(531));
+.disappear(Q(81), Q(91), Q(881), Q(891), Q(671), Q(901), Q(1031), Q(911))
+.clearAnswer(Q(81), Q(91), Q(881), Q(891), Q(671), Q(901), Q(1031), Q(911));
 
 //*******************************
 // CUSTOMER SERVICE - End
@@ -139,23 +168,23 @@ ifQ(131)
 .disappear(Q(591), Q(161))
 .clearAnswer(Q(591), Q(161));
 
-// If QID 591 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 601.
+// If QID 591 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 921.
 ifQ(591)
 .answered(0,1,3)
-.disappear(Q(601))
-.clearAnswer(Q(601));
+.disappear(Q(921))
+.clearAnswer(Q(921));
 
-// If QID 601 is not answered Option 6, then disappear and clear answer to QID 611.
-ifQ(601)
-.notAnswered(6)
+// If QID 921 is not answered Option 7, then disappear and clear answer to QID 611.
+ifQ(921)
+.notAnswered(7)
 .disappear(Q(611))
 .clearAnswer(Q(611));
 
-// If QID 161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 171.
+// If QID 161 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 931.
 ifQ(161)
 .answered(0,1,3)
-.disappear(Q(171))
-.clearAnswer(Q(171));
+.disappear(Q(931))
+.clearAnswer(Q(931));
 
 //*******************************
 // RESTROOMS - End
@@ -172,17 +201,46 @@ ifQ(161)
 ifQ(741)
 .answered(2)
 .disappear(Q(191)) // medium header
-.disappear(Q(231)) // black remark
-.disappear(Q(201), Q(211), Q(221), Q(241), Q(561), Q(631))
-.clearAnswer(Q(201), Q(211), Q(221), Q(241), Q(561), Q(631));
+.disappear(Q(231), Q(1061)) // black remarks
+.disappear(Q(201), Q(211), Q(951), Q(961), Q(991), Q(981), Q(561), Q(631))
+.clearAnswer(Q(201), Q(211), Q(951), Q(961), Q(991), Q(981), Q(561), Q(631))
+.makeVoidRequired(Q(951), Q(961), Q(991), Q(981));
 
-// If ULG is "No Roller Grill" AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 221.
+// If ULG is "No Roller Grill" AND if QID 21 is answered Option 4 AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 951.
 ifQ()
 .ulgIs("No Roller Grill")
+.andifQ(21)
+.answered(4)
 .andifQ(741)
 .answered(1)
-.hideOptions(Q(221), 1,2)
-.setValue(Q(221), 3);
+.hideOptions(Q(951), 1,2)
+.setValue(Q(951), 3);
+
+// If ULG is "No Roller Grill" AND if QID 21 is answered Option [1, 2, OR 3] AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 961.
+ifQ()
+.ulgIs("No Roller Grill")
+.andifQ(21)
+.answered(1,2,3)
+.andifQ(741)
+.answered(1)
+.hideOptions(Q(961), 1,2)
+.setValue(Q(961), 3);
+
+// If QID 21 is answered Option 4 AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 991.
+ifQ(21)
+.answered(4)
+.andifQ(741)
+.answered(1)
+.hideOptions(Q(991), 1,2)
+.setValue(Q(991), 3);
+
+// If QID 21 is answered Option [1, 2, OR 3] AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 981.
+ifQ(21)
+.answered(1,2,3)
+.andifQ(741)
+.answered(1)
+.hideOptions(Q(981), 1,2)
+.setValue(Q(981), 3);
 
 // If ULG is "No Hot Food" AND if QID 741 is answered Option 1, then hide options and set values to QIDs.
 ifQ()
@@ -210,8 +268,8 @@ ifQ(741)
 .answered(2)
 .disappear(Q(251)) // medium header
 .disappear(Q(311)) // black remark
-.disappear(Q(661), Q(261), Q(271), Q(281), Q(291), Q(301))
-.clearAnswer(Q(661), Q(261), Q(271), Q(281), Q(291), Q(301));
+.disappear(Q(661), Q(261), Q(271), Q(941), Q(291), Q(301))
+.clearAnswer(Q(661), Q(261), Q(271), Q(941), Q(291), Q(301));
 
 // If QID 261 is answered Option [0 OR 1] then disappear and clear answer to QID 691.
 ifQ(261)
