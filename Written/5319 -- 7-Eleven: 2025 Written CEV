@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 559
 // SID: 5319	
-// Last Updated: 8/1/2025
+// Last Updated: 8/2/2025
 //*******************************	
 
 
@@ -226,21 +226,29 @@ ifQ()
 .hideOptions(Q(961), 1,2)
 .setValue(Q(961), 3);
 
-// If QID 21 is answered Option 4 AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 991.
+// If QID 21 is answered Option 4 then disappear and clear answer to QID 951.
 ifQ(21)
 .answered(4)
-.andifQ(741)
-.answered(1)
-.hideOptions(Q(991), 1,2)
-.setValue(Q(991), 3);
+.disappear(Q(951))
+.clearAnswer(Q(951));
 
-// If QID 21 is answered Option [1, 2, OR 3] AND if QID 741 is answered Option 1, then hide options and set value to Option 3 to QID 981.
+// If QID 21 is answered Option [1,2,3] then disappear and clear answer to QID 981.
 ifQ(21)
 .answered(1,2,3)
-.andifQ(741)
-.answered(1)
-.hideOptions(Q(981), 1,2)
-.setValue(Q(981), 3);
+.disappear(Q(961))
+.clearAnswer(Q(961));
+
+// If QID 21 is answered Option 4 then disappear and clear answer to QID 991.
+ifQ(21)
+.answered(4)
+.disappear(Q(991))
+.clearAnswer(Q(991));
+
+// If QID 21 is answered Option [1,2,3] then disappear and clear answer to QID 981.
+ifQ(21)
+.answered(1,2,3)
+.disappear(Q(981))
+.clearAnswer(Q(981));
 
 // If ULG is "No Hot Food" AND if QID 741 is answered Option 1, then hide options and set values to QIDs.
 ifQ()
