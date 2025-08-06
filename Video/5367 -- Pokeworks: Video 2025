@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 961
 // SID: 5367	
-// Last Updated: 6/24/2025
+// Last Updated: 8/6/2025
 //*******************************	
 
 
@@ -106,7 +106,7 @@ ifQ(611)
 ifQ(441)
 .answered(2)
 .disappear(Q(1121)) // medium header
-.disappear(Q(1291), Q(1301), Q(1271)) // red remark
+.disappear(Q(1291)) // red remark
 .disappear(Q(1001), Q(361), Q(1141), Q(981), Q(971), Q(1151))
 .clearAnswer(Q(1001), Q(361), Q(1141), Q(981), Q(971), Q(1151));
 
