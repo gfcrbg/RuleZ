@@ -1,0 +1,41 @@
+//*******************************	
+// CID: 972
+// SID: 5392	
+// Last Updated: 8/13/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// RESPONSE TIME - Begin
+//*******************************
+
+// If QID 61 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(61)
+.answered(2)
+.disappear(Q(81), Q(111), Q(121), Q(131))
+.clearAnswer(Q(81), Q(111), Q(121), Q(131));
+
+//*******************************
+// RESPONSE TIME - End
+//*******************************
+
+
+
+
+//*******************************
+// ETIQUETTE - Begin
+//*******************************
+
+// If QID 61 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(61)
+.answered(2)
+.disappear(Q(151)) // medium header
+.disappear(Q(161)) // black remark
+.disappear(Q(171), Q(181), Q(191), Q(211), Q(241), Q(321), Q(251), Q(261))
+.clearAnswer(Q(171), Q(181), Q(191), Q(211), Q(241), Q(321), Q(251), Q(261));
+
+//*******************************
+// ETIQUETTE  - End
+//*******************************
