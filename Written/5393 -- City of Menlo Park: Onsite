@@ -1,0 +1,40 @@
+//*******************************	
+// CID: 972
+// SID: 5393	
+// Last Updated: 8/13/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// INTERACTION - Begin
+//*******************************
+
+// If QID 331 is answered Option 1, then disappear and clear answer to QID 341.
+ifQ(331)
+.answered(1)
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+// If QID 541 is answered Option 1, then disappear and clear answer to QID 551.
+ifQ(541)
+.answered(1)
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+// If QID 551 is answered Option [0 OR 2], then disappear and clear answer to QID 561.
+ifQ(551)
+.answered(0,2)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+// If QID 571 is answered Option [2 OR 3], then disappear and clear answer to QID 581.
+ifQ(571)
+.answered(2,3)
+.disappear(Q(581))
+.clearAnswer(Q(581));
+
+//*******************************
+// INTERACTION  - End
+//*******************************
