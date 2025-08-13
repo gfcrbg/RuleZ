@@ -1,0 +1,34 @@
+//*******************************	
+// CID: 972
+// SID: 5391	
+// Last Updated: 8/13/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// TELEPHONE CONTACT - Begin
+//*******************************
+
+// If QID 201 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(2,3)
+.disappear(Q(211), Q(201))
+.clearAnswer(Q(211), Q(201));
+
+// If QID 351 is answered Option 1, then disappear and clear answer to QID 361.
+ifQ(351)
+.answered(1)
+.disappear(Q(361))
+.clearAnswer(Q(361));
+
+// If QID 361 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,2,3)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//*******************************
+// TELEPHONE CONTACT - End
+//*******************************
