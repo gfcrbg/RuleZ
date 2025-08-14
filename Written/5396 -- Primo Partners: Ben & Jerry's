@@ -1,0 +1,45 @@
+//*******************************	
+// CID: 975	
+// SID: 5396	
+// Last Updated: 8/14/2025
+//*******************************	
+
+
+
+
+//*******************************
+// QUALITY - Begin
+//*******************************
+
+// If QID 181 is answered Option 1, then disappear and clear answer to QID 741.
+ifQ(181)
+.answered(1)
+.disappear(Q(741))
+.clearAnswer(Q(741));
+
+// If QID 1111 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 1121.
+ifQ(1111)
+.answered(1,2,3,4)
+.disappear(Q(1121))
+.clearAnswer(Q(1121));
+
+//*******************************
+// QUALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// If QID 981 is answered Option 2, then disappear and clear answer to QID 921.
+ifQ(981)
+.answered(2)
+.disappear(Q(921))
+.clearAnswer(Q(921));
+
+//*******************************
+// CLEANLINESS  - End
+//*******************************
