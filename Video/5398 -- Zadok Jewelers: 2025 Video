@@ -1,0 +1,108 @@
+//*******************************	
+// CID: 974	
+// SID: 5399	
+// Last Updated: 8/19/2025	
+//*******************************	
+
+
+
+
+// Primary QID: 1081
+
+// If QID 1081 is answered Option 1, then disappear and clear answer to QID 1091.
+ifQ(1081)
+.answered(1)
+.disappear(Q(1091))
+.clearAnswer(Q(1091));
+
+// If QID 1081 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1081)
+.answered(2)
+.disappear(Q(1211), Q(1331))
+.clearAnswer (Q(1211), Q(1331));
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 1081 is answered Option 2, then disappear QID 1231.
+ifQ(1081)
+.answered(2)
+.disappear(Q(1231));
+
+//-------------------------------------------
+// Watch Department - Begin
+//-------------------------------------------
+
+// If QID 1081 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1081)
+.answered(2)
+.disappear(Q(1241)) // small header
+.disappear(Q(1251))
+.clearAnswer (Q(1251));
+
+// If QID 1251 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1261.
+ifQ(1251)
+.answered(0,2,3)
+.disappear(Q(1261))
+.clearAnswer(Q(1261));
+
+// If QID 1261 is answered Option [0 OR 2], then disappear and clear answer to QID 1271.
+ifQ(1261)
+.answered(0,2)
+.disappear(Q(1271))
+.clearAnswer(Q(1271));
+
+//-------------------------------------------
+// Watch Department - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// General Jewelry - Begin
+//-------------------------------------------
+
+// If QID 1081 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1081)
+.answered(2)
+.disappear(Q(1281)) // small header
+.disappear(Q(1291))
+.clearAnswer(Q(1291));
+
+// If QID 1291 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1301.
+ifQ(1291)
+.answered(0,2,3)
+.disappear(Q(1301))
+.clearAnswer(Q(1301));
+
+// If QID 1301 is answered Option [0 OR 2], then disappear and clear answer to QID 1311.
+ifQ(1301)
+.answered(0,2)
+.disappear(Q(1311))
+.clearAnswer(Q(1311));
+
+//-------------------------------------------
+// General Jewelry - End
+//-------------------------------------------
+
+
+//*******************************
+// FOLLOW UP - End
+//*******************************
+
+
+
+
+// If QID 1131 is answered Option [2 OR 3], then disappear and clear answer to QID 1141.
+ifQ(1131)
+.answered(2,3)
+.disappear(Q(1141))
+.clearAnswer(Q(1141));
+
+// If QID 1131 is not answered, then set value to Option 3 to QID 1131.
+ifQ(1131)
+.notAnswered()
+.setValue(Q(1131), 3);
