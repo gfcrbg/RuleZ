@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 974	
 // SID: 5399	
-// Last Updated: 8/19/2025	
+// Last Updated: 8/20/2025	
 //*******************************	
 
 
@@ -9,11 +9,11 @@
 
 // Primary QID: 1081
 
-// If QID 1081 is answered Option 1, then disappear and clear answer to QID 1091.
+// If QID 1081 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(1081)
 .answered(1)
-.disappear(Q(1091))
-.clearAnswer(Q(1091));
+.disappear(Q(1091), Q(1181))
+.clearAnswer(Q(1091), Q(1181));
 
 // If QID 1081 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1081)
