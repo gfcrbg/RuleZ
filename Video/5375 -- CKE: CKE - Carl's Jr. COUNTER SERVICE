@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5375	
-// Last Updated: 7/29/2025	
+// Last Updated: 9/2/2025	
 //*******************************	
 
 
@@ -28,56 +28,8 @@ ifQ(11)
 // If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(2)
-.disappear(Q(61), Q(2241), Q(101))
-.clearAnswer(Q(61), Q(2241), Q(101));
-
-// rulez for the bright pink part
-// vvvvvvvvvvvvvvvvvvvvvvvv
-
-// If QID 2241 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(2241)
-.answered(0,2)
-.disappear(Q(1821)) // red remark
-.disappear(Q(2231), Q(2171))
-.clearAnswer(Q(2231), Q(2171));
-
-// If QID 2231 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
-ifQ(2231)
-.answered(0,1)
-.disappear(Q(2301)) // red remark
-.disappear(Q(2281))
-.clearAnswer(Q(2281));
-
-// If QID 2171 is answered Option [0 OR 1], then disappear and clear answer to QID 2191.
-ifQ(2171)
-.answered(0,1)
-.disappear(Q(2191))
-.clearAnswer(Q(2191));
-
-// If QID 2241 is answered Option [0 OR 1], then disappear and clear answer to QID 81.
-ifQ(2241)
-.answered(0,1)
-.disappear(Q(81))
-.clearAnswer(Q(81));
-
-// If QID 11 is answered Option 2, then disappear, make not required, and clear answer to QID 1811.
-ifQ(11)
-.answered(2)
-.disappear(Q(1811))
-.makeNotRequired(Q(1811))
-.clearAnswer(Q(1811));
-
-// If QIDs [2241 AND 2231] are answered Option 1, then hide option 1 AND set value to Option 2 to QID 1811.
-ifQ(2241)
-.answered(1)
-.andifQ(2231)
-.answered(1)
-.hideOptions(Q(1811), 1)
-.setValue(Q(1811), 2);
-
-
-// ^^^^^^^^^^^^^^^^^^
-// rulez for the bright pink part
+.disappear(Q(61), Q(2331), Q(101))
+.clearAnswer(Q(61), Q(2331), Q(101));
 
 // If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
 ifQ(81)
@@ -373,38 +325,6 @@ ifQ(11)
 .andifQ(1931)
 .notAnswered([1,2,3,4])
 .setValue(Q(1431), 2);
-
-
-// rulez for the bright pink part
-// vvvvvvvvvvvvvvvvvvvvvvvv
-
-// If QID 2171 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(2171)
-.answered(0,2)
-.disappear(Q(2261), Q(2291)) // red remarks
-.disappear(Q(2151), Q(2211), Q(2221))
-.clearAnswer(Q(2151), Q(2211), Q(2221));
-
-// If QID 2221 is answered Option [0 OR 1], then disappear and clear answer to QID 2161.
-ifQ(2221)
-.answered(0,1)
-.disappear(Q(2161))
-.clearAnswer(Q(2161));
-
-// If QID 2161 is not answered Option 6, then disappear and clear answer to QID 2181.
-ifQ(2161)
-.notAnswered(6)
-.disappear(Q(2181))
-.clearAnswer(Q(2181));
-
-// ^^^^^^^^^^^^^^^^^^
-// rulez for the bright pink part
-
-// If QID 2171 is answered Option [0 OR 1], then disappear and clear answer to QID 331.
-ifQ(2171)
-.answered(0,1)
-.disappear(Q(331))
-.clearAnswer(Q(331));
 
 // If QID 331 is answered Option [0 OR 1], then disappear and clear answer to QID 681.
 ifQ(331)
