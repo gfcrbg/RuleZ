@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 9/3/2025	
+// Last Updated: 9/4/2025	
 //*******************************	
 
 
@@ -28,8 +28,8 @@ ifQ(11)
 // If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(2)
-.disappear(Q(2121), Q(81), Q(101))
-.clearAnswer(Q(2121), Q(81), Q(101));
+.disappear(Q(61), Q(2121), Q(81), Q(101))
+.clearAnswer(Q(61), Q(2121), Q(81), Q(101));
 
 // If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
 ifQ(81)
