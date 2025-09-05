@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 972
 // SID: 5391	
-// Last Updated: 8/13/2025	
+// Last Updated: 9/5/2025	
 //*******************************	
 
 
@@ -14,8 +14,8 @@
 // If QID 201 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(201)
 .answered(2,3)
-.disappear(Q(211), Q(201))
-.clearAnswer(Q(211), Q(201));
+.disappear(Q(211), Q(221))
+.clearAnswer(Q(211), Q(221));
 
 // If QID 351 is answered Option 1, then disappear and clear answer to QID 361.
 ifQ(351)
