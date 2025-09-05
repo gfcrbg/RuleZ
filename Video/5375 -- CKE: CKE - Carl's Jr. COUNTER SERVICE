@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5375	
-// Last Updated: 9/2/2025	
+// Last Updated: 9/4/2025	
 //*******************************	
 
 
@@ -28,8 +28,8 @@ ifQ(11)
 // If QID 11 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(11)
 .answered(2)
-.disappear(Q(61), Q(2331), Q(101))
-.clearAnswer(Q(61), Q(2331), Q(101));
+.disappear(Q(61), Q(2331), Q(81), Q(101))
+.clearAnswer(Q(61), Q(2331), Q(81), Q(101));
 
 // If QID 81 is answered Option [0 OR 1], then disappear and clear answer to QID 91.
 ifQ(81)
@@ -287,8 +287,8 @@ ifQ(11)
 .answered(2)
 .disappear(Q(1081)) // medium header
 .disappear(Q(1891), Q(1901), Q(1771)) // red remark
-.disappear(Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(1941), Q(2091))
-.clearAnswer(Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(1941), Q(2091)); 
+.disappear(Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(1941), Q(331), Q(2091))
+.clearAnswer(Q(1351), Q(931), Q(1241), Q(1911), Q(291), Q(1921), Q(1421), Q(1931), Q(1431), Q(1941), Q(331), Q(2091)); 
 
 // If QID 1911 is answered Option [1, 2, 3, 4, 5, AND 6], then set value to Option 1 to QID 291.
 ifQ(1911)
