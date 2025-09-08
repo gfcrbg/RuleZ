@@ -1,0 +1,83 @@
+//*******************************	
+// CID: 702
+// SID: 5408	
+// Last Updated: 9/8/2025	
+//*******************************	
+
+
+
+
+//**************************************
+// WEBSITE - Begin
+//**************************************
+
+// If QID 121 is answered Option 1, then disappear and clear answer to QID 151.
+ifQ(121)
+.answered(1)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+// If QID 121 is answered Option 2, then disappear and clear answer to the specified QIDs.
+ifQ(121)
+.answered(2)
+.disappear(Q(1071), Q(251)) // red remarks
+.disappear(Q(161), Q(171), Q(181), Q(191), Q(1051), Q(1061), Q(1451), Q(1461), Q(201), Q(261), Q(211), Q(1261))
+.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(1051), Q(1061), Q(1451), Q(1461), Q(201), Q(261), Q(211), Q(1261));
+
+// If QID 261 is answered Option [0 OR 2], then disappear and clear answer to QID 1551.
+ifQ(261)
+.answered(0, 2)
+.disappear(Q(1551))
+.clearAnswer(Q(1551));
+
+// If QID 1561 is answered Option 2, then disappear and clear answer to QID 1571.
+ifQ(1561)
+.answered(2)
+.disappear(Q(1571))
+.clearAnswer(Q(1571));
+
+// If QID 1581 is answered Option 2, then disappear and clear answer to QID 1591.
+ifQ(1581)
+.answered(2)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+// If QID 211 is answered Option [0, 2], then disappear and clear answer to QIDs [1631, 221].
+ifQ(211)
+.answered(0, 2)
+.disappear(Q(1631), Q(221))
+.clearAnswer(Q(1631), Q(221));
+
+// If QID 1641 is answered Option 2, then disappear and clear answer to QID 1651.
+ifQ(1641)
+.answered(2)
+.disappear(Q(1651))
+.clearAnswer(Q(1651));
+
+// If QID 1661 is answered Option 2, then disappear and clear answer to QID 1671.
+ifQ(1661)
+.answered(2)
+.disappear(Q(1671))
+.clearAnswer(Q(1671));
+
+// If QID 1261 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1261)
+.answered(0,2)
+.disappear(Q(1691), Q(1301))
+.clearAnswer(Q(1691), Q(1301));
+
+// If QID 1701 is answered Option 2, then disappear and clear answer to QID 1711.
+ifQ(1701)
+.answered(2)
+.disappear(Q(1711))
+.clearAnswer(Q(1711));
+
+// If QID 1721 is answered Option 2, then disappear and clear answer to QID 1731.
+ifQ(1721)
+.answered(2)
+.disappear(Q(1731))
+.clearAnswer(Q(1731));
+
+//**************************************
+// WEBSITE - End
+//**************************************
