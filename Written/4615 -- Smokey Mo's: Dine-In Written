@@ -1,0 +1,28 @@
+//*******************************	
+// CID: 753
+// SID: 4615	
+// Last Updated: 9/11/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// SPEED OF SERVICE - Begin
+//*******************************
+
+// If QID 21 is answered Option [2 OR 3], then disappear and clear answer to QID 1041.
+ifQ(21)
+.answered(2, 3)
+.disappear(Q(1041))
+.clearAnswer(Q(1041));
+
+// If QID 21 is answered Option 1, then disappear and clear answer to QID 1051.
+ifQ(21)
+.answered(1)
+.disappear(Q(1051))
+.clearAnswer(Q(1051));
+
+//*******************************
+// SPEED OF SERVICE - End
+//*******************************
