@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 949	
 // SID: 5359	
-// Last Updated: 5/29/2025
+// Last Updated: 9/16/2025
 //*******************************	
 
 
@@ -155,12 +155,12 @@ ifQ(1021)
 .disappear(Q(1541), Q(1461), Q(1471), Q(1301), Q(1311), Q(1321))
 .clearAnswer(Q(1541), Q(1461), Q(1471), Q(1301), Q(1311), Q(1321));
 
-// If QIDs [1511 AND 1571] are answered, then trigger math operation: [1571] - [1511] = [1541]
-ifQ(1511)
+// If QIDs [1521 AND 1571] are answered, then trigger math operation: [1571] - [1521] = [1541]
+ifQ(1521)
 .answered()
 .andifQ(1571)
 .answered()
-.sub(Q(1571), Q(1511))
+.sub(Q(1571), Q(1521))
 .store(Q(1541));
 
 // If QID 1021 is answered Option 1 AND if QID 1541 is <= 1 hour, then set value to Option 1 to QID 1461.
