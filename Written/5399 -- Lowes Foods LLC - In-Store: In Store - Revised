@@ -1,0 +1,188 @@
+//*******************************	
+// CID: 791	
+// SID: 5399	
+// Last Updated: 9/16/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// EXTERIOR - Begin
+//*******************************
+
+// If QID 61 is answered Option 1, then disappear and clear answer to QID 1301.
+ifQ(61)
+.answered(1)
+.disappear(Q(1301))
+.clearAnswer(Q(1301));
+
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 1311.
+ifQ(71)
+.answered(1)
+.disappear(Q(1311))
+.clearAnswer(Q(1311));
+
+//*******************************
+// EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCE - Begin
+//*******************************
+
+// If QID 101 is answered Option 2, then disappear and clear answer to QIDs [121 AND 301].
+ifQ(101)
+.answered(2)
+.disappear(Q(121), Q(301))
+.clearAnswer(Q(121), Q(301));
+
+//*******************************
+// PRODUCE - End
+//*******************************
+
+
+
+
+//*******************************
+// DELI - Begin
+//*******************************
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QIDs [221 AND 311].
+ifQ(201)
+.answered(2)
+.disappear(Q(221), Q(311))
+.clearAnswer(Q(221), Q(311));
+
+//*******************************
+// DELI - End
+//*******************************
+
+
+
+
+//*******************************
+// BAKERY - Begin
+//*******************************
+
+// If QID 331 is answered Option 2, then disappear and clear answer to QIDs [351 AND 391].
+ifQ(331)
+.answered(2)
+.disappear(Q(351), Q(391))
+.clearAnswer(Q(351), Q(391));
+
+//*******************************
+// BAKERY - End
+//*******************************
+
+
+
+
+//*******************************
+// BEEF SHOPPE - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs [461 AND 501].
+ifQ(441)
+.answered(2)
+.disappear(Q(461), Q(501))
+.clearAnswer(Q(461), Q(501));
+
+//*******************************
+// BEEF SHOPPE - End
+//*******************************
+
+
+
+
+//*******************************
+// BEER DEN / BOX CAR - Begin
+//*******************************
+
+// If QID 561 is answered Option 2, then disappear and clear answer to QIDs [581 AND 621].
+ifQ(561)
+.answered(2)
+.disappear(Q(581), Q(621))
+.clearAnswer(Q(581), Q(621));
+
+//*******************************
+// BEER DEN / BOX CAR - End
+//*******************************
+
+
+
+
+//*******************************
+// GROCERY / SALES FLOOR - Begin
+//*******************************
+
+// If QID 671 is answered Option 2, then disappear and clear answer to QID 701.
+ifQ(671)
+.answered(2)
+.disappear(Q(701))
+.clearAnswer(Q(701));
+
+//*******************************
+// GROCERY / SALES FLOOR - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 831 is answered Option 4, then disappear and clear answer to QIDs [841 AND 861].
+ifQ(831)
+.answered(4)
+.disappear(Q(841), Q(861))
+.clearAnswer(Q(841), Q(861));
+
+// If QID 841 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 851.
+ifQ(841)
+.answered(0, 1, 3)
+.disappear(Q(851))
+.clearAnswer(Q(851));
+
+//*******************************
+// RESTROOMS - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTAURANT - Begin
+//*******************************
+
+// If QID 1151 is answered Option 1, then disappear and clear answer to QID 1161.
+ifQ(1151)
+.answered(1)
+.disappear(Q(1161))
+.clearAnswer(Q(1161));
+
+//*******************************
+// RESTAURANT - End
+//*******************************
+
+
+
+
+//*******************************
+// EXPERIENCE OBSERVATIONS - Begin
+//*******************************
+
+// If QID 1271 is not answered Option 24, then disappear and clear answer to QID 1281.
+ifQ(1271)
+.notAnswered(24)
+.disappear(Q(1281))
+.clearAnswer(Q(1281));
+
+//*******************************
+// EXPERIENCE OBSERVATIONS - End
+//*******************************
