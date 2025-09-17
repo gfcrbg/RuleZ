@@ -1,0 +1,165 @@
+//*******************************	
+// CID: 977
+// SID: 5406	
+// Last Updated: 9/17/2025	
+//*******************************	
+
+
+
+
+// Primary QID: 231
+
+// If QID 231 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(1)
+.disappear(Q(241), Q(1152))
+.clearAnswer(Q(241), Q(1152));
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(1162), Q(1172), Q(1292), Q(702), Q(1212))
+.clearAnswer(Q(1162), Q(1172), Q(1292), Q(702), Q(1212));
+
+// If QID 1292 is not answered Option 6, then disappear and clear answer to QID 1302.
+ifQ(1292)
+.notAnswered(6)
+.disappear(Q(1302))
+.clearAnswer(Q(1302));
+
+
+
+
+//*******************************
+// INITIAL APPROACH 
+// & GREETING - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(491)) // medium header
+.disappear(Q(862), Q(872), Q(882), Q(271), Q(762))
+.clearAnswer(Q(862), Q(872), Q(882), Q(271), Q(762));
+
+//*******************************
+// INITIAL APPROACH 
+// & GREETING - End
+//*******************************
+
+
+
+
+//*******************************
+// BRAND PRESENTATION - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(231)
+.answered(2)
+.disappear(Q(1252)) // medium header
+.disappear(Q(1222)) // red remark
+.disappear(Q(832), Q(842), Q(1262))
+.clearAnswer(Q(832), Q(842), Q(1262));
+
+//*******************************
+// BRAND PRESENTATION - End
+//*******************************
+
+
+
+
+//*******************************
+// BRAND AWARENESS - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(501)) // medium header
+.disappear(Q(1332)) // red remark
+.disappear(Q(321), Q(892), Q(742))
+.clearAnswer(Q(321), Q(892), Q(742));
+
+// If QID 271 is answered Option [0, 1, OR 2], then disappear and clear answer to QIDs.
+ifQ(271)
+.answered(0,1,2)
+.disappear(Q(902), Q(1092))
+.clearAnswer(Q(902), Q(1092));
+
+//*******************************
+// BRAND AWARENESS - End
+//*******************************
+
+
+
+
+//*******************************
+// COMPETITIVE POSITIONING
+// & SUBSTITUTION - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(511)) // medium header
+.disappear(Q(1342)) // red remark
+.disappear(Q(1242), Q(1312), Q(1322), Q(752))
+.clearAnswer(Q(1242), Q(1312), Q(1322), Q(752));
+
+// If QID 271 is answered Option [0, 1, OR 2], then disappear and clear answer to QIDs.
+ifQ(271)
+.answered(0,1,2)
+.disappear(Q(591), Q(1122))
+.clearAnswer(Q(591), Q(1122));
+
+// If QID 1242 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 1112.
+ifQ(1242)
+.answered(0,1,3)
+.disappear(Q(1112))
+.clearAnswer(Q(1112));
+
+//*******************************
+// COMPETITIVE POSITIONING
+// & SUBSTITUTION - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES TECHNIQUE 
+// & ENGAGEMENT - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(952)) // medium header
+.disappear(Q(962), Q(972), Q(982), Q(992), Q(1002), Q(1072))
+.clearAnswer(Q(962), Q(972), Q(982), Q(992), Q(1002), Q(1072));
+
+//*******************************
+// SALES TECHNIQUE 
+// & ENGAGEMENT - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER JOURNEY
+// & CLOSING - Begin
+//*******************************
+
+// If QID 231 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(231)
+.answered(2)
+.disappear(Q(1012)) // medium header
+.disappear(Q(1022), Q(1032), Q(1042), Q(1052), Q(1062))
+.clearAnswer(Q(1022), Q(1032), Q(1042), Q(1052), Q(1062));
+
+//*******************************
+// CUSTOMER JOURNEY
+// & CLOSING - End
+//*******************************
