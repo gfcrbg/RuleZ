@@ -1,0 +1,742 @@
+//*******************************	
+// CID: 904	
+// SID: 5414	
+// Last Updated: 9/17/2025
+//*******************************	
+
+
+
+
+// Primary QID: 6871
+
+// If QID 6871 is answered Option 1, then disappear and clear answer to QID 6881.
+ifQ(6871)
+.answered(1)
+.disappear(Q(6881))
+.clearAnswer(Q(6881));
+
+// If QID 6871 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(1571)) // red remark
+.disappear(Q(1311), Q(1561))
+.clearAnswer(Q(1311), Q(1561))
+.makeNotRequired(Q(1561));
+
+
+
+
+//*******************************
+// EXTERIOR - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(21)) // medium header
+.disappear(Q(2221), Q(4681), Q(2271)) // small headers
+.disappear(Q(31), Q(2231), Q(2241), Q(41), Q(51), Q(61), Q(71), Q(4561), Q(4571), Q(4581), Q(6851))
+.clearAnswer(Q(31), Q(2231), Q(2241), Q(41), Q(51), Q(61), Q(71), Q(4561), Q(4571), Q(4581), Q(6851))
+.makeNotRequired(Q(31), Q(2231), Q(2241), Q(41), Q(51), Q(61), Q(71), Q(4561), Q(4571), Q(4581), Q(6851));
+
+// If QID 4581 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(4581)
+.answered(0,2)
+.disappear(Q(4591), Q(4601), Q(4611), Q(6851))
+.clearAnswer(Q(4591), Q(4601), Q(4611), Q(6851));
+
+//*******************************
+// EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// LOBBY & RECEPTION - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(91)) // medium header
+.disappear(Q(2311), Q(4341), Q(2331)) // small headers
+.disappear(Q(2291), Q(2301), Q(2321), Q(4621), Q(4631), Q(4641), Q(4731), Q(4741), Q(4721), Q(4451), Q(4791))
+.clearAnswer(Q(2291), Q(2301), Q(2321), Q(4621), Q(4631), Q(4641), Q(4731), Q(4741), Q(4721), Q(4451), Q(4791))
+.makeNotRequired(Q(2291), Q(2301), Q(2321), Q(4621), Q(4631), Q(4641), Q(4731), Q(4741), Q(4721), Q(4451), Q(4791));
+
+// If QID 4451 is not answered Option 1, then disappear and clear answer to QID 4361.
+ifQ(4451)
+.notAnswered(1)
+.disappear(Q(4361))
+.clearAnswer(Q(4361));
+
+// If QID 4451 is not answered Option 2, then disappear and clear answer to QID 4701.
+ifQ(4451)
+.notAnswered(2)
+.disappear(Q(4701))
+.clearAnswer(Q(4701));
+
+// If QID 4451 is not answered Option 3, then disappear and clear answer to QID 4751.
+ifQ(4451)
+.notAnswered(3)
+.disappear(Q(4751))
+.clearAnswer(Q(4751));
+
+// If QID 4451 is not answered Option 4, then disappear and clear answer to QID 4761.
+ifQ(4451)
+.notAnswered(4)
+.disappear(Q(4761))
+.clearAnswer(Q(4761));
+
+// If QID 4451 is not answered Option 5, then disappear and clear answer to QID 4771.
+ifQ(4451)
+.notAnswered(5)
+.disappear(Q(4771))
+.clearAnswer(Q(4771));
+
+// If QID 4451 is not answered Option 6, then disappear and clear answer to QID 4711.
+ifQ(4451)
+.notAnswered(6)
+.disappear(Q(4711))
+.clearAnswer(Q(4711));
+
+// If QID 4791 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(4791)
+.answered(0,2)
+.disappear(Q(4801), Q(4811), Q(4821), Q(1341))
+.clearAnswer(Q(4801), Q(4811), Q(4821), Q(1341));
+
+//*******************************
+// LOBBY & RECEPTION - End
+//*******************************
+
+
+
+
+//*******************************
+// GROUP FITNESS - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(211)) // medium header
+.disappear(Q(2351), Q(4391), Q(2341)) // small headers
+.disappear(Q(2361), Q(2371), Q(2381), Q(2391), Q(2401), Q(2411), Q(4401), Q(4831))
+.clearAnswer(Q(2361), Q(2371), Q(2381), Q(2391), Q(2401), Q(2411), Q(4401), Q(4831))
+.makeNotRequired(Q(2361), Q(2371), Q(2381), Q(2391), Q(2401), Q(2411), Q(4401), Q(4831));
+
+// If QID 4401 is not answered Option 1, then disappear and clear answer to QID 4881.
+ifQ(4401)
+.notAnswered(1)
+.disappear(Q(4881))
+.clearAnswer(Q(4881));
+
+// If QID 4401 is not answered Option 2, then disappear and clear answer to QID 4431.
+ifQ(4401)
+.notAnswered(2)
+.disappear(Q(4431))
+.clearAnswer(Q(4431));
+
+// If QID 4401 is not answered Option 3, then disappear and clear answer to QID 4411.
+ifQ(4401)
+.notAnswered(3)
+.disappear(Q(4411))
+.clearAnswer(Q(4411));
+
+// If QID 4401 is not answered Option 4, then disappear and clear answer to QID 4421.
+ifQ(4401)
+.notAnswered(4)
+.disappear(Q(4421))
+.clearAnswer(Q(4421));
+
+// If QID 4401 is not answered Option 5, then disappear and clear answer to QID 4891.
+ifQ(4401)
+.notAnswered(5)
+.disappear(Q(4891))
+.clearAnswer(Q(4891));
+
+// If QID 4831 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(4831)
+.answered(0,2)
+.disappear(Q(4841), Q(4851), Q(4861), Q(4871))
+.clearAnswer(Q(4841), Q(4851), Q(4861), Q(4871));
+
+//*******************************
+// GROUP FITNESS - End
+//*******************************
+
+
+
+
+//*******************************
+// KIDS CRUNCH - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QID 1581.
+ifQ(6871)
+.answered(2)
+.disappear(Q(331)) // medium header
+.disappear(Q(1581))
+.clearAnswer(Q(1581))
+.makeNotRequired(Q(1581));
+
+// If QID 4911 is not answered Option 1, then disappear and clear answer to QID 4461.
+ifQ(4911)
+.notAnswered(1)
+.disappear(Q(4461))
+.clearAnswer(Q(4461));
+
+// If QID 4911 is not answered Option 2, then disappear and clear answer to QID 4471.
+ifQ(4911)
+.notAnswered(2)
+.disappear(Q(4471))
+.clearAnswer(Q(4471));
+
+// If QID 4911 is not answered Option 3, then disappear and clear answer to QID 4481.
+ifQ(4911)
+.notAnswered(3)
+.disappear(Q(4481))
+.clearAnswer(Q(4481));
+
+// If QID 4911 is not answered Option 4, then disappear and clear answer to QID 4901.
+ifQ(4911)
+.notAnswered(4)
+.disappear(Q(4901))
+.clearAnswer(Q(4901));
+
+// If QID 1581 is answered Option [0 OR 2], then disappear, clear answer, and make not required to QIDs.
+ifQ(1581)
+.answered(0,2)
+.disappear(Q(2471), Q(4441), Q(2461)) // small headers
+.disappear(Q(2481), Q(2491), Q(2501), Q(6921), Q(6931), Q(6941), Q(4911), Q(4921))
+.clearAnswer(Q(2481), Q(2491), Q(2501), Q(6921), Q(6931), Q(6941), Q(4911), Q(4921))
+.makeNotRequired(Q(4921));
+
+// If QID 4921 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(4921)
+.answered(0,2)
+.disappear(Q(4931), Q(4941), Q(4951), Q(4971))
+.clearAnswer(Q(4931), Q(4941), Q(4951), Q(4971));
+
+//*******************************
+// KIDS CRUNCH - End
+//*******************************
+
+
+
+
+//*******************************
+// MAIN GYM - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(421)) // medium header
+.disappear(Q(2201), Q(4271), Q(2211)) // small headers
+.disappear(Q(1951), Q(1961), Q(1971), Q(1981), Q(1991), Q(2001), Q(2011), Q(2021), Q(2031), Q(2041), Q(2051), Q(2061), Q(2071), Q(2081), Q(2091), Q(2101), Q(2111), Q(2121), Q(2131), Q(2141), Q(2151), Q(2161), Q(2171), Q(2181), Q(2191), Q(2281), Q(4281), Q(4991))
+.clearAnswer(Q(1951), Q(1961), Q(1971), Q(1981), Q(1991), Q(2001), Q(2011), Q(2021), Q(2031), Q(2041), Q(2051), Q(2061), Q(2071), Q(2081), Q(2091), Q(2101), Q(2111), Q(2121), Q(2131), Q(2141), Q(2151), Q(2161), Q(2171), Q(2181), Q(2191), Q(2281), Q(4281), Q(4991))
+.makeNotRequired(Q(1951), Q(1961), Q(1971), Q(1981), Q(1991), Q(2001), Q(2011), Q(2021), Q(2031), Q(2041), Q(2051), Q(2061), Q(2071), Q(2081), Q(2091), Q(2101), Q(2111), Q(2121), Q(2131), Q(2141), Q(2151), Q(2161), Q(2171), Q(2181), Q(2191), Q(2281), Q(4281), Q(4991));
+
+// If QID 4281 is not answered Option 1, then disappear and clear answer to QID 4291.
+ifQ(4281)
+.notAnswered(1)
+.disappear(Q(4291))
+.clearAnswer(Q(4291));
+
+// If QID 4281 is not answered Option 2, then disappear and clear answer to QID 4301.
+ifQ(4281)
+.notAnswered(2)
+.disappear(Q(4301))
+.clearAnswer(Q(4301));
+
+// If QID 4281 is not answered Option 3, then disappear and clear answer to QID 4331.
+ifQ(4281)
+.notAnswered(3)
+.disappear(Q(4331))
+.clearAnswer(Q(4331));
+
+// If QID 4281 is not answered Option 4, then disappear and clear answer to QID 4981.
+ifQ(4281)
+.notAnswered(4)
+.disappear(Q(4981))
+.clearAnswer(Q(4981));
+
+// If QID 4281 is not answered Option 5, then disappear and clear answer to QID 4321.
+ifQ(4281)
+.notAnswered(5)
+.disappear(Q(4321))
+.clearAnswer(Q(4321));
+
+// If QID 4281 is not answered Option 6, then disappear and clear answer to QID 4381.
+ifQ(4281)
+.notAnswered(6)
+.disappear(Q(4381))
+.clearAnswer(Q(4381));
+
+// If QID 4991 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(4991)
+.answered(0,2)
+.disappear(Q(431), Q(3261), Q(441), Q(1401))
+.clearAnswer(Q(431), Q(3261), Q(441), Q(1401));
+
+//*******************************
+// MAIN GYM - End
+//*******************************
+
+
+
+
+//*******************************
+// HIIT ZONE - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(571)) // medium header
+.disappear(Q(2561), Q(5001), Q(2551)) // small headers
+.disappear(Q(2571), Q(5151), Q(5161), Q(2581), Q(2591), Q(2601), Q(5061), Q(5071))
+.clearAnswer(Q(2571), Q(5151), Q(5161), Q(2581), Q(2591), Q(2601), Q(5061), Q(5071))
+.makeNotRequired(Q(2571), Q(5151), Q(5161), Q(2581), Q(2591), Q(2601), Q(5061), Q(5071));
+
+// If QID 5061 is not answered Option 1, then disappear and clear answer to QID 5011.
+ifQ(5061)
+.notAnswered(1)
+.disappear(Q(5011))
+.clearAnswer(Q(5011));
+
+// If QID 5061 is not answered Option 2, then disappear and clear answer to QID 5021.
+ifQ(5061)
+.notAnswered(2)
+.disappear(Q(5021))
+.clearAnswer(Q(5021));
+
+// If QID 5061 is not answered Option 3, then disappear and clear answer to QID 5031.
+ifQ(5061)
+.notAnswered(3)
+.disappear(Q(5031))
+.clearAnswer(Q(5031));
+
+// If QID 5061 is not answered Option 4, then disappear and clear answer to QID 5051.
+ifQ(5061)
+.notAnswered(4)
+.disappear(Q(5051))
+.clearAnswer(Q(5051));
+
+// If QID 5061 is not answered Option 5, then disappear and clear answer to QID 5111.
+ifQ(5061)
+.notAnswered(5)
+.disappear(Q(5111))
+.clearAnswer(Q(5111));
+
+// If QID 5071 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5071)
+.answered(0,2)
+.disappear(Q(5081), Q(5091), Q(5101), Q(1421))
+.clearAnswer(Q(5081), Q(5091), Q(5101), Q(1421));
+
+//*******************************
+// HIIT ZONE - End
+//*******************************
+
+
+
+
+//*******************************
+// PERSONAL TRAINING - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QID 5201.
+ifQ(6871)
+.answered(2)
+.disappear(Q(5201)) // medium header
+.disappear(Q(4511))
+.clearAnswer(Q(4511))
+.makeNotRequired(Q(4511));
+
+// If QID 6861 is not answered Option 1, then disappear and clear answer to QID 5301.
+ifQ(6861)
+.notAnswered(1)
+.disappear(Q(5301))
+.clearAnswer(Q(5301));
+
+// If QID 6861 is not answered Option 2, then disappear and clear answer to QID 5311.
+ifQ(6861)
+.notAnswered(2)
+.disappear(Q(5311))
+.clearAnswer(Q(5311));
+
+// If QID 6861 is not answered Option 3, then disappear and clear answer to QID 5321.
+ifQ(6861)
+.notAnswered(3)
+.disappear(Q(5321))
+.clearAnswer(Q(5321));
+
+// If QID 6861 is not answered Option 4, then disappear and clear answer to QID 5331.
+ifQ(6861)
+.notAnswered(4)
+.disappear(Q(5331))
+.clearAnswer(Q(5331));
+
+// If QID 4511 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(4511)
+.answered(0,2)
+.disappear(Q(5211), Q(5281), Q(5231)) // small headers
+.disappear(Q(4501), Q(4521), Q(4531), Q(5341), Q(5351), Q(6861), Q(5241))
+.clearAnswer(Q(4501), Q(4521), Q(4531), Q(5341), Q(5351), Q(6861), Q(5241));
+
+// If QID 5241 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5241)
+.answered(0,2)
+.disappear(Q(5251), Q(5261), Q(5271), Q(5361))
+.clearAnswer(Q(5251), Q(5261), Q(5271), Q(5361));
+
+//*******************************
+// PERSONAL TRAINING - End
+//*******************************
+
+
+
+
+//*******************************
+// LOCKER ROOMS - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required to QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(651)) // medium header
+.disappear(Q(5381))
+.clearAnswer(Q(5381))
+.makeNotRequired(Q(5381));
+
+// If QID 5381 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5381)
+.answered(0,2)
+.disappear(Q(6161), Q(6351))
+.clearAnswer(Q(6161), Q(6351));
+
+
+//--------------------------------------------
+// Women's Locker Rooms - Begin
+//--------------------------------------------
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(5441)) // medium header
+.disappear(Q(5391), Q(5461), Q(5451)) // small headers
+.disappear(Q(6091), Q(6101), Q(6111), Q(6121), Q(6131), Q(6141), Q(6151), Q(5821), Q(5491))
+.clearAnswer(Q(6091), Q(6101), Q(6111), Q(6121), Q(6131), Q(6141), Q(6151), Q(5821), Q(5491))
+.makeNotRequired(Q(6091), Q(6101), Q(6111), Q(6121), Q(6131), Q(6141), Q(6151), Q(5821), Q(5491));
+
+// If QID 5491 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5491)
+.answered(0,2)
+.disappear(Q(3581), Q(801), Q(841), Q(1461))
+.clearAnswer(Q(3581), Q(801), Q(841), Q(1461));
+
+//--------------------------------------------
+// Women's Locker Rooms  - End
+//--------------------------------------------
+
+
+//--------------------------------------------
+// Men's Locker Rooms - Begin
+//--------------------------------------------
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(5401)) // medium header
+.disappear(Q(851), Q(5501), Q(5511)) // small headers
+.disappear(Q(6281), Q(6291), Q(6301), Q(6311), Q(6321), Q(6331), Q(6341), Q(5831), Q(5521))
+.clearAnswer(Q(6281), Q(6291), Q(6301), Q(6311), Q(6321), Q(6331), Q(6341), Q(5831), Q(5521))
+.makeNotRequired(Q(6281), Q(6291), Q(6301), Q(6311), Q(6321), Q(6331), Q(6341), Q(5831), Q(5521));
+
+// If QID 5521 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5521)
+.answered(0,2)
+.disappear(Q(5531), Q(5541), Q(5551), Q(1481))
+.clearAnswer(Q(5531), Q(5541), Q(5551), Q(1481));
+
+//--------------------------------------------
+// Men's Locker Rooms  - End
+//--------------------------------------------
+
+
+//*******************************
+// LOCKER ROOMS - End
+//*******************************
+
+
+
+
+//*******************************
+// ROOM STUDIO - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required to QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(1001)) // medium header
+.disappear(Q(1591))
+.clearAnswer(Q(1591))
+.makeNotRequired(Q(1591));
+
+// If QID 1591 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1591)
+.answered(0,2)
+.disappear(Q(5601), Q(5611), Q(5591)) // small headers
+.disappear(Q(5911), Q(5921), Q(5931), Q(5841), Q(5561))
+.clearAnswer(Q(5911), Q(5921), Q(5931), Q(5841), Q(5561));
+
+// If QID 5841 is not answered Option 1, then disappear and clear answer to QID 5881.
+ifQ(5841)
+.notAnswered(1)
+.disappear(Q(5881))
+.clearAnswer(Q(5881));
+
+// If QID 5841 is not answered Option 2, then disappear and clear answer to QID 5851.
+ifQ(5841)
+.notAnswered(2)
+.disappear(Q(5851))
+.clearAnswer(Q(5851));
+
+// If QID 5841 is not answered Option 3, then disappear and clear answer to QID 5901.
+ifQ(5841)
+.notAnswered(3)
+.disappear(Q(5901))
+.clearAnswer(Q(5901));
+
+// If QID 5841 is not answered Option 4, then disappear and clear answer to QID 5861.
+ifQ(5841)
+.notAnswered(4)
+.disappear(Q(5861))
+.clearAnswer(Q(5861));
+
+// If QID 5561 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5561)
+.answered(0,2)
+.disappear(Q(1051), Q(5571), Q(5581), Q(1501))
+.clearAnswer(Q(1051), Q(5571), Q(5581), Q(1501));
+
+//*******************************
+// ROOM STUDIO - End
+//*******************************
+
+
+
+
+//*******************************
+// HOT STUFF STUDIO - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(5411)) // medium header
+.disappear(Q(6951))
+.clearAnswer(Q(6951))
+.makeNotRequired(Q(6951));
+
+// If QID 6951 is answered Option 2, then disappear, clear answer, and make not required QIDs.
+ifQ(6951)
+.answered(0,2)
+.disappear(Q(5621), Q(5631), Q(5641)) // small headers
+.disappear(Q(5941), Q(5951), Q(5961), Q(6011), Q(6021), Q(6031), Q(6041), Q(5971))
+.clearAnswer(Q(5941), Q(5951), Q(5961), Q(6011), Q(6021), Q(6031), Q(6041), Q(5971))
+.makeNotRequired(Q(5941), Q(5951), Q(5961), Q(6011), Q(6021), Q(6031), Q(6041), Q(5971));
+
+// If QID 6041 is not answered Option 1, then disappear and clear answer to QID 6051.
+ifQ(6041)
+.notAnswered(1)
+.disappear(Q(6051))
+.clearAnswer(Q(6051));
+
+// If QID 6041 is not answered Option 2, then disappear and clear answer to QID 6061.
+ifQ(6041)
+.notAnswered(2)
+.disappear(Q(6061))
+.clearAnswer(Q(6061));
+
+// If QID 6041 is not answered Option 3, then disappear and clear answer to QID 6071.
+ifQ(6041)
+.notAnswered(3)
+.disappear(Q(6071))
+.clearAnswer(Q(6071));
+
+// If QID 6041 is not answered Option 4, then disappear and clear answer to QID 6081.
+ifQ(6041)
+.notAnswered(4)
+.disappear(Q(6081))
+.clearAnswer(Q(6081));
+
+// If QID 5971 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5971)
+.answered(0,2)
+.disappear(Q(5981), Q(5991), Q(6001), Q(6891))
+.clearAnswer(Q(5981), Q(5991), Q(6001), Q(6891));
+
+//*******************************
+// HOT STUFF STUDIO - End
+//*******************************
+
+
+
+
+//*******************************
+// REST & RECOVERY - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required to QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(1121)) // medium header
+.disappear(Q(5651))
+.clearAnswer(Q(5651))
+.makeNotRequired(Q(5651));
+
+// If QID 6541 is not answered Option 1, then disappear and clear answer to QID 6741.
+ifQ(6541)
+.notAnswered(1)
+.disappear(Q(6741))
+.clearAnswer(Q(6741));
+
+// If QID 6541 is not answered Option 2, then disappear and clear answer to QID 6771.
+ifQ(6541)
+.notAnswered(2)
+.disappear(Q(6771))
+.clearAnswer(Q(6771));
+
+// If QID 6541 is not answered Option 3, then disappear and clear answer to QID 6801.
+ifQ(6541)
+.notAnswered(3)
+.disappear(Q(6801))
+.clearAnswer(Q(6801));
+
+// If QID 6471 is not answered Option 1, then disappear and clear answer to QID 6511.
+ifQ(6471)
+.notAnswered(1)
+.disappear(Q(6511))
+.clearAnswer(Q(6511));
+
+// If QID 6471 is not answered Option 2, then disappear and clear answer to QID 6491.
+ifQ(6471)
+.notAnswered(2)
+.disappear(Q(6491))
+.clearAnswer(Q(6491));
+
+// If QID 6471 is not answered Option 3, then disappear and clear answer to QID 6521.
+ifQ(6471)
+.notAnswered(3)
+.disappear(Q(6521))
+.clearAnswer(Q(6521));
+
+// If QID 6471 is not answered Option 4, then disappear and clear answer to QID 6841.
+ifQ(6471)
+.notAnswered(4)
+.disappear(Q(6841))
+.clearAnswer(Q(6841));
+
+// If QID 6471 is not answered Option 5, then disappear and clear answer to QID 6501.
+ifQ(6471)
+.notAnswered(5)
+.disappear(Q(6501))
+.clearAnswer(Q(6501));
+
+// If QID 6471 is not answered Option 6, then disappear and clear answer to QID 6531.
+ifQ(6471)
+.notAnswered(6)
+.disappear(Q(6531))
+.clearAnswer(Q(6531));
+
+// If QID 6471 is not answered Option 7, then disappear and clear answer to QID 6551.
+ifQ(6471)
+.notAnswered(7)
+.disappear(Q(6551))
+.clearAnswer(Q(6551));
+
+// If QID 5651 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5651)
+.answered(0,2)
+.disappear(Q(5691), Q(5701), Q(5711)) // small headers
+.disappear(Q(6541), Q(6701), Q(6711), Q(6721), Q(6471), Q(5811))
+.clearAnswer(Q(6541), Q(6701), Q(6711), Q(6721), Q(6471), Q(5811));
+
+// If QID 5811 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5811)
+.answered(0,2)
+.disappear(Q(6671), Q(6681), Q(6691), Q(1521))
+.clearAnswer(Q(6671), Q(6681), Q(6691), Q(1521));
+
+//*******************************
+// REST & RECOVERY - End
+//*******************************
+
+
+
+
+//*******************************
+// OTHER - Begin
+//*******************************
+
+// If QID 6871 is answered Option 2, then disappear, clear answer, and make not required to QIDs.
+ifQ(6871)
+.answered(2)
+.disappear(Q(1231), Q(5481), Q(5431)) // medium headers
+.disappear(Q(1601), Q(1741))
+.clearAnswer(Q(1601), Q(1741))
+.makeNotRequired(Q(1601), Q(1741));
+
+
+//--------------------------------------------
+// Pool - Begin
+//--------------------------------------------
+
+// If QID 1601 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1601)
+.answered(0,2)
+.disappear(Q(1701), Q(5421)) // small headers
+.disappear(Q(5741), Q(5751), Q(5761), Q(5661))
+.clearAnswer(Q(5741), Q(5751), Q(5761), Q(5661));
+
+// If QID 5661 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5661)
+.answered(0,2)
+.disappear(Q(1241), Q(5671), Q(5681), Q(1541))
+.clearAnswer(Q(1241), Q(5671), Q(5681), Q(1541));
+
+//--------------------------------------------
+// Pool - End
+//--------------------------------------------
+
+
+//--------------------------------------------
+// Basketball Court - Begin
+//--------------------------------------------
+
+// If QID 1741 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1741)
+.answered(0,2)
+.disappear(Q(5721), Q(5731)) // small headers
+.disappear(Q(5771), Q(5781), Q(5791), Q(5801))
+.clearAnswer(Q(5771), Q(5781), Q(5791), Q(5801));
+
+// If QID 5801 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(5801)
+.answered(0,2)
+.disappear(Q(1761), Q(1771), Q(5471), Q(1831))
+.clearAnswer(Q(1761), Q(1771), Q(5471), Q(1831));
+
+//--------------------------------------------
+// Basketball Court - End
+//--------------------------------------------
+
+
+//*******************************
+// OTHER - End
+//*******************************
