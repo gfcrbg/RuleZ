@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 791	
 // SID: 5399	
-// Last Updated: 9/16/2025	
+// Last Updated: 9/23/2025	
 //*******************************	
 
 
@@ -16,7 +16,6 @@ ifQ(61)
 .answered(1)
 .disappear(Q(1301))
 .clearAnswer(Q(1301));
-
 
 // If QID 71 is answered Option 1, then disappear and clear answer to QID 1311.
 ifQ(71)
@@ -35,11 +34,11 @@ ifQ(71)
 // PRODUCE - Begin
 //*******************************
 
-// If QID 101 is answered Option 2, then disappear and clear answer to QIDs [121 AND 301].
+// If QID 101 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(101)
 .answered(2)
-.disappear(Q(121), Q(301))
-.clearAnswer(Q(121), Q(301));
+.disappear(Q(111), Q(121), Q(1041), Q(141), Q(151), Q(301), Q(161), Q(1391), Q(171))
+.clearAnswer(Q(111), Q(121), Q(1041), Q(141), Q(151), Q(301), Q(161), Q(1391), Q(171));
 
 //*******************************
 // PRODUCE - End
@@ -52,11 +51,11 @@ ifQ(101)
 // DELI - Begin
 //*******************************
 
-// If QID 201 is answered Option 2, then disappear and clear answer to QIDs [221 AND 311].
+// If QID 201 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(201)
 .answered(2)
-.disappear(Q(221), Q(311))
-.clearAnswer(Q(221), Q(311));
+.disappear(Q(211), Q(221), Q(1051), Q(241), Q(251), Q(311), Q(261), Q(1381), Q(271), Q(1321))
+.clearAnswer(Q(211), Q(221), Q(1051), Q(241), Q(251), Q(311), Q(261), Q(1381), Q(271), Q(1321));
 
 //*******************************
 // DELI - End
@@ -69,11 +68,11 @@ ifQ(201)
 // BAKERY - Begin
 //*******************************
 
-// If QID 331 is answered Option 2, then disappear and clear answer to QIDs [351 AND 391].
+// If QID 331 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(331)
 .answered(2)
-.disappear(Q(351), Q(391))
-.clearAnswer(Q(351), Q(391));
+.disappear(Q(341), Q(351), Q(1061), Q(371), Q(381), Q(391), Q(401), Q(1401), Q(411))
+.clearAnswer(Q(341), Q(351), Q(1061), Q(371), Q(381), Q(391), Q(401), Q(1401), Q(411));
 
 //*******************************
 // BAKERY - End
@@ -86,11 +85,11 @@ ifQ(331)
 // BEEF SHOPPE - Begin
 //*******************************
 
-// If QID 441 is answered Option 2, then disappear and clear answer to QIDs [461 AND 501].
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(441)
 .answered(2)
-.disappear(Q(461), Q(501))
-.clearAnswer(Q(461), Q(501));
+.disappear(Q(451), Q(461), Q(1031), Q(481), Q(491), Q(501), Q(511), Q(1411), Q(521), Q(1331))
+.clearAnswer(Q(451), Q(461), Q(1031), Q(481), Q(491), Q(501), Q(511), Q(1411), Q(521), Q(1331));
 
 //*******************************
 // BEEF SHOPPE - End
@@ -103,11 +102,11 @@ ifQ(441)
 // BEER DEN / BOX CAR - Begin
 //*******************************
 
-// If QID 561 is answered Option 2, then disappear and clear answer to QIDs [581 AND 621].
+// If QID 561 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(561)
 .answered(2)
-.disappear(Q(581), Q(621))
-.clearAnswer(Q(581), Q(621));
+.disappear(Q(571), Q(581), Q(1071), Q(601), Q(611), Q(621), Q(631), Q(1421), Q(641))
+.clearAnswer(Q(571), Q(581), Q(1071), Q(601), Q(611), Q(621), Q(631), Q(1421), Q(641));
 
 //*******************************
 // BEER DEN / BOX CAR - End
@@ -120,11 +119,11 @@ ifQ(561)
 // GROCERY / SALES FLOOR - Begin
 //*******************************
 
-// If QID 671 is answered Option 2, then disappear and clear answer to QID 701.
+// If QID 671 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(671)
 .answered(2)
-.disappear(Q(701))
-.clearAnswer(Q(701));
+.disappear(Q(681), Q(691), Q(701), Q(711))
+.clearAnswer(Q(681), Q(691), Q(701), Q(711));
 
 //*******************************
 // GROCERY / SALES FLOOR - End
@@ -137,9 +136,9 @@ ifQ(671)
 // RESTROOMS - Begin
 //*******************************
 
-// If QID 831 is answered Option 4, then disappear and clear answer to QIDs [841 AND 861].
+// If QID 831 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(831)
-.answered(4)
+.answered(3)
 .disappear(Q(841), Q(861))
 .clearAnswer(Q(841), Q(861));
 
@@ -160,29 +159,18 @@ ifQ(841)
 // RESTAURANT - Begin
 //*******************************
 
-// If QID 1151 is answered Option 1, then disappear and clear answer to QID 1161.
+// If QID 1481 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1481)
+.answered(2)
+.disappear(Q(1121), Q(1131), Q(1141), Q(1151), Q(1171), Q(1181), Q(1191), Q(1201), Q(1211))
+.clearAnswer(Q(1121), Q(1131), Q(1141), Q(1151), Q(1171), Q(1181), Q(1191), Q(1201), Q(1211));
+
+// If QID 1151 is answered Option [0 OR 1], then disappear and clear answer to QID 1161.
 ifQ(1151)
-.answered(1)
+.answered(0,1)
 .disappear(Q(1161))
 .clearAnswer(Q(1161));
 
 //*******************************
 // RESTAURANT - End
-//*******************************
-
-
-
-
-//*******************************
-// EXPERIENCE OBSERVATIONS - Begin
-//*******************************
-
-// If QID 1271 is not answered Option 24, then disappear and clear answer to QID 1281.
-ifQ(1271)
-.notAnswered(24)
-.disappear(Q(1281))
-.clearAnswer(Q(1281));
-
-//*******************************
-// EXPERIENCE OBSERVATIONS - End
 //*******************************
