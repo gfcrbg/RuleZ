@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 791	
 // SID: 5399	
-// Last Updated: 9/25/2025	
+// Last Updated: 9/26/2025	
 //*******************************	
 
 
@@ -173,40 +173,4 @@ ifQ(1151)
 
 //*******************************
 // RESTAURANT - End
-//*******************************
-
-
-
-
-//*******************************
-// EXPERIENCE OBSERVATIONS - Begin
-//*******************************
-
-// If QID 1391 is answered Option 1 then set value to Option 16 to QID 1271.
-ifQ(1391)
-.answered(1)
-.setValue(Q(1271), 16);
-
-// If QID 1381 is answered Option 1 then set value to Option 17 to QID 1271.
-ifQ(1381)
-.answered(1)
-.setValue(Q(1271), 17);
-
-// If QID 1401 is answered Option 1 then set value to Option 18 to QID 1271.
-ifQ(1401)
-.answered(1)
-.setValue(Q(1271), 18);
-
-// If QID 1411 is answered Option 1 then set value to Option 19 to QID 1271.
-ifQ(1411)
-.answered(1)
-.setValue(Q(1271), 19);
-
-// If QID 1421 is answered Option 1 then set value to Option 20 to QID 1271.
-ifQ(1421)
-.answered(1)
-.setValue(Q(1271), 20);
-
-//*******************************
-// EXPERIENCE OBSERVATIONS - End
 //*******************************
