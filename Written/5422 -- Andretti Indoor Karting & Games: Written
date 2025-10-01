@@ -1,0 +1,236 @@
+//*******************************	
+// CID: 980
+// SID: 5422	
+// Last Updated: 10/1/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// ATMOSPHERE / FACILITY
+// CLEANLINESS - Begin
+//*******************************
+
+//-------------------------------------------
+// Event Space - Begin
+//-------------------------------------------
+
+// If QID 201 is not answered Option [1, 2, OR 4], then disappear and clear answer to QID 541.
+ifQ(201)
+.notAnswered(1,2,4)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+//-------------------------------------------
+// Event Space - End
+//-------------------------------------------
+
+//*******************************
+// ATMOSPHERE / FACILITY
+// CLEANLINESS - End
+//*******************************
+
+
+
+
+//*******************************
+// ARCADE - Begin
+//*******************************
+
+// If QID 501 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(501)
+.answered(1)
+.disappear(Q(511), Q(521))
+.clearAnswer(Q(511), Q(521));
+
+//*******************************
+// ARCADE - End
+//*******************************
+
+
+
+
+//*******************************
+// TRACK - Begin
+//*******************************
+
+//-------------------------------------------
+// On the Track 
+// before the start of the race - Begin
+//-------------------------------------------
+
+// If QID 881 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(881)
+.answered(2,3)
+.disappear(Q(891), Q(901))
+.clearAnswer(Q(891), Q(901));
+
+//-------------------------------------------
+// On the Track 
+// before the start of the race - End
+//-------------------------------------------
+
+//*******************************
+// TRACK - End
+//*******************************
+
+
+
+
+//*******************************
+// DINING - Begin
+//*******************************
+
+//-------------------------------------------
+// Service / Meal - Begin
+//-------------------------------------------
+
+// If QID 941 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(1)
+.disappear(Q(971)) // red remark
+.disappear(Q(951), Q(981), Q(991), Q(1001), Q(1011), Q(1021))
+.clearAnswer(Q(951), Q(981), Q(991), Q(1001), Q(1011), Q(1021));
+
+// If QID 951 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 961.
+ifQ(951)
+.answered(0,2,3)
+.disappear(Q(961))
+.clearAnswer(Q(961))
+
+// If QID 1081 is answered Option [2 OR 3], then disappear and clear answer to QID 1091.
+ifQ(1081)
+.answered(2,3)
+.disappear(Q(1091))
+.clearAnswer(Q(1091));
+
+// If QID 1101 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1101)
+.answered(2)
+.disappear(Q(1521), Q(1111), Q(1121))
+.clearAnswer(Q(1521), Q(1111), Q(1121));
+
+// If QID 1131 is answered Option [2 OR 3], then disappear and clear answer to QID 1141.
+ifQ(1131)
+.answered(2,3)
+.disappear(Q(1141))
+.clearAnswer(Q(1141));
+
+// If QID 1151 is answered Option 2, then disappear and clear answer to QID 1691.
+ifQ(1151)
+.answered(2)
+.disappear(Q(1691))
+.clearAnswer(Q(1691));
+
+// If QID 1172 is answered Option [2 OR 3], then disappear and clear answer to QID 1181.
+ifQ(1171)
+.answered(2,3)
+.disappear(Q(1181))
+.clearAnswer(Q(1181));
+
+// If QID 1191 is answered Option [2 OR 3], then disappear and clear answer to QID 1201.
+ifQ(1191)
+.answered(2,3)
+.disappear(Q(1201))
+.clearAnswer(Q(1201));
+
+// If QID 1211 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1211)
+.answered(2)
+.disappear(Q(1231), Q(1261))
+.clearAnswer(Q(1231), Q(1261));
+
+// If QID 1281 is answered Option [2 OR 3], then disappear and clear answer to QID 1291.
+ifQ(1281)
+.answered(2,3)
+.disappear(Q(1291))
+.clearAnswer(Q(1291));
+
+// If QID 1301 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1301)
+.answered(2)
+.disappear(Q(1311), Q(1331), Q(1341))
+.clearAnswer(Q(1311), Q(1331), Q(1341));
+
+// If QID 1351 is answered Option [2 OR 3], then disappear and clear answer to QID 1361.
+ifQ(1351)
+.answered(2,3)
+.disappear(Q(1361))
+.clearAnswer(Q(1361));
+
+// If QID 1411 is answered Option [2 OR 3], then disappear and clear answer to QID 1421.
+ifQ(1411)
+.answered(2,3)
+.disappear(Q(1421))
+.clearAnswer(Q(1421));
+
+//-------------------------------------------
+// Service / Meal - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Food Quality - Begin
+//-------------------------------------------
+
+// If QID 1101 is answered Option 2, then disappear and clear answer to QID 1441.
+ifQ(1101)
+.answered(2)
+.disappear(Q(1441))
+.clearAnswer(Q(1441));
+
+// If QID 1441 is answered Option [0 OR 1], then disappear and clear answer to QID 1471.
+ifQ(1441)
+.answered(0,1)
+.disappear(Q(1471))
+.clearAnswer(Q(1471));
+
+// If QID 1211 is answered Option 2, then disappear and clear answer to QID 1451.
+ifQ(1211)
+.answered(2)
+.disappear(Q(1451))
+.clearAnswer(Q(1451));
+
+// If QID 1451 is answered Option [0 OR 1], then disappear and clear answer to QID 1481.
+ifQ(1451)
+.answered(0,1)
+.disappear(Q(1481))
+.clearAnswer(Q(1481));
+
+// If QID 1301 is answered Option 2, then disappear and clear answer to QID 1461.
+ifQ(1301)
+.answered(2)
+.disappear(Q(1461))
+.clearAnswer(Q(1461));
+
+// If QID 1461 is answered Option [0 OR 1], then disappear and clear answer to QID 1491.
+ifQ(1461)
+.answered(0,1)
+.disappear(Q(1491))
+.clearAnswer(Q(1491));
+
+//-------------------------------------------
+// Food Quality - End
+//-------------------------------------------
+
+//*******************************
+// DINING - End
+//*******************************
+
+
+
+
+//*******************************
+// GUEST EXPERIENCE - Begin
+//*******************************
+
+// If QID 1611 is answered Option 2, then disappear and clear answer to QID 1621.
+ifQ(1611)
+.answered(2)
+.disappear(Q(1621))
+.clearAnswer(Q(1621));
+
+//*******************************
+// GUEST EXPERIENCE - End
+//*******************************
