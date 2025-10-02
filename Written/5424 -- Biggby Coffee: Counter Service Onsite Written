@@ -1,0 +1,192 @@
+//**********************************	
+// CID: 968	
+// SID: 5424
+// Last Updated: 10/2/2025	
+//**********************************	
+
+
+
+
+// Primary QID: 1192
+
+// If QID 1192 is answered Option 1, then disappear and clear answer to QID 1202.
+ifQ(1192)
+.answered(1)
+.disappear(Q(1202))
+.clearAnswer(Q(1202));
+
+// If QID 1192 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1192)
+.answered(2)
+.disappear(Q(61), Q(1482), Q(1212), Q(81))
+.clearAnswer(Q(61), Q(1482), Q(1212), Q(81));
+
+// If QID 1212 is answered Option [0 OR 1], then disappear and clear answer to QID 1222.
+ifQ(1212)
+.answered(0,1)
+.disappear(Q(1222))
+.clearAnswer(Q(1222));
+
+
+
+
+//**********************************
+// ATMOSPHERE AND APPEARANCE - Begin
+//**********************************
+
+// If QID 1192 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1192)
+.answered(2)
+.disappear(Q(101)) // medium header
+.disappear(Q(111), Q(1522), Q(1092), Q(1462))
+.clearAnswer(Q(111), Q(1522), Q(1092), Q(1462));
+
+//**********************************
+// ATMOSPHERE AND APPEARANCE - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER EXPERIENCE - Begin
+//**********************************
+
+// If QID 1192 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1192)
+.answered(2)
+.disappear(Q(191)) // medium header
+.disappear(Q(2042), Q(1912), Q(171), Q(291), Q(1752), Q(1042), Q(1922), Q(1742), Q(1712), Q(581), Q(1962)) 
+.clearAnswer(Q(2042), Q(1912), Q(171), Q(291), Q(1752), Q(1042), Q(1922), Q(1742), Q(1712), Q(581), Q(1962));
+
+// If QID 1922 is answered Option [0 OR 2], then disappear and clear answer to QID 1982.
+ifQ(1922)
+.answered(0,2)
+.disappear(Q(1982))
+.clearAnswer(Q(1982));
+
+//**********************************
+// ORDER EXPERIENCE - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER PICK-UP - Begin
+//**********************************
+
+// If QID 1192 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1192)
+.answered(2)
+.disappear(Q(531)) // medium header
+.disappear(Q(2052), Q(1612), Q(551), Q(251), Q(732), Q(1642), Q(1952))
+.clearAnswer(Q(2052), Q(1612), Q(551), Q(251), Q(732), Q(1642), Q(1952));
+
+// If QIDs [581 AND 551] are answered, then trigger math operation: [551] - [581] = [251]
+ifQ(581)
+.answered()
+.andifQ(551)
+.answered()
+.sub(Q(551), Q(581))
+.store(Q(251));
+
+// If QID 1192 is answered Option 1 AND if QID 251 is <= 3 minutes, then set value to Option 1 to QID 732.
+ifQ(1192)
+.answered(1)
+.andifQ(251)
+.lessThanOrEqual(180)
+.setValue(Q(732), 1);
+
+// If QID 1192 is answered Option 1 AND if QID 251 > 3 minutes AND <= 4 minutes, then set value to Option 2 to QID 732.
+ifQ(1192)
+.answered(1)
+.andifQ(251)
+.greaterThan(180)
+.andifQ(251)
+.lessThanOrEqual(240)
+.setValue(Q(732), 2);
+
+// If QID 1192 is answered Option 1 AND if QID 251 > 4 minutes AND <= 5 minutes, then set value to Option 3 to QID 732.
+ifQ(1192)
+.answered(1)
+.andifQ(251)
+.greaterThan(240)
+.andifQ(251)
+.lessThanOrEqual(300)
+.setValue(Q(732), 3);
+
+// If QID 1192 is answered Option 1 AND if QID 251 > 5 minutes, then set value to Option 4 to QID 732.
+ifQ(1192)
+.answered(1)
+.andifQ(251)
+.greaterThan(300)
+.setValue(Q(732), 4);
+
+// If QID 732 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 1662.
+ifQ(732)
+.answered(0,1,2)
+.disappear(Q(1662))
+.clearAnswer(Q(1662));
+
+//**********************************
+// ORDER PICK-UP - End
+//**********************************
+
+
+
+
+//**********************************
+// ORDER QUALITY - Begin
+//**********************************
+
+// If QID 1192 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1192)
+.answered(2)
+.disappear(Q(351)) // medium header
+.disappear(Q(2022), Q(361), Q(1702), Q(1992), Q(1762), Q(2002), Q(401), Q(2012), Q(391), Q(1242), Q(1722), Q(782))
+.clearAnswer(Q(2022), Q(361), Q(1702), Q(1992), Q(1762), Q(2002), Q(401), Q(2012), Q(391), Q(1242), Q(1722), Q(782));
+
+// If QID 361 is answered Option [0 OR 1], then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,1)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//**********************************
+// ORDER QUALITY - End
+//**********************************
+
+
+
+
+//**********************************
+// OVERALL - Begin
+//**********************************
+
+// If QID 1192 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1192)
+.answered(2)
+.disappear(Q(1932)) // medium header
+.disappear(Q(1972), Q(1942))
+.clearAnswer(Q(1972), Q(1942));
+
+//**********************************
+// OVERALL - End
+//**********************************
+
+
+
+
+// Coaches Review
+
+// If QID 1892 is not answered Option [1 OR 2], then set value to Option 3 to QID 1892.
+ifQ(1892)
+.notAnswered(1, 2)
+.setValue(Q(1892), 3);
+
+// If QID 1892 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(1892)
+.answered(2, 3)
+.disappear(Q(1812), Q(1822), Q(1852), Q(1862), Q(1872))
+.clearAnswer(Q(1812), Q(1822), Q(1852), Q(1862), Q(1872));
