@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 981	
+// SID: 5418	
+// Last Updated: 10/2/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// FOOD QUALITY - Begin
+//*******************************
+
+// If QID 261 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(261)
+.answered(1)
+.disappear(Q(271), Q(281))
+.clearAnswer(Q(271), Q(281));
+
+//*******************************
+// FOOD QUALITY - End
+//*******************************
