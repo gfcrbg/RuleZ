@@ -75,8 +75,8 @@ ifQ(1021)
 .greaterThan(30)
 .setValue(Q(1101), 2);
 
-// If QID 1101 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
-ifQ(1101)
+// If QID 1021 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1021)
 .answered(0,2)
 .disappear(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161))
 .clearAnswer(Q(1111), Q(1121), Q(1131), Q(1141), Q(1151), Q(1161));
