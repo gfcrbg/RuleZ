@@ -1,13 +1,38 @@
 //*******************************
 // CID: 762
 // SID: 4643
-// Last Updated: 9/26/2022
+// Last Updated: 10/13/2025
 //*******************************
 
 
 
 
-// Will add the cost of purchase when a field is filled.
+// If QID 2191 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(2191)
+.notAnswered(1)
+.disappear(Q(71), Q(1591))
+.clearAnswer(Q(71), Q(1591));
+
+// If QID 2191 is not answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2191)
+.notAnswered(2)
+.disappear(Q(91), Q(1601))
+.clearAnswer(Q(91), Q(1601));
+
+// If QID 2191 is not answered Option 3, then disappear and clear answer to QIDs.
+ifQ(2191)
+.notAnswered(3)
+.disappear(Q(111), Q(1621))
+.clearAnswer(Q(111), Q(1621));
+
+// If QID 2191 is not answered Option 4, then disappear and clear answer to QIDs.
+ifQ(2191)
+.notAnswered(4)
+.disappear(Q(121), Q(2201))
+.clearAnswer(Q(121), Q(2201));
+
+
+// If QIDs are answered, then trigger math operation: [71] + [2541] + [91] + [111] + [121] = [1631]
 ifQ(71)
 .answered()
 .orifQ(2541)
@@ -21,7 +46,7 @@ ifQ(71)
 .sum(Q(71), Q(2541), Q(91), Q(111), Q(121))
 .store(Q(1631));
 
-// Will clear the total amount if no values are entered.
+// If QIDs are answered, then clear answer to QID 1631.
 ifQ(71)
 .notAnswered()
 .andQ(2541)
@@ -35,32 +60,206 @@ ifQ(71)
 .clearAnswer(Q(1631));
 
 
-//----Section Activation----
+//*******************************
+// MOVIES - Begin
+//*******************************
 
-// Movies - hides movies section if not selected.
+// If QID 2191 is not answered Option 1, then disappear and clear answer to QID 2041.
 ifQ(2191)
 .notAnswered(1)
-.disappear(Section(1))
-.clearAnswer(Section(1))
-.makeNotRequired(Section(1));
+.disappear(Q(2041))
+.clearAnswer(Q(2041));
 
-// Bowling - hides bowling section if not selected.
+// If QID 2041 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 171.
+ifQ(2041)
+.answered(0,2,3)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+// If QID 2041 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 191.
+ifQ(2041)
+.answered(0,1,3)
+.disappear(Q(191))
+.clearAnswer(Q(191));
+
+
+//-------------------------------------------
+// Concessions - Begin
+//-------------------------------------------
+
+// If QID 2041 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 211.
+ifQ(2041)
+.answered(0,1,2)
+.disappear(Q(211))
+.clearAnswer(Q(211)); 
+
+// If QID 2041 is not answered, then disappear and clear answer to QID 1991.
+ifQ(2041)
+.notAnswered()
+.disappear(Q(1991))
+.clearAnswer(Q(1991)); 
+
+// If QID 1991 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1991)
+.answered(2)
+.disappear(Q(1641), Q(1651), Q(2131), Q(1671), Q(1731), Q(2251), Q(2561), Q(2261), Q(1681), Q(1691), Q(1701), Q(1721))
+.clearAnswer(Q(1641), Q(1651), Q(2131), Q(1671), Q(1731), Q(2251), Q(2561), Q(2261), Q(1681), Q(1691), Q(1701), Q(1721));
+
+//-------------------------------------------
+// Concessions - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Movie Atmosphere - Begin
+//-------------------------------------------
+
+// If QID 2191 is not answered Option 1, then disappear and clear answer to QID 2041.
+ifQ(2191)
+.notAnswered(1)
+.disappear(Q(531)) // medium header
+.disappear(Q(541), Q(551), Q(561), Q(571), Q(581), Q(611), Q(2271), Q(2511), Q(631), Q(2281), Q(2291), Q(641), Q(651), Q(671))
+.clearAnswer(Q(541), Q(551), Q(561), Q(571), Q(581), Q(611), Q(2271), Q(2511), Q(631), Q(2281), Q(2291), Q(641), Q(651), Q(671)); 
+
+// If QID 2511 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 2501.
+ifQ(2511)
+.answered(0,2,3)
+.disappear(Q(2501))
+.clearAnswer(Q(2501));
+
+// If QID 651 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 661.
+ifQ(651)
+.answered(0,1,3)
+.disappear(Q(661))
+.clearAnswer(Q(661));
+
+//-------------------------------------------
+// Movie Atmosphere - End
+//-------------------------------------------
+
+//*******************************
+// MOVIES - End
+//*******************************
+
+
+
+
+//*******************************
+// BOWLING - Begin
+//*******************************
+
+// If QID 2191 is not answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2191)
 .notAnswered(2)
-.disappear(Section(2))
-.clearAnswer(Section(2))
-.makeNotRequired(Section(2));
+.disappear(Q(681)) // big header
+.disappear(Q(2001)) // red remark
+.disappear(Q(2301), Q(701), Q(711), Q(2151), Q(2321), Q(1801), Q(751), Q(761), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851), Q(781))
+.clearAnswer(Q(2301), Q(701), Q(711), Q(2151), Q(2321), Q(1801), Q(751), Q(761), Q(1811), Q(1821), Q(1831), Q(1841), Q(1851), Q(781));
 
-// Billy's Grille - hides Billy's Grille section if not selected.
+// If QID 2301 is answered Option [0 OR 1], then disappear and clear answer to QID 2311.
+ifQ(2301)
+.answered(0,1)
+.disappear(Q(2311))
+.clearAnswer(Q(2311));
+
+
+//-------------------------------------------
+// Bowling Atmosphere - Begin
+//-------------------------------------------
+
+// If QID 2191 is not answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2191)
-.notAnswered(3)
-.disappear(Section(4))
-.clearAnswer(Section(4))
-.makeNotRequired(Section(4));
+.notAnswered(2)
+.disappear(Q(791)) // medium header
+.disappear(Q(801), Q(2011), Q(821), Q(831), Q(841), Q(851), Q(2331), Q(2351), Q(2361), Q(881))
+.clearAnswer(Q(801), Q(2011), Q(821), Q(831), Q(841), Q(851), Q(2331), Q(2351), Q(2361), Q(881)); 
 
-// Arcade - hides arcade section if not selected.
+// If QID 2011 is answered Option [0 OR 1], then disappear and clear answer to QID 811.
+ifQ(2011)
+.answered(0,1)
+.disappear(Q(811))
+.clearAnswer(Q(811));
+
+// If QID 851 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 861.
+ifQ(851)
+.answered(0,1,3)
+.disappear(Q(861))
+.clearAnswer(Q(861));
+
+// If QID 2331 is answered Option [0 OR 1], then disappear and clear answer to QID 2341.
+ifQ(2331)
+.answered(0,1)
+.disappear(Q(2341))
+.clearAnswer(Q(2341));
+
+//-------------------------------------------
+// Bowling Atmosphere - End
+//-------------------------------------------
+
+//*******************************
+// BOWLING - End
+//*******************************
+
+
+
+
+//*******************************
+// ARCADE - Begin
+//*******************************
+
+// If QID 2191 is not answered Option 4, then disappear and clear answer to QIDs.
 ifQ(2191)
 .notAnswered(4)
-.disappear(Section(3))
-.clearAnswer(Section(3))
-.makeNotRequired(Section(3));
+.disappear(Q(1101)) // big header
+.disappear(Q(1121), Q(1131), Q(1151), Q(2371), Q(2381), Q(2391), Q(1171))
+.clearAnswer(Q(1121), Q(1131), Q(1151), Q(2371), Q(2381), Q(2391), Q(1171));
+
+
+//-------------------------------------------
+// Arcade Prize Room - Begin
+//-------------------------------------------
+
+// If QID 2191 is not answered Option 4, then disappear and clear answer to QID 1981.
+ifQ(2191)
+.notAnswered(4)
+.disappear(Q(1181)) // medium header
+.disappear(Q(1981))
+.clearAnswer(Q(1981));
+
+// If QID 1981 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1981)
+.answered(0,2)
+.disappear(Q(1191), Q(1221), Q(2161), Q(2061), Q(2401), Q(1241))
+.clearAnswer(Q(1191), Q(1221), Q(2161), Q(2061), Q(2401), Q(1241));
+
+// If QID 1191 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1201.
+ifQ(1191)
+.answered(0,2,3)
+.disappear(Q(1201))
+.clearAnswer(Q(1201));
+
+//-------------------------------------------
+// Arcade Prize Room - End
+//-------------------------------------------
+
+//*******************************
+// ARCADE - End
+//*******************************
+
+
+
+
+//*******************************
+// BILLY'S GRILLE - Begin
+//*******************************
+
+// If QID 2191 is not answered Option 3, then disappear and clear answer to QIDs.
+ifQ(2191)
+.notAnswered(3)
+.disappear(Q(1251)) // big header
+.disappear(Q(2411), Q(1861), Q(1261), Q(1871), Q(1271), Q(1281), Q(1291), Q(1301), Q(2421), Q(1311), Q(1321), Q(2211), Q(2221), Q(2231), Q(2571), Q(2241), Q(2431), Q(1341))
+.clearAnswer(Q(2411), Q(1861), Q(1261), Q(1871), Q(1271), Q(1281), Q(1291), Q(1301), Q(2421), Q(1311), Q(1321), Q(2211), Q(2221), Q(2231), Q(2571), Q(2241), Q(2431), Q(1341));
+
+//*******************************
+// BILLY'S GRILLE - End
+//*******************************
