@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 977
 // SID: 5406	
-// Last Updated: 9/17/2025	
+// Last Updated: 10/15/2025	
 //*******************************	
 
 
@@ -77,9 +77,13 @@ ifQ(231)
 ifQ(231)
 .answered(2)
 .disappear(Q(501)) // medium header
-.disappear(Q(1332)) // red remark
 .disappear(Q(321), Q(892), Q(742))
 .clearAnswer(Q(321), Q(892), Q(742));
+
+// If QID 271 is answered Option [0, 1, OR 2], then disappear QID 1332.
+ifQ(271)
+.answered(0,1,2)
+.disappear(Q(1332));
 
 // If QID 271 is answered Option [0, 1, OR 2], then disappear and clear answer to QIDs.
 ifQ(271)
@@ -103,21 +107,15 @@ ifQ(271)
 ifQ(231)
 .answered(2)
 .disappear(Q(511)) // medium header
-.disappear(Q(1342)) // red remark
 .disappear(Q(1312), Q(1322), Q(752))
 .clearAnswer(Q(1312), Q(1322), Q(752));
 
 // If QID 271 is answered Option [0, 1, OR 2], then disappear and clear answer to QIDs.
 ifQ(271)
 .answered(0,1,2)
-.disappear(Q(591), Q(1122))
-.clearAnswer(Q(591), Q(1122));
-
-// If QID 271 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1242.
-ifQ(271)
-.answered(0,2,3)
-.disappear(Q(1242))
-.clearAnswer(Q(1242));
+.disappear(Q(1342)) // red remark
+.disappear(Q(591), Q(1242), Q(1122))
+.clearAnswer(Q(591), Q(1242), Q(1122));
 
 // If QID 1242 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 1112.
 ifQ(1242)
