@@ -1,7 +1,7 @@
 //*******************************
 // CID: 762
 // SID: 4643
-// Last Updated: 10/13/2025
+// Last Updated: 10/20/2025
 //*******************************
 
 
@@ -229,14 +229,8 @@ ifQ(2191)
 // If QID 1981 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1981)
 .answered(0,2)
-.disappear(Q(1191), Q(1221), Q(2161), Q(2061), Q(2401), Q(1241))
-.clearAnswer(Q(1191), Q(1221), Q(2161), Q(2061), Q(2401), Q(1241));
-
-// If QID 1191 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1201.
-ifQ(1191)
-.answered(0,2,3)
-.disappear(Q(1201))
-.clearAnswer(Q(1201));
+.disappear(Q(1191), Q(1201), Q(1221), Q(2161), Q(2061), Q(2401), Q(1241))
+.clearAnswer(Q(1191), Q(1201), Q(1221), Q(2161), Q(2061), Q(2401), Q(1241));
 
 //-------------------------------------------
 // Arcade Prize Room - End
