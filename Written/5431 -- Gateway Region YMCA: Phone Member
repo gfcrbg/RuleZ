@@ -1,0 +1,60 @@
+//*******************************	
+// CID: 830	
+// SID: 5431	
+// Last Updated: 10/22/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// II. ENGAGEMENT - Begin
+//*******************************
+
+// If QID 171 is answered Option 6, then disappear and clear answer to QID 151.
+ifQ(171)
+.answered(6)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+// If QID 171 is answered Option [2, 3, 4, 5, OR 6], then disappear and clear answer to QIDs.
+ifQ(171)
+.answered(2,3,4,5,6)
+.disappear(Q(181), Q(191), Q(201))
+.clearAnswer(Q(181), Q(191), Q(201));
+
+// If QID 171 is answered Option [1, 3, 4, 5, OR 6], then disappear and clear answer to QIDs.
+ifQ(171)
+.answered(1,3,4,5,6)
+.disappear(Q(311)) // red remark
+.disappear(Q(211), Q(221))
+.clearAnswer(Q(211), Q(221));
+
+// If QID 171 is answered Option [1, 2, 4, 5, OR 6], then disappear and clear answer to QID 231.
+ifQ(171)
+.answered(1,2,4,5,6)
+.disappear(Q(231))
+.clearAnswer(Q(231));
+
+// If QID 171 is answered Option [1, 2, 3, 5, OR 6], then disappear and clear answer to QIDs.
+ifQ(171)
+.answered(1,2,3,5,6)
+.disappear(Q(271), Q(281)) // red remarks
+.disappear(Q(241), Q(251), Q(261))
+.clearAnswer(Q(241), Q(251), Q(261));
+
+// If QID 171 is answered Option [1, 2, 3, 4, OR 6], then disappear and clear answer to QID 291.
+ifQ(171)
+.answered(1,2,3,4,6)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+// If QID 171 is answered Option [1, 2, 3, 4, OR 5], then disappear and clear answer to QID 301.
+ifQ(171)
+.answered(1,2,3,4,5)
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+//*******************************
+// II. ENGAGEMENT - End
+//*******************************
