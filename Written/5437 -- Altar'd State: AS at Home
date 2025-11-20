@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 478
+// SID: 5437	
+// Last Updated: 11/20/2025	
+//*******************************	
+
+
+
+
+//*******************************
+// BRAND REP INTERACTION - Begin
+//*******************************
+
+// If QID 181 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(181)
+.answered(2)
+.disappear(Q(191), Q(201))
+.clearAnswer(Q(191), Q(201));
+
+//*******************************
+// BRAND REP INTERACTION - End
+//*******************************
