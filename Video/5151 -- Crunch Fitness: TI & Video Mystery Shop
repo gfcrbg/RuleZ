@@ -1,8 +1,27 @@
 //*******************************	
 // CID: 904
 // SID: 5151	
-// Last Updated: 12/2/2024	
+// Last Updated: 11/21/2025	
 //*******************************	
+
+
+
+
+// Triggers error message if the shop date is: December 24, 25, or 31, 2025.
+ifQ()
+.dateIs('2025-12-24')
+.orifQ()
+.dateIs('2025-12-25')
+.orifQ()
+.dateIs('2025-12-31')
+.setError("Date shop performed is a blackout date, please submit a mailer.");
+
+// Triggers error message if the shop date is: January 1 - 15, 2026.
+ifQ()
+.dateAfter('2025-12-31')
+.andifQ()
+.dateBefore('2026-01-16')
+.setError("Date shop performed is a blackout date, please submit a mailer.");
 
 
 
@@ -55,7 +74,6 @@ ifQ(41)
 ifQ(41)
 .answered(2)
 .disappear(Q(361), Q(371), Q(381))
-.makeNotRequired(Q(361), Q(371), Q(381))
 .clearAnswer(Q(361), Q(371), Q(381));
 
 //*******************************
@@ -102,17 +120,17 @@ ifQ(351)
 .disappear(Q(872))
 .clearAnswer(Q(872));
 
+// Comment out for testing. 12/17/2024
 // If QID 882 is answered Option 4, then trigger error message.
-ifQ(882)
-.answered(4)
-.setError("This qualifies as DNE.");
+//ifQ(882)
+//.answered(4)
+//.setError("This qualifies as DNE.");
 
-// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+// If QID 882 is answered Option [0 OR 4], then disappear, make not required, and clear answer to QIDs.
 ifQ(882)
 .answered(0,4)
 .disappear(Q(892), Q(852)) // red remarks
 .disappear(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832))
-.makeNotRequired(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832))
 .clearAnswer(Q(121), Q(131), Q(141), Q(151), Q(822), Q(171), Q(832));
 
 // If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
@@ -130,12 +148,11 @@ ifQ(141)
 // Pricing Presentation - Begin
 //-------------------------------------------
 
-// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+// If QID 882 is answered Option [0 OR 4], then disappear, make not required, and clear answer to QIDs.
 ifQ(882)
 .answered(0,4)
 .disappear(Q(191)) // medium header
 .disappear(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261)) 
-.makeNotRequired(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261)) 
 .clearAnswer(Q(201), Q(211), Q(221), Q(231), Q(962), Q(261));
 
 //-------------------------------------------
@@ -175,7 +192,6 @@ ifQ(882)
 ifQ(882)
 .answered(0,4,5)
 .disappear(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
-.makeNotRequired(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401))
 .clearAnswer(Q(722), Q(732), Q(912), Q(952), Q(922), Q(932), Q(401));
 
 // If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
@@ -183,7 +199,6 @@ ifQ(882)
 .answered(0,4)
 .disappear(Q(692)) // medium header
 .disappear(Q(942))
-.makeNotRequired(Q(942))
 .clearAnswer(Q(942));
 
 // If QID 722 is answered Option [0 OR 1], then disappear and clear answer to QID 732.
@@ -202,12 +217,11 @@ ifQ(722)
 // Brand Marketing - Begin
 //-------------------------------------------
 
-// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+// If QID 882 is answered Option [0 OR 4], then disappear, make not required, and clear answer to QIDs.
 ifQ(882)
 .answered(0,4)
 .disappear(Q(842)) // medium header
 .disappear(Q(551), Q(982))
-.makeNotRequired(Q(551), Q(982))
 .clearAnswer(Q(551), Q(982));
 
 // If QID 551 is answered Option [0 OR 1], then disappear and clear answer to QID 982.
@@ -230,12 +244,11 @@ ifQ(922)
 //------------------------------------------- 
 // Experience - Begin
 //-------------------------------------------
-// If QID 882 is answered Option 4, then disappear, make not required, and clear answer to QIDs.
+// If QID 882 is answered Option [0 OR 4], then disappear, make not required, and clear answer to QIDs.
 ifQ(882)
 .answered(0,4)
 .disappear(Q(702)) // medium header
 .disappear(Q(331))
-.makeNotRequired(Q(331))
 .clearAnswer(Q(331));
 
 //------------------------------------------- 
