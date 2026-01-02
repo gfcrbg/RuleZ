@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 980
 // SID: 5422	
-// Last Updated: 10/1/2025	
+// Last Updated: 1/2/2026	
 //*******************************	
 
 
@@ -29,6 +29,22 @@ ifQ(201)
 //*******************************
 // ATMOSPHERE / FACILITY
 // CLEANLINESS - End
+//*******************************
+
+
+
+
+//*******************************
+// STARTING LINE / KIOSK - Begin
+//*******************************
+
+// If QID 11 is answered Option [6 OR 7], then set value to Option 3 to QID 621.
+ifQ(11)
+.answered(6,7)
+.setValue(Q(621), 3);
+
+//*******************************
+// STARTING LINE / KIOSK - End
 //*******************************
 
 
