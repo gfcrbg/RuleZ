@@ -1,14 +1,14 @@
 //*******************************	
 // CID: 944	
 // SID: 5300	
-// Last Updated: 4/7/2025	
+// Last Updated: 1/2/2026	
 //*******************************	
 
 
 
 
 //*******************************
-// CASHIER - Begin
+// CUSTOMER EXPERIENCE - Begin
 //*******************************
 
 // Time Calc -- If QID [211 AND 221] is answered, then trigger math operation: [221] - [211] = [231] 
@@ -43,8 +43,18 @@ ifQ(231)
 .greaterThan(180)
 .setValue(Q(241), 4);
 
+// If QID 241 is answered Option [1 OR 2], then set value to Option 1 to QID 251.
+ifQ(241)
+.answered(1,2)
+.setValue(Q(251), 1);
+
+// If QID 241 is answered Option [3 OR 4], then set value to Option 2 to QID 251.
+ifQ(241)
+.answered(3,4)
+.setValue(Q(251), 2);
+
 //*******************************
-// CASHIER - End
+// CUSTOMER EXPERIENCE - End
 //*******************************
 
 
