@@ -1,0 +1,239 @@
+//*******************************	
+// CID: 988	
+// SID: 5452	
+// Last Updated: 1/20/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 1051
+
+//
+ifQ(1051)
+.answered(1)
+.disappear(Q(1061))
+.clearAnswer(Q(1061));
+
+//
+ifQ(1051)
+.answered(2)
+.disappear(Q(1231), Q(1071), Q(1081), Q(1121))
+.clearAnswer(Q(1231), Q(1071), Q(1081), Q(1121));
+
+
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// 
+ifQ(1051)
+.answered(2)
+.disappear(Q(11)) // medium header
+.disappear(Q(141)) // black remark
+.disappear(Q(1211), Q(1261), Q(21), Q(151), Q(1241), Q(401), Q(1141), Q(1151))
+.clearAnswer(Q(1211), Q(1261), Q(21), Q(151), Q(1241), Q(401), Q(1141), Q(1151));
+
+//
+ifQ(1211)
+.answered(0,1)
+.disappear(Q(1221))
+.clearAnswer(Q(1221));
+
+//
+ifQ(21)
+.answered(0,1)
+.disappear(Q(31))
+.clearAnswer(Q(31));
+
+//
+ifQ(151)
+.answered(0,1,3)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+//
+ifQ(161)
+.notAnswered(5)
+.disappear(Q(171), Q(451))
+.clearAnswer(Q(171), Q(451));
+
+//
+ifQ(1241)
+.answered(0,1)
+.disappear(Q(1251))
+.clearAnswer(Q(1251));
+
+//*******************************
+// CLEANLINESS - End
+//*******************************
+
+
+
+
+//*******************************
+// ORDER - Begin
+//*******************************
+
+// 
+ifQ(1051)
+.answered(2)
+.disappear(Q(481)) // medium header
+.disappear(Q(501), Q(511), Q(531), Q(1271), Q(551), Q(571), Q(1411), Q(1281), Q(1431), Q(601), Q(621), Q(1451), Q(1301), Q(1311), Q(1321), Q(641))
+.clearAnswer(Q(501), Q(511), Q(531), Q(1271), Q(551), Q(571), Q(1411), Q(1281), Q(1431), Q(601), Q(621), Q(1451), Q(1301), Q(1311), Q(1321), Q(641));
+
+//
+ifQ(1051)
+.answered(1)
+.andifQ(501)
+.answered()
+.andifQ(511)
+.answered()
+.sub(Q(511), Q(501))
+.store(Q(531));
+
+// If QID 1051 is answered Option 1 AND if QID 531 is <= 5 seconds, then set value to Option 1 to QID 551.
+ifQ(1051)
+.answered(1)
+.andifQ(531)
+.lessThanOrEqual(5)
+.setValue(Q(551), 1);
+
+// If QID 1051 is answered Option 1 AND if QID 531 is > 5 seconds, then set value to Option 2 to QID 551.
+ifQ(1051)
+.answered(1)
+.andifQ(531)
+.greaterThan(5)
+.setValue(Q(551), 2);
+
+//
+ifQ(551)
+.answered(0,2)
+.disappear(Q(1471))
+.clearAnswer(Q(1471));
+
+//
+ifQ(1471)
+.notAnswered(3)
+.disappear(Q(1481))
+.clearAnswer(Q(1481));
+
+//
+ifQ(1471)
+.answered(3)
+.setValue(Q(1481), 1);
+
+//*******************************
+// ORDER - End
+//*******************************
+
+
+
+
+//*******************************
+// PICK UP / DROP OFF - Begin
+//*******************************
+
+//
+ifQ(1051)
+.answered(2)
+.disappear(Q(651)) // medium header
+.disappear(Q(661), Q(671), Q(681), Q(1441), Q(761))
+.clearAnswer(Q(661), Q(671), Q(681), Q(1441), Q(761));
+
+//
+ifQ(1051)
+.answered(1)
+.andifQ(641)
+.answered()
+.andifQ(661)
+.answered()
+.sub(Q(661), Q(641))
+.store(Q(671));
+
+// If QID 1051 is answered Option 1 AND if QID 671 is <= 15 minutes, then set value to Option 1 to QID 681.
+ifQ(1051)
+.answered(1)
+.andifQ(671)
+.lessThanOrEqual(900)
+.setValue(Q(681), 1);
+
+// If QID 1051 is answered Option 1 AND if QID 671 is > 15 minutes AND <= 20 minutes, then set value to Option 2 to QID 681.
+ifQ(1051)
+.answered(1)
+.andifQ(671)
+.greaterThan(900)
+.andifQ(671)
+.lessThanOrEqual(1200)
+.setValue(Q(681), 2);
+
+// If QID 1051 is answered Option 1 AND if QID 671 is > 20 minutes AND <= 25 minutes, then set value to Option 3 to QID 681.
+ifQ(1051)
+.answered(1)
+.andifQ(671)
+.greaterThan(1200)
+.andifQ(671)
+.lessThanOrEqual(1500)
+.setValue(Q(681), 3);
+
+// If QID 1051 is answered Option 1 AND if QID 671 is > 25 minutes, then set value to Option 4 to QID 681.
+ifQ(1051)
+.answered(1)
+.andifQ(671)
+.greaterThan(1500)
+.setValue(Q(681), 4);
+
+//
+ifQ(1231)
+.answered(0,2)
+.disappear(Q(1381), Q(1331), Q(1391))
+.clearAnswer(Q(1381), Q(1331), Q(1391));
+
+//
+ifQ(1231)
+.answered(0,1)
+.disappear(Q(1341))
+.clearAnswer(Q(1341));
+
+//*******************************
+// PICK UP / DROP OFF - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD QUALITY - Begin
+//*******************************
+
+// 
+ifQ(1051)
+.answered(2)
+.disappear(Q(791)) // medium header
+.disappear(Q(1461)) // black remark
+.disappear(Q(801), Q(831), Q(1181), Q(841), Q(921), Q(1361), Q(931), Q(1161), Q(1191), Q(1201))
+.clearAnswer(Q(801), Q(831), Q(1181), Q(841), Q(921), Q(1361), Q(931), Q(1161), Q(1191), Q(1201));
+
+//
+ifQ(801)
+.answered(0,1)
+.disappear(Q(811))
+.clearAnswer(Q(811));
+
+//
+ifQ(1231)
+.answered(0,2)
+.disappear(Q(1351), Q(1371))
+.clearAnswer(Q(1351), Q(1371));
+
+//
+ifQ(1231)
+.answered(0,1)
+.disappear(Q(871))
+.clearAnswer(Q(871));
+
+//*******************************
+// FOOD QUALITY - End
+//*******************************
