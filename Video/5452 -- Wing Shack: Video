@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 988	
 // SID: 5452	
-// Last Updated: 1/20/2026	
+// Last Updated: 1/21/2026	
 //*******************************	
 
 
@@ -9,13 +9,13 @@
 
 // Primary QID: 1051
 
-//
+// If QID 1051 is answered Option 1, then disappear and clear answer to QID 1061.
 ifQ(1051)
 .answered(1)
 .disappear(Q(1061))
 .clearAnswer(Q(1061));
 
-//
+// If QID 1051 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1051)
 .answered(2)
 .disappear(Q(1231), Q(1071), Q(1081), Q(1121))
@@ -28,7 +28,7 @@ ifQ(1051)
 // CLEANLINESS - Begin
 //*******************************
 
-// 
+// If QID 1051 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1051)
 .answered(2)
 .disappear(Q(11)) // medium header
@@ -36,31 +36,31 @@ ifQ(1051)
 .disappear(Q(1211), Q(1261), Q(21), Q(151), Q(1241), Q(401), Q(1141), Q(1151))
 .clearAnswer(Q(1211), Q(1261), Q(21), Q(151), Q(1241), Q(401), Q(1141), Q(1151));
 
-//
+// If QID 1211 is answered Option [0 OR 1], then disappear and clear answer to QID 1221.
 ifQ(1211)
 .answered(0,1)
 .disappear(Q(1221))
 .clearAnswer(Q(1221));
 
-//
+// If QID 21 is answered Option [0 OR 1], then disappear and clear answer to QID 31.
 ifQ(21)
 .answered(0,1)
 .disappear(Q(31))
 .clearAnswer(Q(31));
 
-//
+// If QID 151 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 161.
 ifQ(151)
 .answered(0,1,3)
 .disappear(Q(161))
 .clearAnswer(Q(161));
 
-//
+// If QID 161 is not answered Option 5, then disappear and clear answer to QIDs.
 ifQ(161)
 .notAnswered(5)
 .disappear(Q(171), Q(451))
 .clearAnswer(Q(171), Q(451));
 
-//
+// If QID 1241 is answered Option [0 OR 1], then disappear and clear answer to QID 1251.
 ifQ(1241)
 .answered(0,1)
 .disappear(Q(1251))
@@ -77,14 +77,14 @@ ifQ(1241)
 // ORDER - Begin
 //*******************************
 
-// 
+// If QID 1051 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1051)
 .answered(2)
 .disappear(Q(481)) // medium header
 .disappear(Q(501), Q(511), Q(531), Q(1271), Q(551), Q(571), Q(1411), Q(1281), Q(1431), Q(601), Q(621), Q(1451), Q(1301), Q(1311), Q(1321), Q(641))
 .clearAnswer(Q(501), Q(511), Q(531), Q(1271), Q(551), Q(571), Q(1411), Q(1281), Q(1431), Q(601), Q(621), Q(1451), Q(1301), Q(1311), Q(1321), Q(641));
 
-//
+// If QID 1051 is answered Option 1 and if QIDs [501 AND 511] are answered then trigger math operation: [511] - [501] = [531]
 ifQ(1051)
 .answered(1)
 .andifQ(501)
@@ -108,19 +108,19 @@ ifQ(1051)
 .greaterThan(5)
 .setValue(Q(551), 2);
 
-//
+// If QID 551 is answered Option [0 OR 2], then disappear and clear answer to QID 1471.
 ifQ(551)
 .answered(0,2)
 .disappear(Q(1471))
 .clearAnswer(Q(1471));
 
-//
+// If QID 1471 is not answered Option 3, then disappear and clear answer to QID 1481.
 ifQ(1471)
 .notAnswered(3)
 .disappear(Q(1481))
 .clearAnswer(Q(1481));
 
-//
+// If QID 1471 is answered Option 3, then set value to Option 1 to QID 1481.
 ifQ(1471)
 .answered(3)
 .setValue(Q(1481), 1);
@@ -136,14 +136,14 @@ ifQ(1471)
 // PICK UP / DROP OFF - Begin
 //*******************************
 
-//
+// If QID 1051 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1051)
 .answered(2)
 .disappear(Q(651)) // medium header
 .disappear(Q(661), Q(671), Q(681), Q(1441), Q(761))
 .clearAnswer(Q(661), Q(671), Q(681), Q(1441), Q(761));
 
-//
+// If QID 1051 is answered Option 1 and if QIDs [641 AND 661] are answered then trigger math operation: [661] - [641] = [671]
 ifQ(1051)
 .answered(1)
 .andifQ(641)
@@ -185,13 +185,13 @@ ifQ(1051)
 .greaterThan(1500)
 .setValue(Q(681), 4);
 
-//
+// If QID 1231 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1231)
 .answered(0,2)
 .disappear(Q(1381), Q(1331), Q(1391))
 .clearAnswer(Q(1381), Q(1331), Q(1391));
 
-//
+// If QID 1231 is answered Option [0 OR 1], then disappear and clear answer to QID 1341.
 ifQ(1231)
 .answered(0,1)
 .disappear(Q(1341))
@@ -208,7 +208,7 @@ ifQ(1231)
 // FOOD QUALITY - Begin
 //*******************************
 
-// 
+// If QID 1051 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1051)
 .answered(2)
 .disappear(Q(791)) // medium header
@@ -216,19 +216,19 @@ ifQ(1051)
 .disappear(Q(801), Q(831), Q(1181), Q(841), Q(921), Q(1361), Q(931), Q(1161), Q(1191), Q(1201))
 .clearAnswer(Q(801), Q(831), Q(1181), Q(841), Q(921), Q(1361), Q(931), Q(1161), Q(1191), Q(1201));
 
-//
+// If QID 801 is answered Option [0 OR 1], then disappear and clear answer to QID 811.
 ifQ(801)
 .answered(0,1)
 .disappear(Q(811))
 .clearAnswer(Q(811));
 
-//
+// If QID 1231 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1231)
 .answered(0,2)
 .disappear(Q(1351), Q(1371))
 .clearAnswer(Q(1351), Q(1371));
 
-//
+// If QID 1231 is answered Option [0 OR 1], then disappear and clear answer to QID 871.
 ifQ(1231)
 .answered(0,1)
 .disappear(Q(871))
