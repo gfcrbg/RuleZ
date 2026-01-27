@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 990
 // SID: 5471	
-// Last Updated: 1/26/2026	
+// Last Updated: 1/27/2026	
 //*******************************	
 
 
@@ -286,14 +286,14 @@ ifQ(701)
 ifQ(61)
 .answered(2)
 .disappear(Q(541)) // medium header
-.disappear(Q(931), Q(941), Q(1041))
-.clearAnswer(Q(931), Q(941), Q(1041));
+.disappear(Q(931), Q(941))
+.clearAnswer(Q(931), Q(941));
 
 // If QID 931 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(931)
 .answered(0,2)
-.disappear(Q(691), Q(1031))
-.clearAnswer(Q(691), Q(1031));
+.disappear(Q(691), Q(1031), Q(1041))
+.clearAnswer(Q(691), Q(1031), Q(1041));
 
 //*******************************
 // CHILDREN'S AREA - End
