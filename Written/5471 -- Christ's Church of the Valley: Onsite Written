@@ -93,8 +93,8 @@ ifQ(61)
 ifQ(61)
 .answered(2)
 .disappear(Q(311)) // small header
-.disappear(Q(331), Q(241), Q(551))
-.clearAnswer(Q(331), Q(241), Q(551));
+.disappear(Q(331), Q(241), Q(551), Q(1161))
+.clearAnswer(Q(331), Q(241), Q(551), Q(1161));
 
 //-------------------------------------------
 // Exterior - End
@@ -109,8 +109,8 @@ ifQ(61)
 ifQ(61)
 .answered(2)
 .disappear(Q(321)) // small header
-.disappear(Q(271), Q(561), Q(661))
-.clearAnswer(Q(271), Q(561), Q(661));
+.disappear(Q(271), Q(1141), Q(561), Q(661))
+.clearAnswer(Q(271), Q(1141), Q(561), Q(661));
 
 // If QID 701 is answered Option [0 OR 2], then disappear and clear answer to QID 841.
 ifQ(701)
@@ -242,8 +242,8 @@ ifQ(61)
 ifQ(61)
 .answered(2)
 .disappear(Q(1091)) // small header
-.disappear(Q(981))
-.clearAnswer(Q(981));
+.disappear(Q(1151), Q(981))
+.clearAnswer(Q(1151), Q(981));
 
 // If QID 981 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(981)
