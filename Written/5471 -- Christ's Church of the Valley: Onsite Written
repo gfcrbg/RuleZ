@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 990
 // SID: 5471	
-// Last Updated: 1/27/2026	
+// Last Updated: 1/28/2026	
 //*******************************	
 
 
@@ -54,11 +54,11 @@ ifQ(21)
 .answered(1,7)
 .setValue(Q(151), 2);
 
-// If QID 861 is answered Option 2, then disappear and clear answer to QID 871.
+// If QID 861 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(861)
 .answered(2)
-.disappear(Q(871))
-.clearAnswer(Q(871));
+.disappear(Q(871), Q(1171))
+.clearAnswer(Q(871), Q(1171));
 
 // If QID 61 is answered Option 1, then disappear and clear answer to QIDs.
 ifQ(61)
@@ -187,8 +187,14 @@ ifQ(61)
 ifQ(61)
 .answered(2)
 .disappear(Q(611)) // small header
-.disappear(Q(1021), Q(651), Q(741), Q(711), Q(761), Q(771), Q(971))
-.clearAnswer(Q(1021), Q(651), Q(741), Q(711), Q(761), Q(771), Q(971));
+.disappear(Q(1021), Q(741), Q(711), Q(761), Q(771), Q(971))
+.clearAnswer(Q(1021), Q(741), Q(711), Q(761), Q(771), Q(971));
+
+// If QID 1021 is answered Option [0 OR 2], then disappear and clear answer to QID 651.
+ifQ(1021)
+.answered(0,2)
+.disappear(Q(651))
+.clearAnswer(Q(651));
 
 //-------------------------------------------
 // Greeting & Welcoming - End
