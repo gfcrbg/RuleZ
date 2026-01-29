@@ -112,11 +112,11 @@ ifQ(61)
 .disappear(Q(271), Q(1141), Q(561), Q(661))
 .clearAnswer(Q(271), Q(1141), Q(561), Q(661));
 
-// If QID 701 is answered Option [0 OR 2], then disappear and clear answer to QID 841.
+// If QID 701 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(701)
 .answered(0,2)
-.disappear(Q(841))
-.clearAnswer(Q(841));
+.disappear(Q(841), Q(1181))
+.clearAnswer(Q(841), Q(1181));
 
 //-------------------------------------------
 // Interior - End
