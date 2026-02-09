@@ -1,0 +1,66 @@
+//*******************************	
+// CID: 993	
+// SID: 5490	
+// Last Updated: 2/9/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// PHONE CALL - Begin
+//*******************************
+
+// If QID 301 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(301)
+.answered(2)
+.disappear(Q(311), Q(691))
+.clearAnswer(Q(311), Q(691));
+
+//-------------------------------------------
+// Greeting - Begin
+//-------------------------------------------
+
+// If QID 111 is answered Option [1 OR 3], then disappear and clear answer to QID 531.
+ifQ(111)
+.answered(1,3)
+.disappear(Q(531))
+.clearAnswer(Q(531));
+
+//-------------------------------------------
+// Greeting - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Determining Needs - Begin
+//-------------------------------------------
+
+// If QID 221 is answered Option [1 OR 3], then disappear and clear answer to QID 541.
+ifQ(221)
+.answered(1,3)
+.disappear(Q(541))
+.clearAnswer(Q(541));
+
+//-------------------------------------------
+// Determining Needs - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Sales Process - Begin
+//-------------------------------------------
+
+// If QID 181 is answered Option [1 OR 3], then disappear and clear answer to QID 581.
+ifQ(181)
+.answered(1,3)
+.disappear(Q(581))
+.clearAnswer(Q(581));
+
+//-------------------------------------------
+// Sales Process - End
+//-------------------------------------------
+
+//*******************************
+// PHONE CALL - End
+//*******************************
