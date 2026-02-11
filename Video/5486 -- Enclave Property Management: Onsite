@@ -1,0 +1,57 @@
+//*******************************	
+// CID: 993	
+// SID: 5486	
+// Last Updated: 2/11/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// ONSITE - Begin
+//*******************************
+
+//-------------------------------------------
+// Sales Process - Begin
+//-------------------------------------------
+
+// If QID 1191 is answered Option [2 OR 3], then disappear and clear answer to QID 1561.
+ifQ(1191)
+.answered(2,3)
+.disappear(Q(1561))
+.clearAnswer(Q(1561));
+
+// If QID 1201 is answered Option [2 OR 3], then disappear and clear answer to QID 1571.
+ifQ(1201)
+.answered(2,3)
+.disappear(Q(1571))
+.clearAnswer(Q(1571));
+
+//-------------------------------------------
+// Sales Process - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Appearance - Begin
+//-------------------------------------------
+
+// If QID 881 is answered Option 1, then disappear and clear answer to QID 1541.
+ifQ(881)
+.answered(1)
+.disappear(Q(1541))
+.clearAnswer(Q(1541));
+
+// If QID 921 is answered Option [1 OR 3], then disappear and clear answer to QID 1551.
+ifQ(921)
+.answered(1,3)
+.disappear(Q(1551))
+.clearAnswer(Q(1551));
+
+//-------------------------------------------
+// Appearance - End
+//-------------------------------------------
+
+//*******************************
+// ONSITE - End
+//*******************************
