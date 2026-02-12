@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 815	
+// SID: 5494	
+// Last Updated: 2/12/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// I. UNIFORM STANDARDS - Begin
+//*******************************
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 171.
+ifQ(71)
+.answered(1)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+//*******************************
+// I. UNIFORM STANDARDS - End
+//*******************************
