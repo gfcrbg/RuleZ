@@ -1,0 +1,39 @@
+//*******************************	
+// CID: 985	
+// SID: 5439	
+// Last Updated: 2/20/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QID 31 is not answered Option 4, then disappear and clear answer to QID 41.
+ifQ(31)
+.notAnswered(4)
+.disappear(Q(41))
+.clearAnswer(Q(41));
+
+//*******************************
+// SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// MANAGER - Begin
+//*******************************
+
+// If QID 271 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(271)
+.answered(2)
+.disappear(Q(281), Q(291), Q(301))
+.clearAnswer(Q(281), Q(291), Q(301));
+
+//*******************************
+// MANAGER - End
+//*******************************
