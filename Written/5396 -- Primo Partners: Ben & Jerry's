@@ -1,8 +1,17 @@
 //*******************************	
 // CID: 975	
 // SID: 5396	
-// Last Updated: 8/14/2025
+// Last Updated: 2/24/2026
 //*******************************	
+
+
+
+
+// If QID 1171 is answered Option 2, then disappear and clear answer to QID 1211.
+ifQ(1171)
+.answered(2)
+.disappear(Q(1211))
+.clearAnswer(Q(1211));
 
 
 
@@ -34,12 +43,47 @@ ifQ(1111)
 // CLEANLINESS - Begin
 //*******************************
 
-// If QID 981 is answered Option 2, then disappear and clear answer to QID 921.
-ifQ(981)
+// If QID 1171 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1171)
+.answered(1)
+.disappear(Q(1031), Q(531), Q(591), Q(981))
+.clearAnswer(Q(1031), Q(531), Q(591), Q(981));
+
+// If QID 1171 is answered Option 2, then disappear and clear answer to QID 1221.
+ifQ(1171)
 .answered(2)
+.disappear(Q(1221))
+.clearAnswer(Q(1221));
+
+// If QID 981 is answered Option [0 OR 2], then disappear and clear answer to QID 1241.
+ifQ(981)
+.answered(0,2)
+.disappear(Q(1241))
+.clearAnswer(Q(1241));
+
+// If QID 1241 is answered Option [0 OR 2], then disappear and clear answer to QID 921.
+ifQ(1241)
+.answered(0,2)
 .disappear(Q(921))
 .clearAnswer(Q(921));
 
 //*******************************
 // CLEANLINESS  - End
+//*******************************
+
+
+
+
+//*******************************
+// PROMOTIONS & ENGAGEMENT - Begin
+//*******************************
+
+// If QID 1171 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1171)
+.answered(1)
+.disappear(Q(1081), Q(1091))
+.clearAnswer(Q(1081), Q(1091));
+
+//*******************************
+// PROMOTIONS & ENGAGEMENT  - End
 //*******************************
