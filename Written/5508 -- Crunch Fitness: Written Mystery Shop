@@ -1,0 +1,178 @@
+//*******************************	
+// CID: 904
+// SID: 5508	
+// Last Updated: 2/27/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 41
+
+//
+ifQ(21)
+.greaterThanOrEqual(28800)
+.andifQ(21)
+.lessThanOrEqual(43200)
+.setValue(Q(992), 1);
+
+//
+ifQ(21)
+.greaterThan(43200)
+.andifQ(21)
+.lessThanOrEqual(57600)
+.setValue(Q(992), 2);
+
+//
+ifQ(21)
+.greaterThan(57600)
+.andifQ(21)
+.lessThanOrEqual(72000)
+.setValue(Q(992), 3);
+
+//
+ifQ()
+.waveIs("Type 3 *US")
+.orifQ()
+.waveIs("Type 3 *CANADA")
+.setValue(Q(902), 1);
+
+//
+ifQ()
+.waveIs("Type 2-WR *US")
+.orifQ()
+.waveIs("Type 2-WR *CANADA")
+.setValue(Q(902), 2);
+
+//
+ifQ(41)
+.answered(1)
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+//
+ifQ(41)
+.answered(2)
+.disappear(Q(2152), Q(2132), Q(2142))
+.clearAnswer(Q(2152), Q(2132), Q(2142));
+
+
+
+
+//*******************************
+// WELCOME TO CRUNCH! - Begin
+//*******************************
+
+//
+ifQ(41)
+.answered(2)
+.disappear(Q(51)) // medium header
+.disappear(Q(862)) // red remark
+.disappear(Q(391), Q(541), Q(2162), Q(712), Q(101), Q(1042))
+.clearAnswer(Q(391), Q(541), Q(2162), Q(712), Q(101), Q(1042));
+
+//*******************************
+// WELCOME TO CRUNCH! - End
+//*******************************
+
+
+
+
+//*******************************
+// SET THE STAGE - Begin
+//*******************************
+
+// 
+ifQ(41)
+.answered(2)
+.disappear(Q(742)) // medium header
+.disappear(Q(1502), Q(1512), Q(1072), Q(852)) // red remarks
+.disappear(Q(141), Q(2062), Q(2072), Q(2122))
+.clearAnswer(Q(141), Q(2062), Q(2072), Q(2122));
+
+//*******************************
+// SET THE STAGE - End
+//*******************************
+
+
+
+
+//*******************************
+// VALUE TOUR - Begin
+//*******************************
+
+//
+ifQ(41)
+.answered(2)
+.disappear(Q(2082)) // medium header
+.disappear(Q(1062)) // red remark
+.disappear(Q(882), Q(351), Q(1492), Q(2102), Q(2112), Q(171), Q(832), Q(1082))
+.clearAnswer(Q(882), Q(351), Q(1492), Q(2102), Q(2112), Q(171), Q(832), Q(1082));
+
+//
+ifQ(351)
+.answered(0,1)
+.disappear(Q(872))
+.clearAnswer(Q(872));
+
+//
+ifQ(141)
+.answered(0,2)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+//
+ifQ(2162)
+.notAnswered(2)
+.disappear(Q(2092))
+.clearAnswer(Q(2092));
+
+//*******************************
+// VALUE TOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// MEMBERSHIP 
+// RECOMMENDATION - Begin
+//*******************************
+
+//
+ifQ(41)
+.answered(2)
+.disappear(Q(191)) // medium header
+.disappear(Q(201), Q(211), Q(962), Q(231), Q(221), Q(261), Q(2052), Q(1092))
+.clearAnswer(Q(201), Q(211), Q(962), Q(231), Q(221), Q(261), Q(2052), Q(1092));
+
+//
+ifQ(141)
+.answered(0,2)
+.disappear(Q(2042))
+.clearAnswer(Q(2042));
+
+//*******************************
+// MEMBERSHIP 
+// RECOMMENDATION - End
+//*******************************
+
+
+
+
+//*******************************
+// EXPERIENCE - Begin
+//*******************************
+
+//
+ifQ(41)
+.answered(2)
+.disappear(Q(2032)) // medium header
+.disappear(Q(1112)) // black remark
+.disappear(Q(1152)) // red remark
+.disappear(Q(1132))
+.clearAnswer(Q(1132));
+
+//*******************************
+// EXPERIENCE - End
+//*******************************
