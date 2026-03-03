@@ -9,34 +9,34 @@
 
 // Primary QID: 41
 
-//
+// If QID 21 is >= 8:00 AND <= 12:00, then set value to Option 1 to QID 992.
 ifQ(21)
 .greaterThanOrEqual(28800)
 .andifQ(21)
 .lessThanOrEqual(43200)
 .setValue(Q(992), 1);
 
-//
+// If QID 21 > 12:01 AND <= 16:00, then set value to Option 2 to QID 992.
 ifQ(21)
 .greaterThan(43200)
 .andifQ(21)
 .lessThanOrEqual(57600)
 .setValue(Q(992), 2);
 
-//
+// If QID 21 > 16:01 AND <= 20:00, then set value to Option 3 to QID 992.
 ifQ(21)
 .greaterThan(57600)
 .andifQ(21)
 .lessThanOrEqual(72000)
 .setValue(Q(992), 3);
 
-//
+// If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
 ifQ(41)
 .answered(1)
 .disappear(Q(561))
 .clearAnswer(Q(561));
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(2272), Q(2222), Q(2232))
@@ -49,7 +49,7 @@ ifQ(41)
 // WELCOME TO CRUNCH! - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(51)) // medium header
@@ -57,7 +57,7 @@ ifQ(41)
 .disappear(Q(391), Q(541), Q(2282), Q(712), Q(882), Q(101))
 .clearAnswer(Q(391), Q(541), Q(2282), Q(712), Q(882), Q(101));
 
-//
+// If QID 882 is answered Option 4, then trigger error message: "This shop qualifies for a DNE."
 ifQ(882)
 .answered(4)
 .setError("This shop qualifies for a DNE.");
@@ -73,7 +73,7 @@ ifQ(882)
 // SET THE STAGE - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(742)) // medium header
@@ -92,26 +92,26 @@ ifQ(41)
 // VALUE TOUR - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(2082)) // medium header
 .disappear(Q(351), Q(2102), Q(2112), Q(171), Q(832))
 .clearAnswer(Q(351), Q(2102), Q(2112), Q(171), Q(832));
 
-//
+// If QID 351 is answered Option [0 OR 1], then disappear and clear answer to QID 872.
 ifQ(351)
 .answered(0,1)
 .disappear(Q(872))
 .clearAnswer(Q(872));
 
-//
+// If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
 ifQ(141)
 .answered(0,2)
 .disappear(Q(151))
 .clearAnswer(Q(151));
 
-//
+// If QID 2282 is not answered Option 2, then disappear and clear answer to QID 2092.
 ifQ(2282)
 .notAnswered(2)
 .disappear(Q(2092))
@@ -129,7 +129,7 @@ ifQ(2282)
 // RECOMMENDATION - Begin
 //*******************************
 
-// 
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(191)) // medium header
