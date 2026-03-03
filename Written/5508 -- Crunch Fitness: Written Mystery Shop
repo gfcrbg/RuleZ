@@ -9,48 +9,48 @@
 
 // Primary QID: 41
 
-//
+// If QID 21 is >= 8:00 AND <= 12:00, then set value to Option 1 to QID 992.
 ifQ(21)
 .greaterThanOrEqual(28800)
 .andifQ(21)
 .lessThanOrEqual(43200)
 .setValue(Q(992), 1);
 
-//
+// If QID 21 > 12:01 AND <= 16:00, then set value to Option 2 to QID 992.
 ifQ(21)
 .greaterThan(43200)
 .andifQ(21)
 .lessThanOrEqual(57600)
 .setValue(Q(992), 2);
 
-//
+// If QID 21 > 16:01 AND <= 20:00, then set value to Option 3 to QID 992.
 ifQ(21)
 .greaterThan(57600)
 .andifQ(21)
 .lessThanOrEqual(72000)
 .setValue(Q(992), 3);
 
-//
+// If wave is "Type 3 *US" OR "Type 3 *CANADA", then set value to Option 1 to QID 902.
 ifQ()
 .waveIs("Type 3 *US")
 .orifQ()
 .waveIs("Type 3 *CANADA")
 .setValue(Q(902), 1);
 
-//
+// If wave is "Type 2-WR *US" OR "Type 2-WR *CANADA", then set value to Option 2 to QID 902.
 ifQ()
 .waveIs("Type 2-WR *US")
 .orifQ()
 .waveIs("Type 2-WR *CANADA")
 .setValue(Q(902), 2);
 
-//
+// If QID 41 is answered Option 1, then disappear and clear answer to QID 561.
 ifQ(41)
 .answered(1)
 .disappear(Q(561))
 .clearAnswer(Q(561));
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(2152), Q(2132), Q(2142))
@@ -63,7 +63,7 @@ ifQ(41)
 // WELCOME TO CRUNCH! - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(51)) // medium header
@@ -82,7 +82,7 @@ ifQ(41)
 // SET THE STAGE - Begin
 //*******************************
 
-// 
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(742)) // medium header
@@ -101,7 +101,7 @@ ifQ(41)
 // VALUE TOUR - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(2082)) // medium header
@@ -109,19 +109,19 @@ ifQ(41)
 .disappear(Q(882), Q(351), Q(1492), Q(2102), Q(2112), Q(171), Q(832), Q(1082))
 .clearAnswer(Q(882), Q(351), Q(1492), Q(2102), Q(2112), Q(171), Q(832), Q(1082));
 
-//
+// If QID 351 is answered Option [0 OR 1], then disappear and clear answer to QID 872.
 ifQ(351)
 .answered(0,1)
 .disappear(Q(872))
 .clearAnswer(Q(872));
 
-//
+// If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 151.
 ifQ(141)
 .answered(0,2)
 .disappear(Q(151))
 .clearAnswer(Q(151));
 
-//
+// If QID 2162 is not answered Option 2, then disappear and clear answer to QID 2092.
 ifQ(2162)
 .notAnswered(2)
 .disappear(Q(2092))
@@ -139,14 +139,14 @@ ifQ(2162)
 // RECOMMENDATION - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(191)) // medium header
 .disappear(Q(201), Q(211), Q(962), Q(231), Q(221), Q(261), Q(2052), Q(1092))
 .clearAnswer(Q(201), Q(211), Q(962), Q(231), Q(221), Q(261), Q(2052), Q(1092));
 
-//
+// If QID 141 is answered Option [0 OR 2], then disappear and clear answer to QID 2042.
 ifQ(141)
 .answered(0,2)
 .disappear(Q(2042))
@@ -164,7 +164,7 @@ ifQ(141)
 // EXPERIENCE - Begin
 //*******************************
 
-//
+// If QID 41 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(41)
 .answered(2)
 .disappear(Q(2032)) // medium header
