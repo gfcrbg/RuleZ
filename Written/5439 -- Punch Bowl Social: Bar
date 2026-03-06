@@ -1,39 +1,64 @@
 //*******************************	
 // CID: 985	
 // SID: 5439	
-// Last Updated: 2/20/2026	
+// Last Updated: 3/5/2026	
 //*******************************	
 
 
 
 
 //*******************************
-// SERVICE - Begin
+// BAR EXPERIENCE - Begin
 //*******************************
 
-// If QID 31 is not answered Option 4, then disappear and clear answer to QID 41.
-ifQ(31)
-.notAnswered(4)
-.disappear(Q(41))
-.clearAnswer(Q(41));
+//-------------------------------------------
+// BAR - Warm Welcome - Begin
+//-------------------------------------------
+
+// If QID 741 is answered Option [1 OR 2], then disappear and clear answer to QID 751.
+ifQ(741)
+.answered(1,2)
+.disappear(Q(751))
+.clearAnswer(Q(751));
+
+//-------------------------------------------
+// BAR - Warm Welcome - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// BAR - Anticipating 
+// & Delivering to Guest Needs - Begin
+//-------------------------------------------
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QID 891.
+ifQ(901)
+.answered(2)
+.disappear(Q(891))
+.clearAnswer(Q(891));
+
+//-------------------------------------------
+// BAR - Anticipating 
+// & Delivering to Guest Needs - End
+//-------------------------------------------
 
 //*******************************
-// SERVICE - End
+// BAR EXPERIENCE  - End
 //*******************************
 
 
 
 
 //*******************************
-// MANAGER - Begin
+// MANAGER PRESENCE - Begin
 //*******************************
 
 // If QID 271 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(271)
 .answered(2)
-.disappear(Q(281), Q(291), Q(301))
-.clearAnswer(Q(281), Q(291), Q(301));
+.disappear(Q(281), Q(931), Q(301))
+.clearAnswer(Q(281), Q(931), Q(301));
 
 //*******************************
-// MANAGER - End
+// MANAGER PRESENCE - End
 //*******************************
