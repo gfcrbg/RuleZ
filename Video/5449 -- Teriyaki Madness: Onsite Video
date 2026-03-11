@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 987	
 // SID: 5449	
-// Last Updated: 2/11/2026	
+// Last Updated: 3/11/2026	
 //*******************************	
 
 
@@ -331,3 +331,13 @@ ifQ(801)
 //*******************************
 // FOOD QUALITY - End
 //*******************************
+
+
+
+
+// Coaching Plan
+
+// If QID 1651 is not answered then set value to Option 3 to QID 1651.
+ifQ(1651)
+.notAnswered()
+.setValue(Q(1651), 3);
