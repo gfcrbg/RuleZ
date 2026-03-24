@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 967
 // SID: 5380	
-// Last Updated: 7/22/2025
+// Last Updated: 3/24/2026
 //*******************************	
 
 
@@ -33,10 +33,9 @@ ifQ(441)
 ifQ(441)
 .answered(2)
 .disappear(Q(91)) // medium header
-.disappear(Q(1321)) // black remark
-.disappear(Q(531), Q(1721), Q(661), Q(1191), Q(1291)) // red remarks
-.disappear(Q(1611), Q(1261), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(1331), Q(741), Q(1601), Q(1471), Q(1141), Q(981), Q(971))
-.clearAnswer(Q(1611), Q(1261), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(1331), Q(741), Q(1601), Q(1471), Q(1141), Q(981), Q(971));
+.disappear(Q(531), Q(1721), Q(661), Q(1191)) // red remarks
+.disappear(Q(1611), Q(1261), Q(1731), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(971))
+.clearAnswer(Q(1611), Q(1261), Q(1731), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(971));
 
 // If QID 611 is answered Option [0 OR 1], then disappear and clear answer to QID 621.
 ifQ(611)
@@ -59,6 +58,26 @@ ifQ(611)
 //*******************************
 // ATMOSPHERE &
 // APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// LINE - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(2)
+.disappear(Q(1741)) // medium header
+.disappear(Q(1291)) // red remark
+.disappear(Q(1321)) // black remark
+.disappear(Q(1141), Q(1601), Q(981), Q(1331), Q(741), Q(1471))
+.clearAnswer(Q(1141), Q(1601), Q(981), Q(1331), Q(741), Q(1471));
+
+//*******************************
+// LINE - End
 //*******************************
 
 
