@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5375	
-// Last Updated: 9/4/2025	
+// Last Updated: 3/26/2025	
 //*******************************	
 
 
@@ -119,8 +119,8 @@ ifQ(1981)
 ifQ(11)
 .answered(2)
 .disappear(Q(351)) // medium header
-.disappear(Q(861), Q(1511), Q(1141), Q(791), Q(1161), Q(1941), Q(1171), Q(1551), Q(2031), Q(2121), Q(1451))
-.clearAnswer(Q(861), Q(1511), Q(1141), Q(791), Q(1161), Q(1941), Q(1171), Q(1551), Q(2031), Q(2121), Q(1451));
+.disappear(Q(861), Q(1511), Q(1141), Q(791), Q(1161), Q(1941), Q(2341), Q(2351), Q(2361), Q(1171), Q(1551), Q(2031), Q(2121), Q(1451))
+.clearAnswer(Q(861), Q(1511), Q(1141), Q(791), Q(1161), Q(1941), Q(2341), Q(2351), Q(2361), Q(1171), Q(1551), Q(2031), Q(2121), Q(1451));
 
 // If QID 1161 is answered Option [0 OR 2], then disappear and clear answer to QID 1611.
 ifQ(1161)
@@ -144,8 +144,8 @@ ifQ(11)
 .answered(2)
 .disappear(Q(2051)) // medium header
 .disappear(Q(1881)) // red remark
-.disappear(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(1601), Q(1641), Q(2321), Q(921))
-.clearAnswer(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(1601), Q(1641), Q(2321), Q(921));
+.disappear(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(2371), Q(1641), Q(2321), Q(921))
+.clearAnswer(Q(1561), Q(2041), Q(911), Q(1621), Q(1101), Q(2371), Q(1641), Q(2321), Q(921));
 
 // If QID 11 is answered Option AND if QIDs [1451 AND 1621] are answered, then trigger math operation:  [1621] - [1451] = [1101]
 ifQ(11)
@@ -157,73 +157,77 @@ ifQ(11)
 .sub(Q(1621), Q(1451))
 .store(Q(1101));
 
-// If QID 11 is answered Option 1 AND if QID 1101 is < 4:15, then set value to Option 1 to QID 1601.
+// If QID 11 is answered Option 1 AND if QID 1101 is < 5:15, then set value to Option 1 to QID 2371.
 ifQ(11)
 .answered(1)
 .andifQ(1101)
-.lessThanOrEqual(255)
-.setValue(Q(1601), 1);
+.lessThanOrEqual(315)
+.setValue(Q(2371), 1);
 
-// If QID 11 is answered Option 1 AND if QID 1101 is >= 4:16 AND <= 4:44, then set value to Option 2 to QID 1601.
+// If QID 11 is answered Option 1 AND if QID 1101 is >= 5:16 AND <= 5:44, then set value to Option 2 to QID 2371.
 ifQ(11)
 .answered(1)
 .andifQ(1101)
-.greaterThanOrEqual(256)
+.greaterThanOrEqual(316)
 .andifQ(1101)
-.lessThanOrEqual(284)
-.setValue(Q(1601), 2);
+.lessThanOrEqual(344)
+.setValue(Q(2371), 2);
 
-// If QID 11 is answered Option 1 AND if QID 1101 is >= 4:45 AND <= 4:59, then set value to Option 3 to QID 1601.
+// If QID 11 is answered Option 1 AND if QID 1101 is >= 5:45 AND <= 5:59, then set value to Option 3 to QID 2371.
 ifQ(11)
 .answered(1)
 .andifQ(1101)
-.greaterThanOrEqual(285)
+.greaterThanOrEqual(345)
 .andifQ(1101)
-.lessThanOrEqual(299)
-.setValue(Q(1601), 3);
+.lessThanOrEqual(359)
+.setValue(Q(2371), 3);
 
-// If QID 11 is answered Option 1 AND if QID 1101 is >= 5:00 AND <= 5:14, then set value to Option 4 to QID 1601.
+// If QID 11 is answered Option 1 AND if QID 1101 is >= 6:00 AND <= 6:14, then set value to Option 4 to QID 2371.
 ifQ(11)
 .answered(1)
 .andifQ(1101)
-.greaterThanOrEqual(300)
+.greaterThanOrEqual(360)
 .andifQ(1101)
-.lessThanOrEqual(314)
-.setValue(Q(1601), 4);
+.lessThanOrEqual(374)
+.setValue(Q(2371), 4);
 
-// If QID 11 is answered Option 1 AND if QID 1101 is >= 5:15 AND <= 5:30, then set value to Option 5 to QID 1601.
+// If QID 11 is answered Option 1 AND if QID 1101 is >= 6:15 AND <= 6:30, then set value to Option 5 to QID 2371.
 ifQ(11)
 .answered(1)
 .andifQ(1101)
-.greaterThanOrEqual(315)
+.greaterThanOrEqual(375)
 .andifQ(1101)
-.lessThanOrEqual(330)
-.setValue(Q(1601), 5);
+.lessThanOrEqual(390)
+.setValue(Q(2371), 5);
 
-// If QID 11 is answered Option 1 AND if QID 1101 is > 5:30, then set value to Option 6 to QID 1601.
+// If QID 11 is answered Option 1 AND if QID 1101 is > 6:30, then set value to Option 6 to QID 2371.
 ifQ(11)
 .answered(1)
 .andifQ(1101)
-.greaterThan(330)
-.setValue(Q(1601), 6);
+.greaterThan(390)
+.setValue(Q(2371), 6);
 
-// If QIDs [1141, 1161, 1941, AND 1171] are answered Option 1, then set value to Option 1 to QID 1641.
+// If QIDs [1141, 1161, 2351, 2361, AND 1171] are answered Option 1, then set value to Option 1 to QID 1641.
 ifQ(1141)
 .answered(1)
 .andifQ(1161)
 .answered(1)
-.andifQ(1941)
+.andifQ(2351)
+.answered(1)
+.andifQ(2361)
 .answered(1)
 .andifQ(1171)
 .answered(1)
 .setValue(Q(1641), 1);
 
-// If QIDs [1141, 1161, 1941, AND 1171] are answered Option 2, then set value to Option 2 to QID 1641.
+// If QIDs [1141, 1161, 2351, 2361, AND 1171] are answered Option 2, then set value to Option 2 to QID 1641.
 ifQ(1141)
 .answered(2)
 .orifQ(1161)
 .answered(2)
-.orifQ(1941)
+.orifQ(2351)
+.answered(2)
+.orifQ(2361)
 .answered(2)
 .orifQ(1171)
 .answered(2)
