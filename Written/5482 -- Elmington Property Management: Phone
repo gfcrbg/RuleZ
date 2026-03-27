@@ -1,0 +1,14 @@
+//*******************************	
+// CID: 995
+// SID: 5482	
+// Last Updated: 3/27/2026	
+//*******************************	
+
+
+
+
+// If QID 301 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(301)
+.answered(2)
+.disappear(Q(311), Q(561))
+.clearAnswer(Q(311), Q(561));
