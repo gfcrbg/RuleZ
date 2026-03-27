@@ -1,0 +1,56 @@
+//*******************************
+// CID: 995
+// SID: 5483
+// Last Updated: 3/27/2026
+//*******************************
+
+
+
+
+// If QID 1271 is answered Option 1, then disappear and clear answer to QID 1281.
+ifQ(1271)
+.answered(1)
+.disappear(Q(1281))
+.clearAnswer(Q(1281));
+
+
+
+
+//**************************************
+// GREETING /
+// INFORMATION GATHERING - Begin 
+//**************************************
+
+// If QID 1621 is answered Option [1, 2, 3, 4, AND 5], then set value to Option 1 to QID 621.
+ifQ(1621)
+.answered([1,2,3,4,5])
+.setValue(Q(621), 1);
+
+// If QID 1621 is not answered Option [1, 2, 3, 4, AND 5] OR answered Option 6, then set value to Option 2 to QID 621.
+ifQ(1621)
+.notAnswered([1,2,3,4,5])
+.orifQ(1621)
+.answered(6)
+.setValue(Q(621), 2);
+
+//**************************************
+// GREETING /
+// INFORMATION GATHERING - End
+//**************************************
+
+
+
+
+//**************************************
+// DEMONSTRATION - Begin 
+//**************************************
+
+// If QID 1631 is answered Option [0, 1, 2, OR 3], then disappear and clear answer to QID 1641.
+ifQ(1631)
+.answered(0,1,2,3)
+.disappear(Q(1641))
+.clearAnswer(Q(1641));
+
+//**************************************
+// DEMONSTRATION - End 
+//**************************************
