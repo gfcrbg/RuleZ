@@ -1,0 +1,66 @@
+//*******************************
+// CID: 995
+// SID: 5497
+// Last Updated: 3/30/2026
+//*******************************
+
+
+
+
+// If QID 1271 is answered Option 1, then disappear and clear answer to QID 1281.
+ifQ(1271)
+.answered(1)
+.disappear(Q(1281))
+.clearAnswer(Q(1281));
+
+
+
+
+//**************************************
+// DEMONSTRATION - Begin 
+//**************************************
+
+// If QID 1631 is answered Option [1, 2, OR 3], then disappear and clear answer to QID 1641.
+ifQ(1631)
+.answered(1,2,3)
+.disappear(Q(1641))
+.clearAnswer(Q(1641));
+
+//**************************************
+// DEMONSTRATION - Begin 
+//**************************************
+
+
+
+
+//**************************************
+// FAIR HOUSING - Begin 
+//**************************************
+
+// If QID 1461 is answered Option 1, then disappear and clear answer to QID 1791.
+ifQ(1461)
+.answered(1)
+.disappear(Q(1791))
+.clearAnswer(Q(1791));
+
+// If QID 1471 is answered Option 1, then disappear and clear answer to QID 1781.
+ifQ(1471)
+.answered(1)
+.disappear(Q(1781))
+.clearAnswer(Q(1781));
+
+// If QID 1481 is answered Option 1, then disappear and clear answer to QID 1771.
+ifQ(1481)
+.answered(1)
+.disappear(Q(1771))
+.clearAnswer(Q(1771));
+
+// If QID 1491 is answered Option 1, then disappear and clear answer to QID 1701.
+ifQ(1491)
+.answered(1)
+.disappear(Q(1701))
+.clearAnswer(Q(1701));
+
+//**************************************
+// FAIR HOUSING - End
+//**************************************
