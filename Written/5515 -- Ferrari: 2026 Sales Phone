@@ -1,0 +1,168 @@
+//*******************************	
+// CID: 351	
+// SID: 5515	
+// Last Updated: 4/1/2026	
+//*******************************	
+
+
+
+
+// If QID 41 is not answered, then disappear and clear answer to QID 1061
+ifQ(41)
+.notAnswered()
+.disappear(Q(1061))
+.clearAnswer(Q(1061));
+
+// If QID 781 is not answered, then disappear and clear answer to QID 1071
+ifQ(781)
+.notAnswered()
+.disappear(Q(1071))
+.clearAnswer(Q(1071));
+
+// If QID 801 is not answered, then disappear and clear answer to QID 381
+ifQ(801)
+.notAnswered()
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+
+
+
+//*******************************
+// BACKGROUND INFORMATION - Begin
+//*******************************
+
+// If QID 411 is answered Option 1, then disappear and clear answer to QID 91.
+ifQ(411)
+.answered(1)
+.disappear(Q(91))
+.clearAnswer(Q(91));
+
+//*******************************
+// BACKGROUND INFORMATION - End
+//*******************************
+
+
+
+//*******************************
+// FERRARI RELATIONSHIP
+// INDEX (FRI) - Begin
+//*******************************
+
+// If QID 571 is answered Option [2, 3, 4, OR 5], then disappear and clear answer to QID 891.
+ifQ(571)
+.answered(2,3,4,5)
+.disappear(Q(891))
+.clearAnswer(Q(891));
+
+// If QID 571 is answered Option 1, then disappear and clear answer to QID 901.
+ifQ(571)
+.answered(1)
+.disappear(Q(901))
+.clearAnswer(Q(901));
+
+//*******************************
+// FERRARI RELATIONSHIP
+// INDEX (FRI) - End
+//*******************************
+
+
+
+
+//*******************************
+// CALL HANDLING SKILLS - Begin
+//*******************************
+
+// If QID 421 is not answered Option 6, then disappear and clear answer to QID 431.
+ifQ(421)
+.notAnswered(6)
+.disappear(Q(431))
+.clearAnswer(Q(431));
+
+// If QID 111 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 141.
+ifQ(111)
+.answered(3,4,5)
+.disappear(Q(141))
+.clearAnswer(Q(141));
+
+// If QID 141 is answered Option [0, 1, OR 3], then disappear and clear answer to QIDs.
+ifQ(141)
+.answered(0,1,3)
+.disappear(Q(151), Q(181))
+.clearAnswer(Q(151), Q(181));
+
+//*******************************
+// CALL HANDLING SKILLS - End
+//*******************************
+
+
+
+
+//*******************************
+// SALES SKILLS - Begin
+//*******************************
+
+// If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(4)
+.disappear(Q(171)) // medium header
+.disappear(Q(621), Q(391)) // black remarks
+.disappear(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471))
+.clearAnswer(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471));
+
+// If QID 231 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 611.
+ifQ(231)
+.answered(0,2,3)
+.disappear(Q(611))
+.clearAnswer(Q(611));
+
+// If QID 271 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(0,2)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+// If QID 471 is answered Option [0 OR 2], then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(0,2)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 481 is not answered, then disappear and clear answer to QID 491.
+ifQ(481)
+.notAnswered()
+.disappear(Q(491))
+.clearAnswer(Q(491));
+
+//*******************************
+// SALES SKILLS - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 941 is answered Option [1, 2, 3, 4, 5, 6, 7, OR 8], then disappear and clear answer to QID 951.
+ifQ(941)
+.answered(1,2,3,4,5,6,7,8)
+.disappear(Q(951))
+.clearAnswer(Q(951));
+
+// If QID 941 is answered Option [7 OR 8], then disappear and clear answer to QIDs.
+ifQ(941)
+.answered(7,8)
+.disappear(Q(981), Q(1001))
+.clearAnswer(Q(981), Q(1001));
+
+// If QID 981 is not answered Option 7, then disappear and clear answer to QID 991.
+ifQ(981)
+.notAnswered(7)
+.disappear(Q(991))
+.clearAnswer(Q(991));
+
+//*******************************
+// FOLLOW UP - End
+//*******************************
