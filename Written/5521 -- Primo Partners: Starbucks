@@ -1,0 +1,62 @@
+//*******************************	
+// CID: 975 
+// SID: 5521 	
+// Last Updated: 4/3/2026
+//*******************************	
+
+
+
+
+//*******************************
+// CORE 4 BEHAVIORS - Begin
+//*******************************
+
+// If QID 111 is answered Option [2 OR 3], then disappear and clear answer to QID 121.
+ifQ(111)
+.answered(2,3)
+.disappear(Q(121))
+.clearAnswer(Q(121));
+
+//*******************************
+// CORE 4 BEHAVIORS - End
+//*******************************
+
+
+
+
+//*******************************
+// QUALITY - Begin
+//*******************************
+
+// If QID 241 is answered Option 1, then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(1)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+//*******************************
+// QUALITY - End
+//*******************************
+
+
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// If QID 351 is answered Option 2, then disappear and clear answer to QID 361.
+ifQ(351)
+.answered(2)
+.disappear(Q(361))
+.clearAnswer(Q(361));
+
+// If QID 361 is answered Option [0 OR 2], then disappear and clear answer to QID 371.
+ifQ(361)
+.answered(0,2)
+.disappear(Q(371))
+.clearAnswer(Q(371));
+
+//*******************************
+// CLEANLINESS - End
+//*******************************
