@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 990
 // SID: 5471	
-// Last Updated: 1/29/2026	
+// Last Updated: 4/3/2026	
 //*******************************	
 
 
@@ -251,9 +251,9 @@ ifQ(61)
 .disappear(Q(1151), Q(981))
 .clearAnswer(Q(1151), Q(981));
 
-// If QID 981 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+// If QID 981 is answered Option [0, 2, OR 3], then disappear and clear answer to QIDs.
 ifQ(981)
-.answered(0,2)
+.answered(0,2,3)
 .disappear(Q(101), Q(91), Q(131), Q(991), Q(591), Q(461))
 .clearAnswer(Q(101), Q(91), Q(131), Q(991), Q(591), Q(461));
 
