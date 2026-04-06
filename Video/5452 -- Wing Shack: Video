@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 988	
 // SID: 5452	
-// Last Updated: 3/23/2026	
+// Last Updated: 4/6/2026	
 //*******************************	
 
 
@@ -114,15 +114,15 @@ ifQ(551)
 .disappear(Q(1471))
 .clearAnswer(Q(1471));
 
-// If QID 1471 is not answered Option 4, then disappear and clear answer to QID 1481.
+// If QID 1471 is not answered Option 3, then disappear and clear answer to QID 1481.
 ifQ(1471)
-.notAnswered(4)
+.notAnswered(3)
 .disappear(Q(1481))
 .clearAnswer(Q(1481));
 
-// If QID 1471 is answered Option 4, then set value to Option 1 to QID 1481.
+// If QID 1471 is answered Option 3, then set value to Option 1 to QID 1481.
 ifQ(1471)
-.answered(4)
+.answered(3)
 .setValue(Q(1481), 1);
 
 //*******************************
