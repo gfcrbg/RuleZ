@@ -1,0 +1,144 @@
+//*******************************	
+// CID: 351	
+// SID: 5516
+// Last Updated: 4/6/2026
+//*******************************	
+
+
+
+
+//*******************************
+// FERRARI RELATIONSHIP
+// INDEX (FRI) - Begin
+//*******************************
+
+// If QID 761 is answered Option [2, 3, 4, OR 5], then disappear and clear answer to QIDs.
+ifQ(761)
+.answered(2,3,4,5)
+.disappear(Q(771), Q(791))
+.clearAnswer(Q(771), Q(791));
+
+// If QID 761 is answered Option 1, then disappear and clear answer to QID 781.
+ifQ(761)
+.answered(1)
+.disappear(Q(781))
+.clearAnswer(Q(781));
+
+// If QID 761 is answered Option [3, 4, OR 5], then disappear and clear answer to QID 801.
+ifQ(761)
+.answered(3,4,5)
+.disappear(Q(801))
+.clearAnswer(Q(801));
+
+//*******************************
+// FERRARI RELATIONSHIP
+// INDEX (FRI) - End
+//*******************************
+
+
+
+
+//*******************************
+// CONNECTING WITH SALES - Begin
+//*******************************
+
+// If QID 451 is answered Option [1, 2, 3, OR 4], then disappear and clear answer to QID 551.
+ifQ(451)
+.answered(1,2,3,4)
+.disappear(Q(551))
+.clearAnswer(Q(551));
+
+// If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
+ifQ(451)
+.answered(5)
+.disappear(Q(291), Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321))
+.clearAnswer(Q(291), Q(151), Q(161), Q(241), Q(171), Q(181), Q(191), Q(321));
+
+// If QID 291 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(291)
+.notAnswered(1)
+.disappear(Q(131), Q(141))
+.clearAnswer(Q(131), Q(141));
+
+// If QID 291 is not answered Option 2, then disappear and clear answer to QIDs.
+ifQ(291)
+.notAnswered(2)
+.disappear(Q(271), Q(201))
+.clearAnswer(Q(271), Q(201));
+
+// If QID 291 is not answered Option 3, then disappear and clear answer to QID 281.
+ifQ(291)
+.notAnswered(3)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+// If QID 291 is not answered Option [1 OR 3], then disappear and clear answer to QIDs.
+ifQ(291)
+.notAnswered(1,3)
+.disappear(Q(541)) // black remark
+.disappear(Q(261))
+.clearAnswer(Q(261));
+
+// If QID 321 is answered Option [0 OR 2], then disappear and clear answer to QID 331.
+ifQ(321)
+.answered(0,2)
+.disappear(Q(331))
+.clearAnswer(Q(331));
+
+// If QID 331 is not answered, then disappear and clear answer to QID 341.
+ifQ(331)
+.notAnswered()
+.disappear(Q(341))
+.clearAnswer(Q(341));
+
+//*******************************
+// CONNECTING WITH SALES - End
+//*******************************
+
+
+
+
+//*******************************
+// FOLLOW UP - Begin
+//*******************************
+
+// If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
+ifQ(451)
+.answered(5)
+.disappear(Q(351)) // medium header
+.disappear(Q(531)) // black remark
+.disappear(Q(361), Q(391), Q(401))
+.clearAnswer(Q(361), Q(391), Q(401));
+
+// If QID 361 is answered Option [0 OR 2], then disappear and clear answer to QID 441.
+ifQ(361)
+.answered(0,2)
+.disappear(Q(441))
+.clearAnswer(Q(441));
+
+// If QID 441 is not answered Option 7, then disappear and clear answer to QID 381.
+ifQ(441)
+.notAnswered(7)
+.disappear(Q(381))
+.clearAnswer(Q(381));
+
+//*******************************
+// FOLLOW UP - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL - Begin
+//*******************************
+
+// If QID 451 is answered Option 5, then disappear and clear answer to QIDs.
+ifQ(451)
+.answered(5)
+.disappear(Q(231))
+.clearAnswer(Q(231));
+
+//*******************************
+// OVERALL - End
+//*******************************
