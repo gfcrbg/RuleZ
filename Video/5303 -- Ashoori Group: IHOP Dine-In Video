@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 942
 // SID: 5303	
-// Last Updated: 3/6/2026	
+// Last Updated: 4/8/2026	
 //*******************************	
 
 
@@ -258,12 +258,6 @@ ifQ(91)
 .andifQ(621)
 .greaterThan(120)
 .setValue(Q(631), 2);
-
-// If QID 961 is answered Option [0 OR 2], then disappear and clear answer to QID 971.
-ifQ(961)
-.answered(0,2)
-.disappear(Q(971))
-.clearAnswer(Q(971));
 
 // If QID 861 is answered Option [0 OR 2], then disappear and clear answer to QID 1001.
 ifQ(861)
