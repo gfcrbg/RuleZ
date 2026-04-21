@@ -1,0 +1,317 @@
+//*******************************	
+// CID: 983	
+// SID: 5423
+// RuleZ Last Updated: 4/21/26 (by Greg S.)
+// Reviewer's View Last Tested: EO 10/30/25
+// Shopper's View Last Tested: N/A (video shop imported from Presto)
+// Client's View Last Tested: EO 10/30/25
+//*******************************	
+
+//------------------------------------------------
+// Closed Location Control - Begin
+//------------------------------------------------
+
+// If QID 1202 is answered Option 1, then disappear and clear answer to QID 1212.
+ifQ(1202)
+.answered(1)
+.disappear(Q(1212))
+.clearAnswer(Q(1212));
+
+// If QID 1202 is answered Option 2, then disappear and clear QIDs in the prologue.
+ifQ(1202)
+.answered(2)
+.disappear(Q(932), Q(922), Q(1292), Q(1282)) 
+.makeNotRequired(Q(932), Q(922), Q(1292), Q(1282))
+.clearAnswer(Q(932), Q(922), Q(1292), Q(1282));
+
+
+// If QID 1202 is answered Option 2, then disappear and clear all scored sections.
+ifQ(1202)
+.answered(2)
+.disappear(Section(1), Section(2), Section(3), Section(4))
+.makeNotRequired(Section(1), Section(2), Section(3), Section(4))
+.clearAnswer(Section(1), Section(2), Section(3), Section(4));
+
+//------------------------------------------------
+// Closed Location Control - End
+//------------------------------------------------
+
+//------------------------------------------------
+// Cleanliness - Begin
+//------------------------------------------------
+
+// If QID 51 is answered Option 1, then disappear and clear answer to QID 1422 and 1332.
+ifQ(51)
+.answered(1)
+.disappear(Q(1422), Q(1332))
+.makeNotRequired(Q(1422), Q(1332))
+.clearAnswer(Q(1422), Q(1332));
+
+// If QID 1422 is NOT answered Option 5, then disappear and clear answer to QID 1332.
+ifQ(1422)
+.notAnswered(5)
+.disappear(Q(1332))
+.makeNotRequired(Q(1332))
+.clearAnswer(Q(1332));
+
+
+// If QID 1322 is answered Option 1, then disappear and clear answer to QID 1352 and 1432.
+ifQ(1322)
+.answered(1)
+.disappear(Q(1352), Q(1432))
+.makeNotRequired(Q(1352), Q(1432))
+.clearAnswer(Q(1352), Q(1432));
+
+// If QID 1352 is NOT answered Option 5, then disappear and clear answer to QID 1432.
+ifQ(1352)
+.notAnswered(5)
+.disappear(Q(1432))
+.makeNotRequired(Q(1432))
+.clearAnswer(Q(1432));
+
+
+// If QID 1362 is answered Option 1, then disappear and clear answer to QID 1442 and 1372.
+ifQ(1362)
+.answered(1)
+.disappear(Q(1442), Q(1372))
+.makeNotRequired(Q(1442), Q(1372))
+.clearAnswer(Q(1442), Q(1372));
+
+// If QID 1442 is NOT answered Option 5, then disappear and clear answer to QID 1372.
+ifQ(1442)
+.notAnswered(5)
+.disappear(Q(1372))
+.makeNotRequired(Q(1372))
+.clearAnswer(Q(1372));
+
+
+// If QID 61 is answered Option 1, then disappear and clear answer to QID 1452 and 1382.
+ifQ(61)
+.answered(1)
+.disappear(Q(1452), Q(1382))
+.makeNotRequired(Q(1452), Q(1382))
+.clearAnswer(Q(1452), Q(1382));
+
+// If QID 1452 is NOT answered Option 5, then disappear and clear answer to QID 1382.
+ifQ(1452)
+.notAnswered(5)
+.disappear(Q(1382))
+.makeNotRequired(Q(1382))
+.clearAnswer(Q(1382));
+
+
+// If QID 1402 is answered Option 1 OR Option 3, then disappear and clear answer to QID 1462 and 1412.
+ifQ(1402)
+.answered(1,3)
+.disappear(Q(1462), Q(1412))
+.makeNotRequired(Q(1462), Q(1412))
+.clearAnswer(Q(1462), Q(1412));
+
+// If QID 1462 is NOT answered Option 5, then disappear and clear answer to QID 1412.
+ifQ(1462)
+.notAnswered(5)
+.disappear(Q(1412))
+.makeNotRequired(Q(1412))
+.clearAnswer(Q(1412));
+
+
+// If QID 992 is answered Option 1 OR Option 3, then disappear and clear answer to QID 1392 and 1472.
+ifQ(992)
+.answered(1,3)
+.disappear(Q(1392), Q(1472))
+.makeNotRequired(Q(1392), Q(1472))
+.clearAnswer(Q(1392), Q(1472));
+
+// If QID 1392 is NOT answered Option 5, then disappear and clear answer to QID 1472.
+ifQ(1392)
+.notAnswered(5)
+.disappear(Q(1472))
+.makeNotRequired(Q(1472))
+.clearAnswer(Q(1472));
+
+
+// If QID 321 is answered Option 1, then disappear and clear answer to QID 1482 and 1492.
+ifQ(321)
+.answered(1)
+.disappear(Q(1482), Q(1492))
+.makeNotRequired(Q(1482), Q(1492))
+.clearAnswer(Q(1482), Q(1492));
+
+// If QID 1482 is NOT answered Option 4, then disappear and clear answer to QID 1492.
+ifQ(1482)
+.notAnswered(4)
+.disappear(Q(1492))
+.makeNotRequired(Q(1492))
+.clearAnswer(Q(1492));
+
+
+// If QID 1502 is answered Option 1, then disappear and clear answer to QID 1512 and 1522.
+ifQ(1502)
+.answered(1)
+.disappear(Q(1512), Q(1522))
+.makeNotRequired(Q(1512), Q(1522))
+.clearAnswer(Q(1512), Q(1522));
+
+// If QID 1512 is NOT answered Option 4, then disappear and clear answer to QID 1522.
+ifQ(1512)
+.notAnswered(4)
+.disappear(Q(1522))
+.makeNotRequired(Q(1522))
+.clearAnswer(Q(1522));
+
+
+// If QID 1532 is answered Option 1, then disappear and clear answer to QID 1542 and 1552.
+ifQ(1532)
+.answered(1)
+.disappear(Q(1542), Q(1552))
+.makeNotRequired(Q(1542), Q(1552))
+.clearAnswer(Q(1542), Q(1552));
+
+// If QID 1542 is NOT answered Option 5, then disappear and clear answer to QID 1552.
+ifQ(1542)
+.notAnswered(5)
+.disappear(Q(1552))
+.makeNotRequired(Q(1552))
+.clearAnswer(Q(1552));
+
+
+// If QID 81 is answered Option 1, then disappear and clear answer to QID 1562 and 1572.
+ifQ(81)
+.answered(1)
+.disappear(Q(1562), Q(1572))
+.makeNotRequired(Q(1562), Q(1572))
+.clearAnswer(Q(1562), Q(1572));
+
+// If QID 1562 is NOT answered Option 5, then disappear and clear answer to QID 1572.
+ifQ(1562)
+.notAnswered(5)
+.disappear(Q(1572))
+.makeNotRequired(Q(1572))
+.clearAnswer(Q(1572));
+
+// If QID 91 is answered Option 1, then disappear and clear answer to QID 1002 and 1012.
+ifQ(91)
+.answered(1)
+.disappear(Q(1002), Q(1012))
+.makeNotRequired(Q(1002), Q(1012))
+.clearAnswer(Q(1002), Q(1012));
+
+// If QID 1002 is NOT answered Option 4, then disappear and clear answer to QID 1012.
+ifQ(1002)
+.notAnswered(4)
+.disappear(Q(1012))
+.makeNotRequired(Q(1012))
+.clearAnswer(Q(1012));
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QID 1272, 1022, 1582, 1592,  and 1032.
+ifQ(91)
+.answered(2)
+.disappear(Q(1272), Q(1022), Q(1582), Q(1592), Q(1032))
+.makeNotRequired(Q(1022), Q(1582), Q(1592), Q(1032))
+.clearAnswer(Q(1022), Q(1582), Q(1592), Q(1032));
+
+// If QID 1582 is NOT answered Option 6, then disappear and clear answer to QID 1592.
+ifQ(1582)
+.notAnswered(6)
+.disappear(Q(1592))
+.makeNotRequired(Q(1592))
+.clearAnswer(Q(1592));
+
+
+//------------------------------------------------
+// Cleanliness - End
+//------------------------------------------------
+
+//------------------------------------------------
+// Customer Service - Begin
+//------------------------------------------------
+
+// If QID [1662 AND 1132] is answered, then trigger math operation:  [1132] - [1662] = [1682]
+ifQ(1662)
+.answered()
+.andifQ(1132)
+.answered()
+.sub(Q(1132), Q(1662))
+.store(Q(1682));
+
+// If QID [1672 AND 1132] is answered, then trigger math operation:  [1132] - [1672] = [1692]
+ifQ(1672)
+.answered()
+.andifQ(1132)
+.answered()
+.sub(Q(1132), Q(1672))
+.store(Q(1692));
+
+// If QID 1202 is answered Option 1 AND if QID 1692 is <= 1:30 minutes, then set value to Option 1 to QID 1702.
+ifQ(1202)
+.answered(1)
+.andifQ(1692)
+.lessThanOrEqual(90)
+.setValue(Q(1702), 1);
+
+// If QID 1202 is answered Option 1 AND if QID 1692 is > 1:31 minutes, then set value to Option 2 to QID 1702.
+ifQ(1202)
+.answered(1)
+.andifQ(1692)
+.greaterThan(91)
+.setValue(Q(1702), 2);
+
+
+
+//------------------------------------------------
+// Customer Service - End
+//------------------------------------------------
+
+//------------------------------------------------
+// Accuracy - Begin
+//------------------------------------------------
+
+// If QID 211 is answered Option 1, then disappear and clear answer to QID 1052 and 1172.
+ifQ(211)
+.answered(1)
+.disappear(Q(1052), Q(1172))
+.makeNotRequired(Q(1052), Q(1172))
+.clearAnswer(Q(1052), Q(1172));
+
+// If QID 1052 is NOT answered Option 6, then disappear and clear answer to QID 1172.
+ifQ(1052)
+.notAnswered(6)
+.disappear(Q(1172))
+.makeNotRequired(Q(1172))
+.clearAnswer(Q(1172));
+
+
+//------------------------------------------------
+// Accuracy - End
+//------------------------------------------------
+
+//------------------------------------------------
+// Quality - Begin
+//------------------------------------------------
+
+// If QID 1152 is answered Option 1, then disappear and clear answer to QID 1162 and 1182.
+ifQ(1152)
+.answered(1)
+.disappear(Q(1162), Q(1182))
+.makeNotRequired(Q(1162), Q(1182))
+.clearAnswer(Q(1162), Q(1182));
+
+// If QID 1162 is NOT answered Option 5, then disappear and clear answer to QID 1182.
+ifQ(1162)
+.notAnswered(5)
+.disappear(Q(1182))
+.makeNotRequired(Q(1182))
+.clearAnswer(Q(1182));
+
+
+//------------------------------------------------
+// Quality - End
+//------------------------------------------------
+
+
+
+
+// If QID 1762 is not answered, then set value to Option 3 to QID 1762.
+ifQ(1762)
+.notAnswered()
+.setValue(Q(1762), 3);
