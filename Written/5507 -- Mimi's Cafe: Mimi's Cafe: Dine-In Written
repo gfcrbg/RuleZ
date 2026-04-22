@@ -1,0 +1,177 @@
+//*******************************	
+// CID: 997	
+// SID: 5507
+// Last Updated: 4/22/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 1531
+
+// If QID 1531 is answered Option 1, then disappear and clear answer to QID 1541.
+ifQ(1531)
+.answered(1)
+.disappear(Q(1541))
+.clearAnswer(Q(1541));
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(831), Q(41), Q(1561))
+.clearAnswer(Q(831), Q(41), Q(1561));
+
+
+
+
+//*******************************
+// CLEANLINESS - Begin
+//*******************************
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(51)) // medium header
+.disappear(Q(1311), Q(1321), Q(1331), Q(1361), Q(101), Q(1581), Q(121))
+.clearAnswer(Q(1311), Q(1321), Q(1331), Q(1361), Q(101), Q(1581), Q(121));
+
+// If QID 1581 is answered Option [0 OR 1], then disappear and clear answer to QID 1591.
+ifQ(1581)
+.answered(0,1)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+// If QID 1581 is answered Option [0 OR 2], then disappear and clear answer to QID 1601.
+ifQ(1581)
+.answered(0,2)
+.disappear(Q(1601))
+.clearAnswer(Q(1601));
+
+//*******************************
+// CLEANLINESS - End
+//*******************************
+
+
+
+
+//*******************************
+// HOST - Begin
+//*******************************
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(131)) // medium header
+.disappear(Q(1341), Q(141), Q(1051), Q(1961), Q(1631), Q(1661), Q(1071), Q(1671), Q(1101), Q(221), Q(231))
+.clearAnswer(Q(1341), Q(141), Q(1051), Q(1961), Q(1631), Q(1661), Q(1071), Q(1671), Q(1101), Q(221), Q(231));
+
+// If QID 1631 is answered Option [0 OR 1], then disappear and clear answer to QID 161.
+ifQ(1631)
+.answered(0,1)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+// If QID 1631 is answered Option [1, 2, OR 3], then set value to Option 1 to QID 1661.
+ifQ(1631)
+.answered(1,2,3)
+.setValue(Q(1661), 1);
+
+// If QID 1631 is answered Option [4, 5, OR 6], then set value to Option 2 to QID 1661.
+ifQ(1631)
+.answered(4,5,6)
+.setValue(Q(1661), 2);
+ 
+//*******************************
+// HOST - End
+//*******************************
+
+
+
+
+//*******************************
+// TEAM - Begin
+//*******************************
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(241)) // medium header
+.disappear(Q(721), Q(1891)) // red remarks
+.disappear(Q(261), Q(1701), Q(291), Q(1711), Q(1751), Q(301))
+.clearAnswer(Q(261), Q(1701), Q(291), Q(1711), Q(1751), Q(301));
+
+//*******************************
+// TEAM - End
+//*******************************
+
+
+
+
+//*******************************
+// SERVICE - Begin
+//*******************************
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(311)) // medium header
+.disappear(Q(321), Q(731), Q(1391), Q(1731), Q(1741), Q(1411), Q(1761), Q(1981), Q(2021), Q(1201), Q(1811), Q(1801), Q(441), Q(451), Q(1941), Q(1791), Q(1451), Q(1931), Q(801), Q(511))
+.clearAnswer(Q(321), Q(731), Q(1391), Q(1731), Q(1741), Q(1411), Q(1761), Q(1981), Q(2021), Q(1201), Q(1811), Q(1801), Q(441), Q(451), Q(1941), Q(1791), Q(1451), Q(1931), Q(801), Q(511));
+
+// If QID 831 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(831)
+.answered(0,1)
+.disappear(Q(1011), Q(461), Q(2011))
+.clearAnswer(Q(1011), Q(461), Q(2011));
+
+// If QID 2021 is answered Option [0 OR 2], then disappear and clear answer to QID 881.
+ifQ(2021)
+.answered(0,2)
+.disappear(Q(881))
+.clearAnswer(Q(881));
+
+// If QID 2021 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(2021)
+.answered(0,1)
+.disappear(Q(1781), Q(1991), Q(2001))
+.clearAnswer(Q(1781), Q(1991), Q(2001));
+
+//*******************************
+// SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// FOOD AND BEVERAGE - Begin
+//*******************************
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(521)) // medium header
+.disappear(Q(531), Q(541), Q(1501), Q(861), Q(1691), Q(1491), Q(581))
+.clearAnswer(Q(531), Q(541), Q(1501), Q(861), Q(1691), Q(1491), Q(581));
+ 
+//*******************************
+// FOOD AND BEVERAGE - End
+//*******************************
+
+
+
+
+//*******************************
+// RATINGS - Begin
+//*******************************
+
+// If QID 1531 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1531)
+.answered(2)
+.disappear(Q(631)) // medium header
+.disappear(Q(1831), Q(1851), Q(1841), Q(601))
+.clearAnswer(Q(1831), Q(1851), Q(1841), Q(601)); 
+
+//*******************************
+// RATINGS - End
+//*******************************
