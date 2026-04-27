@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5515	
-// Last Updated: 4/1/2026	
+// Last Updated: 4/27/2026	
 //*******************************	
 
 
@@ -118,7 +118,7 @@ ifQ(231)
 
 // If QID 271 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
 ifQ(271)
-.answered(0,2)
+.notAnswered(1)
 .disappear(Q(281))
 .clearAnswer(Q(281));
 
