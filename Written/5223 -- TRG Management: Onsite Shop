@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 928	
 // SID: 5223	
-// Last Updated: 2/13/2025	
+// Last Updated: 4/27/2026	
 //*******************************	
 
 
@@ -65,7 +65,7 @@ ifQ(31)
 .answered(1)
 .disappear(Q(1101)) // last call length drop-down
 .disappear(Q(151), Q(291), Q(281))
-.clearAnswer(Q(151), Q(291), Q(281));
+.clearAnswer(Q(291), Q(281));
 
 // If QID 291 is answered Option [0 OR 3], then disappear and clear answer to QIDs.
 ifQ(291)
