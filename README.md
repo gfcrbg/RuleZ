@@ -1,5 +1,8 @@
 ### Announcements  
 
+## April 2026  
+Do NOT use .clearAnswer or .setValue for Recorded Phonecall QIDs.  
+
 ## January 2025  
 To auto-select an answer option (1381) based on the count of checkboxes selected (1361), a number field (1371) should be used to capture the checkbox count.  
 As a result, 1361 triggers --> 1371 triggers --> 1381.
