@@ -1,0 +1,79 @@
+//*******************************	
+// CID: 1004	
+// SID: 5535	
+// Last Updated: 5/7/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// ONLINE - Begin
+//*******************************
+
+// If QID 1221 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1221)
+.answered(2)
+.disappear(Q(1201), Q(1211))
+.clearAnswer(Q(1201), Q(1211));
+
+//*******************************
+// ONLINE - End
+//*******************************
+
+
+
+
+//*******************************
+// BAR/LOBBY - Begin
+//*******************************
+
+// If QID 1561 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1561)
+.answered(2)
+.disappear(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(501), Q(1361), Q(1371))
+.clearAnswer(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(501), Q(1361), Q(1371));
+
+// If QID 431 is answered Option [0 OR 1], then disappear and clear answer to QID 1341.
+ifQ(431)
+.answered(0,1)
+.disappear(Q(1341))
+.clearAnswer(Q(1341));
+
+//*******************************
+// BAR/LOBBY - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCT - Begin
+//*******************************
+
+// If QID 691 is answered Option 1, then disappear and clear answer to QID 1471.
+ifQ(691)
+.answered(1)
+.disappear(Q(1471))
+.clearAnswer(Q(1471));
+
+//*******************************
+// PRODUCT - End
+//*******************************
+
+
+
+
+//*******************************
+// MANAGEMENT - Begin
+//*******************************
+
+// If QID 901 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(901)
+.answered(2)
+.disappear(Q(891), Q(921), Q(931), Q(1511))
+.clearAnswer(Q(891), Q(921), Q(931), Q(1511));
+
+//*******************************
+// MANAGEMENT - End
+//*******************************
