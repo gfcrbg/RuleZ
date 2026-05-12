@@ -115,14 +115,14 @@ ifQ(1531)
 ifQ(1531)
 .answered(2)
 .disappear(Q(311)) // medium header
-.disappear(Q(321), Q(731), Q(1391), Q(1731), Q(1741), Q(1411), Q(1761), Q(1981), Q(2021), Q(1201), Q(1811), Q(1801), Q(441), Q(451), Q(1941), Q(1791), Q(1451), Q(1931), Q(801), Q(511))
-.clearAnswer(Q(321), Q(731), Q(1391), Q(1731), Q(1741), Q(1411), Q(1761), Q(1981), Q(2021), Q(1201), Q(1811), Q(1801), Q(441), Q(451), Q(1941), Q(1791), Q(1451), Q(1931), Q(801), Q(511));
+.disappear(Q(321), Q(731), Q(1391), Q(1731), Q(1741), Q(1411), Q(1761), Q(1981), Q(2021), Q(1201), Q(1811), Q(1801), Q(441), Q(451), Q(2011), Q(1941), Q(1791), Q(1451), Q(1931), Q(801), Q(511))
+.clearAnswer(Q(321), Q(731), Q(1391), Q(1731), Q(1741), Q(1411), Q(1761), Q(1981), Q(2021), Q(1201), Q(1811), Q(1801), Q(441), Q(451), Q(2011), Q(1941), Q(1791), Q(1451), Q(1931), Q(801), Q(511));
 
 // If QID 831 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
 ifQ(831)
 .answered(0,1)
-.disappear(Q(1011), Q(461), Q(2011))
-.clearAnswer(Q(1011), Q(461), Q(2011));
+.disappear(Q(1011), Q(461))
+.clearAnswer(Q(1011), Q(461));
 
 // If QID 2021 is answered Option [0 OR 2], then disappear and clear answer to QID 881.
 ifQ(2021)
