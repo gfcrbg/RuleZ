@@ -1,0 +1,649 @@
+//*******************************	
+// CID: 1006
+// SID: 5540	
+// Last Updated: 5/21/2026	
+//*******************************	
+
+
+
+// test shop: 4038533
+// Primary QID: 91
+
+//
+ifQ(91)
+.answered(1)
+.disappear(Q(1451))
+.clearAnswer(Q(1451));
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(1431), Q(1461), Q(1471))
+.clearAnswer(Q(1431), Q(1461), Q(1471));
+
+
+
+
+//*******************************
+// APPEARANCE & CLEANLINESS - Begin
+//*******************************
+
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(151));
+
+
+//-------------------------------------------
+// Exterior - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(231)) // small header
+.disappear(Q(1681), Q(1691), Q(1701), Q(171), Q(1721))
+.clearAnswer(Q(1681), Q(1691), Q(1701), Q(171), Q(1721));
+
+//-------------------------------------------
+// Exterior - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Interior - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(241)) // small header
+.disappear(Q(441), Q(481), Q(1781))
+.clearAnswer(Q(441), Q(481), Q(1781));
+
+//-------------------------------------------
+// Interior - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Restrooms - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(1571)) // small header
+.disappear(Q(1581))
+.clearAnswer(Q(1581));
+
+//
+ifQ(1581)
+.answered(0,1)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+//
+ifQ(1581)
+.answered(0,2)
+.disappear(Q(1601), Q(1611), Q(1621), Q(1651))
+.clearAnswer(Q(1601), Q(1611), Q(1621), Q(1651));
+
+//
+ifQ(1621)
+.answered(0,1,3)
+.disappear(Q(1631))
+.clearAnswer(Q(1631));
+
+//
+ifQ(1631)
+.notAnswered(4)
+.disappear(Q(1641))
+.clearAnswer(Q(1641));
+
+//
+ifQ(1651)
+.answered(0,1,3)
+.disappear(Q(1661))
+.clearAnswer(Q(1661));
+
+//-------------------------------------------
+// Restrooms - End
+//-------------------------------------------
+
+
+//*******************************
+// APPEARANCE & CLEANLINESS - End
+//*******************************
+
+
+
+
+//*******************************
+// HOST SERVICE - Begin
+//*******************************
+
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(1741));
+
+
+//-------------------------------------------
+// Reservations - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(1801)) // small header
+.disappear(Q(1811), Q(1821), Q(1831), Q(1841), Q(1851))
+.clearAnswer(Q(1811), Q(1821), Q(1831), Q(1841), Q(1851));
+
+//-------------------------------------------
+// Reservations - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Welcoming & Seating - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(371)) // small header
+.disappear(Q(2151), Q(551), Q(561), Q(2261), Q(571), Q(581), Q(1731), Q(2241), Q(1241), Q(1231), Q(1791), Q(1861), Q(1061), Q(1341), Q(2431))
+.clearAnswer(Q(2151), Q(551), Q(561), Q(2261), Q(571), Q(581), Q(1731), Q(2241), Q(1241), Q(1231), Q(1791), Q(1861), Q(1061), Q(1341), Q(2431));
+
+//
+ifQ(551)
+.answered()
+.andifQ(561)
+.answered()
+.sub(Q(561), Q(551))
+.store(Q(571));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(571)
+.lessThanOrEqual(30)
+.setValue(Q(581), 1);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(571)
+.greaterThan(30)
+.setValue(Q(581), 2);
+
+//
+ifQ(1731)
+.answered(0,1)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+//
+ifQ(1241)
+.answered(0,1)
+.disappear(Q(2401), Q(2411))
+.clearAnswer(Q(2401), Q(2411));
+
+//
+ifQ(1241)
+.notAnswered(2)
+.disappear(Q(1251))
+.clearAnswer(Q(1251));
+
+//
+ifQ(2401)
+.answered()
+.andifQ(2411)
+.answered()
+.sub(Q(2411), Q(2401))
+.store(Q(1251));
+
+//
+ifQ(1241)
+.answered(1)
+.setValue(Q(1231), 1);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(1251)
+.lessThanOrEqual(300)
+.setValue(Q(1231), 2);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(1251)
+.greaterThan(300)
+.andifQ(1251)
+.lessThanOrEqual(600)
+.setValue(Q(1231), 3);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(1251)
+.greaterThan(600)
+.andifQ(1251)
+.lessThanOrEqual(900)
+.setValue(Q(1231), 4);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(1251)
+.greaterThan(900)
+.andifQ(1251)
+.lessThanOrEqual(1200)
+.setValue(Q(1231), 5);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(1251)
+.greaterThan(1200)
+.setValue(Q(1231), 6);
+
+//
+ifQ(1061)
+.answered(0,1)
+.disappear(Q(1071))
+.clearAnswer(Q(1071));
+
+//-------------------------------------------
+// Welcoming & Seating - End
+//-------------------------------------------
+
+
+//*******************************
+// HOST SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// TABLE SERVICE - Begin
+//*******************************
+
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(381));
+
+
+//-------------------------------------------
+// Introduction & Ordering - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(2161)) // small header
+.disappear(Q(601), Q(611), Q(621), Q(631), Q(1751), Q(1351), Q(2061), Q(2191), Q(2201), Q(661), Q(2211), Q(981), Q(1301), Q(681), Q(2301), Q(1901), Q(2351), Q(691), Q(701))
+.clearAnswer(Q(601), Q(611), Q(621), Q(631), Q(1751), Q(1351), Q(2061), Q(2191), Q(2201), Q(661), Q(2211), Q(981), Q(1301), Q(681), Q(2301), Q(1901), Q(2351), Q(691), Q(701));
+
+//
+ifQ(1751)
+.answered(0,1,3)
+.disappear(Q(1761))
+.clearAnswer(Q(1761));
+
+//
+ifQ(1901)
+.answered(0,2)
+.disappear(Q(2391))
+.clearAnswer(Q(2391));
+
+//-------------------------------------------
+// Introduction & Ordering - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Speed of Service - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(401)) // small header
+.disappear(Q(711), Q(751), Q(741), Q(721), Q(731), Q(1911), Q(791), Q(801), Q(811))
+.clearAnswer(Q(711), Q(751), Q(741), Q(721), Q(731), Q(1911), Q(791), Q(801), Q(811));
+
+//
+ifQ(691)
+.answered()
+.andifQ(711)
+.answered()
+.sub(Q(711), Q(691))
+.store(Q(751));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(751)
+.lessThanOrEqual(180)
+.setValue(Q(741), 1);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(751)
+.greaterThan(180)
+.setValue(Q(741), 2);
+
+//
+ifQ(1901)
+.answered(0,2)
+.disappear(Q(1871), Q(1891))
+.clearAnswer(Q(1871), Q(1891));
+
+//
+ifQ(1901)
+.notAnswered(2)
+.disappear(Q(1881))
+.clearAnswer(Q(1881));
+
+//
+ifQ(2391)
+.answered()
+.andifQ(1871)
+.answered()
+.sub(Q(1871), Q(2391))
+.store(Q(1881));
+
+//
+ifQ(1901)
+.answered(1)
+.andifQ(1881)
+.lessThanOrEqual(720)
+.setValue(Q(1891), 1);
+
+//
+ifQ(1901)
+.answered(1)
+.andifQ(1881)
+.greaterThan(720)
+.setValue(Q(1891), 2);
+
+//
+ifQ(2351)
+.answered(0,2)
+.disappear(Q(2381), Q(2371))
+.clearAnswer(Q(2381), Q(2371));
+
+//
+ifQ(2351)
+.notAnswered(2)
+.disappear(Q(2361))
+.clearAnswer(Q(2361));
+
+//
+ifQ(701)
+.answered()
+.andifQ()
+.answered(2381)
+.sub(Q(2381), Q(701))
+.store(Q(2361));
+
+//
+ifQ(2351)
+.answered(1)
+.andifQ(2361)
+.lessThanOrEqual(420)
+.setValue(Q(2371), 1);
+
+//
+ifQ(2351)
+.answered(1)
+.andifQ(2361)
+.greaterThan(420)
+.setValue(Q(2371), 2);
+
+//
+ifQ(701)
+.answered()
+.andifQ(721)
+.answered()
+.sub(Q(721), Q(701))
+.store(Q(731));
+
+//
+ifQ(1431)
+.answered(0,2)
+.disappear(Q(2341))
+.clearAnswer(Q(2341));
+
+//
+ifQ(1431)
+.answered(1)
+.andifQ(731)
+.lessThanOrEqual(720)
+.setValue(Q(2341), 1);
+
+//
+ifQ(1431)
+.answered(1)
+.andifQ(731)
+.greaterThan(720)
+.setValue(Q(2341), 2);
+
+//
+ifQ(1431)
+.answered(0,1)
+.disappear(Q(761))
+.clearAnswer(Q(761));
+
+//
+ifQ(1431)
+.answered(2)
+.andifQ(731)
+.lessThanOrEqual(1500)
+.setValue(Q(761), 1);
+
+//
+ifQ(1431)
+.answered(2)
+.andifQ(731)
+.greaterThan(1500)
+.setValue(Q(761), 2);
+
+//
+ifQ(1911)
+.answered(0,2)
+.disappear(Q(1921), Q(1931), Q(1951))
+.clearAnswer(Q(1921), Q(1931), Q(1951));
+
+//
+ifQ(1911)
+.notAnswered(2)
+.disappear(Q(1941))
+.clearAnswer(Q(1941));
+
+//
+ifQ(1921)
+.answered()
+.andifQ(1931)
+.answered()
+.sub(Q(1931), Q(1921))
+.store(Q(1941));
+
+//
+ifQ(1911)
+.answered(1)
+.andifQ(1941)
+.lessThanOrEqual(720)
+.setValue(Q(1951), 1);
+
+//
+ifQ(1911)
+.answered(1)
+.andifQ(1941)
+.greaterThan(720)
+.setValue(Q(1951), 2);
+
+//
+ifQ(721)
+.answered()
+.andifQ(791)
+.answered()
+.sub(Q(791), Q(721))
+.store(Q(801));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(801)
+.lessThanOrEqual(120)
+.setValue(Q(811), 1);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(801)
+.greaterThan(120)
+.setValue(Q(811), 2);
+
+//-------------------------------------------
+// Speed of Service - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Service Touchpoints - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(2181)) // small header
+.disappear(Q(2051), Q(1281), Q(1321), Q(2331), Q(1271), Q(1311), Q(2081), Q(2231), Q(2251))
+.clearAnswer(Q(2051), Q(1281), Q(1321), Q(2331), Q(1271), Q(1311), Q(2081), Q(2231), Q(2251));
+
+//-------------------------------------------
+// Service Touchpoints - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Order Accuracy - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(411)) // small header
+.disappear(Q(821), Q(2451), Q(2091))
+.clearAnswer(Q(821), Q(2451), Q(2091));
+
+//
+ifQ(821)
+.answered(0,1)
+.disappear(Q(831))
+.clearAnswer(Q(831));
+
+//-------------------------------------------
+// Order Accuracy - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Order Quality - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(2171)) // small header
+.disappear(Q(2281), Q(1961), Q(2011), Q(2291), Q(941), Q(841), Q(281), Q(1081))
+.clearAnswer(Q(2281), Q(1961), Q(2011), Q(2291), Q(941), Q(841), Q(281), Q(1081));
+
+//
+ifQ(1901)
+.answered(0,2)
+.disappear(Q(1971), Q(1991), Q(2001))
+.clearAnswer(Q(1971), Q(1991), Q(2001));
+
+//
+ifQ(2351)
+.answered(0,2)
+.disappear(Q(2461), Q(2471))
+.clearAnswer(Q(2461), Q(2471));
+
+//
+ifQ(1911)
+.answered(0,2)
+.disappear(Q(1981))
+.clearAnswer(Q(1981));
+
+//-------------------------------------------
+// Order Quality - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Check & Closing - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(421)) // small header
+.disappear(Q(861), Q(901), Q(2441), Q(911))
+.clearAnswer(Q(861), Q(901), Q(2441), Q(911));
+
+//
+ifQ(861)
+.answered(0,2)
+.disappear(Q(1001))
+.clearAnswer(Q(1001));
+
+//
+ifQ(1431)
+.answered(0,2)
+.disappear(Q(881))
+.clearAnswer(Q(881));
+
+//
+ifQ(1431)
+.answered(0,1)
+.disappear(Q(2321))
+.clearAnswer(Q(2321));
+
+//-------------------------------------------
+// Check & Closing - End
+//-------------------------------------------
+
+
+//*******************************
+// TABLE SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// TEAM - Begin
+//*******************************
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(2101)) // big header
+.disappear(Q(2421)) // red remark
+.disappear(Q(211), Q(451), Q(2311), Q(2131), Q(2031), Q(2121), Q(2111))
+.clearAnswer(Q(211), Q(451), Q(2311), Q(2131), Q(2031), Q(2121), Q(2111));
+
+//*******************************
+// TEAM - End
+//*******************************
