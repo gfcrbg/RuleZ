@@ -1,0 +1,64 @@
+//*******************************	
+// CID: 750
+// SID: 5533
+// Last Updated: 5/22/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// FOOD SERVICE & 
+// BEVERAGE AREA - Begin
+//*******************************
+
+
+//-------------------------------------------
+// Food Service - Begin
+//-------------------------------------------
+
+// If QIDs [991 AND 1001] are answered, then trigger math operation: [1001] - [991] = [1011]
+ifQ(991)
+.answered()
+.andifQ(1001)
+.answered()
+.sub(Q(1001), Q(991))
+.store(Q(1011));
+
+// If QID 1011 is <= 4.5 minutes, then set value to Option 1 to QID 270.
+ifQ(1011)
+.lessThanOrEqual(270)
+.setValue(Q(1021), 1);
+
+// If QID 1011 is > 4.5 minutes, then set value to Option 2 to QID 270.
+ifQ(1011)
+.greaterThan(270)
+.setValue(Q(1021), 2);
+
+//-------------------------------------------
+// Food Service - End
+//-------------------------------------------
+
+
+//*******************************
+// FOOD SERVICE & 
+// BEVERAGE AREA - End
+//*******************************
+
+
+
+
+//*******************************
+// ROLLOVER CAR WASH 
+// CUSTOMER EXPERIENCE - Begin
+//*******************************
+
+// If QID 1101 is answered Option 1, then disappear and clear answer to QID 1111.
+ifQ(1101)
+.answered(1)
+.disappear(Q(1111))
+.clearAnswer(Q(1111));
+
+//*******************************
+// ROLLOVER CAR WASH 
+// CUSTOMER EXPERIENCE - End
