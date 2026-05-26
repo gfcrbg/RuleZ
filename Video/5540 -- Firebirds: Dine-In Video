@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1006
 // SID: 5540	
-// Last Updated: 5/22/2026	
+// Last Updated: 5/26/2026	
 //*******************************	
 
 
@@ -43,8 +43,8 @@ ifQ(91)
 ifQ(91)
 .answered(2)
 .disappear(Q(231)) // small header
-.disappear(Q(1681), Q(1691), Q(1701), Q(171), Q(1721))
-.clearAnswer(Q(1681), Q(1691), Q(1701), Q(171), Q(1721));
+.disappear(Q(1681), Q(1691), Q(1701), Q(171))
+.clearAnswer(Q(1681), Q(1691), Q(1701), Q(171));
 
 //-------------------------------------------
 // Exterior - End
@@ -59,8 +59,8 @@ ifQ(91)
 ifQ(91)
 .answered(2)
 .disappear(Q(241)) // small header
-.disappear(Q(441), Q(481), Q(1781))
-.clearAnswer(Q(441), Q(481), Q(1781));
+.disappear(Q(441), Q(481))
+.clearAnswer(Q(441), Q(481),);
 
 //-------------------------------------------
 // Interior - End
