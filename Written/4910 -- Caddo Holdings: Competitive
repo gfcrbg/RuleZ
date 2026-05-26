@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 852	
 // SID: 4910	
-// Last Updated: 4/28/2023	
+// Last Updated: 5/26/2026	
 //*******************************	
 
 // Percentage Change Calculator -- to confirm math operations
@@ -14,10 +14,12 @@
 // LEVELS as entered in Sassie:
 // Allen 	 	
 // Flower Mound 	 	
-// Frisco 	 	
+// Frisco
+// Frisco Westridge	
 // Lakewood 	 	
 // Mckinney 	 	
-// North Plano 	 	
+// North Plano
+// North Tarrant 	 	
 // South Plano
 
 //-------------------------------
@@ -266,27 +268,27 @@ ifQ()
 // Frisco -- [SF A]
 ifQ(741)
 .answered(7)
-.setValue(Q(751), '535.84');
+.setValue(Q(751), '643.44');
 
 // Frisco -- [SF B]
 ifQ(741)
 .answered(7)
-.setValue(Q(761), '792.85');
+.setValue(Q(761), '820.90');
 
 // Frisco -- [SF C]
 ifQ(741)
 .answered(7)
-.setValue(Q(771), '996.86');
+.setValue(Q(771), '1015.48');
 
 // Frisco -- [SF D]
 ifQ(741)
 .answered(7)
-.setValue(Q(781), '1031.00');
+.setValue(Q(781), '1079.00');
 
 // Frisco -- [SF E]
 ifQ(741)
 .answered(7)
-.setValue(Q(791), '1175.78');
+.setValue(Q(791), '1208.94');
 
 //-------------------------------
 // Frisco - End
@@ -332,7 +334,82 @@ ifQ(741)
 //-------------------------------
 
 
+//-------------------------------
+// North Tarrant - Begin
+//-------------------------------
 
+// North Tarrant -- market selector
+ifQ()
+.levelIs('North Tarrant')
+.setValue(Q(741), 9);
+
+// North Tarrant  -- [SF A]
+ifQ(741)
+.answered(9)
+.setValue(Q(751), '637.21');
+
+// North Tarrant  -- [SF B]
+ifQ(741)
+.answered(9)
+.setValue(Q(761), '873.36');
+
+// North Tarrant  -- [SF C]
+ifQ(741)
+.answered(9)
+.setValue(Q(771), '1016.14');
+
+// North Tarrant  -- [SF D]
+ifQ(741)
+.answered(9)
+.setValue(Q(781), '1756.14');
+
+// North Tarrant  -- [SF E]
+ifQ(741)
+.answered(9)
+.setValue(Q(791), '1999.00');
+
+//-------------------------------
+// North Tarrant - End
+//-------------------------------
+
+
+//-------------------------------
+// Frisco Westridge - Begin
+//-------------------------------
+
+// Frisco Westridge -- market selector
+ifQ()
+.levelIs('Frisco Westridge')
+.setValue(Q(741), 10);
+
+// Frisco Westridge  -- [SF A]
+ifQ(741)
+.answered(10)
+.setValue(Q(751), '640.07');
+
+// Frisco Westridge  -- [SF B]
+ifQ(741)
+.answered(10)
+.setValue(Q(761), '863.87');
+
+// Frisco Westridge  -- [SF C]
+ifQ(741)
+.answered(10)
+.setValue(Q(771), '1046.08');
+
+// Frisco Westridge  -- [SF D]
+ifQ(741)
+.answered(10)
+.setValue(Q(781), '1813.29');
+
+// Frisco Westridge  -- [SF E]
+ifQ(741)
+.answered(10)
+.setValue(Q(791), '2049.00');
+
+//-------------------------------
+// Frisco Westridge - End
+//-------------------------------
 
 //========================
 // Average Market Price Index - End
