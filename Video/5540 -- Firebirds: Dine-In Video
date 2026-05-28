@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1006
 // SID: 5540	
-// Last Updated: 5/27/2026	
+// Last Updated: 5/28/2026	
 //*******************************	
 
 
@@ -59,8 +59,8 @@ ifQ(91)
 ifQ(91)
 .answered(2)
 .disappear(Q(241)) // small header
-.disappear(Q(441), Q(481))
-.clearAnswer(Q(441), Q(481),);
+.disappear(Q(441), Q(481), Q(1781))
+.clearAnswer(Q(441), Q(481), Q(1781));
 
 //-------------------------------------------
 // Interior - End
@@ -125,22 +125,21 @@ ifQ(1651)
 //*******************************
 
 
-// If QID 91 is answered Option 2, then disappear QID 1741.
-ifQ(91)
-.answered(2)
-.disappear(Q(1741));
-
-
 //-------------------------------------------
 // Reservations - Begin
 //-------------------------------------------
 
-// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(91)
-.answered(2)
-.disappear(Q(1801)) // small header
-.disappear(Q(1811), Q(1821), Q(1831), Q(1841), Q(1851))
-.clearAnswer(Q(1811), Q(1821), Q(1831), Q(1841), Q(1851));
+//  If QID 2491 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(2491)
+.answered(3)
+.disappear(Q(1831), Q(1841), Q(1851))
+.clearAnswer(Q(1831), Q(1841), Q(1851));
+
+// If QID 1811 is answered Option 1, then disappear and clear answer to QID 2481.
+ifQ(1811)
+.answered(1)
+.disappear(Q(2481))
+.clearAnswer(Q(2481));
 
 //-------------------------------------------
 // Reservations - End
