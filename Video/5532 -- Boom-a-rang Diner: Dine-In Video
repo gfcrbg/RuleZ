@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1001
 // SID: 5532	
-// Last Updated: 5/11/2026	
+// Last Updated: 6/15/2026	
 //*******************************	
 
 
@@ -350,6 +350,14 @@ ifQ(91)
 .disappear(Q(421)) // medium header
 .disappear(Q(1891), Q(1901), Q(881), Q(1911), Q(1921), Q(1821), Q(901), Q(1361))
 .clearAnswer(Q(1891), Q(1901), Q(881), Q(1911), Q(1921), Q(1821), Q(901), Q(1361));
+
+// If QIDs [1891 AND 1901] are answered, then trigger math operation: [1901] - [1891] = [1821]
+ifQ(1891)
+.answered()
+.andifQ(1901)
+.answered()
+.sub(Q(1901), Q(1891))
+.store(Q(1821));
 
 // If IQD 1361 is answered Option [0 OR 2], then disappear and clear answer to QID 1001.
 ifQ(1361)
