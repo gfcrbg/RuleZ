@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1006
 // SID: 5540	
-// Last Updated: 5/28/2026	
+// Last Updated: 6/16/2026	
 //*******************************	
 
 
@@ -596,8 +596,8 @@ ifQ(91)
 // If QID 1901 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1901)
 .answered(0,2)
-.disappear(Q(1971), Q(1991), Q(2001))
-.clearAnswer(Q(1971), Q(1991), Q(2001));
+.disappear(Q(1971), Q(1991))
+.clearAnswer(Q(1971), Q(1991));
 
 // If QID 2351 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(2351)
@@ -605,11 +605,11 @@ ifQ(2351)
 .disappear(Q(2461), Q(2471))
 .clearAnswer(Q(2461), Q(2471));
 
-// If QID 1911 is answered Option [0 OR 2], then disappear and clear answer to QID 1981.
+// If QID 1911 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(1911)
 .answered(0,2)
-.disappear(Q(1981))
-.clearAnswer(Q(1981));
+.disappear(Q(1981), Q(2001))
+.clearAnswer(Q(1981), Q(2001));
 
 //-------------------------------------------
 // Order Quality - End
