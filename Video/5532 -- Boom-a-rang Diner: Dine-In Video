@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1001
 // SID: 5532	
-// Last Updated: 6/15/2026	
+// Last Updated: 6/22/2026	
 //*******************************	
 
 
@@ -244,8 +244,8 @@ ifQ(91)
 .answered(2)
 .disappear(Q(401)) // medium header
 .disappear(Q(1331)) // red remark
-.disappear(Q(711), Q(751), Q(741), Q(721), Q(731), Q(761), Q(1271), Q(1311), Q(791), Q(801), Q(811), Q(1281), Q(1321))
-.clearAnswer(Q(711), Q(751), Q(741), Q(721), Q(731), Q(761), Q(1271), Q(1311), Q(791), Q(801), Q(811), Q(1281), Q(1321));
+.disappear(Q(711), Q(751), Q(741), Q(721), Q(731), Q(1961), Q(1271), Q(1311), Q(791), Q(801), Q(811), Q(1281), Q(1321))
+.clearAnswer(Q(711), Q(751), Q(741), Q(721), Q(731), Q(1961), Q(1271), Q(1311), Q(791), Q(801), Q(811), Q(1281), Q(1321));
 
 // If QIDs [691 AND 711] are answered, then trigger math operation: [711] - [691] = [751]
 ifQ(691)
@@ -277,19 +277,46 @@ ifQ(701)
 .sub(Q(721), Q(701))
 .store(Q(731));
 
-// If QID 91 is answered Option 1 AND if QID 731 <= 120 seconds, then set value to Option 1 to QID 761.
+// If QID 91 is answered Option 1 AND if QID 731 <= 10 minutes, then set value to Option 1 to QID 1961.
 ifQ(91)
 .answered(1)
 .andifQ(731)
 .lessThanOrEqual(600)
-.setValue(Q(761), 1);
+.setValue(Q(1961), 1);
 
-// If QID 91 is answered Option 1 AND if QID 731 > 120 seconds, then set value to Option 2 to QID 761.
+// If QID 91 is answered Option 1 AND if QID 731 > 10 minutes AND <= 11 minutes, then set value to Option 2 to QID 1961.
 ifQ(91)
 .answered(1)
 .andifQ(731)
 .greaterThan(600)
-.setValue(Q(761), 2);
+.andifQ(731)
+.lessThanOrEqual(660)
+.setValue(Q(1961), 2);
+
+// If QID 91 is answered Option 1 AND if QID 731 > 11 minutes AND <= 12 minutes, then set value to Option 3 to QID 1961.
+ifQ(91)
+.answered(1)
+.andifQ(731)
+.greaterThan(660)
+.andifQ(731)
+.lessThanOrEqual(720)
+.setValue(Q(1961), 3);
+
+// If QID 91 is answered Option 1 AND if QID 731 > 12 minutes AND <= 13 minutes, then set value to Option 4 to QID 1961.
+ifQ(91)
+.answered(1)
+.andifQ(731)
+.greaterThan(720)
+.andifQ(731)
+.lessThanOrEqual(780)
+.setValue(Q(1961), 4);
+
+// If QID 91 is answered Option 1 AND if QID 731 > 13 minutes, then set value to Option 5 to QID 1961.
+ifQ(91)
+.answered(1)
+.andifQ(731)
+.greaterThan(780)
+.setValue(Q(1961), 5);
 
 // If QIDs [721 AND 791] are answered, then trigger math operation: [791] - [721] = [801]
 ifQ(721)
@@ -299,18 +326,18 @@ ifQ(721)
 .sub(Q(791), Q(721))
 .store(Q(801));
 
-// If QID 91 is answered Option 1 AND if QID 801 <= 120 seconds, then set value to Option 1 to QID 811.
+// If QID 91 is answered Option 1 AND if QID 801 <= 5 minutes, then set value to Option 1 to QID 811.
 ifQ(91)
 .answered(1)
 .andifQ(801)
-.lessThanOrEqual(120)
+.lessThanOrEqual(300)
 .setValue(Q(811), 1);
 
-// If QID 91 is answered Option 1 AND if QID 801 > 120 seconds, then set value to Option 2 to QID 811.
+// If QID 91 is answered Option 1 AND if QID 801 > 5 minutes, then set value to Option 2 to QID 811.
 ifQ(91)
 .answered(1)
 .andifQ(801)
-.greaterThan(120)
+.greaterThan(300)
 .setValue(Q(811), 2);
 
 //-------------------------------------------
