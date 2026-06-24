@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1006
 // SID: 5540	
-// Last Updated: 6/16/2026	
+// Last Updated: 6/24/2026	
 //*******************************	
 
 
@@ -132,8 +132,8 @@ ifQ(1651)
 //  If QID 2491 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(2491)
 .answered(3)
-.disappear(Q(1831), Q(1841), Q(1851))
-.clearAnswer(Q(1831), Q(1841), Q(1851));
+.disappear(Q(1811), Q(1831), Q(1841), Q(1851))
+.clearAnswer(Q(1811), Q(1831), Q(1841), Q(1851));
 
 // If QID 1811 is answered Option 1, then disappear and clear answer to QID 2481.
 ifQ(1811)
