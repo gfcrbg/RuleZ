@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 706
 // SID: 5172
-// Last Updated: 8/22/2024
+// Last Updated: 6/26/2026
 //*******************************	
 
 
@@ -34,21 +34,15 @@ ifQ(1781)
 // Time Calc - End
 //-------------------------------
 
-// If QID 121 is < 5 minutes, then set value to Option 1 to QID 1291.
+// If QID 121 is < 5 minutes, then set value to Option 1 to QID 2401.
 ifQ(121)
 .lessThan(300)
-.setValue(Q(1291), 1);
+.setValue(Q(2401), 1);
 
-// If QID 121 is >= 5 minutes, then set value to Option 2 to QID 1291.
+// If QID 121 is >= 5 minutes, then set value to Option 2 to QID 2401.
 ifQ(121)
 .greaterThanOrEqual(300)
-.setValue(Q(1291), 2);
-
-// If QID 2211 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(2211)
-.answered(2)
-.disappear(Q(2221), Q(2231))
-.clearAnswer(Q(2221), Q(2231));
+.setValue(Q(2401), 2);
 
 // If QID 1401 is answered Option 2, then disappear and clear answer to QID 1921.
 ifQ(1401)
