@@ -1,0 +1,271 @@
+//*******************************	
+// CID: 999	
+// SID: 5558	
+// Last Updated: 7/1/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 2721
+
+// If QID 2721 is answered Option 1, then disappear and clear answer to QID 2731.
+ifQ(2721)
+.answered(1)
+.disappear(Q(2731))
+.clearAnswer(Q(2731));
+
+// If QID 2721 is answered Option 1 AND if group is "SS", then set value to Option 1 to QID 2861.
+ifQ(2721)
+.answered(1)
+.andifQ()
+.groupIs("SS")
+.setValue(Q(2861), 1);
+
+// If QID 2721 is answered Option 1 AND if group is "FS", then set value to Option 2 to QID 2861.
+ifQ(2721)
+.answered(1)
+.andifQ()
+.groupIs("FS")
+.setValue(Q(2861), 2);
+
+// If QID 2721 is answered Option 2, then set value to Option 3 to QID 2861.
+ifQ(2721)
+.answered(2)
+.setValue(Q(2861), 3);
+
+// If QID 2721 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2721)
+.answered(2)
+.disappear(Q(2791), Q(2811), Q(2821), Q(2831))
+.clearAnswer(Q(2791), Q(2811), Q(2821), Q(2831));
+
+// If QID 2861 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(2861)
+.answered(2,3)
+.disappear(Q(2841), Q(2851), Q(2801))
+.clearAnswer(Q(2841), Q(2851), Q(2801));
+
+// If QID 2861 is answered Option 1 AND if QIDs [2841 AND 2851] are answered, then trigger math operation: [2851] - [2841] = [2801]
+ifQ(2861)
+.answered(1)
+.andifQ(2841)
+.answered()
+.andifQ(2851)
+.answered()
+.sub(Q(2851), Q(2841))
+.store(Q(2801));
+
+// If QID 2861 is answered Option [1 OR 3], then disappear and clear answer to QIDs.
+ifQ(2861)
+.answered(1,3)
+.disappear(Q(2881), Q(2891), Q(2871), Q(2901))
+.clearAnswer(Q(2881), Q(2891), Q(2871), Q(2901));
+
+// If QID 2861 is answered Option 2 AND if QIDs [2881 AND 2891] are answered, then trigger math operation: [2891] - [2881] = [2871]
+ifQ(2861)
+.answered(2)
+.andifQ(2881)
+.answered()
+.andifQ(2891)
+.answered()
+.sub(Q(2891), Q(2881))
+.store(Q(2871));
+
+// If QID 2861 is answered Option 2 AND if QID 2871 is <= 20 minutes, then set value to Option 1 to QID 2901.
+ifQ(2861)
+.answered(2)
+.andifQ(2871)
+.lessThanOrEqual(1200)
+.setValue(Q(2901), 1);
+
+// If QID 2861 is answered Option 2 AND if QID 2871 is > 20 minutes, then set value to Option 2 to QID 2901.
+ifQ(2861)
+.answered(2)
+.andifQ(2871)
+.greaterThan(1200)
+.setValue(Q(2901), 2);
+
+
+
+
+//*******************************
+// EXTERIOR - Begin
+//*******************************
+
+// If QID 2721 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2721)
+.answered(2)
+.disappear(Q(2111)) // medium header
+.disappear(Q(2121), Q(2151), Q(2161))
+.clearAnswer(Q(2121), Q(2151), Q(2161));
+
+// If QID 2121 is answered Option [0 OR 1], then disappear and clear answer to QID 2131.
+ifQ(2121)
+.answered(0,1)
+.disappear(Q(2131))
+.clearAnswer(Q(2131));
+
+// If QID 2131 is not answered Option 4, then disappear and clear answer to QID 2141.
+ifQ(2131)
+.notAnswered(4)
+.disappear(Q(2141))
+.clearAnswer(Q(2141));
+
+// If QID 2161 is answered Option [0 OR 1], then disappear and clear answer to QID 2171.
+ifQ(2161)
+.answered(0,1)
+.disappear(Q(2171))
+.clearAnswer(Q(2171));
+
+// If QID 2861 is answered Option [1 OR 3], then disappear and clear answer to QID 2181.
+ifQ(2861)
+.answered(1,3)
+.disappear(Q(2181))
+.clearAnswer(Q(2181));
+
+// If QID 2861 is answered Option [2 OR 3], then disappear and clear answer to QID 2191.
+ifQ(2861)
+.answered(2,3)
+.disappear(Q(2191))
+.clearAnswer(Q(2191));
+
+//*******************************
+// EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// FACILITY OBSERVATIONS - Begin
+//*******************************
+
+// If QID 2721 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2721)
+.answered(2)
+.disappear(Q(2201)) // medium header
+.disappear(Q(2331))
+.clearAnswer(Q(2331));
+
+// If QID 2861 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(2861)
+.answered(2,3)
+.disappear(Q(3031), Q(3011)) // black remarks
+.disappear(Q(2211), Q(2221), Q(2231), Q(2261), Q(2271), Q(2281), Q(2291), Q(2301), Q(2311), Q(2321))
+.clearAnswer(Q(2211), Q(2221), Q(2231), Q(2261), Q(2271), Q(2281), Q(2291), Q(2301), Q(2311), Q(2321));
+
+// If QID 2861 is answered Option [1 OR 3], then disappear and clear answer to QIDs.
+ifQ(2861)
+.answered(1,3)
+.disappear(Q(3021)) // black remarks
+.disappear(Q(2241), Q(2911), Q(2921), Q(2931), Q(2941), Q(2951), Q(2961), Q(2971), Q(2981))
+.clearAnswer(Q(2241), Q(2911), Q(2921), Q(2931), Q(2941), Q(2951), Q(2961), Q(2971), Q(2981));
+
+// If QID 2331 is answered Option [0 OR 1], then disappear and clear answer to QID 2341.
+ifQ(2331)
+.answered(0,1)
+.disappear(Q(2341))
+.clearAnswer(Q(2341));
+
+// If QID 2331 is answered Option [0 OR 2], then disappear and clear answer to QID 2351.
+ifQ(2331)
+.answered(0,2)
+.disappear(Q(2351))
+.clearAnswer(Q(2351));
+
+// If QID 2351 is answered Option [0 OR 1], then disappear and clear answer to QID 2361.
+ifQ(2351)
+.answered(0,1)
+.disappear(Q(2361))
+.clearAnswer(Q(2361));
+
+// If QID 2361 is not answered Option 11, then disappear and clear answer to QID 2371.
+ifQ(2361)
+.notAnswered(11)
+.disappear(Q(2371))
+.clearAnswer(Q(2371));
+
+//*******************************
+// FACILITY OBSERVATIONS - End
+//*******************************
+
+
+
+
+//*******************************
+// TEAM MEMBER - Begin
+//*******************************
+
+// 
+ifQ(2721)
+.answered(2)
+.disappear(Q(2391)) // medium header
+.disappear(Q(2431)) // black remark
+.disappear(Q(2401), Q(2441), Q(2451), Q(2471), Q(2481), Q(2491), Q(2501), Q(2511), Q(2521), Q(2531), Q(2541))
+.clearAnswer(Q(2401), Q(2441), Q(2451), Q(2471), Q(2481), Q(2491), Q(2501), Q(2511), Q(2521), Q(2531), Q(2541));
+
+//*******************************
+// TEAM MEMBER - End
+//*******************************
+
+
+
+
+//*******************************
+// TUNNEL LOADER - Begin
+//*******************************
+
+// If QID 2861 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(2861)
+.answered(2,3)
+.disappear(Q(2561)) // medium header
+.disappear(Q(2571), Q(2581), Q(2591), Q(2601), Q(2611), Q(2631))
+.clearAnswer(Q(2571), Q(2581), Q(2591), Q(2601), Q(2611), Q(2631));
+
+// If QID 2611 is answered Option [0 OR 1], then disappear and clear answer to QID 2621.
+ifQ(2611)
+.answered(0,1)
+.disappear(Q(2621))
+.clearAnswer(Q(2621));
+
+//*******************************
+// TUNNEL LOADER - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER SATISFACTION - Begin
+//*******************************
+
+// If QID 2721 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2721)
+.answered(2)
+.disappear(Q(2651)) // medium header
+.disappear(Q(2671)) // black remark
+.disappear(Q(2681))
+.clearAnswer(Q(2681));
+
+// If QID 2681 is answered Option [0 OR 1], then disappear and clear answer to QID 2691.
+ifQ(2681)
+.answered(0,1)
+.disappear(Q(2691))
+.clearAnswer(Q(2691));
+
+// If QID 2861 is answered Option [1 OR 3], then disappear and clear answer to QID 2991.
+ifQ(2861)
+.answered(1,3)
+.disappear(Q(2991))
+.clearAnswer(Q(2991));
+
+// If QID 2991 is answered Option [0 OR 1], then disappear and clear answer to QID 3001.
+ifQ(2991)
+.answered(0,1)
+.disappear(Q(3001))
+.clearAnswer(Q(3001));
+
+//*******************************
+// CUSTOMER SATISFACTION - End
+//*******************************
