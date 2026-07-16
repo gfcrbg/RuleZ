@@ -1,0 +1,101 @@
+//*******************************	
+// CID: 1015	
+// SID: 5567	
+// Last Updated: 7/16/2026	
+//*******************************	
+
+
+
+
+// If QID 311 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(311)
+.answered(2)
+.disappear(Q(641), Q(31), Q(291))
+.clearAnswer(Q(641), Q(31), Q(291));
+
+
+
+
+//*******************************
+// ATTENDANT - Begin
+//*******************************
+
+// If QID 411 is answered Option 2, then disappear and clear answer to QID 661.
+ifQ(411)
+.answered(2)
+.disappear(Q(661))
+.clearAnswer(Q(661));
+
+// If QID 311 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(311)
+.answered(1)
+.disappear(Q(421), Q(601), Q(561), Q(571))
+.clearAnswer(Q(421), Q(601), Q(561), Q(571));
+
+// If QID 601 is answered Option [0 OR 1], then disappear and clear answer to QID 611.
+ifQ(601)
+.answered(0,1)
+.disappear(Q(611))
+.clearAnswer(Q(611));
+
+//*******************************
+// ATTENDANT - End
+//*******************************
+
+
+
+
+//*******************************
+// FACILITY - Begin
+//*******************************
+
+// If QID 311 is answered Option 2, then disappear and clear answer to QID 651.
+ifQ(311)
+.answered(2)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+//*******************************
+// FACILITY - End
+//*******************************
+
+
+
+
+//*******************************
+// 24 HOUR SERVICE - Begin
+//*******************************
+
+// If QID 311 is answered Option 1, then disappear and clear answer to QIDs.
+ifQ(311)
+.answered(1)
+.disappear(Q(431))
+.disappear(Q(441), Q(541))
+.clearAnswer(Q(441), Q(541));
+
+//*******************************
+// 24 HOUR SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// PERCEIVED VALUE - Begin
+//*******************************
+
+// If QID 311 is answered Option 2, then disappear and clear answer to QID 61.
+ifQ(311)
+.answered(2)
+.disappear(Q(61))
+.clearAnswer(Q(61));
+
+// If QID 311 is answered Option 1, then disappear and clear answer to QID 461.
+ifQ(311)
+.answered(1)
+.disappear(Q(461))
+.clearAnswer(Q(461));
+
+//*******************************
+// PERCEIVED VALUE - End
+//*******************************
