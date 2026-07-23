@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5566
-// Last Updated: 7/8/2026	
+// Last Updated: 7/23/2026	
 //*******************************	
 
 
@@ -107,8 +107,8 @@ ifQ(411)
 .answered(4)
 .disappear(Q(171)) // medium header
 .disappear(Q(621), Q(391)) // black remarks
-.disappear(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471))
-.clearAnswer(Q(441), Q(201), Q(211), Q(221), Q(231), Q(451), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471));
+.disappear(Q(441), Q(201), Q(221), Q(231), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471))
+.clearAnswer(Q(441), Q(201), Q(221), Q(231), Q(251), Q(261), Q(271), Q(291), Q(461), Q(311), Q(321), Q(331), Q(351), Q(471));
 
 // If QID 231 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 611.
 ifQ(231)
@@ -136,6 +136,74 @@ ifQ(481)
 
 //*******************************
 // SALES SKILLS - End
+//*******************************
+
+
+
+
+//*******************************
+// NEEDS DISCOVERY - Begin
+//*******************************
+
+// If QID 411 is answered Option 4, then disappear and clear answer to QIDs.
+ifQ(411)
+.answered(4)
+.disappear(Q(1211)) // medium header
+.disappear(Q(1221), Q(1241), Q(1301), Q(1271), Q(1281))
+.clearAnswer(Q(1221), Q(1241), Q(1301), Q(1271), Q(1281));
+
+// If QID 1221 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(1221)
+.answered(0,2)
+.disappear(Q(1311)) // black remark
+.disappear(Q(1231), Q(1261))
+.clearAnswer(Q(1231), Q(1261));
+
+// If QID 1261 is not answered Option 1, then disappear and clear answer to QID 1251.
+ifQ(1261)
+.notAnswered(1)
+.disappear(Q(1251))
+.clearAnswer(Q(1251));
+
+//*******************************
+// NEEDS DISCOVERY - End
+//*******************************
+
+
+
+
+//*******************************
+// LUCE KNOWLEDGE - Begin
+//*******************************
+
+// If QID 1261 is not answered Option 1, then disappear and clear answer to QIDs.
+ifQ(1261)
+.notAnswered(1)
+.disappear(Q(1201)) // medium header
+.disappear(Q(1291)) // black remark
+.disappear(Q(1091), Q(1101), Q(1131), Q(1151), Q(1161), Q(1181), Q(1191))
+.clearAnswer(Q(1091), Q(1101), Q(1131), Q(1151), Q(1161), Q(1181), Q(1191));
+
+// If QID 1091 is not answered Option 1, then disappear and clear answer to QID 1121.
+ifQ(1091)
+.notAnswered(6)
+.disappear(Q(1121))
+.clearAnswer(Q(1121));
+
+// If QID 1131 is not answered Option 1, then disappear and clear answer to QID 1141.
+ifQ(1131)
+.notAnswered(6)
+.disappear(Q(1141))
+.clearAnswer(Q(1141));
+
+// If QID 1161 is not answered Option 1, then disappear and clear answer to QID 1171.
+ifQ(1161)
+.notAnswered(6)
+.disappear(Q(1171))
+.clearAnswer(Q(1171));
+
+//*******************************
+// LUCE KNOWLEDGE - End
 //*******************************
 
 
