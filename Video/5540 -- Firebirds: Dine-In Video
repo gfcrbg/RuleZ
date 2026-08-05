@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1006
 // SID: 5540	
-// Last Updated: 7/17/2026	
+// Last Updated: 8/5/2026	
 //*******************************	
 
 
@@ -327,6 +327,12 @@ ifQ(1901)
 .disappear(Q(2391))
 .clearAnswer(Q(2391));
 
+// If QID 2351 is answered Option [0 OR 2], then disappear and clear answer to QID 2581.
+ifQ(2351)
+.answered(0,2)
+.disappear(Q(2581))
+.clearAnswer(Q(2581));
+
 //-------------------------------------------
 // Introduction & Ordering - End
 //-------------------------------------------
@@ -411,14 +417,14 @@ ifQ(2351)
 .disappear(Q(2361))
 .clearAnswer(Q(2361));
 
-// If QID 2351 is answered Option 1 AND if QIDs [701 AND 2381] are answered, then trigger math operation: [2381] - [701] = [2361]
+// If QID 2351 is answered Option 1 AND if QIDs [2581 AND 2381] are answered, then trigger math operation: [2381] - [2581] = [2361]
 ifQ(2351)
 .answered(1)
-.andifQ(701)
+.andifQ(2581)
 .answered()
 .andifQ(2381)
 .answered()
-.sub(Q(2381), Q(701))
+.sub(Q(2381), Q(2581))
 .store(Q(2361));
 
 // If QID 2351 is answered Option 1 AND if QID 2361 is <= 7 minutes, then set value to Option 1 to QID 2371.
