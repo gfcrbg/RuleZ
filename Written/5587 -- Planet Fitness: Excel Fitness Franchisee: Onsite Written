@@ -36,12 +36,6 @@ ifQ(31)
 .disappear(Q(41))
 .clearAnswer(Q(41));
 
-// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(31)
-.answered(2)
-.disappear(Q(91), Q(101), Q(111), Q(121), Q(131))
-.clearAnswer(Q(91), Q(101), Q(111), Q(121), Q(131));
-
 
 
 
@@ -74,6 +68,7 @@ ifQ(31)
 ifQ(31)
 .answered(2)
 .disappear(Q(251)) // medium header 
+.disappear(Q(581)) // red remark
 .disappear(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351))
 .clearAnswer(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351));
 
