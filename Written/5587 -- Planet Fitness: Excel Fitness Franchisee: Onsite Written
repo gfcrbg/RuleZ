@@ -30,13 +30,13 @@ ifQ(81)
 .lessThanOrEqual(72000)
 .setValue(Q(11), 3);
 
-//
+// If QID 31 is answered Option 1, then disappear and clear answer to QID 41.
 ifQ(31)
 .answered(1)
 .disappear(Q(41))
 .clearAnswer(Q(41));
 
-//
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(31)
 .answered(2)
 .disappear(Q(91), Q(101), Q(111), Q(121), Q(131))
@@ -50,7 +50,7 @@ ifQ(31)
 // & FIRST IMPRESSION - Begin
 //*******************************
 
-// 
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(31)
 .answered(2)
 .disappear(Q(151)) // medium header
@@ -70,26 +70,26 @@ ifQ(31)
 // GYM TOUR - Begin
 //*******************************
 
-// 
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(31)
 .answered(2)
 .disappear(Q(251)) // medium header 
 .disappear(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351))
 .clearAnswer(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351));
 
-//
+// If QID 271 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
 ifQ(271)
 .answered(0,2)
 .disappear(Q(281))
 .clearAnswer(Q(281));
 
-//
+// If QID 271 is answered Option [0 OR 1], then disappear and clear answer to QID 291.
 ifQ(271)
 .answered(0,1)
 .disappear(Q(291))
 .clearAnswer(Q(291));
 
-//
+// If QID 181 is not answered Option 2, then disappear and clear answer to QID 301.
 ifQ(181)
 .notAnswered(2)
 .disappear(Q(301))
@@ -107,7 +107,7 @@ ifQ(181)
 // & NEXT STEPS - Begin
 //*******************************
 
-// 
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs. 
 ifQ(31)
 .answered(2)
 .disappear(Q(361)) // medium header
@@ -128,14 +128,14 @@ ifQ(31)
 // & APPEARANCE - Begin
 //*******************************
 
-// 
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(31)
 .answered(2)
 .disappear(Q(461)) // medium header
 .disappear(Q(471), Q(491), Q(501), Q(511), Q(521))
 .clearAnswer(Q(471), Q(491), Q(501), Q(511), Q(521)); 
 
-//
+// If QID 471 is answered Option [0 OR 1], then disappear and clear answer to QID 481.
 ifQ(471)
 .answered(0,1)
 .disappear(Q(481))
@@ -153,7 +153,7 @@ ifQ(471)
 // EXPERIENCE - Begin
 //*******************************
 
-// 
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(31)
 .answered(2)
 .disappear(Q(531)) // medium header
