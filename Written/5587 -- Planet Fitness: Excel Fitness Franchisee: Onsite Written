@@ -1,0 +1,166 @@
+//*******************************	
+// CID: 1021
+// SID: 5587	
+// Last Updated: 8/6/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 31
+
+// 8am-12:00pm (Morning)
+ifQ(81)
+.greaterThanOrEqual(28800)
+.andifQ(81)
+.lessThanOrEqual(43200)
+.setValue(Q(11), 1);
+
+// 12:01-4:00pm (Off-Peak)
+ifQ(81)
+.greaterThan(43200)
+.andifQ(81)
+.lessThanOrEqual(57600)
+.setValue(Q(11), 2);
+
+// 4:01-8:00pm (Peak)
+ifQ(81)
+.greaterThan(57600)
+.andifQ(81)
+.lessThanOrEqual(72000)
+.setValue(Q(11), 3);
+
+//
+ifQ(31)
+.answered(1)
+.disappear(Q(41))
+.clearAnswer(Q(41));
+
+//
+ifQ(31)
+.answered(2)
+.disappear(Q(91), Q(101), Q(111), Q(121), Q(131))
+.clearAnswer(Q(91), Q(101), Q(111), Q(121), Q(131));
+
+
+
+
+//*******************************
+// INTRODUCTION
+// & FIRST IMPRESSION - Begin
+//*******************************
+
+// 
+ifQ(31)
+.answered(2)
+.disappear(Q(151)) // medium header
+.disappear(Q(231)) // red remark
+.disappear(Q(161), Q(171), Q(181), Q(191), Q(221), Q(241))
+.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(221), Q(241));
+
+//*******************************
+// INTRODUCTION
+// & FIRST IMPRESSION - End
+//*******************************
+
+
+
+
+//*******************************
+// GYM TOUR - Begin
+//*******************************
+
+// 
+ifQ(31)
+.answered(2)
+.disappear(Q(251)) // medium header 
+.disappear(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351))
+.clearAnswer(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351));
+
+//
+ifQ(271)
+.answered(0,2)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+//
+ifQ(271)
+.answered(0,1)
+.disappear(Q(291))
+.clearAnswer(Q(291));
+
+//
+ifQ(181)
+.notAnswered(2)
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+//*******************************
+// GYM TOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// MEMBERSHIP PRICING
+// & NEXT STEPS - Begin
+//*******************************
+
+// 
+ifQ(31)
+.answered(2)
+.disappear(Q(361)) // medium header
+.disappear(Q(441)) // red remark
+.disappear(Q(371), Q(381), Q(391), Q(401), Q(411), Q(421), Q(431), Q(451))
+.clearAnswer(Q(371), Q(381), Q(391), Q(401), Q(411), Q(421), Q(431), Q(451));
+
+//*******************************
+// MEMBERSHIP PRICING
+// & NEXT STEPS - End
+//*******************************
+
+
+
+
+//*******************************
+// ATMOSPHERE
+// & APPEARANCE - Begin
+//*******************************
+
+// 
+ifQ(31)
+.answered(2)
+.disappear(Q(461)) // medium header
+.disappear(Q(471), Q(491), Q(501), Q(511), Q(521))
+.clearAnswer(Q(471), Q(491), Q(501), Q(511), Q(521)); 
+
+//
+ifQ(471)
+.answered(0,1)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+//*******************************
+// ATMOSPHERE
+// & APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// EXPERIENCE - Begin
+//*******************************
+
+// 
+ifQ(31)
+.answered(2)
+.disappear(Q(531)) // medium header
+.disappear(Q(541), Q(551)) // red remarks
+.disappear(Q(561))
+.clearAnswer(Q(561));
+
+//*******************************
+// EXPERIENCE - End
+//*******************************
