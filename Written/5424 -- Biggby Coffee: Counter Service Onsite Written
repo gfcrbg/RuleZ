@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 968	
 // SID: 5424
-// Last Updated: 10/9/2025	
+// Last Updated: 8/12/2026	
 //**********************************	
 
 
@@ -38,8 +38,38 @@ ifQ(1212)
 ifQ(1192)
 .answered(2)
 .disappear(Q(101)) // medium header
-.disappear(Q(111), Q(1522), Q(1092), Q(1462))
-.clearAnswer(Q(111), Q(1522), Q(1092), Q(1462));
+.disappear(Q(111), Q(1522), Q(1092), Q(1462), Q(2072), Q(2122))
+.clearAnswer(Q(111), Q(1522), Q(1092), Q(1462), Q(2072), Q(2122));
+
+// If QID 2072 is answered Option [0 OR 1], then disappear and clear answer to QID 2082.
+ifQ(2072)
+.answered(0,1)
+.disappear(Q(2082))
+.clearAnswer(Q(2082));
+
+// If QID 2072 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(2072)
+.answered(0,2)
+.disappear(Q(2092), Q(2102), Q(2112))
+.clearAnswer(Q(2092), Q(2102), Q(2112));
+
+// If QID [111, 1522, 1092, 1462, 2092, 2102, OR 2112] is answered Option 2, then make required and appear QID 2122.
+ifQ(111)
+.answered(2)
+.orifQ(1522)
+.answered(2)
+.orifQ(1092)
+.answered(2)
+.orifQ(1462)
+.answered(2)
+.orifQ(2092)
+.answered(2)
+.orifQ(2102)
+.answered(2)
+.orifQ(2112)
+.answered(2)
+.makeRequired(Q(2122))
+.appear(Q(2122));
 
 //**********************************
 // ATMOSPHERE AND APPEARANCE - End
