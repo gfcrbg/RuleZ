@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 786
 // SID: 5249	
-// Last Updated: 6/30/2025	
+// Last Updated: 8/12/2026	
 //*******************************	
 
 
@@ -103,8 +103,8 @@ ifQ(241)
 ifQ(1411)
 .answered(2)
 .disappear(Q(1181)) // medium header
-.disappear(Q(1191), Q(1201), Q(1221), Q(1231), Q(1241), Q(1261))
-.clearAnswer(Q(1191), Q(1201), Q(1221), Q(1231), Q(1241), Q(1261));
+.disappear(Q(1191), Q(1201), Q(1221), Q(1231), Q(1241))
+.clearAnswer(Q(1191), Q(1201), Q(1221), Q(1231), Q(1241),);
 
 // If QID 1191 is answered Option 2, then set value to Option 3 to QIDs.
 ifQ(1191)
@@ -112,8 +112,7 @@ ifQ(1191)
 .setValue(Q(1201), 3)
 .setValue(Q(1221), 3)
 .setValue(Q(1231), 3)
-.setValue(Q(1241), 3)
-.setValue(Q(1261), 3);
+.setValue(Q(1241), 3);
 
 // If QID 1201 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 1211.
 ifQ(1201)
