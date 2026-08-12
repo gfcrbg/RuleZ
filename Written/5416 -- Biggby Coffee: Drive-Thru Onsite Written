@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 968	
 // SID: 5416
-// Last Updated: 10/9/2025	
+// Last Updated: 8/12/2026	
 //**********************************	
 
 
@@ -38,8 +38,18 @@ ifQ(1212)
 ifQ(1192)
 .answered(2)
 .disappear(Q(101)) // medium header
-.disappear(Q(111), Q(1522), Q(1092), Q(1462))
-.clearAnswer(Q(111), Q(1522), Q(1092), Q(1462));
+.disappear(Q(111), Q(1522), Q(1092), Q(1462), Q(2052))
+.clearAnswer(Q(111), Q(1522), Q(1092), Q(1462), Q(2052));
+
+// If QID [111, 1092, OR 1462] is answered Option 2, then make required and appear QID 2052.
+ifQ(111)
+.answered(2)
+.orifQ(1092)
+.answered(2)
+.orifQ(1462)
+.answered(2)
+.makeRequired(Q(2052))
+.appear(Q(2052));
 
 //**********************************
 // ATMOSPHERE AND APPEARANCE - End
