@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 951
 // SID: 5339	
-// Last Updated: 3/26/2025	
+// Last Updated: 8/13/2026	
 //*******************************	
 
 
@@ -366,8 +366,14 @@ ifQ(681)
 ifQ(11)
 .answered(2)
 .disappear(Q(951)) // medium header
-.disappear(Q(961), Q(971), Q(981), Q(991))
-.clearAnswer(Q(961), Q(971), Q(981), Q(991));
+.disappear(Q(961), Q(971), Q(981), Q(991), Q(2181))
+.clearAnswer(Q(961), Q(971), Q(981), Q(991), Q(2181));
+
+// If QID 2181 is answered Option 4, then disappear and clear answer to QID 2191.
+ifQ(2181)
+.answered(4)
+.disappear(Q(2191))
+.clearAnswer(Q(2191));
 
 //*******************************
 //  OVERALL - End
