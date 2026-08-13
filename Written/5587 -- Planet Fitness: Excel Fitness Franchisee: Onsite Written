@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1021
 // SID: 5587	
-// Last Updated: 8/6/2026	
+// Last Updated: 8/13/2026	
 //*******************************	
 
 
@@ -49,8 +49,8 @@ ifQ(31)
 .answered(2)
 .disappear(Q(151)) // medium header
 .disappear(Q(231)) // red remark
-.disappear(Q(161), Q(171), Q(181), Q(191), Q(221), Q(241))
-.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(221), Q(241));
+.disappear(Q(161), Q(171), Q(181), Q(191), Q(221), Q(241), Q(711))
+.clearAnswer(Q(161), Q(171), Q(181), Q(191), Q(221), Q(241), Q(711));
 
 //*******************************
 // INTRODUCTION
@@ -69,8 +69,8 @@ ifQ(31)
 .answered(2)
 .disappear(Q(251)) // medium header 
 .disappear(Q(581)) // red remark
-.disappear(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351))
-.clearAnswer(Q(261), Q(271), Q(311), Q(321), Q(331), Q(341), Q(351));
+.disappear(Q(261), Q(271), Q(311), Q(721), Q(731), Q(321), Q(331), Q(741), Q(751), Q(341), Q(351))
+.clearAnswer(Q(261), Q(271), Q(311), Q(721), Q(731), Q(321), Q(331), Q(741), Q(751), Q(341), Q(351));
 
 // If QID 271 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
 ifQ(271)
@@ -127,8 +127,8 @@ ifQ(31)
 ifQ(31)
 .answered(2)
 .disappear(Q(461)) // medium header
-.disappear(Q(471), Q(491), Q(501), Q(511), Q(521))
-.clearAnswer(Q(471), Q(491), Q(501), Q(511), Q(521)); 
+.disappear(Q(471), Q(491), Q(501), Q(511), Q(761), Q(771), Q(521), Q(781), Q(791))
+.clearAnswer(Q(471), Q(491), Q(501), Q(511), Q(761), Q(771), Q(521), Q(781), Q(791)); 
 
 // If QID 471 is answered Option [0 OR 1], then disappear and clear answer to QID 481.
 ifQ(471)
