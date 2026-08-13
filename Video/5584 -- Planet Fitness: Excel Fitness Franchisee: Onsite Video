@@ -34,8 +34,8 @@ ifQ(31)
 .answered(2)
 .disappear(Q(151)) // medium header
 .disappear(Q(261)) // red remark
-.disappear(Q(161), Q(171), Q(181), Q(231), Q(191), Q(251), Q(271))
-.clearAnswer(Q(161), Q(171), Q(181), Q(231), Q(191), Q(251), Q(271));
+.disappear(Q(161), Q(171), Q(231), Q(191), Q(251), Q(271))
+.clearAnswer(Q(161), Q(171), Q(231), Q(191), Q(251), Q(271));
 
 //*******************************
 // INTRODUCTION &
@@ -54,8 +54,8 @@ ifQ(31)
 .answered(2)
 .disappear(Q(281)) // medium header
 .disappear(Q(561)) // red remark
-.disappear(Q(291), Q(301), Q(341), Q(351), Q(361), Q(371), Q(381))
-.clearAnswer(Q(291), Q(301), Q(341), Q(351), Q(361), Q(371), Q(381));
+.disappear(Q(291), Q(301), Q(341), Q(821), Q(831), Q(351), Q(361), Q(751), Q(761), Q(371), Q(381))
+.clearAnswer(Q(291), Q(301), Q(341), Q(821), Q(831), Q(351), Q(361), Q(751), Q(761), Q(371), Q(381));
 
 // If QID 301 is answered Option [0 OR 2], then disappear and clear answer to QID 311.
 ifQ(301)
@@ -111,14 +111,20 @@ ifQ(31)
 ifQ(31)
 .answered(2)
 .disappear(Q(491)) // medium header
-.disappear(Q(501), Q(521), Q(531), Q(541), Q(551))
-.clearAnswer(Q(501), Q(521), Q(531), Q(541), Q(551));
+.disappear(Q(501), Q(521), Q(531), Q(541), Q(771), Q(781), Q(551))
+.clearAnswer(Q(501), Q(521), Q(531), Q(541), Q(771), Q(781), Q(551));
 
 // If QID 501 is answered Option [0 OR 2], then disappear and clear answer to QID 511.
 ifQ(501)
 .answered(0,2)
 .disappear(Q(511))
 .clearAnswer(Q(511));
+
+// If QID 231 is not answered Option 1, then disappear and clear answer to QID 791.
+ifQ(231)
+.notAnswered(1)
+.disappear(Q(791))
+.clearAnswer(Q(791));
 
 //*******************************
 // ATMOSPHERE & APPEARANCE - End
