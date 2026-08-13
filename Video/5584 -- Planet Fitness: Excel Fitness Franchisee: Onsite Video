@@ -1,0 +1,133 @@
+//*******************************	
+// CID: 1021	
+// SID: 5584	
+// Last Updated: 8/13/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 31
+
+// If QID 31 is answered Option 1, then disappear and clear answer to QID 41.
+ifQ(31)
+.answered(1)
+.disappear(Q(41))
+.clearAnswer(Q(41));
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(91), Q(101), Q(111), Q(121), Q(131))
+.clearAnswer(Q(91), Q(101), Q(111), Q(121), Q(131));
+
+
+
+
+//*******************************
+// INTRODUCTION &
+// FIRST IMPRESSION - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(151)) // medium header
+.disappear(Q(261)) // red remark
+.disappear(Q(161), Q(171), Q(181), Q(231), Q(191), Q(251), Q(271))
+.clearAnswer(Q(161), Q(171), Q(181), Q(231), Q(191), Q(251), Q(271));
+
+//*******************************
+// INTRODUCTION &
+// FIRST IMPRESSION - End
+//*******************************
+
+
+
+
+//*******************************
+// GYM TOUR - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(281)) // medium header
+.disappear(Q(561)) // red remark
+.disappear(Q(291), Q(301), Q(341), Q(351), Q(361), Q(371), Q(381))
+.clearAnswer(Q(291), Q(301), Q(341), Q(351), Q(361), Q(371), Q(381));
+
+// If QID 301 is answered Option [0 OR 2], then disappear and clear answer to QID 311.
+ifQ(301)
+.answered(0,2)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+// If QID 301 is answered Option [0 OR 1], then disappear and clear answer to QID 321.
+ifQ(301)
+.answered(0,1)
+.disappear(Q(321))
+.clearAnswer(Q(321));
+
+// If QID 231 is not answered Option 2, then disappear and clear answer to QID 331.
+ifQ(231)
+.notAnswered(2)
+.disappear(Q(331))
+.clearAnswer(Q(331));
+
+//*******************************
+// GYM TOUR - End
+//*******************************
+
+
+
+
+//*******************************
+// MEMBERSHIP PRICING &
+// NEXT STEPS - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(391)) // medium header
+.disappear(Q(471)) // red remark
+.disappear(Q(401), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461), Q(481))
+.clearAnswer(Q(401), Q(411), Q(421), Q(431), Q(441), Q(451), Q(461), Q(481));
+
+//*******************************
+// MEMBERSHIP PRICING &
+// NEXT STEPS - End
+//*******************************
+
+
+
+
+//*******************************
+// ATMOSPHERE & APPEARANCE - Begin
+//*******************************
+
+// If QID 31 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(31)
+.answered(2)
+.disappear(Q(491)) // medium header
+.disappear(Q(501), Q(521), Q(531), Q(541), Q(551))
+.clearAnswer(Q(501), Q(521), Q(531), Q(541), Q(551));
+
+// If QID 501 is answered Option [0 OR 2], then disappear and clear answer to QID 511.
+ifQ(501)
+.answered(0,2)
+.disappear(Q(511))
+.clearAnswer(Q(511));
+
+//*******************************
+// ATMOSPHERE & APPEARANCE - End
+//*******************************
+
+
+
+
+// If QID 601 is not answered, then set value to Option 3 to QID 601.
+ifQ(601)
+.notAnswered()
+.setValue(Q(601), 3);
