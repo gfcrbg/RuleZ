@@ -1,0 +1,64 @@
+//*******************************	
+// CID: 420	
+// SID: 3775	
+// Last Updated: 8/20/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// II. FACILITIES - Begin
+//*******************************
+
+// If QID 661 is answered Option [2 OR 3], then disappear and clear answer to QID 181.
+ifQ(661)
+.answered(2,3)
+.disappear(Q(181))
+.clearAnswer(Q(181));
+
+//*******************************
+// II. FACILITIES - End
+//*******************************
+
+
+
+
+//*******************************
+// III. INTRODUCTION
+// AND INTERVIEW - Begin
+//*******************************
+
+//-------------------------------------------
+// Tour - Begin
+//-------------------------------------------
+
+// If QID 441 is answered Option 1, then disappear and clear answer to QID 1111.
+ifQ(441)
+.answered(1)
+.disappear(Q(1111))
+.clearAnswer(Q(1111));
+
+//-------------------------------------------
+// Tour - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Invite - Begin
+//-------------------------------------------
+
+// If QID 971 is answered Option 2, then disappear and clear answer to QID 981.
+ifQ(971)
+.answered(2)
+.disappear(Q(981))
+.clearAnswer(Q(981));
+
+//-------------------------------------------
+// Invite - End
+//-------------------------------------------
+
+//*******************************
+// III. INTRODUCTION
+// AND INTERVIEW - End
+//*******************************
