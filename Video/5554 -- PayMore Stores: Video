@@ -1,0 +1,245 @@
+//*******************************	
+// CID: 1008	
+// SID: 5554	
+// Last Updated: 8/27/2026	
+//*******************************	
+
+
+
+
+// Primary QID: 2051
+
+// If QID 2051 is answered Option 1, then disappear and clear answer to QID 2061.
+ifQ(2051)
+.answered(1)
+.disappear(Q(2061))
+.clearAnswer(Q(2061));
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QID 111.
+ifQ(2051)
+.answered(2)
+.disappear(Q(111))
+.clearAnswer(Q(111));
+
+
+//*******************************
+// APPEARANCE - Begin
+//*******************************
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(2051)
+.answered(2)
+.disappear(Q(2111)) // medium header
+.disappear(Q(2431), Q(2241), Q(2251), Q(2411))
+.clearAnswer(Q(2431), Q(2241), Q(2251), Q(2411));
+
+//*******************************
+// APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// CUSTOMER EXPERIENCE - Begin
+//*******************************
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2051)
+.answered(2)
+.disappear(Q(131)) // big header
+.disappear(Q(2901)) // black remark
+.disappear(Q(1041), Q(291), Q(1061))
+.clearAnswer(Q(1041), Q(291), Q(1061));
+
+//*******************************
+// CUSTOMER EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// GREETING - Begin
+//*******************************
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2051)
+.answered(2)
+.disappear(Q(1951)) // medium header
+.disappear(Q(2891), Q(2881), Q(2491)) // black remarks
+.disappear(Q(1081), Q(161), Q(1961), Q(2441), Q(2631), Q(2471), Q(2481))
+.clearAnswer(Q(1081), Q(161), Q(1961), Q(2441), Q(2631), Q(2471), Q(2481));
+
+//*******************************
+// GREETING - End
+//*******************************
+
+
+
+
+//*******************************
+// SELLING EXPERIENCE - Begin
+//*******************************
+
+// If QID 2051 is answered Option 2, then disappear QID 311.
+ifQ(2051)
+.answered(2)
+.disappear(Q(311)); // medium header
+
+//-------------------------------------------
+// Information Collection - Begin
+//-------------------------------------------
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(2051)
+.answered(2)
+.disappear(Q(2641)) // medium header
+.disappear(Q(2541), Q(2681), Q(2691))
+.clearAnswer(Q(2541), Q(2681), Q(2691));
+
+//-------------------------------------------
+// Information Collection - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// First-Time Customer 
+// Process Explanation - Begin
+//-------------------------------------------
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(2051)
+.answered(2)
+.disappear(Q(2651)) // small header
+.disappear(Q(2871)) // black remark
+.disappear(Q(2701), Q(2711))
+.clearAnswer(Q(2701), Q(2711));
+
+//-------------------------------------------
+// First-Time Customer 
+// Process Explanation - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Discovery Questions - Begin
+//-------------------------------------------
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs.  
+ifQ(2051)
+.answered(2)
+.disappear(Q(2661)) // small header
+.disappear(Q(2861)) // black remark
+.disappear(Q(2721), Q(2731))
+.clearAnswer(Q(2721), Q(2731));
+
+//-------------------------------------------
+// Discovery Questions - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Device Value Discussion - Begin
+//-------------------------------------------
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(2051)
+.answered(2)
+.disappear(Q(2671)) // small header
+.disappear(Q(2451), Q(2501))
+.clearAnswer(Q(2451), Q(2501));
+
+// If QID 2501 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(2501)
+.answered(0,2)
+.disappear(Q(2461), Q(2741), Q(2751))
+.clearAnswer(Q(2461), Q(2741), Q(2751));
+
+//-------------------------------------------
+// Device Value Discussion - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// Confirmed Sale Process - Begin
+//-------------------------------------------
+
+// If QID 2501 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+ifQ(2501)
+.answered(0,2)
+.disappear(Q(2761)) // small header
+.disappear(Q(2611))
+.clearAnswer(Q(2611));
+
+// If QID 2611 is answered Option [0 OR 3], then disappear and clear answer to QIDs.
+ifQ(2611)
+.answered(0,3)
+.disappear(Q(2621), Q(2571), Q(2581))
+.clearAnswer(Q(2621), Q(2571), Q(2581));
+
+//-------------------------------------------
+// Confirmed Sale Process - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// No-Deal Handling - Begin
+//-------------------------------------------
+
+// If QID 2611 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(2611)
+.answered(0,1)
+.disappear(Q(2591), Q(2781), Q(2791))
+.clearAnswer(Q(2591), Q(2781), Q(2791));
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(2051)
+.answered(2)
+.disappear(Q(2771)) // small header
+.disappear(Q(2511), Q(2801))
+.clearAnswer(Q(2511), Q(2801));
+
+// If QID 2511 is answered Option [0 OR 1], then disappear and clear answer to QID 2521.
+ifQ(2511)
+.answered(0,1)
+.disappear(Q(2521))
+.clearAnswer(Q(2521));
+
+//-------------------------------------------
+// No-Deal Handling - End
+//-------------------------------------------
+
+//*******************************
+// SELLING EXPERIENCE - End
+//*******************************
+
+
+
+
+//*******************************
+// CLOSING - Begin
+//*******************************
+
+// If QID 2611 is answered Option [0 OR 3], then disappear and clear answer to QID 2821.
+ifQ(2611)
+.answered(0,3)
+.disappear(Q(2821))
+.clearAnswer(Q(2821));
+
+// If QID 2051 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2051)
+.answered(2)
+.disappear(Q(2811)) // medium header
+.disappear(Q(2831), Q(2841), Q(2551))
+.clearAnswer(Q(2831), Q(2841), Q(2551));
+
+// If QID 2611 is answered Option [0, 1, OR 2], then disappear and clear answer to QID 2851.
+ifQ(2611)
+.answered(0,1,2)
+.disappear(Q(2851))
+.clearAnswer(Q(2851));
+
+//*******************************
+// CLOSING - End
+//*******************************
