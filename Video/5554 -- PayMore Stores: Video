@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1008	
 // SID: 5554	
-// Last Updated: 8/27/2026	
+// Last Updated: 8/28/2026	
 //*******************************	
 
 
@@ -200,9 +200,9 @@ ifQ(2051)
 .disappear(Q(2511), Q(2801))
 .clearAnswer(Q(2511), Q(2801));
 
-// If QID 2511 is answered Option [0 OR 1], then disappear and clear answer to QID 2521.
+// If QID 2511 is answered Option [0 OR 2], then disappear and clear answer to QID 2521.
 ifQ(2511)
-.answered(0,1)
+.answered(0,2)
 .disappear(Q(2521))
 .clearAnswer(Q(2521));
 
