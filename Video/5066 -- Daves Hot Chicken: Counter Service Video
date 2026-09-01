@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 5066	
-// Last Updated: 5/7/2025	
+// Last Updated: 9/1/2025	
 //**********************************	
 
 
@@ -122,6 +122,13 @@ ifQ(171)
 .answered(0,1)
 .disappear(Q(1332))
 .clearAnswer(Q(1332));
+
+// If QIDs [261 AND 311] are answered Option 1, then set value to Option 1 to QID 1492.
+ifQ(261)
+.answered(1)
+.andifQ(311)
+.answered(1)
+.setValue(Q(1492), 1);
 
 //**********************************
 // ATMOSPHERE AND APPEARANCE - End
