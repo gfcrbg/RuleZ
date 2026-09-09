@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1021	
 // SID: 5584	
-// Last Updated: 8/13/2026	
+// Last Updated: 9/9/2026	
 //*******************************	
 
 
@@ -114,9 +114,9 @@ ifQ(31)
 .disappear(Q(501), Q(521), Q(531), Q(541), Q(771), Q(781), Q(551))
 .clearAnswer(Q(501), Q(521), Q(531), Q(541), Q(771), Q(781), Q(551));
 
-// If QID 501 is answered Option [0 OR 2], then disappear and clear answer to QID 511.
+// If QID 501 is answered Option [0 OR 1], then disappear and clear answer to QID 511.
 ifQ(501)
-.answered(0,2)
+.answered(0,1)
 .disappear(Q(511))
 .clearAnswer(Q(511));
 
