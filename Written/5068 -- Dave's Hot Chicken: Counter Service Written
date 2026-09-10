@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 869	
 // SID: 5068	
-// Last Updated: 5/7/2025	
+// Last Updated: 9/10/2026	
 //**********************************	
 
 
@@ -82,6 +82,41 @@ ifQ(1012)
 
 
 //**********************************
+// ORDER PICK-UP - Begin
+//**********************************
+
+// If QID 251 is >= 10 minutes, then set value to Option 1 to QID 732.
+ifQ(251)
+.lessThanOrEqual(600)
+.setValue(Q(732), 1);
+
+// If QID 251 is > 10 minutes AND <= 12 minutes, then set value to Option 2 to QID 732.
+ifQ(251)
+.greaterThan(600)
+.andifQ(251)
+.lessThanOrEqual(720)
+.setValue(Q(732), 2);
+
+// If QID 251 is > 12 minutes AND <= 15 minutes, then set value to Option 3 to QID 732.
+ifQ(251)
+.greaterThan(720)
+.andifQ(251)
+.lessThanOrEqual(900)
+.setValue(Q(732), 3);
+
+// If QID 251 is > 15 minutes, then set set value to Option 4 to QID 732.
+ifQ(251)
+.greaterThan(900)
+.setValue(Q(732), 4); 
+
+//**********************************
+// ORDER PICK-UP - End
+//**********************************
+
+
+
+
+//**********************************
 // ORDER QUALITY - Begin
 //**********************************
 
@@ -101,6 +136,14 @@ ifQ(361)
 //**********************************
 // BONUS - Begin
 //**********************************
+
+// If QIDs [1052 AND 1062] are answered Option 1, then set value to Option 1 to QID 1282.
+ifQ(1052)
+.answered(1)
+.andifQ(1062)
+.answered(1)
+.setValue(Q(1282), 1);
+
 
 // Bonus A1
 ifQ(1422)
