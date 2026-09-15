@@ -252,6 +252,7 @@ ifQ(901)
 // If QID 901 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(901)
 .answered(2,3)
+.disappear(Q(3291)) // black remark
 .disappear(Q(1341), Q(1331), Q(311), Q(1251), Q(341))
 .clearAnswer(Q(1341), Q(1331), Q(311), Q(1251), Q(341));
 
@@ -323,13 +324,36 @@ ifQ(901)
 .greaterThan(150)
 .setValue(Q(311), 4);
 
-// Not sure if the time of day QIDs are correct.
-//ifQ(1341)
-//.answered()
-//.andifQ(1241)
-//.answered()
-//.sub(Q(1241), Q(1341))
-//.store(Q(1251));
+// If QIDs [1211 AND 1241] are answered, then trigger math operation: [1241] - [1211] = [1251]
+ifQ(1211)
+.answered()
+.andifQ(1241)
+.answered()
+.sub(Q(1241), Q(1211))
+.store(Q(1251));
+
+// If QID 901 is answered Option 1 and if QID 1251 is <= 3.5 minutes, then set value to Option 1 to QID 341.
+ifQ(901)
+.answered(1)
+.andifQ(1251)
+.lessThanOrEqual(210)
+.setValue(Q(341), 1);
+
+// If QID 901 is answered Option 1 and if QID 1251 is > 210 seconds AND <= 231 seconds, then set value to Option 2 to QID 341.
+ifQ(901)
+.answered(1)
+.andifQ(1251)
+.greaterThan(210)
+.andifQ(1251)
+.lessThanOrEqual(231)
+.setValue(Q(341), 2);
+
+// If QID 901 is answered Option 1 and if QID 1251 is > 231 seconds, then set value to Option 3 to QID 341.
+ifQ(901)
+.answered(1)
+.andifQ(1251)
+.greaterThan(231)
+.setValue(Q(341), 3);
 
 //-------------------------------------------
 // Speed of Service - End
