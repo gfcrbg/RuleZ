@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1027	
 // SID: 5614
-// Last Updated: 9/15/2026	
+// Last Updated: 9/16/2026	
 //*******************************	
 
 
@@ -324,8 +324,10 @@ ifQ(901)
 .greaterThan(150)
 .setValue(Q(311), 4);
 
-// If QIDs [1211 AND 1241] are answered, then trigger math operation: [1241] - [1211] = [1251]
-ifQ(1211)
+// If QID 901 answered Option 1, and if QIDs [1211 AND 1241] are answered, then trigger math operation: [1241] - [1211] = [1251]
+ifQ(901)
+.answered(1)
+.andifQ(1211)
 .answered()
 .andifQ(1241)
 .answered()
