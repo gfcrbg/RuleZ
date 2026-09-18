@@ -6,9 +6,116 @@
 
 
 
+// Primary QID: 1401
+
+// If QID 1401 is answered Option 1, then disappear and clear answer to QID 1411.
+ifQ(1401)
+.answered(1)
+.disappear(Q(1411))
+.clearAnswer(Q(1411));
+
+// If QID 1401 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1401)
+.answered(2)
+.disappear(Q(81), Q(91))
+.clearAnswer(Q(81), Q(91));
+
+
+
+
+//*******************************
+// 1. PARKING LOT - Begin
+//*******************************
+
+// If QID 1401 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(1401)
+.answered(2)
+.disappear(Q(111)) // medium header
+.disappear(Q(1291), Q(121), Q(131), Q(141))
+.clearAnswer(Q(1291), Q(121), Q(131), Q(141));
+
+//*******************************
+// 1. PARKING LOT - End
+//*******************************
+
+
+
+
+//*******************************
+// 2. ENTRANCE - Begin
+//*******************************
+
+// If QID 1401 is answered Option 2, then disappear and clear answer to QIDs. 
+ifQ(1401)
+.answered(2)
+.disappear(Q(161)) // medium header
+.disappear(Q(1301), Q(171), Q(181), Q(191), Q(201))
+.clearAnswer(Q(1301), Q(171), Q(181), Q(191), Q(201));
+
+//*******************************
+// 2. ENTRANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// 3. SALES FLOOR - Begin
+//*******************************
+
+// If QID 1401 is answered Option 2, then disappear and clear answer to QIDs.  
+ifQ(1401)
+.answered(2)
+.disappear(Q(371)) // medium header
+.disappear(Q(1351), Q(391))
+.clearAnswer(Q(1351), Q(391));
+
+// If QID 391 is answered Option [0, 2, OR 3], then disappear and clear answer to QIDs.
+ifQ(391)
+.answered(0,2,3)
+.disappear(Q(841), Q(851), Q(861), Q(401))
+.clearAnswer(Q(841), Q(851), Q(861), Q(401));
+
+//*******************************
+// 3. SALES FLOOR - End
+//*******************************
+
+
+
+
+//*******************************
+// 4. CHECKOUT - Begin
+//*******************************
+
+// If QID 1401 is answered Option 2, then disappear and clear answer to QIDs.  
+ifQ(1401)
+.answered(2)
+.disappear(Q(511)) // medium header
+.disappear(Q(1371), Q(521))
+.clearAnswer(Q(1371), Q(521)); 
+
+// If QID 521 is answered Option [0, 2, OR 3], then disappear and clear answer to QIDs.
+ifQ(521)
+.answered(0,2,3)
+.disappear(Q(801), Q(811), Q(821), Q(531), Q(831))
+.clearAnswer(Q(801), Q(811), Q(821), Q(531), Q(831));
+
+//*******************************
+// 4. CHECKOUT - End
+//*******************************
+
+
+
 
 // ACE Team Notes
+
 // If QID 1251 is not answered, then set value to Option 3 to QID 1251.
 ifQ(1251)
 .notAnswered()
 .setValue(Q(1251), 3);
+
+// If QID 1251 is answered Option [2 OR 3], then disappear and clear answer to QID 1261.
+ifQ(1251)
+.answered(2,3)
+.disappear(Q(1261))
+.clearAnswer(Q(1261));
