@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 1024	
+// SID: 5604	
+// Last Updated: 9/18/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// ORDER QUALITY - Begin
+//*******************************
+
+// If QID 231 is answered Option 1, then disappear and clear answer to QID 241.
+ifQ(231)
+.answered(1)
+.disappear(Q(241))
+.clearAnswer(Q(241));
+
+//*******************************
+// ORDER QUALITY - End
+//*******************************
