@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 998	
 // SID: 5512	
-// Last Updated: 3/4/2026	
+// Last Updated: 10/1/2026	
 //*******************************	
 
 
@@ -153,6 +153,7 @@ ifQ(51)
 .answered(2)
 .makeNotRequired(Q(441))
 .disappear(Q(431)) // medium header 
+.disappear(Q(1021)) // red remark
 .disappear(Q(441), Q(561))
 .clearAnswer(Q(441), Q(561));
 
@@ -168,11 +169,11 @@ ifQ(441)
 .disappear(Q(461))
 .clearAnswer(Q(461));
 
-// If QID 451 is answered Option [0 OR 1],, then disappear and clear answer to QIDs.
-ifQ(451)
-.answered(0,1)
-.disappear(Q(471), Q(491), Q(511), Q(531), Q(551))
-.clearAnswer(Q(471), Q(491), Q(511), Q(531), Q(551));
+// If QID 1161 is answered Option [0, 2, 3, 4, OR 5], then disappear and clear answer to QIDs.
+ifQ(1161)
+.answered(0,2,3,4,5)
+.disappear(Q(471), Q(491), Q(511), Q(531), Q(551), Q(981))
+.clearAnswer(Q(471), Q(491), Q(511), Q(531), Q(551), Q(981));
 
 // If QID 471 is answered Option [0 OR 1], then disappear and clear answer to QID 481.
 ifQ(471)
@@ -214,10 +215,10 @@ ifQ(51)
 .answered(2,3)
 .orifQ(61)
 .answered(2)
-.makeNotRequired(Q(581), Q(601), Q(621), Q(641), Q(661), Q(681), Q(701), Q(721))
+.makeNotRequired(Q(581), Q(601), Q(621), Q(641), Q(661), Q(681), Q(701), Q(721), Q(771))
 .disappear(Q(571)) // medium header 
-.disappear(Q(581), Q(601), Q(621), Q(641), Q(661), Q(681), Q(701), Q(721), Q(731))
-.clearAnswer(Q(581), Q(601), Q(621), Q(641), Q(661), Q(681), Q(701), Q(721), Q(731)); 
+.disappear(Q(581), Q(601), Q(621), Q(641), Q(661), Q(681), Q(701), Q(721), Q(731), Q(771))
+.clearAnswer(Q(581), Q(601), Q(621), Q(641), Q(661), Q(681), Q(701), Q(721), Q(731), Q(771)); 
 
 // If QID 581 is answered Option [0 OR 1], then disappear and clear answer to QID 591.
 ifQ(581)
@@ -277,22 +278,10 @@ ifQ(51)
 .answered(2,3)
 .orifQ(61)
 .answered(2)
-.makeNotRequired(Q(751), Q(781), Q(801), Q(821))
+.makeNotRequired(Q(781), Q(1131), Q(1141), Q(1151), Q(801), Q(821))
 .disappear(Q(741)) // medium header 
-.disappear(Q(751), Q(781), Q(801), Q(821), Q(831))
-.clearAnswer(Q(751), Q(781), Q(801), Q(821), Q(831));  
-
-// If QID 751 is answered Option [0 OR 1], then disappear and clear answer to QID 761.
-ifQ(751)
-.answered(0,1)
-.disappear(Q(761))
-.clearAnswer(Q(761));
-
-// If QID 751 is answered Option [0 OR 2], then disappear and clear answer to QID 771.
-ifQ(751)
-.answered(0,2)
-.disappear(Q(771))
-.clearAnswer(Q(771));
+.disappear(Q(781),  Q(1131), Q(1141), Q(1151), Q(801), Q(821), Q(831))
+.clearAnswer(Q(781), Q(801), Q(821), Q(831));  
 
 // If QID 781 is answered Option [0 OR 1], then disappear and clear answer to QID 791.
 ifQ(781)
