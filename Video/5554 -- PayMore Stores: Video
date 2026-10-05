@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1008	
 // SID: 5554	
-// Last Updated: 9/18/2026	
+// Last Updated: 10/5/2026	
 //*******************************	
 
 
@@ -153,8 +153,8 @@ ifQ(2051)
 // If QID 2501 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(2501)
 .answered(0,2)
-.disappear(Q(2461), Q(2741), Q(2751))
-.clearAnswer(Q(2461), Q(2741), Q(2751));
+.disappear(Q(2461), Q(2931), Q(2741), Q(2751))
+.clearAnswer(Q(2461), Q(2931), Q(2741), Q(2751));
 
 //-------------------------------------------
 // Device Value Discussion - End
@@ -175,8 +175,8 @@ ifQ(2501)
 // If QID 2611 is answered Option [0 OR 3], then disappear and clear answer to QIDs.
 ifQ(2611)
 .answered(0,3)
-.disappear(Q(2621), Q(2571), Q(2581))
-.clearAnswer(Q(2621), Q(2571), Q(2581));
+.disappear(Q(2621), Q(2571), Q(2941), Q(2581))
+.clearAnswer(Q(2621), Q(2571), Q(2941), Q(2581));
 
 //-------------------------------------------
 // Confirmed Sale Process - End
