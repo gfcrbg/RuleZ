@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1025	
 // SID: 5607
-// Last Updated: 9/28/2026	
+// Last Updated: 10/6/2026	
 //*******************************	
 
 
@@ -243,6 +243,12 @@ ifQ(711)
 .answered(0,1)
 .disappear(Q(721))
 .clearAnswer(Q(721));
+
+// If QID 111 is answered Option [0 OR 2], then disappear and clear answer to QID 1041.
+ifQ(111)
+.answered(0,2)
+.disappear(Q(1041))
+.clearAnswer(Q(1041));
 
 //*******************************
 // FOOD QUALITY & ACCURACY - End
