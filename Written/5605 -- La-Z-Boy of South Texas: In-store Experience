@@ -1,0 +1,22 @@
+//*******************************	
+// CID: 1026	
+// SID: 5605	
+// Last Updated: 10/6/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// OVERALL EXPERIENCE - Begin
+//*******************************
+
+// If QID 511 is answered Option 1, then disappear and clear answer to QID 521.
+ifQ(511)
+.answered(1)
+.disappear(Q(521))
+.clearAnswer(Q(521));
+
+//*******************************
+// OVERALL EXPERIENCE - End
+//*******************************
