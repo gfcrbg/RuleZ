@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 968	
 // SID: 5424
-// Last Updated: 8/12/2026	
+// Last Updated: 10/6/2026	
 //**********************************	
 
 
@@ -110,8 +110,8 @@ ifQ(1922)
 ifQ(1192)
 .answered(2)
 .disappear(Q(531)) // medium header
-.disappear(Q(2052), Q(1612), Q(551), Q(251), Q(732), Q(1642), Q(1952))
-.clearAnswer(Q(2052), Q(1612), Q(551), Q(251), Q(732), Q(1642), Q(1952));
+.disappear(Q(2052), Q(1612), Q(551), Q(251), Q(732), Q(2132), Q(1642), Q(1952))
+.clearAnswer(Q(2052), Q(1612), Q(551), Q(251), Q(732), Q(2132), Q(1642), Q(1952));
 
 // If QIDs [581 AND 551] are answered, then trigger math operation: [551] - [581] = [251]
 ifQ(581)
