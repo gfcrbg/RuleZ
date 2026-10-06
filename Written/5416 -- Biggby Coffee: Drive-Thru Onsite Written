@@ -1,7 +1,7 @@
 //**********************************	
 // CID: 968	
 // SID: 5416
-// Last Updated: 8/12/2026	
+// Last Updated: 10/6/2026	
 //**********************************	
 
 
@@ -84,8 +84,8 @@ ifQ(1192)
 ifQ(1192)
 .answered(2)
 .disappear(Q(531)) // medium header
-.disappear(Q(1732), Q(1922), Q(1612), Q(551), Q(251), Q(732), Q(1642), Q(1952))
-.clearAnswer(Q(1732), Q(1922), Q(1612), Q(551), Q(251), Q(732), Q(1642), Q(1952));
+.disappear(Q(1732), Q(1922), Q(1612), Q(551), Q(251), Q(732), Q(2062), Q(1642), Q(1952))
+.clearAnswer(Q(1732), Q(1922), Q(1612), Q(551), Q(251), Q(732), Q(2062), Q(1642), Q(1952));
 
 // If QID 1922 is answered Option [0 OR 2], then disappear and clear answer to QID 1982.
 ifQ(1922)
