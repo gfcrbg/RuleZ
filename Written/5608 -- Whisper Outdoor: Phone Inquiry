@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 973	
 // SID: 5608	
-// Last Updated: 10/5/2026	
+// Last Updated: 10/7/2026	
 //*******************************	
 
 
@@ -26,3 +26,15 @@ ifQ(121)
 .answered(0,2)
 .disappear(Q(331), Q(341))
 .clearAnswer(Q(331), Q(341));
+
+// If QID 151 is answered Option 2, then disappear, make not required, and clear answer to QID 291.
+ifQ(151)
+.answered(2)
+.disappear(Q(291))
+.makeNotRequired(Q(291))
+.clearAnswer(Q(291));
+
+// If QID 121 is answered, then set value of QID 121 to QID 191.
+ifQ(121)
+.answered()
+.setValue(Q(191), Q(121));
