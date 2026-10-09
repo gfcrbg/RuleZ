@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1023
 // SID: 5591	
-// Last Updated: 9/1/2026	
+// Last Updated: 10/9/2026	
 //*******************************	
 
 
@@ -220,9 +220,9 @@ ifQ(1412)
 // DINING ROOM (DRL) - Begin
 //*******************************
 
-// If QID 1092 is answered Option 2, then disappear and clear answer to QIDs.
-ifQ(1092)
-.answered(2)
+// If QID 1412 is answered Option [0 OR 2] , then disappear and clear answer to QIDs.
+ifQ(1412)
+.answered(0,2)
 .disappear(Q(1862)) // medium header
 .disappear(Q(1872), Q(2002), Q(1882), Q(1892), Q(1902), Q(1912))
 .clearAnswer(Q(1872), Q(2002), Q(1882), Q(1892), Q(1902), Q(1912));
