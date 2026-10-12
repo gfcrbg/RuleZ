@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1025	
 // SID: 5607
-// Last Updated: 10/6/2026	
+// Last Updated: 10/12/2026	
 //*******************************	
 
 
@@ -145,6 +145,27 @@ ifQ(541)
 .answered(0,2)
 .disappear(Q(551))
 .clearAnswer(Q(551));
+
+// If QID 61 is answered Option 2 or if QIDs [501, 511, 521, 531, 541, 551, OR 561] are answered Option 1, then disappear, make not required, and clear answer to QID 571.
+ifQ(61)
+.answered(2)
+.orifQ(501)
+.answered(1)
+.orifQ(511)
+.answered(1)
+.orifQ(521)
+.answered(1)
+.orifQ(531)
+.answered(1)
+.orifQ(541)
+.answered(1)
+.orifQ(551)
+.answered(1)
+.orifQ(561)
+.answered(1)
+.disappear(Q(571))
+.makeNotRequired(Q(571))
+.clearAnswer(Q(571));
 
 //*******************************
 // REGISTER - End
