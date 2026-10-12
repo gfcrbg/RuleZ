@@ -34,9 +34,9 @@ ifQ(1561)
 .disappear(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(1611), Q(501), Q(1361), Q(1371))
 .clearAnswer(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(1611), Q(501), Q(1361), Q(1371));
 
-// If QID 431 is answered Option [0 OR 1], then disappear and clear answer to QID 1341.
+// If QID 431 is not answered Option 2, then disappear and clear answer to QID 1341.
 ifQ(431)
-.answered(0,1)
+.notAnswered(2)
 .disappear(Q(1341))
 .clearAnswer(Q(1341));
 
