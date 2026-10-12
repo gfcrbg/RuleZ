@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1004	
 // SID: 5535	
-// Last Updated: 5/7/2026	
+// Last Updated: 10/12/2026	
 //*******************************	
 
 
@@ -31,8 +31,8 @@ ifQ(1221)
 // If QID 1561 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(1561)
 .answered(2)
-.disappear(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(501), Q(1361), Q(1371))
-.clearAnswer(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(501), Q(1361), Q(1371));
+.disappear(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(1611), Q(501), Q(1361), Q(1371))
+.clearAnswer(Q(371), Q(391), Q(401), Q(421), Q(431), Q(441), Q(451), Q(1611), Q(501), Q(1361), Q(1371));
 
 // If QID 431 is answered Option [0 OR 1], then disappear and clear answer to QID 1341.
 ifQ(431)
