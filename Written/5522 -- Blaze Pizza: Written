@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 967
 // SID: 5522	
-// Last Updated: 9/29/2026
+// Last Updated: 10/13/2026
 //*******************************	
 
 
@@ -18,8 +18,8 @@ ifQ(441)
 // If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(441)
 .answered(2)
-.disappear(Q(51), Q(61), Q(71))
-.clearAnswer(Q(51), Q(61), Q(71));
+.disappear(Q(51), Q(61), Q(1781), Q(71))
+.clearAnswer(Q(51), Q(61), Q(1781), Q(71));
 
 
 
@@ -34,7 +34,7 @@ ifQ(441)
 .answered(2)
 .disappear(Q(91)) // medium header
 .disappear(Q(1321)) // black remark
-.disappear(Q(531), Q(1721), Q(661), Q(1191), Q(1291)) // red remarks
+.disappear(Q(531), Q(1721), Q(661), Q(1191), Q(1801), Q(1291)) // red remarks
 .disappear(Q(1611), Q(1261), Q(1731), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(1331), Q(741), Q(1601), Q(1471), Q(1141), Q(981), Q(971))
 .clearAnswer(Q(1611), Q(1261), Q(1731), Q(581), Q(1691), Q(1701), Q(1711), Q(611), Q(691), Q(701), Q(1331), Q(741), Q(1601), Q(1471), Q(1141), Q(981), Q(971));
 
@@ -65,20 +65,20 @@ ifQ(611)
 
 
 //*******************************
-// LINE - Begin
+// LINE SET-UP - Begin
 //*******************************
 
 // If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(441)
 .answered(2)
 .disappear(Q(1741)) // medium header
-.disappear(Q(1291)) // red remark
+.disappear(Q(1291), Q(1811)) // red remark
 .disappear(Q(1321)) // black remark
 .disappear(Q(1141), Q(1601), Q(981), Q(1331), Q(741), Q(1471), Q(1761))
 .clearAnswer(Q(1141), Q(1601), Q(981), Q(1331), Q(741), Q(1471), Q(1761));
 
 //*******************************
-// LINE - End
+// LINE SET-UP - End
 //*******************************
 
 
@@ -92,9 +92,9 @@ ifQ(441)
 ifQ(441)
 .answered(2)
 .disappear(Q(721)) // medium header
-.disappear(Q(1371)) // black remark
-.disappear(Q(1841), Q(1451), Q(1461), Q(1181), Q(461), Q(1161), Q(1831), Q(211), Q(471), Q(221), Q(1621), Q(1431), Q(491), Q(781), Q(1011), Q(1021), Q(1581), Q(1501), Q(191), Q(1751))
-.clearAnswer(Q(1841), Q(1451), Q(1461), Q(1181), Q(461), Q(1161), Q(1831), Q(211), Q(471), Q(221), Q(1621), Q(1431), Q(491), Q(781), Q(1011), Q(1021), Q(1581), Q(1501), Q(191), Q(1751));
+.disappear(Q(1371), Q(1791)) // black remark
+.disappear(Q(1841), Q(1451), Q(1461), Q(1181), Q(461), Q(1161), Q(1831), Q(211), Q(471), Q(1821), Q(221), Q(1621), Q(1431), Q(491), Q(781), Q(1011), Q(1021), Q(1581), Q(1501), Q(191), Q(1751))
+.clearAnswer(Q(1841), Q(1451), Q(1461), Q(1181), Q(461), Q(1161), Q(1831), Q(211), Q(471), Q(1821), Q(221), Q(1621), Q(1431), Q(491), Q(781), Q(1011), Q(1021), Q(1581), Q(1501), Q(191), Q(1751));
 
 // If QID 471 is answered Option [0 OR 1], then disappear and clear answer to QID 1441.
 ifQ(471)
