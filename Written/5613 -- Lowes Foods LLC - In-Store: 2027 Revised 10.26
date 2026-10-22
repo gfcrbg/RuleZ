@@ -1,0 +1,233 @@
+//*******************************	
+// CID: 791	
+// SID: 5613	
+// Last Updated: 10/22/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// EXTERIOR - Begin
+//*******************************
+
+// If QID 61 is answered Option 1, then disappear and clear answer to QID 1301.
+ifQ(61)
+.answered(1)
+.disappear(Q(1301))
+.clearAnswer(Q(1301));
+
+// If QID 71 is answered Option 1, then disappear and clear answer to QID 1311.
+ifQ(71)
+.answered(1)
+.disappear(Q(1311))
+.clearAnswer(Q(1311));
+
+//*******************************
+// EXTERIOR - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCE - Begin
+//*******************************
+
+// If QID 101 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(101)
+.answered(2)
+.disappear(Q(111), Q(121), Q(1041), Q(2211), Q(141), Q(151), Q(301), Q(161), Q(2011))
+.clearAnswer(Q(111), Q(121), Q(1041), Q(2211), Q(141), Q(151), Q(301), Q(161), Q(2011));
+
+// If QID 151 is answered Option [0 OR 1], then disappear and clear answer to QID 2471.
+ifQ(151)
+.answered(0,1)
+.disappear(Q(2471))
+.clearAnswer(Q(2471));
+
+//*******************************
+// PRODUCE - End
+//*******************************
+
+
+
+
+//*******************************
+// DELI - Begin
+//*******************************
+
+// If QID 201 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(201)
+.answered(2)
+.disappear(Q(1711), Q(1721), Q(221), Q(1051), Q(2231), Q(241), Q(251), Q(311), Q(261), Q(2031))
+.clearAnswer(Q(1711), Q(1721), Q(221), Q(1051), Q(2231), Q(241), Q(251), Q(311), Q(261), Q(2031));
+
+// If QID 251 is answered Option [0 OR 1], then disappear and clear answer to QID 2481.
+ifQ(251)
+.answered(0,1)
+.disappear(Q(2481))
+.clearAnswer(Q(2481));
+
+//*******************************
+// DELI - End
+//*******************************
+
+
+
+
+//*******************************
+// BAKERY - Begin
+//*******************************
+
+// If QID 331 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(331)
+.answered(2)
+.disappear(Q(341), Q(351), Q(1061), Q(2251), Q(371), Q(381), Q(391), Q(401), Q(2051))
+.clearAnswer(Q(341), Q(351), Q(1061), Q(2251), Q(371), Q(381), Q(391), Q(401), Q(2051));
+
+// If QID 381 is answered Option [0 OR 1], then disappear and clear answer to QID 2491.
+ifQ(381)
+.answered(0,1)
+.disappear(Q(2491))
+.clearAnswer(Q(2491));
+
+//*******************************
+// BAKERY - End
+//*******************************
+
+
+
+
+//*******************************
+// BEEF SHOPPE - Begin
+//*******************************
+
+// If QID 441 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(441)
+.answered(2)
+.disappear(Q(1731), Q(1741), Q(461), Q(1031), Q(2271), Q(481), Q(491), Q(501), Q(511), Q(2071))
+.clearAnswer(Q(1731), Q(1741), Q(461), Q(1031), Q(2271), Q(481), Q(491), Q(501), Q(511), Q(2071));
+
+// If QID 491 is answered Option [0 OR 1], then disappear and clear answer to QID 2501.
+ifQ(491)
+.answered(0,1)
+.disappear(Q(2501))
+.clearAnswer(Q(2501));
+
+//*******************************
+// BEEF SHOPPE - End
+//*******************************
+
+
+
+
+//*******************************
+// BEER DEN / BOX CAR - Begin
+//*******************************
+
+// If QID 561 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(561)
+.answered(2)
+.disappear(Q(571), Q(581), Q(1071), Q(2451), Q(601), Q(611), Q(621), Q(631), Q(2091))
+.clearAnswer(Q(571), Q(581), Q(1071), Q(2451), Q(601), Q(611), Q(621), Q(631), Q(2091));
+
+// If QID 611 is answered Option [0 OR 1], then disappear and clear answer to QID 2511.
+ifQ(611)
+.answered(0,1)
+.disappear(Q(2511))
+.clearAnswer(Q(2511));
+
+//*******************************
+// BEER DEN / BOX CAR - End
+//*******************************
+
+
+
+
+//*******************************
+// GROCERY / SALES FLOOR - Begin
+//*******************************
+
+// If QID 671 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(671)
+.answered(2)
+.disappear(Q(2301), Q(2311), Q(681), Q(691), Q(701), Q(711), Q(2111))
+.clearAnswer(Q(2301), Q(2311), Q(681), Q(691), Q(701), Q(711), Q(2111));
+
+// If QID 691 is answered Option [0 OR 1], then disappear and clear answer to QID 2521.
+ifQ(691)
+.answered(0,1)
+.disappear(Q(2521))
+.clearAnswer(Q(2521));
+
+//*******************************
+// GROCERY / SALES FLOOR - End
+//*******************************
+
+
+
+
+//*******************************
+// FRONT PORCH / CASHIER - Begin
+//*******************************
+
+// If QID 771 is answered Option 1, then disappear and clear answer to QID 2531.
+ifQ(771)
+.answered(1)
+.disappear(Q(2531))
+.clearAnswer(Q(2531));
+
+//*******************************
+// FRONT PORCH / CASHIER - End
+//*******************************
+
+
+
+
+//*******************************
+// RESTROOMS - Begin
+//*******************************
+
+// If QID 831 is answered Option 3, then disappear and clear answer to QIDs.
+ifQ(831)
+.answered(3)
+.disappear(Q(841), Q(861))
+.clearAnswer(Q(841), Q(861));
+
+// If QID 841 is answered Option [0, 1, OR 3], then disappear and clear answer to QID 851.
+ifQ(841)
+.answered(0, 1, 3)
+.disappear(Q(851))
+.clearAnswer(Q(851));
+
+//*******************************
+// RESTROOMS - End
+//*******************************
+
+
+
+
+//*******************************
+// SAMPLING TO SELL - Begin
+//*******************************
+
+// If QID 2411 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2411)
+.answered(2)
+.disappear(Q(2431)) // red remark
+.disappear(Q(2441), Q(2421))
+.clearAnswer(Q(2441), Q(2421));
+
+//*******************************
+// SAMPLING TO SELL - End
+//*******************************
+
+
+
+
+// If QID 1601 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+ifQ(1601)
+.answered(2,3)
+.disappear(Q(1611), Q(1621), Q(1651))
+.clearAnswer(Q(1611), Q(1621), Q(1651));
