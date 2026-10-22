@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1023
 // SID: 5591	
-// Last Updated: 10/9/2026	
+// Last Updated: 10/22/2026	
 //*******************************	
 
 
@@ -153,8 +153,8 @@ ifQ(1802)
 ifQ(1092)
 .answered(2)
 .disappear(Q(531)) // medium header
-.disappear(Q(551), Q(251), Q(732), Q(1742), Q(2012), Q(1772), Q(1062), Q(1762), Q(1852))
-.clearAnswer(Q(551), Q(251), Q(732), Q(1742), Q(2012), Q(1772), Q(1062), Q(1762), Q(1852));
+.disappear(Q(551), Q(251), Q(732), Q(1742), Q(1772), Q(1062), Q(1762), Q(1852))
+.clearAnswer(Q(551), Q(251), Q(732), Q(1742), Q(1772), Q(1062), Q(1762), Q(1852));
 
 // If QIDs [581 AND 551] are answered, then trigger math operation: [551] - [581] = [251]
 ifQ(581)
@@ -208,6 +208,12 @@ ifQ(1412)
 .disappear(Q(2032)) // red remark
 .disappear(Q(1952))
 .clearAnswer(Q(1952));
+
+// If QID 1412 is answered Option [0 OR 1], then disappear and clear answer to QID 2012.
+ifQ(1412)
+.answered(0,1)
+.disappear(Q(2012))
+.clearAnswer(Q(2012));
 
 //*******************************
 // ORDER PICK-UP XPO - End
