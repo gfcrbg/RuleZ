@@ -1,0 +1,62 @@
+//*******************************	
+// CID: 1004
+// SID: 5628	
+// Last Updated: 10/23/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// COUNTER SERVICE - Begin
+//*******************************
+
+// If QID 471 is answered Option 1, then disappear and clear answer to QID 481.
+ifQ(471)
+.answered(1)
+.disappear(Q(481))
+.clearAnswer(Q(481));
+
+// If QID 911 is answered Option 1, then disappear and clear answer to QID 621.
+ifQ(911)
+.answered(1)
+.disappear(Q(621))
+.clearAnswer(Q(621));
+
+//*******************************
+// COUNTER SERVICE - End
+//*******************************
+
+
+
+
+//*******************************
+// PRODUCT - Begin
+//*******************************
+
+// If QID 641 is answered Option 1, then disappear and clear answer to QID 651.
+ifQ(641)
+.answered(1)
+.disappear(Q(651))
+.clearAnswer(Q(651));
+
+//*******************************
+// PRODUCT - End
+//*******************************
+
+
+
+
+//*******************************
+// MANAGEMENT - Begin
+//*******************************
+
+// If QID 761 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(761)
+.answered(2)
+.disappear(Q(771), Q(781), Q(791), Q(801))
+.clearAnswer(Q(771), Q(781), Q(791), Q(801)); 
+
+//*******************************
+// MANAGEMENT - End
+//*******************************
