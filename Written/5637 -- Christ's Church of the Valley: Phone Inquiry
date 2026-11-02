@@ -1,0 +1,159 @@
+//*******************************	
+// CID: 990	
+// SID: 5637	
+// Last Updated: 11/2/2026	
+//*******************************	
+
+
+
+
+//*******************************
+// CALL CONNECTION & ROUTING - Begin
+//*******************************
+
+// If QID 221 is answered Option [1, 2, 3, 4, OR 5], then disappear and clear answer to QID 171.
+ifQ(221)
+.answered(1,2,3,4,5)
+.disappear(Q(171))
+.clearAnswer(Q(171));
+
+// If QID 221 is answered Option [1, 6, 7, 8, OR 9], then disappear and clear answer to QID 161.
+ifQ(221)
+.answered(1,6,7,8,9)
+.disappear(Q(161))
+.clearAnswer(Q(161));
+
+// If QID 221 is answered Option [1, 2, 3, 4, 6, 7, OR 8], then set value to Option 1 to QID 181.
+ifQ(221)
+.answered(1,2,3,4,6,7,8)
+.setValue(Q(181), 1)
+
+// If QID 221 is answered Option [5 OR 9], then set value to Option 2 to QID 181.
+ifQ(221)
+.answered(5,9)
+.setValue(Q(181), 2)
+
+//*******************************
+// CALL CONNECTION & ROUTING - End
+//*******************************
+
+
+
+
+//*******************************
+// VOICEMAIL & CALL RETURN - Begin
+//*******************************
+
+// If QID 221 is answered Option [1, 6, 7, 8, OR 9], then disappear and clear answer to QID 151.
+ifQ(221)
+.answered(1,6,7,8,9)
+.disappear(Q(151))
+.clearAnswer(Q(151));
+
+// If QID 221 is answered Option [1, 4, 5, 6, 7, 8, OR 9], then disappear and clear answer to QID 191.
+ifQ(221)
+.answered(1,4,5,6,7,8,9)
+.disappear(Q(191))
+.clearAnswer(Q(191));
+
+// If QID 221 is answered Option [1, 2, 4, 5, 6, 7, 8, OR 9], then disappear and clear answer to QID 201.
+ifQ(221)
+.answered(1,2,4,5,6,7,8,9)
+.disappear(Q(201))
+.clearAnswer(Q(201));
+
+//*******************************
+// VOICEMAIL & CALL RETURN - End
+//*******************************
+
+
+
+
+//*******************************
+// GREETING & APPROACHABILITY - Begin
+//*******************************
+
+// If QID 221 is answered Option [4, 5, 8, OR 9], then disappear and clear answer to QIDs.
+ifQ(221)
+.answered(4,5,8,9)
+.disappear(Q(231), Q(241), Q(261))
+.clearAnswer(Q(231), Q(241), Q(261));
+
+// If QID 241 is answered Option [0 OR 2], then disappear and clear answer to QID 251.
+ifQ(241)
+.answered(0,2)
+.disappear(Q(251))
+.clearAnswer(Q(251));
+
+// If QID 221 is answered Option [3, 4, 5, 7, 8, OR 9], then disappear and clear answer to QID 271.
+ifQ(221)
+.answered(3,4,5,7,8,9)
+.disappear(Q(271))
+.clearAnswer(Q(271));
+
+// If QID 271 is answered Option [0 OR 2], then disappear and clear answer to QID 281.
+ifQ(271)
+.answered(0,2)
+.disappear(Q(281))
+.clearAnswer(Q(281));
+
+//*******************************
+// GREETING & APPROACHABILITY - End
+//*******************************
+
+
+
+
+//*******************************
+// INFORMATION & EMPATHY - Begin
+//*******************************
+
+// If QID 221 is answered Option [3, 4, 5, 7, 8, OR 9], then disappear and clear answer to QID 301.
+ifQ(221)
+.answered(3,4,5,7,8,9)
+.disappear(Q(301))
+.clearAnswer(Q(301));
+
+// If QID 221 is answered Option [4, 5, 8, OR 9], then disappear and clear answer to QID 311.
+ifQ(221)
+.answered(4,5,8,9)
+.disappear(Q(311))
+.clearAnswer(Q(311));
+
+//*******************************
+// INFORMATION & EMPATHY - End
+//*******************************
+
+
+
+
+//*******************************
+// INVITATION & NEXT STEPS - Begin
+//*******************************
+
+// If QID 221 is answered Option [4, 5, 8, OR 9], then disappear and clear answer to QIDs.
+ifQ(221)
+.answered(4,5,8,9)
+.disappear(Q(331), Q(341))
+.clearAnswer(Q(331), Q(341));
+
+//*******************************
+// INVITATION & NEXT STEPS - End
+//*******************************
+
+
+
+
+//*******************************
+// OVERALL - Begin
+//*******************************
+
+// If QID 221 is answered Option [4, 5, 8, OR 9], then disappear and clear answer to QIDs.
+ifQ(221)
+.answered(4,5,8,9)
+.disappear(Q(361), Q(371))
+.clearAnswer(Q(361), Q(371));
+
+//*******************************
+// OVERALL - End
+//*******************************
