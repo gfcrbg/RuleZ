@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 351	
 // SID: 5566
-// Last Updated: 7/23/2026	
+// Last Updated: 11/3/2026	
 //*******************************	
 
 
@@ -149,15 +149,15 @@ ifQ(481)
 ifQ(411)
 .answered(4)
 .disappear(Q(1211)) // medium header
-.disappear(Q(1221), Q(1241), Q(1301), Q(1271), Q(1281))
-.clearAnswer(Q(1221), Q(1241), Q(1301), Q(1271), Q(1281));
+.disappear(Q(1311)) // black remark
+.disappear(Q(1221), Q(1241), Q(1261), Q(1301), Q(1271), Q(1281))
+.clearAnswer(Q(1221), Q(1241), Q(1261), Q(1301), Q(1271), Q(1281));
 
-// If QID 1221 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
+// If QID 1221 is answered Option [0 OR 2], then disappear and clear answer to QID 1231.
 ifQ(1221)
 .answered(0,2)
-.disappear(Q(1311)) // black remark
-.disappear(Q(1231), Q(1261))
-.clearAnswer(Q(1231), Q(1261));
+.disappear(Q(1231))
+.clearAnswer(Q(1231));
 
 // If QID 1261 is not answered Option 1, then disappear and clear answer to QID 1251.
 ifQ(1261)
@@ -181,8 +181,8 @@ ifQ(1261)
 .notAnswered(1)
 .disappear(Q(1201)) // medium header
 .disappear(Q(1291)) // black remark
-.disappear(Q(1091), Q(1101), Q(1131), Q(1151), Q(1161), Q(1181), Q(1191))
-.clearAnswer(Q(1091), Q(1101), Q(1131), Q(1151), Q(1161), Q(1181), Q(1191));
+.disappear(Q(1091), Q(1101), Q(1131), Q(1151), Q(1161), Q(1351), Q(1321), Q(1331), Q(1341), Q(1181), Q(1191))
+.clearAnswer(Q(1091), Q(1101), Q(1131), Q(1151), Q(1161), Q(1351), Q(1321), Q(1331), Q(1341), Q(1181), Q(1191));
 
 // If QID 1091 is not answered Option 1, then disappear and clear answer to QID 1121.
 ifQ(1091)
