@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 1025	
 // SID: 5607
-// Last Updated: 10/12/2026	
+// Last Updated: 11/5/2026	
 //*******************************	
 
 
@@ -137,8 +137,9 @@ ifQ(101)
 ifQ(61)
 .answered(2)
 .disappear(Q(491)) // medium header
-.disappear(Q(501), Q(511), Q(521), Q(531), Q(541), Q(561), Q(571))
-.clearAnswer(Q(501), Q(511), Q(521), Q(531), Q(541), Q(561), Q(571));
+.makeNotRequired(Q(571))
+.disappear(Q(501), Q(511), Q(521), Q(531), Q(541), Q(561), Q(571), Q(571))
+.clearAnswer(Q(501), Q(511), Q(521), Q(531), Q(541), Q(561), Q(571), Q(571));
 
 // If QID 541 is answered Option [0 OR 2], then disappear and clear answer to QID 551.
 ifQ(541)
@@ -146,25 +147,50 @@ ifQ(541)
 .disappear(Q(551))
 .clearAnswer(Q(551));
 
-// If QID 61 is answered Option 2 or if QIDs [501, 511, 521, 531, 541, 551, OR 561] are answered Option 1, then disappear, make not required, and clear answer to QID 571.
-ifQ(61)
+// If QIDs [501, 511, 521, 531, 541, 551, OR 561] are answered Option 1, then set value to Option 2 to QID 1101.
+ifQ(501)
+.answered(1)
+.orQ(511)
+.answered(1)
+.orQ(521)
+.answered(1)
+.orQ(531)
+.answered(1)
+.orQ(541)
+.answered(1)
+.orQ(551)
+.answered(1)
+.orQ(561)
+.answered(1)
+.setValue(Q(1101), 2);
+
+// If QIDs [501, 511, 521, 531, 541, 551, OR 561] are answered Option 2, then set value to Option 1 to QID 1101.
+ifQ(501)
 .answered(2)
-.orifQ(501)
-.answered(1)
-.orifQ(511)
-.answered(1)
-.orifQ(521)
-.answered(1)
-.orifQ(531)
-.answered(1)
-.orifQ(541)
-.answered(1)
-.orifQ(551)
-.answered(1)
-.orifQ(561)
-.answered(1)
+.orQ(511)
+.answered(2)
+.orQ(521)
+.answered(2)
+.orQ(531)
+.answered(2)
+.orQ(541)
+.answered(2)
+.orQ(551)
+.answered(2)
+.orQ(561)
+.answered(2)
+.setValue(Q(1101), 1);
+
+
+// If QID 1101 is answered anything, then disappear QID 1101.
+ifQ(1101)
+.answered()
+.disappear(Q(1101));
+
+// If QID 1101 is answered Option 2, then disappear and clear answer to QID 571.
+ifQ(1101)
+.answered(2)
 .disappear(Q(571))
-.makeNotRequired(Q(571))
 .clearAnswer(Q(571));
 
 //*******************************
@@ -182,8 +208,9 @@ ifQ(61)
 ifQ(61)
 .answered(2)
 .disappear(Q(601)) // medium header
-.disappear(Q(621), Q(631), Q(641), Q(651), Q(661), Q(671), Q(681))
-.clearAnswer(Q(621), Q(631), Q(641), Q(651), Q(661), Q(671), Q(681));
+.disappear(Q(1121)) // a medium header acting like a red remark
+.disappear(Q(621), Q(1111), Q(631), Q(641), Q(651), Q(661), Q(671), Q(681))
+.clearAnswer(Q(621), Q(1111), Q(631), Q(641), Q(651), Q(661), Q(671), Q(681));
 
 // If QID 61 is answered Option 1 and if QIDs [901 AND 621] are answered, then trigger math operation: [621] - [901] = [631]
 ifQ(61)
