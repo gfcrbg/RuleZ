@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 973	
 // SID: 5608	
-// Last Updated: 11/3/2026	
+// Last Updated: 11/5/2026	
 //*******************************	
 
 
@@ -20,6 +20,18 @@ ifQ(61)
 .disappear(Q(231), Q(271)) // black remarks
 .disappear(Q(81), Q(101), Q(111), Q(121), Q(351), Q(131), Q(151), Q(291), Q(171), Q(301), Q(311), Q(321), Q(191), Q(211), Q(181), Q(241), Q(251), Q(281))
 .clearAnswer(Q(81), Q(101), Q(111), Q(121), Q(351), Q(131), Q(151), Q(291), Q(171), Q(301), Q(311), Q(321), Q(191), Q(211), Q(181), Q(241), Q(251), Q(281));
+
+// If QID 341 is answered Option [0, 2, OR 3], then disappear and clear answers to QIDs.
+ifQ(341)
+.answered(0,2,3)
+.disappear(Q(451), Q(461), Q(471), Q(481))
+.clearAnswer(Q(451), Q(461), Q(471), Q(481));
+
+// If QID 341 is answered Option [0 OR 1], then disappear and clear answer to QIDs.
+ifQ(341)
+.answered(0,1)
+.disappear(Q(491), Q(501), Q(511), Q(521))
+.clearAnswer(Q(491), Q(501), Q(511), Q(521));
 
 // If QID 121 is answered Option [0 OR 2], then disappear and clear answer to QIDs.
 ifQ(121)
