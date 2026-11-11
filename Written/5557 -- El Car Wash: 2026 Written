@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 999	
 // SID: 5557	
-// Last Updated: 7/1/2026	
+// Last Updated: 11/11/2026	
 //*******************************	
 
 
@@ -46,16 +46,16 @@ ifQ(1771)
 .disappear(Q(1781), Q(1791))
 .clearAnswer(Q(1781), Q(1791));
 
-// If QID 811 is answered Option 1 AND if QID 1781 is <= 20 minutes, then set value to Option 1 to QID 1791.
-ifQ(811)
-.answered(1)
+// If QID 1771 is answered Option 2 AND if QID 1781 is <= 20 minutes, then set value to Option 1 to QID 1791.
+ifQ(1771)
+.answered(2)
 .andifQ(1781)
 .lessThanOrEqual(1200)
 .setValue(Q(1791), 1);
 
-// If QID 811 is answered Option 1, AND if QID 1781 is > 20 minutes, then set value to Option 2 to QID 1791.
-ifQ(811)
-.answered(1)
+// If QID 1771 is answered Option 2, AND if QID 1781 is > 20 minutes, then set value to Option 2 to QID 1791.
+ifQ(1771)
+.answered(2)
 .andifQ(1781)
 .greaterThan(1200)
 .setValue(Q(1791), 2);
@@ -208,9 +208,9 @@ ifQ(1211)
 // TUNNEL LOADER - Begin
 //*******************************
 
-// If QID 1771 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+// If QID 1771 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(1771)
-.answered(2,3)
+.answered(3)
 .disappear(Q(1301)) // medium header
 .disappear(Q(1311), Q(1711), Q(1331), Q(1721), Q(1731), Q(1371), Q(1471))
 .clearAnswer(Q(1311), Q(1711), Q(1331), Q(1721), Q(1731), Q(1371), Q(1471));
