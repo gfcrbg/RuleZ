@@ -197,7 +197,7 @@ ifQ(2361)
 // TEAM MEMBER - Begin
 //*******************************
 
-// 
+// If QID 2721 is answered Option 2, then disappear and clear answer to QIDs.
 ifQ(2721)
 .answered(2)
 .disappear(Q(2391)) // medium header
@@ -216,7 +216,7 @@ ifQ(2721)
 // TUNNEL LOADER - Begin
 //*******************************
 
-// If QID 2861 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
+// If QID 2861 is answered Option 3, then disappear and clear answer to QIDs.
 ifQ(2861)
 .answered(3)
 .disappear(Q(2561)) // medium header
