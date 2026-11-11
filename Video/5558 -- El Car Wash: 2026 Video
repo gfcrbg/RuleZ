@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 999	
 // SID: 5558	
-// Last Updated: 7/1/2026	
+// Last Updated: 11/11/2026	
 //*******************************	
 
 
@@ -218,7 +218,7 @@ ifQ(2721)
 
 // If QID 2861 is answered Option [2 OR 3], then disappear and clear answer to QIDs.
 ifQ(2861)
-.answered(2,3)
+.answered(3)
 .disappear(Q(2561)) // medium header
 .disappear(Q(2571), Q(2581), Q(2591), Q(2601), Q(2611), Q(2631))
 .clearAnswer(Q(2571), Q(2581), Q(2591), Q(2601), Q(2611), Q(2631));
