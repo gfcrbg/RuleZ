@@ -1,7 +1,7 @@
 //*******************************	
 // CID: 999	
 // SID: 5557	
-// Last Updated: 11/11/2026	
+// Last Updated: 11/12/2026	
 //*******************************	
 
 
@@ -182,8 +182,8 @@ ifQ(811)
 .answered(2)
 .disappear(Q(1151)) // medium header
 .disappear(Q(1201)) // black remark
-.disappear(Q(1161), Q(1181), Q(1191), Q(1211), Q(1231), Q(1691), Q(1241), Q(1701), Q(1251), Q(1261), Q(1271), Q(1281), Q(1291))
-.clearAnswer(Q(1161), Q(1181), Q(1191), Q(1211), Q(1231), Q(1691), Q(1241), Q(1701), Q(1251), Q(1261), Q(1271), Q(1281), Q(1291));
+.disappear(Q(1161), Q(1181), Q(1191), Q(1211), Q(1231), Q(1241), Q(1701), Q(1251), Q(1261), Q(1271), Q(1281), Q(1291))
+.clearAnswer(Q(1161), Q(1181), Q(1191), Q(1211), Q(1231), Q(1241), Q(1701), Q(1251), Q(1261), Q(1271), Q(1281), Q(1291));
 
 // If QID 1161 is answered Option [0 OR 1], then disappear and clear answer to QID 1681.
 ifQ(1161)
@@ -196,6 +196,12 @@ ifQ(1211)
 .answered(0,1)
 .disappear(Q(1221))
 .clearAnswer(Q(1221));
+
+// If QID 1771 is answered Option [0, 2, OR 3], then disappear and clear answer to QID 1691.
+ifQ(1771)
+.answered(0,2,3)
+.disappear(Q(1691))
+.clearAnswer(Q(1691));
 
 //*******************************
 // TEAM MEMBER - End
