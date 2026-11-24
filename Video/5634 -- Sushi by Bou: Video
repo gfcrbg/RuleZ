@@ -1,0 +1,315 @@
+//*******************************	
+// CID: 1034
+// SID: 5634	
+// Last Updated: 11/24/2026	
+//*******************************	
+
+
+
+// Primary QID: 91
+
+// If QID 91 is answered Option 1, then disappear and clear answer to QID 1451.
+ifQ(91)
+.answered(1)
+.disappear(Q(1451))
+.clearAnswer(Q(1451));
+
+// If QID 91 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(91)
+.answered(2)
+.disappear(Q(2221), Q(2231), Q(1461), Q(1471))
+.clearAnswer(Q(2221), Q(2231), Q(1461), Q(1471));
+
+// If QID 2241 is answered Option 2, then disappear and clear answer to QIDs.
+ifQ(2241)
+.answered(2)
+.disappear(Q(2251), Q(2291))
+.clearAnswer(Q(2251), Q(2291));
+
+
+
+
+//*******************************
+// APPEARANCE - Begin
+//*******************************
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(151));
+
+//-------------------------------------------
+// EXTERIOR APPEARANCE - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(231)) // medium header
+.disappear(Q(2201), Q(2211), Q(1691), Q(1701), Q(171), Q(1721))
+.clearAnswer(Q(2201), Q(2211), Q(1691), Q(1701), Q(171), Q(1721));
+
+//-------------------------------------------
+// EXTERIOR APPEARANCE - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// INTERIOR APPEARANCE - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(241)) // medium header
+.disappear(Q(2281)) // black remark
+.disappear(Q(441), Q(451), Q(1671), Q(211), Q(1711), Q(481), Q(1781))
+.clearAnswer(Q(441), Q(451), Q(1671), Q(211), Q(1711), Q(481), Q(1781));
+
+//-------------------------------------------
+// INTERIOR APPEARANCE - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// RESTROOMS - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(1571)) // small header
+.disappear(Q(1581))
+.clearAnswer(Q(1581));
+
+//
+ifQ(1581)
+.answered(0,1)
+.disappear(Q(1591))
+.clearAnswer(Q(1591));
+
+//
+ifQ(1581)
+.answered(0,2)
+.disappear(Q(1601), Q(1621), Q(1651))
+.clearAnswer(Q(1601), Q(1621), Q(1651));
+
+//
+ifQ(1621)
+.answered(0,1,3)
+.disappear(Q(1631))
+.clearAnswer(Q(1631));
+
+//
+ifQ(1631)
+.notAnswered(4)
+.disappear(Q(1641))
+.clearAnswer(Q(1641));
+
+//
+ifQ(1651)
+.answered(0,1,3)
+.disappear(Q(1661))
+.clearAnswer(Q(1661));
+
+//-------------------------------------------
+// RESTROOMS - End
+//-------------------------------------------
+
+//*******************************
+// APPEARANCE - End
+//*******************************
+
+
+
+
+//*******************************
+// GUEST APPEARANCE - Begin
+//*******************************
+
+//-------------------------------------------
+// RESERVATIONS - Begin
+//-------------------------------------------
+
+// 
+ifQ(1811)
+.answered(2)
+.disappear(Q(2101))
+.clearAnswer(Q(2101));
+
+//
+ifQ(2101)
+.answered(0,2)
+.disappear(Q(1821), Q(1831), Q(1841), Q(1851))
+.clearAnswer(Q(1821), Q(1831), Q(1841), Q(1851));
+
+//-------------------------------------------
+// RESERVATIONS - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// MAÎTRE D' - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(371)) // medium header
+.disappear(Q(551), Q(561), Q(571), Q(581), Q(1731), Q(2261), Q(1241), Q(1861), Q(1061))
+.clearAnswer(Q(551), Q(561), Q(571), Q(581), Q(1731), Q(2261), Q(1241), Q(1861), Q(1061));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(551)
+.answered()
+.andifQ(561)
+.answered()
+.sub(Q(561), Q(551))
+.store(Q(571));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(571)
+.lessThanOrEqual(30)
+.setValue(Q(581), 1);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(571)
+.greaterThan(30)
+.setValue(Q(581), 2);
+
+//
+ifQ(1731)
+.answered(0,1)
+.disappear(Q(1031))
+.clearAnswer(Q(1031));
+
+//-------------------------------------------
+// MAÎTRE D' - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// OMAKASE INTRODUCTION - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(381)) // medium header
+.disappear(Q(601), Q(611), Q(621), Q(2111), Q(1751), Q(1341), Q(2121), Q(2131), Q(661), Q(981), Q(1321))
+.clearAnswer(Q(601), Q(611), Q(621), Q(2111), Q(1751), Q(1341), Q(2121), Q(2131), Q(661), Q(981), Q(1321));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(601)
+.answered()
+.andifQ(611)
+.answered()
+.sub(Q(611), Q(601))
+.store(Q(621));
+
+//
+ifQ(1751)
+.answered(0,1)
+.disappear(Q(1761))
+.clearAnswer(Q(1761));
+
+//
+ifQ(981)
+.answered(0,1)
+.disappear(Q(2151))
+.clearAnswer(Q(2151));
+
+//-------------------------------------------
+// OMAKASE INTRODUCTION - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// SPPED OF SERVICE - Begin
+//-------------------------------------------
+
+//
+ifQ(91)
+.answered(2)
+.disappear(Q(401)) // medium header
+.disappear(Q(691), Q(711), Q(751), Q(741))
+.clearAnswer(Q(691), Q(711), Q(751), Q(741));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(691)
+.answered()
+.andifQ(711)
+.answered()
+.sub(Q(711), Q(691))
+.store(Q(751));
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(751)
+.lessThanOrEqual(180)
+.setValue(Q(741), 1);
+
+//
+ifQ(91)
+.answered(1)
+.andifQ(751)
+.greaterThan(180)
+.setValue(Q(741), 2);
+
+//-------------------------------------------
+// SPEED OF SERVICE - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// OMAKASE EXPERIENCE - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(411)) // medium header
+.disappear(Q(2181)) // black remark
+.disappear(Q(821), Q(2091), Q(2051), Q(2081), Q(1991), Q(1971), Q(2161), Q(2171), Q(281))
+.clearAnswer(Q(821), Q(2091), Q(2051), Q(2081), Q(1991), Q(1971), Q(2161), Q(2171), Q(281));
+
+//
+ifQ(821)
+.answered(0,1)
+.disappear(Q(831))
+.clearAnswer(Q(831));
+
+//-------------------------------------------
+// OMAKASE EXPERIENCE - End
+//-------------------------------------------
+
+
+//-------------------------------------------
+// CHECK & CLOSING - Begin
+//-------------------------------------------
+
+// 
+ifQ(91)
+.answered(2)
+.disappear(Q(421)) // medium header
+.disappear(Q(2141), Q(881), Q(901), Q(911))
+.clearAnswer(Q(2141), Q(881), Q(901), Q(911));
+
+//-------------------------------------------
+// CHECK & CLOSING - End
+//-------------------------------------------
+
+//*******************************
+// GUEST APPEARANCE - End
+//*******************************
