@@ -1,0 +1,26 @@
+//*******************************	
+// CID: 1031	
+// SID: 5626	
+// Last Updated: 11/25/2026	
+//*******************************
+
+
+
+
+//*******************************
+// GREETING - Begin
+//*******************************
+
+// If QID 2051 is answered Option 1 and if QIDs [2891 AND 2901] are answered, then trigger math operation: [2901] - [2891] = [2131]
+ifQ(2051)
+.answered(1)
+.andifQ(2891)
+.answered()
+.andifQ(2901)
+.answered()
+.sub(Q(2901), Q(2891))
+.store(Q(2131));
+
+//*******************************
+// GREETING - End
+//*******************************
